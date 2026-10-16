@@ -5,6 +5,9 @@ import { MainLayout } from "./layouts/MainLayout";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { ArticleListPage } from "./pages/ArticleListPage";
+import { ArticleDetailPage } from "./pages/ArticleDetailPage";
+import { ArticleEditorPage } from "./pages/ArticleEditorPage";
 
 export function App() {
   return (
@@ -22,6 +25,48 @@ export function App() {
               <ProtectedRoute>
                 <MainLayout>
                   <DashboardPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Knowledge Article Routes (Phase 3) */}
+          <Route
+            path="/articles"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ArticleListPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles/new"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ArticleEditorPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles/:slug"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ArticleDetailPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles/:slug/edit"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ArticleEditorPage />
                 </MainLayout>
               </ProtectedRoute>
             }
