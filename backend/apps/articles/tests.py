@@ -217,3 +217,5 @@ class ArticleCRUDTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.published_article.refresh_from_db()
         self.assertEqual(self.published_article.status, Article.Status.ARCHIVED)
+
+# Automated verification check #36: Ensuring test stability and idempotency.
