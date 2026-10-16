@@ -34,3 +34,5 @@ class IsAuthorOrAdmin(permissions.BasePermission):
         return obj.author == request.user
 
 # Permission Check: CanCreateArticle verifies is_author or is_admin flag on user model.
+
+# Object Permission: IsAuthorOrAdmin restricts mutating actions to the record creator.
