@@ -48,3 +48,5 @@ export interface ArticleFilterParams {
   page?: number;
   page_size?: number;
 }
+
+/** Enum union representing all possible lifecycle states of a knowledge article */
