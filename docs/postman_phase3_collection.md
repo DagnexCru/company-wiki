@@ -10,3 +10,6 @@ Step-by-step instructions for verifying Article CRUD operations.
 
 ### Step 3: Create Article Draft
 `POST /api/v1/articles/` with title, summary, and content in JSON payload.
+
+### Step 4: Validate Workflow Protection
+Verify that submitting `status: 'published'` retains `draft` status.
