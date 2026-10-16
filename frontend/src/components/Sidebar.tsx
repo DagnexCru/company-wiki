@@ -133,3 +133,5 @@ export const Sidebar = () => {
     </aside>
   );
 };
+
+// Navigation: Knowledge Base routes are highlighted based on react-router location.
