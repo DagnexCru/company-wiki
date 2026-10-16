@@ -61,3 +61,5 @@ export const articleService = {
     return response.data;
   },
 };
+
+// API Service Layer: All requests include SimpleJWT bearer headers automatically via Axios interceptor.
