@@ -276,3 +276,5 @@ export const ArticleEditorPage: React.FC = () => {
     </div>
   );
 };
+
+// UX Design: Dual-mode split tab for write and live markdown inspection.
