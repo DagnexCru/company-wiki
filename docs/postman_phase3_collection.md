@@ -7,3 +7,6 @@ Step-by-step instructions for verifying Article CRUD operations.
 
 ### Step 2: List Articles
 `GET /api/v1/articles/` with Authorization Bearer token.
+
+### Step 3: Create Article Draft
+`POST /api/v1/articles/` with title, summary, and content in JSON payload.
