@@ -277,3 +277,5 @@ export const ArticleDetailPage: React.FC = () => {
     </div>
   );
 };
+
+// Accessibility: Modal dialog traps focus and supports ESC key cancellation.
