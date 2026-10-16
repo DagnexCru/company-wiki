@@ -133,3 +133,5 @@ class ArticleViewSet(viewsets.ModelViewSet):
             {"detail": "Article moved to archive.", "status": article.status},
             status=status.HTTP_200_OK,
         )
+
+# Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
