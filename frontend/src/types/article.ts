@@ -56,3 +56,5 @@ export interface ArticleFilterParams {
 /** Lightweight representation of knowledge articles for list grids */
 
 /** Complete article document payload including full markdown text */
+
+/** Payload structure for creating or updating an article */
