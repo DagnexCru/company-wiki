@@ -7,4 +7,5 @@ urlpatterns = [
     # Versioned API routes under /api/v1/
     path("api/v1/health/", HealthCheckView.as_view(), name="api-health-check"),
     path("api/v1/auth/", include("apps.accounts.urls")),
+    path("api/v1/articles/", include("apps.articles.urls")),
 ]
