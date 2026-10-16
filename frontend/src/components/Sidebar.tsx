@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   FileText,
@@ -11,79 +12,123 @@ import { useAuth } from "../context/AuthContext";
 
 export const Sidebar = () => {
   const { user } = useAuth();
+  const location = useLocation();
 
   const navItems = [
-    { label: "Dashboard", icon: LayoutDashboard, path: "/", active: true },
-    { label: "Articles", icon: FileText, path: "/articles", badge: "Phase 3" },
-    { label: "Categories & Tags", icon: FolderTree, path: "/taxonomy", badge: "Phase 4" },
+    {
+      label: "Dashboard",
+      icon: LayoutDashboard,
+      path: "/",
+      exact: true,
+    },
+    {
+      label: "Articles",
+      icon: FileText,
+      path: "/articles",
+      exact: false,
+    },
+    {
+      label: "Categories & Tags",
+      icon: FolderTree,
+      path: "/taxonomy",
+      badge: "Phase 4",
+      exact: false,
+    },
     ...(user?.role === "REVIEWER" || user?.role === "ADMIN"
-      ? [{ label: "Review Queue", icon: CheckSquare, path: "/reviews", badge: "Phase 7" }]
+      ? [
+          {
+            label: "Review Queue",
+            icon: CheckSquare,
+            path: "/reviews",
+            badge: "Phase 7",
+            exact: false,
+          },
+        ]
       : []),
-    { label: "Audit & History", icon: History, path: "/history", badge: "Phase 8" },
+    {
+      label: "Audit & History",
+      icon: History,
+      path: "/history",
+      badge: "Phase 8",
+      exact: false,
+    },
     ...(user?.role === "ADMIN"
-      ? [{ label: "Role Management", icon: Shield, path: "/admin/roles", badge: "Phase 5" }]
+      ? [
+          {
+            label: "Role Management",
+            icon: Shield,
+            path: "/admin/roles",
+            badge: "Phase 5",
+            exact: false,
+          },
+        ]
       : []),
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-200 bg-white flex flex-col justify-between shrink-0">
+    <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between shrink-0">
       <div className="p-4 space-y-6">
         <div>
-          <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+          <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
             Main Navigation
           </p>
           <nav className="space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
+              const isActive = item.exact
+                ? location.pathname === item.path
+                : location.pathname.startsWith(item.path);
+
               return (
-                <div
+                <Link
                   key={item.label}
-                  className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition cursor-pointer ${
-                    item.active
-                      ? "bg-brand-50 text-brand-700 shadow-sm"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  to={item.path}
+                  className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition ${
+                    isActive
+                      ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 shadow-xs"
+                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <Icon
                       className={`w-4 h-4 ${
-                        item.active ? "text-brand-600" : "text-slate-400"
+                        isActive
+                          ? "text-indigo-600 dark:text-indigo-400"
+                          : "text-slate-400"
                       }`}
                     />
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span
-                      className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${
-                        item.active
-                          ? "bg-brand-600 text-white"
-                          : "bg-slate-100 text-slate-500"
-                      }`}
-                    >
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full font-medium bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                       {item.badge}
                     </span>
                   )}
-                </div>
+                </Link>
               );
             })}
           </nav>
         </div>
 
         {/* Stack Status Box */}
-        <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+        <div className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800">
           <div className="flex items-center gap-2 mb-1.5">
-            <Layers className="w-4 h-4 text-brand-600" />
-            <span className="text-xs font-semibold text-slate-800">Security Architecture</span>
+            <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+              PostgreSQL Core
+            </span>
           </div>
-          <p className="text-[11px] text-slate-500 leading-relaxed">
-            SimpleJWT with 60-min access token & 7-day blacklisted refresh token.
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+            Role-aware queryset filtering & unique slug generation active on port 5432.
           </p>
         </div>
       </div>
 
-      <div className="p-4 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
-        <span>Active User:</span>
-        <span className="font-semibold text-slate-800">{user?.role || "Guest"}</span>
+      <div className="p-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between">
+        <span>Active Role:</span>
+        <span className="font-semibold text-slate-800 dark:text-slate-200 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+          {user?.role || "Guest"}
+        </span>
       </div>
     </aside>
   );
