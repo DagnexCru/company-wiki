@@ -13,3 +13,6 @@ Step-by-step instructions for verifying Article CRUD operations.
 
 ### Step 4: Validate Workflow Protection
 Verify that submitting `status: 'published'` retains `draft` status.
+
+### Step 5: Verify Reader Draft Invisibility
+Login as `reader@company.com` and confirm draft is not returned.
