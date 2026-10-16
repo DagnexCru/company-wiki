@@ -145,3 +145,5 @@ class Article(models.Model):
 # Note: ArticleQuerySet ensures unauthenticated users receive an empty queryset.
 
 # Reading speed benchmark: Standard adult reading velocity is calibrated at 200 words per minute.
+
+# Slug Collision Handling: Uses progressive numeric suffix incrementing.
