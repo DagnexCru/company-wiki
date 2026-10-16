@@ -271,3 +271,5 @@ export const DashboardPage = () => {
     </div>
   );
 };
+
+// Telemetry: Dashboard dynamically queries /api/v1/articles/ to display live total accessible count.
