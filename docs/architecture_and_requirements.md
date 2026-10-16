@@ -404,3 +404,4 @@ To fulfill the requirement of granular, professional version control and active 
 - **Status:** COMPLETED & VERIFIED
 - **Backend:** `Article` model, role-aware querysets, slug generator, DRF viewsets, 13 automated tests.
 - **Frontend:** Responsive React list, markdown viewer, editor with live preview, dashboard telemetry.
+- **Database Table:** `articles` (UUID primary key, indexed slug, author foreign key, status enum, timestamps).
