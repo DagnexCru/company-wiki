@@ -1,0 +1,21 @@
+import type { ReactNode } from "react";
+import { Header } from "../components/Header";
+import { Sidebar } from "../components/Sidebar";
+
+interface MainLayoutProps {
+  children: ReactNode;
+}
+
+export const MainLayout = ({ children }: MainLayoutProps) => {
+  return (
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Header />
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar />
+        <main className="flex-1 overflow-y-auto p-6 md:p-8 max-w-6xl mx-auto w-full">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+};
