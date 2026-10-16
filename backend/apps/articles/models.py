@@ -143,3 +143,5 @@ class Article(models.Model):
         return max(1, round(word_count / 200))
 
 # Note: ArticleQuerySet ensures unauthenticated users receive an empty queryset.
+
+# Reading speed benchmark: Standard adult reading velocity is calibrated at 200 words per minute.
