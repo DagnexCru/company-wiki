@@ -141,3 +141,5 @@ class Article(models.Model):
         """Estimate reading time in minutes assuming 200 words per minute."""
         word_count = len(self.content.split())
         return max(1, round(word_count / 200))
+
+# Note: ArticleQuerySet ensures unauthenticated users receive an empty queryset.
