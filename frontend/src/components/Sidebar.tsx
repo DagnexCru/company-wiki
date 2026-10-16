@@ -4,20 +4,25 @@ import {
   FolderTree,
   CheckSquare,
   History,
-  Activity,
   Shield,
   Layers,
 } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 export const Sidebar = () => {
+  const { user } = useAuth();
+
   const navItems = [
-    { label: "System Health", icon: Activity, active: true, badge: "Active" },
-    { label: "Dashboard", icon: LayoutDashboard, active: false, badge: "Phase 9" },
-    { label: "Articles", icon: FileText, active: false, badge: "Phase 3" },
-    { label: "Taxonomy", icon: FolderTree, active: false, badge: "Phase 4" },
-    { label: "Review Queue", icon: CheckSquare, active: false, badge: "Phase 7" },
-    { label: "Audit & History", icon: History, active: false, badge: "Phase 8" },
-    { label: "Roles & Admin", icon: Shield, active: false, badge: "Phase 5" },
+    { label: "Dashboard", icon: LayoutDashboard, path: "/", active: true },
+    { label: "Articles", icon: FileText, path: "/articles", badge: "Phase 3" },
+    { label: "Categories & Tags", icon: FolderTree, path: "/taxonomy", badge: "Phase 4" },
+    ...(user?.role === "REVIEWER" || user?.role === "ADMIN"
+      ? [{ label: "Review Queue", icon: CheckSquare, path: "/reviews", badge: "Phase 7" }]
+      : []),
+    { label: "Audit & History", icon: History, path: "/history", badge: "Phase 8" },
+    ...(user?.role === "ADMIN"
+      ? [{ label: "Role Management", icon: Shield, path: "/admin/roles", badge: "Phase 5" }]
+      : []),
   ];
 
   return (
@@ -25,7 +30,7 @@ export const Sidebar = () => {
       <div className="p-4 space-y-6">
         <div>
           <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-            Navigation
+            Main Navigation
           </p>
           <nav className="space-y-1">
             {navItems.map((item) => {
@@ -64,19 +69,21 @@ export const Sidebar = () => {
           </nav>
         </div>
 
+        {/* Stack Status Box */}
         <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
           <div className="flex items-center gap-2 mb-1.5">
             <Layers className="w-4 h-4 text-brand-600" />
-            <span className="text-xs font-semibold text-slate-800">Stack Status</span>
+            <span className="text-xs font-semibold text-slate-800">Security Architecture</span>
           </div>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            Django REST Framework 5.2 + PostgreSQL 18.4 + React 19 + TypeScript.
+            SimpleJWT with 60-min access token & 7-day blacklisted refresh token.
           </p>
         </div>
       </div>
 
-      <div className="p-4 border-t border-slate-200 text-xs text-slate-400 text-center">
-        Internal Knowledge Base v1.0
+      <div className="p-4 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
+        <span>Active User:</span>
+        <span className="font-semibold text-slate-800">{user?.role || "Guest"}</span>
       </div>
     </aside>
   );
