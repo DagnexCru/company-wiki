@@ -159,3 +159,5 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
         return instance
 
 # Validation Rule: Titles under 3 characters are rejected to prevent low-quality records.
+
+# Security Constraint: Article author is bound to request.user during serializer.save().
