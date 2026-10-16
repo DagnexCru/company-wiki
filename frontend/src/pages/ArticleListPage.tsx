@@ -330,3 +330,5 @@ export const ArticleListPage: React.FC = () => {
     </div>
   );
 };
+
+// Accessibility: Keyboard accessible search bar and filter navigation tabs.
