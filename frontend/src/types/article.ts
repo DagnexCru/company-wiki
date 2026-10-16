@@ -54,3 +54,5 @@ export interface ArticleFilterParams {
 /** Embeddable author identity metadata returned in article API responses */
 
 /** Lightweight representation of knowledge articles for list grids */
+
+/** Complete article document payload including full markdown text */
