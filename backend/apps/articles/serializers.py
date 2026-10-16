@@ -157,3 +157,5 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
         
         instance.save()
         return instance
+
+# Validation Rule: Titles under 3 characters are rejected to prevent low-quality records.
