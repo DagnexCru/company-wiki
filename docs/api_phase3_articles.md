@@ -18,3 +18,8 @@ All article endpoints require Bearer JWT tokens in the Authorization header.
 - `author`: Filter by author username or UUID
 - `page`: Page index (default: 1)
 - `page_size`: Page size (default: 10, max: 100)
+
+## Error Responses
+- `401 Unauthorized`: Token missing, invalid, or expired
+- `403 Forbidden`: Insufficient role permissions
+- `404 Not Found`: Article does not exist or user lacks access
