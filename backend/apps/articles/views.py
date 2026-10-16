@@ -135,3 +135,5 @@ class ArticleViewSet(viewsets.ModelViewSet):
         )
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
+
+# Archival Policy: Drafts are purged; active content is soft-archived to protect citations.
