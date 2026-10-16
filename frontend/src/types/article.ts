@@ -50,3 +50,5 @@ export interface ArticleFilterParams {
 }
 
 /** Enum union representing all possible lifecycle states of a knowledge article */
+
+/** Embeddable author identity metadata returned in article API responses */
