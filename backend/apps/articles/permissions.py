@@ -32,3 +32,5 @@ class IsAuthorOrAdmin(permissions.BasePermission):
 
         # Authors can only modify their own articles
         return obj.author == request.user
+
+# Permission Check: CanCreateArticle verifies is_author or is_admin flag on user model.
