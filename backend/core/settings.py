@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # Internal project apps
     "apps.accounts",
+    "apps.articles",
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
