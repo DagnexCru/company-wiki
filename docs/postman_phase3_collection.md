@@ -16,3 +16,6 @@ Verify that submitting `status: 'published'` retains `draft` status.
 
 ### Step 5: Verify Reader Draft Invisibility
 Login as `reader@company.com` and confirm draft is not returned.
+
+### Step 6: Soft-Archive Verification
+`DELETE /api/v1/articles/{slug}/` on a published article transitions status to `archived`.
