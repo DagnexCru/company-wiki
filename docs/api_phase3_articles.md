@@ -11,3 +11,10 @@ All article endpoints require Bearer JWT tokens in the Authorization header.
 - `GET /api/v1/articles/{slug}/`: Retrieve article details
 - `PUT /api/v1/articles/{slug}/`: Update article
 - `DELETE /api/v1/articles/{slug}/`: Delete draft or archive active
+
+## Query Parameters
+- `search`: Filter by keywords in title, summary, content
+- `status`: Filter by article status (`draft`, `published`, `in_review`, `archived`)
+- `author`: Filter by author username or UUID
+- `page`: Page index (default: 1)
+- `page_size`: Page size (default: 10, max: 100)
