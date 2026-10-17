@@ -102,3 +102,5 @@ class Tag(models.Model):
         return self.articles.filter(status="published").count()
 
 # Deletion Policy: Category deletion triggers SET_NULL to prevent cascade deletion of articles.
+
+# Performance: Article count helper queries published articles efficiently.
