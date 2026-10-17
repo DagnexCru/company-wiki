@@ -2,6 +2,8 @@ from rest_framework import serializers
 from django.utils.text import slugify
 from apps.accounts.models import CustomUser
 from apps.articles.models import Article
+from apps.taxonomy.models import Category, Tag
+from apps.taxonomy.serializers import CategorySerializer, TagSerializer
 
 
 class ArticleAuthorSummarySerializer(serializers.ModelSerializer):
@@ -24,9 +26,12 @@ class ArticleAuthorSummarySerializer(serializers.ModelSerializer):
 class ArticleListSerializer(serializers.ModelSerializer):
     """
     Compact article serializer tailored for fast list rendering and dashboard feeds.
+    Includes category and tag metadata.
     """
 
     author = ArticleAuthorSummarySerializer(read_only=True)
+    category = CategorySerializer(read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
 
@@ -38,6 +43,8 @@ class ArticleListSerializer(serializers.ModelSerializer):
             "slug",
             "summary",
             "author",
+            "category",
+            "tags",
             "status",
             "status_display",
             "is_featured",
@@ -55,6 +62,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     """
 
     author = ArticleAuthorSummarySerializer(read_only=True)
+    category = CategorySerializer(read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
 
@@ -67,6 +76,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "summary",
             "content",
             "author",
+            "category",
+            "tags",
             "status",
             "status_display",
             "is_featured",
@@ -79,6 +90,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "id",
             "slug",
             "author",
+            "category",
+            "tags",
             "status",
             "status_display",
             "estimated_read_time",
@@ -91,13 +104,31 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
 class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
     """
     Serializer used by Authors and Admins to create and revise knowledge articles.
-    Enforces validation and prevents bypassing the publishing workflow via normal CRUD.
+    Supports category assignment and multi-tag association.
     """
 
     title = serializers.CharField(min_length=3, max_length=255)
     content = serializers.CharField(min_length=10)
     summary = serializers.CharField(required=False, allow_blank=True, default="")
     is_featured = serializers.BooleanField(required=False, default=False)
+
+    category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(),
+        source="category",
+        required=False,
+        allow_null=True,
+        write_only=True,
+    )
+
+    tags = TagSerializer(many=True, read_only=True)
+    tag_ids = serializers.PrimaryKeyRelatedField(
+        queryset=Tag.objects.all(),
+        source="tags",
+        many=True,
+        required=False,
+        write_only=True,
+    )
 
     class Meta:
         model = Article
@@ -107,6 +138,10 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
             "slug",
             "summary",
             "content",
+            "category",
+            "category_id",
+            "tags",
+            "tag_ids",
             "is_featured",
             "status",
             "created_at",
@@ -133,7 +168,6 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
         return cleaned
 
     def create(self, validated_data):
-        # Automatically assign the authenticated author and default status
         request = self.context.get("request")
         user = request.user if request and request.user.is_authenticated else None
         
@@ -142,10 +176,14 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
 
         validated_data["author"] = user
         validated_data["status"] = Article.Status.DRAFT
-        return super().create(validated_data)
+        
+        tags = validated_data.pop("tags", [])
+        article = super().create(validated_data)
+        if tags:
+            article.tags.set(tags)
+        return article
 
     def update(self, instance, validated_data):
-        # Check if title changed to regenerate slug
         new_title = validated_data.get("title", instance.title)
         if new_title != instance.title:
             instance.title = new_title
@@ -154,10 +192,12 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
         instance.summary = validated_data.get("summary", instance.summary)
         instance.content = validated_data.get("content", instance.content)
         instance.is_featured = validated_data.get("is_featured", instance.is_featured)
-        
+
+        if "category" in validated_data:
+            instance.category = validated_data.get("category")
+
+        if "tags" in validated_data:
+            instance.tags.set(validated_data.get("tags"))
+
         instance.save()
         return instance
-
-# Validation Rule: Titles under 3 characters are rejected to prevent low-quality records.
-
-# Security Constraint: Article author is bound to request.user during serializer.save().
