@@ -47,3 +47,5 @@ class TagViewSet(viewsets.ModelViewSet):
         if search:
             qs = qs.filter(name__icontains=search)
         return qs.order_by("name")
+
+# Querysets: Pre-sorted by name ascending for consistent UI rendering.
