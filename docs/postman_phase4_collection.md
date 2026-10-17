@@ -10,3 +10,6 @@ Authenticate as `admin@company.com` and POST `/api/v1/categories/` with name, de
 
 ### Scenario 3: Non-Admin Rejection Test
 Authenticate as Author or Reader and attempt POST `/api/v1/categories/`. Expect 403 Forbidden.
+
+### Scenario 4: Article Taxonomy Association
+Author creates an article with `category_id` and `tag_ids`. Verify nested JSON returned.
