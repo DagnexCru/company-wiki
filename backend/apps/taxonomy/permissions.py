@@ -18,3 +18,5 @@ class IsAdminOrReadOnly(permissions.BasePermission):
 
         # Mutation operations strictly restricted to Administrators
         return request.user.is_admin
+
+# Permission Policy: Authenticated readers have full read access; write access is restricted to Administrators.
