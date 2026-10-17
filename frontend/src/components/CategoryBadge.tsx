@@ -74,3 +74,5 @@ export const CategoryBadge: React.FC<CategoryBadgeProps> = ({
     </span>
   );
 };
+
+// Accessibility: Interactive category badges support click events with hover opacity transitions.
