@@ -56,18 +56,49 @@ class ArticleViewSet(viewsets.ModelViewSet):
         - Reader: sees only published articles.
         """
         user = self.request.user
-        queryset = Article.objects.for_user(user).select_related("author")
+        queryset = (
+            Article.objects.for_user(user)
+            .select_related("author", "category")
+            .prefetch_related("tags")
+        )
 
         # Optional query param filters
         status_filter = self.request.query_params.get("status")
         if status_filter:
             queryset = queryset.filter(status=status_filter)
 
+        category_filter = self.request.query_params.get("category")
+        if category_filter:
+            try:
+                import uuid
+                uuid.UUID(str(category_filter))
+                queryset = queryset.filter(
+                    models.Q(category__id=category_filter) | models.Q(category__slug=category_filter)
+                )
+            except (ValueError, AttributeError):
+                queryset = queryset.filter(category__slug=category_filter)
+
+        tag_filter = self.request.query_params.get("tag")
+        if tag_filter:
+            try:
+                import uuid
+                uuid.UUID(str(tag_filter))
+                queryset = queryset.filter(
+                    models.Q(tags__id=tag_filter) | models.Q(tags__slug=tag_filter)
+                ).distinct()
+            except (ValueError, AttributeError):
+                queryset = queryset.filter(tags__slug=tag_filter).distinct()
+
         author_filter = self.request.query_params.get("author")
         if author_filter:
-            queryset = queryset.filter(
-                models.Q(author__username=author_filter) | models.Q(author__id=author_filter)
-            )
+            try:
+                import uuid
+                uuid.UUID(str(author_filter))
+                queryset = queryset.filter(
+                    models.Q(author__id=author_filter) | models.Q(author__username=author_filter)
+                )
+            except (ValueError, AttributeError):
+                queryset = queryset.filter(author__username=author_filter)
 
         search_query = self.request.query_params.get("search")
         if search_query:
