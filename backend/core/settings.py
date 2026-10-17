@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Internal project apps
     "apps.accounts",
     "apps.articles",
+    "apps.taxonomy",
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
