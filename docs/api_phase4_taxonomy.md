@@ -13,3 +13,7 @@ Complete specification for Categories and Tags endpoints.
 - `GET /api/v1/tags/`: List all tags with article counts
 - `POST /api/v1/tags/`: Create new tag (Admin only)
 - `DELETE /api/v1/tags/{slug}/`: Delete tag (Admin only)
+
+## Article Taxonomy Filtering
+- `GET /api/v1/articles/?category={slug}`: Filter articles by category
+- `GET /api/v1/articles/?tag={slug}`: Filter articles by tag
