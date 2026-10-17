@@ -8,10 +8,14 @@ import {
   AlertCircle,
   Sparkles,
   Info,
+  FolderTree,
+  Tag as TagIcon,
 } from "lucide-react";
 import { articleService } from "../services/articleService";
+import { taxonomyService } from "../services/taxonomyService";
 import { MarkdownViewer } from "../components/MarkdownViewer";
 import type { ArticleInput } from "../types/article";
+import type { Category, Tag } from "../types/taxonomy";
 
 export const ArticleEditorPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -22,11 +26,26 @@ export const ArticleEditorPage: React.FC = () => {
   const [summary, setSummary] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [isFeatured, setIsFeatured] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
 
   const [activeTab, setActiveTab] = useState<"write" | "preview">("write");
   const [loading, setLoading] = useState<boolean>(isEditing);
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Load available taxonomy categories and tags
+  useEffect(() => {
+    Promise.all([taxonomyService.getCategories(), taxonomyService.getTags()])
+      .then(([cats, tgs]) => {
+        setCategories(cats);
+        setTags(tgs);
+      })
+      .catch(() => {});
+  }, []);
 
   // If in edit mode, fetch current article details
   useEffect(() => {
@@ -40,6 +59,12 @@ export const ArticleEditorPage: React.FC = () => {
         setSummary(data.summary || "");
         setContent(data.content);
         setIsFeatured(data.is_featured);
+        if (data.category) {
+          setSelectedCategory(data.category.id);
+        }
+        if (data.tags) {
+          setSelectedTags(data.tags.map((t) => t.id));
+        }
       } catch (err: unknown) {
         const msg =
           err instanceof Error
@@ -53,6 +78,12 @@ export const ArticleEditorPage: React.FC = () => {
 
     loadArticle();
   }, [slug]);
+
+  const toggleTag = (tagId: string) => {
+    setSelectedTags((prev) =>
+      prev.includes(tagId) ? prev.filter((id) => id !== tagId) : [...prev, tagId]
+    );
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,6 +103,8 @@ export const ArticleEditorPage: React.FC = () => {
       title: title.trim(),
       summary: summary.trim(),
       content: content.trim(),
+      category_id: selectedCategory || null,
+      tag_ids: selectedTags,
       is_featured: isFeatured,
     };
 
@@ -120,7 +153,7 @@ export const ArticleEditorPage: React.FC = () => {
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {isEditing
-                ? "Update document content, title, or executive summary."
+                ? "Update document content, taxonomy classification, or summary."
                 : "Draft a new documentation page. Articles are saved as drafts in PostgreSQL."}
             </p>
           </div>
@@ -168,6 +201,62 @@ export const ArticleEditorPage: React.FC = () => {
             placeholder="e.g., PostgreSQL Backup & Restoration Procedures"
             className="w-full px-4 py-2.5 text-base bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
           />
+        </div>
+
+        {/* Taxonomy Classification Grid (Category & Tags) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
+          {/* Category Dropdown */}
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+              <FolderTree className="w-3.5 h-3.5 text-indigo-500" />
+              Category Classification
+            </label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <option value="">-- No Category (Uncategorized) --</option>
+              {categories.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            <p className="text-[11px] text-slate-400 mt-1">
+              Select the primary department or system domain for this article.
+            </p>
+          </div>
+
+          {/* Tag Selection Chips */}
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+              <TagIcon className="w-3.5 h-3.5 text-indigo-500" />
+              Tags ({selectedTags.length} Selected)
+            </label>
+            <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto p-2 bg-slate-50 dark:bg-slate-800/60 rounded-lg border border-slate-200 dark:border-slate-700">
+              {tags.map((t) => {
+                const isSelected = selectedTags.includes(t.id);
+                return (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => toggleTag(t.id)}
+                    className={`text-xs px-2.5 py-1 rounded-md font-medium transition-colors ${
+                      isSelected
+                        ? "bg-indigo-600 text-white shadow-xs"
+                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 border border-slate-200 dark:border-slate-700"
+                    }`}
+                  >
+                    #{t.name}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-[11px] text-slate-400 mt-1">
+              Click tags to attach or detach from this documentation.
+            </p>
+          </div>
         </div>
 
         {/* Executive Summary */}
@@ -265,16 +354,14 @@ export const ArticleEditorPage: React.FC = () => {
           />
         </div>
 
-        {/* Phase 7 Workflow Notification Info */}
+        {/* Publishing Workflow Info */}
         <div className="p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/50 flex items-start gap-3 text-xs text-indigo-800 dark:text-indigo-300">
           <Info className="w-4 h-4 shrink-0 mt-0.5 text-indigo-600 dark:text-indigo-400" />
           <p className="leading-relaxed">
-            <strong>Publishing Workflow Note:</strong> In accordance with company policy, newly saved articles are stored safely in <em>Draft</em> status in PostgreSQL. Direct publication is restricted until peer review approval (Phase 7 Review Workflow).
+            <strong>Publishing Workflow Note:</strong> Newly saved articles are stored safely in <em>Draft</em> status in PostgreSQL. Direct publication is restricted until peer review approval (Phase 7 Review Workflow).
           </p>
         </div>
       </form>
     </div>
   );
 };
-
-// UX Design: Dual-mode split tab for write and live markdown inspection.
