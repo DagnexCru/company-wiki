@@ -1,3 +1,5 @@
+import type { Category, Tag } from "./taxonomy";
+
 export type ArticleStatus = "draft" | "in_review" | "published" | "rejected" | "archived";
 
 export interface ArticleAuthor {
@@ -14,6 +16,8 @@ export interface ArticleListItem {
   slug: string;
   summary: string;
   author: ArticleAuthor;
+  category: Category | null;
+  tags: Tag[];
   status: ArticleStatus;
   status_display: string;
   is_featured: boolean;
@@ -31,6 +35,8 @@ export interface ArticleInput {
   title: string;
   summary?: string;
   content: string;
+  category_id?: string | null;
+  tag_ids?: string[];
   is_featured?: boolean;
 }
 
@@ -44,17 +50,9 @@ export interface PaginatedResponse<T> {
 export interface ArticleFilterParams {
   status?: string;
   search?: string;
+  category?: string;
+  tag?: string;
   author?: string;
   page?: number;
   page_size?: number;
 }
-
-/** Enum union representing all possible lifecycle states of a knowledge article */
-
-/** Embeddable author identity metadata returned in article API responses */
-
-/** Lightweight representation of knowledge articles for list grids */
-
-/** Complete article document payload including full markdown text */
-
-/** Payload structure for creating or updating an article */
