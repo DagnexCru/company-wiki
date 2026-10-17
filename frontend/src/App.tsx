@@ -8,6 +8,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { ArticleListPage } from "./pages/ArticleListPage";
 import { ArticleDetailPage } from "./pages/ArticleDetailPage";
 import { ArticleEditorPage } from "./pages/ArticleEditorPage";
+import { TaxonomyPage } from "./pages/TaxonomyPage";
 
 export function App() {
   return (
@@ -67,6 +68,18 @@ export function App() {
               <ProtectedRoute>
                 <MainLayout>
                   <ArticleEditorPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Taxonomy Routes (Phase 4) */}
+          <Route
+            path="/taxonomy"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <TaxonomyPage />
                 </MainLayout>
               </ProtectedRoute>
             }
