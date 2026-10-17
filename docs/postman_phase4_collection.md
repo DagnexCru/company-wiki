@@ -13,3 +13,6 @@ Authenticate as Author or Reader and attempt POST `/api/v1/categories/`. Expect 
 
 ### Scenario 4: Article Taxonomy Association
 Author creates an article with `category_id` and `tag_ids`. Verify nested JSON returned.
+
+### Scenario 5: Safe Deletion Verification
+Admin deletes a Category. Verify associated articles are preserved with `category: null`.
