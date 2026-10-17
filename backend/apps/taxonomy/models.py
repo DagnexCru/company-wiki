@@ -100,3 +100,5 @@ class Tag(models.Model):
     def article_count(self):
         """Returns the total number of published articles tagged with this label."""
         return self.articles.filter(status="published").count()
+
+# Deletion Policy: Category deletion triggers SET_NULL to prevent cascade deletion of articles.
