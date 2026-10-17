@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
   BookOpen,
   Search,
@@ -12,37 +12,47 @@ import {
   AlertCircle,
   RefreshCw,
   FileText,
+  Filter,
+  Tag as TagIcon,
+  X,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
-import type { ArticleListItem } from "../types/article";
+import { taxonomyService } from "../services/taxonomyService";
+import { CategoryBadge } from "../components/CategoryBadge";
+import type { ArticleListItem, ArticleFilterParams } from "../types/article";
+import type { Category } from "../types/taxonomy";
 
 export const ArticleListPage: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [articles, setArticles] = useState<ArticleListItem[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>(searchParams.get("search") || "");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>(searchParams.get("category") || "");
+  const [selectedTag, setSelectedTag] = useState<string>(searchParams.get("tag") || "");
   const [page, setPage] = useState<number>(1);
   const pageSize = 9;
 
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
 
+  // Load categories for filter dropdown
+  useEffect(() => {
+    taxonomyService.getCategories().then(setCategories).catch(() => {});
+  }, []);
+
   const fetchArticles = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const params: {
-        search?: string;
-        status?: string;
-        page: number;
-        page_size: number;
-      } = {
+      const params: ArticleFilterParams = {
         page,
         page_size: pageSize,
       };
@@ -55,6 +65,14 @@ export const ArticleListPage: React.FC = () => {
         params.status = statusFilter;
       }
 
+      if (selectedCategory) {
+        params.category = selectedCategory;
+      }
+
+      if (selectedTag) {
+        params.tag = selectedTag;
+      }
+
       const data = await articleService.getArticles(params);
       setArticles(data.results);
       setTotalCount(data.count);
@@ -65,7 +83,7 @@ export const ArticleListPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [page, search, statusFilter]);
+  }, [page, search, statusFilter, selectedCategory, selectedTag]);
 
   useEffect(() => {
     fetchArticles();
@@ -75,6 +93,26 @@ export const ArticleListPage: React.FC = () => {
     e.preventDefault();
     setPage(1);
     fetchArticles();
+  };
+
+  const handleCategoryChange = (catSlug: string) => {
+    setSelectedCategory(catSlug);
+    setPage(1);
+    const newParams = new URLSearchParams(searchParams);
+    if (catSlug) {
+      newParams.set("category", catSlug);
+    } else {
+      newParams.delete("category");
+    }
+    setSearchParams(newParams);
+  };
+
+  const clearTagFilter = () => {
+    setSelectedTag("");
+    setPage(1);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete("tag");
+    setSearchParams(newParams);
   };
 
   const getStatusBadge = (status: string) => {
@@ -124,7 +162,7 @@ export const ArticleListPage: React.FC = () => {
             Knowledge Base
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Browse, search, and manage internal technical documentation and guides.
+            Browse, search, and filter technical documentation organized by categories and tags.
           </p>
         </div>
 
@@ -152,6 +190,23 @@ export const ArticleListPage: React.FC = () => {
           />
         </form>
 
+        {/* Category Dropdown Filter */}
+        <div className="flex items-center gap-2">
+          <Filter className="w-4 h-4 text-slate-400" />
+          <select
+            value={selectedCategory}
+            onChange={(e) => handleCategoryChange(e.target.value)}
+            className="px-3 py-2 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="">All Categories</option>
+            {categories.map((c) => (
+              <option key={c.id} value={c.slug}>
+                {c.name} ({c.article_count})
+              </option>
+            ))}
+          </select>
+        </div>
+
         {/* Status Filter Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
           {[
@@ -177,6 +232,29 @@ export const ArticleListPage: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Active Filter Chips Bar */}
+      {(selectedCategory || selectedTag) && (
+        <div className="flex items-center gap-2 text-xs text-slate-500">
+          <span>Active Filters:</span>
+          {selectedCategory && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              Category: {categories.find((c) => c.slug === selectedCategory)?.name || selectedCategory}
+              <button onClick={() => handleCategoryChange("")} className="hover:text-indigo-900">
+                <X className="w-3 h-3 ml-0.5" />
+              </button>
+            </span>
+          )}
+          {selectedTag && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+              <TagIcon className="w-3 h-3" /> #{selectedTag}
+              <button onClick={clearTagFilter} className="hover:text-purple-900">
+                <X className="w-3 h-3 ml-0.5" />
+              </button>
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Error state */}
       {error && (
@@ -223,8 +301,8 @@ export const ArticleListPage: React.FC = () => {
           </h3>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto mt-1 mb-4">
             {search
-              ? `No articles matched your query "${search}". Try searching for other keywords.`
-              : "There are no knowledge articles available matching your current filter."}
+              ? `No articles matched "${search}". Try searching for other keywords.`
+              : "There are no knowledge articles available matching your current filter criteria."}
           </p>
           {canCreate && (
             <Link
@@ -248,8 +326,10 @@ export const ArticleListPage: React.FC = () => {
               className="group cursor-pointer flex flex-col justify-between p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-indigo-400 dark:hover:border-indigo-500/50 hover:shadow-md transition-all"
             >
               <div>
+                {/* Status and Category header */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {article.category && <CategoryBadge category={article.category} size="sm" />}
                     {getStatusBadge(article.status)}
                     {article.is_featured && (
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
@@ -257,9 +337,9 @@ export const ArticleListPage: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <span className="text-xs text-slate-400 flex items-center gap-1">
+                  <span className="text-xs text-slate-400 flex items-center gap-1 shrink-0">
                     <Clock className="w-3 h-3" />
-                    {article.estimated_read_time} min read
+                    {article.estimated_read_time} min
                   </span>
                 </div>
 
@@ -267,9 +347,23 @@ export const ArticleListPage: React.FC = () => {
                   {article.title}
                 </h3>
 
-                <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-2 leading-relaxed">
                   {article.summary || "Click to open and read full documentation..."}
                 </p>
+
+                {/* Tag Pills */}
+                {article.tags && article.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {article.tags.map((t) => (
+                      <span
+                        key={t.id}
+                        className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium"
+                      >
+                        #{t.name}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Card Footer */}
@@ -330,5 +424,3 @@ export const ArticleListPage: React.FC = () => {
     </div>
   );
 };
-
-// Accessibility: Keyboard accessible search bar and filter navigation tabs.
