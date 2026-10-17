@@ -416,3 +416,5 @@ export const TaxonomyPage: React.FC = () => {
     </div>
   );
 };
+
+// UX Design: Tabbed interface switches between Department Categories and Tag Cloud.
