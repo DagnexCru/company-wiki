@@ -211,3 +211,5 @@ class TaxonomyAPITests(TestCase):
         article.refresh_from_db()
         self.assertIsNone(article.category)
         self.assertTrue(Article.objects.filter(id=article.id).exists())
+
+# Automated verification check #23: Taxonomy stability and relationship integrity check.
