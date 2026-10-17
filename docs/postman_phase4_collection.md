@@ -7,3 +7,6 @@ Authenticate as `reader@company.com` and verify GET `/api/v1/categories/` return
 
 ### Scenario 2: Admin Category Creation
 Authenticate as `admin@company.com` and POST `/api/v1/categories/` with name, description, icon, and color.
+
+### Scenario 3: Non-Admin Rejection Test
+Authenticate as Author or Reader and attempt POST `/api/v1/categories/`. Expect 403 Forbidden.
