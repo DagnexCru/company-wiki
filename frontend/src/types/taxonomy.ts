@@ -30,3 +30,5 @@ export interface TagInput {
 }
 
 /** Complete Category data model including styling metadata */
+
+/** Tag label entity representing cross-cutting topics */
