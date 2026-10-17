@@ -8,4 +8,5 @@ urlpatterns = [
     path("api/v1/health/", HealthCheckView.as_view(), name="api-health-check"),
     path("api/v1/auth/", include("apps.accounts.urls")),
     path("api/v1/articles/", include("apps.articles.urls")),
+    path("api/v1/", include("apps.taxonomy.urls")),
 ]
