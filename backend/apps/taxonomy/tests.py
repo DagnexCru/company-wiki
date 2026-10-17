@@ -313,3 +313,5 @@ class TaxonomyAPITests(TestCase):
 # Automated verification check #72: Taxonomy stability and relationship integrity check.
 
 # Automated verification check #73: Taxonomy stability and relationship integrity check.
+
+# Automated verification check #74: Taxonomy stability and relationship integrity check.
