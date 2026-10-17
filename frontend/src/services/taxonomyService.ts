@@ -60,3 +60,5 @@ export const taxonomyService = {
     await api.delete(`/tags/${slug}/`);
   },
 };
+
+// API Service: Endpoints /categories/ and /tags/ automatically use Bearer token authorization.
