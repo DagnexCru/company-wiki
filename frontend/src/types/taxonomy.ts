@@ -28,3 +28,5 @@ export interface CategoryInput {
 export interface TagInput {
   name: string;
 }
+
+/** Complete Category data model including styling metadata */
