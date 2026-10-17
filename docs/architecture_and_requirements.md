@@ -414,3 +414,5 @@ To fulfill the requirement of granular, professional version control and active 
 - **Models:** `Category` (UUID, unique slug, icon, color), `Tag` (UUID, unique slug).
 - **Relationships:** `Article.category` (ForeignKey on_delete=SET_NULL), `Article.tags` (ManyToManyField).
 - **Security:** `IsAdminOrReadOnly` ensures only Administrators can modify taxonomy.
+
+- **Frontend:** Integrated `CategoryBadge`, `/taxonomy` explorer, and filter dropdowns in `ArticleListPage`.
