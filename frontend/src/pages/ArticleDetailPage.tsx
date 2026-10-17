@@ -14,6 +14,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
 import { MarkdownViewer } from "../components/MarkdownViewer";
+import { CategoryBadge } from "../components/CategoryBadge";
 import type { ArticleDetail } from "../types/article";
 
 export const ArticleDetailPage: React.FC = () => {
@@ -193,6 +194,11 @@ export const ArticleDetailPage: React.FC = () => {
       {/* Article Header Details */}
       <header className="space-y-4">
         <div className="flex flex-wrap items-center gap-2">
+          {article.category && (
+            <Link to={`/articles?category=${article.category.slug}`}>
+              <CategoryBadge category={article.category} size="md" />
+            </Link>
+          )}
           {getStatusBadge(article.status)}
           {article.is_featured && (
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
@@ -204,6 +210,20 @@ export const ArticleDetailPage: React.FC = () => {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
           {article.title}
         </h1>
+
+        {article.tags && article.tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            {article.tags.map((tag) => (
+              <Link
+                key={tag.id}
+                to={`/articles?tag=${tag.slug}`}
+                className="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium transition-colors"
+              >
+                #{tag.name}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {article.summary && (
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal border-l-2 border-indigo-500 pl-4 py-0.5">
