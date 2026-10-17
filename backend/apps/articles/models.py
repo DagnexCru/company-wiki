@@ -98,6 +98,21 @@ class Article(models.Model):
         db_index=True,
     )
 
+    category = models.ForeignKey(
+        "taxonomy.Category",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="articles",
+        help_text="Primary taxonomy category organizing this knowledge article.",
+    )
+    tags = models.ManyToManyField(
+        "taxonomy.Tag",
+        blank=True,
+        related_name="articles",
+        help_text="Flexible labels associated with this article.",
+    )
+
     is_featured = models.BooleanField(default=False)
     published_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now, db_index=True)
