@@ -69,3 +69,5 @@ class TagSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("A tag with this name already exists.")
 
         return trimmed
+
+# Validation: Names are stripped of whitespace and leading '#' symbols before persistence.
