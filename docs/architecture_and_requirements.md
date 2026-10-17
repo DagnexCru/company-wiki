@@ -407,3 +407,9 @@ To fulfill the requirement of granular, professional version control and active 
 - **Database Table:** `articles` (UUID primary key, indexed slug, author foreign key, status enum, timestamps).
 
 - **Security Isolation:** Readers cannot see drafts; non-authors cannot modify drafts; direct status publication is blocked.
+
+
+### Phase 4 Taxonomy Implementation
+- **Status:** COMPLETED & VERIFIED
+- **Models:** `Category` (UUID, unique slug, icon, color), `Tag` (UUID, unique slug).
+- **Relationships:** `Article.category` (ForeignKey on_delete=SET_NULL), `Article.tags` (ManyToManyField).
