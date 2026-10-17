@@ -31,7 +31,6 @@ export const Sidebar = () => {
       label: "Categories & Tags",
       icon: FolderTree,
       path: "/taxonomy",
-      badge: "Phase 4",
       exact: false,
     },
     ...(user?.role === "REVIEWER" || user?.role === "ADMIN"
