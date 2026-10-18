@@ -31,3 +31,6 @@ Guarding against admins accidentally demoting or deactivating their own account.
 ## 11. API Spec: GET /api/v1/users/
 Query parameters, response formats, and permission requirements.
 
+## 12. API Spec: PATCH /api/v1/users/{id}/role/
+Request payload schema, role validation, and response shapes.
+
