@@ -22,3 +22,6 @@ Readers receive 404 for unapproved drafts and can only access published document
 ## 8. Registration Role Escalation Threat Model
 Ensuring incoming role parameters are stripped or defaulted to READER.
 
+## 9. Profile Update Role Escalation Threat Model
+Enforcing read-only role fields on self-service profile endpoints.
+
