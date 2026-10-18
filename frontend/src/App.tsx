@@ -9,6 +9,8 @@ import { ArticleListPage } from "./pages/ArticleListPage";
 import { ArticleDetailPage } from "./pages/ArticleDetailPage";
 import { ArticleEditorPage } from "./pages/ArticleEditorPage";
 import { TaxonomyPage } from "./pages/TaxonomyPage";
+import { UserManagementPage } from "./pages/UserManagementPage";
+import { AccessDeniedPage } from "./pages/AccessDeniedPage";
 
 export function App() {
   return (
@@ -18,6 +20,14 @@ export function App() {
           {/* Public Auth Routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/access-denied"
+            element={
+              <MainLayout>
+                <AccessDeniedPage />
+              </MainLayout>
+            }
+          />
 
           {/* Protected Routes */}
           <Route
@@ -45,7 +55,7 @@ export function App() {
           <Route
             path="/articles/new"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN", "AUTHOR"]}>
                 <MainLayout>
                   <ArticleEditorPage />
                 </MainLayout>
@@ -65,7 +75,7 @@ export function App() {
           <Route
             path="/articles/:slug/edit"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ADMIN", "AUTHOR"]}>
                 <MainLayout>
                   <ArticleEditorPage />
                 </MainLayout>
@@ -85,6 +95,22 @@ export function App() {
             }
           />
 
+          {/* User & Role Management Routes (Phase 5) */}
+          <Route
+            path="/admin/roles"
+            element={
+              <ProtectedRoute allowedRoles={["ADMIN"]}>
+                <MainLayout>
+                  <UserManagementPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={<Navigate to="/admin/roles" replace />}
+          />
+
           {/* Catch-all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -94,3 +120,4 @@ export function App() {
 }
 
 export default App;
+
