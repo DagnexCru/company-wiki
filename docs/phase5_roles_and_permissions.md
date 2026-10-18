@@ -46,3 +46,6 @@ KPI cards, search filtering, inline role assignment, and confirmation feedback.
 ## 16. Test Suite Coverage: apps.accounts
 Summary of 20 unit tests covering authentication and role administration.
 
+## 17. Test Suite Coverage: apps.articles
+Summary of 21 tests covering article CRUD, markdown, and negative permissions.
+
