@@ -7,6 +7,7 @@ from apps.accounts.models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     """
     Public and internal serialization of user profile data.
+    Role and active status are strictly read-only to prevent privilege escalation.
     """
 
     class Meta:
@@ -21,12 +22,13 @@ class UserSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
-        read_only_fields = ["id", "is_active", "created_at", "updated_at"]
+        read_only_fields = ["id", "role", "is_active", "created_at", "updated_at"]
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     """
     Serializer handling user registration with strict validation.
+    Prevents role escalation: all public registrations are assigned READER role.
     """
 
     password = serializers.CharField(
@@ -52,7 +54,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             "password",
             "confirm_password",
         ]
-        read_only_fields = ["id"]
+        read_only_fields = ["id", "role"]
 
     def validate_email(self, value):
         normalized = value.strip().lower()
@@ -76,10 +78,68 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        validated_data.pop("confirm_password")
+        validated_data.pop("confirm_password", None)
         password = validated_data.pop("password")
+        # Enforce Reader role to prevent role escalation attacks
+        validated_data["role"] = CustomUser.Role.READER
         user = CustomUser.objects.create_user(password=password, **validated_data)
         return user
+
+
+class AdminUserSerializer(serializers.ModelSerializer):
+    """
+    Comprehensive user representation for administrative user governance.
+    Includes article counts and administrative flags.
+    """
+
+    article_count = serializers.IntegerField(read_only=True, default=0)
+
+    class Meta:
+        model = CustomUser
+        fields = [
+            "id",
+            "email",
+            "username",
+            "full_name",
+            "role",
+            "is_active",
+            "is_staff",
+            "is_superuser",
+            "article_count",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = [
+            "id",
+            "is_staff",
+            "is_superuser",
+            "article_count",
+            "created_at",
+            "updated_at",
+        ]
+
+
+class UserRoleUpdateSerializer(serializers.Serializer):
+    """
+    Serializer to safely validate role assignments by administrators.
+    """
+
+    role = serializers.ChoiceField(
+        choices=CustomUser.Role.choices,
+        required=True,
+        help_text="The new organizational role to assign (ADMIN, AUTHOR, REVIEWER, READER).",
+    )
+
+
+class UserStatusUpdateSerializer(serializers.Serializer):
+    """
+    Serializer to toggle user active status (activation/deactivation).
+    """
+
+    is_active = serializers.BooleanField(
+        required=True,
+        help_text="Active status of the user account.",
+    )
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -111,3 +171,4 @@ class LogoutSerializer(serializers.Serializer):
     """
 
     refresh = serializers.CharField(required=True)
+
