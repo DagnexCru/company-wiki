@@ -34,3 +34,6 @@ Query parameters, response formats, and permission requirements.
 ## 12. API Spec: PATCH /api/v1/users/{id}/role/
 Request payload schema, role validation, and response shapes.
 
+## 13. API Spec: PATCH /api/v1/users/{id}/status/
+Activation/deactivation mechanics and lockout guards.
+
