@@ -1,5 +1,7 @@
-from rest_framework import generics, status
+from django.db.models import Count, Q
+from rest_framework import generics, status, viewsets
 from rest_framework.views import APIView
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -7,9 +9,13 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
 from apps.accounts.models import CustomUser
+from apps.accounts.permissions import IsAdminUser
 from apps.accounts.serializers import (
     UserSerializer,
     RegisterSerializer,
+    AdminUserSerializer,
+    UserRoleUpdateSerializer,
+    UserStatusUpdateSerializer,
     CustomTokenObtainPairSerializer,
     LogoutSerializer,
 )
@@ -108,3 +114,104 @@ class CurrentUserProfileView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class UserManagementViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Administrative API ViewSet for inspecting and governing user accounts,
+    roles, and activation statuses. Strictly restricted to Administrators.
+    """
+
+    permission_classes = [IsAuthenticated, IsAdminUser]
+    serializer_class = AdminUserSerializer
+    lookup_field = "id"
+
+    def get_queryset(self):
+        queryset = CustomUser.objects.annotate(article_count=Count("articles")).order_by(
+            "-created_at"
+        )
+
+        search = self.request.query_params.get("search", "").strip()
+        if search:
+            queryset = queryset.filter(
+                Q(email__icontains=search)
+                | Q(username__icontains=search)
+                | Q(full_name__icontains=search)
+            )
+
+        role = self.request.query_params.get("role", "").strip()
+        if role and role in CustomUser.Role.values:
+            queryset = queryset.filter(role=role)
+
+        is_active = self.request.query_params.get("is_active")
+        if is_active is not None:
+            if str(is_active).lower() in ["true", "1"]:
+                queryset = queryset.filter(is_active=True)
+            elif str(is_active).lower() in ["false", "0"]:
+                queryset = queryset.filter(is_active=False)
+
+        return queryset
+
+    @action(detail=True, methods=["patch"], url_path="role")
+    def update_role(self, request, id=None):
+        """
+        Assign a new role to a user.
+        PATCH /api/v1/users/{id}/role/
+        Payload: {"role": "AUTHOR"}
+        """
+        user = self.get_object()
+        serializer = UserRoleUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        new_role = serializer.validated_data["role"]
+
+        # Prevent Administrator from demoting themselves to prevent accidental lockout
+        if user == request.user and new_role != CustomUser.Role.ADMIN:
+            return Response(
+                {"error": "Administrators cannot demote their own account to prevent lockout."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        user.role = new_role
+        user.save(update_fields=["role", "updated_at"])
+
+        return Response(
+            {
+                "message": f"Successfully updated role for {user.email} to {user.role}.",
+                "user": AdminUserSerializer(user).data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["patch"], url_path="status")
+    def update_status(self, request, id=None):
+        """
+        Activate or deactivate a user account.
+        PATCH /api/v1/users/{id}/status/
+        Payload: {"is_active": false}
+        """
+        user = self.get_object()
+        serializer = UserStatusUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        is_active = serializer.validated_data["is_active"]
+
+        # Prevent Administrator from deactivating their own account
+        if user == request.user and not is_active:
+            return Response(
+                {"error": "Administrators cannot deactivate their own active account."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        user.is_active = is_active
+        user.save(update_fields=["is_active", "updated_at"])
+
+        status_text = "activated" if is_active else "deactivated"
+        return Response(
+            {
+                "message": f"Successfully {status_text} account for {user.email}.",
+                "user": AdminUserSerializer(user).data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
