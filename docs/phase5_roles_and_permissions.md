@@ -37,3 +37,6 @@ Request payload schema, role validation, and response shapes.
 ## 13. API Spec: PATCH /api/v1/users/{id}/status/
 Activation/deactivation mechanics and lockout guards.
 
+## 14. Frontend RoleGuard Architecture
+Routing interception, redirection to /access-denied, and role checks.
+
