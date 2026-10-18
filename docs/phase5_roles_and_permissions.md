@@ -43,3 +43,6 @@ Routing interception, redirection to /access-denied, and role checks.
 ## 15. UserManagementPage Component Design
 KPI cards, search filtering, inline role assignment, and confirmation feedback.
 
+## 16. Test Suite Coverage: apps.accounts
+Summary of 20 unit tests covering authentication and role administration.
+
