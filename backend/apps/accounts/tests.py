@@ -146,3 +146,175 @@ class AccountsAuthenticationTests(TestCase):
             self.refresh_url, {"refresh": refresh_token}, format="json"
         )
         self.assertEqual(subsequent_refresh.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_registration_prevents_role_escalation(self):
+        """Verify an attacker cannot elevate their role to ADMIN during registration."""
+        payload = {
+            "email": "hacker@company.com",
+            "username": "hacker_user",
+            "full_name": "Rogue Actor",
+            "role": CustomUser.Role.ADMIN,  # Escalation attempt
+            "password": "Password123!",
+            "confirm_password": "Password123!",
+        }
+        res = self.client.post(self.register_url, payload, format="json")
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        # Verify database persisted role is forced to READER
+        created_user = CustomUser.objects.get(email="hacker@company.com")
+        self.assertEqual(created_user.role, CustomUser.Role.READER)
+        self.assertEqual(res.data["user"]["role"], CustomUser.Role.READER)
+
+    def test_profile_update_prevents_role_escalation(self):
+        """Verify regular user cannot elevate their role via PATCH /api/v1/auth/me/."""
+        self.client.force_authenticate(user=self.user)
+        res = self.client.patch(
+            self.me_url,
+            {"role": CustomUser.Role.ADMIN, "full_name": "Updated Name"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.role, CustomUser.Role.AUTHOR)
+        self.assertEqual(self.user.full_name, "Updated Name")
+
+
+class UserManagementRoleTests(TestCase):
+    """
+    Automated test suite for administrative user governance:
+    - Admin-only listing and filtering of users
+    - Role changes and self-demotion prevention
+    - Account activation/deactivation and self-deactivation prevention
+    - Negative permission enforcement for Readers, Authors, and Reviewers
+    """
+
+    def setUp(self):
+        self.client = APIClient()
+
+        self.admin = CustomUser.objects.create_superuser(
+            email="admin@company.com",
+            username="admin_lead",
+            full_name="Alex Admin",
+            role=CustomUser.Role.ADMIN,
+            password="AdminPassword123!",
+        )
+
+        self.author = CustomUser.objects.create_user(
+            email="author@company.com",
+            username="sarah_author",
+            full_name="Sarah Author",
+            role=CustomUser.Role.AUTHOR,
+            password="AuthorPassword123!",
+        )
+
+        self.reviewer = CustomUser.objects.create_user(
+            email="reviewer@company.com",
+            username="david_reviewer",
+            full_name="David Reviewer",
+            role=CustomUser.Role.REVIEWER,
+            password="ReviewerPassword123!",
+        )
+
+        self.reader = CustomUser.objects.create_user(
+            email="reader@company.com",
+            username="rachel_reader",
+            full_name="Rachel Reader",
+            role=CustomUser.Role.READER,
+            password="ReaderPassword123!",
+        )
+
+        self.users_list_url = "/api/v1/users/"
+
+    def test_reader_cannot_list_users(self):
+        """Readers must receive 403 Forbidden when requesting user administration list."""
+        self.client.force_authenticate(user=self.reader)
+        res = self.client.get(self.users_list_url)
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_author_cannot_list_users(self):
+        """Authors must receive 403 Forbidden when requesting user administration list."""
+        self.client.force_authenticate(user=self.author)
+        res = self.client.get(self.users_list_url)
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_reviewer_cannot_list_users(self):
+        """Reviewers must receive 403 Forbidden when requesting user administration list."""
+        self.client.force_authenticate(user=self.reviewer)
+        res = self.client.get(self.users_list_url)
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_admin_can_list_and_search_users(self):
+        """Administrators can list all users and filter by search query."""
+        self.client.force_authenticate(user=self.admin)
+        res = self.client.get(self.users_list_url)
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        users = res.data.get("results", res.data)
+        self.assertEqual(len(users), 4)
+
+        # Test search filter
+        search_res = self.client.get(f"{self.users_list_url}?search=sarah")
+        self.assertEqual(search_res.status_code, status.HTTP_200_OK)
+        search_users = search_res.data.get("results", search_res.data)
+        self.assertEqual(len(search_users), 1)
+        self.assertEqual(search_users[0]["email"], "author@company.com")
+
+        # Test role filter
+        role_res = self.client.get(f"{self.users_list_url}?role=READER")
+        self.assertEqual(role_res.status_code, status.HTTP_200_OK)
+        role_users = role_res.data.get("results", role_res.data)
+        self.assertEqual(len(role_users), 1)
+        self.assertEqual(role_users[0]["email"], "reader@company.com")
+
+    def test_admin_can_update_user_role(self):
+        """Administrator can promote Reader to Author via PATCH /api/v1/users/{id}/role/."""
+        self.client.force_authenticate(user=self.admin)
+        url = f"{self.users_list_url}{self.reader.id}/role/"
+        res = self.client.patch(url, {"role": CustomUser.Role.AUTHOR}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.reader.refresh_from_db()
+        self.assertEqual(self.reader.role, CustomUser.Role.AUTHOR)
+
+    def test_non_admin_cannot_update_user_role(self):
+        """Author cannot change roles of other users."""
+        self.client.force_authenticate(user=self.author)
+        url = f"{self.users_list_url}{self.reader.id}/role/"
+        res = self.client.patch(url, {"role": CustomUser.Role.ADMIN}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+        self.reader.refresh_from_db()
+        self.assertEqual(self.reader.role, CustomUser.Role.READER)
+
+    def test_admin_cannot_demote_themselves(self):
+        """Administrator cannot demote their own account to prevent lockout."""
+        self.client.force_authenticate(user=self.admin)
+        url = f"{self.users_list_url}{self.admin.id}/role/"
+        res = self.client.patch(url, {"role": CustomUser.Role.READER}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("demote", res.data["error"])
+        self.admin.refresh_from_db()
+        self.assertEqual(self.admin.role, CustomUser.Role.ADMIN)
+
+    def test_admin_can_toggle_user_status(self):
+        """Administrator can deactivate and reactivate a user account."""
+        self.client.force_authenticate(user=self.admin)
+        url = f"{self.users_list_url}{self.reader.id}/status/"
+        # Deactivate
+        res = self.client.patch(url, {"is_active": False}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.reader.refresh_from_db()
+        self.assertFalse(self.reader.is_active)
+
+        # Reactivate
+        res_re = self.client.patch(url, {"is_active": True}, format="json")
+        self.assertEqual(res_re.status_code, status.HTTP_200_OK)
+        self.reader.refresh_from_db()
+        self.assertTrue(self.reader.is_active)
+
+    def test_admin_cannot_deactivate_themselves(self):
+        """Administrator cannot deactivate their own active account."""
+        self.client.force_authenticate(user=self.admin)
+        url = f"{self.users_list_url}{self.admin.id}/status/"
+        res = self.client.patch(url, {"is_active": False}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("deactivate", res.data["error"])
+        self.admin.refresh_from_db()
+        self.assertTrue(self.admin.is_active)
+
