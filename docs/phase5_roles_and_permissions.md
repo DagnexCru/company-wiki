@@ -7,3 +7,6 @@ Enforcing strict authorization on every read and write query.
 ## 3. Defense in Depth: Server vs Frontend
 Frontend hides actions for UX; backend enforces invariants strictly.
 
+## 4. Object-Level Article Ownership
+Verifying request.user == article.author or request.user.is_admin.
+
