@@ -10,3 +10,6 @@ Frontend hides actions for UX; backend enforces invariants strictly.
 ## 4. Object-Level Article Ownership
 Verifying request.user == article.author or request.user.is_admin.
 
+## 5. Draft Content Isolation
+Preventing Insecure Direct Object References (IDOR) on unpublished drafts.
+
