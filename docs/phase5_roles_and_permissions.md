@@ -25,3 +25,6 @@ Ensuring incoming role parameters are stripped or defaulted to READER.
 ## 9. Profile Update Role Escalation Threat Model
 Enforcing read-only role fields on self-service profile endpoints.
 
+## 10. Administrator Lockout Prevention
+Guarding against admins accidentally demoting or deactivating their own account.
+
