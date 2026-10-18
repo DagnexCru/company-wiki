@@ -57,11 +57,11 @@ export const Sidebar = () => {
             label: "Role Management",
             icon: Shield,
             path: "/admin/roles",
-            badge: "Phase 5",
             exact: false,
           },
         ]
       : []),
+
   ];
 
   return (
