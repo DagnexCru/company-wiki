@@ -28,3 +28,6 @@ Enforcing read-only role fields on self-service profile endpoints.
 ## 10. Administrator Lockout Prevention
 Guarding against admins accidentally demoting or deactivating their own account.
 
+## 11. API Spec: GET /api/v1/users/
+Query parameters, response formats, and permission requirements.
+
