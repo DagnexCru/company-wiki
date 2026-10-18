@@ -218,6 +218,156 @@ class ArticleCRUDTests(TestCase):
         self.published_article.refresh_from_db()
         self.assertEqual(self.published_article.status, Article.Status.ARCHIVED)
 
+
+class RoleArticleVisibilityTests(TestCase):
+    """
+    Test suite verifying strict role boundaries, negative permissions,
+    and content visibility rules across Reader, Author, Reviewer, and Admin.
+    """
+
+    def setUp(self):
+        self.client = APIClient()
+
+        self.admin = CustomUser.objects.create_superuser(
+            username="admin_test",
+            email="admin@company.com",
+            password="TestPassword123!",
+            role=CustomUser.Role.ADMIN,
+            full_name="Admin Boss",
+        )
+
+        self.author_one = CustomUser.objects.create_user(
+            username="author_one",
+            email="author1@company.com",
+            password="TestPassword123!",
+            role=CustomUser.Role.AUTHOR,
+            full_name="Author Alice",
+        )
+
+        self.author_two = CustomUser.objects.create_user(
+            username="author_two",
+            email="author2@company.com",
+            password="TestPassword123!",
+            role=CustomUser.Role.AUTHOR,
+            full_name="Author Bob",
+        )
+
+        self.reviewer = CustomUser.objects.create_user(
+            username="reviewer_test",
+            email="reviewer@company.com",
+            password="TestPassword123!",
+            role=CustomUser.Role.REVIEWER,
+            full_name="Reviewer Rick",
+        )
+
+        self.reader = CustomUser.objects.create_user(
+            username="reader_test",
+            email="reader@company.com",
+            password="TestPassword123!",
+            role=CustomUser.Role.READER,
+            full_name="Reader Ron",
+        )
+
+        # Articles
+        self.alice_draft = Article.objects.create(
+            title="Alice Private Secrets",
+            summary="Draft summary",
+            content="# Draft content",
+            author=self.author_one,
+            status=Article.Status.DRAFT,
+        )
+
+        self.alice_in_review = Article.objects.create(
+            title="Alice Review Pending",
+            summary="In review summary",
+            content="# Review content",
+            author=self.author_one,
+            status=Article.Status.IN_REVIEW,
+        )
+
+        self.alice_published = Article.objects.create(
+            title="Alice Public Guide",
+            summary="Public summary",
+            content="# Public content",
+            author=self.author_one,
+            status=Article.Status.PUBLISHED,
+        )
+
+    def test_reader_cannot_view_draft_or_in_review(self):
+        """Readers querying draft or in_review articles by slug receive 404 (hidden)."""
+        self.client.force_authenticate(user=self.reader)
+        res_draft = self.client.get(f"/api/v1/articles/{self.alice_draft.slug}/")
+        self.assertEqual(res_draft.status_code, status.HTTP_404_NOT_FOUND)
+
+        res_review = self.client.get(f"/api/v1/articles/{self.alice_in_review.slug}/")
+        self.assertEqual(res_review.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_reader_can_view_published(self):
+        """Readers can retrieve published articles successfully."""
+        self.client.force_authenticate(user=self.reader)
+        res = self.client.get(f"/api/v1/articles/{self.alice_published.slug}/")
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(res.data["title"], "Alice Public Guide")
+
+    def test_reader_cannot_create_article(self):
+        """Readers must receive 403 Forbidden when attempting to create an article."""
+        self.client.force_authenticate(user=self.reader)
+        payload = {
+            "title": "Reader Attempt",
+            "summary": "Should fail",
+            "content": "Not permitted",
+        }
+        res = self.client.post("/api/v1/articles/", payload, format="json")
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_author_two_cannot_view_author_one_draft(self):
+        """Author Bob must not be able to view Author Alice's private drafts."""
+        self.client.force_authenticate(user=self.author_two)
+        res = self.client.get(f"/api/v1/articles/{self.alice_draft.slug}/")
+        self.assertEqual(res.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_author_two_cannot_edit_author_one_article(self):
+        """Author Bob must receive 403 Forbidden when attempting to edit Author Alice's article."""
+        self.client.force_authenticate(user=self.author_two)
+        res = self.client.patch(
+            f"/api/v1/articles/{self.alice_published.slug}/",
+            {"title": "Tampered Title"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_reviewer_can_view_in_review_article(self):
+        """Reviewers can access in_review articles for quality inspection."""
+        self.client.force_authenticate(user=self.reviewer)
+        res = self.client.get(f"/api/v1/articles/{self.alice_in_review.slug}/")
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+
+    def test_reviewer_cannot_edit_author_article(self):
+        """Reviewers cannot modify the article content directly; only authors/admins can."""
+        self.client.force_authenticate(user=self.reviewer)
+        res = self.client.patch(
+            f"/api/v1/articles/{self.alice_in_review.slug}/",
+            {"content": "Unauthorized reviewer edit"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_admin_has_full_visibility_and_management(self):
+        """Administrators can view drafts and edit any article across the company."""
+        self.client.force_authenticate(user=self.admin)
+        # Can view draft
+        res_view = self.client.get(f"/api/v1/articles/{self.alice_draft.slug}/")
+        self.assertEqual(res_view.status_code, status.HTTP_200_OK)
+
+        # Can update draft
+        res_edit = self.client.patch(
+            f"/api/v1/articles/{self.alice_draft.slug}/",
+            {"summary": "Admin updated summary"},
+            format="json",
+        )
+        self.assertEqual(res_edit.status_code, status.HTTP_200_OK)
+
+
 # Automated verification check #36: Ensuring test stability and idempotency.
 
 # Automated verification check #37: Ensuring test stability and idempotency.
