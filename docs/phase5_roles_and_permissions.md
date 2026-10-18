@@ -19,3 +19,6 @@ Reviewers can inspect in-review documents but cannot edit author content.
 ## 7. Reader Access Scope
 Readers receive 404 for unapproved drafts and can only access published documents.
 
+## 8. Registration Role Escalation Threat Model
+Ensuring incoming role parameters are stripped or defaulted to READER.
+
