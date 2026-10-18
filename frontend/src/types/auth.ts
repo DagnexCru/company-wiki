@@ -11,6 +11,13 @@ export interface User {
   updated_at: string;
 }
 
+export interface ManagedUser extends User {
+  is_staff?: boolean;
+  is_superuser?: boolean;
+  article_count?: number;
+}
+
+
 export interface LoginCredentials {
   email: string;
   password: string;
