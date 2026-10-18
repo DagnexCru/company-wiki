@@ -13,3 +13,6 @@ Verifying request.user == article.author or request.user.is_admin.
 ## 5. Draft Content Isolation
 Preventing Insecure Direct Object References (IDOR) on unpublished drafts.
 
+## 6. Reviewer Workflow Permissions
+Reviewers can inspect in-review documents but cannot edit author content.
+
