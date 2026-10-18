@@ -40,3 +40,6 @@ Activation/deactivation mechanics and lockout guards.
 ## 14. Frontend RoleGuard Architecture
 Routing interception, redirection to /access-denied, and role checks.
 
+## 15. UserManagementPage Component Design
+KPI cards, search filtering, inline role assignment, and confirmation feedback.
+
