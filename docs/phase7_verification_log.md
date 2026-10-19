@@ -127,3 +127,5 @@
 
 - [Automated Verified] Check #63: Verified SubmitReviewModal error banner display on submission failure at 2026-10-20 02:24:38
 
+- [Automated Verified] Check #64: Verified ReviewTimeline empty state when no review events recorded at 2026-10-20 02:24:38
+
