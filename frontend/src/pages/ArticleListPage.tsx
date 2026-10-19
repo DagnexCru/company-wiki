@@ -22,6 +22,7 @@ import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
 import { taxonomyService } from "../services/taxonomyService";
 import { CategoryBadge } from "../components/CategoryBadge";
+import { WorkflowStatusBadge } from "../components/WorkflowStatusBadge";
 import type { ArticleListItem, ArticleFilterParams } from "../types/article";
 import type { Category, Tag } from "../types/taxonomy";
 
@@ -256,41 +257,6 @@ export const ArticleListPage: React.FC = () => {
     return pages;
   }, [page, totalPages]);
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case "published":
-        return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
-            Published
-          </span>
-        );
-      case "draft":
-        return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
-            Draft
-          </span>
-        );
-      case "in_review":
-        return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300">
-            In Review
-          </span>
-        );
-      case "archived":
-        return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300">
-            Archived
-          </span>
-        );
-      default:
-        return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700">
-            {status}
-          </span>
-        );
-    }
-  };
-
   return (
     <div className="space-y-6">
       {/* Header and Controls */}
@@ -402,7 +368,8 @@ export const ArticleListPage: React.FC = () => {
             {[
               { id: "all", label: "All Content" },
               { id: "published", label: "Published" },
-              ...(canCreate ? [{ id: "draft", label: "Drafts" }] : []),
+              ...(canCreate || user?.role === "REVIEWER" ? [{ id: "in_review", label: "In Review" }] : []),
+              ...(canCreate ? [{ id: "draft", label: "Drafts" }, { id: "rejected", label: "Needs Revision" }] : []),
               { id: "archived", label: "Archived" },
             ].map((tab) => (
               <button
@@ -561,7 +528,7 @@ export const ArticleListPage: React.FC = () => {
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <div className="flex flex-wrap items-center gap-2">
                     {article.category && <CategoryBadge category={article.category} size="sm" />}
-                    {getStatusBadge(article.status)}
+                    <WorkflowStatusBadge status={article.status} statusDisplay={article.status_display} size="sm" />
                     {article.is_featured && (
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
                         <Sparkles className="w-3 h-3 text-amber-500" /> Featured
