@@ -159,3 +159,5 @@
 
 - [Automated Verified] Check #79: Verified ReviewQueuePage queue item submitted timestamp formatting at 2026-10-20 02:24:47
 
+- [Automated Verified] Check #80: Verified ReviewQueuePage independent review author warning banner at 2026-10-20 02:24:47
+
