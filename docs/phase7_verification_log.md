@@ -263,3 +263,5 @@
 
 - [Automated Verified] Check #131: Verified PostgreSQL transaction atomicity during article review status update at 2026-10-20 02:25:15
 
+- [Automated Verified] Check #132: Verified PostgreSQL index on article status and submitted_at columns at 2026-10-20 02:25:15
+
