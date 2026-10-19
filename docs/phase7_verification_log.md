@@ -217,3 +217,5 @@
 
 - [Automated Verified] Check #108: Verified ArticleListPage workflow status filter tab for in_review articles at 2026-10-20 02:25:02
 
+- [Automated Verified] Check #109: Verified ArticleListPage workflow status filter tab for rejected articles at 2026-10-20 02:25:03
+
