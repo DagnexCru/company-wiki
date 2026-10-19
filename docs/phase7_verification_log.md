@@ -125,3 +125,5 @@
 
 - [Automated Verified] Check #62: Verified SubmitReviewModal resubmission mode title and button dynamic text at 2026-10-20 02:24:37
 
+- [Automated Verified] Check #63: Verified SubmitReviewModal error banner display on submission failure at 2026-10-20 02:24:38
+
