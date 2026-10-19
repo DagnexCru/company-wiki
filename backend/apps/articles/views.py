@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -11,6 +12,9 @@ from apps.articles.serializers import (
     ArticleDetailSerializer,
     ArticleCreateUpdateSerializer,
 )
+from apps.workflows.models import ReviewRecord
+from apps.workflows.serializers import ReviewRecordSerializer
+from apps.workflows.permissions import IsReviewerOrAdmin
 
 
 ALLOWED_ORDERING_FIELDS = {
@@ -68,6 +72,12 @@ class ArticleViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated, CanCreateArticle]
         elif self.action in ["update", "partial_update", "destroy", "archive"]:
             permission_classes = [permissions.IsAuthenticated, IsAuthorOrAdmin]
+        elif self.action == "submit":
+            permission_classes = [permissions.IsAuthenticated, IsAuthorOrAdmin]
+        elif self.action in ["approve", "reject"]:
+            permission_classes = [permissions.IsAuthenticated, IsReviewerOrAdmin]
+        elif self.action == "reviews":
+            permission_classes = [permissions.IsAuthenticated]
         else:
             permission_classes = [permissions.IsAuthenticated]
 
@@ -76,12 +86,18 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """
         Server-side role-based queryset filtering:
+        - Workflow actions (submit, approve, reject, reviews): allows object lookup across articles
+          so specific status validation (e.g. 400 Bad Request if not in_review) and object permissions
+          can be evaluated cleanly.
         - Admin: sees all articles.
         - Reviewer: sees published + in_review + their own.
         - Author: sees published + their own drafts.
         - Reader: sees only published articles.
         Followed by validated search, category/tag/status/author filters, and whitelisted sorting.
         """
+        if self.action in ["approve", "reject", "submit", "reviews"]:
+            return Article.objects.all().select_related("author", "category").prefetch_related("tags")
+
         user = self.request.user
         queryset = (
             Article.objects.for_user(user)
@@ -216,6 +232,172 @@ class ArticleViewSet(viewsets.ModelViewSet):
             {"detail": "Article moved to archive.", "status": article.status},
             status=status.HTTP_200_OK,
         )
+
+    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated, IsAuthorOrAdmin])
+    def submit(self, request, slug=None):
+        """
+        Submit a draft or rejected article for editorial review.
+        POST /api/v1/articles/{slug}/submit/
+        """
+        article = self.get_object()
+        if article.status not in [Article.Status.DRAFT, Article.Status.REJECTED]:
+            return Response(
+                {"detail": f"Only drafts or rejected articles can be submitted for review. Current status is '{article.status}'."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        prev_status = article.status
+        now = timezone.now()
+        article.status = Article.Status.IN_REVIEW
+        article.submitted_at = now
+        article.save(update_fields=["status", "submitted_at", "updated_at"])
+
+        notes = request.data.get("notes", request.data.get("feedback", "")).strip()
+        ReviewRecord.objects.create(
+            article=article,
+            actor=request.user,
+            action=ReviewRecord.Action.SUBMIT,
+            from_status=prev_status,
+            to_status=Article.Status.IN_REVIEW,
+            feedback=notes,
+        )
+
+        return Response(
+            {
+                "detail": "Article submitted for review successfully.",
+                "status": article.status,
+                "status_display": article.get_status_display(),
+                "submitted_at": article.submitted_at,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated, IsReviewerOrAdmin])
+    def approve(self, request, slug=None):
+        """
+        Approve an article currently in review and transition it to published.
+        POST /api/v1/articles/{slug}/approve/
+        Independent review invariant: Authors cannot approve their own articles unless Admin.
+        """
+        article = self.get_object()
+
+        # Invariant: independent review
+        if article.author == request.user and not request.user.is_admin:
+            return Response(
+                {"detail": "Independent review required: authors cannot approve their own articles."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        # Invariant: must be in_review
+        if article.status != Article.Status.IN_REVIEW:
+            return Response(
+                {"detail": f"Article must be in 'in_review' status to approve. Current status is '{article.status}'."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        prev_status = article.status
+        now = timezone.now()
+        article.status = Article.Status.PUBLISHED
+        article.published_at = now
+        article.reviewed_at = now
+        article.last_reviewer = request.user
+        article.rejection_reason = ""
+        article.save(update_fields=["status", "published_at", "reviewed_at", "last_reviewer", "rejection_reason", "updated_at"])
+
+        feedback = request.data.get("feedback", "Approved for publication.").strip()
+        ReviewRecord.objects.create(
+            article=article,
+            actor=request.user,
+            action=ReviewRecord.Action.APPROVE,
+            from_status=prev_status,
+            to_status=Article.Status.PUBLISHED,
+            feedback=feedback,
+        )
+
+        return Response(
+            {
+                "detail": "Article approved and published.",
+                "status": article.status,
+                "status_display": article.get_status_display(),
+                "published_at": article.published_at,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated, IsReviewerOrAdmin])
+    def reject(self, request, slug=None):
+        """
+        Reject an article in review and provide mandatory feedback for author revision.
+        POST /api/v1/articles/{slug}/reject/
+        Independent review invariant: Authors cannot reject their own articles unless Admin.
+        """
+        article = self.get_object()
+
+        # Invariant: independent review
+        if article.author == request.user and not request.user.is_admin:
+            return Response(
+                {"detail": "Independent review required: authors cannot review or reject their own articles."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        # Invariant: must be in_review
+        if article.status != Article.Status.IN_REVIEW:
+            return Response(
+                {"detail": f"Article must be in 'in_review' status to reject. Current status is '{article.status}'."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        feedback = request.data.get("feedback", "").strip()
+        if not feedback or len(feedback) < 5:
+            return Response(
+                {"detail": "Rejection feedback explaining required revisions is mandatory (minimum 5 characters)."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        prev_status = article.status
+        now = timezone.now()
+        article.status = Article.Status.REJECTED
+        article.reviewed_at = now
+        article.last_reviewer = request.user
+        article.rejection_reason = feedback
+        article.save(update_fields=["status", "reviewed_at", "last_reviewer", "rejection_reason", "updated_at"])
+
+        ReviewRecord.objects.create(
+            article=article,
+            actor=request.user,
+            action=ReviewRecord.Action.REJECT,
+            from_status=prev_status,
+            to_status=Article.Status.REJECTED,
+            feedback=feedback,
+        )
+
+        return Response(
+            {
+                "detail": "Article rejected with feedback.",
+                "status": article.status,
+                "status_display": article.get_status_display(),
+                "rejection_reason": article.rejection_reason,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["get"], permission_classes=[permissions.IsAuthenticated])
+    def reviews(self, request, slug=None):
+        """
+        Retrieve chronological audit history of review events for this article.
+        GET /api/v1/articles/{slug}/reviews/
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to inspect review records for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        records = article.review_records.select_related("actor", "article").order_by("-created_at")
+        serializer = ReviewRecordSerializer(records, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
