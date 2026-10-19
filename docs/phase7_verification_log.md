@@ -123,3 +123,5 @@
 
 - [Automated Verified] Check #61: Verified SubmitReviewModal author context note input and submission at 2026-10-20 02:24:37
 
+- [Automated Verified] Check #62: Verified SubmitReviewModal resubmission mode title and button dynamic text at 2026-10-20 02:24:37
+
