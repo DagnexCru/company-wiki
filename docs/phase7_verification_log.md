@@ -201,3 +201,5 @@
 
 - [Automated Verified] Check #100: Verified ArticleDetailPage revise content shortcut button to editor at 2026-10-20 02:24:58
 
+- [Automated Verified] Check #101: Verified ArticleDetailPage embedded chronological review timeline at 2026-10-20 02:24:58
+
