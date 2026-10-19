@@ -253,3 +253,5 @@
 
 - [Automated Verified] Check #126: Verified WorkflowHistoryView select_related optimization for actor and article at 2026-10-20 02:25:12
 
+- [Automated Verified] Check #127: Verified WorkflowHistoryView limit to 50 recent events for performance at 2026-10-20 02:25:12
+
