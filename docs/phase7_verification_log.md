@@ -287,3 +287,5 @@
 
 - [Automated Verified] Check #143: Verified HTTP 200 OK response shape verification on reviews endpoint at 2026-10-20 02:25:21
 
+- [Automated Verified] Check #144: Verified HTTP 400 Bad Request detail message on invalid transition at 2026-10-20 02:25:21
+
