@@ -85,3 +85,5 @@
 
 - [Automated Verified] Check #42: Verified ReviewQueueArticleSerializer field exposure and author details at 2026-10-20 02:24:27
 
+- [Automated Verified] Check #43: Verified workflowService getReviewQueue query parameter serialization at 2026-10-20 02:24:28
+
