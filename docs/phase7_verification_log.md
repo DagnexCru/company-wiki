@@ -235,3 +235,5 @@
 
 - [Automated Verified] Check #117: Verified Article model for_user queryset reviewer in_review visibility at 2026-10-20 02:25:07
 
+- [Automated Verified] Check #118: Verified Article model for_user queryset author draft and rejected visibility at 2026-10-20 02:25:08
+
