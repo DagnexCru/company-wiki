@@ -59,3 +59,5 @@
 
 - [Automated Verified] Check #29: Verified reader authorization block on article approval (HTTP 403) at 2026-10-20 02:24:20
 
+- [Automated Verified] Check #30: Verified reader authorization block on article rejection (HTTP 403) at 2026-10-20 02:24:21
+
