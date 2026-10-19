@@ -83,3 +83,5 @@
 
 - [Automated Verified] Check #41: Verified ReviewRecordSerializer field exposure and formatting at 2026-10-20 02:24:27
 
+- [Automated Verified] Check #42: Verified ReviewQueueArticleSerializer field exposure and author details at 2026-10-20 02:24:27
+
