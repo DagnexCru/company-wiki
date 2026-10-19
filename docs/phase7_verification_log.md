@@ -233,3 +233,5 @@
 
 - [Automated Verified] Check #116: Verified App.tsx access denied redirect for unauthorized reader role at 2026-10-20 02:25:07
 
+- [Automated Verified] Check #117: Verified Article model for_user queryset reviewer in_review visibility at 2026-10-20 02:25:07
+
