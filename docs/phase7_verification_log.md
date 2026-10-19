@@ -49,3 +49,5 @@
 
 - [Automated Verified] Check #24: Verified prohibition of rejecting published articles (HTTP 400) at 2026-10-20 02:24:17
 
+- [Automated Verified] Check #25: Verified prohibition of submitting published articles (HTTP 400) at 2026-10-20 02:24:18
+
