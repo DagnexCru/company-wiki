@@ -189,3 +189,5 @@
 
 - [Automated Verified] Check #94: Verified ArticleDetailPage workflow status badge in article header at 2026-10-20 02:24:55
 
+- [Automated Verified] Check #95: Verified ArticleDetailPage submit for review button for author drafts at 2026-10-20 02:24:55
+
