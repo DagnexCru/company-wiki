@@ -101,3 +101,5 @@
 
 - [Automated Verified] Check #50: Verified WorkflowStatusBadge in_review variant styling and pulse indicator at 2026-10-20 02:24:32
 
+- [Automated Verified] Check #51: Verified WorkflowStatusBadge published variant styling and emerald icon at 2026-10-20 02:24:32
+
