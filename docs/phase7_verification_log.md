@@ -179,3 +179,5 @@
 
 - [Automated Verified] Check #89: Verified ReviewDetailPage embedded review history timeline section at 2026-10-20 02:24:52
 
+- [Automated Verified] Check #90: Verified ReviewDetailPage sidebar submission metadata display at 2026-10-20 02:24:53
+
