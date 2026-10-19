@@ -81,3 +81,5 @@
 
 - [Automated Verified] Check #40: Verified ReviewRecord immutability and cascade protection at 2026-10-20 02:24:26
 
+- [Automated Verified] Check #41: Verified ReviewRecordSerializer field exposure and formatting at 2026-10-20 02:24:27
+
