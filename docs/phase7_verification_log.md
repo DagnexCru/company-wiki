@@ -87,3 +87,5 @@
 
 - [Automated Verified] Check #43: Verified workflowService getReviewQueue query parameter serialization at 2026-10-20 02:24:28
 
+- [Automated Verified] Check #44: Verified workflowService getWorkflowHistory endpoint invocation at 2026-10-20 02:24:29
+
