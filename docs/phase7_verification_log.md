@@ -167,3 +167,5 @@
 
 - [Automated Verified] Check #83: Verified ReviewQueuePage full inspection navigation link to detail page at 2026-10-20 02:24:49
 
+- [Automated Verified] Check #84: Verified ReviewDetailPage top status header and workflow badge alignment at 2026-10-20 02:24:49
+
