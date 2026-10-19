@@ -43,3 +43,5 @@
 
 - [Automated Verified] Check #21: Verified prohibition of approving draft articles (HTTP 400) at 2026-10-20 02:24:16
 
+- [Automated Verified] Check #22: Verified prohibition of rejecting draft articles (HTTP 400) at 2026-10-20 02:24:16
+
