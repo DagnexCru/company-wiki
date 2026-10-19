@@ -27,3 +27,5 @@
 
 - [Automated Verified] Check #13: Verified rejection feedback whitespace stripping validation at 2026-10-20 02:24:11
 
+- [Automated Verified] Check #14: Verified rejection status transition to rejected at 2026-10-20 02:24:12
+
