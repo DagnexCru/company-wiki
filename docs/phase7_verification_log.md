@@ -173,3 +173,5 @@
 
 - [Automated Verified] Check #86: Verified ReviewDetailPage approve button click handler and confirmation at 2026-10-20 02:24:50
 
+- [Automated Verified] Check #87: Verified ReviewDetailPage request changes button click handler and modal at 2026-10-20 02:24:51
+
