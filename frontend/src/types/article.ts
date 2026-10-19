@@ -22,7 +22,11 @@ export interface ArticleListItem {
   status_display: string;
   is_featured: boolean;
   estimated_read_time: number;
+  submitted_at?: string | null;
+  reviewed_at?: string | null;
   published_at: string | null;
+  last_reviewer?: ArticleAuthor | null;
+  rejection_reason?: string;
   created_at: string;
   updated_at: string;
 }
