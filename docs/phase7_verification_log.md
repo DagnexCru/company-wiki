@@ -29,3 +29,5 @@
 
 - [Automated Verified] Check #14: Verified rejection status transition to rejected at 2026-10-20 02:24:12
 
+- [Automated Verified] Check #15: Verified rejection reason persistence in article record at 2026-10-20 02:24:13
+
