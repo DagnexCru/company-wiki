@@ -249,3 +249,5 @@
 
 - [Automated Verified] Check #124: Verified ReviewQueueView icontains multi-field search filter verification at 2026-10-20 02:25:11
 
+- [Automated Verified] Check #125: Verified ReviewQueueView category slug and UUID filter verification at 2026-10-20 02:25:11
+
