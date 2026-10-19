@@ -10,9 +10,12 @@ import {
   Info,
   FolderTree,
   Tag as TagIcon,
+  Send,
+  AlertTriangle,
 } from "lucide-react";
 import { articleService } from "../services/articleService";
 import { taxonomyService } from "../services/taxonomyService";
+import { workflowService } from "../services/workflowService";
 import { MarkdownViewer } from "../components/MarkdownViewer";
 import type { ArticleInput } from "../types/article";
 import type { Category, Tag } from "../types/taxonomy";
@@ -37,6 +40,9 @@ export const ArticleEditorPage: React.FC = () => {
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [articleStatus, setArticleStatus] = useState<string>("draft");
+  const [rejectionReason, setRejectionReason] = useState<string>("");
+
   // Load available taxonomy categories and tags
   useEffect(() => {
     Promise.all([taxonomyService.getCategories(), taxonomyService.getTags()])
@@ -59,6 +65,8 @@ export const ArticleEditorPage: React.FC = () => {
         setSummary(data.summary || "");
         setContent(data.content);
         setIsFeatured(data.is_featured);
+        setArticleStatus(data.status);
+        setRejectionReason(data.rejection_reason || "");
         if (data.category) {
           setSelectedCategory(data.category.id);
         }
@@ -85,8 +93,8 @@ export const ArticleEditorPage: React.FC = () => {
     );
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent, submitForReview = false) => {
+    if (e) e.preventDefault();
     if (title.trim().length < 3) {
       setError("Article title must be at least 3 characters long.");
       return;
@@ -109,13 +117,22 @@ export const ArticleEditorPage: React.FC = () => {
     };
 
     try {
+      let targetSlug = slug;
       if (isEditing && slug) {
         const updated = await articleService.updateArticle(slug, payload);
-        navigate(`/articles/${updated.slug}`);
+        targetSlug = updated.slug;
       } else {
         const created = await articleService.createArticle(payload);
-        navigate(`/articles/${created.slug}`);
+        targetSlug = created.slug;
       }
+
+      if (submitForReview && targetSlug) {
+        await workflowService.submitForReview(targetSlug, {
+          notes: isEditing ? "Updated and resubmitted via editor." : "Submitted directly upon creation.",
+        });
+      }
+
+      navigate(`/articles/${targetSlug}`);
     } catch (err: unknown) {
       const msg =
         err instanceof Error
@@ -139,7 +156,7 @@ export const ArticleEditorPage: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-2 space-y-6">
       {/* Top Header */}
-      <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
         <div className="flex items-center gap-3">
           <Link
             to={isEditing ? `/articles/${slug}` : "/articles"}
@@ -162,21 +179,45 @@ export const ArticleEditorPage: React.FC = () => {
         <div className="flex items-center gap-2">
           <Link
             to={isEditing ? `/articles/${slug}` : "/articles"}
-            className="px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+            className="px-3.5 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition"
           >
             Cancel
           </Link>
           <button
             type="button"
-            onClick={handleSubmit}
+            onClick={(e) => handleSubmit(e, false)}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white rounded-lg text-xs font-medium shadow-xs transition-all disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold shadow-2xs transition disabled:opacity-50"
           >
             <Save className="w-3.5 h-3.5" />
-            {saving ? "Saving..." : isEditing ? "Save Changes" : "Save as Draft"}
+            <span>{saving ? "Saving..." : isEditing ? "Save Draft" : "Save as Draft"}</span>
+          </button>
+          <button
+            type="button"
+            onClick={(e) => handleSubmit(e, true)}
+            disabled={saving}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-xs shadow-indigo-600/20 transition disabled:opacity-50"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>{saving ? "Submitting..." : isEditing && articleStatus === "rejected" ? "Save & Resubmit" : "Save & Submit for Review"}</span>
           </button>
         </div>
       </div>
+
+      {/* Rejection Alert if editing rejected article */}
+      {articleStatus === "rejected" && rejectionReason && (
+        <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-rose-800 dark:text-rose-300">
+              Reviewer Changes Requested
+            </h4>
+            <p className="text-xs text-rose-700 dark:text-rose-300 mt-0.5 leading-relaxed whitespace-pre-wrap">
+              {rejectionReason}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Error Banner */}
       {error && (
