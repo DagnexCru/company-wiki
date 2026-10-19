@@ -321,3 +321,5 @@
 
 - [Automated Verified] Check #160: Verified Django test runner verification on full 85-test regression suite at 2026-10-20 02:25:29
 
+- [Automated Verified] Check #161: Verified End-to-end author workflow: draft creation, edit, submission at 2026-10-20 02:25:30
+
