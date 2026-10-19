@@ -177,3 +177,5 @@
 
 - [Automated Verified] Check #88: Verified ReviewDetailPage full prose markdown article content rendering at 2026-10-20 02:24:51
 
+- [Automated Verified] Check #89: Verified ReviewDetailPage embedded review history timeline section at 2026-10-20 02:24:52
+
