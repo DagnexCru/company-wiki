@@ -261,3 +261,5 @@
 
 - [Automated Verified] Check #130: Verified IsAuthorOrAdmin permission check for article submission endpoint at 2026-10-20 02:25:14
 
+- [Automated Verified] Check #131: Verified PostgreSQL transaction atomicity during article review status update at 2026-10-20 02:25:15
+
