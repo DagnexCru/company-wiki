@@ -299,3 +299,5 @@
 
 - [Automated Verified] Check #149: Verified Token expiration and refresh handling during review actions at 2026-10-20 02:25:24
 
+- [Automated Verified] Check #150: Verified Client-side API interceptor handling of 401 unauthorized errors at 2026-10-20 02:25:24
+
