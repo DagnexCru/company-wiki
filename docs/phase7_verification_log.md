@@ -325,3 +325,5 @@
 
 - [Automated Verified] Check #162: Verified End-to-end reviewer workflow: queue inspection, rejection with notes at 2026-10-20 02:25:30
 
+- [Automated Verified] Check #163: Verified End-to-end author workflow: revision reading, content edit, resubmission at 2026-10-20 02:25:31
+
