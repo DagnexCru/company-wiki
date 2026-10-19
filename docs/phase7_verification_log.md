@@ -73,3 +73,5 @@
 
 - [Automated Verified] Check #36: Verified ReviewRecord feedback note persistence at 2026-10-20 02:24:24
 
+- [Automated Verified] Check #37: Verified ReviewRecord from_status and to_status accuracy at 2026-10-20 02:24:25
+
