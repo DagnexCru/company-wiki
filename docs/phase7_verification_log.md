@@ -9,3 +9,5 @@
 
 - [Automated Verified] Check #4: Verified review queue FIFO ordering by submission date at 2026-10-20 02:24:06
 
+- [Automated Verified] Check #5: Verified review queue search filtering by article title at 2026-10-20 02:24:07
+
