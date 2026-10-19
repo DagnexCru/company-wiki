@@ -135,3 +135,5 @@
 
 - [Automated Verified] Check #67: Verified ReviewTimeline approval event icon, colorway, and actor badge at 2026-10-20 02:24:40
 
+- [Automated Verified] Check #68: Verified ReviewTimeline rejection event icon, colorway, and actor badge at 2026-10-20 02:24:40
+
