@@ -191,3 +191,5 @@
 
 - [Automated Verified] Check #95: Verified ArticleDetailPage submit for review button for author drafts at 2026-10-20 02:24:55
 
+- [Automated Verified] Check #96: Verified ArticleDetailPage resubmit for review button for rejected articles at 2026-10-20 02:24:56
+
