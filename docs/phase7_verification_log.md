@@ -187,3 +187,5 @@
 
 - [Automated Verified] Check #93: Verified ReviewDetailPage estimated reading time computation display at 2026-10-20 02:24:54
 
+- [Automated Verified] Check #94: Verified ArticleDetailPage workflow status badge in article header at 2026-10-20 02:24:55
+
