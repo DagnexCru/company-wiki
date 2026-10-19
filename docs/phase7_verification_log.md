@@ -205,3 +205,5 @@
 
 - [Automated Verified] Check #102: Verified ArticleDetailPage action success feedback alert banner at 2026-10-20 02:24:59
 
+- [Automated Verified] Check #103: Verified ArticleEditorPage rejection feedback warning banner display at 2026-10-20 02:25:00
+
