@@ -297,3 +297,5 @@
 
 - [Automated Verified] Check #148: Verified JWT Bearer token authentication header parsing on workflow views at 2026-10-20 02:25:23
 
+- [Automated Verified] Check #149: Verified Token expiration and refresh handling during review actions at 2026-10-20 02:25:24
+
