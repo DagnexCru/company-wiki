@@ -285,3 +285,5 @@
 
 - [Automated Verified] Check #142: Verified HTTP 200 OK response shape verification on reject endpoint at 2026-10-20 02:25:20
 
+- [Automated Verified] Check #143: Verified HTTP 200 OK response shape verification on reviews endpoint at 2026-10-20 02:25:21
+
