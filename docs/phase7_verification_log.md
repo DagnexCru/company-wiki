@@ -301,3 +301,5 @@
 
 - [Automated Verified] Check #150: Verified Client-side API interceptor handling of 401 unauthorized errors at 2026-10-20 02:25:24
 
+- [Automated Verified] Check #151: Verified Client-side form error presentation in review decision modals at 2026-10-20 02:25:25
+
