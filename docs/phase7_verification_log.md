@@ -55,3 +55,5 @@
 
 - [Automated Verified] Check #27: Verified reader authorization block on article submission (HTTP 403) at 2026-10-20 02:24:19
 
+- [Automated Verified] Check #28: Verified reader authorization block on review queue access (HTTP 403) at 2026-10-20 02:24:19
+
