@@ -277,3 +277,5 @@
 
 - [Automated Verified] Check #138: Verified Postman collection spec for GET /api/v1/workflows/queue/ at 2026-10-20 02:25:18
 
+- [Automated Verified] Check #139: Verified Postman collection spec for GET /api/v1/workflows/history/ at 2026-10-20 02:25:19
+
