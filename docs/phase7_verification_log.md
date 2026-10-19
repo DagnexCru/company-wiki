@@ -269,3 +269,5 @@
 
 - [Automated Verified] Check #134: Verified Postman collection spec for POST /api/v1/articles/{slug}/submit/ at 2026-10-20 02:25:16
 
+- [Automated Verified] Check #135: Verified Postman collection spec for POST /api/v1/articles/{slug}/approve/ at 2026-10-20 02:25:17
+
