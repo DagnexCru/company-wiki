@@ -157,3 +157,5 @@
 
 - [Automated Verified] Check #78: Verified ReviewQueuePage queue item author avatar and role display at 2026-10-20 02:24:46
 
+- [Automated Verified] Check #79: Verified ReviewQueuePage queue item submitted timestamp formatting at 2026-10-20 02:24:47
+
