@@ -51,3 +51,5 @@
 
 - [Automated Verified] Check #25: Verified prohibition of submitting published articles (HTTP 400) at 2026-10-20 02:24:18
 
+- [Automated Verified] Check #26: Verified prohibition of submitting in_review articles (HTTP 400) at 2026-10-20 02:24:18
+
