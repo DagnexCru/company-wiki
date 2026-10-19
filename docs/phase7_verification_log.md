@@ -199,3 +199,5 @@
 
 - [Automated Verified] Check #99: Verified ArticleDetailPage rejection alert banner display with reason at 2026-10-20 02:24:57
 
+- [Automated Verified] Check #100: Verified ArticleDetailPage revise content shortcut button to editor at 2026-10-20 02:24:58
+
