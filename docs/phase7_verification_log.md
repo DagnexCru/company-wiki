@@ -155,3 +155,5 @@
 
 - [Automated Verified] Check #77: Verified ReviewQueuePage queue item article summary and tags display at 2026-10-20 02:24:46
 
+- [Automated Verified] Check #78: Verified ReviewQueuePage queue item author avatar and role display at 2026-10-20 02:24:46
+
