@@ -39,7 +39,6 @@ export const Sidebar = () => {
             label: "Review Queue",
             icon: CheckSquare,
             path: "/reviews",
-            badge: "Phase 7",
             exact: false,
           },
         ]
