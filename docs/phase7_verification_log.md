@@ -279,3 +279,5 @@
 
 - [Automated Verified] Check #139: Verified Postman collection spec for GET /api/v1/workflows/history/ at 2026-10-20 02:25:19
 
+- [Automated Verified] Check #140: Verified HTTP 200 OK response shape verification on submit endpoint at 2026-10-20 02:25:19
+
