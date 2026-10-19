@@ -97,3 +97,5 @@
 
 - [Automated Verified] Check #48: Verified workflowService getArticleReviews chronological response mapping at 2026-10-20 02:24:31
 
+- [Automated Verified] Check #49: Verified WorkflowStatusBadge draft variant styling and slate icon at 2026-10-20 02:24:31
+
