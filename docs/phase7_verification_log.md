@@ -203,3 +203,5 @@
 
 - [Automated Verified] Check #101: Verified ArticleDetailPage embedded chronological review timeline at 2026-10-20 02:24:58
 
+- [Automated Verified] Check #102: Verified ArticleDetailPage action success feedback alert banner at 2026-10-20 02:24:59
+
