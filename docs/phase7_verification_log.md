@@ -229,3 +229,5 @@
 
 - [Automated Verified] Check #114: Verified App.tsx /reviews route protection with allowedRoles ADMIN, REVIEWER at 2026-10-20 02:25:06
 
+- [Automated Verified] Check #115: Verified App.tsx /reviews/:slug route protection with allowedRoles ADMIN, REVIEWER at 2026-10-20 02:25:06
+
