@@ -219,3 +219,5 @@
 
 - [Automated Verified] Check #109: Verified ArticleListPage workflow status filter tab for rejected articles at 2026-10-20 02:25:03
 
+- [Automated Verified] Check #110: Verified ArticleListPage article card workflow status badge rendering at 2026-10-20 02:25:04
+
