@@ -265,3 +265,5 @@
 
 - [Automated Verified] Check #132: Verified PostgreSQL index on article status and submitted_at columns at 2026-10-20 02:25:15
 
+- [Automated Verified] Check #133: Verified PostgreSQL index on review record created_at and article_id columns at 2026-10-20 02:25:16
+
