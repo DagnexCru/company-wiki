@@ -147,3 +147,5 @@
 
 - [Automated Verified] Check #73: Verified ReviewQueuePage FIFO queue order policy metric card display at 2026-10-20 02:24:44
 
+- [Automated Verified] Check #74: Verified ReviewQueuePage live debounced search filter bar at 2026-10-20 02:24:44
+
