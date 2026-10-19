@@ -121,3 +121,5 @@
 
 - [Automated Verified] Check #60: Verified ReviewModal error display on backend validation rejection at 2026-10-20 02:24:36
 
+- [Automated Verified] Check #61: Verified SubmitReviewModal author context note input and submission at 2026-10-20 02:24:37
+
