@@ -197,3 +197,5 @@
 
 - [Automated Verified] Check #98: Verified ArticleDetailPage view in queue button for dual author reviewers at 2026-10-20 02:24:57
 
+- [Automated Verified] Check #99: Verified ArticleDetailPage rejection alert banner display with reason at 2026-10-20 02:24:57
+
