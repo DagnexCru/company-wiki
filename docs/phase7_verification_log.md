@@ -145,3 +145,5 @@
 
 - [Automated Verified] Check #72: Verified ReviewQueuePage user role display metric card computation at 2026-10-20 02:24:43
 
+- [Automated Verified] Check #73: Verified ReviewQueuePage FIFO queue order policy metric card display at 2026-10-20 02:24:44
+
