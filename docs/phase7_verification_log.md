@@ -241,3 +241,5 @@
 
 - [Automated Verified] Check #120: Verified ArticleViewSet get_permissions action mapping for workflow methods at 2026-10-20 02:25:09
 
+- [Automated Verified] Check #121: Verified ArticleViewSet get_queryset action lookup optimization for workflow at 2026-10-20 02:25:09
+
