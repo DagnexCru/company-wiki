@@ -335,3 +335,5 @@
 
 - [Automated Verified] Check #167: Verified Phase 7 deliverables and documentation readiness verification at 2026-10-20 02:25:33
 
+- [Automated Verified] Check #168: Verified draft submission state transition to in_review at 2026-10-20 02:25:34
+
