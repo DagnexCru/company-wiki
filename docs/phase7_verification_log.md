@@ -19,3 +19,5 @@
 
 - [Automated Verified] Check #9: Verified independent review author restriction on rejection at 2026-10-20 02:24:09
 
+- [Automated Verified] Check #10: Verified admin supervisory override on article approval at 2026-10-20 02:24:10
+
