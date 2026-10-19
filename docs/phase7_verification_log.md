@@ -255,3 +255,5 @@
 
 - [Automated Verified] Check #127: Verified WorkflowHistoryView limit to 50 recent events for performance at 2026-10-20 02:25:12
 
+- [Automated Verified] Check #128: Verified CanReviewArticle object permission enforcement in view layer at 2026-10-20 02:25:13
+
