@@ -131,3 +131,5 @@
 
 - [Automated Verified] Check #65: Verified ReviewTimeline loading skeleton display during history fetch at 2026-10-20 02:24:39
 
+- [Automated Verified] Check #66: Verified ReviewTimeline submission event icon, colorway, and actor badge at 2026-10-20 02:24:39
+
