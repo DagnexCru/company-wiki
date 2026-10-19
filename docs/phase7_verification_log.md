@@ -13,3 +13,5 @@
 
 - [Automated Verified] Check #6: Verified review queue search filtering by author username at 2026-10-20 02:24:07
 
+- [Automated Verified] Check #7: Verified review queue search filtering by category slug at 2026-10-20 02:24:08
+
