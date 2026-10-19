@@ -329,3 +329,5 @@
 
 - [Automated Verified] Check #164: Verified End-to-end reviewer workflow: second inspection, approval and publishing at 2026-10-20 02:25:32
 
+- [Automated Verified] Check #165: Verified End-to-end reader workflow: published article discovery and reading at 2026-10-20 02:25:32
+
