@@ -63,3 +63,5 @@
 
 - [Automated Verified] Check #31: Verified author authorization block on review queue access (HTTP 403) at 2026-10-20 02:24:22
 
+- [Automated Verified] Check #32: Verified author authorization block on other author article review (HTTP 403) at 2026-10-20 02:24:22
+
