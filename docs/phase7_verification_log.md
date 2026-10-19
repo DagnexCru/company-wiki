@@ -251,3 +251,5 @@
 
 - [Automated Verified] Check #125: Verified ReviewQueueView category slug and UUID filter verification at 2026-10-20 02:25:11
 
+- [Automated Verified] Check #126: Verified WorkflowHistoryView select_related optimization for actor and article at 2026-10-20 02:25:12
+
