@@ -337,3 +337,5 @@
 
 - [Automated Verified] Check #168: Verified draft submission state transition to in_review at 2026-10-20 02:25:34
 
+- [Automated Verified] Check #169: Verified resubmission transition from rejected to in_review at 2026-10-20 02:25:34
+
