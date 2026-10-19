@@ -227,3 +227,5 @@
 
 - [Automated Verified] Check #113: Verified Sidebar Review Queue badge removal on Phase 7 completion at 2026-10-20 02:25:05
 
+- [Automated Verified] Check #114: Verified App.tsx /reviews route protection with allowedRoles ADMIN, REVIEWER at 2026-10-20 02:25:06
+
