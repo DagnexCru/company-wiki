@@ -239,3 +239,5 @@
 
 - [Automated Verified] Check #119: Verified Article model for_user queryset reader published-only visibility at 2026-10-20 02:25:08
 
+- [Automated Verified] Check #120: Verified ArticleViewSet get_permissions action mapping for workflow methods at 2026-10-20 02:25:09
+
