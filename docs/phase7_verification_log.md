@@ -181,3 +181,5 @@
 
 - [Automated Verified] Check #90: Verified ReviewDetailPage sidebar submission metadata display at 2026-10-20 02:24:53
 
+- [Automated Verified] Check #91: Verified ReviewDetailPage author role and email card display at 2026-10-20 02:24:53
+
