@@ -71,3 +71,5 @@
 
 - [Automated Verified] Check #35: Verified ReviewRecord creation on article rejection action at 2026-10-20 02:24:24
 
+- [Automated Verified] Check #36: Verified ReviewRecord feedback note persistence at 2026-10-20 02:24:24
+
