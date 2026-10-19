@@ -231,3 +231,5 @@
 
 - [Automated Verified] Check #115: Verified App.tsx /reviews/:slug route protection with allowedRoles ADMIN, REVIEWER at 2026-10-20 02:25:06
 
+- [Automated Verified] Check #116: Verified App.tsx access denied redirect for unauthorized reader role at 2026-10-20 02:25:07
+
