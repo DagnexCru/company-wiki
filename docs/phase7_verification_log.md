@@ -295,3 +295,5 @@
 
 - [Automated Verified] Check #147: Verified Cross-origin CORS header verification on workflow API endpoints at 2026-10-20 02:25:23
 
+- [Automated Verified] Check #148: Verified JWT Bearer token authentication header parsing on workflow views at 2026-10-20 02:25:23
+
