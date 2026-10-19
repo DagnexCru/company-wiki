@@ -273,3 +273,5 @@
 
 - [Automated Verified] Check #136: Verified Postman collection spec for POST /api/v1/articles/{slug}/reject/ at 2026-10-20 02:25:17
 
+- [Automated Verified] Check #137: Verified Postman collection spec for GET /api/v1/articles/{slug}/reviews/ at 2026-10-20 02:25:18
+
