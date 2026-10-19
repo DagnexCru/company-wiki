@@ -53,3 +53,5 @@
 
 - [Automated Verified] Check #26: Verified prohibition of submitting in_review articles (HTTP 400) at 2026-10-20 02:24:18
 
+- [Automated Verified] Check #27: Verified reader authorization block on article submission (HTTP 403) at 2026-10-20 02:24:19
+
