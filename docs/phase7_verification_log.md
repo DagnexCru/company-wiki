@@ -207,3 +207,5 @@
 
 - [Automated Verified] Check #103: Verified ArticleEditorPage rejection feedback warning banner display at 2026-10-20 02:25:00
 
+- [Automated Verified] Check #104: Verified ArticleEditorPage save as draft button execution at 2026-10-20 02:25:00
+
