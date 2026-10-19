@@ -339,3 +339,5 @@
 
 - [Automated Verified] Check #169: Verified resubmission transition from rejected to in_review at 2026-10-20 02:25:34
 
+- [Automated Verified] Check #170: Verified submission timestamp recording on Article model at 2026-10-20 02:25:35
+
