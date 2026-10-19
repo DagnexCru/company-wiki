@@ -79,3 +79,5 @@
 
 - [Automated Verified] Check #39: Verified ReviewRecord chronological ordering in article audit log at 2026-10-20 02:24:26
 
+- [Automated Verified] Check #40: Verified ReviewRecord immutability and cascade protection at 2026-10-20 02:24:26
+
