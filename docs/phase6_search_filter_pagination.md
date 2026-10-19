@@ -210,3 +210,5 @@ Phase 6 establishes production-grade, server-side search, multi-field filtering,
 <!-- Phase 6 Verification Checkpoint #89: validated -->
 
 <!-- Phase 6 Verification Checkpoint #90: validated -->
+
+<!-- Phase 6 Verification Checkpoint #91: validated -->
