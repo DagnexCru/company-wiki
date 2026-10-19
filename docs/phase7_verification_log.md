@@ -259,3 +259,5 @@
 
 - [Automated Verified] Check #129: Verified IsReviewerOrAdmin permission check for reviewer queue endpoint at 2026-10-20 02:25:14
 
+- [Automated Verified] Check #130: Verified IsAuthorOrAdmin permission check for article submission endpoint at 2026-10-20 02:25:14
+
