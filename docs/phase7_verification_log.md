@@ -209,3 +209,5 @@
 
 - [Automated Verified] Check #104: Verified ArticleEditorPage save as draft button execution at 2026-10-20 02:25:00
 
+- [Automated Verified] Check #105: Verified ArticleEditorPage save and submit for review button execution at 2026-10-20 02:25:01
+
