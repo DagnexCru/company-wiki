@@ -42,6 +42,9 @@ export interface ArticleInput {
 
 export interface PaginatedResponse<T> {
   count: number;
+  total_pages?: number;
+  current_page?: number;
+  page_size?: number;
   next: string | null;
   previous: string | null;
   results: T[];
@@ -53,6 +56,8 @@ export interface ArticleFilterParams {
   category?: string;
   tag?: string;
   author?: string;
+  ordering?: string;
+  sort?: string;
   page?: number;
   page_size?: number;
 }

@@ -125,6 +125,11 @@ class Article(models.Model):
         verbose_name = "Article"
         verbose_name_plural = "Articles"
         ordering = ["-updated_at"]
+        indexes = [
+            models.Index(fields=["-updated_at"], name="article_updated_at_idx"),
+            models.Index(fields=["status", "-created_at"], name="article_status_created_idx"),
+            models.Index(fields=["category", "status"], name="article_cat_status_idx"),
+        ]
 
     def __str__(self):
         return f"{self.title} ({self.get_status_display()})"

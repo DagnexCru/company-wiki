@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
   BookOpen,
@@ -15,13 +15,15 @@ import {
   Filter,
   Tag as TagIcon,
   X,
+  ArrowUpDown,
+  RotateCcw,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
 import { taxonomyService } from "../services/taxonomyService";
 import { CategoryBadge } from "../components/CategoryBadge";
 import type { ArticleListItem, ArticleFilterParams } from "../types/article";
-import type { Category } from "../types/taxonomy";
+import type { Category, Tag } from "../types/taxonomy";
 
 export const ArticleListPage: React.FC = () => {
   const { user } = useAuth();
@@ -30,23 +32,90 @@ export const ArticleListPage: React.FC = () => {
 
   const [articles, setArticles] = useState<ArticleListItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [search, setSearch] = useState<string>(searchParams.get("search") || "");
-  const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [selectedCategory, setSelectedCategory] = useState<string>(searchParams.get("category") || "");
-  const [selectedTag, setSelectedTag] = useState<string>(searchParams.get("tag") || "");
-  const [page, setPage] = useState<number>(1);
-  const pageSize = 9;
+  // Initialize from URL search parameters for link persistence
+  const initialSearch = searchParams.get("search") || "";
+  const initialCategory = searchParams.get("category") || "";
+  const initialTag = searchParams.get("tag") || "";
+  const initialStatus = searchParams.get("status") || "all";
+  const initialSort = searchParams.get("sort") || "-updated_at";
+  const initialPage = parseInt(searchParams.get("page") || "1", 10);
+  const initialPageSize = parseInt(searchParams.get("page_size") || "9", 10);
+
+  const [search, setSearch] = useState<string>(initialSearch);
+  const [debouncedSearch, setDebouncedSearch] = useState<string>(initialSearch);
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
+  const [selectedTag, setSelectedTag] = useState<string>(initialTag);
+  const [statusFilter, setStatusFilter] = useState<string>(initialStatus);
+  const [sortOrder, setSortOrder] = useState<string>(initialSort);
+  const [page, setPage] = useState<number>(initialPage);
+  const [pageSize, setPageSize] = useState<number>(initialPageSize);
 
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
 
-  // Load categories for filter dropdown
+  // Debounce search input for snappy, smooth typing without API thrashing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 350);
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  // Load categories and tags taxonomy on mount
   useEffect(() => {
     taxonomyService.getCategories().then(setCategories).catch(() => {});
+    taxonomyService.getTags().then(setTags).catch(() => {});
   }, []);
+
+  // Synchronize URL search params with active state
+  const updateUrlParams = useCallback(
+    (updates: {
+      search?: string;
+      category?: string;
+      tag?: string;
+      status?: string;
+      sort?: string;
+      page?: number;
+      page_size?: number;
+    }) => {
+      const nextParams = new URLSearchParams(searchParams);
+
+      const s = updates.search !== undefined ? updates.search : debouncedSearch;
+      if (s.trim()) nextParams.set("search", s.trim());
+      else nextParams.delete("search");
+
+      const cat = updates.category !== undefined ? updates.category : selectedCategory;
+      if (cat) nextParams.set("category", cat);
+      else nextParams.delete("category");
+
+      const t = updates.tag !== undefined ? updates.tag : selectedTag;
+      if (t) nextParams.set("tag", t);
+      else nextParams.delete("tag");
+
+      const st = updates.status !== undefined ? updates.status : statusFilter;
+      if (st && st !== "all") nextParams.set("status", st);
+      else nextParams.delete("status");
+
+      const so = updates.sort !== undefined ? updates.sort : sortOrder;
+      if (so && so !== "-updated_at") nextParams.set("sort", so);
+      else nextParams.delete("sort");
+
+      const p = updates.page !== undefined ? updates.page : page;
+      if (p > 1) nextParams.set("page", p.toString());
+      else nextParams.delete("page");
+
+      const ps = updates.page_size !== undefined ? updates.page_size : pageSize;
+      if (ps !== 9) nextParams.set("page_size", ps.toString());
+      else nextParams.delete("page_size");
+
+      setSearchParams(nextParams, { replace: true });
+    },
+    [searchParams, debouncedSearch, selectedCategory, selectedTag, statusFilter, sortOrder, page, pageSize, setSearchParams]
+  );
 
   const fetchArticles = useCallback(async () => {
     setLoading(true);
@@ -55,10 +124,11 @@ export const ArticleListPage: React.FC = () => {
       const params: ArticleFilterParams = {
         page,
         page_size: pageSize,
+        ordering: sortOrder,
       };
 
-      if (search.trim()) {
-        params.search = search.trim();
+      if (debouncedSearch.trim()) {
+        params.search = debouncedSearch.trim();
       }
 
       if (statusFilter !== "all") {
@@ -83,37 +153,108 @@ export const ArticleListPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [page, search, statusFilter, selectedCategory, selectedTag]);
+  }, [page, pageSize, sortOrder, debouncedSearch, statusFilter, selectedCategory, selectedTag]);
 
   useEffect(() => {
     fetchArticles();
   }, [fetchArticles]);
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSearchChange = (val: string) => {
+    setSearch(val);
     setPage(1);
-    fetchArticles();
+    updateUrlParams({ search: val, page: 1 });
+  };
+
+  const handleClearSearch = () => {
+    setSearch("");
+    setDebouncedSearch("");
+    setPage(1);
+    updateUrlParams({ search: "", page: 1 });
   };
 
   const handleCategoryChange = (catSlug: string) => {
     setSelectedCategory(catSlug);
     setPage(1);
-    const newParams = new URLSearchParams(searchParams);
-    if (catSlug) {
-      newParams.set("category", catSlug);
-    } else {
-      newParams.delete("category");
-    }
-    setSearchParams(newParams);
+    updateUrlParams({ category: catSlug, page: 1 });
   };
 
-  const clearTagFilter = () => {
-    setSelectedTag("");
+  const handleTagChange = (tagSlug: string) => {
+    setSelectedTag(tagSlug);
     setPage(1);
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete("tag");
-    setSearchParams(newParams);
+    updateUrlParams({ tag: tagSlug, page: 1 });
   };
+
+  const handleStatusChange = (status: string) => {
+    setStatusFilter(status);
+    setPage(1);
+    updateUrlParams({ status, page: 1 });
+  };
+
+  const handleSortChange = (newSort: string) => {
+    setSortOrder(newSort);
+    setPage(1);
+    updateUrlParams({ sort: newSort, page: 1 });
+  };
+
+  const handlePageSizeChange = (newSize: number) => {
+    setPageSize(newSize);
+    setPage(1);
+    updateUrlParams({ page_size: newSize, page: 1 });
+  };
+
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    updateUrlParams({ page: newPage });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleResetFilters = () => {
+    setSearch("");
+    setDebouncedSearch("");
+    setSelectedCategory("");
+    setSelectedTag("");
+    setStatusFilter("all");
+    setSortOrder("-updated_at");
+    setPage(1);
+    setSearchParams(new URLSearchParams(), { replace: true });
+  };
+
+  const hasActiveFilters = Boolean(
+    debouncedSearch.trim() ||
+      selectedCategory ||
+      selectedTag ||
+      statusFilter !== "all" ||
+      sortOrder !== "-updated_at"
+  );
+
+  const totalPages = Math.ceil(totalCount / pageSize) || 1;
+
+  // Generate pagination items
+  const pageNumbers = useMemo(() => {
+    const pages: (number | string)[] = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      if (page <= 4) {
+        for (let i = 1; i <= 5; i++) pages.push(i);
+        pages.push("...");
+        pages.push(totalPages);
+      } else if (page >= totalPages - 3) {
+        pages.push(1);
+        pages.push("...");
+        for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        pages.push("...");
+        pages.push(page - 1);
+        pages.push(page);
+        pages.push(page + 1);
+        pages.push("...");
+        pages.push(totalPages);
+      }
+    }
+    return pages;
+  }, [page, totalPages]);
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -150,8 +291,6 @@ export const ArticleListPage: React.FC = () => {
     }
   };
 
-  const totalPages = Math.ceil(totalCount / pageSize) || 1;
-
   return (
     <div className="space-y-6">
       {/* Header and Controls */}
@@ -162,7 +301,7 @@ export const ArticleListPage: React.FC = () => {
             Knowledge Base
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Browse, search, and filter technical documentation organized by categories and tags.
+            Browse, search, and filter technical documentation organized by categories, tags, and status.
           </p>
         </div>
 
@@ -177,82 +316,164 @@ export const ArticleListPage: React.FC = () => {
         )}
       </div>
 
-      {/* Search and Filters Bar */}
-      <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-        <form onSubmit={handleSearchSubmit} className="relative flex-1">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by title, summary, or content..."
-            className="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </form>
+      {/* Main Search, Filter & Sort Bar */}
+      <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+        {/* Top row: Search input + Sorting selector */}
+        <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+          {/* Debounced Search input with clear button */}
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => handleSearchChange(e.target.value)}
+              placeholder="Search across title, summary, content, tags, or categories..."
+              className="w-full pl-9 pr-9 py-2 text-sm bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+            />
+            {search && (
+              <button
+                type="button"
+                onClick={handleClearSearch}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                title="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
-        {/* Category Dropdown Filter */}
-        <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-slate-400" />
-          <select
-            value={selectedCategory}
-            onChange={(e) => handleCategoryChange(e.target.value)}
-            className="px-3 py-2 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            <option value="">All Categories</option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.slug}>
-                {c.name} ({c.article_count})
-              </option>
-            ))}
-          </select>
+          {/* Sort dropdown */}
+          <div className="flex items-center gap-2 shrink-0">
+            <ArrowUpDown className="w-4 h-4 text-slate-400 shrink-0" />
+            <select
+              value={sortOrder}
+              onChange={(e) => handleSortChange(e.target.value)}
+              className="px-3 py-2 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            >
+              <option value="-updated_at">Recently Updated</option>
+              <option value="-created_at">Newest First</option>
+              <option value="created_at">Oldest First</option>
+              <option value="title">Title (A to Z)</option>
+              <option value="-title">Title (Z to A)</option>
+            </select>
+          </div>
         </div>
 
-        {/* Status Filter Tabs */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
-          {[
-            { id: "all", label: "All Content" },
-            { id: "published", label: "Published" },
-            ...(canCreate ? [{ id: "draft", label: "Drafts" }] : []),
-            { id: "archived", label: "Archived" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                setStatusFilter(tab.id);
-                setPage(1);
-              }}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors ${
-                statusFilter === tab.id
-                  ? "bg-indigo-600 text-white"
-                  : "bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        {/* Bottom row: Category Filter, Tag Filter, Status Tabs */}
+        <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Category Dropdown */}
+            <div className="flex items-center gap-1.5">
+              <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <select
+                value={selectedCategory}
+                onChange={(e) => handleCategoryChange(e.target.value)}
+                className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              >
+                <option value="">All Categories</option>
+                {categories.map((c) => (
+                  <option key={c.id} value={c.slug}>
+                    {c.name} ({c.article_count})
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Tag Dropdown */}
+            <div className="flex items-center gap-1.5">
+              <TagIcon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <select
+                value={selectedTag}
+                onChange={(e) => handleTagChange(e.target.value)}
+                className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              >
+                <option value="">All Tags</option>
+                {tags.map((t) => (
+                  <option key={t.id} value={t.slug}>
+                    #{t.name} ({t.article_count})
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Status Filter Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0">
+            {[
+              { id: "all", label: "All Content" },
+              { id: "published", label: "Published" },
+              ...(canCreate ? [{ id: "draft", label: "Drafts" }] : []),
+              { id: "archived", label: "Archived" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => handleStatusChange(tab.id)}
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors ${
+                  statusFilter === tab.id
+                    ? "bg-indigo-600 text-white shadow-xs"
+                    : "bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Active Filter Chips Bar */}
-      {(selectedCategory || selectedTag) && (
-        <div className="flex items-center gap-2 text-xs text-slate-500">
-          <span>Active Filters:</span>
-          {selectedCategory && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-              Category: {categories.find((c) => c.slug === selectedCategory)?.name || selectedCategory}
-              <button onClick={() => handleCategoryChange("")} className="hover:text-indigo-900">
-                <X className="w-3 h-3 ml-0.5" />
-              </button>
-            </span>
-          )}
-          {selectedTag && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
-              <TagIcon className="w-3 h-3" /> #{selectedTag}
-              <button onClick={clearTagFilter} className="hover:text-purple-900">
-                <X className="w-3 h-3 ml-0.5" />
-              </button>
-            </span>
-          )}
+      {/* Active Filter Chips Bar & Reset Button */}
+      {hasActiveFilters && (
+        <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 rounded-xl text-xs">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-medium text-slate-500 dark:text-slate-400">Active Filters:</span>
+            {debouncedSearch.trim() && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-2xs">
+                Query: "{debouncedSearch}"
+                <button onClick={handleClearSearch} className="hover:text-rose-600 transition-colors">
+                  <X className="w-3 h-3 ml-0.5" />
+                </button>
+              </span>
+            )}
+            {selectedCategory && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800">
+                Category: {categories.find((c) => c.slug === selectedCategory)?.name || selectedCategory}
+                <button onClick={() => handleCategoryChange("")} className="hover:text-rose-600 transition-colors">
+                  <X className="w-3 h-3 ml-0.5" />
+                </button>
+              </span>
+            )}
+            {selectedTag && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800">
+                <TagIcon className="w-3 h-3" /> #{tags.find((t) => t.slug === selectedTag)?.name || selectedTag}
+                <button onClick={() => handleTagChange("")} className="hover:text-rose-600 transition-colors">
+                  <X className="w-3 h-3 ml-0.5" />
+                </button>
+              </span>
+            )}
+            {statusFilter !== "all" && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800">
+                Status: {statusFilter}
+                <button onClick={() => handleStatusChange("all")} className="hover:text-rose-600 transition-colors">
+                  <X className="w-3 h-3 ml-0.5" />
+                </button>
+              </span>
+            )}
+            {sortOrder !== "-updated_at" && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                Sort: {sortOrder}
+                <button onClick={() => handleSortChange("-updated_at")} className="hover:text-rose-600 transition-colors">
+                  <X className="w-3 h-3 ml-0.5" />
+                </button>
+              </span>
+            )}
+          </div>
+
+          <button
+            onClick={handleResetFilters}
+            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors cursor-pointer"
+          >
+            <RotateCcw className="w-3.5 h-3.5" /> Reset all filters
+          </button>
         </div>
       )}
 
@@ -275,7 +496,7 @@ export const ArticleListPage: React.FC = () => {
       {/* Loading Skeleton */}
       {loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(pageSize)].map((_, i) => (
             <div
               key={i}
               className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 animate-pulse space-y-3"
@@ -297,22 +518,32 @@ export const ArticleListPage: React.FC = () => {
         <div className="text-center py-16 px-4 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           <FileText className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-3" />
           <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200">
-            No articles found
+            {hasActiveFilters ? "No matching articles found" : "No articles available"}
           </h3>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto mt-1 mb-4">
-            {search
-              ? `No articles matched "${search}". Try searching for other keywords.`
-              : "There are no knowledge articles available matching your current filter criteria."}
+            {hasActiveFilters
+              ? "No knowledge articles match your current search and filter combination. Try broadening your keywords or resetting filters."
+              : "There are no knowledge articles published yet. Start creating company documentation."}
           </p>
-          {canCreate && (
-            <Link
-              to="/articles/new"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700"
-            >
-              <Plus className="w-4 h-4" />
-              Write First Article
-            </Link>
-          )}
+          <div className="flex items-center justify-center gap-3">
+            {hasActiveFilters && (
+              <button
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium transition-colors"
+              >
+                <RotateCcw className="w-4 h-4" /> Reset Filters
+              </button>
+            )}
+            {canCreate && (
+              <Link
+                to="/articles/new"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors"
+              >
+                <Plus className="w-4 h-4" />
+                Write First Article
+              </Link>
+            )}
+          </div>
         </div>
       )}
 
@@ -355,12 +586,16 @@ export const ArticleListPage: React.FC = () => {
                 {article.tags && article.tags.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {article.tags.map((t) => (
-                      <span
+                      <button
                         key={t.id}
-                        className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleTagChange(t.slug);
+                        }}
+                        className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 font-medium transition-colors"
                       >
                         #{t.name}
-                      </span>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -390,35 +625,77 @@ export const ArticleListPage: React.FC = () => {
       )}
 
       {/* Pagination Controls */}
-      {!loading && !error && totalPages > 1 && (
-        <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            Showing <span className="font-medium">{(page - 1) * pageSize + 1}</span> to{" "}
-            <span className="font-medium">
-              {Math.min(page * pageSize, totalCount)}
-            </span>{" "}
-            of <span className="font-medium">{totalCount}</span> articles
-          </p>
+      {!loading && !error && totalCount > 0 && (
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+          {/* Results summary and Page size selector */}
+          <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+            <p>
+              Showing <span className="font-semibold text-slate-900 dark:text-white">{(page - 1) * pageSize + 1}</span> to{" "}
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {Math.min(page * pageSize, totalCount)}
+              </span>{" "}
+              of <span className="font-semibold text-slate-900 dark:text-white">{totalCount}</span> articles
+            </p>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="text-sm text-slate-700 dark:text-slate-300 px-2 font-medium">
-              Page {page} of {totalPages}
-            </span>
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page >= totalPages}
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-1.5 text-xs">
+              <span>Per page:</span>
+              <select
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="px-2 py-1 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
+              >
+                <option value={6}>6</option>
+                <option value={9}>9</option>
+                <option value={12}>12</option>
+                <option value={24}>24</option>
+              </select>
+            </div>
           </div>
+
+          {/* Page numbers navigation */}
+          {totalPages > 1 && (
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => handlePageChange(Math.max(1, page - 1))}
+                disabled={page === 1}
+                aria-label="Previous page"
+                className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center gap-1 px-1">
+                {pageNumbers.map((p, idx) =>
+                  typeof p === "number" ? (
+                    <button
+                      key={idx}
+                      onClick={() => handlePageChange(p)}
+                      className={`min-w-8 h-8 px-2.5 rounded-lg text-xs font-medium transition-colors ${
+                        page === p
+                          ? "bg-indigo-600 text-white font-semibold shadow-xs"
+                          : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  ) : (
+                    <span key={idx} className="px-1 text-slate-400 text-xs">
+                      {p}
+                    </span>
+                  )
+                )}
+              </div>
+
+              <button
+                onClick={() => handlePageChange(Math.min(totalPages, page + 1))}
+                disabled={page >= totalPages}
+                aria-label="Next page"
+                className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
