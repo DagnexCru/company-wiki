@@ -293,3 +293,5 @@
 
 - [Automated Verified] Check #146: Verified HTTP 404 Not Found response when slug does not resolve at 2026-10-20 02:25:22
 
+- [Automated Verified] Check #147: Verified Cross-origin CORS header verification on workflow API endpoints at 2026-10-20 02:25:23
+
