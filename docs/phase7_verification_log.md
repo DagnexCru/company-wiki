@@ -327,3 +327,5 @@
 
 - [Automated Verified] Check #163: Verified End-to-end author workflow: revision reading, content edit, resubmission at 2026-10-20 02:25:31
 
+- [Automated Verified] Check #164: Verified End-to-end reviewer workflow: second inspection, approval and publishing at 2026-10-20 02:25:32
+
