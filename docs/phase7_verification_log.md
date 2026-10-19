@@ -103,3 +103,5 @@
 
 - [Automated Verified] Check #51: Verified WorkflowStatusBadge published variant styling and emerald icon at 2026-10-20 02:24:32
 
+- [Automated Verified] Check #52: Verified WorkflowStatusBadge rejected variant styling and rose icon at 2026-10-20 02:24:32
+
