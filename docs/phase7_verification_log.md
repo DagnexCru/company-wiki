@@ -165,3 +165,5 @@
 
 - [Automated Verified] Check #82: Verified ReviewQueuePage quick request changes button modal launch at 2026-10-20 02:24:48
 
+- [Automated Verified] Check #83: Verified ReviewQueuePage full inspection navigation link to detail page at 2026-10-20 02:24:49
+
