@@ -143,3 +143,5 @@
 
 - [Automated Verified] Check #71: Verified ReviewQueuePage pending queue count metric card computation at 2026-10-20 02:24:42
 
+- [Automated Verified] Check #72: Verified ReviewQueuePage user role display metric card computation at 2026-10-20 02:24:43
+
