@@ -32,3 +32,5 @@ Phase 6 establishes production-grade, server-side search, multi-field filtering,
     - `page_size`: integer items per page (e.g. `?page_size=9`, max 100)
 
 <!-- Phase 6 Verification Checkpoint #1: validated -->
+
+<!-- Phase 6 Verification Checkpoint #2: validated -->
