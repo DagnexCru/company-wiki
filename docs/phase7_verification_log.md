@@ -247,3 +247,5 @@
 
 - [Automated Verified] Check #123: Verified ReviewQueueView ordering by submitted_at and created_at verification at 2026-10-20 02:25:10
 
+- [Automated Verified] Check #124: Verified ReviewQueueView icontains multi-field search filter verification at 2026-10-20 02:25:11
+
