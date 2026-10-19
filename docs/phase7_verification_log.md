@@ -21,3 +21,5 @@
 
 - [Automated Verified] Check #10: Verified admin supervisory override on article approval at 2026-10-20 02:24:10
 
+- [Automated Verified] Check #11: Verified admin supervisory override on article rejection at 2026-10-20 02:24:10
+
