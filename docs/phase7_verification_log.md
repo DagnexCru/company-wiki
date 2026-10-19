@@ -289,3 +289,5 @@
 
 - [Automated Verified] Check #144: Verified HTTP 400 Bad Request detail message on invalid transition at 2026-10-20 02:25:21
 
+- [Automated Verified] Check #145: Verified HTTP 403 Forbidden detail message on unauthorized review action at 2026-10-20 02:25:22
+
