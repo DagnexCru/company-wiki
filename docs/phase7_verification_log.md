@@ -93,3 +93,5 @@
 
 - [Automated Verified] Check #46: Verified workflowService approveArticle editorial note payload at 2026-10-20 02:24:30
 
+- [Automated Verified] Check #47: Verified workflowService rejectArticle feedback requirement check at 2026-10-20 02:24:30
+
