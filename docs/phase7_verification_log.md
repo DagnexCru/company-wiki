@@ -33,3 +33,5 @@
 
 - [Automated Verified] Check #16: Verified approval status transition to published at 2026-10-20 02:24:13
 
+- [Automated Verified] Check #17: Verified approval publication timestamp assignment at 2026-10-20 02:24:14
+
