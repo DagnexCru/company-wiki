@@ -99,3 +99,5 @@
 
 - [Automated Verified] Check #49: Verified WorkflowStatusBadge draft variant styling and slate icon at 2026-10-20 02:24:31
 
+- [Automated Verified] Check #50: Verified WorkflowStatusBadge in_review variant styling and pulse indicator at 2026-10-20 02:24:32
+
