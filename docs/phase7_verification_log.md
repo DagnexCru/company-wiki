@@ -139,3 +139,5 @@
 
 - [Automated Verified] Check #69: Verified ReviewTimeline status transition pill flow rendering at 2026-10-20 02:24:41
 
+- [Automated Verified] Check #70: Verified ReviewTimeline feedback note quote bubble rendering at 2026-10-20 02:24:42
+
