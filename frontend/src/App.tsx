@@ -10,6 +10,8 @@ import { ArticleDetailPage } from "./pages/ArticleDetailPage";
 import { ArticleEditorPage } from "./pages/ArticleEditorPage";
 import { TaxonomyPage } from "./pages/TaxonomyPage";
 import { UserManagementPage } from "./pages/UserManagementPage";
+import { ReviewQueuePage } from "./pages/ReviewQueuePage";
+import { ReviewDetailPage } from "./pages/ReviewDetailPage";
 import { AccessDeniedPage } from "./pages/AccessDeniedPage";
 
 export function App() {
@@ -90,6 +92,28 @@ export function App() {
               <ProtectedRoute>
                 <MainLayout>
                   <TaxonomyPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Workflow Review Queue Routes (Phase 7) */}
+          <Route
+            path="/reviews"
+            element={
+              <ProtectedRoute allowedRoles={["ADMIN", "REVIEWER"]}>
+                <MainLayout>
+                  <ReviewQueuePage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviews/:slug"
+            element={
+              <ProtectedRoute allowedRoles={["ADMIN", "REVIEWER"]}>
+                <MainLayout>
+                  <ReviewDetailPage />
                 </MainLayout>
               </ProtectedRoute>
             }
