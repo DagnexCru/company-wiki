@@ -114,6 +114,21 @@ class Article(models.Model):
     )
 
     is_featured = models.BooleanField(default=False)
+    rejection_reason = models.TextField(
+        blank=True,
+        default="",
+        help_text="Feedback or instructions for revision if article was rejected.",
+    )
+    submitted_at = models.DateTimeField(null=True, blank=True, db_index=True)
+    reviewed_at = models.DateTimeField(null=True, blank=True)
+    last_reviewer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="reviewed_articles",
+        help_text="The reviewer or administrator who made the latest review decision.",
+    )
     published_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
