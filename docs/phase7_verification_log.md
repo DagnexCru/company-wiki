@@ -75,3 +75,5 @@
 
 - [Automated Verified] Check #37: Verified ReviewRecord from_status and to_status accuracy at 2026-10-20 02:24:25
 
+- [Automated Verified] Check #38: Verified ReviewRecord actor foreign key attribution at 2026-10-20 02:24:25
+
