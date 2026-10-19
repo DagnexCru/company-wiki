@@ -153,3 +153,5 @@
 
 - [Automated Verified] Check #76: Verified ReviewQueuePage empty queue congratulations card display at 2026-10-20 02:24:45
 
+- [Automated Verified] Check #77: Verified ReviewQueuePage queue item article summary and tags display at 2026-10-20 02:24:46
+
