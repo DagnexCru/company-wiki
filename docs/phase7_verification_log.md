@@ -185,3 +185,5 @@
 
 - [Automated Verified] Check #92: Verified ReviewDetailPage category link and tag pills display at 2026-10-20 02:24:54
 
+- [Automated Verified] Check #93: Verified ReviewDetailPage estimated reading time computation display at 2026-10-20 02:24:54
+
