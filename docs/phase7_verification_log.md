@@ -257,3 +257,5 @@
 
 - [Automated Verified] Check #128: Verified CanReviewArticle object permission enforcement in view layer at 2026-10-20 02:25:13
 
+- [Automated Verified] Check #129: Verified IsReviewerOrAdmin permission check for reviewer queue endpoint at 2026-10-20 02:25:14
+
