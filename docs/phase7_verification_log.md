@@ -77,3 +77,5 @@
 
 - [Automated Verified] Check #38: Verified ReviewRecord actor foreign key attribution at 2026-10-20 02:24:25
 
+- [Automated Verified] Check #39: Verified ReviewRecord chronological ordering in article audit log at 2026-10-20 02:24:26
+
