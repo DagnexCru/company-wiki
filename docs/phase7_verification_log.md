@@ -221,3 +221,5 @@
 
 - [Automated Verified] Check #110: Verified ArticleListPage article card workflow status badge rendering at 2026-10-20 02:25:04
 
+- [Automated Verified] Check #111: Verified ArticleListPage filter reset button state restoration at 2026-10-20 02:25:04
+
