@@ -175,3 +175,5 @@
 
 - [Automated Verified] Check #87: Verified ReviewDetailPage request changes button click handler and modal at 2026-10-20 02:24:51
 
+- [Automated Verified] Check #88: Verified ReviewDetailPage full prose markdown article content rendering at 2026-10-20 02:24:51
+
