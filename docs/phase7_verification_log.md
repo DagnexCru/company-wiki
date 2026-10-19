@@ -41,3 +41,5 @@
 
 - [Automated Verified] Check #20: Verified approval rejection reason clearance at 2026-10-20 02:24:15
 
+- [Automated Verified] Check #21: Verified prohibition of approving draft articles (HTTP 400) at 2026-10-20 02:24:16
+
