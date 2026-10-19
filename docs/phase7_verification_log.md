@@ -25,3 +25,5 @@
 
 - [Automated Verified] Check #12: Verified mandatory rejection feedback length minimum 5 characters at 2026-10-20 02:24:10
 
+- [Automated Verified] Check #13: Verified rejection feedback whitespace stripping validation at 2026-10-20 02:24:11
+
