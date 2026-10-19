@@ -211,3 +211,5 @@
 
 - [Automated Verified] Check #105: Verified ArticleEditorPage save and submit for review button execution at 2026-10-20 02:25:01
 
+- [Automated Verified] Check #106: Verified ArticleEditorPage save and resubmit button execution on rejected state at 2026-10-20 02:25:01
+
