@@ -137,3 +137,5 @@
 
 - [Automated Verified] Check #68: Verified ReviewTimeline rejection event icon, colorway, and actor badge at 2026-10-20 02:24:40
 
+- [Automated Verified] Check #69: Verified ReviewTimeline status transition pill flow rendering at 2026-10-20 02:24:41
+
