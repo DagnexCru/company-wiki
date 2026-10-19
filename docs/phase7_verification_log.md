@@ -243,3 +243,5 @@
 
 - [Automated Verified] Check #121: Verified ArticleViewSet get_queryset action lookup optimization for workflow at 2026-10-20 02:25:09
 
+- [Automated Verified] Check #122: Verified ReviewQueueView get_queryset status filter verification at 2026-10-20 02:25:10
+
