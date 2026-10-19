@@ -64,6 +64,7 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     author = ArticleAuthorSummarySerializer(read_only=True)
     category = CategorySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
+    last_reviewer = ArticleAuthorSummarySerializer(read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
 
@@ -76,29 +77,21 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "summary",
             "content",
             "author",
+            "last_reviewer",
             "category",
             "tags",
             "status",
             "status_display",
+            "rejection_reason",
             "is_featured",
             "estimated_read_time",
+            "submitted_at",
+            "reviewed_at",
             "published_at",
             "created_at",
             "updated_at",
         ]
-        read_only_fields = [
-            "id",
-            "slug",
-            "author",
-            "category",
-            "tags",
-            "status",
-            "status_display",
-            "estimated_read_time",
-            "published_at",
-            "created_at",
-            "updated_at",
-        ]
+        read_only_fields = fields
 
 
 class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
