@@ -149,3 +149,5 @@
 
 - [Automated Verified] Check #74: Verified ReviewQueuePage live debounced search filter bar at 2026-10-20 02:24:44
 
+- [Automated Verified] Check #75: Verified ReviewQueuePage category filter dropdown selection synchronization at 2026-10-20 02:24:45
+
