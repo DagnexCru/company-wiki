@@ -206,3 +206,4 @@
 | 202 | workflow | revision-auto-numbering | Verify revision_number increments sequentially per article (1, 2, 3...) | [Automated Verified] |
 | 203 | workflow | revision-author-capture | Verify revision author captures the user making the edit or restore | [Automated Verified] |
 | 204 | workflow | revision-diff-engine | Document difflib unified_diff generating line additions and deletions | [Automated Verified] |
+| 205 | workflow | revision-metadata-diff | Document title, summary, category, and tags change tracking in diff | [Automated Verified] |
