@@ -55,3 +55,4 @@
 | 51 | setup | gitignore-backend | Audit backend/.gitignore excluding *.pyc, __pycache__, and .env | [Automated Verified] |
 | 52 | setup | gitignore-frontend | Audit frontend/.gitignore excluding node_modules/, dist/, and .env | [Automated Verified] |
 | 53 | setup | clean-slate-db | Document clean database reset procedure using DROP DATABASE and migrate | [Automated Verified] |
+| 54 | setup | connection-pooling | Document PostgreSQL connection max age CONN_MAX_AGE recommendations | [Automated Verified] |
