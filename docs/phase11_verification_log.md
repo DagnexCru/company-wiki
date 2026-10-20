@@ -172,3 +172,4 @@
 | 168 | roles | taxonomy-admin-protection | Verify only Administrator can create, edit, or delete categories | [Automated Verified] |
 | 169 | roles | tag-creation-author-allowed | Document Author permission to create or associate new tags on articles | [Automated Verified] |
 | 170 | roles | tag-deletion-admin-only | Verify tag deletion is restricted to Administrators to prevent taxonomy breakage | [Automated Verified] |
+| 171 | roles | audit-log-admin-only | Verify audit log endpoints reject non-administrator users with HTTP 403 | [Automated Verified] |
