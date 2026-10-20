@@ -127,3 +127,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 122 | `test(phase10): audit CORS allowed origins whitelist configuration` | CORS_ALLOWED_ORIGINS strictly restricted to configured development/production URLs. | [Automated Verified] |
 | 123 | `test(phase10): audit CORS credentials allow header verification` | CORS_ALLOW_CREDENTIALS enabled only for whitelisted origins. | [Automated Verified] |
 | 124 | `test(phase10): audit X-Content-Type-Options nosniff header inclusion` | Security middleware sets nosniff to prevent MIME type sniffing. | [Automated Verified] |
+| 125 | `test(phase10): audit X-Frame-Options DENY header inclusion` | Clickjacking protection prevents embedding wiki in external iframes. | [Automated Verified] |
