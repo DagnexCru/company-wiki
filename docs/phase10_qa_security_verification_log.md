@@ -38,3 +38,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 033 | `test(phase10): verify scenario 4 published_at and reviewed_at timestamps recorded` | Server records publication and review timestamps upon approval. | [Automated Verified] |
 | 034 | `test(phase10): verify scenario 4 last_reviewer foreign key assignment` | Server records approving reviewer user reference on article record. | [Automated Verified] |
 | 035 | `test(phase10): verify scenario 4 ReviewRecord created with action=APPROVE` | Workflow record created documenting approval and optional editorial notes. | [Automated Verified] |
+| 036 | `test(phase10): verify scenario 4 audit trail records ARTICLE_APPROVE event` | Audit event ARTICLE_APPROVE logged attributing action to reviewer. | [Automated Verified] |
