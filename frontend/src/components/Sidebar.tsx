@@ -78,10 +78,10 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between shrink-0">
+    <aside className="w-64 border-r border-slate-800 bg-slate-900 flex flex-col justify-between shrink-0">
       <div className="p-4 space-y-6">
         <div>
-          <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+          <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
             Main Navigation
           </p>
           <nav className="space-y-1">
@@ -97,22 +97,22 @@ export const Sidebar = () => {
                   to={item.path}
                   className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition ${
                     isActive
-                      ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 shadow-xs"
-                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-xs"
+                      : "text-slate-400 hover:bg-slate-800/60 hover:text-white"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <Icon
                       className={`w-4 h-4 ${
                         isActive
-                          ? "text-indigo-600 dark:text-indigo-400"
+                          ? "text-indigo-400"
                           : "text-slate-400"
                       }`}
                     />
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className="text-[10px] px-1.5 py-0.5 rounded-full font-medium bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full font-medium bg-slate-800 text-slate-400 border border-slate-700">
                       {item.badge}
                     </span>
                   )}
@@ -122,23 +122,23 @@ export const Sidebar = () => {
           </nav>
         </div>
 
-        {/* Stack Status Box */}
-        <div className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800">
+        {/* Workspace Status Box */}
+        <div className="p-3 bg-slate-800/50 rounded-xl border border-slate-800">
           <div className="flex items-center gap-2 mb-1.5">
-            <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
-              PostgreSQL Core
+            <Layers className="w-4 h-4 text-indigo-400" />
+            <span className="text-xs font-semibold text-slate-200">
+              Knowledge Base Active
             </span>
           </div>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            Role-aware queryset filtering & unique slug generation active on port 5432.
+          <p className="text-[11px] text-slate-400 leading-relaxed">
+            Role-based access & version control active across all workspaces.
           </p>
         </div>
       </div>
 
-      <div className="p-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between">
+      <div className="p-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
         <span>Active Role:</span>
-        <span className="font-semibold text-slate-800 dark:text-slate-200 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+        <span className="font-semibold text-slate-200 px-2 py-0.5 rounded bg-slate-800 border border-slate-700">
           {user?.role || "Guest"}
         </span>
       </div>

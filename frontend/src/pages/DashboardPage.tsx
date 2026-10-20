@@ -97,7 +97,7 @@ export const DashboardPage = () => {
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold text-brand-200 border border-white/10">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Role-Aware Telemetry • Phase 9 Active</span>
+            <span>Role-Aware Workspace • Operational</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             Welcome back, {user?.full_name || user?.username}!

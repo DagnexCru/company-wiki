@@ -13,28 +13,32 @@
   --color-brand-900: #312e81;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #0f172a;
+  color: #f8fafc;
   font-family: Inter, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom scrollbars */
+/* Custom dark scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(15, 23, 42, 0.6);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #334155;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #475569;
 }
