@@ -43,3 +43,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 38 | `feat(phase9): verify Author role assignment in dashboard response` | Authenticated authors receive role='AUTHOR' with draft and revision controls. | [Automated Verified] |
 | 39 | `feat(phase9): compute Author my_drafts_count metric accurately` | Drafts count matches total articles authored by the user in DRAFT status. | [Automated Verified] |
 | 40 | `feat(phase9): compute Author my_in_review_count metric accurately` | In-review count tracks author's submitted articles awaiting reviewer decisions. | [Automated Verified] |
+| 41 | `feat(phase9): compute Author my_rejected_count metric accurately` | Rejected count tracks articles returned to author with feedback for revision. | [Automated Verified] |
