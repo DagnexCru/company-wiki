@@ -36,3 +36,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 31 | `test(phase9): verify Reader my_recent_drafts field is strictly null` | Readers cannot access drafts; list is null to prevent private WIP notes leakage. | [Automated Verified] |
 | 32 | `test(phase9): verify Reader reviewer_metrics field is strictly null` | Editorial review metrics are null for readers without review privileges. | [Automated Verified] |
 | 33 | `test(phase9): verify Reader pending_review_articles field is strictly null` | Unapproved submissions are hidden from readers until official editorial publication. | [Automated Verified] |
+| 34 | `test(phase9): verify Reader admin_metrics field is strictly null` | System-wide administration metrics are null for unauthorized reader accounts. | [Automated Verified] |
