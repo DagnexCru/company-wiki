@@ -10,3 +10,4 @@
 | 6 | setup | postgres-utf8 | Document PostgreSQL UTF-8 database encoding and LC_COLLATE collation standard | [Automated Verified] |
 | 7 | setup | db-health-check | Document DB connection ping query 'SELECT 1' in /api/v1/health/ endpoint | [Automated Verified] |
 | 8 | setup | migrations-tree | Audit migrations dependency tree across accounts, taxonomy, articles, workflow, and audit apps | [Automated Verified] |
+| 9 | setup | zero-unapplied | Verify zero unapplied migrations policy on clean database bootstrap | [Automated Verified] |
