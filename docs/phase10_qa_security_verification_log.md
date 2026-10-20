@@ -28,3 +28,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 023 | `test(phase10): verify scenario 3 submitted_at timestamp recorded accurately` | Server records current UTC timestamp in submitted_at field. | [Automated Verified] |
 | 024 | `test(phase10): verify scenario 3 submission notes captured in ReviewRecord` | ReviewRecord created with action=SUBMIT and author submission notes. | [Automated Verified] |
 | 025 | `test(phase10): verify scenario 3 audit trail records ARTICLE_SUBMIT event` | Audit event ARTICLE_SUBMIT logged with previous and target status. | [Automated Verified] |
+| 026 | `test(phase10): verify scenario 3 rejection of submitting already published article` | Submitting an article that is already published returns HTTP 400 Bad Request. | [Automated Verified] |
