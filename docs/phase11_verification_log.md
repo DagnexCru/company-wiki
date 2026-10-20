@@ -75,3 +75,4 @@
 | 71 | api | categories-delete | Specify DELETE /api/v1/categories/{slug}/ safeguard against orphaned articles | [Automated Verified] |
 | 72 | api | tags-list | Specify GET /api/v1/tags/ query params, alphabetical ordering, and article count | [Automated Verified] |
 | 73 | api | tags-create | Specify POST /api/v1/tags/ schema, slugification, and duplicate prevention | [Automated Verified] |
+| 74 | api | tags-retrieve | Specify GET /api/v1/tags/{slug}/ detail schema and tag usage metadata | [Automated Verified] |
