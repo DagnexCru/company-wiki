@@ -66,3 +66,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 61 | `feat(phase9): apply secondary ordering by -updated_at for pending review queue` | Secondary sorting ensures updated submissions are handled promptly. | [Automated Verified] |
 | 62 | `feat(phase9): serialize pending_review_articles with complete metadata` | Items include title, slug, summary, category, author name, and submitted timestamp. | [Automated Verified] |
 | 63 | `feat(phase9): provide direct inspection link for pending review items` | Payload enables frontend 1-click navigation to /reviews/:slug decision screen. | [Automated Verified] |
+| 64 | `test(phase9): verify Reviewer admin_metrics field is strictly null` | Reviewers cannot view system administration or audit volume statistics. | [Automated Verified] |
