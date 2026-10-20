@@ -135,3 +135,4 @@
 | 131 | api | postman-export-v21 | Verify Postman collection v2.1 schema compatibility for one-click import | [Automated Verified] |
 | 132 | api | api-versioning-v1 | Document URL path versioning scheme /api/v1/ for backward compatibility | [Automated Verified] |
 | 133 | api | cors-preflight | Document OPTIONS preflight response headers for cross-origin AJAX requests | [Automated Verified] |
+| 134 | api | json-schema-contract | Document API request/response JSON schema strictness and snake_case naming | [Automated Verified] |
