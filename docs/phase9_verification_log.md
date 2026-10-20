@@ -20,3 +20,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 15 | `feat(phase9): serialize recent_published_articles with ArticleListSerializer` | List serializer returns title, slug, summary, read time, author, and category metadata. | [Automated Verified] |
 | 16 | `feat(phase9): embed author summary inside recent_published_articles payload` | Author details include user UUID, username, full name, email, and role badge. | [Automated Verified] |
 | 17 | `feat(phase9): embed category object inside recent_published_articles payload` | Category metadata includes UUID, name, slug, description, and UI theme color. | [Automated Verified] |
+| 18 | `feat(phase9): prefetch tags relationship to prevent N+1 queries` | Prefetching tags caches many-to-many associations in a single optimized auxiliary query. | [Automated Verified] |
