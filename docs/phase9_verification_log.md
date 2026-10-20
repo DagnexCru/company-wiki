@@ -83,3 +83,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 78 | `feat(phase9): serialize Admin recent_activity with AuditEventListSerializer` | Audit event items include actor username, role, action, resource, and timestamp. | [Automated Verified] |
 | 79 | `feat(phase9): limit Admin recent_activity stream to 6 recent events` | Recent activity feed is capped at 6 events for concise dashboard stream rendering. | [Automated Verified] |
 | 80 | `feat(phase9): order Admin recent_activity by -created_at descending` | Audit stream displays newest security and workflow actions at the top of the feed. | [Automated Verified] |
+| 81 | `feat(phase9): include actor username and role badge in recent activity items` | Activity items attribute every action to the responsible authenticated employee. | [Automated Verified] |
