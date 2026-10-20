@@ -130,3 +130,4 @@
 | 126 | api | postman-taxonomy-folder | Specify Postman Taxonomy folder for Categories and Tags CRUD | [Automated Verified] |
 | 127 | api | postman-audit-folder | Specify Postman Audit folder for Admin event logging verification | [Automated Verified] |
 | 128 | api | postman-dashboard-folder | Specify Postman Dashboard folder for role-aware metrics verification | [Automated Verified] |
+| 129 | api | postman-pre-request | Document Postman pre-request script auto-injecting Bearer token header | [Automated Verified] |
