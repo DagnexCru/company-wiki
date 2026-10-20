@@ -20,3 +20,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #16**: ArticleRevision change_summary field recording author notes — [Automated Verified]
 - [x] **Verification Check #17**: ArticleRevision is_restoration flag boolean default false — [Automated Verified]
 - [x] **Verification Check #18**: ArticleRevision restored_from_revision nullable integer recording — [Automated Verified]
+- [x] **Verification Check #19**: ArticleRevision created_at timestamp default timezone.now — [Automated Verified]
