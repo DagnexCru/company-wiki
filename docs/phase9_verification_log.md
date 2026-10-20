@@ -53,3 +53,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 48 | `feat(phase9): order Author my_recent_drafts by -updated_at descending` | Most recently modified drafts appear first to facilitate continuous writing workflows. | [Automated Verified] |
 | 49 | `feat(phase9): filter my_recent_drafts for DRAFT and REJECTED statuses` | Feed includes drafts and rejected articles needing revisions based on feedback. | [Automated Verified] |
 | 50 | `feat(phase9): include rejected articles requiring revision in author feed` | Rejected articles highlight feedback badges so authors can address reviewer notes. | [Automated Verified] |
+| 51 | `test(phase9): verify strict exclusion of other authors drafts in author feed` | Security check verifies no peer drafts leak into personal author drafts feed. | [Automated Verified] |
