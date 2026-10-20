@@ -40,3 +40,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 34 | `test(profile): verify keyboard accessibility and focus rings on profile buttons` | Interactive controls render visible focus rings for keyboard navigation. | [Automated Verified] |
 | 35 | `test(profile): verify sidebar active state highlight on /profile route` | Sidebar item displays indigo active background when on /profile. | [Automated Verified] |
 | 36 | `test(profile): verify Header user avatar hover cursor and title tooltip` | Avatar displays pointer cursor and 'View profile' tooltip. | [Automated Verified] |
+| 37 | `test(profile): verify Command Palette Ctrl+K quick jump to /profile` | Command palette filters action and navigates on Enter key. | [Automated Verified] |
