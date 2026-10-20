@@ -8,3 +8,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #4**: ArticleRevision sequential revision_number increment invariant — [Automated Verified]
 - [x] **Verification Check #5**: ArticleRevision unique together constraint on (article, revision_number) — [Automated Verified]
 - [x] **Verification Check #6**: ArticleRevision database ordering by -revision_number — [Automated Verified]
+- [x] **Verification Check #7**: ArticleRevision compound index on (article, -revision_number) — [Automated Verified]
