@@ -77,3 +77,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 72 | `feat(phase9): compute Admin archived_count aggregate metric` | Admin metrics track total soft-archived articles retained for historical audit. | [Automated Verified] |
 | 73 | `feat(phase9): aggregate all article lifecycle counts in a single database query` | Django ORM conditional aggregation aggregates all 6 counts in 1 SQL query. | [Automated Verified] |
 | 74 | `feat(phase9): compute Admin total_users_count active accounts metric` | Total users metric counts all active employee accounts registered in PostgreSQL. | [Automated Verified] |
+| 75 | `feat(phase9): compute Admin total_categories_count taxonomy metric` | Total categories metric tracks active organizational taxonomy departments. | [Automated Verified] |
