@@ -128,3 +128,4 @@
 | 124 | api | postman-workflow-folder | Specify Postman Workflow folder with Submit, Review Queue, Approve, and Reject | [Automated Verified] |
 | 125 | api | postman-revisions-folder | Specify Postman Revisions folder with Timeline, Snapshot, Diff, and Restore | [Automated Verified] |
 | 126 | api | postman-taxonomy-folder | Specify Postman Taxonomy folder for Categories and Tags CRUD | [Automated Verified] |
+| 127 | api | postman-audit-folder | Specify Postman Audit folder for Admin event logging verification | [Automated Verified] |
