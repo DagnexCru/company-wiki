@@ -254,3 +254,4 @@
 | 250 | dx | asset-chunking | Document Vite rollup asset chunking configuration splitting vendor libraries | [Automated Verified] |
 | 251 | dx | clean-console-policy | Document zero-warning browser console policy during normal application use | [Automated Verified] |
 | 252 | dx | responsive-grid-system | Document responsive layout grids adapting from mobile single-col to desktop multi-col | [Automated Verified] |
+| 253 | dx | accessible-focus-states | Document visible focus-visible ring styles for keyboard accessibility (WCAG AA) | [Automated Verified] |
