@@ -37,3 +37,4 @@
 | 33 | setup | postcss-plugins | Document PostCSS autoprefixer and tailwindcss configuration | [Automated Verified] |
 | 34 | setup | lucide-icons | Document Lucide React tree-shakeable iconography integration | [Automated Verified] |
 | 35 | setup | axios-instance | Document Axios client instance creation with baseURL /api/v1/ | [Automated Verified] |
+| 36 | setup | axios-auth-header | Document Axios request interceptor injecting Bearer JWT token | [Automated Verified] |
