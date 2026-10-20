@@ -30,3 +30,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 25 | `test(phase9): verify category distribution counts only published articles` | Unpublished drafts and archived articles do not inflate category article counts. | [Automated Verified] |
 | 26 | `test(phase9): verify exclusion of categories with 0 published articles` | Categories without live documentation are pruned from dashboard distribution grid. | [Automated Verified] |
 | 27 | `feat(phase9): order category distribution by article_count descending` | Primary ordering surfaces knowledge categories with the highest documentation volume. | [Automated Verified] |
+| 28 | `feat(phase9): apply secondary alphabetical tie-breaking ordering by name` | Secondary ordering ensures consistent layout stability when article counts match. | [Automated Verified] |
