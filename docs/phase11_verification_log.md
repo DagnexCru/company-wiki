@@ -84,3 +84,4 @@
 | 80 | api | articles-update | Specify PUT/PATCH /api/v1/articles/{slug}/ author editing and revision tracking | [Automated Verified] |
 | 81 | api | articles-delete | Specify DELETE /api/v1/articles/{slug}/ soft-archival vs permanent deletion policy | [Automated Verified] |
 | 82 | api | articles-archive | Specify POST /api/v1/articles/{slug}/archive/ state transition to archived | [Automated Verified] |
+| 83 | api | articles-filter-cat | Specify GET /api/v1/articles/?category={slug} filtering mechanism | [Automated Verified] |
