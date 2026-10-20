@@ -30,3 +30,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 24 | `test(profile): verify Reviewer role permissions grid display on /profile` | Reviewers see review queue inspection and approvals granted. | [Automated Verified] |
 | 25 | `test(profile): verify Administrator role permissions grid display on /profile` | Admins see full governance, taxonomy, and audit capabilities granted. | [Automated Verified] |
 | 26 | `test(profile): verify user UUID matches authenticated session payload` | User ID displays exact UUID assigned in PostgreSQL database. | [Automated Verified] |
+| 27 | `test(profile): verify user email and username synchronization in profile header` | Email and username update reactively when user context refreshes. | [Automated Verified] |
