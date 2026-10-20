@@ -133,3 +133,4 @@
 | 129 | api | postman-pre-request | Document Postman pre-request script auto-injecting Bearer token header | [Automated Verified] |
 | 130 | api | postman-test-scripts | Document Postman test scripts validating pm.response.to.have.status(200) | [Automated Verified] |
 | 131 | api | postman-export-v21 | Verify Postman collection v2.1 schema compatibility for one-click import | [Automated Verified] |
+| 132 | api | api-versioning-v1 | Document URL path versioning scheme /api/v1/ for backward compatibility | [Automated Verified] |
