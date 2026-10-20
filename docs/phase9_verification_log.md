@@ -74,3 +74,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 69 | `feat(phase9): compute Admin draft_count aggregate metric` | Admin metrics track total work-in-progress drafts across all company authors. | [Automated Verified] |
 | 70 | `feat(phase9): compute Admin in_review_count aggregate metric` | Admin metrics track editorial review backlog across all departments. | [Automated Verified] |
 | 71 | `feat(phase9): compute Admin rejected_count aggregate metric` | Admin metrics track total articles returned for revision across all teams. | [Automated Verified] |
+| 72 | `feat(phase9): compute Admin archived_count aggregate metric` | Admin metrics track total soft-archived articles retained for historical audit. | [Automated Verified] |
