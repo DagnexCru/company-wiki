@@ -176,3 +176,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 171 | `test(phase10): audit article editor form validation on empty title submit` | Editor displays inline validation feedback when title is empty. | [Automated Verified] |
 | 172 | `test(phase10): audit article editor form validation on missing category` | Editor requires category selection before enabling draft submission. | [Automated Verified] |
 | 173 | `test(phase10): audit article editor unsaved changes confirmation prompt` | Navigating away from dirty form warns user to prevent accidental data loss. | [Automated Verified] |
+| 174 | `test(phase10): audit loading skeleton state on article detail page` | Pulsing skeleton loader rendered while fetching article payload. | [Automated Verified] |
