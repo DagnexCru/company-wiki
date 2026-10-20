@@ -118,3 +118,4 @@
 | 114 | api | http-204-no-content | Document HTTP 204 No Content response semantics for deletions | [Automated Verified] |
 | 115 | api | http-400-bad-request | Document HTTP 400 Bad Request field-level validation error structure | [Automated Verified] |
 | 116 | api | http-401-unauthorized | Document HTTP 401 Unauthorized token missing or invalid response | [Automated Verified] |
+| 117 | api | http-403-forbidden | Document HTTP 403 Forbidden permission violation error response | [Automated Verified] |
