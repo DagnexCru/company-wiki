@@ -79,3 +79,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 74 | `feat(phase9): compute Admin total_users_count active accounts metric` | Total users metric counts all active employee accounts registered in PostgreSQL. | [Automated Verified] |
 | 75 | `feat(phase9): compute Admin total_categories_count taxonomy metric` | Total categories metric tracks active organizational taxonomy departments. | [Automated Verified] |
 | 76 | `feat(phase9): compute Admin total_tags_count taxonomy metric` | Total tags metric tracks active reusable categorization labels across the wiki. | [Automated Verified] |
+| 77 | `feat(phase9): compute Admin audit_events_24h_count rolling window metric` | 24h audit volume tracks total security and content events in the last 24 hours. | [Automated Verified] |
