@@ -166,3 +166,4 @@
 | 162 | roles | role-transition-audit | Verify user role change triggers an immutable audit log entry | [Automated Verified] |
 | 163 | roles | role-matrix-table | Document comprehensive RBAC Permission Matrix table in documentation | [Automated Verified] |
 | 164 | roles | author-draft-isolation | Verify Author A cannot view or edit draft articles belonging to Author B | [Automated Verified] |
+| 165 | roles | reviewer-draft-isolation | Verify Reviewer cannot view Author drafts until explicitly submitted | [Automated Verified] |
