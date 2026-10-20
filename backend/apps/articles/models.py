@@ -177,6 +177,115 @@ class Article(models.Model):
         word_count = len(self.content.split())
         return max(1, round(word_count / 200))
 
+    def create_revision(
+        self,
+        author=None,
+        change_summary="",
+        is_restoration=False,
+        restored_from_revision=None,
+    ):
+        """
+        Creates an immutable historical snapshot of the article's state.
+        Sequentially increments revision_number for this article starting from 1.
+        Captures tags and category snapshots.
+        """
+        last_rev = self.revisions.order_by("-revision_number").first()
+        next_rev_num = (last_rev.revision_number + 1) if last_rev else 1
+
+        tag_names = list(self.tags.values_list("name", flat=True)) if self.pk else []
+        cat_name = self.category.name if self.category else ""
+
+        revision = ArticleRevision.objects.create(
+            article=self,
+            revision_number=next_rev_num,
+            title=self.title,
+            slug=self.slug,
+            summary=self.summary,
+            content=self.content,
+            tags_snapshot=tag_names,
+            category_name=cat_name,
+            author=author or self.author,
+            change_summary=change_summary,
+            is_restoration=is_restoration,
+            restored_from_revision=restored_from_revision,
+        )
+        return revision
+
+
+class ArticleRevision(models.Model):
+    """
+    Immutable historical snapshot of an article at a specific point in time.
+    Preserves document title, content, summary, tags, and category snapshot.
+    Supports linear versioning, restoration tracking, and diff inspection.
+    """
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="revisions",
+        help_text="The article this revision belongs to.",
+    )
+    revision_number = models.PositiveIntegerField(
+        db_index=True,
+        help_text="Sequential version number for this article starting from 1.",
+    )
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=280)
+    summary = models.TextField(blank=True)
+    content = models.TextField(help_text="Snapshot of document markdown/rich-text content.")
+    tags_snapshot = models.JSONField(
+        default=list,
+        blank=True,
+        help_text="List of tag names attached to the article at the time of this revision.",
+    )
+    category_name = models.CharField(
+        max_length=150,
+        blank=True,
+        help_text="Category name at the time of this revision.",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="article_revisions",
+        help_text="User who authored this revision.",
+    )
+    change_summary = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        help_text="Brief description of the changes made in this revision.",
+    )
+    is_restoration = models.BooleanField(
+        default=False,
+        help_text="Indicates if this revision was created by restoring an older revision.",
+    )
+    restored_from_revision = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        help_text="Revision number from which this content was restored.",
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+
+    class Meta:
+        db_table = "article_revisions"
+        verbose_name = "Article Revision"
+        verbose_name_plural = "Article Revisions"
+        unique_together = ("article", "revision_number")
+        ordering = ["-revision_number"]
+        indexes = [
+            models.Index(fields=["article", "-revision_number"], name="art_rev_art_num_idx"),
+            models.Index(fields=["article", "-created_at"], name="art_rev_art_created_idx"),
+            models.Index(fields=["author", "-created_at"], name="art_rev_author_created_idx"),
+        ]
+
+    def __str__(self):
+        author_name = self.author.username if self.author else "System"
+        return f"{self.article.title} - Rev #{self.revision_number} by {author_name}"
+
+
 # Note: ArticleQuerySet ensures unauthenticated users receive an empty queryset.
 
 # Reading speed benchmark: Standard adult reading velocity is calibrated at 200 words per minute.
