@@ -68,3 +68,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 063 | `test(phase10): verify scenario 7 peer author accessing private draft returns 404` | Authors cannot view another author's drafts; returns 404 Not Found. | [Automated Verified] |
 | 064 | `test(phase10): verify scenario 7 peer author attempting draft edit returns 404` | Authors cannot update another author's drafts; returns 404 Not Found. | [Automated Verified] |
 | 065 | `test(phase10): verify scenario 7 peer author attempting draft deletion returns 404` | Authors cannot delete another author's drafts; returns 404 Not Found. | [Automated Verified] |
+| 066 | `test(phase10): verify scenario 7 reader attempting article creation returns 403` | Readers lack CanCreateArticle permission; returns HTTP 403 Forbidden. | [Automated Verified] |
