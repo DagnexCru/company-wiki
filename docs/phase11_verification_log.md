@@ -52,3 +52,4 @@
 | 48 | setup | font-inter | Document Inter system font stack for clean enterprise typography | [Automated Verified] |
 | 49 | setup | color-tokens | Document Tailwind semantic color tokens: primary, slate, emerald, rose, amber | [Automated Verified] |
 | 50 | setup | git-attributes | Document .gitattributes line ending LF/CRLF normalization guidelines | [Automated Verified] |
+| 51 | setup | gitignore-backend | Audit backend/.gitignore excluding *.pyc, __pycache__, and .env | [Automated Verified] |
