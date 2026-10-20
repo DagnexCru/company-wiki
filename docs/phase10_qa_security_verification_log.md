@@ -74,3 +74,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 069 | `test(phase10): verify scenario 7 ID guessing attack does not expose unpublished articles` | Direct UUID or slug lookup of unpublished content by unauthorized user returns 404. | [Automated Verified] |
 | 070 | `test(phase10): verify scenario 7 detailed error messages omit sensitive stack traces` | Error responses return clean JSON error details without internal exceptions. | [Automated Verified] |
 | 071 | `test(phase10): verify scenario 8 admin creates new taxonomy category` | Administrator creates category with name, slug, description, and color. | [Automated Verified] |
+| 072 | `test(phase10): verify scenario 8 duplicate category name rejection` | Creating category with existing name returns 400 with duplicate error. | [Automated Verified] |
