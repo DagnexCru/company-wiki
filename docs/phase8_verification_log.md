@@ -57,3 +57,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #53**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ reviewer restoration rejection (403) — [Automated Verified]
 - [x] **Verification Check #54**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ reader restoration rejection (403) — [Automated Verified]
 - [x] **Verification Check #55**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ admin published article restoration — [Automated Verified]
+- [x] **Verification Check #56**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ reason metadata capture — [Automated Verified]
