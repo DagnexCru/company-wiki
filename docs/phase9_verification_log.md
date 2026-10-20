@@ -41,3 +41,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 36 | `test(phase9): verify Reader cannot observe editorial review queue backlog` | Review workload telemetry is inaccessible to non-reviewer user accounts. | [Automated Verified] |
 | 37 | `test(phase9): verify Reader cannot view total user accounts or audit volume` | Sensitive system telemetry is protected from regular internal employees. | [Automated Verified] |
 | 38 | `feat(phase9): verify Author role assignment in dashboard response` | Authenticated authors receive role='AUTHOR' with draft and revision controls. | [Automated Verified] |
+| 39 | `feat(phase9): compute Author my_drafts_count metric accurately` | Drafts count matches total articles authored by the user in DRAFT status. | [Automated Verified] |
