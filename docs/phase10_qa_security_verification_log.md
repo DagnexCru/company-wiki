@@ -103,3 +103,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 098 | `test(phase10): verify scenario 10 password change invalidates outstanding tokens` | Password update updates token secret or invalidates credentials safely. | [Automated Verified] |
 | 099 | `test(phase10): verify scenario 10 unauthenticated logout attempt rejection` | Posting invalid or empty refresh token returns 400 Bad Request. | [Automated Verified] |
 | 100 | `test(phase10): verify scenario 10 client credentials clearance` | Client-side state properly clears in-memory tokens and redirects to login. | [Automated Verified] |
+| 101 | `test(phase10): audit SQL injection protection on article search query parameter` | SQL injection payloads in search query are neutralized by ORM parameterization. | [Automated Verified] |
