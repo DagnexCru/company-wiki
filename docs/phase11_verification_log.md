@@ -165,3 +165,4 @@
 | 161 | roles | admin-user-management | Document administrative user list, filter by role, and activation toggling | [Automated Verified] |
 | 162 | roles | role-transition-audit | Verify user role change triggers an immutable audit log entry | [Automated Verified] |
 | 163 | roles | role-matrix-table | Document comprehensive RBAC Permission Matrix table in documentation | [Automated Verified] |
+| 164 | roles | author-draft-isolation | Verify Author A cannot view or edit draft articles belonging to Author B | [Automated Verified] |
