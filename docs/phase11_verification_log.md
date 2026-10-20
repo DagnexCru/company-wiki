@@ -272,3 +272,4 @@
 | 268 | audit | postman-collection-import | Verify docs/postman_collection.json valid JSON and Postman 2.1 schema | [Automated Verified] |
 | 269 | audit | user-roles-doc | Verify docs/user_roles_and_permissions.md documents complete RBAC matrix | [Automated Verified] |
 | 270 | audit | workflow-guide-doc | Verify docs/article_workflow_guide.md documents 5 states and review rules | [Automated Verified] |
+| 271 | audit | troubleshooting-doc | Verify docs/troubleshooting_and_faq.md documents common issues and fixes | [Automated Verified] |
