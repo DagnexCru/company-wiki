@@ -194,3 +194,67 @@ class ArticleCreateUpdateSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
+
+
+class ArticleRevisionSerializer(serializers.ModelSerializer):
+    """
+    Detailed serializer representing a specific immutable historical version of an article.
+    """
+    author = ArticleAuthorSummarySerializer(read_only=True)
+    author_username = serializers.CharField(source="author.username", read_only=True, default="Unknown")
+    author_role = serializers.CharField(source="author.role", read_only=True, default="")
+    article_title = serializers.CharField(source="article.title", read_only=True)
+    article_slug = serializers.CharField(source="article.slug", read_only=True)
+
+    class Meta:
+        from apps.articles.models import ArticleRevision
+        model = ArticleRevision
+        fields = [
+            "id",
+            "article",
+            "article_title",
+            "article_slug",
+            "revision_number",
+            "title",
+            "slug",
+            "summary",
+            "content",
+            "tags_snapshot",
+            "category_name",
+            "author",
+            "author_username",
+            "author_role",
+            "change_summary",
+            "is_restoration",
+            "restored_from_revision",
+            "created_at",
+        ]
+        read_only_fields = fields
+
+
+class ArticleRevisionListSerializer(serializers.ModelSerializer):
+    """
+    Compact revision serializer for revision history list/timeline presentation.
+    """
+    author_username = serializers.CharField(source="author.username", read_only=True, default="Unknown")
+    author_role = serializers.CharField(source="author.role", read_only=True, default="")
+
+    class Meta:
+        from apps.articles.models import ArticleRevision
+        model = ArticleRevision
+        fields = [
+            "id",
+            "revision_number",
+            "title",
+            "summary",
+            "tags_snapshot",
+            "category_name",
+            "author_username",
+            "author_role",
+            "change_summary",
+            "is_restoration",
+            "restored_from_revision",
+            "created_at",
+        ]
+        read_only_fields = fields
+
