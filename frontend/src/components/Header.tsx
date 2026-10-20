@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BookOpen, Search, LogOut } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -42,17 +43,17 @@ export const Header = ({}: HeaderProps) => {
 
   return (
     <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-30 px-6 flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+      <Link to="/dashboard" className="flex items-center gap-3 group">
+        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
           <BookOpen className="w-5 h-5" />
         </div>
         <div>
-          <span className="font-bold text-slate-900 tracking-tight text-lg">Company Wiki</span>
+          <span className="font-bold text-slate-900 tracking-tight text-lg group-hover:text-brand-600 transition-colors">Company Wiki</span>
           <span className="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200">
-            Phase 2 Authenticated
+            Workspace
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Global Quick Search Shortcut */}
       <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-400 text-sm w-72">

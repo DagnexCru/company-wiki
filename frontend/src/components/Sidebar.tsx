@@ -7,6 +7,7 @@ import {
   History,
   Shield,
   Layers,
+  Home,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -26,6 +27,12 @@ export const Sidebar = () => {
     {
       label: "Dashboard",
       icon: LayoutDashboard,
+      path: "/dashboard",
+      exact: true,
+    },
+    {
+      label: "Public Portal",
+      icon: Home,
       path: "/",
       exact: true,
     },

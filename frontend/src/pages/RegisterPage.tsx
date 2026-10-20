@@ -27,7 +27,7 @@ export const RegisterPage = () => {
         password,
         confirm_password: confirmPassword,
       });
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch {
       // Error handled by AuthContext
     }

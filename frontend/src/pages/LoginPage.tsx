@@ -10,14 +10,15 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = (location.state as any)?.from?.pathname || "/";
+  const from = (location.state as any)?.from?.pathname;
+  const target = from && from !== "/" ? from : "/dashboard";
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     clearError();
     try {
       await login({ email, password });
-      navigate(from, { replace: true });
+      navigate(target, { replace: true });
     } catch {
       // Error handled in AuthContext
     }
