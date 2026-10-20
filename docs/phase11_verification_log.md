@@ -26,3 +26,4 @@
 | 22 | setup | drf-renderer | Verify REST_FRAMEWORK JSONRenderer configured for API production payloads | [Automated Verified] |
 | 23 | setup | static-root | Document STATIC_ROOT and STATIC_URL asset configuration for deployment | [Automated Verified] |
 | 24 | setup | media-root | Document MEDIA_ROOT and MEDIA_URL storage path configuration for article assets | [Automated Verified] |
+| 25 | setup | windows-paths | Document Windows path separator normalization for development on Windows OS | [Automated Verified] |
