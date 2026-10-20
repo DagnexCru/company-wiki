@@ -121,3 +121,4 @@
 | 117 | api | http-403-forbidden | Document HTTP 403 Forbidden permission violation error response | [Automated Verified] |
 | 118 | api | http-404-not-found | Document HTTP 404 Not Found entity missing error structure | [Automated Verified] |
 | 119 | api | http-405-not-allowed | Document HTTP 405 Method Not Allowed endpoint rejection behavior | [Automated Verified] |
+| 120 | api | http-429-rate-limit | Document HTTP 429 Too Many Requests throttle policy documentation | [Automated Verified] |
