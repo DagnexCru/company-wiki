@@ -92,3 +92,4 @@
 | 88 | api | articles-search | Specify GET /api/v1/articles/?search={query} multi-field search across title/content | [Automated Verified] |
 | 89 | api | articles-pagination | Specify GET /api/v1/articles/?page={n}&page_size={m} pagination schema | [Automated Verified] |
 | 90 | api | workflow-submit | Specify POST /api/v1/articles/{slug}/submit/ state transition from draft/rejected to in_review | [Automated Verified] |
+| 91 | api | workflow-review-queue | Specify GET /api/v1/workflow/review-queue/ reviewer-only queue endpoint | [Automated Verified] |
