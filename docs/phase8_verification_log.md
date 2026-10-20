@@ -22,3 +22,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #18**: ArticleRevision restored_from_revision nullable integer recording — [Automated Verified]
 - [x] **Verification Check #19**: ArticleRevision created_at timestamp default timezone.now — [Automated Verified]
 - [x] **Verification Check #20**: Article.create_revision method execution on new article creation — [Automated Verified]
+- [x] **Verification Check #21**: Article.create_revision auto-generation of initial Revision #1 — [Automated Verified]
