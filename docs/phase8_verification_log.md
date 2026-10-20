@@ -42,3 +42,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #38**: GET /api/v1/articles/{slug}/revisions/diff/ integer validation on revision numbers — [Automated Verified]
 - [x] **Verification Check #39**: GET /api/v1/articles/{slug}/revisions/diff/ non-existent source revision (404) — [Automated Verified]
 - [x] **Verification Check #40**: GET /api/v1/articles/{slug}/revisions/diff/ non-existent target revision (404) — [Automated Verified]
+- [x] **Verification Check #41**: GET /api/v1/articles/{slug}/revisions/diff/ difflib unified diff calculation — [Automated Verified]
