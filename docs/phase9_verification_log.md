@@ -81,3 +81,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 76 | `feat(phase9): compute Admin total_tags_count taxonomy metric` | Total tags metric tracks active reusable categorization labels across the wiki. | [Automated Verified] |
 | 77 | `feat(phase9): compute Admin audit_events_24h_count rolling window metric` | 24h audit volume tracks total security and content events in the last 24 hours. | [Automated Verified] |
 | 78 | `feat(phase9): serialize Admin recent_activity with AuditEventListSerializer` | Audit event items include actor username, role, action, resource, and timestamp. | [Automated Verified] |
+| 79 | `feat(phase9): limit Admin recent_activity stream to 6 recent events` | Recent activity feed is capped at 6 events for concise dashboard stream rendering. | [Automated Verified] |
