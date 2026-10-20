@@ -89,3 +89,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 84 | `feat(phase9): render dynamic welcome banner with role badge on DashboardPage` | Banner greets authenticated user by name and highlights system role privileges. | [Automated Verified] |
 | 85 | `feat(phase9): render KPI Card 1 for accessible published documentation` | KPI card displays live published count with instant navigation to documentation. | [Automated Verified] |
 | 86 | `feat(phase9): render KPI Card 2 for author drafts and in-review workloads` | Author KPI card displays active drafts and pending review workload counts. | [Automated Verified] |
+| 87 | `feat(phase9): render KPI Card 3 for editorial review queue volume` | Reviewer KPI card displays queue count with direct link to editorial queue. | [Automated Verified] |
