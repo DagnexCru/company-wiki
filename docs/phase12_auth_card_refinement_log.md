@@ -14,3 +14,4 @@ This log documents the removal of redundant 'Encrypted Session' indicator and as
 | 08 | `test(auth): verify username input autofocus and autocomplete behavior on login card` | Ensures keyboard focus lands seamlessly in the username field. | [Automated Verified] |
 | 09 | `test(auth): verify password visibility toggle icon interaction on login form` | Tests toggle between password hidden and visible states. | [Automated Verified] |
 | 10 | `test(auth): verify role selector pill badges update demo credentials correctly` | Clicking demo role pills (Admin, Author, Reviewer, Reader) populates credentials. | [Automated Verified] |
+| 11 | `test(auth): verify submit button loading spinner during active JWT authentication` | Verifies button disables and displays loading spinner during login POST. | [Automated Verified] |
