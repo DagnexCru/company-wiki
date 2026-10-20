@@ -271,3 +271,4 @@
 | 267 | audit | api-docs-completeness | Verify docs/api_documentation.md specifies all v1 REST API endpoints | [Automated Verified] |
 | 268 | audit | postman-collection-import | Verify docs/postman_collection.json valid JSON and Postman 2.1 schema | [Automated Verified] |
 | 269 | audit | user-roles-doc | Verify docs/user_roles_and_permissions.md documents complete RBAC matrix | [Automated Verified] |
+| 270 | audit | workflow-guide-doc | Verify docs/article_workflow_guide.md documents 5 states and review rules | [Automated Verified] |
