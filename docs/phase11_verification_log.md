@@ -79,3 +79,4 @@
 | 75 | api | tags-update | Specify PUT/PATCH /api/v1/tags/{slug}/ admin/author tag renaming rules | [Automated Verified] |
 | 76 | api | tags-delete | Specify DELETE /api/v1/tags/{slug}/ safe taxonomy decoupling behavior | [Automated Verified] |
 | 77 | api | articles-list | Specify GET /api/v1/articles/ query parameters, filters, and role-based queryset scoping | [Automated Verified] |
+| 78 | api | articles-create | Specify POST /api/v1/articles/ payload validation, draft status, and initial revision #1 | [Automated Verified] |
