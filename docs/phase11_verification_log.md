@@ -221,3 +221,4 @@
 | 217 | workflow | email-notification-stubs | Document future email notification hook points for workflow transitions | [Automated Verified] |
 | 218 | workflow | webhook-event-stubs | Document webhook integration architecture for Slack/Teams alerts | [Automated Verified] |
 | 219 | workflow | review-sla-tracking | Document review queue submission timestamps for review turnaround SLA | [Automated Verified] |
+| 220 | workflow | status-badge-styling | Document frontend workflow badge color conventions across UI screens | [Automated Verified] |
