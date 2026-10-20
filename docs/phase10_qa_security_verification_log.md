@@ -63,3 +63,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 058 | `test(phase10): verify scenario 6 standard pagination page_size controls` | Pagination query parameters page and page_size control result counts. | [Automated Verified] |
 | 059 | `test(phase10): verify scenario 6 pagination response metadata envelope` | Response envelope includes count, total_pages, current_page, and results. | [Automated Verified] |
 | 060 | `test(phase10): verify scenario 6 search results strictly exclude unpublished content` | Draft, in-review, and archived articles never appear in reader search results. | [Automated Verified] |
+| 061 | `test(phase10): verify scenario 7 unauthenticated request to /api/v1/articles/ returns 401` | Anonymous requests to article list endpoint are rejected with 401 Unauthorized. | [Automated Verified] |
