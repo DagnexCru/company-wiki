@@ -33,3 +33,4 @@
 | 29 | setup | vite-config | Document Vite build configuration and localhost server port 5173 binding | [Automated Verified] |
 | 30 | setup | vite-proxy | Document Vite development server /api reverse proxy configuration | [Automated Verified] |
 | 31 | setup | ts-strict | Verify TypeScript tsconfig.json strict mode flags and noImplicitAny | [Automated Verified] |
+| 32 | setup | tailwind-purging | Verify Tailwind CSS content path purging config across src/**/*.{ts,tsx} | [Automated Verified] |
