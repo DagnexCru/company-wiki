@@ -7,3 +7,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 002 | `test(phase10): verify scenario 1 JWT access token structure and claims` | JWT access token payload includes user UUID, email, username, full_name, and role. | [Automated Verified] |
 | 003 | `test(phase10): verify scenario 1 Bearer token authorization header validation` | Subsequent API calls accept Bearer token and populate request.user successfully. | [Automated Verified] |
 | 004 | `test(phase10): verify scenario 1 current user profile retrieval from /api/v1/auth/me/` | Current user profile endpoint accurately reflects authenticated user details and role. | [Automated Verified] |
+| 005 | `test(phase10): verify scenario 1 dashboard retrieval displays appropriate role metrics` | Dashboard responds with role-scoped metrics for the signed-in user. | [Automated Verified] |
