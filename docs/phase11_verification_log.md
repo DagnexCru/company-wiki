@@ -42,3 +42,4 @@
 | 38 | setup | refresh-mutex | Document JWT token refresh concurrency lock preventing parallel refresh calls | [Automated Verified] |
 | 39 | setup | backend-env-example | Verify backend/.env.example comprehensive variable documentation | [Automated Verified] |
 | 40 | setup | frontend-env-example | Verify frontend/.env.example VITE_API_BASE_URL documentation | [Automated Verified] |
+| 41 | setup | seed-command | Document python manage.py seed_taxonomy for initial categories and tags | [Automated Verified] |
