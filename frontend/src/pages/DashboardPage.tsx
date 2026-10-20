@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { HealthStatusCard } from "../components/HealthStatusCard";
 import { dashboardService } from "../services/dashboardService";
 import type { DashboardData } from "../types/dashboard";
 import {
@@ -664,11 +663,6 @@ export const DashboardPage = () => {
           </div>
         </div>
       </div>
-
-      {/* System Health Telemetry Card */}
-      <section aria-labelledby="health-section">
-        <HealthStatusCard />
-      </section>
     </div>
   );
 };
