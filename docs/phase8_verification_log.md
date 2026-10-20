@@ -80,3 +80,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #76**: log_audit_event service function exception resilience — [Automated Verified]
 - [x] **Verification Check #77**: log_audit_event automatic actor extraction from request.user — [Automated Verified]
 - [x] **Verification Check #78**: log_audit_event automatic IP extraction from request — [Automated Verified]
+- [x] **Verification Check #79**: log_audit_event ARTICLE_CREATE recording in ArticleViewSet.perform_create — [Automated Verified]
