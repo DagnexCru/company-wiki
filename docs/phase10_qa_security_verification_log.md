@@ -20,3 +20,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 015 | `test(phase10): verify scenario 2 automatic revision #1 snapshot creation` | Initial revision record created with revision_number=1 preserving content. | [Automated Verified] |
 | 016 | `test(phase10): verify scenario 2 revision snapshot captures category and tags` | Revision record captures frozen snapshot of category name and tag names. | [Automated Verified] |
 | 017 | `test(phase10): verify scenario 2 audit trail records ARTICLE_CREATE event` | System logs audit event with actor, resource_id, and creation metadata. | [Automated Verified] |
+| 018 | `test(phase10): verify scenario 2 validation error on missing required title` | API rejects creation request when title is missing or blank with 400 status. | [Automated Verified] |
