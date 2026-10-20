@@ -1,3 +1,4 @@
+import difflib
 from django.db import models
 from django.utils import timezone
 from rest_framework import viewsets, permissions, status
@@ -5,16 +6,20 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article
+from apps.articles.models import Article, ArticleRevision
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
 from apps.articles.serializers import (
     ArticleListSerializer,
     ArticleDetailSerializer,
     ArticleCreateUpdateSerializer,
+    ArticleRevisionSerializer,
+    ArticleRevisionListSerializer,
 )
 from apps.workflows.models import ReviewRecord
 from apps.workflows.serializers import ReviewRecordSerializer
 from apps.workflows.permissions import IsReviewerOrAdmin
+from apps.audit.models import AuditEvent
+from apps.audit.services import log_audit_event
 
 
 ALLOWED_ORDERING_FIELDS = {
@@ -76,7 +81,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated, IsAuthorOrAdmin]
         elif self.action in ["approve", "reject"]:
             permission_classes = [permissions.IsAuthenticated, IsReviewerOrAdmin]
-        elif self.action == "reviews":
+        elif self.action in ["reviews", "revisions", "revision_detail", "revision_diff", "restore_revision"]:
             permission_classes = [permissions.IsAuthenticated]
         else:
             permission_classes = [permissions.IsAuthenticated]
@@ -86,16 +91,24 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """
         Server-side role-based queryset filtering:
-        - Workflow actions (submit, approve, reject, reviews): allows object lookup across articles
-          so specific status validation (e.g. 400 Bad Request if not in_review) and object permissions
-          can be evaluated cleanly.
+        - Workflow and revision actions: allows object lookup across articles
+          so specific status validation and object permissions can be evaluated cleanly.
         - Admin: sees all articles.
         - Reviewer: sees published + in_review + their own.
         - Author: sees published + their own drafts.
         - Reader: sees only published articles.
         Followed by validated search, category/tag/status/author filters, and whitelisted sorting.
         """
-        if self.action in ["approve", "reject", "submit", "reviews"]:
+        if self.action in [
+            "approve",
+            "reject",
+            "submit",
+            "reviews",
+            "revisions",
+            "revision_detail",
+            "revision_diff",
+            "restore_revision",
+        ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
         user = self.request.user
@@ -193,9 +206,61 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """
-        Assign authenticated author and enforce default draft status.
+        Assign authenticated author, enforce default draft status,
+        create initial revision #1, and log an audit event.
         """
-        serializer.save(author=self.request.user, status=Article.Status.DRAFT)
+        article = serializer.save(author=self.request.user, status=Article.Status.DRAFT)
+        article.create_revision(
+            author=self.request.user,
+            change_summary="Initial draft created",
+        )
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_CREATE,
+            resource_type="article",
+            actor=self.request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug, "status": article.status},
+            request=self.request,
+        )
+
+    def perform_update(self, serializer):
+        """
+        Update article, create a new revision snapshot if content changed,
+        and log an audit event.
+        """
+        instance = self.get_object()
+        old_title = instance.title
+        old_summary = instance.summary
+        old_content = instance.content
+
+        article = serializer.save()
+        change_summary = self.request.data.get("change_summary", "").strip()
+
+        # Check if content/title/summary changed or explicit summary provided
+        if (
+            article.title != old_title
+            or article.summary != old_summary
+            or article.content != old_content
+            or change_summary
+        ):
+            article.create_revision(
+                author=self.request.user,
+                change_summary=change_summary or "Article updated",
+            )
+
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_UPDATE,
+            resource_type="article",
+            actor=self.request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={
+                "slug": article.slug,
+                "change_summary": change_summary or "Article updated",
+            },
+            request=self.request,
+        )
 
     def destroy(self, request, *args, **kwargs):
         """
@@ -208,12 +273,30 @@ class ArticleViewSet(viewsets.ModelViewSet):
         permanent = request.query_params.get("permanent", "").lower() in ["true", "1"]
 
         if article.status == Article.Status.DRAFT or (permanent and request.user.is_admin):
+            log_audit_event(
+                action=AuditEvent.Action.ARTICLE_DELETE,
+                resource_type="article",
+                actor=request.user,
+                resource_id=article.id,
+                resource_name=article.title,
+                details={"slug": article.slug, "permanent": permanent},
+                request=request,
+            )
             article.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
 
         # Soft archive for active content
         article.status = Article.Status.ARCHIVED
         article.save(update_fields=["status", "updated_at"])
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_ARCHIVE,
+            resource_type="article",
+            actor=request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug},
+            request=request,
+        )
         return Response(
             {"detail": "Article archived successfully.", "status": article.status},
             status=status.HTTP_200_OK,
@@ -228,6 +311,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
         article = self.get_object()
         article.status = Article.Status.ARCHIVED
         article.save(update_fields=["status", "updated_at"])
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_ARCHIVE,
+            resource_type="article",
+            actor=request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug},
+            request=request,
+        )
         return Response(
             {"detail": "Article moved to archive.", "status": article.status},
             status=status.HTTP_200_OK,
@@ -260,6 +352,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
             from_status=prev_status,
             to_status=Article.Status.IN_REVIEW,
             feedback=notes,
+        )
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_SUBMIT,
+            resource_type="article",
+            actor=request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug, "from_status": prev_status, "to_status": Article.Status.IN_REVIEW},
+            request=request,
         )
 
         return Response(
@@ -312,6 +413,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
             from_status=prev_status,
             to_status=Article.Status.PUBLISHED,
             feedback=feedback,
+        )
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_APPROVE,
+            resource_type="article",
+            actor=request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug, "feedback": feedback},
+            request=request,
         )
 
         return Response(
@@ -370,6 +480,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
             to_status=Article.Status.REJECTED,
             feedback=feedback,
         )
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_REJECT,
+            resource_type="article",
+            actor=request.user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={"slug": article.slug, "reason": feedback},
+            request=request,
+        )
 
         return Response(
             {
@@ -398,6 +517,231 @@ class ArticleViewSet(viewsets.ModelViewSet):
         records = article.review_records.select_related("actor", "article").order_by("-created_at")
         serializer = ReviewRecordSerializer(records, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=["get"], permission_classes=[permissions.IsAuthenticated])
+    def revisions(self, request, slug=None):
+        """
+        Retrieve chronological list of immutable revisions for this article.
+        GET /api/v1/articles/{slug}/revisions/
+        Permission: Readers cannot access (403); Authors can access their own; Reviewers and Admins can access.
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to view revision history for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        revisions_qs = article.revisions.select_related("author").order_by("-revision_number")
+        serializer = ArticleRevisionListSerializer(revisions_qs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path=r"revisions/(?P<rev_num>\d+)",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def revision_detail(self, request, slug=None, rev_num=None):
+        """
+        Retrieve complete snapshot data for a specific revision number.
+        GET /api/v1/articles/{slug}/revisions/{rev_num}/
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to view revision history for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        try:
+            revision = article.revisions.select_related("author", "article").get(revision_number=rev_num)
+        except ArticleRevision.DoesNotExist:
+            return Response(
+                {"detail": f"Revision #{rev_num} was not found for article '{article.title}'."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        serializer = ArticleRevisionSerializer(revision)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path=r"revisions/diff",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def revision_diff(self, request, slug=None):
+        """
+        Compute line-by-line unified diff and structured change summary between two revisions.
+        GET /api/v1/articles/{slug}/revisions/diff/?from={rev1}&to={rev2}
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to inspect revision differences for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        from_param = request.query_params.get("from")
+        to_param = request.query_params.get("to")
+
+        if not from_param or not to_param:
+            return Response(
+                {"detail": "Both 'from' and 'to' query parameters specifying revision numbers are required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            from_num = int(from_param)
+            to_num = int(to_param)
+        except ValueError:
+            return Response(
+                {"detail": "'from' and 'to' query parameters must be valid integers."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            rev_from = article.revisions.select_related("author").get(revision_number=from_num)
+        except ArticleRevision.DoesNotExist:
+            return Response(
+                {"detail": f"Source revision #{from_num} not found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        try:
+            rev_to = article.revisions.select_related("author").get(revision_number=to_num)
+        except ArticleRevision.DoesNotExist:
+            return Response(
+                {"detail": f"Target revision #{to_num} not found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # Compute unified line diff on content
+        from_lines = rev_from.content.splitlines(keepends=True)
+        to_lines = rev_to.content.splitlines(keepends=True)
+        unified_diff = list(
+            difflib.unified_diff(
+                from_lines,
+                to_lines,
+                fromfile=f"Revision #{rev_from.revision_number}",
+                tofile=f"Revision #{rev_to.revision_number}",
+            )
+        )
+
+        additions = sum(1 for line in unified_diff if line.startswith("+") and not line.startswith("+++"))
+        deletions = sum(1 for line in unified_diff if line.startswith("-") and not line.startswith("---"))
+
+        tags_from = set(rev_from.tags_snapshot or [])
+        tags_to = set(rev_to.tags_snapshot or [])
+
+        diff_payload = {
+            "article_slug": article.slug,
+            "article_title": article.title,
+            "from_revision": rev_from.revision_number,
+            "to_revision": rev_to.revision_number,
+            "from_created_at": rev_from.created_at,
+            "to_created_at": rev_to.created_at,
+            "title_changed": rev_from.title != rev_to.title,
+            "from_title": rev_from.title,
+            "to_title": rev_to.title,
+            "summary_changed": rev_from.summary != rev_to.summary,
+            "from_summary": rev_from.summary,
+            "to_summary": rev_to.summary,
+            "category_changed": rev_from.category_name != rev_to.category_name,
+            "from_category": rev_from.category_name,
+            "to_category": rev_to.category_name,
+            "tags_added": sorted(list(tags_to - tags_from)),
+            "tags_removed": sorted(list(tags_from - tags_to)),
+            "content_unified_diff": "".join(unified_diff),
+            "stats": {
+                "additions": additions,
+                "deletions": deletions,
+            },
+        }
+        return Response(diff_payload, status=status.HTTP_200_OK)
+
+    @action(
+        detail=True,
+        methods=["post"],
+        url_path=r"revisions/(?P<rev_num>\d+)/restore",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def restore_revision(self, request, slug=None, rev_num=None):
+        """
+        Safely restores article content to a specified prior revision snapshot.
+        Enforces linear history invariant: Restoring creates a NEW revision #N,
+        preserving all intermediate revisions intact without erasing history.
+        Permission: Admin can restore any article; Author can restore only drafts/rejected.
+        """
+        article = self.get_object()
+        user = request.user
+        is_author = article.author == user
+        is_admin = user.is_admin or getattr(user, "role", None) == "ADMIN"
+
+        if not (is_admin or (is_author and article.status in [Article.Status.DRAFT, Article.Status.REJECTED])):
+            return Response(
+                {
+                    "detail": "You do not have permission to restore revisions for this article. "
+                    "Authors may only restore articles in draft or rejected status."
+                },
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        try:
+            target_rev = article.revisions.get(revision_number=rev_num)
+        except ArticleRevision.DoesNotExist:
+            return Response(
+                {"detail": f"Revision #{rev_num} not found for article '{article.title}'."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # Restore article title, summary, content
+        reason = request.data.get("reason", "").strip()
+        change_summary = f"Restored from Revision #{target_rev.revision_number}"
+        if reason:
+            change_summary = f"{change_summary}: {reason}"
+
+        article.title = target_rev.title
+        article.summary = target_rev.summary
+        article.content = target_rev.content
+        article.save(update_fields=["title", "summary", "content", "updated_at"])
+
+        # Create new revision snapshot to preserve non-destructive linear history
+        new_rev = article.create_revision(
+            author=user,
+            change_summary=change_summary,
+            is_restoration=True,
+            restored_from_revision=target_rev.revision_number,
+        )
+
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_RESTORE,
+            resource_type="article",
+            actor=user,
+            resource_id=article.id,
+            resource_name=article.title,
+            details={
+                "slug": article.slug,
+                "restored_from_revision": target_rev.revision_number,
+                "new_revision_number": new_rev.revision_number,
+                "reason": reason,
+            },
+            request=request,
+        )
+
+        return Response(
+            {
+                "detail": f"Article '{article.title}' successfully restored from Revision #{target_rev.revision_number}.",
+                "restored_from_revision": target_rev.revision_number,
+                "new_revision_number": new_rev.revision_number,
+                "article": ArticleDetailSerializer(article).data,
+            },
+            status=status.HTTP_200_OK,
+        )
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
