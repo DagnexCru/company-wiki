@@ -43,3 +43,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 37 | `feat(palette): render category name badge in article search results` | Displays category icon and name for instant context on search hits. | [Automated Verified] |
 | 38 | `feat(palette): display estimated reading time for article items in palette` | Shows minutes-to-read badge on articles to set reader expectations. | [Automated Verified] |
 | 39 | `feat(palette): truncate article summaries to single line with line-clamp` | Excerpt previews truncate cleanly to preserve compact palette density. | [Automated Verified] |
+| 40 | `feat(palette): render category results with article count badge` | Category rows display total published articles filed under that domain. | [Automated Verified] |
