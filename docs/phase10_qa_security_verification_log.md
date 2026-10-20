@@ -34,3 +34,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 029 | `test(phase10): verify scenario 3 reader rejection on submission (403)` | Readers cannot submit articles for review; returns 403 Forbidden. | [Automated Verified] |
 | 030 | `test(phase10): verify scenario 3 idempotency and race condition prevention` | Concurrent duplicate submissions are handled safely with consistent state. | [Automated Verified] |
 | 031 | `test(phase10): verify scenario 4 reviewer approves article via POST /api/v1/articles/{slug}/approve/` | Reviewer approves submitted article for organization publication. | [Automated Verified] |
+| 032 | `test(phase10): verify scenario 4 approval transitions status to PUBLISHED` | Article status changes to Article.Status.PUBLISHED upon reviewer approval. | [Automated Verified] |
