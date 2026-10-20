@@ -264,3 +264,4 @@
 | 260 | dx | env-variable-audit | Verify zero hardcoded API URLs or secrets across entire frontend code | [Automated Verified] |
 | 261 | dx | mock-data-removal | Verify complete removal of mock data files in favor of real Django REST API | [Automated Verified] |
 | 262 | dx | browser-devtools-testing | Document testing API network payloads and React component state via DevTools | [Automated Verified] |
+| 263 | dx | cross-browser-testing | Document manual UI verification on Chromium, Gecko, and WebKit rendering engines | [Automated Verified] |
