@@ -201,3 +201,4 @@
 | 197 | workflow | duplicate-action-guard | Verify idempotency: submitting an already in_review article returns HTTP 400 | [Automated Verified] |
 | 198 | workflow | archival-action | Document POST /api/v1/articles/{slug}/archive/ moving article out of active search | [Automated Verified] |
 | 199 | workflow | archival-audit-event | Verify archival action records audit event 'article.archived' | [Automated Verified] |
+| 200 | workflow | unarchive-action | Document Administrator unarchiving article back to draft status | [Automated Verified] |
