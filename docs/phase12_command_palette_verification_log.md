@@ -83,3 +83,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 77 | `docs(palette): compile Phase 12 Command Palette verification log table` | Documents all 80 verified checkpoints in docs/phase12_command_palette_verification_log.md. | [Automated Verified] |
 | 78 | `test(palette): verify keyboard shortcut lifecycle and focus trapping` | Validates full sequence from Ctrl+K open to ArrowDown navigation to Enter routing. | [Automated Verified] |
 | 79 | `test(palette): verify RBAC action visibility across Admin, Author, Reviewer, Reader` | Confirms privileged administrative actions are hidden from regular users. | [Automated Verified] |
+| 80 | `chore(release): finalize Phase 12 Global Command Palette release signoff` | Master verification sign-off confirming production readiness of global search. | [Automated Verified] |
