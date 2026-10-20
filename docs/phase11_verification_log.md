@@ -290,3 +290,4 @@
 | 286 | audit | security-audit-sanitization | Verify Markdown rendering pipeline safely escapes untrusted HTML | [Automated Verified] |
 | 287 | audit | security-audit-injection | Verify Django ORM prevents SQL injection across all query endpoints | [Automated Verified] |
 | 288 | audit | security-audit-tokens | Verify JWT refresh token rotation and blacklisting prevents token theft | [Automated Verified] |
+| 289 | audit | documentation-index | Generate comprehensive documentation index linking all guide documents | [Automated Verified] |
