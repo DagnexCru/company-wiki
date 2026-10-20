@@ -57,3 +57,4 @@
 | 53 | setup | clean-slate-db | Document clean database reset procedure using DROP DATABASE and migrate | [Automated Verified] |
 | 54 | setup | connection-pooling | Document PostgreSQL connection max age CONN_MAX_AGE recommendations | [Automated Verified] |
 | 55 | setup | sql-logging | Document Django DEBUG SQL query logging options for local performance profiling | [Automated Verified] |
+| 56 | setup | port-matrix | Document standard local port allocations: backend:8000, frontend:5173, postgres:5432 | [Automated Verified] |
