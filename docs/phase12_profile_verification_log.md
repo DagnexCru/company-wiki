@@ -21,3 +21,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 15 | `feat(sidebar): apply interactive hover effect to sidebar Profile item` | Hover micro-animations on sidebar navigation links. | [Automated Verified] |
 | 16 | `feat(header): link user avatar and full name in Header directly to /profile` | Clicking user badge in top navigation bar opens user profile. | [Automated Verified] |
 | 17 | `feat(palette): add My Profile & Settings action to Command Palette` | Users can type 'profile' or 'settings' in Ctrl+K palette to navigate directly. | [Automated Verified] |
+| 18 | `refactor(dashboard): remove redundant profile card from main DashboardPage` | Cleans up Dashboard layout to focus purely on knowledge base telemetry. | [Automated Verified] |
