@@ -11,3 +11,4 @@ This log documents the removal of redundant 'Encrypted Session' indicator and as
 | 05 | `test(auth): verify login card renders cleanly without animated green pulse element` | Removes the green pulsing dot (bg-emerald-500 animate-pulse) from login view. | [Automated Verified] |
 | 06 | `test(auth): verify desktop two-column split layout alignment on lg breakpoints` | Confirms the left promotional panel and right auth card share a unified top baseline. | [Automated Verified] |
 | 07 | `test(auth): verify mobile responsiveness when left column is hidden on mobile screens` | Validates that mobile view retains Back to Home header cleanly. | [Automated Verified] |
+| 08 | `test(auth): verify username input autofocus and autocomplete behavior on login card` | Ensures keyboard focus lands seamlessly in the username field. | [Automated Verified] |
