@@ -284,3 +284,4 @@
 | 280 | audit | reproducibility-superuser | Audit createsuperuser guidance for establishing initial Admin user | [Automated Verified] |
 | 281 | audit | reproducibility-taxonomy-seed | Audit seed_taxonomy management command for default categories | [Automated Verified] |
 | 282 | audit | reproducibility-devserver | Audit simultaneous backend:8000 and frontend:5173 server startup | [Automated Verified] |
+| 283 | audit | reproducibility-postman-tests | Audit Postman collection manual verification workflow instructions | [Automated Verified] |
