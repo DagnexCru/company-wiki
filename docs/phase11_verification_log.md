@@ -170,3 +170,4 @@
 | 166 | roles | reviewer-published-edit-denied | Verify Reviewer cannot edit published articles without Author role | [Automated Verified] |
 | 167 | roles | admin-content-override | Document Administrator safety override policy for policy-violating articles | [Automated Verified] |
 | 168 | roles | taxonomy-admin-protection | Verify only Administrator can create, edit, or delete categories | [Automated Verified] |
+| 169 | roles | tag-creation-author-allowed | Document Author permission to create or associate new tags on articles | [Automated Verified] |
