@@ -46,3 +46,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 41 | `feat(phase9): compute Author my_rejected_count metric accurately` | Rejected count tracks articles returned to author with feedback for revision. | [Automated Verified] |
 | 42 | `feat(phase9): compute Author my_published_count metric accurately` | Published count tracks author's total approved live documentation contributions. | [Automated Verified] |
 | 43 | `feat(phase9): optimize Author metrics with single conditional aggregation query` | All 4 author counts are aggregated in a single SQL query via Django ORM Count filters. | [Automated Verified] |
+| 44 | `test(phase9): verify Author metrics are strictly scoped to requesting user` | Author query filters exclusively by author=request.user to preserve isolation. | [Automated Verified] |
