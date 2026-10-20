@@ -60,3 +60,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 55 | `test(phase9): verify Author cannot observe global editorial queue backlog` | Editorial queue volume remains restricted to appointed reviewers and admins. | [Automated Verified] |
 | 56 | `feat(phase9): verify Reviewer role assignment in dashboard response` | Authenticated reviewers receive role='REVIEWER' with queue management controls. | [Automated Verified] |
 | 57 | `feat(phase9): compute Reviewer pending_reviews_count metric accurately` | Pending count matches all company articles in status=Article.Status.IN_REVIEW. | [Automated Verified] |
+| 58 | `feat(phase9): verify pending_reviews_count counts all pending submissions` | Reviewers monitor submissions across all authors and departments in one queue. | [Automated Verified] |
