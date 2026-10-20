@@ -212,3 +212,4 @@
 | 208 | workflow | audit-trail-actor | Verify audit trail records actor_id, username, and role on all events | [Automated Verified] |
 | 209 | workflow | audit-trail-action-enum | Document standard audit action taxonomy (created, updated, submitted, etc.) | [Automated Verified] |
 | 210 | workflow | audit-trail-target | Verify audit trail records target_type (Article, Category, User) and target_id | [Automated Verified] |
+| 211 | workflow | audit-trail-metadata | Verify audit trail stores structured JSON metadata for action context | [Automated Verified] |
