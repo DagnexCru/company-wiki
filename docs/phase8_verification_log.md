@@ -29,3 +29,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #25**: Article.create_revision user-specified change_summary capture — [Automated Verified]
 - [x] **Verification Check #26**: Article.create_revision category name snapshot synchronization — [Automated Verified]
 - [x] **Verification Check #27**: Article.create_revision tags name snapshot synchronization — [Automated Verified]
+- [x] **Verification Check #28**: ArticleRevisionSerializer field serialization and read-only enforcement — [Automated Verified]
