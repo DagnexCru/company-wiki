@@ -50,3 +50,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 45 | `test(phase9): verify exclusion of other authors drafts from my_drafts_count` | Drafts written by peer authors never inflate requesting author's draft statistics. | [Automated Verified] |
 | 46 | `test(phase9): verify exclusion of other authors submissions from my_in_review_count` | Submissions by other authors do not appear in personal in-review tracking count. | [Automated Verified] |
 | 47 | `feat(phase9): limit Author my_recent_drafts to top 5 records` | Author drafts feed is capped at 5 records for fast loading and quick resumption. | [Automated Verified] |
+| 48 | `feat(phase9): order Author my_recent_drafts by -updated_at descending` | Most recently modified drafts appear first to facilitate continuous writing workflows. | [Automated Verified] |
