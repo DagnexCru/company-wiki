@@ -110,3 +110,4 @@
 | 106 | api | dashboard-activity | Specify GET /api/v1/dashboard/recent-activity/ authorized audit events feed | [Automated Verified] |
 | 107 | api | dashboard-drafts | Specify GET /api/v1/dashboard/my-drafts/ current author's draft articles feed | [Automated Verified] |
 | 108 | api | users-list | Specify GET /api/v1/users/ administrator-only user management endpoint | [Automated Verified] |
+| 109 | api | users-retrieve | Specify GET /api/v1/users/{id}/ user detail schema with roles and activity | [Automated Verified] |
