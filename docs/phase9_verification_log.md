@@ -22,3 +22,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 17 | `feat(phase9): embed category object inside recent_published_articles payload` | Category metadata includes UUID, name, slug, description, and UI theme color. | [Automated Verified] |
 | 18 | `feat(phase9): prefetch tags relationship to prevent N+1 queries` | Prefetching tags caches many-to-many associations in a single optimized auxiliary query. | [Automated Verified] |
 | 19 | `feat(phase9): include calculated estimated_read_time in article items` | Estimated read time is computed based on word count (200 words per minute average). | [Automated Verified] |
+| 20 | `feat(phase9): define CategoryDistributionItemSerializer structure` | Category distribution items include id, name, slug, and published article_count. | [Automated Verified] |
