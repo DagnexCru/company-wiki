@@ -39,3 +39,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 33 | `test(profile): verify hover transition timings (duration-200 ease-out)` | Micro-animations maintain snappy 200ms easing without UI lag. | [Automated Verified] |
 | 34 | `test(profile): verify keyboard accessibility and focus rings on profile buttons` | Interactive controls render visible focus rings for keyboard navigation. | [Automated Verified] |
 | 35 | `test(profile): verify sidebar active state highlight on /profile route` | Sidebar item displays indigo active background when on /profile. | [Automated Verified] |
+| 36 | `test(profile): verify Header user avatar hover cursor and title tooltip` | Avatar displays pointer cursor and 'View profile' tooltip. | [Automated Verified] |
