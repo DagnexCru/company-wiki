@@ -19,6 +19,8 @@ from apps.accounts.serializers import (
     CustomTokenObtainPairSerializer,
     LogoutSerializer,
 )
+from apps.audit.models import AuditEvent
+from apps.audit.services import log_audit_event
 
 
 class RegisterView(generics.CreateAPIView):
@@ -45,6 +47,16 @@ class RegisterView(generics.CreateAPIView):
 
         user_data = UserSerializer(user).data
 
+        log_audit_event(
+            action=AuditEvent.Action.USER_REGISTER,
+            resource_type="user",
+            actor=user,
+            resource_id=user.id,
+            resource_name=user.username,
+            details={"email": user.email, "role": user.role},
+            request=request,
+        )
+
         return Response(
             {
                 "message": "User account registered successfully.",
@@ -64,6 +76,22 @@ class CustomLoginView(TokenObtainPairView):
 
     permission_classes = [AllowAny]
     serializer_class = CustomTokenObtainPairSerializer
+
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        if response.status_code == status.HTTP_200_OK:
+            user = CustomUser.objects.filter(email=request.data.get("email")).first()
+            if user:
+                log_audit_event(
+                    action=AuditEvent.Action.AUTH_LOGIN,
+                    resource_type="auth",
+                    actor=user,
+                    resource_id=user.id,
+                    resource_name=user.username,
+                    details={"email": user.email, "role": user.role},
+                    request=request,
+                )
+        return response
 
 
 class CustomTokenRefreshView(TokenRefreshView):
@@ -91,6 +119,15 @@ class LogoutView(APIView):
             refresh_token = serializer.validated_data["refresh"]
             token = RefreshToken(refresh_token)
             token.blacklist()
+            log_audit_event(
+                action=AuditEvent.Action.AUTH_LOGOUT,
+                resource_type="auth",
+                actor=request.user,
+                resource_id=request.user.id,
+                resource_name=request.user.username,
+                details={},
+                request=request,
+            )
             return Response(
                 {"message": "Logged out successfully. Token has been blacklisted."},
                 status=status.HTTP_200_OK,
@@ -172,8 +209,19 @@ class UserManagementViewSet(viewsets.ReadOnlyModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        old_role = user.role
         user.role = new_role
         user.save(update_fields=["role", "updated_at"])
+
+        log_audit_event(
+            action=AuditEvent.Action.USER_ROLE_CHANGE,
+            resource_type="user",
+            actor=request.user,
+            resource_id=user.id,
+            resource_name=user.username,
+            details={"old_role": old_role, "new_role": new_role},
+            request=request,
+        )
 
         return Response(
             {
@@ -205,6 +253,16 @@ class UserManagementViewSet(viewsets.ReadOnlyModelViewSet):
 
         user.is_active = is_active
         user.save(update_fields=["is_active", "updated_at"])
+
+        log_audit_event(
+            action=AuditEvent.Action.USER_STATUS_CHANGE,
+            resource_type="user",
+            actor=request.user,
+            resource_id=user.id,
+            resource_name=user.username,
+            details={"is_active": is_active},
+            request=request,
+        )
 
         status_text = "activated" if is_active else "deactivated"
         return Response(
