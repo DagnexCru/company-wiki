@@ -195,3 +195,4 @@
 | 191 | workflow | rejection-action | Document POST /api/v1/workflow/{slug}/reject/ triggering rejected transition | [Automated Verified] |
 | 192 | workflow | rejection-feedback-required | Verify rejection requires non-empty rejection_reason feedback string | [Automated Verified] |
 | 193 | workflow | rejection-audit-event | Verify reject action records audit event 'article.rejected' with feedback | [Automated Verified] |
+| 194 | workflow | author-feedback-view | Document Author viewing reviewer's rejection reason in banner and timeline | [Automated Verified] |
