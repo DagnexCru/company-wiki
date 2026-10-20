@@ -274,3 +274,4 @@
 | 270 | audit | workflow-guide-doc | Verify docs/article_workflow_guide.md documents 5 states and review rules | [Automated Verified] |
 | 271 | audit | troubleshooting-doc | Verify docs/troubleshooting_and_faq.md documents common issues and fixes | [Automated Verified] |
 | 272 | audit | backend-env-parity | Verify backend/.env.example contains all required environment variables | [Automated Verified] |
+| 273 | audit | frontend-env-parity | Verify frontend/.env.example contains VITE_API_BASE_URL placeholder | [Automated Verified] |
