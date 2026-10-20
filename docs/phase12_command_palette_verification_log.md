@@ -36,3 +36,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 30 | `feat(palette): define Quick Action: Workspace Dashboard with LayoutDashboard icon` | Universal navigation action to return to /dashboard. | [Automated Verified] |
 | 31 | `feat(palette): define Quick Action: Browse All Knowledge Articles with BookOpen icon` | Universal navigation action to view full /articles directory. | [Automated Verified] |
 | 32 | `feat(palette): define Quick Action: Sign Out with LogOut icon` | Triggers auth logout sequence, revokes JWT token, and redirects cleanly. | [Automated Verified] |
+| 33 | `feat(palette): display status badge for Published articles in search results` | Emerald badge highlights live company-wide documentation entries. | [Automated Verified] |
