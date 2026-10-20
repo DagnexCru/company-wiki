@@ -219,3 +219,4 @@
 | 215 | workflow | dashboard-activity-feed | Document audit events formatting in role-aware Recent Activity dashboard feed | [Automated Verified] |
 | 216 | workflow | workflow-diagram | Document state machine lifecycle diagram in ASCII and mermaid format | [Automated Verified] |
 | 217 | workflow | email-notification-stubs | Document future email notification hook points for workflow transitions | [Automated Verified] |
+| 218 | workflow | webhook-event-stubs | Document webhook integration architecture for Slack/Teams alerts | [Automated Verified] |
