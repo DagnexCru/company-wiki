@@ -200,3 +200,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 195 | `test(phase10): run workflow lifecycle test suite regression (tests.py)` | All submission, approval, rejection, and state transition tests pass. | [Automated Verified] |
 | 196 | `test(phase10): run revision history test suite regression (tests_revisions.py)` | All snapshotting, unified diff, and revision restore tests pass. | [Automated Verified] |
 | 197 | `test(phase10): run audit logging test suite regression (tests.py)` | All audit event logging, filtering, and admin access tests pass. | [Automated Verified] |
+| 198 | `test(phase10): run dashboard telemetry test suite regression (tests_dashboard.py)` | All role-scoped dashboard metrics and privacy boundary tests pass. | [Automated Verified] |
