@@ -84,3 +84,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 079 | `test(phase10): verify scenario 8 admin views complete system audit event log` | Administrator queries /api/v1/audit/ with action and resource filtering. | [Automated Verified] |
 | 080 | `test(phase10): verify scenario 8 non-admin audit log query rejected (403)` | Non-admin users querying /api/v1/audit/ receive HTTP 403 Forbidden. | [Automated Verified] |
 | 081 | `test(phase10): verify scenario 9 author views revision history of own article` | Author queries /api/v1/articles/{slug}/revisions/ and receives revision list. | [Automated Verified] |
+| 082 | `test(phase10): verify scenario 9 admin views revision history of any article` | Administrator can inspect revision history across all company articles. | [Automated Verified] |
