@@ -68,3 +68,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #64**: AuditEvent resource_name title label capture — [Automated Verified]
 - [x] **Verification Check #65**: AuditEvent details JSONField structured dictionary storage — [Automated Verified]
 - [x] **Verification Check #66**: AuditEvent ip_address GenericIPAddressField extraction — [Automated Verified]
+- [x] **Verification Check #67**: AuditEvent created_at timestamp default timezone.now — [Automated Verified]
