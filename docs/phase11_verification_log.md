@@ -235,3 +235,4 @@
 | 231 | dx | modal-dialogs | Document accessible modal dialogs with focus trapping and ESC key dismiss | [Automated Verified] |
 | 232 | dx | controlled-inputs | Document controlled input components with inline error message rendering | [Automated Verified] |
 | 233 | dx | markdown-editor | Document Markdown editor with live preview toggle and formatting toolbar | [Automated Verified] |
+| 234 | dx | markdown-renderer | Document safe Markdown renderer with GitHub-flavored markdown extensions | [Automated Verified] |
