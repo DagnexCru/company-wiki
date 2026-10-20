@@ -30,3 +30,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 025 | `test(phase10): verify scenario 3 audit trail records ARTICLE_SUBMIT event` | Audit event ARTICLE_SUBMIT logged with previous and target status. | [Automated Verified] |
 | 026 | `test(phase10): verify scenario 3 rejection of submitting already published article` | Submitting an article that is already published returns HTTP 400 Bad Request. | [Automated Verified] |
 | 027 | `test(phase10): verify scenario 3 rejection of submitting already in_review article` | Submitting an article currently in review returns HTTP 400 Bad Request. | [Automated Verified] |
+| 028 | `test(phase10): verify scenario 3 non-author rejection on submission (403)` | Authors cannot submit another user's draft for review; returns 403 Forbidden. | [Automated Verified] |
