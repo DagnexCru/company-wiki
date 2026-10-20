@@ -27,3 +27,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 022 | `test(phase10): verify scenario 3 status transitions from DRAFT to IN_REVIEW` | Article status changes to Article.Status.IN_REVIEW upon submission. | [Automated Verified] |
 | 023 | `test(phase10): verify scenario 3 submitted_at timestamp recorded accurately` | Server records current UTC timestamp in submitted_at field. | [Automated Verified] |
 | 024 | `test(phase10): verify scenario 3 submission notes captured in ReviewRecord` | ReviewRecord created with action=SUBMIT and author submission notes. | [Automated Verified] |
+| 025 | `test(phase10): verify scenario 3 audit trail records ARTICLE_SUBMIT event` | Audit event ARTICLE_SUBMIT logged with previous and target status. | [Automated Verified] |
