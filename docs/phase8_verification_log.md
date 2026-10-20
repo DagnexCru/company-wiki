@@ -38,3 +38,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #34**: GET /api/v1/articles/{slug}/revisions/ reader authorization rejection (403) — [Automated Verified]
 - [x] **Verification Check #35**: GET /api/v1/articles/{slug}/revisions/{rev_num}/ single snapshot lookup — [Automated Verified]
 - [x] **Verification Check #36**: GET /api/v1/articles/{slug}/revisions/{rev_num}/ non-existent revision (404) — [Automated Verified]
+- [x] **Verification Check #37**: GET /api/v1/articles/{slug}/revisions/diff/ mandatory from and to query params — [Automated Verified]
