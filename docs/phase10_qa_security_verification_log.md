@@ -173,3 +173,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 168 | `test(phase10): audit absence of positive tabindex attributes` | Zero positive tabindex values found; natural DOM order preserved. | [Automated Verified] |
 | 169 | `test(phase10): audit table horizontal scroll keyboard accessibility` | Overflow table containers focusable for keyboard scroll navigation. | [Automated Verified] |
 | 170 | `test(phase10): audit pagination keyboard controls (Previous, Next, Page numbers)` | Pagination buttons fully reachable and activatable via Tab and Enter. | [Automated Verified] |
+| 171 | `test(phase10): audit article editor form validation on empty title submit` | Editor displays inline validation feedback when title is empty. | [Automated Verified] |
