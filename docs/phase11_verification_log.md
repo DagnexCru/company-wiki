@@ -53,3 +53,4 @@
 | 49 | setup | color-tokens | Document Tailwind semantic color tokens: primary, slate, emerald, rose, amber | [Automated Verified] |
 | 50 | setup | git-attributes | Document .gitattributes line ending LF/CRLF normalization guidelines | [Automated Verified] |
 | 51 | setup | gitignore-backend | Audit backend/.gitignore excluding *.pyc, __pycache__, and .env | [Automated Verified] |
+| 52 | setup | gitignore-frontend | Audit frontend/.gitignore excluding node_modules/, dist/, and .env | [Automated Verified] |
