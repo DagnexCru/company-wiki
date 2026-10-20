@@ -186,3 +186,4 @@
 | 182 | workflow | draft-editing | Document author editing draft freely without review queue notifications | [Automated Verified] |
 | 183 | workflow | submission-action | Document POST /api/v1/articles/{slug}/submit/ triggering in_review transition | [Automated Verified] |
 | 184 | workflow | submission-validation | Verify article must have non-empty title and content before submission | [Automated Verified] |
+| 185 | workflow | submission-audit-event | Verify submit action creates an audit event 'article.submitted' | [Automated Verified] |
