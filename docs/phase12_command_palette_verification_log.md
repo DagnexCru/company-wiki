@@ -53,3 +53,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 47 | `feat(palette): implement Enter key activation for active selected item` | Pressing Enter immediately triggers navigation or executes the selected action. | [Automated Verified] |
 | 48 | `feat(palette): synchronize mouse hover with keyboard selection index` | Mouse enter updates selectedIndex so keyboard and mouse pointers stay unified. | [Automated Verified] |
 | 49 | `feat(palette): scroll active selection into view automatically` | scrollIntoView({ block: 'nearest' }) keeps active item visible inside container. | [Automated Verified] |
+| 50 | `feat(palette): display visual CornerDownLeft shortcut hint on selected item` | Selected item shows Select Enter prompt on right side. | [Automated Verified] |
