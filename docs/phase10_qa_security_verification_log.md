@@ -167,3 +167,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 162 | `test(phase10): audit logical Tab key navigation order through application layout` | Tab index follows visual reading order from header to main content. | [Automated Verified] |
 | 163 | `test(phase10): audit Escape key dismissal on modal dialogs` | Pressing Escape key closes review modal, delete modal, and restore modal. | [Automated Verified] |
 | 164 | `test(phase10): audit keyboard focus trapping inside open modal dialogs` | Tab key stays constrained inside active modal until dismissed or submitted. | [Automated Verified] |
+| 165 | `test(phase10): audit focus restoration to trigger element on modal dismissal` | Focus returns to trigger button after closing modal dialog. | [Automated Verified] |
