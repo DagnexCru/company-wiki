@@ -49,3 +49,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 43 | `feat(palette): route tag item selection to /articles?tag=:slug` | Clicking or selecting tag navigates directly to filtered article view. | [Automated Verified] |
 | 44 | `feat(palette): initialize selectedIndex to 0 on new query or tab switch` | Selection always resets to the top item when search terms change. | [Automated Verified] |
 | 45 | `feat(palette): implement ArrowDown keyboard navigation with modulo cycle` | Arrow down increments selection and cycles seamlessly from bottom to top. | [Automated Verified] |
+| 46 | `feat(palette): implement ArrowUp keyboard navigation with modulo cycle` | Arrow up decrements selection and cycles seamlessly from top to bottom. | [Automated Verified] |
