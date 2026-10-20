@@ -268,3 +268,4 @@
 | 264 | dx | release-artifact-packaging | Document static build artifact output directory frontend/dist/ structure | [Automated Verified] |
 | 265 | audit | readme-completeness | Verify root README.md covers Architecture, Quickstart, RBAC, and Workflow | [Automated Verified] |
 | 266 | audit | setup-guide-completeness | Verify docs/setup_guide.md covers Python, Pipenv, Postgres, and npm | [Automated Verified] |
+| 267 | audit | api-docs-completeness | Verify docs/api_documentation.md specifies all v1 REST API endpoints | [Automated Verified] |
