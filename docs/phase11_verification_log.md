@@ -222,3 +222,4 @@
 | 218 | workflow | webhook-event-stubs | Document webhook integration architecture for Slack/Teams alerts | [Automated Verified] |
 | 219 | workflow | review-sla-tracking | Document review queue submission timestamps for review turnaround SLA | [Automated Verified] |
 | 220 | workflow | status-badge-styling | Document frontend workflow badge color conventions across UI screens | [Automated Verified] |
+| 221 | workflow | resubmit-validation | Verify Author cannot resubmit without modifying content or providing note | [Automated Verified] |
