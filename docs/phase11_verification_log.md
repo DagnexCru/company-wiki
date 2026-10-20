@@ -246,3 +246,4 @@
 | 242 | dx | forbidden-page | Document 403 Forbidden route explaining insufficient permissions | [Automated Verified] |
 | 243 | dx | auth-guard-route | Document ProtectedRoute component redirecting unauthenticated users to /login | [Automated Verified] |
 | 244 | dx | role-guard-route | Document RoleGuard component redirecting unauthorized roles to /unauthorized | [Automated Verified] |
+| 245 | dx | auth-context-provider | Document AuthContext managing user profile, tokens, and login/logout state | [Automated Verified] |
