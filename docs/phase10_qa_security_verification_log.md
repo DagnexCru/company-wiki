@@ -175,3 +175,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 170 | `test(phase10): audit pagination keyboard controls (Previous, Next, Page numbers)` | Pagination buttons fully reachable and activatable via Tab and Enter. | [Automated Verified] |
 | 171 | `test(phase10): audit article editor form validation on empty title submit` | Editor displays inline validation feedback when title is empty. | [Automated Verified] |
 | 172 | `test(phase10): audit article editor form validation on missing category` | Editor requires category selection before enabling draft submission. | [Automated Verified] |
+| 173 | `test(phase10): audit article editor unsaved changes confirmation prompt` | Navigating away from dirty form warns user to prevent accidental data loss. | [Automated Verified] |
