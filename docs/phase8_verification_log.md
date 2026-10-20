@@ -73,3 +73,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #69**: AuditEvent indexes on created_at, action, resource_type, and actor — [Automated Verified]
 - [x] **Verification Check #70**: sanitize_audit_details recursive dictionary traversal — [Automated Verified]
 - [x] **Verification Check #71**: sanitize_audit_details password redaction with [REDACTED] — [Automated Verified]
+- [x] **Verification Check #72**: sanitize_audit_details token and jwt redaction with [REDACTED] — [Automated Verified]
