@@ -11,3 +11,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 06 | `feat(phase9): calculate total_published_articles as non-negative integer` | Total published documentation metric accurately reflects accessible company wiki entries. | [Automated Verified] |
 | 07 | `test(phase9): verify total_published_articles strictly counts PUBLISHED status` | Aggregation filters exclusively for status=Article.Status.PUBLISHED in the database. | [Automated Verified] |
 | 08 | `test(phase9): verify total_published_articles excludes draft articles` | Draft work-in-progress content is never included in general published count. | [Automated Verified] |
+| 09 | `test(phase9): verify total_published_articles excludes in-review articles` | Articles awaiting editorial review are omitted from published document totals. | [Automated Verified] |
