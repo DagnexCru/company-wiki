@@ -106,3 +106,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 101 | `test(phase10): audit SQL injection protection on article search query parameter` | SQL injection payloads in search query are neutralized by ORM parameterization. | [Automated Verified] |
 | 102 | `test(phase10): audit SQL injection protection on category filter parameter` | Special characters and quotes in category parameter safely parameterized. | [Automated Verified] |
 | 103 | `test(phase10): audit SQL injection protection on tag filter parameter` | Comma-separated tag parameter safely parameterized without raw SQL formatting. | [Automated Verified] |
+| 104 | `test(phase10): audit SQL injection protection on ordering sort parameter` | Ordering parameter whitelisting prevents ORDER BY injection attacks. | [Automated Verified] |
