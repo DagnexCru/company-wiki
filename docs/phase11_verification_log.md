@@ -237,3 +237,4 @@
 | 233 | dx | markdown-editor | Document Markdown editor with live preview toggle and formatting toolbar | [Automated Verified] |
 | 234 | dx | markdown-renderer | Document safe Markdown renderer with GitHub-flavored markdown extensions | [Automated Verified] |
 | 235 | dx | code-syntax-highlighting | Document code block styling with dark contrast background and font-mono | [Automated Verified] |
+| 236 | dx | search-bar-debounce | Document search input 300ms debounce preventing excessive backend queries | [Automated Verified] |
