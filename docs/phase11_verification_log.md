@@ -8,3 +8,4 @@
 | 4 | setup | virtualenv-isolation | Document virtualenv site-packages isolation and binary interpreter bindings | [Automated Verified] |
 | 5 | setup | postgres-engine | Verify PostgreSQL psycopg2-binary driver configuration and pool timeout | [Automated Verified] |
 | 6 | setup | postgres-utf8 | Document PostgreSQL UTF-8 database encoding and LC_COLLATE collation standard | [Automated Verified] |
+| 7 | setup | db-health-check | Document DB connection ping query 'SELECT 1' in /api/v1/health/ endpoint | [Automated Verified] |
