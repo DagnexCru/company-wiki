@@ -25,3 +25,4 @@
 | 21 | setup | drf-pagination | Document REST_FRAMEWORK PAGE_SIZE default set to 10 articles per page | [Automated Verified] |
 | 22 | setup | drf-renderer | Verify REST_FRAMEWORK JSONRenderer configured for API production payloads | [Automated Verified] |
 | 23 | setup | static-root | Document STATIC_ROOT and STATIC_URL asset configuration for deployment | [Automated Verified] |
+| 24 | setup | media-root | Document MEDIA_ROOT and MEDIA_URL storage path configuration for article assets | [Automated Verified] |
