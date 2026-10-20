@@ -21,3 +21,4 @@ This log documents the removal of redundant 'Encrypted Session' indicator and as
 | 15 | `test(auth): verify navigation link to registration portal at bottom of card` | Ensures smooth link transitions between /login and /register. | [Automated Verified] |
 | 16 | `refactor(auth): align typography and spacing across login and registration portals` | Synchronizes design tokens between login and registration layouts. | [Automated Verified] |
 | 17 | `test(auth): verify production bundle compiles with tsc -b and vite build` | Validates zero TypeScript errors and clean production assets. | [Automated Verified] |
+| 18 | `docs(auth): record authentication card header refinement in Phase 12 verification log` | Appends documentation of login card simplification to project records. | [Automated Verified] |
