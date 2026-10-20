@@ -18,3 +18,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 013 | `test(phase10): verify scenario 2 unique URL slug generation from title` | Slugify algorithm produces clean, URL-safe slug with collision deduplication. | [Automated Verified] |
 | 014 | `test(phase10): verify scenario 2 author assignment to authenticated user` | Server assigns request.user as article author to prevent spoofing. | [Automated Verified] |
 | 015 | `test(phase10): verify scenario 2 automatic revision #1 snapshot creation` | Initial revision record created with revision_number=1 preserving content. | [Automated Verified] |
+| 016 | `test(phase10): verify scenario 2 revision snapshot captures category and tags` | Revision record captures frozen snapshot of category name and tag names. | [Automated Verified] |
