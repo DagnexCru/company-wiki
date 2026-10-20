@@ -12,3 +12,4 @@
 | 8 | setup | migrations-tree | Audit migrations dependency tree across accounts, taxonomy, articles, workflow, and audit apps | [Automated Verified] |
 | 9 | setup | zero-unapplied | Verify zero unapplied migrations policy on clean database bootstrap | [Automated Verified] |
 | 10 | setup | settings-modular | Verify Django settings modularity and decouple environment variable resolution | [Automated Verified] |
+| 11 | setup | secret-key | Document SECRET_KEY externalization in backend/.env with secure random entropy | [Automated Verified] |
