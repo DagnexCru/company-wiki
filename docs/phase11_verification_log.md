@@ -36,3 +36,4 @@
 | 32 | setup | tailwind-purging | Verify Tailwind CSS content path purging config across src/**/*.{ts,tsx} | [Automated Verified] |
 | 33 | setup | postcss-plugins | Document PostCSS autoprefixer and tailwindcss configuration | [Automated Verified] |
 | 34 | setup | lucide-icons | Document Lucide React tree-shakeable iconography integration | [Automated Verified] |
+| 35 | setup | axios-instance | Document Axios client instance creation with baseURL /api/v1/ | [Automated Verified] |
