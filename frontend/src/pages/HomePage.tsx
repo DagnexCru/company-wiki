@@ -543,43 +543,27 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Enterprise Footer */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-12 text-slate-400 text-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
-              <BookOpen className="w-4 h-4" />
+      {/* Modern Copyright Footer */}
+      <footer className="border-t border-slate-800/80 bg-slate-950 py-10 text-slate-500 text-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center text-white shadow-sm shadow-brand-500/20">
+              <BookOpen className="w-3.5 h-3.5" />
             </div>
-            <div>
-              <span className="font-bold text-white text-sm">CompanyWiki</span>
-              <p className="text-[11px] text-slate-400">
-                Internal Knowledge Base & Standard Operating Procedures
-              </p>
-            </div>
+            <span className="font-semibold text-slate-300 tracking-tight">CompanyWiki</span>
           </div>
-          <div className="flex flex-wrap items-center gap-6 text-slate-400">
-            <a href="#features" className="hover:text-white transition-colors">
-              Features
-            </a>
-            <a href="#categories" className="hover:text-white transition-colors">
-              Categories
-            </a>
-            <a href="#workflow" className="hover:text-white transition-colors">
-              Workflow
-            </a>
-            <a href="#architecture" className="hover:text-white transition-colors">
-              Architecture
-            </a>
-            <a href="#security" className="hover:text-white transition-colors">
-              Security
-            </a>
-            <Link to="/login" className="hover:text-white transition-colors">
-              Sign In
-            </Link>
-          </div>
-          <p className="text-slate-400">
-            Released under MIT License · Company Internal Knowledge Base
+
+          <p className="text-center sm:text-left text-slate-500">
+            &copy; 2026 CompanyWiki Inc. All rights reserved. Internal Knowledge Base.
           </p>
+
+          <div className="flex items-center gap-5 text-slate-500">
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Privacy Policy</span>
+            <span>&bull;</span>
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Terms of Service</span>
+            <span>&bull;</span>
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Help &amp; Support</span>
+          </div>
         </div>
       </footer>
     </div>
