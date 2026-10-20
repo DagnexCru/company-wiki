@@ -164,3 +164,4 @@
 | 160 | roles | deactivated-user-rejection | Verify deactivated users receive immediate HTTP 401 on token refresh | [Automated Verified] |
 | 161 | roles | admin-user-management | Document administrative user list, filter by role, and activation toggling | [Automated Verified] |
 | 162 | roles | role-transition-audit | Verify user role change triggers an immutable audit log entry | [Automated Verified] |
+| 163 | roles | role-matrix-table | Document comprehensive RBAC Permission Matrix table in documentation | [Automated Verified] |
