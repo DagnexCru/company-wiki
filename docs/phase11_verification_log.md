@@ -262,3 +262,4 @@
 | 258 | dx | git-branching-model | Document git feature-branching conventions and PR review workflow | [Automated Verified] |
 | 259 | dx | commit-message-standard | Document Conventional Commits standard (feat, fix, docs, refactor, test) | [Automated Verified] |
 | 260 | dx | env-variable-audit | Verify zero hardcoded API URLs or secrets across entire frontend code | [Automated Verified] |
+| 261 | dx | mock-data-removal | Verify complete removal of mock data files in favor of real Django REST API | [Automated Verified] |
