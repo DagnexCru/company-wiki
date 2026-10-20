@@ -22,3 +22,4 @@
 | 18 | setup | jwt-blacklist | Verify BLACKLIST_AFTER_ROTATION enabled for revoking old refresh tokens | [Automated Verified] |
 | 19 | setup | jwt-header-type | Verify AUTH_HEADER_TYPES configured to 'Bearer' standard RFC 6750 | [Automated Verified] |
 | 20 | setup | drf-permissions | Document REST_FRAMEWORK DEFAULT_PERMISSION_CLASSES set to IsAuthenticated | [Automated Verified] |
+| 21 | setup | drf-pagination | Document REST_FRAMEWORK PAGE_SIZE default set to 10 articles per page | [Automated Verified] |
