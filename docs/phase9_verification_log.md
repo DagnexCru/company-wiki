@@ -38,3 +38,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 33 | `test(phase9): verify Reader pending_review_articles field is strictly null` | Unapproved submissions are hidden from readers until official editorial publication. | [Automated Verified] |
 | 34 | `test(phase9): verify Reader admin_metrics field is strictly null` | System-wide administration metrics are null for unauthorized reader accounts. | [Automated Verified] |
 | 35 | `test(phase9): verify Reader cannot deduce unpublished draft titles` | Negative security test confirms draft titles do not appear in any reader payload section. | [Automated Verified] |
+| 36 | `test(phase9): verify Reader cannot observe editorial review queue backlog` | Review workload telemetry is inaccessible to non-reviewer user accounts. | [Automated Verified] |
