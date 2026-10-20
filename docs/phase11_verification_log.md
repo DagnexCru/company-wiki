@@ -28,3 +28,4 @@
 | 24 | setup | media-root | Document MEDIA_ROOT and MEDIA_URL storage path configuration for article assets | [Automated Verified] |
 | 25 | setup | windows-paths | Document Windows path separator normalization for development on Windows OS | [Automated Verified] |
 | 26 | setup | powershell-syntax | Document PowerShell command execution conventions and script guidelines | [Automated Verified] |
+| 27 | setup | npm-integrity | Verify package.json dependency tree integrity in frontend directory | [Automated Verified] |
