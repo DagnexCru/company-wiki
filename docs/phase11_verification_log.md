@@ -103,3 +103,4 @@
 | 99 | api | revisions-diff-stats | Specify diff schema additions, deletions, and changed metadata attributes | [Automated Verified] |
 | 100 | api | revisions-restore | Specify POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ linear history preservation | [Automated Verified] |
 | 101 | api | audit-list | Specify GET /api/v1/audit/ administrator-only activity log endpoint | [Automated Verified] |
+| 102 | api | audit-filter-action | Specify GET /api/v1/audit/?action={action} filtering by audit event type | [Automated Verified] |
