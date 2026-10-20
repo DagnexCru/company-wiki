@@ -101,3 +101,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 096 | `test(phase10): verify scenario 10 audit trail records USER_LOGOUT event` | Session logout logs audit event with actor UUID and timestamp. | [Automated Verified] |
 | 097 | `test(phase10): verify scenario 10 multiple concurrent session isolation` | Logging out from one session invalidates only the specified refresh token. | [Automated Verified] |
 | 098 | `test(phase10): verify scenario 10 password change invalidates outstanding tokens` | Password update updates token secret or invalidates credentials safely. | [Automated Verified] |
+| 099 | `test(phase10): verify scenario 10 unauthenticated logout attempt rejection` | Posting invalid or empty refresh token returns 400 Bad Request. | [Automated Verified] |
