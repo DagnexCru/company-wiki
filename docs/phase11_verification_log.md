@@ -233,3 +233,4 @@
 | 229 | dx | theme-tokens | Document Tailwind semantic theme tokens: bg-white, slate-900, brand-600, border-slate-200 | [Automated Verified] |
 | 230 | dx | toast-notifications | Document centralized Toast notification service for success, info, and error alerts | [Automated Verified] |
 | 231 | dx | modal-dialogs | Document accessible modal dialogs with focus trapping and ESC key dismiss | [Automated Verified] |
+| 232 | dx | controlled-inputs | Document controlled input components with inline error message rendering | [Automated Verified] |
