@@ -59,3 +59,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 054 | `test(phase10): verify scenario 6 tag filtering by comma-separated slugs` | Query parameter ?tag=infra,security filters articles by tag union. | [Automated Verified] |
 | 055 | `test(phase10): verify scenario 6 validated whitelisted sorting by -updated_at` | Ordering parameter ?ordering=-updated_at sorts newest updates first. | [Automated Verified] |
 | 056 | `test(phase10): verify scenario 6 validated whitelisted sorting by title` | Ordering parameter ?ordering=title sorts articles alphabetically. | [Automated Verified] |
+| 057 | `test(phase10): verify scenario 6 rejection of unsafe ordering parameters` | Unwhitelisted ordering columns are ignored or safely sanitized. | [Automated Verified] |
