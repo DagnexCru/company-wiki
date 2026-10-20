@@ -285,3 +285,4 @@
 | 281 | audit | reproducibility-taxonomy-seed | Audit seed_taxonomy management command for default categories | [Automated Verified] |
 | 282 | audit | reproducibility-devserver | Audit simultaneous backend:8000 and frontend:5173 server startup | [Automated Verified] |
 | 283 | audit | reproducibility-postman-tests | Audit Postman collection manual verification workflow instructions | [Automated Verified] |
+| 284 | audit | security-audit-secrets | Verify zero credentials, API keys, or JWT secrets stored in git repository | [Automated Verified] |
