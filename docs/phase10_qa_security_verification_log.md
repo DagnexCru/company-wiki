@@ -22,3 +22,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 017 | `test(phase10): verify scenario 2 audit trail records ARTICLE_CREATE event` | System logs audit event with actor, resource_id, and creation metadata. | [Automated Verified] |
 | 018 | `test(phase10): verify scenario 2 validation error on missing required title` | API rejects creation request when title is missing or blank with 400 status. | [Automated Verified] |
 | 019 | `test(phase10): verify scenario 2 validation error on invalid category UUID` | API rejects creation request when category UUID does not exist with 400 status. | [Automated Verified] |
+| 020 | `test(phase10): verify scenario 2 reader role rejection on article creation (403)` | Readers attempting POST /api/v1/articles/ receive HTTP 403 Forbidden. | [Automated Verified] |
