@@ -52,3 +52,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #48**: GET /api/v1/articles/{slug}/revisions/diff/ tags_removed array calculation — [Automated Verified]
 - [x] **Verification Check #49**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ linear history preservation — [Automated Verified]
 - [x] **Verification Check #50**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ author draft restoration — [Automated Verified]
+- [x] **Verification Check #51**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ author rejected article restoration — [Automated Verified]
