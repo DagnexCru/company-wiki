@@ -165,3 +165,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 160 | `test(phase10): audit image and icon decorative hiding via aria-hidden='true'` | Presentational Lucide icons declare aria-hidden='true' to reduce noise. | [Automated Verified] |
 | 161 | `test(phase10): audit visible focus rings (focus:ring-2) across all interactive elements` | Focus rings visible in brand color with 2px offset on all buttons and inputs. | [Automated Verified] |
 | 162 | `test(phase10): audit logical Tab key navigation order through application layout` | Tab index follows visual reading order from header to main content. | [Automated Verified] |
+| 163 | `test(phase10): audit Escape key dismissal on modal dialogs` | Pressing Escape key closes review modal, delete modal, and restore modal. | [Automated Verified] |
