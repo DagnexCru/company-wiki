@@ -216,3 +216,4 @@
 | 212 | workflow | audit-trail-no-secrets | Audit audit event payloads ensuring zero password or token leakage | [Automated Verified] |
 | 213 | workflow | audit-trail-immutable | Document audit log table has no update or delete endpoints | [Automated Verified] |
 | 214 | workflow | audit-filtering-pagination | Document GET /api/v1/audit/ pagination and filtering capabilities | [Automated Verified] |
+| 215 | workflow | dashboard-activity-feed | Document audit events formatting in role-aware Recent Activity dashboard feed | [Automated Verified] |
