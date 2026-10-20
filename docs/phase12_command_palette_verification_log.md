@@ -14,3 +14,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 08 | `feat(palette): auto-focus search input with micro-delay on open` | inputRef.current?.focus() runs with a 50ms RAF/timeout for seamless keyboard focus. | [Automated Verified] |
 | 09 | `feat(palette): implement controlled input state with real-time query tracking` | React state binds directly to <input> value with instant change callbacks. | [Automated Verified] |
 | 10 | `feat(palette): add search input clear button with X icon` | Clear button appears when query.length > 0 and clears text without closing modal. | [Automated Verified] |
+| 11 | `feat(palette): implement 220ms debounce on search queries to minimize API traffic` | Prevents request flood by debouncing network requests until user pauses typing. | [Automated Verified] |
