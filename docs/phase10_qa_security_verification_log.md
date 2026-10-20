@@ -99,3 +99,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 094 | `test(phase10): verify scenario 10 revoked session protected endpoint access rejected (401)` | Client without valid authorization header is rejected from protected endpoints. | [Automated Verified] |
 | 095 | `test(phase10): verify scenario 10 expired access token rejection` | Access token past configured lifetime (15 mins) is rejected with 401. | [Automated Verified] |
 | 096 | `test(phase10): verify scenario 10 audit trail records USER_LOGOUT event` | Session logout logs audit event with actor UUID and timestamp. | [Automated Verified] |
+| 097 | `test(phase10): verify scenario 10 multiple concurrent session isolation` | Logging out from one session invalidates only the specified refresh token. | [Automated Verified] |
