@@ -277,3 +277,4 @@
 | 273 | audit | frontend-env-parity | Verify frontend/.env.example contains VITE_API_BASE_URL placeholder | [Automated Verified] |
 | 274 | audit | backend-tests-pass | Verify all 117 automated backend tests pass cleanly with zero failures | [Automated Verified] |
 | 275 | audit | frontend-build-pass | Verify frontend TypeScript build passes with zero errors and valid dist/ | [Automated Verified] |
+| 276 | audit | reproducibility-postgres | Audit PostgreSQL bootstrap instructions from clean database setup | [Automated Verified] |
