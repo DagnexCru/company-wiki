@@ -8,3 +8,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 02 | `feat(palette): register global Ctrl+K and Cmd+K keyboard shortcut listener` | Window listener detects both Ctrl+K on Windows/Linux and Cmd+K on macOS. | [Automated Verified] |
 | 03 | `feat(palette): prevent browser default URL shortcut when Ctrl+K is pressed` | Keyboard event default action is suppressed (e.preventDefault()) when toggling palette. | [Automated Verified] |
 | 04 | `feat(palette): support Escape key listener to dismiss command modal instantly` | Pressing Esc immediately sets isOpen to false and resets active selection index. | [Automated Verified] |
+| 05 | `feat(palette): support CustomEvent open-command-palette trigger across app` | Decoupled event dispatcher allows any header button or drawer to open the palette. | [Automated Verified] |
