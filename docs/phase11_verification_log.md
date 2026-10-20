@@ -255,3 +255,4 @@
 | 251 | dx | clean-console-policy | Document zero-warning browser console policy during normal application use | [Automated Verified] |
 | 252 | dx | responsive-grid-system | Document responsive layout grids adapting from mobile single-col to desktop multi-col | [Automated Verified] |
 | 253 | dx | accessible-focus-states | Document visible focus-visible ring styles for keyboard accessibility (WCAG AA) | [Automated Verified] |
+| 254 | dx | form-accessibility | Document proper HTML label association with input IDs and aria-describedby | [Automated Verified] |
