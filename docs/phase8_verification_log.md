@@ -92,3 +92,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #88**: log_audit_event AUTH_LOGIN recording on successful JWT login — [Automated Verified]
 - [x] **Verification Check #89**: log_audit_event AUTH_LOGOUT recording on refresh token blacklist — [Automated Verified]
 - [x] **Verification Check #90**: log_audit_event USER_ROLE_CHANGE recording on administrative role update — [Automated Verified]
+- [x] **Verification Check #91**: log_audit_event USER_STATUS_CHANGE recording on account activation toggle — [Automated Verified]
