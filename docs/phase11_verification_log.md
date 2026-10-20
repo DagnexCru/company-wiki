@@ -288,3 +288,4 @@
 | 284 | audit | security-audit-secrets | Verify zero credentials, API keys, or JWT secrets stored in git repository | [Automated Verified] |
 | 285 | audit | security-audit-rbac | Verify backend permission classes strictly enforce RBAC at API boundary | [Automated Verified] |
 | 286 | audit | security-audit-sanitization | Verify Markdown rendering pipeline safely escapes untrusted HTML | [Automated Verified] |
+| 287 | audit | security-audit-injection | Verify Django ORM prevents SQL injection across all query endpoints | [Automated Verified] |
