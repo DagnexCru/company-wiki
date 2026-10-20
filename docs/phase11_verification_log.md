@@ -125,3 +125,4 @@
 | 121 | api | postman-env-vars | Document Postman environment variables: {{baseUrl}}, {{accessToken}}, {{refreshToken}} | [Automated Verified] |
 | 122 | api | postman-auth-folder | Specify Postman Authentication folder containing Login, Refresh, Me, and Register | [Automated Verified] |
 | 123 | api | postman-articles-folder | Specify Postman Articles folder with CRUD, filters, search, and pagination | [Automated Verified] |
+| 124 | api | postman-workflow-folder | Specify Postman Workflow folder with Submit, Review Queue, Approve, and Reject | [Automated Verified] |
