@@ -60,3 +60,4 @@
 | 56 | setup | port-matrix | Document standard local port allocations: backend:8000, frontend:5173, postgres:5432 | [Automated Verified] |
 | 57 | setup | subsystem-health | Document health endpoint response schema with database, status, and version | [Automated Verified] |
 | 58 | setup | pipenv-scripts | Document Pipenv run shortcut commands for manage.py subcommands | [Automated Verified] |
+| 59 | setup | hot-reload | Document Vite HMR and Django runserver auto-reload behavior on file edits | [Automated Verified] |
