@@ -156,3 +156,4 @@
 | 152 | roles | token-replay-protection | Document refresh token rotation preventing token reuse and replay attacks | [Automated Verified] |
 | 153 | roles | csrf-cookie-samesite | Document SameSite=Lax and HttpOnly cookie configurations for web security | [Automated Verified] |
 | 154 | roles | xss-markdown-sanitization | Document DOMPurify and safe Markdown rendering preventing script injection | [Automated Verified] |
+| 155 | roles | sql-injection-prevention | Verify complete Django ORM parameterized queries preventing SQL injection | [Automated Verified] |
