@@ -82,3 +82,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #78**: log_audit_event automatic IP extraction from request — [Automated Verified]
 - [x] **Verification Check #79**: log_audit_event ARTICLE_CREATE recording in ArticleViewSet.perform_create — [Automated Verified]
 - [x] **Verification Check #80**: log_audit_event ARTICLE_UPDATE recording in ArticleViewSet.perform_update — [Automated Verified]
+- [x] **Verification Check #81**: log_audit_event ARTICLE_DELETE recording on permanent draft deletion — [Automated Verified]
