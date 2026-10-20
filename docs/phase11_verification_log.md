@@ -185,3 +185,4 @@
 | 181 | workflow | draft-creation | Document initial article state created as draft with revision #1 snapshot | [Automated Verified] |
 | 182 | workflow | draft-editing | Document author editing draft freely without review queue notifications | [Automated Verified] |
 | 183 | workflow | submission-action | Document POST /api/v1/articles/{slug}/submit/ triggering in_review transition | [Automated Verified] |
+| 184 | workflow | submission-validation | Verify article must have non-empty title and content before submission | [Automated Verified] |
