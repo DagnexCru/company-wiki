@@ -11,3 +11,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #7**: ArticleRevision compound index on (article, -revision_number) — [Automated Verified]
 - [x] **Verification Check #8**: ArticleRevision compound index on (article, -created_at) — [Automated Verified]
 - [x] **Verification Check #9**: ArticleRevision compound index on (author, -created_at) — [Automated Verified]
+- [x] **Verification Check #10**: ArticleRevision title field maximum length 255 validation — [Automated Verified]
