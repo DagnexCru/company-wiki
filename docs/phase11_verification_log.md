@@ -113,3 +113,4 @@
 | 109 | api | users-retrieve | Specify GET /api/v1/users/{id}/ user detail schema with roles and activity | [Automated Verified] |
 | 110 | api | users-update-role | Specify PATCH /api/v1/users/{id}/ role reassignment endpoint for administrators | [Automated Verified] |
 | 111 | api | users-deactivate | Specify POST /api/v1/users/{id}/deactivate/ account deactivation behavior | [Automated Verified] |
+| 112 | api | http-200-ok | Document HTTP 200 OK standard response semantics for query operations | [Automated Verified] |
