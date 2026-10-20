@@ -38,3 +38,4 @@
 | 34 | setup | lucide-icons | Document Lucide React tree-shakeable iconography integration | [Automated Verified] |
 | 35 | setup | axios-instance | Document Axios client instance creation with baseURL /api/v1/ | [Automated Verified] |
 | 36 | setup | axios-auth-header | Document Axios request interceptor injecting Bearer JWT token | [Automated Verified] |
+| 37 | setup | axios-token-refresh | Document Axios response interceptor for 401 token refresh queue | [Automated Verified] |
