@@ -177,3 +177,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 172 | `test(phase10): audit article editor form validation on missing category` | Editor requires category selection before enabling draft submission. | [Automated Verified] |
 | 173 | `test(phase10): audit article editor unsaved changes confirmation prompt` | Navigating away from dirty form warns user to prevent accidental data loss. | [Automated Verified] |
 | 174 | `test(phase10): audit loading skeleton state on article detail page` | Pulsing skeleton loader rendered while fetching article payload. | [Automated Verified] |
+| 175 | `test(phase10): audit loading skeleton state on article list page` | Card skeletons render during paginated knowledge base search queries. | [Automated Verified] |
