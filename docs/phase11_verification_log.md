@@ -15,3 +15,4 @@
 | 11 | setup | secret-key | Document SECRET_KEY externalization in backend/.env with secure random entropy | [Automated Verified] |
 | 12 | setup | debug-flag | Document DEBUG boolean typecast safety in production vs development settings | [Automated Verified] |
 | 13 | setup | allowed-hosts | Document ALLOWED_HOSTS comma-delimited environment variable parsing | [Automated Verified] |
+| 14 | setup | cors-origins | Verify CORS_ALLOWED_ORIGINS configuration for frontend localhost:5173 | [Automated Verified] |
