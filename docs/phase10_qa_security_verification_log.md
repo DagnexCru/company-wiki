@@ -88,3 +88,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 083 | `test(phase10): verify scenario 9 reviewer views revision history of in_review article` | Reviewer can inspect revisions of submitted articles during review. | [Automated Verified] |
 | 084 | `test(phase10): verify scenario 9 reader revision history query rejected (403)` | Readers cannot access revision history; returns HTTP 403 Forbidden. | [Automated Verified] |
 | 085 | `test(phase10): verify scenario 9 single revision snapshot retrieval` | Endpoint /api/v1/articles/{slug}/revisions/{num}/ returns complete frozen state. | [Automated Verified] |
+| 086 | `test(phase10): verify scenario 9 unified diff computation between revisions` | Diff endpoint computes difflib unified diff between source and target versions. | [Automated Verified] |
