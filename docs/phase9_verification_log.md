@@ -13,3 +13,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 08 | `test(phase9): verify total_published_articles excludes draft articles` | Draft work-in-progress content is never included in general published count. | [Automated Verified] |
 | 09 | `test(phase9): verify total_published_articles excludes in-review articles` | Articles awaiting editorial review are omitted from published document totals. | [Automated Verified] |
 | 10 | `test(phase9): verify total_published_articles excludes rejected articles` | Rejected articles undergoing author revision are excluded from published document totals. | [Automated Verified] |
+| 11 | `test(phase9): verify total_published_articles excludes archived articles` | Archived documents preserved for legal citation are excluded from active publication counts. | [Automated Verified] |
