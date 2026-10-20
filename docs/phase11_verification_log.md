@@ -96,3 +96,4 @@
 | 92 | api | workflow-approve | Specify POST /api/v1/workflow/{slug}/approve/ reviewer approval and publication | [Automated Verified] |
 | 93 | api | workflow-reject | Specify POST /api/v1/workflow/{slug}/reject/ rejection reason requirement and state shift | [Automated Verified] |
 | 94 | api | workflow-independent-rule | Document backend HTTP 403 rejection if author attempts self-review | [Automated Verified] |
+| 95 | api | workflow-invalid-transition | Document backend HTTP 400 rejection on illegal lifecycle state transitions | [Automated Verified] |
