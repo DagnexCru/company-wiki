@@ -66,3 +66,4 @@
 | 62 | api | auth-refresh | Specify POST /api/v1/auth/refresh/ payload schema and token rotation behavior | [Automated Verified] |
 | 63 | api | auth-register | Specify POST /api/v1/auth/register/ payload schema and default Reader role | [Automated Verified] |
 | 64 | api | auth-logout | Specify POST /api/v1/auth/logout/ payload schema and refresh token blacklisting | [Automated Verified] |
+| 65 | api | auth-me | Specify GET /api/v1/auth/me/ response schema with user id, username, email, and role | [Automated Verified] |
