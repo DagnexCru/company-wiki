@@ -163,3 +163,4 @@
 | 159 | roles | user-active-check | Document IsAuthenticated middleware checking user.is_active boolean flag | [Automated Verified] |
 | 160 | roles | deactivated-user-rejection | Verify deactivated users receive immediate HTTP 401 on token refresh | [Automated Verified] |
 | 161 | roles | admin-user-management | Document administrative user list, filter by role, and activation toggling | [Automated Verified] |
+| 162 | roles | role-transition-audit | Verify user role change triggers an immutable audit log entry | [Automated Verified] |
