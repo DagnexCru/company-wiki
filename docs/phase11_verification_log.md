@@ -269,3 +269,4 @@
 | 265 | audit | readme-completeness | Verify root README.md covers Architecture, Quickstart, RBAC, and Workflow | [Automated Verified] |
 | 266 | audit | setup-guide-completeness | Verify docs/setup_guide.md covers Python, Pipenv, Postgres, and npm | [Automated Verified] |
 | 267 | audit | api-docs-completeness | Verify docs/api_documentation.md specifies all v1 REST API endpoints | [Automated Verified] |
+| 268 | audit | postman-collection-import | Verify docs/postman_collection.json valid JSON and Postman 2.1 schema | [Automated Verified] |
