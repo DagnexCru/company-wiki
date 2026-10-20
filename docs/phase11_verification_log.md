@@ -154,3 +154,4 @@
 | 150 | roles | password-storage-argon2 | Verify Django password hasher configuration using PBKDF2 with SHA256 | [Automated Verified] |
 | 151 | roles | token-invalidation-logout | Document token revocation on logout by blacklisting refresh token UUID | [Automated Verified] |
 | 152 | roles | token-replay-protection | Document refresh token rotation preventing token reuse and replay attacks | [Automated Verified] |
+| 153 | roles | csrf-cookie-samesite | Document SameSite=Lax and HttpOnly cookie configurations for web security | [Automated Verified] |
