@@ -249,3 +249,4 @@
 | 245 | dx | auth-context-provider | Document AuthContext managing user profile, tokens, and login/logout state | [Automated Verified] |
 | 246 | dx | use-auth-hook | Document custom useAuth() hook for consuming authentication state in components | [Automated Verified] |
 | 247 | dx | service-layer-pattern | Document frontend API service layer encapsulating all Axios HTTP requests | [Automated Verified] |
+| 248 | dx | type-safety-interfaces | Document TypeScript interfaces for Article, Category, Tag, User, Revision, Audit | [Automated Verified] |
