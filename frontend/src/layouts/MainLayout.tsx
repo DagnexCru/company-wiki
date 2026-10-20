@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
+import { CommandPalette } from "../components/CommandPalette";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -31,6 +32,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           {children}
         </main>
       </div>
+
+      {/* Global Interactive Command Palette (Ctrl+K / Cmd+K) */}
+      <CommandPalette />
     </div>
   );
 };

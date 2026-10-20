@@ -69,17 +69,31 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
         </Link>
       </div>
 
-      {/* Global Quick Search Shortcut */}
-      <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-800/80 text-slate-400 text-sm w-72 focus-within:border-slate-700">
-        <Search className="w-4 h-4 text-slate-400" />
-        <span>Quick search knowledge base...</span>
-        <kbd className="ml-auto font-mono text-[10px] bg-slate-900 border border-slate-700 px-1.5 py-0.5 rounded text-slate-400 shadow-sm">
+      {/* Global Quick Search Shortcut (Desktop Button) */}
+      <button
+        type="button"
+        onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+        className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-800 bg-slate-800/80 hover:bg-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-300 text-sm w-72 transition cursor-pointer shadow-xs text-left"
+        title="Open command palette (Ctrl+K)"
+      >
+        <Search className="w-4 h-4 text-slate-400 shrink-0" />
+        <span className="truncate">Quick search knowledge base...</span>
+        <kbd className="ml-auto font-mono text-[10px] bg-slate-900 border border-slate-700 px-1.5 py-0.5 rounded text-slate-400 shadow-sm shrink-0">
           Ctrl K
         </kbd>
-      </div>
+      </button>
 
-      {/* Authenticated User Status & Logout */}
-      <div className="flex items-center gap-3">
+      {/* Authenticated User Status & Mobile Search Trigger */}
+      <div className="flex items-center gap-2 sm:gap-3">
+        {/* Mobile Search Button */}
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+          aria-label="Open command palette"
+          className="p-2 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl transition md:hidden"
+        >
+          <Search className="w-5 h-5" />
+        </button>
         {user ? (
           <>
             <div className="flex items-center gap-2 pl-2">
