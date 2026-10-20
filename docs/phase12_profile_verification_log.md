@@ -24,3 +24,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 18 | `refactor(dashboard): remove redundant profile card from main DashboardPage` | Cleans up Dashboard layout to focus purely on knowledge base telemetry. | [Automated Verified] |
 | 19 | `refactor(dashboard): remove redundant permissions breakdown grid from DashboardPage` | Eliminates duplicated permissions list from main workspace dashboard. | [Automated Verified] |
 | 20 | `style(dashboard): add subtle banner linking to Profile & Settings page` | Helpful shortcut banner directing users to /profile for account credentials. | [Automated Verified] |
+| 21 | `test(profile): verify unauthenticated navigation to /profile redirects to /login` | ProtectedRoute rejects unauthorized visitors with HTTP redirect. | [Automated Verified] |
