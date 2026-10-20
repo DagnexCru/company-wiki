@@ -149,3 +149,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 144 | `test(phase10): audit workflow status badge contrast ratios across all states` | Draft, in-review, published, rejected, and archived badges satisfy 4.5:1 ratio. | [Automated Verified] |
 | 145 | `test(phase10): audit category badge theme color contrast compliance` | Category badges use curated Tailwind color tokens with tested contrast. | [Automated Verified] |
 | 146 | `test(phase10): audit interactive button hover and focus contrast states` | Buttons provide distinct hover and focus states with visible luminance change. | [Automated Verified] |
+| 147 | `test(phase10): audit form input border contrast in default and focused states` | Input borders provide 3:1 contrast against background for field discoverability. | [Automated Verified] |
