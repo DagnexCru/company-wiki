@@ -11,3 +11,4 @@
 | 7 | setup | db-health-check | Document DB connection ping query 'SELECT 1' in /api/v1/health/ endpoint | [Automated Verified] |
 | 8 | setup | migrations-tree | Audit migrations dependency tree across accounts, taxonomy, articles, workflow, and audit apps | [Automated Verified] |
 | 9 | setup | zero-unapplied | Verify zero unapplied migrations policy on clean database bootstrap | [Automated Verified] |
+| 10 | setup | settings-modular | Verify Django settings modularity and decouple environment variable resolution | [Automated Verified] |
