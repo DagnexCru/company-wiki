@@ -15,3 +15,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 10 | `test(phase9): verify total_published_articles excludes rejected articles` | Rejected articles undergoing author revision are excluded from published document totals. | [Automated Verified] |
 | 11 | `test(phase9): verify total_published_articles excludes archived articles` | Archived documents preserved for legal citation are excluded from active publication counts. | [Automated Verified] |
 | 12 | `feat(phase9): cap recent_published_articles to top 5 records` | Queryset limits recent published articles feed to 5 records to minimize payload latency. | [Automated Verified] |
+| 13 | `feat(phase9): order recent_published_articles by -published_at primary key` | Primary descending ordering by publication timestamp presents newest releases first. | [Automated Verified] |
