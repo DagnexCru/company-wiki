@@ -252,3 +252,4 @@
 | 248 | dx | type-safety-interfaces | Document TypeScript interfaces for Article, Category, Tag, User, Revision, Audit | [Automated Verified] |
 | 249 | dx | vite-build-performance | Document Vite production build performance compiling 2,000+ modules in <3s | [Automated Verified] |
 | 250 | dx | asset-chunking | Document Vite rollup asset chunking configuration splitting vendor libraries | [Automated Verified] |
+| 251 | dx | clean-console-policy | Document zero-warning browser console policy during normal application use | [Automated Verified] |
