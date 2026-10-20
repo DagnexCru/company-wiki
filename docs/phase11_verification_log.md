@@ -68,3 +68,4 @@
 | 64 | api | auth-logout | Specify POST /api/v1/auth/logout/ payload schema and refresh token blacklisting | [Automated Verified] |
 | 65 | api | auth-me | Specify GET /api/v1/auth/me/ response schema with user id, username, email, and role | [Automated Verified] |
 | 66 | api | health-get | Specify GET /api/v1/health/ response schema, HTTP status 200, and DB status | [Automated Verified] |
+| 67 | api | categories-list | Specify GET /api/v1/categories/ pagination, ordering, and article count | [Automated Verified] |
