@@ -98,3 +98,4 @@
 | 94 | api | workflow-independent-rule | Document backend HTTP 403 rejection if author attempts self-review | [Automated Verified] |
 | 95 | api | workflow-invalid-transition | Document backend HTTP 400 rejection on illegal lifecycle state transitions | [Automated Verified] |
 | 96 | api | revisions-list | Specify GET /api/v1/articles/{slug}/revisions/ revision timeline listing schema | [Automated Verified] |
+| 97 | api | revisions-retrieve | Specify GET /api/v1/articles/{slug}/revisions/{rev_num}/ historical snapshot retrieval | [Automated Verified] |
