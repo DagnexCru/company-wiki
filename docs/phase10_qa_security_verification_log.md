@@ -10,3 +10,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 005 | `test(phase10): verify scenario 1 dashboard retrieval displays appropriate role metrics` | Dashboard responds with role-scoped metrics for the signed-in user. | [Automated Verified] |
 | 006 | `test(phase10): verify scenario 1 rejection of malformed or invalid credentials` | Login endpoint returns 400 Bad Request on invalid credentials or empty fields. | [Automated Verified] |
 | 007 | `test(phase10): verify scenario 1 inactive user rejection during authentication` | Deactivated accounts are rejected with account_disabled error. | [Automated Verified] |
+| 008 | `test(phase10): verify scenario 1 token refresh endpoint issuance` | Endpoint /api/v1/auth/refresh/ issues new access token given valid refresh token. | [Automated Verified] |
