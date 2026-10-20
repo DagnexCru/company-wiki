@@ -146,3 +146,4 @@
 | 142 | roles | can-review-class | Document CanReviewArticle permission checking reviewer role and non-author rule | [Automated Verified] |
 | 143 | roles | queryset-scoping-reader | Document Reader queryset scoping returning only status='published' articles | [Automated Verified] |
 | 144 | roles | queryset-scoping-author | Document Author queryset scoping returning published + own drafts/reviews | [Automated Verified] |
+| 145 | roles | queryset-scoping-reviewer | Document Reviewer queryset scoping returning published + in_review queue | [Automated Verified] |
