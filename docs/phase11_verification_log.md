@@ -203,3 +203,4 @@
 | 199 | workflow | archival-audit-event | Verify archival action records audit event 'article.archived' | [Automated Verified] |
 | 200 | workflow | unarchive-action | Document Administrator unarchiving article back to draft status | [Automated Verified] |
 | 201 | workflow | revision-immutable-rule | Document ArticleRevision records are immutable and cannot be updated | [Automated Verified] |
+| 202 | workflow | revision-auto-numbering | Verify revision_number increments sequentially per article (1, 2, 3...) | [Automated Verified] |
