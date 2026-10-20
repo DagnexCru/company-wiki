@@ -87,3 +87,4 @@
 | 83 | api | articles-filter-cat | Specify GET /api/v1/articles/?category={slug} filtering mechanism | [Automated Verified] |
 | 84 | api | articles-filter-tag | Specify GET /api/v1/articles/?tag={slug} many-to-many filtering mechanism | [Automated Verified] |
 | 85 | api | articles-filter-status | Specify GET /api/v1/articles/?status={status} role-scoped status filtering | [Automated Verified] |
+| 86 | api | articles-filter-author | Specify GET /api/v1/articles/?author={username} author filtering mechanism | [Automated Verified] |
