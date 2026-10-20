@@ -47,3 +47,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #43**: GET /api/v1/articles/{slug}/revisions/diff/ line deletions counter accuracy — [Automated Verified]
 - [x] **Verification Check #44**: GET /api/v1/articles/{slug}/revisions/diff/ title_changed boolean calculation — [Automated Verified]
 - [x] **Verification Check #45**: GET /api/v1/articles/{slug}/revisions/diff/ summary_changed boolean calculation — [Automated Verified]
+- [x] **Verification Check #46**: GET /api/v1/articles/{slug}/revisions/diff/ category_changed boolean calculation — [Automated Verified]
