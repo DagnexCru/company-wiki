@@ -144,3 +144,4 @@
 | 140 | roles | is-reviewer-class | Document IsReviewer permission class checking user.role in ['reviewer', 'admin'] | [Automated Verified] |
 | 141 | roles | is-author-class | Document IsAuthorOrReadOnly object-level permission class for article modifications | [Automated Verified] |
 | 142 | roles | can-review-class | Document CanReviewArticle permission checking reviewer role and non-author rule | [Automated Verified] |
+| 143 | roles | queryset-scoping-reader | Document Reader queryset scoping returning only status='published' articles | [Automated Verified] |
