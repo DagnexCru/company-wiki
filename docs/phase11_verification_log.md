@@ -174,3 +174,4 @@
 | 170 | roles | tag-deletion-admin-only | Verify tag deletion is restricted to Administrators to prevent taxonomy breakage | [Automated Verified] |
 | 171 | roles | audit-log-admin-only | Verify audit log endpoints reject non-administrator users with HTTP 403 | [Automated Verified] |
 | 172 | roles | dashboard-metric-isolation | Verify dashboard counts do not leak draft numbers across unauthorized roles | [Automated Verified] |
+| 173 | roles | search-index-filtering | Verify search queries enforce role-based queryset filtering at database level | [Automated Verified] |
