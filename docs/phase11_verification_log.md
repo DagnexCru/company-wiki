@@ -152,3 +152,4 @@
 | 148 | roles | slug-guessing-prevention | Document draft slug URL guessing prevention returning 404 for unauthorized users | [Automated Verified] |
 | 149 | roles | role-escalation-prevention | Verify Author cannot elevate their own role to Reviewer or Admin via PATCH | [Automated Verified] |
 | 150 | roles | password-storage-argon2 | Verify Django password hasher configuration using PBKDF2 with SHA256 | [Automated Verified] |
+| 151 | roles | token-invalidation-logout | Document token revocation on logout by blacklisting refresh token UUID | [Automated Verified] |
