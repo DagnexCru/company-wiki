@@ -124,3 +124,4 @@
 | 120 | api | http-429-rate-limit | Document HTTP 429 Too Many Requests throttle policy documentation | [Automated Verified] |
 | 121 | api | postman-env-vars | Document Postman environment variables: {{baseUrl}}, {{accessToken}}, {{refreshToken}} | [Automated Verified] |
 | 122 | api | postman-auth-folder | Specify Postman Authentication folder containing Login, Refresh, Me, and Register | [Automated Verified] |
+| 123 | api | postman-articles-folder | Specify Postman Articles folder with CRUD, filters, search, and pagination | [Automated Verified] |
