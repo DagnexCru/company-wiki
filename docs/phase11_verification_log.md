@@ -190,3 +190,4 @@
 | 186 | workflow | review-queue-entry | Document in_review article immediate appearance in Review Queue for Reviewers | [Automated Verified] |
 | 187 | workflow | review-inspection | Document Reviewer viewing complete submitted markdown content and metadata | [Automated Verified] |
 | 188 | workflow | approval-action | Document POST /api/v1/workflow/{slug}/approve/ triggering published transition | [Automated Verified] |
+| 189 | workflow | approval-timestamp | Verify article.published_at timestamp populated with timezone.now() on approval | [Automated Verified] |
