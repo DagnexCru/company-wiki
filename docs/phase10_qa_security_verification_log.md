@@ -79,3 +79,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 074 | `test(phase10): verify scenario 8 role promotion takes effect immediately on API permissions` | Promoted user can immediately create articles or review submissions. | [Automated Verified] |
 | 075 | `test(phase10): verify scenario 8 audit trail records USER_ROLE_CHANGE event` | Role change logs audit event with actor, target user, and previous/new role. | [Automated Verified] |
 | 076 | `test(phase10): verify scenario 8 admin toggles user account active status` | Administrator deactivates or reactivates employee accounts. | [Automated Verified] |
+| 077 | `test(phase10): verify scenario 8 audit trail records USER_STATUS_CHANGE event` | Account deactivation logs audit event with timestamp. | [Automated Verified] |
