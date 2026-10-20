@@ -31,3 +31,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #27**: Article.create_revision tags name snapshot synchronization — [Automated Verified]
 - [x] **Verification Check #28**: ArticleRevisionSerializer field serialization and read-only enforcement — [Automated Verified]
 - [x] **Verification Check #29**: ArticleRevisionListSerializer compact serialization for timelines — [Automated Verified]
+- [x] **Verification Check #30**: GET /api/v1/articles/{slug}/revisions/ authentication enforcement — [Automated Verified]
