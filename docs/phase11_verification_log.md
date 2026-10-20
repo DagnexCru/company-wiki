@@ -182,3 +182,4 @@
 | 178 | roles | restore-reader-denial | Verify Reader cannot trigger revision restoration under any circumstances | [Automated Verified] |
 | 179 | roles | security-headers-hsts | Document HTTP Strict Transport Security (HSTS) headers for production deployments | [Automated Verified] |
 | 180 | workflow | state-machine-definition | Document 5 article lifecycle states: draft, in_review, published, rejected, archived | [Automated Verified] |
+| 181 | workflow | draft-creation | Document initial article state created as draft with revision #1 snapshot | [Automated Verified] |
