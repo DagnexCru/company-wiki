@@ -208,3 +208,4 @@
 | 204 | workflow | revision-diff-engine | Document difflib unified_diff generating line additions and deletions | [Automated Verified] |
 | 205 | workflow | revision-metadata-diff | Document title, summary, category, and tags change tracking in diff | [Automated Verified] |
 | 206 | workflow | restoration-linear-history | Document revision restoration creates a new revision without history loss | [Automated Verified] |
+| 207 | workflow | restoration-audit-event | Verify revision restoration records audit event 'article.restored' | [Automated Verified] |
