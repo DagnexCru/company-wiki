@@ -62,3 +62,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 057 | `test(phase10): verify scenario 6 rejection of unsafe ordering parameters` | Unwhitelisted ordering columns are ignored or safely sanitized. | [Automated Verified] |
 | 058 | `test(phase10): verify scenario 6 standard pagination page_size controls` | Pagination query parameters page and page_size control result counts. | [Automated Verified] |
 | 059 | `test(phase10): verify scenario 6 pagination response metadata envelope` | Response envelope includes count, total_pages, current_page, and results. | [Automated Verified] |
+| 060 | `test(phase10): verify scenario 6 search results strictly exclude unpublished content` | Draft, in-review, and archived articles never appear in reader search results. | [Automated Verified] |
