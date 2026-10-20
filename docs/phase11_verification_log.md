@@ -101,3 +101,4 @@
 | 97 | api | revisions-retrieve | Specify GET /api/v1/articles/{slug}/revisions/{rev_num}/ historical snapshot retrieval | [Automated Verified] |
 | 98 | api | revisions-diff | Specify GET /api/v1/articles/{slug}/revisions/diff/?from={a}&to={b} unified diff schema | [Automated Verified] |
 | 99 | api | revisions-diff-stats | Specify diff schema additions, deletions, and changed metadata attributes | [Automated Verified] |
+| 100 | api | revisions-restore | Specify POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ linear history preservation | [Automated Verified] |
