@@ -65,3 +65,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 59 | `feat(palette): add ESC badge in search header for desktop keyboard hint` | Monospace ESC pill button indicates how to dismiss the modal. | [Automated Verified] |
 | 60 | `feat(palette): support clicking outside modal on backdrop to close` | Click event listener on outer overlay sets isOpen to false. | [Automated Verified] |
 | 61 | `feat(palette): stop click event propagation inside modal card` | e.stopPropagation() on inner card prevents unintended dismissal. | [Automated Verified] |
+| 62 | `feat(palette): integrate command palette button in Header desktop bar` | Replaces static search mockup with interactive button in Header. | [Automated Verified] |
