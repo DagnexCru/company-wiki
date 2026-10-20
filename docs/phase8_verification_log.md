@@ -60,3 +60,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #56**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ reason metadata capture — [Automated Verified]
 - [x] **Verification Check #57**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ intermediate revision immutability — [Automated Verified]
 - [x] **Verification Check #58**: AuditEvent model primary key UUID default uuid4 — [Automated Verified]
+- [x] **Verification Check #59**: AuditEvent actor foreign key relationship with CustomUser — [Automated Verified]
