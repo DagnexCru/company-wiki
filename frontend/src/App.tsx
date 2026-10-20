@@ -13,6 +13,8 @@ import { UserManagementPage } from "./pages/UserManagementPage";
 import { ReviewQueuePage } from "./pages/ReviewQueuePage";
 import { ReviewDetailPage } from "./pages/ReviewDetailPage";
 import { AccessDeniedPage } from "./pages/AccessDeniedPage";
+import { ArticleRevisionHistoryPage } from "./pages/ArticleRevisionHistoryPage";
+import { AuditLogPage } from "./pages/AuditLogPage";
 
 export function App() {
   return (
@@ -84,6 +86,16 @@ export function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/articles/:slug/revisions"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ArticleRevisionHistoryPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
 
           {/* Taxonomy Routes (Phase 4) */}
           <Route
@@ -114,6 +126,18 @@ export function App() {
               <ProtectedRoute allowedRoles={["ADMIN", "REVIEWER"]}>
                 <MainLayout>
                   <ReviewDetailPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* System Audit & History Routes (Phase 8) */}
+          <Route
+            path="/history"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <AuditLogPage />
                 </MainLayout>
               </ProtectedRoute>
             }
