@@ -33,3 +33,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 27 | `feat(palette): enforce RBAC on User Management (Admin only)` | Restricts user role and status administration strictly to Administrator role accounts. | [Automated Verified] |
 | 28 | `feat(palette): define Quick Action: Security Audit Trail with Shield icon` | Direct route to /audit for administrative compliance inspection. | [Automated Verified] |
 | 29 | `feat(palette): enforce RBAC on Security Audit Trail (Admin only)` | Restricts system audit log inspection strictly to Administrator role accounts. | [Automated Verified] |
+| 30 | `feat(palette): define Quick Action: Workspace Dashboard with LayoutDashboard icon` | Universal navigation action to return to /dashboard. | [Automated Verified] |
