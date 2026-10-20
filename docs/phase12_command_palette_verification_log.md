@@ -55,3 +55,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 49 | `feat(palette): scroll active selection into view automatically` | scrollIntoView({ block: 'nearest' }) keeps active item visible inside container. | [Automated Verified] |
 | 50 | `feat(palette): display visual CornerDownLeft shortcut hint on selected item` | Selected item shows Select Enter prompt on right side. | [Automated Verified] |
 | 51 | `feat(palette): persist clicked items to localStorage as Recent Searches` | Saves up to 5 recently selected items in company_wiki_recent_searches. | [Automated Verified] |
+| 52 | `feat(palette): load Recent Searches on mount when search query is empty` | Empty input state displays fast-access pills for recent lookups. | [Automated Verified] |
