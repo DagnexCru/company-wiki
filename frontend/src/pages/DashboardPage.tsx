@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { HealthStatusCard } from "../components/HealthStatusCard";
-import { articleService } from "../services/articleService";
-import type { ArticleListItem } from "../types/article";
+import { dashboardService } from "../services/dashboardService";
+import type { DashboardData } from "../types/dashboard";
 import {
   ShieldCheck,
   UserCheck,
@@ -13,29 +13,39 @@ import {
   Plus,
   ArrowRight,
   Clock,
+  FileText,
+  CheckSquare,
+  AlertCircle,
+  Users,
+  Activity,
+  Folder,
+  Edit3,
+  RefreshCw,
+  FolderOpen,
 } from "lucide-react";
 
 export const DashboardPage = () => {
   const { user } = useAuth();
-  const [recentArticles, setRecentArticles] = useState<ArticleListItem[]>([]);
-  const [totalArticles, setTotalArticles] = useState<number>(0);
-  const [loadingArticles, setLoadingArticles] = useState<boolean>(true);
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchDashboard = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await dashboardService.getDashboardData();
+      setData(response);
+    } catch {
+      setError("Unable to load live dashboard telemetry. Please check your connection and retry.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchDashboardContent = async () => {
-      try {
-        const data = await articleService.getArticles({ page: 1, page_size: 4 });
-        setRecentArticles(data.results);
-        setTotalArticles(data.count);
-      } catch {
-        // Non-blocking dashboard fetch
-      } finally {
-        setLoadingArticles(false);
-      }
-    };
-
-    fetchDashboardContent();
-  }, []);
+    fetchDashboard();
+  }, [fetchDashboard]);
 
   const getRolePermissions = (role?: string) => {
     switch (role) {
@@ -77,6 +87,8 @@ export const DashboardPage = () => {
 
   const permissions = getRolePermissions(user?.role);
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
+  const canReview = user?.role === "ADMIN" || user?.role === "REVIEWER";
+  const isAdmin = user?.role === "ADMIN";
 
   return (
     <div className="space-y-8">
@@ -85,7 +97,7 @@ export const DashboardPage = () => {
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold text-brand-200 border border-white/10">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Phase 3: Core Knowledge Base Active</span>
+            <span>Role-Aware Telemetry • Phase 9 Active</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             Welcome back, {user?.full_name || user?.username}!
@@ -95,7 +107,7 @@ export const DashboardPage = () => {
             <span className="font-semibold text-white underline decoration-brand-400">
               {user?.role}
             </span>
-            . Browse company documentation, create new drafts, or monitor real-time system telemetry.
+            . Discover published knowledge, track ongoing reviews, or monitor company-wide metrics in real time.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -116,22 +128,370 @@ export const DashboardPage = () => {
                 Write New Article
               </Link>
             )}
+
+            {canReview && (
+              <Link
+                to="/reviews"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-600 text-white font-semibold text-xs hover:bg-purple-700 transition-all shadow-md active:scale-95 border border-purple-500"
+              >
+                <CheckSquare className="w-4 h-4" />
+                Editorial Queue
+              </Link>
+            )}
           </div>
         </div>
 
         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-brand-500/10 to-transparent pointer-events-none hidden md:block" />
       </div>
 
-      {/* Recent Knowledge Articles Section */}
+      {/* Error State Banner */}
+      {error && (
+        <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900 text-rose-800 dark:text-rose-300 flex items-center justify-between">
+          <div className="flex items-center gap-3 text-sm">
+            <AlertCircle className="w-5 h-5 text-rose-500 shrink-0" />
+            <span>{error}</span>
+          </div>
+          <button
+            onClick={fetchDashboard}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-semibold hover:bg-rose-700 transition-all shadow-sm"
+          >
+            <RefreshCw className="w-3.5 h-3.5" />
+            Retry
+          </button>
+        </div>
+      )}
+
+      {/* KPI Metric Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Metric 1: Accessible Published Documentation */}
+        <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+          <div>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block mb-1">
+              Published Knowledge
+            </span>
+            <div className="text-2xl font-black text-slate-900 dark:text-white">
+              {loading ? "..." : data?.total_published_articles ?? 0}
+            </div>
+            <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1 mt-1">
+              <CheckCircle className="w-3 h-3" /> Live & searchable
+            </span>
+          </div>
+          <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+            <BookOpen className="w-6 h-6" />
+          </div>
+        </div>
+
+        {/* Metric 2: Author Workload (Drafts / Pending Review) */}
+        {data?.author_metrics && (
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+            <div>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block mb-1">
+                My Drafts & WIP
+              </span>
+              <div className="text-2xl font-black text-slate-900 dark:text-white">
+                {loading ? "..." : data.author_metrics.my_drafts_count}
+              </div>
+              <span className="text-[11px] text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1 mt-1">
+                <Edit3 className="w-3 h-3" /> {data.author_metrics.my_in_review_count} in review
+              </span>
+            </div>
+            <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <FileText className="w-6 h-6" />
+            </div>
+          </div>
+        )}
+
+        {/* Metric 3: Review Queue (Reviewers & Admins) */}
+        {data?.reviewer_metrics && (
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+            <div>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block mb-1">
+                Awaiting Editorial Review
+              </span>
+              <div className="text-2xl font-black text-slate-900 dark:text-white">
+                {loading ? "..." : data.reviewer_metrics.pending_reviews_count}
+              </div>
+              <span className="text-[11px] text-purple-600 dark:text-purple-400 font-medium flex items-center gap-1 mt-1">
+                <Clock className="w-3 h-3" /> Queue pending
+              </span>
+            </div>
+            <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+              <CheckSquare className="w-6 h-6" />
+            </div>
+          </div>
+        )}
+
+        {/* Metric 4: System Administration Telemetry (Admins only) */}
+        {data?.admin_metrics && (
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+            <div>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block mb-1">
+                Active Organization Users
+              </span>
+              <div className="text-2xl font-black text-slate-900 dark:text-white">
+                {loading ? "..." : data.admin_metrics.total_users_count}
+              </div>
+              <span className="text-[11px] text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1 mt-1">
+                <Users className="w-3 h-3" /> Across {data.admin_metrics.total_categories_count} departments
+              </span>
+            </div>
+            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <Users className="w-6 h-6" />
+            </div>
+          </div>
+        )}
+
+        {/* Reader Alternative Metric: Knowledge Categories */}
+        {!data?.author_metrics && !data?.reviewer_metrics && (
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+            <div>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block mb-1">
+                Knowledge Topics
+              </span>
+              <div className="text-2xl font-black text-slate-900 dark:text-white">
+                {loading ? "..." : data?.category_distribution.length ?? 0}
+              </div>
+              <span className="text-[11px] text-indigo-600 dark:text-indigo-400 font-medium flex items-center gap-1 mt-1">
+                <Folder className="w-3 h-3" /> Categorized documentation
+              </span>
+            </div>
+            <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+              <Folder className="w-6 h-6" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Admin Specific Organization Status Breakdown */}
+      {data?.admin_metrics && (
+        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <Activity className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <h2 className="font-bold text-slate-900 dark:text-white text-base">
+                Organization Content Lifecycle Overview
+              </h2>
+            </div>
+            <span className="text-xs font-medium text-slate-500">
+              Total Managed: {data.admin_metrics.total_articles} Articles
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-2">
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-center">
+              <span className="text-xs text-slate-500 block">Published</span>
+              <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
+                {data.admin_metrics.published_count}
+              </span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-center">
+              <span className="text-xs text-slate-500 block">Drafts</span>
+              <span className="text-lg font-bold text-slate-700 dark:text-slate-300">
+                {data.admin_metrics.draft_count}
+              </span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-center">
+              <span className="text-xs text-slate-500 block">In Review</span>
+              <span className="text-lg font-bold text-purple-600 dark:text-purple-400">
+                {data.admin_metrics.in_review_count}
+              </span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-center">
+              <span className="text-xs text-slate-500 block">Rejected</span>
+              <span className="text-lg font-bold text-rose-600 dark:text-rose-400">
+                {data.admin_metrics.rejected_count}
+              </span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-center">
+              <span className="text-xs text-slate-500 block">Archived</span>
+              <span className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                {data.admin_metrics.archived_count}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reviewer Section: Articles Awaiting Review */}
+      {canReview && data?.pending_review_articles && data.pending_review_articles.length > 0 && (
+        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-900/50 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <CheckSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <h2 className="font-bold text-slate-900 dark:text-white text-base">
+                Editorial Review Queue
+              </h2>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 font-bold">
+                {data.reviewer_metrics?.pending_reviews_count ?? data.pending_review_articles.length} Pending
+              </span>
+            </div>
+            <Link
+              to="/reviews"
+              className="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline flex items-center gap-1"
+            >
+              Open Full Review Queue <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {data.pending_review_articles.map((art) => (
+              <div
+                key={art.id}
+                className="p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 bg-slate-50/50 dark:bg-slate-800/30 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-1.5">
+                    <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-[10px] font-bold uppercase">
+                      In Review
+                    </span>
+                    <span className="text-slate-400 text-[11px]">
+                      By {art.author.full_name || art.author.username}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-1">
+                    {art.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                    {art.summary || "Click to inspect article details and editorial feedback..."}
+                  </p>
+                </div>
+                <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between text-[11px]">
+                  <span className="text-slate-400">
+                    Category: {art.category?.name || "General"}
+                  </span>
+                  <Link
+                    to={`/reviews/${art.slug}`}
+                    className="font-semibold text-purple-600 dark:text-purple-400 hover:underline flex items-center gap-1"
+                  >
+                    Inspect & Decide <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Author Section: My Recent Drafts & Rejected Articles */}
+      {canCreate && data?.my_recent_drafts && data.my_recent_drafts.length > 0 && (
+        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <Edit3 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <h2 className="font-bold text-slate-900 dark:text-white text-base">
+                My Active Drafts & Work In Progress
+              </h2>
+            </div>
+            <Link
+              to="/articles?status=draft"
+              className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+            >
+              View all my drafts <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {data.my_recent_drafts.map((art) => (
+              <div
+                key={art.id}
+                className="p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 bg-white dark:bg-slate-800/40 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-1.5">
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
+                        art.status === "rejected"
+                          ? "bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                      }`}
+                    >
+                      {art.status === "rejected" ? "Needs Revision" : "Draft"}
+                    </span>
+                    <span className="text-slate-400 text-[11px]">
+                      Updated {new Date(art.updated_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-1">
+                    {art.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                    {art.summary || "Click to resume authoring..."}
+                  </p>
+                </div>
+                <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-[11px]">
+                  <span className="text-slate-400">{art.estimated_read_time} min read</span>
+                  <Link
+                    to={`/articles/${art.slug}/edit`}
+                    className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+                  >
+                    Continue Editing <Edit3 className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Category Breakdown & Knowledge Discovery */}
+      <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <h2 className="font-bold text-slate-900 dark:text-white text-base">
+              Explore by Knowledge Category
+            </h2>
+          </div>
+          <Link
+            to="/taxonomy"
+            className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+          >
+            All Categories <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 animate-pulse">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-16 bg-slate-100 dark:bg-slate-800 rounded-xl" />
+            ))}
+          </div>
+        ) : !data?.category_distribution || data.category_distribution.length === 0 ? (
+          <p className="text-xs text-slate-500 py-3">No categories with published documentation yet.</p>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {data.category_distribution.map((cat) => (
+              <Link
+                key={cat.id}
+                to={`/articles?category=${cat.slug}`}
+                className="p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 bg-slate-50/50 dark:bg-slate-800/30 hover:bg-indigo-50/20 dark:hover:bg-indigo-950/20 transition-all flex flex-col justify-between group"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <Folder className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                  <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 truncate">
+                    {cat.name}
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-400 flex items-center justify-between">
+                  <span>{cat.article_count} published</span>
+                  <ArrowRight className="w-3 h-3 text-slate-300 group-hover:text-indigo-500 transition-colors" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Recent Published Knowledge Articles Section */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <h2 className="font-bold text-slate-900 dark:text-white text-base">
-              Recent Documentation
+              Recently Published Documentation
             </h2>
             <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
-              {totalArticles} Accessible
+              {data?.total_published_articles ?? 0} Accessible
             </span>
           </div>
 
@@ -143,7 +503,7 @@ export const DashboardPage = () => {
           </Link>
         </div>
 
-        {loadingArticles ? (
+        {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-pulse">
             {[1, 2].map((i) => (
               <div key={i} className="p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-2">
@@ -153,11 +513,11 @@ export const DashboardPage = () => {
               </div>
             ))}
           </div>
-        ) : recentArticles.length === 0 ? (
-          <p className="text-xs text-slate-500 py-4">No recent articles found.</p>
+        ) : !data?.recent_published_articles || data.recent_published_articles.length === 0 ? (
+          <p className="text-xs text-slate-500 py-4">No published articles found in the repository.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {recentArticles.map((art) => (
+            {data.recent_published_articles.map((art) => (
               <Link
                 key={art.id}
                 to={`/articles/${art.slug}`}
@@ -165,7 +525,7 @@ export const DashboardPage = () => {
               >
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="capitalize font-medium text-[11px] text-slate-500">
+                    <span className="capitalize font-semibold text-[11px] text-emerald-600 dark:text-emerald-400">
                       {art.status}
                     </span>
                     <span className="text-slate-400 flex items-center gap-1 text-[11px]">
@@ -176,7 +536,7 @@ export const DashboardPage = () => {
                     {art.title}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
-                    {art.summary || "Click to read full article content..."}
+                    {art.summary || "Click to read full company wiki article..."}
                   </p>
                 </div>
 
@@ -189,6 +549,47 @@ export const DashboardPage = () => {
           </div>
         )}
       </div>
+
+      {/* Admin Section: System Audit Activity Stream */}
+      {isAdmin && data?.admin_metrics?.recent_activity && data.admin_metrics.recent_activity.length > 0 && (
+        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <Activity className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <h2 className="font-bold text-slate-900 dark:text-white text-base">
+                Recent Organization Audit Trail
+              </h2>
+            </div>
+            <Link
+              to="/audit"
+              className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+            >
+              Full Audit Logs <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="divide-y divide-slate-100 dark:divide-slate-800">
+            {data.admin_metrics.recent_activity.map((event) => (
+              <div key={event.id} className="py-2.5 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-slate-900 dark:text-white">
+                    {event.actor_username}
+                  </span>
+                  <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-600 dark:text-slate-300">
+                    {event.action_display || event.action}
+                  </span>
+                  <span className="text-slate-500 font-medium truncate max-w-xs">
+                    {event.resource_name || event.resource_type}
+                  </span>
+                </div>
+                <span className="text-slate-400 text-[11px] shrink-0">
+                  {new Date(event.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Profile & Permissions Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -271,5 +672,3 @@ export const DashboardPage = () => {
     </div>
   );
 };
-
-// Telemetry: Dashboard dynamically queries /api/v1/articles/ to display live total accessible count.
