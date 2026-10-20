@@ -138,3 +138,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 133 | `test(phase10): audit JWT refresh token exclusion from audit event details` | Logout and login audit records omit raw token strings from details. | [Automated Verified] |
 | 134 | `test(phase10): audit sensitive header sanitization in error logs` | Authorization Bearer tokens masked in system server logs. | [Automated Verified] |
 | 135 | `test(phase10): audit IP address anonymization/storage compliance in AuditEvent` | Client IP address recorded accurately for authorized security audits. | [Automated Verified] |
+| 136 | `test(phase10): audit user deletion cascade and anonymization behavior` | Soft deletion/anonymization preserves audit history without orphan foreign keys. | [Automated Verified] |
