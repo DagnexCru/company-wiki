@@ -24,3 +24,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #20**: Article.create_revision method execution on new article creation — [Automated Verified]
 - [x] **Verification Check #21**: Article.create_revision auto-generation of initial Revision #1 — [Automated Verified]
 - [x] **Verification Check #22**: Article.create_revision content change detection on perform_update — [Automated Verified]
+- [x] **Verification Check #23**: Article.create_revision title change detection on perform_update — [Automated Verified]
