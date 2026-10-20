@@ -48,3 +48,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 43 | `feat(phase9): optimize Author metrics with single conditional aggregation query` | All 4 author counts are aggregated in a single SQL query via Django ORM Count filters. | [Automated Verified] |
 | 44 | `test(phase9): verify Author metrics are strictly scoped to requesting user` | Author query filters exclusively by author=request.user to preserve isolation. | [Automated Verified] |
 | 45 | `test(phase9): verify exclusion of other authors drafts from my_drafts_count` | Drafts written by peer authors never inflate requesting author's draft statistics. | [Automated Verified] |
+| 46 | `test(phase9): verify exclusion of other authors submissions from my_in_review_count` | Submissions by other authors do not appear in personal in-review tracking count. | [Automated Verified] |
