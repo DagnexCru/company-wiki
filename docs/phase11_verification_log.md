@@ -76,3 +76,4 @@
 | 72 | api | tags-list | Specify GET /api/v1/tags/ query params, alphabetical ordering, and article count | [Automated Verified] |
 | 73 | api | tags-create | Specify POST /api/v1/tags/ schema, slugification, and duplicate prevention | [Automated Verified] |
 | 74 | api | tags-retrieve | Specify GET /api/v1/tags/{slug}/ detail schema and tag usage metadata | [Automated Verified] |
+| 75 | api | tags-update | Specify PUT/PATCH /api/v1/tags/{slug}/ admin/author tag renaming rules | [Automated Verified] |
