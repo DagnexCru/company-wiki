@@ -215,3 +215,4 @@
 | 211 | workflow | audit-trail-metadata | Verify audit trail stores structured JSON metadata for action context | [Automated Verified] |
 | 212 | workflow | audit-trail-no-secrets | Audit audit event payloads ensuring zero password or token leakage | [Automated Verified] |
 | 213 | workflow | audit-trail-immutable | Document audit log table has no update or delete endpoints | [Automated Verified] |
+| 214 | workflow | audit-filtering-pagination | Document GET /api/v1/audit/ pagination and filtering capabilities | [Automated Verified] |
