@@ -159,3 +159,4 @@
 | 155 | roles | sql-injection-prevention | Verify complete Django ORM parameterized queries preventing SQL injection | [Automated Verified] |
 | 156 | roles | cors-credential-policy | Document CORS credentials allowlist and explicit origin verification | [Automated Verified] |
 | 157 | roles | content-security-policy | Document Content Security Policy headers preventing clickjacking and inline scripts | [Automated Verified] |
+| 158 | roles | rate-limiting-auth | Document API throttle rates for login and registration endpoints to prevent brute force | [Automated Verified] |
