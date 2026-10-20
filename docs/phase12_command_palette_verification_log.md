@@ -64,3 +64,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 58 | `feat(palette): style active selection with brand-600/20 glow and border` | Highlighted item uses bg-brand-600/20 border-brand-500/40 text-white. | [Automated Verified] |
 | 59 | `feat(palette): add ESC badge in search header for desktop keyboard hint` | Monospace ESC pill button indicates how to dismiss the modal. | [Automated Verified] |
 | 60 | `feat(palette): support clicking outside modal on backdrop to close` | Click event listener on outer overlay sets isOpen to false. | [Automated Verified] |
+| 61 | `feat(palette): stop click event propagation inside modal card` | e.stopPropagation() on inner card prevents unintended dismissal. | [Automated Verified] |
