@@ -8,6 +8,7 @@ import {
   Shield,
   Layers,
   Home,
+  User,
   X,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -34,6 +35,12 @@ export const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
       label: "Dashboard",
       icon: LayoutDashboard,
       path: "/dashboard",
+      exact: true,
+    },
+    {
+      label: "My Profile",
+      icon: User,
+      path: "/profile",
       exact: true,
     },
     {

@@ -17,6 +17,7 @@ import {
   X,
   CornerDownLeft,
   FileText,
+  User,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -219,6 +220,15 @@ export const CommandPalette: React.FC = () => {
       icon: LayoutDashboard,
       iconColor: "text-brand-400 bg-brand-950/60 border-brand-800/60",
       perform: () => navigate("/dashboard"),
+    },
+    {
+      id: "act-profile",
+      type: "action",
+      title: "My Profile & Account Settings",
+      subtitle: "Inspect role-gated permissions, user credentials, and workspace preferences",
+      icon: User,
+      iconColor: "text-indigo-400 bg-indigo-950/60 border-indigo-800/60",
+      perform: () => navigate("/profile"),
     },
     {
       id: "act-all-articles",

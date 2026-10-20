@@ -6,7 +6,6 @@ import type { DashboardData } from "../types/dashboard";
 import {
   ShieldCheck,
   UserCheck,
-  KeyRound,
   CheckCircle,
   BookOpen,
   Plus,
@@ -47,45 +46,7 @@ export const DashboardPage = () => {
     fetchDashboard();
   }, [fetchDashboard]);
 
-  const getRolePermissions = (role?: string) => {
-    switch (role) {
-      case "ADMIN":
-        return [
-          { text: "Manage all organization users and roles", allowed: true },
-          { text: "Create, edit, and publish knowledge articles", allowed: true },
-          { text: "Approve or reject submitted articles", allowed: true },
-          { text: "Manage categories and tag taxonomy", allowed: true },
-          { text: "View complete system audit history", allowed: true },
-        ];
-      case "AUTHOR":
-        return [
-          { text: "Create and edit own article drafts", allowed: true },
-          { text: "Submit drafts for editorial review", allowed: true },
-          { text: "Revise rejected articles with reviewer feedback", allowed: true },
-          { text: "Read all published company documentation", allowed: true },
-          { text: "Approve or publish articles directly", allowed: false },
-        ];
-      case "REVIEWER":
-        return [
-          { text: "Inspect complete submitted articles in review queue", allowed: true },
-          { text: "Approve articles to publish to organization", allowed: true },
-          { text: "Reject articles with mandatory feedback", allowed: true },
-          { text: "Read all published company documentation", allowed: true },
-          { text: "Manage global user roles or categories", allowed: false },
-        ];
-      case "READER":
-      default:
-        return [
-          { text: "Search and filter all published articles", allowed: true },
-          { text: "Browse category hierarchies and tags", allowed: true },
-          { text: "View article revision history", allowed: true },
-          { text: "Create or submit new articles", allowed: false },
-          { text: "Access unpublished drafts or review queue", allowed: false },
-        ];
-    }
-  };
 
-  const permissions = getRolePermissions(user?.role);
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
   const canReview = user?.role === "ADMIN" || user?.role === "REVIEWER";
   const isAdmin = user?.role === "ADMIN";
@@ -600,78 +561,34 @@ export const DashboardPage = () => {
         </div>
       )}
 
-      {/* Profile & Permissions Card Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* User Identity Details Card */}
-        <div className="md:col-span-1 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg">
-              <UserCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h2 className="font-bold text-slate-900 dark:text-white text-base">
-                {user?.full_name || user?.username}
-              </h2>
-              <p className="text-xs text-slate-400 font-mono">@{user?.username}</p>
-            </div>
+      {/* Account & Role Settings Banner */}
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-indigo-950/60 border border-indigo-800/60 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">
+            <UserCheck className="w-5 h-5" />
           </div>
-
-          <div className="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
-            <div>
-              <span className="text-slate-400 block mb-0.5">Work Email</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">
-                {user?.email}
-              </span>
-            </div>
-            <div>
-              <span className="text-slate-400 block mb-0.5">Assigned System Role</span>
-              <span className="inline-block px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold uppercase tracking-wider text-[11px]">
+          <div>
+            <div className="flex items-center gap-2">
+              <p className="font-bold text-white text-sm">
+                Account Credentials & Role Authorizations
+              </p>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-semibold uppercase">
                 {user?.role}
               </span>
             </div>
-            <div>
-              <span className="text-slate-400 block mb-0.5">Unique User Identifier</span>
-              <span className="font-mono text-[10px] text-slate-600 dark:text-slate-300 truncate block bg-slate-50 dark:bg-slate-800 p-1.5 rounded-lg border border-slate-100 dark:border-slate-700">
-                {user?.id}
-              </span>
-            </div>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Role-gated permissions, email preferences, and editor settings have moved to your dedicated User Profile.
+            </p>
           </div>
         </div>
 
-        {/* Role Permissions Breakdown */}
-        <div className="md:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <KeyRound className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <h2 className="font-bold text-slate-900 dark:text-white text-sm">
-                Role-Gated Permissions
-              </h2>
-            </div>
-            <span className="text-xs text-slate-400">Strictly enforced by Django REST API</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-            {permissions.map((perm, idx) => (
-              <div
-                key={idx}
-                className={`p-3 rounded-xl border flex items-start gap-2.5 text-xs ${
-                  perm.allowed
-                    ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-100 dark:border-emerald-900/40 text-slate-700 dark:text-slate-300"
-                    : "bg-slate-50/50 dark:bg-slate-800/20 border-slate-100 dark:border-slate-800 text-slate-400"
-                }`}
-              >
-                {perm.allowed ? (
-                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                ) : (
-                  <span className="w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 text-[10px] flex items-center justify-center font-bold shrink-0 mt-0.5">
-                    ✕
-                  </span>
-                )}
-                <span>{perm.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Link
+          to="/profile"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700/80 transition shrink-0 group shadow-xs self-start sm:self-auto"
+        >
+          <span>Manage Profile & Settings</span>
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
       </div>
     </div>
   );

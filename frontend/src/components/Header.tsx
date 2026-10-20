@@ -96,8 +96,12 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
         </button>
         {user ? (
           <>
-            <div className="flex items-center gap-2 pl-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            <Link
+              to="/profile"
+              className="flex items-center gap-2 pl-2 hover:opacity-90 transition group cursor-pointer"
+              title="View profile and account settings"
+            >
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm group-hover:scale-105 transition-transform">
                 {user.full_name
                   ? user.full_name
                       .split(" ")
@@ -107,7 +111,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                   : user.username.slice(0, 2).toUpperCase()}
               </div>
               <div className="hidden sm:block text-left text-xs">
-                <p className="font-bold text-slate-200 leading-tight">
+                <p className="font-bold text-slate-200 group-hover:text-indigo-300 transition-colors leading-tight">
                   {user.full_name || user.username}
                 </p>
                 <div className="flex items-center gap-1 mt-0.5">
@@ -119,7 +123,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             <button
               onClick={() => logout()}

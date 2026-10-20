@@ -16,6 +16,7 @@ import { ReviewDetailPage } from "./pages/ReviewDetailPage";
 import { AccessDeniedPage } from "./pages/AccessDeniedPage";
 import { ArticleRevisionHistoryPage } from "./pages/ArticleRevisionHistoryPage";
 import { AuditLogPage } from "./pages/AuditLogPage";
+import { ProfilePage } from "./pages/ProfilePage";
 
 export function App() {
   return (
@@ -42,6 +43,16 @@ export function App() {
               <ProtectedRoute>
                 <MainLayout>
                   <DashboardPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ProfilePage />
                 </MainLayout>
               </ProtectedRoute>
             }
