@@ -39,3 +39,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 33 | `feat(palette): display status badge for Published articles in search results` | Emerald badge highlights live company-wide documentation entries. | [Automated Verified] |
 | 34 | `feat(palette): display status badge for In-Review articles in search results` | Amber badge indicates articles awaiting editorial review decision. | [Automated Verified] |
 | 35 | `feat(palette): display status badge for Draft articles in search results` | Slate badge distinguishes personal work-in-progress drafts. | [Automated Verified] |
+| 36 | `feat(palette): display status badge for Archived articles in search results` | Rose badge identifies archived documentation preserved for citations. | [Automated Verified] |
