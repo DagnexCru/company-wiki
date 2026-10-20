@@ -86,3 +86,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 81 | `feat(phase9): include actor username and role badge in recent activity items` | Activity items attribute every action to the responsible authenticated employee. | [Automated Verified] |
 | 82 | `feat(phase9): implement frontend dashboardService.getDashboardData() method` | Dashboard service invokes GET /api/v1/dashboard/ using authenticated axios client. | [Automated Verified] |
 | 83 | `feat(phase9): define complete TypeScript DashboardData interface hierarchy` | TypeScript types mirror backend serializer schema for strict compile-time safety. | [Automated Verified] |
+| 84 | `feat(phase9): render dynamic welcome banner with role badge on DashboardPage` | Banner greets authenticated user by name and highlights system role privileges. | [Automated Verified] |
