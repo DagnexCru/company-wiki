@@ -69,3 +69,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 64 | `test(phase9): verify Reviewer admin_metrics field is strictly null` | Reviewers cannot view system administration or audit volume statistics. | [Automated Verified] |
 | 65 | `test(phase9): verify Reviewer cannot view private system audit log stream` | Security verification confirms audit activity stream is null for reviewers. | [Automated Verified] |
 | 66 | `feat(phase9): verify Administrator role assignment in dashboard response` | System administrators receive role='ADMIN' with full organizational telemetry. | [Automated Verified] |
+| 67 | `feat(phase9): compute Admin total_articles count across all lifecycle states` | Total articles reflects entire company knowledge base volume across all statuses. | [Automated Verified] |
