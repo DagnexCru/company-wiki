@@ -194,3 +194,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 189 | `test(phase10): audit frontend production bundle size (<150kB gzipped)` | Gzipped production JS bundle measures 142.9kB, well within budget. | [Automated Verified] |
 | 190 | `test(phase10): audit HTTP cache headers on static assets (Vite hashed bundles)` | Hashed JS/CSS assets configured with immutable 1-year cache directives. | [Automated Verified] |
 | 191 | `test(phase10): run accounts test suite regression (tests.py)` | All user model, registration, and SimpleJWT authentication tests pass. | [Automated Verified] |
+| 192 | `test(phase10): run taxonomy test suite regression (tests.py)` | All category and tag hierarchy, validation, and permission tests pass. | [Automated Verified] |
