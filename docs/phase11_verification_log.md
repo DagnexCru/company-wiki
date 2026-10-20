@@ -126,3 +126,4 @@
 | 122 | api | postman-auth-folder | Specify Postman Authentication folder containing Login, Refresh, Me, and Register | [Automated Verified] |
 | 123 | api | postman-articles-folder | Specify Postman Articles folder with CRUD, filters, search, and pagination | [Automated Verified] |
 | 124 | api | postman-workflow-folder | Specify Postman Workflow folder with Submit, Review Queue, Approve, and Reject | [Automated Verified] |
+| 125 | api | postman-revisions-folder | Specify Postman Revisions folder with Timeline, Snapshot, Diff, and Restore | [Automated Verified] |
