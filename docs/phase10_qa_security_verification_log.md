@@ -142,3 +142,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 137 | `test(phase10): audit article deletion audit log retention` | Deleting draft records permanent deletion in audit log for accountability. | [Automated Verified] |
 | 138 | `test(phase10): audit soft archival preservation of legal citations` | Soft archival retains historical articles at original slug to avoid dead links. | [Automated Verified] |
 | 139 | `test(phase10): audit negative permission event logging` | Security permission violations logged to telemetry for intrusion detection. | [Automated Verified] |
+| 140 | `test(phase10): audit rate limiting configuration on authentication endpoints` | Login endpoint configured with throttle rates to prevent brute-force attacks. | [Automated Verified] |
