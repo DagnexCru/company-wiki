@@ -13,3 +13,4 @@ This log documents the removal of redundant 'Encrypted Session' indicator and as
 | 07 | `test(auth): verify mobile responsiveness when left column is hidden on mobile screens` | Validates that mobile view retains Back to Home header cleanly. | [Automated Verified] |
 | 08 | `test(auth): verify username input autofocus and autocomplete behavior on login card` | Ensures keyboard focus lands seamlessly in the username field. | [Automated Verified] |
 | 09 | `test(auth): verify password visibility toggle icon interaction on login form` | Tests toggle between password hidden and visible states. | [Automated Verified] |
+| 10 | `test(auth): verify role selector pill badges update demo credentials correctly` | Clicking demo role pills (Admin, Author, Reviewer, Reader) populates credentials. | [Automated Verified] |
