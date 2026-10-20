@@ -279,3 +279,4 @@
 | 275 | audit | frontend-build-pass | Verify frontend TypeScript build passes with zero errors and valid dist/ | [Automated Verified] |
 | 276 | audit | reproducibility-postgres | Audit PostgreSQL bootstrap instructions from clean database setup | [Automated Verified] |
 | 277 | audit | reproducibility-pipenv | Audit Pipenv install procedure for deterministic dependency resolution | [Automated Verified] |
+| 278 | audit | reproducibility-npm | Audit npm install procedure for clean frontend node_modules setup | [Automated Verified] |
