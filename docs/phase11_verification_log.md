@@ -223,3 +223,4 @@
 | 219 | workflow | review-sla-tracking | Document review queue submission timestamps for review turnaround SLA | [Automated Verified] |
 | 220 | workflow | status-badge-styling | Document frontend workflow badge color conventions across UI screens | [Automated Verified] |
 | 221 | workflow | resubmit-validation | Verify Author cannot resubmit without modifying content or providing note | [Automated Verified] |
+| 222 | workflow | published-direct-edit | Document policy requiring revisions to be created on published article edits | [Automated Verified] |
