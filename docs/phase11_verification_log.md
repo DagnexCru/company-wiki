@@ -265,3 +265,4 @@
 | 261 | dx | mock-data-removal | Verify complete removal of mock data files in favor of real Django REST API | [Automated Verified] |
 | 262 | dx | browser-devtools-testing | Document testing API network payloads and React component state via DevTools | [Automated Verified] |
 | 263 | dx | cross-browser-testing | Document manual UI verification on Chromium, Gecko, and WebKit rendering engines | [Automated Verified] |
+| 264 | dx | release-artifact-packaging | Document static build artifact output directory frontend/dist/ structure | [Automated Verified] |
