@@ -50,3 +50,4 @@
 | 46 | setup | node-compatibility | Document Node.js v18+ and v20+ LTS engine compatibility | [Automated Verified] |
 | 47 | setup | browser-support | Document modern browser matrix targeting Chrome, Edge, Firefox, and Safari | [Automated Verified] |
 | 48 | setup | font-inter | Document Inter system font stack for clean enterprise typography | [Automated Verified] |
+| 49 | setup | color-tokens | Document Tailwind semantic color tokens: primary, slate, emerald, rose, amber | [Automated Verified] |
