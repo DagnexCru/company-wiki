@@ -162,3 +162,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 157 | `test(phase10): audit aria-expanded attributes on collapsible sidebar navigation` | Sidebar navigation toggles expose expansion state via aria-expanded. | [Automated Verified] |
 | 158 | `test(phase10): audit aria-live regions on dynamic alert messages` | Error and success notifications declare aria-live='polite' for screen reader announcements. | [Automated Verified] |
 | 159 | `test(phase10): audit table header scope='col' on audit log and user tables` | Data tables include appropriate scope attributes on th header cells. | [Automated Verified] |
+| 160 | `test(phase10): audit image and icon decorative hiding via aria-hidden='true'` | Presentational Lucide icons declare aria-hidden='true' to reduce noise. | [Automated Verified] |
