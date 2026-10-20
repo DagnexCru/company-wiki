@@ -30,3 +30,4 @@
 | 26 | setup | powershell-syntax | Document PowerShell command execution conventions and script guidelines | [Automated Verified] |
 | 27 | setup | npm-integrity | Verify package.json dependency tree integrity in frontend directory | [Automated Verified] |
 | 28 | setup | package-lock | Verify package-lock.json deterministic dependency locking for npm ci | [Automated Verified] |
+| 29 | setup | vite-config | Document Vite build configuration and localhost server port 5173 binding | [Automated Verified] |
