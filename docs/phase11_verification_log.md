@@ -119,3 +119,4 @@
 | 115 | api | http-400-bad-request | Document HTTP 400 Bad Request field-level validation error structure | [Automated Verified] |
 | 116 | api | http-401-unauthorized | Document HTTP 401 Unauthorized token missing or invalid response | [Automated Verified] |
 | 117 | api | http-403-forbidden | Document HTTP 403 Forbidden permission violation error response | [Automated Verified] |
+| 118 | api | http-404-not-found | Document HTTP 404 Not Found entity missing error structure | [Automated Verified] |
