@@ -16,3 +16,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 10 | `feat(palette): add search input clear button with X icon` | Clear button appears when query.length > 0 and clears text without closing modal. | [Automated Verified] |
 | 11 | `feat(palette): implement 220ms debounce on search queries to minimize API traffic` | Prevents request flood by debouncing network requests until user pauses typing. | [Automated Verified] |
 | 12 | `feat(palette): integrate articleService.getArticles with live query parameter` | Sends { search: query, page_size: 6 } to backend /api/v1/articles/ endpoint. | [Automated Verified] |
+| 13 | `feat(palette): integrate taxonomyService.getCategories with live query parameter` | Fetches matching knowledge base categories from /api/v1/categories/?search=query. | [Automated Verified] |
