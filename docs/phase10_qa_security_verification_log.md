@@ -96,3 +96,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 091 | `test(phase10): verify scenario 10 user logs out via POST /api/v1/auth/logout/` | Logout endpoint accepts refresh token and returns HTTP 200 OK. | [Automated Verified] |
 | 092 | `test(phase10): verify scenario 10 refresh token blacklisted in database` | BlacklistedToken table records token, preventing reuse for token refresh. | [Automated Verified] |
 | 093 | `test(phase10): verify scenario 10 blacklisted refresh token reuse rejected (401)` | Attempting to refresh access using blacklisted token returns 401 token_not_valid. | [Automated Verified] |
+| 094 | `test(phase10): verify scenario 10 revoked session protected endpoint access rejected (401)` | Client without valid authorization header is rejected from protected endpoints. | [Automated Verified] |
