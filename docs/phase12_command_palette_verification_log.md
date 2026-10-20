@@ -7,3 +7,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 01 | `feat(palette): scaffold CommandPalette component structure and React lifecycle` | CommandPalette component mounts with proper React 19 functional hooks and cleanup handlers. | [Automated Verified] |
 | 02 | `feat(palette): register global Ctrl+K and Cmd+K keyboard shortcut listener` | Window listener detects both Ctrl+K on Windows/Linux and Cmd+K on macOS. | [Automated Verified] |
 | 03 | `feat(palette): prevent browser default URL shortcut when Ctrl+K is pressed` | Keyboard event default action is suppressed (e.preventDefault()) when toggling palette. | [Automated Verified] |
+| 04 | `feat(palette): support Escape key listener to dismiss command modal instantly` | Pressing Esc immediately sets isOpen to false and resets active selection index. | [Automated Verified] |
