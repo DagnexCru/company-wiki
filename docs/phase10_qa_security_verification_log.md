@@ -82,3 +82,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 077 | `test(phase10): verify scenario 8 audit trail records USER_STATUS_CHANGE event` | Account deactivation logs audit event with timestamp. | [Automated Verified] |
 | 078 | `test(phase10): verify scenario 8 non-admin user role modification rejected (403)` | Non-admin users attempting PATCH /api/v1/users/{id}/role/ receive 403 Forbidden. | [Automated Verified] |
 | 079 | `test(phase10): verify scenario 8 admin views complete system audit event log` | Administrator queries /api/v1/audit/ with action and resource filtering. | [Automated Verified] |
+| 080 | `test(phase10): verify scenario 8 non-admin audit log query rejected (403)` | Non-admin users querying /api/v1/audit/ receive HTTP 403 Forbidden. | [Automated Verified] |
