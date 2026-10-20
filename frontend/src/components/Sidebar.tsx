@@ -78,7 +78,7 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-800 bg-slate-900 flex flex-col justify-between shrink-0">
+    <aside className="w-64 border-r border-slate-800 bg-slate-900 flex flex-col justify-between shrink-0 h-full overflow-y-auto select-none">
       <div className="p-4 space-y-6">
         <div>
           <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">

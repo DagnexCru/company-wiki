@@ -38,9 +38,10 @@ class DashboardView(APIView):
         total_published_articles = published_qs.count()
 
         recent_published_articles = (
-            published_qs.select_related("author", "category")
+            published_qs.filter(is_featured=True)
+            .select_related("author", "category")
             .prefetch_related("tags")
-            .order_by("-published_at", "-created_at")[:5]
+            .order_by("-published_at", "-created_at")[:6]
         )
 
         # Optimized category distribution: published articles grouped by category

@@ -85,6 +85,7 @@ class DashboardAPITests(TestCase):
             author=self.author_alice,
             category=self.ops_category,
             status=Article.Status.PUBLISHED,
+            is_featured=True,
         )
 
         self.pub_article_2 = Article.objects.create(
@@ -94,6 +95,7 @@ class DashboardAPITests(TestCase):
             author=self.author_bob,
             category=self.eng_category,
             status=Article.Status.PUBLISHED,
+            is_featured=True,
         )
 
         self.alice_draft = Article.objects.create(

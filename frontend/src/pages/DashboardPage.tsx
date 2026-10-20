@@ -21,6 +21,7 @@ import {
   Edit3,
   RefreshCw,
   FolderOpen,
+  Sparkles,
 } from "lucide-react";
 
 export const DashboardPage = () => {
@@ -88,6 +89,7 @@ export const DashboardPage = () => {
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
   const canReview = user?.role === "ADMIN" || user?.role === "REVIEWER";
   const isAdmin = user?.role === "ADMIN";
+  const featuredArticles = (data?.recent_published_articles || []).filter((art) => art.is_featured);
 
   return (
     <div className="space-y-8">
@@ -481,16 +483,16 @@ export const DashboardPage = () => {
         )}
       </div>
 
-      {/* Recent Published Knowledge Articles Section */}
+      {/* Featured Knowledge Articles Section */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <Sparkles className="w-5 h-5 text-amber-500" />
             <h2 className="font-bold text-slate-900 dark:text-white text-base">
-              Recently Published Documentation
+              Featured Knowledge Guides
             </h2>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
-              {data?.total_published_articles ?? 0} Accessible
+            <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium">
+              Highlighted on Dashboard
             </span>
           </div>
 
@@ -512,26 +514,34 @@ export const DashboardPage = () => {
               </div>
             ))}
           </div>
-        ) : !data?.recent_published_articles || data.recent_published_articles.length === 0 ? (
-          <p className="text-xs text-slate-500 py-4">No published articles found in the repository.</p>
+        ) : featuredArticles.length === 0 ? (
+          <div className="py-8 px-4 text-center rounded-xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20 space-y-2">
+            <Sparkles className="w-8 h-8 text-amber-500/50 mx-auto" />
+            <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+              No Featured Guides Selected
+            </p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+              Articles marked as &ldquo;Featured Knowledge Guide&rdquo; during preparation will be showcased here. Unchecked articles remain safely accessible in the main Knowledge Base.
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {data.recent_published_articles.map((art) => (
+            {featuredArticles.map((art) => (
               <Link
                 key={art.id}
                 to={`/articles/${art.slug}`}
-                className="group p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition-all flex flex-col justify-between"
+                className="group p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-amber-400/50 dark:hover:border-amber-500/50 hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="capitalize font-semibold text-[11px] text-emerald-600 dark:text-emerald-400">
-                      {art.status}
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                      <Sparkles className="w-2.5 h-2.5" /> Featured Guide
                     </span>
                     <span className="text-slate-400 flex items-center gap-1 text-[11px]">
                       <Clock className="w-3 h-3" /> {art.estimated_read_time} min read
                     </span>
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors line-clamp-1">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-indigo-400 transition-colors line-clamp-1">
                     {art.title}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">

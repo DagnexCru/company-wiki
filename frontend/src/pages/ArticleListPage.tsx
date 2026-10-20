@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
   BookOpen,
@@ -17,6 +17,8 @@ import {
   X,
   ArrowUpDown,
   RotateCcw,
+  ChevronDown,
+  Check,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -55,6 +57,42 @@ export const ArticleListPage: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<string>(initialSort);
   const [page, setPage] = useState<number>(initialPage);
   const [pageSize, setPageSize] = useState<number>(initialPageSize);
+
+  // Custom downward dropdown states
+  const [tagDropdownOpen, setTagDropdownOpen] = useState<boolean>(false);
+  const [categoryDropdownOpen, setCategoryDropdownOpen] = useState<boolean>(false);
+  const [sortDropdownOpen, setSortDropdownOpen] = useState<boolean>(false);
+
+  const tagDropdownRef = useRef<HTMLDivElement>(null);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
+  const sortDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (tagDropdownRef.current && !tagDropdownRef.current.contains(event.target as Node)) {
+        setTagDropdownOpen(false);
+      }
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target as Node)) {
+        setCategoryDropdownOpen(false);
+      }
+      if (sortDropdownRef.current && !sortDropdownRef.current.contains(event.target as Node)) {
+        setSortDropdownOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setTagDropdownOpen(false);
+        setCategoryDropdownOpen(false);
+        setSortDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const canCreate = user?.role === "ADMIN" || user?.role === "AUTHOR";
 
@@ -309,19 +347,55 @@ export const ArticleListPage: React.FC = () => {
           </div>
 
           {/* Sort dropdown */}
-          <div className="flex items-center gap-2 shrink-0">
-            <ArrowUpDown className="w-4 h-4 text-slate-400 shrink-0" />
-            <select
-              value={sortOrder}
-              onChange={(e) => handleSortChange(e.target.value)}
-              className="px-3 py-2 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+          <div className="relative shrink-0" ref={sortDropdownRef}>
+            <button
+              type="button"
+              onClick={() => {
+                setSortDropdownOpen((prev) => !prev);
+                setTagDropdownOpen(false);
+                setCategoryDropdownOpen(false);
+              }}
+              className="inline-flex items-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer"
             >
-              <option value="-updated_at">Recently Updated</option>
-              <option value="-created_at">Newest First</option>
-              <option value="created_at">Oldest First</option>
-              <option value="title">Title (A to Z)</option>
-              <option value="-title">Title (Z to A)</option>
-            </select>
+              <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>
+                {sortOrder === "-updated_at" && "Recently Updated"}
+                {sortOrder === "-created_at" && "Newest First"}
+                {sortOrder === "created_at" && "Oldest First"}
+                {sortOrder === "title" && "Title (A to Z)"}
+                {sortOrder === "-title" && "Title (Z to A)"}
+              </span>
+              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${sortDropdownOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {sortDropdownOpen && (
+              <div className="absolute right-0 top-full mt-1.5 w-48 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl py-1.5 z-50 divide-y divide-slate-800/60 animate-in fade-in-50 duration-150">
+                {[
+                  { value: "-updated_at", label: "Recently Updated" },
+                  { value: "-created_at", label: "Newest First" },
+                  { value: "created_at", label: "Oldest First" },
+                  { value: "title", label: "Title (A to Z)" },
+                  { value: "-title", label: "Title (Z to A)" },
+                ].map((s) => (
+                  <button
+                    key={s.value}
+                    type="button"
+                    onClick={() => {
+                      handleSortChange(s.value);
+                      setSortDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                      sortOrder === s.value
+                        ? "bg-indigo-600/20 text-indigo-300 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                    }`}
+                  >
+                    <span>{s.label}</span>
+                    {sortOrder === s.value && <Check className="w-3.5 h-3.5 text-indigo-400" />}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -329,37 +403,135 @@ export const ArticleListPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
           <div className="flex flex-wrap items-center gap-3">
             {/* Category Dropdown */}
-            <div className="flex items-center gap-1.5">
-              <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={selectedCategory}
-                onChange={(e) => handleCategoryChange(e.target.value)}
-                className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            <div className="relative" ref={categoryDropdownRef}>
+              <button
+                type="button"
+                onClick={() => {
+                  setCategoryDropdownOpen((prev) => !prev);
+                  setTagDropdownOpen(false);
+                  setSortDropdownOpen(false);
+                }}
+                className={`inline-flex items-center gap-2 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                  selectedCategory
+                    ? "bg-indigo-600/20 text-indigo-300 border-indigo-500/40"
+                    : "bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-600"
+                }`}
               >
-                <option value="">All Categories</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.slug}>
-                    {c.name} ({c.article_count})
-                  </option>
-                ))}
-              </select>
+                <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="max-w-[130px] truncate">
+                  {selectedCategory
+                    ? categories.find((c) => c.slug === selectedCategory)?.name || "Category"
+                    : "All Categories"}
+                </span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${categoryDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {categoryDropdownOpen && (
+                <div className="absolute left-0 top-full mt-1.5 w-60 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl py-1.5 z-50 max-h-64 overflow-y-auto divide-y divide-slate-800/60 animate-in fade-in-50 duration-150">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleCategoryChange("");
+                      setCategoryDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                      !selectedCategory
+                        ? "bg-indigo-600/20 text-indigo-300 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                    }`}
+                  >
+                    <span>All Categories</span>
+                    {!selectedCategory && <Check className="w-3.5 h-3.5 text-indigo-400" />}
+                  </button>
+                  {categories.map((c) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => {
+                        handleCategoryChange(c.slug);
+                        setCategoryDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                        selectedCategory === c.slug
+                          ? "bg-indigo-600/20 text-indigo-300 font-semibold"
+                          : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                      }`}
+                    >
+                      <span className="truncate">{c.name}</span>
+                      <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                        <span className="text-[10px] text-slate-500 font-mono">({c.article_count})</span>
+                        {selectedCategory === c.slug && <Check className="w-3.5 h-3.5 text-indigo-400" />}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Tag Dropdown */}
-            <div className="flex items-center gap-1.5">
-              <TagIcon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={selectedTag}
-                onChange={(e) => handleTagChange(e.target.value)}
-                className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            {/* Tag Dropdown - Custom Downward Menu */}
+            <div className="relative" ref={tagDropdownRef}>
+              <button
+                type="button"
+                onClick={() => {
+                  setTagDropdownOpen((prev) => !prev);
+                  setCategoryDropdownOpen(false);
+                  setSortDropdownOpen(false);
+                }}
+                className={`inline-flex items-center gap-2 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                  selectedTag
+                    ? "bg-indigo-600/20 text-indigo-300 border-indigo-500/40"
+                    : "bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-600"
+                }`}
               >
-                <option value="">All Tags</option>
-                {tags.map((t) => (
-                  <option key={t.id} value={t.slug}>
-                    #{t.name} ({t.article_count})
-                  </option>
-                ))}
-              </select>
+                <TagIcon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="max-w-[130px] truncate">
+                  {selectedTag
+                    ? `#${tags.find((t) => t.slug === selectedTag)?.name || selectedTag}`
+                    : "All Tags"}
+                </span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${tagDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {tagDropdownOpen && (
+                <div className="absolute left-0 top-full mt-1.5 w-60 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl py-1.5 z-50 max-h-64 overflow-y-auto divide-y divide-slate-800/60 animate-in fade-in-50 duration-150">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleTagChange("");
+                      setTagDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                      !selectedTag
+                        ? "bg-indigo-600/20 text-indigo-300 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                    }`}
+                  >
+                    <span>All Tags</span>
+                    {!selectedTag && <Check className="w-3.5 h-3.5 text-indigo-400" />}
+                  </button>
+                  {tags.map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => {
+                        handleTagChange(t.slug);
+                        setTagDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                        selectedTag === t.slug
+                          ? "bg-indigo-600/20 text-indigo-300 font-semibold"
+                          : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                      }`}
+                    >
+                      <span className="truncate">#{t.name}</span>
+                      <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                        <span className="text-[10px] text-slate-500 font-mono">({t.article_count})</span>
+                        {selectedTag === t.slug && <Check className="w-3.5 h-3.5 text-indigo-400" />}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
