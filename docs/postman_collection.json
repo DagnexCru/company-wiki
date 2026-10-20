@@ -1,0 +1,277 @@
+{
+  "info": {
+    "name": "Internal Knowledge Base & Company Wiki API (v1)",
+    "description": "Comprehensive Postman collection for testing the Company Wiki REST API v1.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health/",
+              "host": ["{{base_url}}"],
+              "path": ["health", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.access) {",
+                  "    pm.collectionVariables.set('access_token', jsonData.access);",
+                  "    pm.collectionVariables.set('refresh_token', jsonData.refresh);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@company.com\",\n  \"password\": \"AdminPassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me", ""]
+            }
+          }
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/logout/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "logout", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Telemetry",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard/",
+              "host": ["{{base_url}}"],
+              "path": ["dashboard", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "List Articles (Search & Filter)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/articles/?search=guide&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["articles", ""],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "guide"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Article Draft",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Production Deployment Checklist\",\n  \"summary\": \"Checklist for deploying safely to AWS ECS\",\n  \"content\": \"# Deployment Checklist\\n1. Check database migrations\\n2. Verify health endpoints\",\n  \"tag_names\": [\"DevOps\", \"Deployment\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/",
+              "host": ["{{base_url}}"],
+              "path": ["articles", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Article by Slug",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/articles/production-deployment-checklist/",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "production-deployment-checklist", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workflow",
+      "item": [
+        {
+          "name": "Submit Draft for Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Draft ready for review.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/production-deployment-checklist/submit/",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "production-deployment-checklist", "submit", ""]
+            }
+          }
+        },
+        {
+          "name": "Approve Article (Reviewer)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feedback\": \"Looks great, approved!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/production-deployment-checklist/approve/",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "production-deployment-checklist", "approve", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
