@@ -191,3 +191,4 @@
 | 187 | workflow | review-inspection | Document Reviewer viewing complete submitted markdown content and metadata | [Automated Verified] |
 | 188 | workflow | approval-action | Document POST /api/v1/workflow/{slug}/approve/ triggering published transition | [Automated Verified] |
 | 189 | workflow | approval-timestamp | Verify article.published_at timestamp populated with timezone.now() on approval | [Automated Verified] |
+| 190 | workflow | approval-audit-event | Verify approve action records audit event 'article.approved' with reviewer actor | [Automated Verified] |
