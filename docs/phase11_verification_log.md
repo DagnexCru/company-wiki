@@ -184,3 +184,4 @@
 | 180 | workflow | state-machine-definition | Document 5 article lifecycle states: draft, in_review, published, rejected, archived | [Automated Verified] |
 | 181 | workflow | draft-creation | Document initial article state created as draft with revision #1 snapshot | [Automated Verified] |
 | 182 | workflow | draft-editing | Document author editing draft freely without review queue notifications | [Automated Verified] |
+| 183 | workflow | submission-action | Document POST /api/v1/articles/{slug}/submit/ triggering in_review transition | [Automated Verified] |
