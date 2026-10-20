@@ -138,3 +138,4 @@
 | 134 | api | json-schema-contract | Document API request/response JSON schema strictness and snake_case naming | [Automated Verified] |
 | 135 | roles | admin-capabilities | Document Administrator full system governance and role assignment privileges | [Automated Verified] |
 | 136 | roles | reviewer-capabilities | Document Reviewer content inspection, approval, and rejection privileges | [Automated Verified] |
+| 137 | roles | author-capabilities | Document Author content creation, draft editing, and submission privileges | [Automated Verified] |
