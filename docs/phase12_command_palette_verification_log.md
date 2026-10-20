@@ -24,3 +24,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 18 | `feat(palette): implement filter tabs for All, Articles, Categories, Tags, Actions` | Filter tabs allow users to constrain search space to specific result types. | [Automated Verified] |
 | 19 | `feat(palette): filter quick actions dynamically based on active search query` | Action titles and subtitles match against search tokens for rapid keyboard navigation. | [Automated Verified] |
 | 20 | `feat(palette): define Quick Action: Create New Article with PlusCircle icon` | Direct route to /articles/new with emerald accent color and description. | [Automated Verified] |
+| 21 | `feat(palette): enforce RBAC on Create New Article (Admin and Author only)` | Readers and Reviewers cannot see Create New Article in command actions. | [Automated Verified] |
