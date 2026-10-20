@@ -55,3 +55,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 50 | `feat(phase9): include rejected articles requiring revision in author feed` | Rejected articles highlight feedback badges so authors can address reviewer notes. | [Automated Verified] |
 | 51 | `test(phase9): verify strict exclusion of other authors drafts in author feed` | Security check verifies no peer drafts leak into personal author drafts feed. | [Automated Verified] |
 | 52 | `test(phase9): verify Author reviewer_metrics field is strictly null` | Authors without reviewer roles cannot access editorial queue statistics. | [Automated Verified] |
+| 53 | `test(phase9): verify Author pending_review_articles field is strictly null` | Authors cannot view submissions queue from other team members. | [Automated Verified] |
