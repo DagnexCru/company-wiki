@@ -82,3 +82,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 77 | `feat(phase9): compute Admin audit_events_24h_count rolling window metric` | 24h audit volume tracks total security and content events in the last 24 hours. | [Automated Verified] |
 | 78 | `feat(phase9): serialize Admin recent_activity with AuditEventListSerializer` | Audit event items include actor username, role, action, resource, and timestamp. | [Automated Verified] |
 | 79 | `feat(phase9): limit Admin recent_activity stream to 6 recent events` | Recent activity feed is capped at 6 events for concise dashboard stream rendering. | [Automated Verified] |
+| 80 | `feat(phase9): order Admin recent_activity by -created_at descending` | Audit stream displays newest security and workflow actions at the top of the feed. | [Automated Verified] |
