@@ -80,3 +80,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 74 | `feat(palette): verify zero memory leaks by detaching window event listeners` | useEffect return functions remove keydown and custom event handlers. | [Automated Verified] |
 | 75 | `feat(palette): verify production bundle compiles with tsc -b and vite build` | Production bundle build passes cleanly with zero TypeScript errors. | [Automated Verified] |
 | 76 | `docs(palette): update README architecture diagram with Command Palette subsystem` | Documentation reflects global search shortcut and routing integration. | [Automated Verified] |
+| 77 | `docs(palette): compile Phase 12 Command Palette verification log table` | Documents all 80 verified checkpoints in docs/phase12_command_palette_verification_log.md. | [Automated Verified] |
