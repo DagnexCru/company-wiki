@@ -43,3 +43,4 @@
 | 39 | setup | backend-env-example | Verify backend/.env.example comprehensive variable documentation | [Automated Verified] |
 | 40 | setup | frontend-env-example | Verify frontend/.env.example VITE_API_BASE_URL documentation | [Automated Verified] |
 | 41 | setup | seed-command | Document python manage.py seed_taxonomy for initial categories and tags | [Automated Verified] |
+| 42 | setup | superuser-guide | Document python manage.py createsuperuser standard operating procedure | [Automated Verified] |
