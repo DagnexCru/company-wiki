@@ -64,3 +64,4 @@
 | 60 | setup | dev-reproducibility | Verify end-to-end setup reproducibility from clean git clone checkout | [Automated Verified] |
 | 61 | api | auth-login | Specify POST /api/v1/auth/login/ payload schema and JWT token pair response | [Automated Verified] |
 | 62 | api | auth-refresh | Specify POST /api/v1/auth/refresh/ payload schema and token rotation behavior | [Automated Verified] |
+| 63 | api | auth-register | Specify POST /api/v1/auth/register/ payload schema and default Reader role | [Automated Verified] |
