@@ -228,3 +228,4 @@
 | 224 | workflow | workflow-concurrency-locks | Document database row-locking (select_for_update) on review decisions | [Automated Verified] |
 | 225 | dx | component-hierarchy | Document React component hierarchy from AppShell down to Atomic UI elements | [Automated Verified] |
 | 226 | dx | layout-app-shell | Document AppShell layout incorporating persistent Navbar, Sidebar, and Main area | [Automated Verified] |
+| 227 | dx | sidebar-navigation | Document dynamic Sidebar navigation items conditionally rendered by user role | [Automated Verified] |
