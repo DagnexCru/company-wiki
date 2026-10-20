@@ -10,3 +10,4 @@ This log documents the removal of redundant 'Encrypted Session' indicator and as
 | 04 | `style(auth): refine login badge contrast with slate-800 background and slate-700 border` | High-contrast accessible styling for the Secure Sign In badge. | [Automated Verified] |
 | 05 | `test(auth): verify login card renders cleanly without animated green pulse element` | Removes the green pulsing dot (bg-emerald-500 animate-pulse) from login view. | [Automated Verified] |
 | 06 | `test(auth): verify desktop two-column split layout alignment on lg breakpoints` | Confirms the left promotional panel and right auth card share a unified top baseline. | [Automated Verified] |
+| 07 | `test(auth): verify mobile responsiveness when left column is hidden on mobile screens` | Validates that mobile view retains Back to Home header cleanly. | [Automated Verified] |
