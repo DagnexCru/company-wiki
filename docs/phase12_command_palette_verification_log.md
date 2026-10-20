@@ -22,3 +22,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 16 | `feat(palette): handle search network failure gracefully without crashing UI` | Empty state or fallback results render smoothly if an endpoint temporarily errors. | [Automated Verified] |
 | 17 | `feat(palette): display animated loading spinner during pending search requests` | Visual spinner indicates background query activity during debounce execution. | [Automated Verified] |
 | 18 | `feat(palette): implement filter tabs for All, Articles, Categories, Tags, Actions` | Filter tabs allow users to constrain search space to specific result types. | [Automated Verified] |
+| 19 | `feat(palette): filter quick actions dynamically based on active search query` | Action titles and subtitles match against search tokens for rapid keyboard navigation. | [Automated Verified] |
