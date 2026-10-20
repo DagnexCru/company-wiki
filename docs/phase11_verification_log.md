@@ -106,3 +106,4 @@
 | 102 | api | audit-filter-action | Specify GET /api/v1/audit/?action={action} filtering by audit event type | [Automated Verified] |
 | 103 | api | audit-filter-target | Specify GET /api/v1/audit/?target_type={type} filtering by entity model | [Automated Verified] |
 | 104 | api | audit-actor-scope | Document audit log actor information format and IP address anonymization | [Automated Verified] |
+| 105 | api | dashboard-metrics | Specify GET /api/v1/dashboard/metrics/ role-aware KPI summary response | [Automated Verified] |
