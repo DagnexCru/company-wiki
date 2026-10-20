@@ -260,3 +260,4 @@
 | 256 | dx | developer-scripts | Document standard developer npm scripts: dev, build, lint, preview | [Automated Verified] |
 | 257 | dx | pipenv-dev-workflow | Document backend developer workflow using pipenv run python manage.py | [Automated Verified] |
 | 258 | dx | git-branching-model | Document git feature-branching conventions and PR review workflow | [Automated Verified] |
+| 259 | dx | commit-message-standard | Document Conventional Commits standard (feat, fix, docs, refactor, test) | [Automated Verified] |
