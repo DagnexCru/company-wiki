@@ -41,3 +41,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 35 | `feat(palette): display status badge for Draft articles in search results` | Slate badge distinguishes personal work-in-progress drafts. | [Automated Verified] |
 | 36 | `feat(palette): display status badge for Archived articles in search results` | Rose badge identifies archived documentation preserved for citations. | [Automated Verified] |
 | 37 | `feat(palette): render category name badge in article search results` | Displays category icon and name for instant context on search hits. | [Automated Verified] |
+| 38 | `feat(palette): display estimated reading time for article items in palette` | Shows minutes-to-read badge on articles to set reader expectations. | [Automated Verified] |
