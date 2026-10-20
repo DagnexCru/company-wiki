@@ -176,3 +176,4 @@
 | 172 | roles | dashboard-metric-isolation | Verify dashboard counts do not leak draft numbers across unauthorized roles | [Automated Verified] |
 | 173 | roles | search-index-filtering | Verify search queries enforce role-based queryset filtering at database level | [Automated Verified] |
 | 174 | roles | revisions-access-control | Verify article revision history access matches parent article visibility | [Automated Verified] |
+| 175 | roles | diff-access-control | Verify revision diff tool enforces read access on compared article revisions | [Automated Verified] |
