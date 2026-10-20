@@ -43,3 +43,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 37 | `test(profile): verify Command Palette Ctrl+K quick jump to /profile` | Command palette filters action and navigates on Enter key. | [Automated Verified] |
 | 38 | `test(profile): verify zero console warnings or missing key props in permissions grid` | Clean React component tree with stable unique key identifiers. | [Automated Verified] |
 | 39 | `test(profile): verify production build compilation with tsc -b and vite build` | All frontend modules compile with 0 TypeScript or lint errors. | [Automated Verified] |
+| 40 | `docs(profile): update frontend route inventory with /profile endpoint` | Documents user profile route in frontend architecture specifications. | [Automated Verified] |
