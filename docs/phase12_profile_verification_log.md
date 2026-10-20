@@ -18,3 +18,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 12 | `feat(profile): display role-specific workload summary cards on user profile` | Dynamic metrics showing articles authored, reviews conducted, or read counts. | [Automated Verified] |
 | 13 | `feat(profile): register /profile route inside App.tsx protected routes` | Wires ProfilePage within ProtectedRoute and MainLayout hierarchy. | [Automated Verified] |
 | 14 | `feat(sidebar): add My Profile navigation item with User icon in Sidebar` | Integrates /profile into main sidebar with active route indicator. | [Automated Verified] |
+| 15 | `feat(sidebar): apply interactive hover effect to sidebar Profile item` | Hover micro-animations on sidebar navigation links. | [Automated Verified] |
