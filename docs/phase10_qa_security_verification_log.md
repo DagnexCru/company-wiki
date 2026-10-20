@@ -67,3 +67,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 062 | `test(phase10): verify scenario 7 reader accessing private draft returns 404 Not Found` | Queryset filtering hides private draft, preventing existence disclosure. | [Automated Verified] |
 | 063 | `test(phase10): verify scenario 7 peer author accessing private draft returns 404` | Authors cannot view another author's drafts; returns 404 Not Found. | [Automated Verified] |
 | 064 | `test(phase10): verify scenario 7 peer author attempting draft edit returns 404` | Authors cannot update another author's drafts; returns 404 Not Found. | [Automated Verified] |
+| 065 | `test(phase10): verify scenario 7 peer author attempting draft deletion returns 404` | Authors cannot delete another author's drafts; returns 404 Not Found. | [Automated Verified] |
