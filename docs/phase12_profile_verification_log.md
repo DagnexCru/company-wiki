@@ -15,3 +15,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 09 | `feat(profile): add interactive toggle switches for Email Notification preferences` | Allows users to toggle review alerts, publishing digests, and security notices. | [Automated Verified] |
 | 10 | `feat(profile): add Editor & Markdown preferences section to user profile` | Preferences for editor preview layout and draft auto-save intervals. | [Automated Verified] |
 | 11 | `feat(profile): add Security & JWT Session Telemetry card on profile page` | Displays token rotation lifecycle, last login time, and active IP address. | [Automated Verified] |
+| 12 | `feat(profile): display role-specific workload summary cards on user profile` | Dynamic metrics showing articles authored, reviews conducted, or read counts. | [Automated Verified] |
