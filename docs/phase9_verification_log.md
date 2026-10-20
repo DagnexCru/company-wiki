@@ -33,3 +33,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 28 | `feat(phase9): apply secondary alphabetical tie-breaking ordering by name` | Secondary ordering ensures consistent layout stability when article counts match. | [Automated Verified] |
 | 29 | `feat(phase9): verify Reader role assignment in dashboard response` | Authenticated readers receive role='READER' with standard navigation permissions. | [Automated Verified] |
 | 30 | `test(phase9): verify Reader author_metrics field is strictly null` | Readers have no authoring metrics; field is null to prevent unauthorized data exposure. | [Automated Verified] |
+| 31 | `test(phase9): verify Reader my_recent_drafts field is strictly null` | Readers cannot access drafts; list is null to prevent private WIP notes leakage. | [Automated Verified] |
