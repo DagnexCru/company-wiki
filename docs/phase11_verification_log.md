@@ -178,3 +178,4 @@
 | 174 | roles | revisions-access-control | Verify article revision history access matches parent article visibility | [Automated Verified] |
 | 175 | roles | diff-access-control | Verify revision diff tool enforces read access on compared article revisions | [Automated Verified] |
 | 176 | roles | restore-author-draft | Document Author permission to restore past revisions to draft or rejected articles | [Automated Verified] |
+| 177 | roles | restore-admin-override | Document Administrator permission to restore past revisions to any article | [Automated Verified] |
