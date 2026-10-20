@@ -197,3 +197,4 @@
 | 193 | workflow | rejection-audit-event | Verify reject action records audit event 'article.rejected' with feedback | [Automated Verified] |
 | 194 | workflow | author-feedback-view | Document Author viewing reviewer's rejection reason in banner and timeline | [Automated Verified] |
 | 195 | workflow | revision-on-resubmit | Document Author editing rejected article and resubmitting to in_review | [Automated Verified] |
+| 196 | workflow | independent-review-enforcement | Verify backend rejects Author approving or rejecting their own article | [Automated Verified] |
