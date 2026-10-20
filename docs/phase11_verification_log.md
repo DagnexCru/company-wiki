@@ -256,3 +256,4 @@
 | 252 | dx | responsive-grid-system | Document responsive layout grids adapting from mobile single-col to desktop multi-col | [Automated Verified] |
 | 253 | dx | accessible-focus-states | Document visible focus-visible ring styles for keyboard accessibility (WCAG AA) | [Automated Verified] |
 | 254 | dx | form-accessibility | Document proper HTML label association with input IDs and aria-describedby | [Automated Verified] |
+| 255 | dx | color-contrast-wcag | Document 4.5:1 text-to-background color contrast ratio compliance | [Automated Verified] |
