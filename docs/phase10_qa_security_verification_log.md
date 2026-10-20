@@ -159,3 +159,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 154 | `test(phase10): audit ARIA labels on icon-only interactive buttons` | Buttons without text include descriptive aria-label attributes. | [Automated Verified] |
 | 155 | `test(phase10): audit modal dialog role='dialog' and aria-modal='true'` | Confirm and review modals declare dialog semantics and title associations. | [Automated Verified] |
 | 156 | `test(phase10): audit form input label associations via htmlFor and id attributes` | All form inputs explicitly linked to label elements for screen readers. | [Automated Verified] |
+| 157 | `test(phase10): audit aria-expanded attributes on collapsible sidebar navigation` | Sidebar navigation toggles expose expansion state via aria-expanded. | [Automated Verified] |
