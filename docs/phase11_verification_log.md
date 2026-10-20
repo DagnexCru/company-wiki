@@ -104,3 +104,4 @@
 | 100 | api | revisions-restore | Specify POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ linear history preservation | [Automated Verified] |
 | 101 | api | audit-list | Specify GET /api/v1/audit/ administrator-only activity log endpoint | [Automated Verified] |
 | 102 | api | audit-filter-action | Specify GET /api/v1/audit/?action={action} filtering by audit event type | [Automated Verified] |
+| 103 | api | audit-filter-target | Specify GET /api/v1/audit/?target_type={type} filtering by entity model | [Automated Verified] |
