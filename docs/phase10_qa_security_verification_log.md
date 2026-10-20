@@ -44,3 +44,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 039 | `test(phase10): verify scenario 4 independent review invariant author cannot self-approve` | Author attempting to approve own submission is rejected with HTTP 403 Forbidden. | [Automated Verified] |
 | 040 | `test(phase10): verify scenario 4 administrator bypass of self-approval constraint` | System administrators retain authority to approve own articles if needed. | [Automated Verified] |
 | 041 | `test(phase10): verify scenario 5 author inspects rejection feedback` | Author retrieves rejected article with rejection_reason string populated. | [Automated Verified] |
+| 042 | `test(phase10): verify scenario 5 author updates rejected article content` | Author submits PUT/PATCH request modifying title, summary, or content. | [Automated Verified] |
