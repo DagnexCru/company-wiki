@@ -218,3 +218,4 @@
 | 214 | workflow | audit-filtering-pagination | Document GET /api/v1/audit/ pagination and filtering capabilities | [Automated Verified] |
 | 215 | workflow | dashboard-activity-feed | Document audit events formatting in role-aware Recent Activity dashboard feed | [Automated Verified] |
 | 216 | workflow | workflow-diagram | Document state machine lifecycle diagram in ASCII and mermaid format | [Automated Verified] |
+| 217 | workflow | email-notification-stubs | Document future email notification hook points for workflow transitions | [Automated Verified] |
