@@ -188,3 +188,4 @@
 | 184 | workflow | submission-validation | Verify article must have non-empty title and content before submission | [Automated Verified] |
 | 185 | workflow | submission-audit-event | Verify submit action creates an audit event 'article.submitted' | [Automated Verified] |
 | 186 | workflow | review-queue-entry | Document in_review article immediate appearance in Review Queue for Reviewers | [Automated Verified] |
+| 187 | workflow | review-inspection | Document Reviewer viewing complete submitted markdown content and metadata | [Automated Verified] |
