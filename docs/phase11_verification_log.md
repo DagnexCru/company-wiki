@@ -86,3 +86,4 @@
 | 82 | api | articles-archive | Specify POST /api/v1/articles/{slug}/archive/ state transition to archived | [Automated Verified] |
 | 83 | api | articles-filter-cat | Specify GET /api/v1/articles/?category={slug} filtering mechanism | [Automated Verified] |
 | 84 | api | articles-filter-tag | Specify GET /api/v1/articles/?tag={slug} many-to-many filtering mechanism | [Automated Verified] |
+| 85 | api | articles-filter-status | Specify GET /api/v1/articles/?status={status} role-scoped status filtering | [Automated Verified] |
