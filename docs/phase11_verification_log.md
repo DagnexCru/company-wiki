@@ -20,3 +20,4 @@
 | 16 | setup | jwt-refresh-life | Document SIMPLE_JWT REFRESH_TOKEN_LIFETIME configured to 7 days | [Automated Verified] |
 | 17 | setup | jwt-rotation | Document ROTATE_REFRESH_TOKENS enabled to reissue refresh token on token refresh | [Automated Verified] |
 | 18 | setup | jwt-blacklist | Verify BLACKLIST_AFTER_ROTATION enabled for revoking old refresh tokens | [Automated Verified] |
+| 19 | setup | jwt-header-type | Verify AUTH_HEADER_TYPES configured to 'Bearer' standard RFC 6750 | [Automated Verified] |
