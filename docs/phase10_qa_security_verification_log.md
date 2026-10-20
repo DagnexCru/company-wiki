@@ -47,3 +47,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 042 | `test(phase10): verify scenario 5 author updates rejected article content` | Author submits PUT/PATCH request modifying title, summary, or content. | [Automated Verified] |
 | 043 | `test(phase10): verify scenario 5 new revision snapshot created on content update` | Update automatically increments revision_number and freezes snapshot. | [Automated Verified] |
 | 044 | `test(phase10): verify scenario 5 change_summary captured on revision record` | Author revision summary note is recorded in revision metadata. | [Automated Verified] |
+| 045 | `test(phase10): verify scenario 5 author resubmits rejected article via submit endpoint` | Resubmission transitions status from REJECTED back to IN_REVIEW. | [Automated Verified] |
