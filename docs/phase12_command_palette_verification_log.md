@@ -10,3 +10,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 04 | `feat(palette): support Escape key listener to dismiss command modal instantly` | Pressing Esc immediately sets isOpen to false and resets active selection index. | [Automated Verified] |
 | 05 | `feat(palette): support CustomEvent open-command-palette trigger across app` | Decoupled event dispatcher allows any header button or drawer to open the palette. | [Automated Verified] |
 | 06 | `feat(palette): implement body scroll locking when command palette is open` | Sets document.body.style.overflow = 'hidden' while open to prevent background jitter. | [Automated Verified] |
+| 07 | `feat(palette): restore body scroll on modal unmount or close event` | Restores standard scroll state on palette dismissal and unmount. | [Automated Verified] |
