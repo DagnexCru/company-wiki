@@ -251,3 +251,4 @@
 | 247 | dx | service-layer-pattern | Document frontend API service layer encapsulating all Axios HTTP requests | [Automated Verified] |
 | 248 | dx | type-safety-interfaces | Document TypeScript interfaces for Article, Category, Tag, User, Revision, Audit | [Automated Verified] |
 | 249 | dx | vite-build-performance | Document Vite production build performance compiling 2,000+ modules in <3s | [Automated Verified] |
+| 250 | dx | asset-chunking | Document Vite rollup asset chunking configuration splitting vendor libraries | [Automated Verified] |
