@@ -91,3 +91,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 086 | `test(phase10): verify scenario 9 unified diff computation between revisions` | Diff endpoint computes difflib unified diff between source and target versions. | [Automated Verified] |
 | 087 | `test(phase10): verify scenario 9 diff stats line additions and deletions calculation` | Diff response includes accurate additions and deletions line counts. | [Automated Verified] |
 | 088 | `test(phase10): verify scenario 9 diff metadata change detection` | Diff response flags title_changed, summary_changed, and tags modifications. | [Automated Verified] |
+| 089 | `test(phase10): verify scenario 9 revision restore creates new revision snapshot` | Restoring revision creates new revision #N without destroying past history. | [Automated Verified] |
