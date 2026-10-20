@@ -69,3 +69,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 63 | `feat(palette): add mobile search icon button in Header for small screens` | Dedicated search icon in header bar ensures mobile users can open palette. | [Automated Verified] |
 | 64 | `feat(palette): mount CommandPalette at root of MainLayout layout shell` | Renders palette inside MainLayout.tsx for global availability across routes. | [Automated Verified] |
 | 65 | `feat(palette): add ARIA role=dialog and aria-modal=true for accessibility` | Accessibility attributes inform screen readers of modal dialog context. | [Automated Verified] |
+| 66 | `feat(palette): add ARIA role=combobox and aria-expanded on search input` | Standard combobox pattern attributes for keyboard-accessible palettes. | [Automated Verified] |
