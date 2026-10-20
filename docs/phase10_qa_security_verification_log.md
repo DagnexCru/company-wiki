@@ -97,3 +97,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 092 | `test(phase10): verify scenario 10 refresh token blacklisted in database` | BlacklistedToken table records token, preventing reuse for token refresh. | [Automated Verified] |
 | 093 | `test(phase10): verify scenario 10 blacklisted refresh token reuse rejected (401)` | Attempting to refresh access using blacklisted token returns 401 token_not_valid. | [Automated Verified] |
 | 094 | `test(phase10): verify scenario 10 revoked session protected endpoint access rejected (401)` | Client without valid authorization header is rejected from protected endpoints. | [Automated Verified] |
+| 095 | `test(phase10): verify scenario 10 expired access token rejection` | Access token past configured lifetime (15 mins) is rejected with 401. | [Automated Verified] |
