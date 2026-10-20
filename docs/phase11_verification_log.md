@@ -259,3 +259,4 @@
 | 255 | dx | color-contrast-wcag | Document 4.5:1 text-to-background color contrast ratio compliance | [Automated Verified] |
 | 256 | dx | developer-scripts | Document standard developer npm scripts: dev, build, lint, preview | [Automated Verified] |
 | 257 | dx | pipenv-dev-workflow | Document backend developer workflow using pipenv run python manage.py | [Automated Verified] |
+| 258 | dx | git-branching-model | Document git feature-branching conventions and PR review workflow | [Automated Verified] |
