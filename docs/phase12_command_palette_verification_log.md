@@ -77,3 +77,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 71 | `feat(palette): ensure sticky position for search input during long scrolling` | Header search bar stays fixed at the top while results scroll smoothly. | [Automated Verified] |
 | 72 | `feat(palette): apply smooth enter animations with fade-in and zoom-in-95` | CSS animations provide fluid opening transitions without lag. | [Automated Verified] |
 | 73 | `feat(palette): test TypeScript type definitions for all palette item variants` | Discriminated union PaletteItem validates strict TypeScript compliance. | [Automated Verified] |
+| 74 | `feat(palette): verify zero memory leaks by detaching window event listeners` | useEffect return functions remove keydown and custom event handlers. | [Automated Verified] |
