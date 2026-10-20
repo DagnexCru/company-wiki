@@ -159,13 +159,9 @@ export const LoginPage = () => {
       <div className="flex-1 flex flex-col justify-start items-center p-4 sm:p-8 md:p-12 lg:p-14 xl:p-16 relative overflow-y-auto">
         <div className="w-full max-w-md space-y-6">
           {/* Top Row: Matches left column Back to Home baseline */}
-          <div className="hidden lg:flex items-center justify-between text-xs text-slate-400 h-5">
+          <div className="hidden lg:flex items-center text-xs text-slate-400 h-5">
             <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700/80 uppercase tracking-wider">
               Secure Sign In
-            </span>
-            <span className="flex items-center gap-1.5 text-emerald-400 text-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Encrypted Session
             </span>
           </div>
 
