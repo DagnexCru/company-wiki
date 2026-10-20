@@ -66,3 +66,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 061 | `test(phase10): verify scenario 7 unauthenticated request to /api/v1/articles/ returns 401` | Anonymous requests to article list endpoint are rejected with 401 Unauthorized. | [Automated Verified] |
 | 062 | `test(phase10): verify scenario 7 reader accessing private draft returns 404 Not Found` | Queryset filtering hides private draft, preventing existence disclosure. | [Automated Verified] |
 | 063 | `test(phase10): verify scenario 7 peer author accessing private draft returns 404` | Authors cannot view another author's drafts; returns 404 Not Found. | [Automated Verified] |
+| 064 | `test(phase10): verify scenario 7 peer author attempting draft edit returns 404` | Authors cannot update another author's drafts; returns 404 Not Found. | [Automated Verified] |
