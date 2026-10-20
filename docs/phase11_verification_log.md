@@ -137,3 +137,4 @@
 | 133 | api | cors-preflight | Document OPTIONS preflight response headers for cross-origin AJAX requests | [Automated Verified] |
 | 134 | api | json-schema-contract | Document API request/response JSON schema strictness and snake_case naming | [Automated Verified] |
 | 135 | roles | admin-capabilities | Document Administrator full system governance and role assignment privileges | [Automated Verified] |
+| 136 | roles | reviewer-capabilities | Document Reviewer content inspection, approval, and rejection privileges | [Automated Verified] |
