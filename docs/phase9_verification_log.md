@@ -28,3 +28,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 23 | `feat(phase9): validate category slug field for direct URL filtering` | Category slug powers frontend client links /articles?category=:slug. | [Automated Verified] |
 | 24 | `feat(phase9): calculate article_count via conditional database annotation` | Annotation uses Count('articles', filter=Q(articles__status=PUBLISHED)). | [Automated Verified] |
 | 25 | `test(phase9): verify category distribution counts only published articles` | Unpublished drafts and archived articles do not inflate category article counts. | [Automated Verified] |
+| 26 | `test(phase9): verify exclusion of categories with 0 published articles` | Categories without live documentation are pruned from dashboard distribution grid. | [Automated Verified] |
