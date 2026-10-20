@@ -207,3 +207,4 @@
 | 203 | workflow | revision-author-capture | Verify revision author captures the user making the edit or restore | [Automated Verified] |
 | 204 | workflow | revision-diff-engine | Document difflib unified_diff generating line additions and deletions | [Automated Verified] |
 | 205 | workflow | revision-metadata-diff | Document title, summary, category, and tags change tracking in diff | [Automated Verified] |
+| 206 | workflow | restoration-linear-history | Document revision restoration creates a new revision without history loss | [Automated Verified] |
