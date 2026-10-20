@@ -77,3 +77,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 072 | `test(phase10): verify scenario 8 duplicate category name rejection` | Creating category with existing name returns 400 with duplicate error. | [Automated Verified] |
 | 073 | `test(phase10): verify scenario 8 admin updates user role via PATCH /api/v1/users/{id}/role/` | Administrator promotes reader to author or reviewer with instant effect. | [Automated Verified] |
 | 074 | `test(phase10): verify scenario 8 role promotion takes effect immediately on API permissions` | Promoted user can immediately create articles or review submissions. | [Automated Verified] |
+| 075 | `test(phase10): verify scenario 8 audit trail records USER_ROLE_CHANGE event` | Role change logs audit event with actor, target user, and previous/new role. | [Automated Verified] |
