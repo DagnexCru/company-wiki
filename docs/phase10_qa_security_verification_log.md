@@ -55,3 +55,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 050 | `test(phase10): verify scenario 5 revision history maintains linear progression` | Revisions preserve continuous chronological progression #1, #2, #3. | [Automated Verified] |
 | 051 | `test(phase10): verify scenario 6 reader searches published articles by query` | Search query filters across title, summary, content, category, and tags. | [Automated Verified] |
 | 052 | `test(phase10): verify scenario 6 case-insensitive search matching` | Search handles mixed-case query terms using icontains queries. | [Automated Verified] |
+| 053 | `test(phase10): verify scenario 6 category filtering by slug` | Query parameter ?category=slug filters articles belonging to category. | [Automated Verified] |
