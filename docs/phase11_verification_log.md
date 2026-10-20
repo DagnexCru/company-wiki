@@ -23,3 +23,4 @@
 | 19 | setup | jwt-header-type | Verify AUTH_HEADER_TYPES configured to 'Bearer' standard RFC 6750 | [Automated Verified] |
 | 20 | setup | drf-permissions | Document REST_FRAMEWORK DEFAULT_PERMISSION_CLASSES set to IsAuthenticated | [Automated Verified] |
 | 21 | setup | drf-pagination | Document REST_FRAMEWORK PAGE_SIZE default set to 10 articles per page | [Automated Verified] |
+| 22 | setup | drf-renderer | Verify REST_FRAMEWORK JSONRenderer configured for API production payloads | [Automated Verified] |
