@@ -18,3 +18,4 @@
 | 14 | setup | cors-origins | Verify CORS_ALLOWED_ORIGINS configuration for frontend localhost:5173 | [Automated Verified] |
 | 15 | setup | jwt-lifetime | Document SIMPLE_JWT ACCESS_TOKEN_LIFETIME configured to 30 minutes | [Automated Verified] |
 | 16 | setup | jwt-refresh-life | Document SIMPLE_JWT REFRESH_TOKEN_LIFETIME configured to 7 days | [Automated Verified] |
+| 17 | setup | jwt-rotation | Document ROTATE_REFRESH_TOKENS enabled to reissue refresh token on token refresh | [Automated Verified] |
