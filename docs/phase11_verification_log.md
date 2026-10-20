@@ -234,3 +234,4 @@
 | 230 | dx | toast-notifications | Document centralized Toast notification service for success, info, and error alerts | [Automated Verified] |
 | 231 | dx | modal-dialogs | Document accessible modal dialogs with focus trapping and ESC key dismiss | [Automated Verified] |
 | 232 | dx | controlled-inputs | Document controlled input components with inline error message rendering | [Automated Verified] |
+| 233 | dx | markdown-editor | Document Markdown editor with live preview toggle and formatting toolbar | [Automated Verified] |
