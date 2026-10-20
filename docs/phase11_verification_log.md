@@ -73,3 +73,4 @@
 | 69 | api | categories-retrieve | Specify GET /api/v1/categories/{slug}/ detail schema and article counts | [Automated Verified] |
 | 70 | api | categories-update | Specify PUT/PATCH /api/v1/categories/{slug}/ administrator update validation | [Automated Verified] |
 | 71 | api | categories-delete | Specify DELETE /api/v1/categories/{slug}/ safeguard against orphaned articles | [Automated Verified] |
+| 72 | api | tags-list | Specify GET /api/v1/tags/ query params, alphabetical ordering, and article count | [Automated Verified] |
