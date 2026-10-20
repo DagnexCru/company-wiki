@@ -267,3 +267,4 @@
 | 263 | dx | cross-browser-testing | Document manual UI verification on Chromium, Gecko, and WebKit rendering engines | [Automated Verified] |
 | 264 | dx | release-artifact-packaging | Document static build artifact output directory frontend/dist/ structure | [Automated Verified] |
 | 265 | audit | readme-completeness | Verify root README.md covers Architecture, Quickstart, RBAC, and Workflow | [Automated Verified] |
+| 266 | audit | setup-guide-completeness | Verify docs/setup_guide.md covers Python, Pipenv, Postgres, and npm | [Automated Verified] |
