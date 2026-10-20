@@ -40,3 +40,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 035 | `test(phase10): verify scenario 4 ReviewRecord created with action=APPROVE` | Workflow record created documenting approval and optional editorial notes. | [Automated Verified] |
 | 036 | `test(phase10): verify scenario 4 audit trail records ARTICLE_APPROVE event` | Audit event ARTICLE_APPROVE logged attributing action to reviewer. | [Automated Verified] |
 | 037 | `test(phase10): verify scenario 4 reviewer rejects article via POST /api/v1/articles/{slug}/reject/` | Reviewer returns article to author with mandatory revision feedback. | [Automated Verified] |
+| 038 | `test(phase10): verify scenario 4 rejection requires minimum 5 characters feedback` | API rejects empty or short rejection reason with HTTP 400 Bad Request. | [Automated Verified] |
