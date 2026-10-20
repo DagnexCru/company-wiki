@@ -28,3 +28,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 22 | `test(profile): verify Reader role permissions grid display on /profile` | Readers see search and browse granted, create and review restricted. | [Automated Verified] |
 | 23 | `test(profile): verify Author role permissions grid display on /profile` | Authors see draft authoring and revisions granted, publishing restricted. | [Automated Verified] |
 | 24 | `test(profile): verify Reviewer role permissions grid display on /profile` | Reviewers see review queue inspection and approvals granted. | [Automated Verified] |
+| 25 | `test(profile): verify Administrator role permissions grid display on /profile` | Admins see full governance, taxonomy, and audit capabilities granted. | [Automated Verified] |
