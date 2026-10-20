@@ -45,3 +45,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 39 | `feat(palette): truncate article summaries to single line with line-clamp` | Excerpt previews truncate cleanly to preserve compact palette density. | [Automated Verified] |
 | 40 | `feat(palette): render category results with article count badge` | Category rows display total published articles filed under that domain. | [Automated Verified] |
 | 41 | `feat(palette): route category item selection to /articles?category=:slug` | Clicking or selecting category navigates directly to filtered article view. | [Automated Verified] |
+| 42 | `feat(palette): render tag results with hashtag prefix and article count` | Tag rows format as #tag_name with emerald tag icon. | [Automated Verified] |
