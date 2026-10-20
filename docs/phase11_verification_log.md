@@ -48,3 +48,4 @@
 | 44 | setup | npm-build-cmd | Document npm run build compilation for TypeScript and Vite bundle | [Automated Verified] |
 | 45 | setup | npm-lint-cmd | Document npm run lint static analysis script configuration | [Automated Verified] |
 | 46 | setup | node-compatibility | Document Node.js v18+ and v20+ LTS engine compatibility | [Automated Verified] |
+| 47 | setup | browser-support | Document modern browser matrix targeting Chrome, Edge, Firefox, and Safari | [Automated Verified] |
