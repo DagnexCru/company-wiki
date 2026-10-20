@@ -13,3 +13,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 07 | `feat(palette): restore body scroll on modal unmount or close event` | Restores standard scroll state on palette dismissal and unmount. | [Automated Verified] |
 | 08 | `feat(palette): auto-focus search input with micro-delay on open` | inputRef.current?.focus() runs with a 50ms RAF/timeout for seamless keyboard focus. | [Automated Verified] |
 | 09 | `feat(palette): implement controlled input state with real-time query tracking` | React state binds directly to <input> value with instant change callbacks. | [Automated Verified] |
+| 10 | `feat(palette): add search input clear button with X icon` | Clear button appears when query.length > 0 and clears text without closing modal. | [Automated Verified] |
