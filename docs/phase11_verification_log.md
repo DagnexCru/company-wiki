@@ -61,3 +61,4 @@
 | 57 | setup | subsystem-health | Document health endpoint response schema with database, status, and version | [Automated Verified] |
 | 58 | setup | pipenv-scripts | Document Pipenv run shortcut commands for manage.py subcommands | [Automated Verified] |
 | 59 | setup | hot-reload | Document Vite HMR and Django runserver auto-reload behavior on file edits | [Automated Verified] |
+| 60 | setup | dev-reproducibility | Verify end-to-end setup reproducibility from clean git clone checkout | [Automated Verified] |
