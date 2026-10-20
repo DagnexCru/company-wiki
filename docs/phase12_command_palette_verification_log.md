@@ -70,3 +70,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 64 | `feat(palette): mount CommandPalette at root of MainLayout layout shell` | Renders palette inside MainLayout.tsx for global availability across routes. | [Automated Verified] |
 | 65 | `feat(palette): add ARIA role=dialog and aria-modal=true for accessibility` | Accessibility attributes inform screen readers of modal dialog context. | [Automated Verified] |
 | 66 | `feat(palette): add ARIA role=combobox and aria-expanded on search input` | Standard combobox pattern attributes for keyboard-accessible palettes. | [Automated Verified] |
+| 67 | `feat(palette): add ARIA role=listbox and aria-selected on option cards` | Listbox options announce active selection state to assistive technology. | [Automated Verified] |
