@@ -261,3 +261,4 @@
 | 257 | dx | pipenv-dev-workflow | Document backend developer workflow using pipenv run python manage.py | [Automated Verified] |
 | 258 | dx | git-branching-model | Document git feature-branching conventions and PR review workflow | [Automated Verified] |
 | 259 | dx | commit-message-standard | Document Conventional Commits standard (feat, fix, docs, refactor, test) | [Automated Verified] |
+| 260 | dx | env-variable-audit | Verify zero hardcoded API URLs or secrets across entire frontend code | [Automated Verified] |
