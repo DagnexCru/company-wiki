@@ -226,3 +226,4 @@
 | 222 | workflow | published-direct-edit | Document policy requiring revisions to be created on published article edits | [Automated Verified] |
 | 223 | workflow | archived-search-exclusion | Verify archived articles are excluded from standard search and categories | [Automated Verified] |
 | 224 | workflow | workflow-concurrency-locks | Document database row-locking (select_for_update) on review decisions | [Automated Verified] |
+| 225 | dx | component-hierarchy | Document React component hierarchy from AppShell down to Atomic UI elements | [Automated Verified] |
