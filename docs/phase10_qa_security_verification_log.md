@@ -144,3 +144,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 139 | `test(phase10): audit negative permission event logging` | Security permission violations logged to telemetry for intrusion detection. | [Automated Verified] |
 | 140 | `test(phase10): audit rate limiting configuration on authentication endpoints` | Login endpoint configured with throttle rates to prevent brute-force attacks. | [Automated Verified] |
 | 141 | `test(phase10): audit WCAG 2.1 AA text contrast ratio on primary headings (4.5:1)` | Headings in slate-900 on white background exceed 12:1 contrast ratio. | [Automated Verified] |
+| 142 | `test(phase10): audit WCAG 2.1 AA text contrast ratio on body text in light mode` | Body text in slate-700 on white background satisfies 7:1 contrast ratio. | [Automated Verified] |
