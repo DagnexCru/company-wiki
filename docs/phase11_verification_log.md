@@ -202,3 +202,4 @@
 | 198 | workflow | archival-action | Document POST /api/v1/articles/{slug}/archive/ moving article out of active search | [Automated Verified] |
 | 199 | workflow | archival-audit-event | Verify archival action records audit event 'article.archived' | [Automated Verified] |
 | 200 | workflow | unarchive-action | Document Administrator unarchiving article back to draft status | [Automated Verified] |
+| 201 | workflow | revision-immutable-rule | Document ArticleRevision records are immutable and cannot be updated | [Automated Verified] |
