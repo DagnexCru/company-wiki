@@ -162,3 +162,4 @@
 | 158 | roles | rate-limiting-auth | Document API throttle rates for login and registration endpoints to prevent brute force | [Automated Verified] |
 | 159 | roles | user-active-check | Document IsAuthenticated middleware checking user.is_active boolean flag | [Automated Verified] |
 | 160 | roles | deactivated-user-rejection | Verify deactivated users receive immediate HTTP 401 on token refresh | [Automated Verified] |
+| 161 | roles | admin-user-management | Document administrative user list, filter by role, and activation toggling | [Automated Verified] |
