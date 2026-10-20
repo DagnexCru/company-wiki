@@ -58,3 +58,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 52 | `feat(palette): load Recent Searches on mount when search query is empty` | Empty input state displays fast-access pills for recent lookups. | [Automated Verified] |
 | 53 | `feat(palette): provide Clear History button for recent searches` | One-click action clears stored search history from localStorage and state. | [Automated Verified] |
 | 54 | `feat(palette): design sleek empty state with Sparkles icon for zero results` | Friendly fallback UI suggests alternative queries or browsing by category. | [Automated Verified] |
+| 55 | `feat(palette): add footer keyboard shortcut legend (ArrowKeys, Enter, Esc)` | Bottom toolbar documents keyboard controls for user discovery. | [Automated Verified] |
