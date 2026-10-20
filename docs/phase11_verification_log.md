@@ -16,3 +16,4 @@
 | 12 | setup | debug-flag | Document DEBUG boolean typecast safety in production vs development settings | [Automated Verified] |
 | 13 | setup | allowed-hosts | Document ALLOWED_HOSTS comma-delimited environment variable parsing | [Automated Verified] |
 | 14 | setup | cors-origins | Verify CORS_ALLOWED_ORIGINS configuration for frontend localhost:5173 | [Automated Verified] |
+| 15 | setup | jwt-lifetime | Document SIMPLE_JWT ACCESS_TOKEN_LIFETIME configured to 30 minutes | [Automated Verified] |
