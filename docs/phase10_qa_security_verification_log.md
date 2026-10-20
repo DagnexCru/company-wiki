@@ -71,3 +71,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 066 | `test(phase10): verify scenario 7 reader attempting article creation returns 403` | Readers lack CanCreateArticle permission; returns HTTP 403 Forbidden. | [Automated Verified] |
 | 067 | `test(phase10): verify scenario 7 author attempting review action returns 403` | Authors lack IsReviewerOrAdmin permission; returns HTTP 403 Forbidden. | [Automated Verified] |
 | 068 | `test(phase10): verify scenario 7 reviewer attempting role modification returns 403` | Reviewers lack administrative permissions; returns HTTP 403 Forbidden. | [Automated Verified] |
+| 069 | `test(phase10): verify scenario 7 ID guessing attack does not expose unpublished articles` | Direct UUID or slug lookup of unpublished content by unauthorized user returns 404. | [Automated Verified] |
