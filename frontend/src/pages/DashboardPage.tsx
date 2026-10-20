@@ -94,13 +94,13 @@ export const DashboardPage = () => {
   return (
     <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-brand-900 text-white p-8 md:p-10 shadow-xl">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-brand-900 text-white p-5 sm:p-8 md:p-10 shadow-xl">
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold text-brand-200 border border-white/10">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>Role-Aware Workspace • Operational</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
             Welcome back, {user?.full_name || user?.username}!
           </h1>
           <p className="text-slate-300 text-sm leading-relaxed">
@@ -265,8 +265,8 @@ export const DashboardPage = () => {
 
       {/* Admin Specific Organization Status Breakdown */}
       {data?.admin_metrics && (
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-          <div className="flex items-center justify-between">
+        <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2.5">
               <Activity className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h2 className="font-bold text-slate-900 dark:text-white text-base">
@@ -315,9 +315,9 @@ export const DashboardPage = () => {
 
       {/* Reviewer Section: Articles Awaiting Review */}
       {canReview && data?.pending_review_articles && data.pending_review_articles.length > 0 && (
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-900/50 space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
+        <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-900/50 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-2.5">
               <CheckSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" />
               <h2 className="font-bold text-slate-900 dark:text-white text-base">
                 Editorial Review Queue
@@ -375,8 +375,8 @@ export const DashboardPage = () => {
 
       {/* Author Section: My Recent Drafts & Rejected Articles */}
       {canCreate && data?.my_recent_drafts && data.my_recent_drafts.length > 0 && (
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-          <div className="flex items-center justify-between">
+        <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2.5">
               <Edit3 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h2 className="font-bold text-slate-900 dark:text-white text-base">
@@ -435,8 +435,8 @@ export const DashboardPage = () => {
       )}
 
       {/* Category Breakdown & Knowledge Discovery */}
-      <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2.5">
             <FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <h2 className="font-bold text-slate-900 dark:text-white text-base">
@@ -484,9 +484,9 @@ export const DashboardPage = () => {
       </div>
 
       {/* Featured Knowledge Articles Section */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 sm:p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <Sparkles className="w-5 h-5 text-amber-500" />
             <h2 className="font-bold text-slate-900 dark:text-white text-base">
               Featured Knowledge Guides

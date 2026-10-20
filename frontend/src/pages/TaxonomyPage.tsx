@@ -226,7 +226,7 @@ export const TaxonomyPage: React.FC = () => {
                     <button
                       onClick={() => handleDeleteCategory(category.slug, category.name)}
                       title="Delete category"
-                      className="opacity-0 group-hover:opacity-100 p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
+                      className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -262,7 +262,7 @@ export const TaxonomyPage: React.FC = () => {
           {isAdmin && (
             <form
               onSubmit={handleCreateTag}
-              className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3 max-w-md"
+              className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 max-w-md"
             >
               <input
                 type="text"

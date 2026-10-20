@@ -18,12 +18,15 @@ import {
   EyeOff,
   GitCommit,
   CheckSquare,
+  Menu,
+  X,
 } from "lucide-react";
 
 export const HomePage = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,16 +50,16 @@ export const HomePage = () => {
       <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-900/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo & Brand */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 ring-1 ring-white/20 group-hover:scale-105 transition-transform">
-              <BookOpen className="w-6 h-6" />
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 ring-1 ring-white/20 group-hover:scale-105 transition-transform shrink-0">
+              <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-brand-300 transition-colors">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white group-hover:text-brand-300 transition-colors">
                   Company<span className="text-brand-400">Wiki</span>
                 </span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-950 text-brand-300 border border-brand-800/80 uppercase tracking-wider">
+                <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-950 text-brand-300 border border-brand-800/80 uppercase tracking-wider">
                   Knowledge Base
                 </span>
               </div>
@@ -85,10 +88,10 @@ export const HomePage = () => {
             </a>
           </nav>
 
-          {/* User Auth Actions */}
-          <div className="flex items-center gap-3">
+          {/* User Auth Actions & Mobile Menu Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
             {user ? (
-              <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-3">
                 <Link
                   to="/dashboard"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.02]"
@@ -104,7 +107,7 @@ export const HomePage = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-3">
                 <Link
                   to="/login"
                   className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
@@ -120,15 +123,101 @@ export const HomePage = () => {
                 </Link>
               </div>
             )}
+
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label="Toggle navigation menu"
+              className="p-2 -mr-1 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl transition md:hidden"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-b border-slate-800 bg-slate-900/95 backdrop-blur-2xl px-4 py-4 space-y-3 animate-in fade-in-50 duration-150">
+            <nav className="flex flex-col space-y-1 text-sm font-medium text-slate-300">
+              <a
+                href="#features"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
+              >
+                Features
+              </a>
+              <a
+                href="#categories"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
+              >
+                Categories
+              </a>
+              <a
+                href="#workflow"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
+              >
+                Editorial Workflow
+              </a>
+              <a
+                href="#architecture"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
+              >
+                Architecture
+              </a>
+              <a
+                href="#security"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
+              >
+                Security
+              </a>
+            </nav>
+
+            <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
+              {user ? (
+                <>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center py-2.5 rounded-xl bg-brand-600 text-white font-semibold text-sm shadow-md"
+                  >
+                    Go to Dashboard
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      logout();
+                    }}
+                    className="w-full text-center py-2 rounded-xl bg-slate-800 text-slate-300 text-sm font-medium"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-sm shadow-md"
+                  >
+                    Sign In to Workspace
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-24 md:pt-28 md:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-tight">
             Centralize Your Team's Knowledge.{" "}
             <span className="bg-gradient-to-r from-brand-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">
               Document, Review, and Scale.
@@ -136,7 +225,7 @@ export const HomePage = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             A centralized, enterprise-grade knowledge platform. Eliminate fragmented documentation
             with strict multi-tier review pipelines, linear revision tracking, unified diffs, and
             bulletproof role-based access control.
@@ -146,25 +235,25 @@ export const HomePage = () => {
           <div className="max-w-2xl mx-auto pt-2">
             <form
               onSubmit={handleSearchSubmit}
-              className="relative flex items-center shadow-2xl rounded-2xl ring-1 ring-white/10 bg-slate-800/90 backdrop-blur-md p-2 group focus-within:ring-brand-500/50 transition-all"
+              className="relative flex items-center shadow-2xl rounded-2xl ring-1 ring-white/10 bg-slate-800/90 backdrop-blur-md p-1.5 sm:p-2 group focus-within:ring-brand-500/50 transition-all"
             >
-              <Search className="w-5 h-5 text-slate-400 ml-3 shrink-0 group-focus-within:text-brand-400 transition-colors" />
+              <Search className="w-5 h-5 text-slate-400 ml-2.5 sm:ml-3 shrink-0 group-focus-within:text-brand-400 transition-colors" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search standard operating procedures, guides, policies..."
-                className="w-full bg-transparent border-none px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none"
+                placeholder="Search procedures, guides, policies..."
+                className="w-full bg-transparent border-none px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none"
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all shrink-0"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs sm:text-sm transition-all shrink-0"
               >
-                <span>Search</span>
+                <span className="hidden sm:inline">Search</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
-            <div className="flex items-center justify-center gap-4 text-xs text-slate-400 mt-3">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs text-slate-400 mt-3">
               <span>Popular topics:</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700/60">
                 #onboarding
@@ -179,17 +268,17 @@ export const HomePage = () => {
           </div>
 
           {/* Call to Actions */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4">
             <Link
               to={user ? "/dashboard" : "/login"}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-105"
             >
               <span>{user ? "Enter Workspace Dashboard" : "Sign In to Workspace"}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
               href="#categories"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-base transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-sm sm:text-base transition-colors"
             >
               <span>Browse Categories</span>
             </a>
@@ -515,26 +604,26 @@ export const HomePage = () => {
       </section>
 
       {/* Call to Action Banner */}
-      <section className="py-24 border-t border-slate-800">
+      <section className="py-16 sm:py-24 border-t border-slate-800">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-brand-900/80 via-indigo-950 to-slate-900 border border-brand-700/40 text-center space-y-6 shadow-2xl relative overflow-hidden">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <div className="p-6 sm:p-10 md:p-14 rounded-3xl bg-gradient-to-r from-brand-900/80 via-indigo-950 to-slate-900 border border-brand-700/40 text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
               Ready to explore your company's knowledge?
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
+            <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
               Sign in with your corporate account to access documentation, submit guides, and review procedures.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
               <Link
                 to={user ? "/dashboard" : "/login"}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-950 font-bold text-base hover:bg-slate-100 shadow-xl transition-all hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm sm:text-base hover:bg-slate-100 shadow-xl transition-all hover:scale-105"
               >
                 <span>{user ? "Go to Dashboard" : "Sign In to Workspace"}</span>
                 <ArrowRight className="w-5 h-5 text-slate-950" />
               </Link>
               <Link
                 to={user ? "/articles" : "/login"}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white font-semibold text-base border border-slate-700 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white font-semibold text-sm sm:text-base border border-slate-700 transition-colors"
               >
                 <span>Browse Documentation</span>
               </Link>
@@ -557,7 +646,7 @@ export const HomePage = () => {
             &copy; 2026 CompanyWiki Inc. All rights reserved. Internal Knowledge Base.
           </p>
 
-          <div className="flex items-center gap-5 text-slate-500">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-slate-500">
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Privacy Policy</span>
             <span>&bull;</span>
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Terms of Service</span>

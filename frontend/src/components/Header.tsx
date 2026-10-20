@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Search, LogOut } from "lucide-react";
+import { BookOpen, Search, LogOut, Menu } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 interface HeaderProps {
   onToggleSidebar?: () => void;
 }
 
-export const Header = ({}: HeaderProps) => {
+export const Header = ({ onToggleSidebar }: HeaderProps) => {
   const { user, logout } = useAuth();
 
   const getRoleBadge = (role?: string) => {
@@ -42,18 +42,32 @@ export const Header = ({}: HeaderProps) => {
   const roleInfo = getRoleBadge(user?.role);
 
   return (
-    <header className="h-16 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-30 px-6 flex items-center justify-between">
-      <Link to="/dashboard" className="flex items-center gap-3 group">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
-          <BookOpen className="w-5 h-5" />
-        </div>
-        <div>
-          <span className="font-bold text-white tracking-tight text-lg group-hover:text-indigo-400 transition-colors">Company Wiki</span>
-          <span className="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
-            Workspace
-          </span>
-        </div>
-      </Link>
+    <header className="h-16 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-6 flex items-center justify-between">
+      <div className="flex items-center gap-3">
+        {/* Mobile Hamburger Drawer Toggle */}
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          aria-label="Toggle navigation menu"
+          className="p-2 -ml-1 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl transition md:hidden"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+
+        <Link to="/dashboard" className="flex items-center gap-3 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
+            <BookOpen className="w-5 h-5" />
+          </div>
+          <div className="flex items-center">
+            <span className="font-bold text-white tracking-tight text-base sm:text-lg group-hover:text-indigo-400 transition-colors">
+              Company Wiki
+            </span>
+            <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
+              Workspace
+            </span>
+          </div>
+        </Link>
+      </div>
 
       {/* Global Quick Search Shortcut */}
       <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-800/80 text-slate-400 text-sm w-72 focus-within:border-slate-700">

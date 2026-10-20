@@ -8,6 +8,7 @@ import {
   Shield,
   Layers,
   Home,
+  X,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -19,7 +20,12 @@ interface NavItem {
   badge?: string;
 }
 
-export const Sidebar = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
   const { user } = useAuth();
   const location = useLocation();
 
@@ -74,16 +80,29 @@ export const Sidebar = () => {
           },
         ]
       : []),
-
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-800 bg-slate-900 flex flex-col justify-between shrink-0 h-full overflow-y-auto select-none">
+    <aside
+      className={`fixed inset-y-0 left-0 z-50 w-64 border-r border-slate-800 bg-slate-900 flex flex-col justify-between shrink-0 h-full overflow-y-auto select-none transition-transform duration-300 md:static md:translate-x-0 ${
+        isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+      }`}
+    >
       <div className="p-4 space-y-6">
         <div>
-          <p className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-            Main Navigation
-          </p>
+          <div className="flex items-center justify-between px-3 mb-2">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              Main Navigation
+            </p>
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 md:hidden"
+              aria-label="Close sidebar"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
           <nav className="space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -95,6 +114,7 @@ export const Sidebar = () => {
                 <Link
                   key={item.label}
                   to={item.path}
+                  onClick={onClose}
                   className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition ${
                     isActive
                       ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-xs"

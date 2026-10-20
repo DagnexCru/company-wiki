@@ -156,7 +156,7 @@ export const LoginPage = () => {
       </div>
 
       {/* RIGHT COLUMN: Authentication Form Panel (Top-Aligned) */}
-      <div className="flex-1 flex flex-col justify-start items-center p-8 sm:p-12 lg:p-14 xl:p-16 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col justify-start items-center p-4 sm:p-8 md:p-12 lg:p-14 xl:p-16 relative overflow-y-auto">
         <div className="w-full max-w-md space-y-6">
           {/* Top Row: Matches left column Back to Home baseline */}
           <div className="hidden lg:flex items-center justify-between text-xs text-slate-400 h-5">
@@ -197,7 +197,7 @@ export const LoginPage = () => {
           </div>
 
           {/* Glassmorphic Form Container */}
-          <div className="bg-slate-800/80 backdrop-blur-2xl rounded-3xl border border-slate-700/80 p-7 shadow-2xl ring-1 ring-white/10 space-y-5">
+          <div className="bg-slate-800/80 backdrop-blur-2xl rounded-3xl border border-slate-700/80 p-5 sm:p-7 shadow-2xl ring-1 ring-white/10 space-y-5">
             {error && (
               <div className="p-3.5 rounded-xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs flex items-start gap-2.5">
                 <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />

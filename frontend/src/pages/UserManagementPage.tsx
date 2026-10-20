@@ -240,13 +240,13 @@ export const UserManagementPage = () => {
             />
           </div>
 
-          {/* Role Filter */}
-          <div className="flex items-center gap-2">
-            <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+          {/* Role & Status Filters */}
+          <div className="flex flex-wrap items-center gap-2">
+            <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0 hidden sm:inline" />
             <select
               value={selectedRole}
               onChange={(e) => setSelectedRole(e.target.value)}
-              className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-slate-200 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              className="flex-1 sm:flex-initial px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-slate-200 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500/20"
             >
               <option value="">All Roles</option>
               <option value="ADMIN">Administrators</option>
@@ -259,7 +259,7 @@ export const UserManagementPage = () => {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-slate-200 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              className="flex-1 sm:flex-initial px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-slate-200 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500/20"
             >
               <option value="">All Statuses</option>
               <option value="active">Active Only</option>

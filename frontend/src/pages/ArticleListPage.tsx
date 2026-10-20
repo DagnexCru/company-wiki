@@ -767,7 +767,7 @@ export const ArticleListPage: React.FC = () => {
       {!loading && !error && totalCount > 0 && (
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
           {/* Results summary and Page size selector */}
-          <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex flex-wrap items-center justify-between w-full sm:w-auto gap-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             <p>
               Showing <span className="font-semibold text-slate-900 dark:text-white">{(page - 1) * pageSize + 1}</span> to{" "}
               <span className="font-semibold text-slate-900 dark:text-white">
@@ -793,12 +793,12 @@ export const ArticleListPage: React.FC = () => {
 
           {/* Page numbers navigation */}
           {totalPages > 1 && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 max-w-full overflow-x-auto py-1">
               <button
                 onClick={() => handlePageChange(Math.max(1, page - 1))}
                 disabled={page === 1}
                 aria-label="Previous page"
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors shrink-0"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>

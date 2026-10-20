@@ -121,7 +121,7 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
     );
   });
 
-  return <div className={`article-content space-y-1 ${className}`}>{elements}</div>;
+  return <div className={`article-content space-y-1 break-words ${className}`}>{elements}</div>;
 };
 
 // Typography Token: Monospace code blocks are formatted with dark background and border accents.

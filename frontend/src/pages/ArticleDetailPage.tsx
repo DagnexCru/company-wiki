@@ -358,13 +358,13 @@ export const ArticleDetailPage: React.FC = () => {
       </header>
 
       {/* Main Document Content */}
-      <article className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
+      <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
         <MarkdownViewer content={article.content} />
       </article>
 
       {/* Review History Section (Visible to Author, Reviewers, and Admins) */}
       {(user?.role === "ADMIN" || user?.role === "REVIEWER" || isAuthor) && (
-        <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-xs space-y-6">
+        <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 md:p-8 shadow-xs space-y-6">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
               <History className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
