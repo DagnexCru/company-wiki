@@ -282,3 +282,4 @@
 | 278 | audit | reproducibility-npm | Audit npm install procedure for clean frontend node_modules setup | [Automated Verified] |
 | 279 | audit | reproducibility-migrations | Audit python manage.py migrate against fresh development database | [Automated Verified] |
 | 280 | audit | reproducibility-superuser | Audit createsuperuser guidance for establishing initial Admin user | [Automated Verified] |
+| 281 | audit | reproducibility-taxonomy-seed | Audit seed_taxonomy management command for default categories | [Automated Verified] |
