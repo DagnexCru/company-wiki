@@ -54,3 +54,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 049 | `test(phase10): verify scenario 5 non-author modification of rejected article blocked` | Peer authors cannot modify another user's rejected article (403/404). | [Automated Verified] |
 | 050 | `test(phase10): verify scenario 5 revision history maintains linear progression` | Revisions preserve continuous chronological progression #1, #2, #3. | [Automated Verified] |
 | 051 | `test(phase10): verify scenario 6 reader searches published articles by query` | Search query filters across title, summary, content, category, and tags. | [Automated Verified] |
+| 052 | `test(phase10): verify scenario 6 case-insensitive search matching` | Search handles mixed-case query terms using icontains queries. | [Automated Verified] |
