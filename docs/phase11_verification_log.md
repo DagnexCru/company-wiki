@@ -169,3 +169,4 @@
 | 165 | roles | reviewer-draft-isolation | Verify Reviewer cannot view Author drafts until explicitly submitted | [Automated Verified] |
 | 166 | roles | reviewer-published-edit-denied | Verify Reviewer cannot edit published articles without Author role | [Automated Verified] |
 | 167 | roles | admin-content-override | Document Administrator safety override policy for policy-violating articles | [Automated Verified] |
+| 168 | roles | taxonomy-admin-protection | Verify only Administrator can create, edit, or delete categories | [Automated Verified] |
