@@ -224,3 +224,4 @@
 | 220 | workflow | status-badge-styling | Document frontend workflow badge color conventions across UI screens | [Automated Verified] |
 | 221 | workflow | resubmit-validation | Verify Author cannot resubmit without modifying content or providing note | [Automated Verified] |
 | 222 | workflow | published-direct-edit | Document policy requiring revisions to be created on published article edits | [Automated Verified] |
+| 223 | workflow | archived-search-exclusion | Verify archived articles are excluded from standard search and categories | [Automated Verified] |
