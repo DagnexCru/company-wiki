@@ -24,3 +24,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 019 | `test(phase10): verify scenario 2 validation error on invalid category UUID` | API rejects creation request when category UUID does not exist with 400 status. | [Automated Verified] |
 | 020 | `test(phase10): verify scenario 2 reader role rejection on article creation (403)` | Readers attempting POST /api/v1/articles/ receive HTTP 403 Forbidden. | [Automated Verified] |
 | 021 | `test(phase10): verify scenario 3 author submits draft via POST /api/v1/articles/{slug}/submit/` | Author submits draft or rejected article for editorial review. | [Automated Verified] |
+| 022 | `test(phase10): verify scenario 3 status transitions from DRAFT to IN_REVIEW` | Article status changes to Article.Status.IN_REVIEW upon submission. | [Automated Verified] |
