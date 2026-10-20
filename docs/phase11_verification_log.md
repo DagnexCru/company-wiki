@@ -244,3 +244,4 @@
 | 240 | dx | error-boundary | Document React ErrorBoundary catching unhandled render errors gracefully | [Automated Verified] |
 | 241 | dx | not-found-page | Document 404 Not Found route and back-to-home navigation shortcut | [Automated Verified] |
 | 242 | dx | forbidden-page | Document 403 Forbidden route explaining insufficient permissions | [Automated Verified] |
+| 243 | dx | auth-guard-route | Document ProtectedRoute component redirecting unauthenticated users to /login | [Automated Verified] |
