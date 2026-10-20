@@ -47,3 +47,4 @@
 | 43 | setup | test-runner | Document python manage.py test test runner execution and verbosity flags | [Automated Verified] |
 | 44 | setup | npm-build-cmd | Document npm run build compilation for TypeScript and Vite bundle | [Automated Verified] |
 | 45 | setup | npm-lint-cmd | Document npm run lint static analysis script configuration | [Automated Verified] |
+| 46 | setup | node-compatibility | Document Node.js v18+ and v20+ LTS engine compatibility | [Automated Verified] |
