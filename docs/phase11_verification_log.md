@@ -187,3 +187,4 @@
 | 183 | workflow | submission-action | Document POST /api/v1/articles/{slug}/submit/ triggering in_review transition | [Automated Verified] |
 | 184 | workflow | submission-validation | Verify article must have non-empty title and content before submission | [Automated Verified] |
 | 185 | workflow | submission-audit-event | Verify submit action creates an audit event 'article.submitted' | [Automated Verified] |
+| 186 | workflow | review-queue-entry | Document in_review article immediate appearance in Review Queue for Reviewers | [Automated Verified] |
