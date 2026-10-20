@@ -19,3 +19,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 13 | `feat(profile): register /profile route inside App.tsx protected routes` | Wires ProfilePage within ProtectedRoute and MainLayout hierarchy. | [Automated Verified] |
 | 14 | `feat(sidebar): add My Profile navigation item with User icon in Sidebar` | Integrates /profile into main sidebar with active route indicator. | [Automated Verified] |
 | 15 | `feat(sidebar): apply interactive hover effect to sidebar Profile item` | Hover micro-animations on sidebar navigation links. | [Automated Verified] |
+| 16 | `feat(header): link user avatar and full name in Header directly to /profile` | Clicking user badge in top navigation bar opens user profile. | [Automated Verified] |
