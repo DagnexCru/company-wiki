@@ -72,3 +72,4 @@
 | 68 | api | categories-create | Specify POST /api/v1/categories/ schema, slug auto-generation, and admin RBAC | [Automated Verified] |
 | 69 | api | categories-retrieve | Specify GET /api/v1/categories/{slug}/ detail schema and article counts | [Automated Verified] |
 | 70 | api | categories-update | Specify PUT/PATCH /api/v1/categories/{slug}/ administrator update validation | [Automated Verified] |
+| 71 | api | categories-delete | Specify DELETE /api/v1/categories/{slug}/ safeguard against orphaned articles | [Automated Verified] |
