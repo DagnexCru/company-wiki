@@ -49,3 +49,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 044 | `test(phase10): verify scenario 5 change_summary captured on revision record` | Author revision summary note is recorded in revision metadata. | [Automated Verified] |
 | 045 | `test(phase10): verify scenario 5 author resubmits rejected article via submit endpoint` | Resubmission transitions status from REJECTED back to IN_REVIEW. | [Automated Verified] |
 | 046 | `test(phase10): verify scenario 5 ReviewRecord logs resubmission action` | Workflow history logs transition from REJECTED to IN_REVIEW. | [Automated Verified] |
+| 047 | `test(phase10): verify scenario 5 audit trail logs ARTICLE_SUBMIT for resubmission` | Audit log records second submission event with timestamp. | [Automated Verified] |
