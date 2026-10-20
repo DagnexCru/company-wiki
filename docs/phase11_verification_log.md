@@ -56,3 +56,4 @@
 | 52 | setup | gitignore-frontend | Audit frontend/.gitignore excluding node_modules/, dist/, and .env | [Automated Verified] |
 | 53 | setup | clean-slate-db | Document clean database reset procedure using DROP DATABASE and migrate | [Automated Verified] |
 | 54 | setup | connection-pooling | Document PostgreSQL connection max age CONN_MAX_AGE recommendations | [Automated Verified] |
+| 55 | setup | sql-logging | Document Django DEBUG SQL query logging options for local performance profiling | [Automated Verified] |
