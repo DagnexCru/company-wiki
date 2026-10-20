@@ -52,3 +52,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 47 | `feat(phase9): limit Author my_recent_drafts to top 5 records` | Author drafts feed is capped at 5 records for fast loading and quick resumption. | [Automated Verified] |
 | 48 | `feat(phase9): order Author my_recent_drafts by -updated_at descending` | Most recently modified drafts appear first to facilitate continuous writing workflows. | [Automated Verified] |
 | 49 | `feat(phase9): filter my_recent_drafts for DRAFT and REJECTED statuses` | Feed includes drafts and rejected articles needing revisions based on feedback. | [Automated Verified] |
+| 50 | `feat(phase9): include rejected articles requiring revision in author feed` | Rejected articles highlight feedback badges so authors can address reviewer notes. | [Automated Verified] |
