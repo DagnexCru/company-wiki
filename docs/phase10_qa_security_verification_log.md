@@ -140,3 +140,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 135 | `test(phase10): audit IP address anonymization/storage compliance in AuditEvent` | Client IP address recorded accurately for authorized security audits. | [Automated Verified] |
 | 136 | `test(phase10): audit user deletion cascade and anonymization behavior` | Soft deletion/anonymization preserves audit history without orphan foreign keys. | [Automated Verified] |
 | 137 | `test(phase10): audit article deletion audit log retention` | Deleting draft records permanent deletion in audit log for accountability. | [Automated Verified] |
+| 138 | `test(phase10): audit soft archival preservation of legal citations` | Soft archival retains historical articles at original slug to avoid dead links. | [Automated Verified] |
