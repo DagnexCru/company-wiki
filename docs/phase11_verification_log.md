@@ -196,3 +196,4 @@
 | 192 | workflow | rejection-feedback-required | Verify rejection requires non-empty rejection_reason feedback string | [Automated Verified] |
 | 193 | workflow | rejection-audit-event | Verify reject action records audit event 'article.rejected' with feedback | [Automated Verified] |
 | 194 | workflow | author-feedback-view | Document Author viewing reviewer's rejection reason in banner and timeline | [Automated Verified] |
+| 195 | workflow | revision-on-resubmit | Document Author editing rejected article and resubmitting to in_review | [Automated Verified] |
