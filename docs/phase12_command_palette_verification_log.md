@@ -19,3 +19,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 13 | `feat(palette): integrate taxonomyService.getCategories with live query parameter` | Fetches matching knowledge base categories from /api/v1/categories/?search=query. | [Automated Verified] |
 | 14 | `feat(palette): integrate taxonomyService.getTags with live query parameter` | Fetches matching reusable tags from /api/v1/tags/?search=query. | [Automated Verified] |
 | 15 | `feat(palette): execute parallel search queries with Promise.allSettled` | Article, category, and tag searches run concurrently with resilient fault isolation. | [Automated Verified] |
+| 16 | `feat(palette): handle search network failure gracefully without crashing UI` | Empty state or fallback results render smoothly if an endpoint temporarily errors. | [Automated Verified] |
