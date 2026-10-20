@@ -84,3 +84,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #80**: log_audit_event ARTICLE_UPDATE recording in ArticleViewSet.perform_update — [Automated Verified]
 - [x] **Verification Check #81**: log_audit_event ARTICLE_DELETE recording on permanent draft deletion — [Automated Verified]
 - [x] **Verification Check #82**: log_audit_event ARTICLE_ARCHIVE recording on soft article archival — [Automated Verified]
+- [x] **Verification Check #83**: log_audit_event ARTICLE_SUBMIT recording on draft submission for review — [Automated Verified]
