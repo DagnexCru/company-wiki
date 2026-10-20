@@ -11,3 +11,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 006 | `test(phase10): verify scenario 1 rejection of malformed or invalid credentials` | Login endpoint returns 400 Bad Request on invalid credentials or empty fields. | [Automated Verified] |
 | 007 | `test(phase10): verify scenario 1 inactive user rejection during authentication` | Deactivated accounts are rejected with account_disabled error. | [Automated Verified] |
 | 008 | `test(phase10): verify scenario 1 token refresh endpoint issuance` | Endpoint /api/v1/auth/refresh/ issues new access token given valid refresh token. | [Automated Verified] |
+| 009 | `test(phase10): verify scenario 1 CORS header inclusion on auth endpoints` | Cross-origin requests include Access-Control-Allow-Origin headers. | [Automated Verified] |
