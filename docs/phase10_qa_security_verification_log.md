@@ -160,3 +160,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 155 | `test(phase10): audit modal dialog role='dialog' and aria-modal='true'` | Confirm and review modals declare dialog semantics and title associations. | [Automated Verified] |
 | 156 | `test(phase10): audit form input label associations via htmlFor and id attributes` | All form inputs explicitly linked to label elements for screen readers. | [Automated Verified] |
 | 157 | `test(phase10): audit aria-expanded attributes on collapsible sidebar navigation` | Sidebar navigation toggles expose expansion state via aria-expanded. | [Automated Verified] |
+| 158 | `test(phase10): audit aria-live regions on dynamic alert messages` | Error and success notifications declare aria-live='polite' for screen reader announcements. | [Automated Verified] |
