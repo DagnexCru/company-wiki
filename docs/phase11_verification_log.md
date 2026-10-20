@@ -209,3 +209,4 @@
 | 205 | workflow | revision-metadata-diff | Document title, summary, category, and tags change tracking in diff | [Automated Verified] |
 | 206 | workflow | restoration-linear-history | Document revision restoration creates a new revision without history loss | [Automated Verified] |
 | 207 | workflow | restoration-audit-event | Verify revision restoration records audit event 'article.restored' | [Automated Verified] |
+| 208 | workflow | audit-trail-actor | Verify audit trail records actor_id, username, and role on all events | [Automated Verified] |
