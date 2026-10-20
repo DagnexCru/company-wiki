@@ -83,3 +83,4 @@
 | 79 | api | articles-retrieve | Specify GET /api/v1/articles/{slug}/ response schema and object-level visibility | [Automated Verified] |
 | 80 | api | articles-update | Specify PUT/PATCH /api/v1/articles/{slug}/ author editing and revision tracking | [Automated Verified] |
 | 81 | api | articles-delete | Specify DELETE /api/v1/articles/{slug}/ soft-archival vs permanent deletion policy | [Automated Verified] |
+| 82 | api | articles-archive | Specify POST /api/v1/articles/{slug}/archive/ state transition to archived | [Automated Verified] |
