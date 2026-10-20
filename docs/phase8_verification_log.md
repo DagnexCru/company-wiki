@@ -50,3 +50,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #46**: GET /api/v1/articles/{slug}/revisions/diff/ category_changed boolean calculation — [Automated Verified]
 - [x] **Verification Check #47**: GET /api/v1/articles/{slug}/revisions/diff/ tags_added array calculation — [Automated Verified]
 - [x] **Verification Check #48**: GET /api/v1/articles/{slug}/revisions/diff/ tags_removed array calculation — [Automated Verified]
+- [x] **Verification Check #49**: POST /api/v1/articles/{slug}/revisions/{rev_num}/restore/ linear history preservation — [Automated Verified]
