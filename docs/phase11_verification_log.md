@@ -140,3 +140,4 @@
 | 136 | roles | reviewer-capabilities | Document Reviewer content inspection, approval, and rejection privileges | [Automated Verified] |
 | 137 | roles | author-capabilities | Document Author content creation, draft editing, and submission privileges | [Automated Verified] |
 | 138 | roles | reader-capabilities | Document Reader read-only access limited to published knowledge articles | [Automated Verified] |
+| 139 | roles | is-admin-class | Document IsAdministrator permission class checking user.role == 'administrator' | [Automated Verified] |
