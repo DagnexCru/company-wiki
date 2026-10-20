@@ -17,3 +17,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 012 | `test(phase10): verify scenario 2 initial status defaulted to DRAFT` | Server enforces status=Article.Status.DRAFT regardless of client payload. | [Automated Verified] |
 | 013 | `test(phase10): verify scenario 2 unique URL slug generation from title` | Slugify algorithm produces clean, URL-safe slug with collision deduplication. | [Automated Verified] |
 | 014 | `test(phase10): verify scenario 2 author assignment to authenticated user` | Server assigns request.user as article author to prevent spoofing. | [Automated Verified] |
+| 015 | `test(phase10): verify scenario 2 automatic revision #1 snapshot creation` | Initial revision record created with revision_number=1 preserving content. | [Automated Verified] |
