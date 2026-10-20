@@ -74,3 +74,4 @@
 | 70 | api | categories-update | Specify PUT/PATCH /api/v1/categories/{slug}/ administrator update validation | [Automated Verified] |
 | 71 | api | categories-delete | Specify DELETE /api/v1/categories/{slug}/ safeguard against orphaned articles | [Automated Verified] |
 | 72 | api | tags-list | Specify GET /api/v1/tags/ query params, alphabetical ordering, and article count | [Automated Verified] |
+| 73 | api | tags-create | Specify POST /api/v1/tags/ schema, slugification, and duplicate prevention | [Automated Verified] |
