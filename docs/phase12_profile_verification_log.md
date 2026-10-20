@@ -11,3 +11,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 05 | `feat(profile): implement interactive hover elevation for permission boxes` | Permission cards scale and highlight upon cursor hover. | [Automated Verified] |
 | 06 | `feat(profile): add detailed capability descriptions to each role-gated permission` | Explains architectural implications of each permission item. | [Automated Verified] |
 | 07 | `feat(profile): render high-contrast status badge for Granted permissions` | Emerald checkmark badge with glow effect on allowed capabilities. | [Automated Verified] |
+| 08 | `feat(profile): render distinct gray badge with explanation for Restricted capabilities` | Clarifies security rationale for capabilities barred by RBAC. | [Automated Verified] |
