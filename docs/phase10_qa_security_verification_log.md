@@ -31,3 +31,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 026 | `test(phase10): verify scenario 3 rejection of submitting already published article` | Submitting an article that is already published returns HTTP 400 Bad Request. | [Automated Verified] |
 | 027 | `test(phase10): verify scenario 3 rejection of submitting already in_review article` | Submitting an article currently in review returns HTTP 400 Bad Request. | [Automated Verified] |
 | 028 | `test(phase10): verify scenario 3 non-author rejection on submission (403)` | Authors cannot submit another user's draft for review; returns 403 Forbidden. | [Automated Verified] |
+| 029 | `test(phase10): verify scenario 3 reader rejection on submission (403)` | Readers cannot submit articles for review; returns 403 Forbidden. | [Automated Verified] |
