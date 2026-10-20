@@ -204,3 +204,4 @@
 | 200 | workflow | unarchive-action | Document Administrator unarchiving article back to draft status | [Automated Verified] |
 | 201 | workflow | revision-immutable-rule | Document ArticleRevision records are immutable and cannot be updated | [Automated Verified] |
 | 202 | workflow | revision-auto-numbering | Verify revision_number increments sequentially per article (1, 2, 3...) | [Automated Verified] |
+| 203 | workflow | revision-author-capture | Verify revision author captures the user making the edit or restore | [Automated Verified] |
