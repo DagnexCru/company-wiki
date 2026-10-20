@@ -120,3 +120,4 @@
 | 116 | api | http-401-unauthorized | Document HTTP 401 Unauthorized token missing or invalid response | [Automated Verified] |
 | 117 | api | http-403-forbidden | Document HTTP 403 Forbidden permission violation error response | [Automated Verified] |
 | 118 | api | http-404-not-found | Document HTTP 404 Not Found entity missing error structure | [Automated Verified] |
+| 119 | api | http-405-not-allowed | Document HTTP 405 Method Not Allowed endpoint rejection behavior | [Automated Verified] |
