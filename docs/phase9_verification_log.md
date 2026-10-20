@@ -93,3 +93,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 88 | `feat(phase9): render KPI Card 4 for administrator organizational health` | Admin KPI card displays total active users and taxonomy coverage metrics. | [Automated Verified] |
 | 89 | `feat(phase9): render Reviewer Action Queue widget with 1-click inspection` | Queue widget renders top submissions with author and category metadata. | [Automated Verified] |
 | 90 | `feat(phase9): render Author Drafts widget with continue-editing shortcuts` | Drafts widget renders active drafts and rejection feedback warnings. | [Automated Verified] |
+| 91 | `feat(phase9): render Knowledge by Category grid widget with published counts` | Category grid displays article count badges and links directly to filtered search. | [Automated Verified] |
