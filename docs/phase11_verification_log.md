@@ -69,3 +69,4 @@
 | 65 | api | auth-me | Specify GET /api/v1/auth/me/ response schema with user id, username, email, and role | [Automated Verified] |
 | 66 | api | health-get | Specify GET /api/v1/health/ response schema, HTTP status 200, and DB status | [Automated Verified] |
 | 67 | api | categories-list | Specify GET /api/v1/categories/ pagination, ordering, and article count | [Automated Verified] |
+| 68 | api | categories-create | Specify POST /api/v1/categories/ schema, slug auto-generation, and admin RBAC | [Automated Verified] |
