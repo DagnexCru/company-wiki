@@ -147,3 +147,4 @@
 | 143 | roles | queryset-scoping-reader | Document Reader queryset scoping returning only status='published' articles | [Automated Verified] |
 | 144 | roles | queryset-scoping-author | Document Author queryset scoping returning published + own drafts/reviews | [Automated Verified] |
 | 145 | roles | queryset-scoping-reviewer | Document Reviewer queryset scoping returning published + in_review queue | [Automated Verified] |
+| 146 | roles | queryset-scoping-admin | Document Administrator queryset scoping returning all lifecycle statuses | [Automated Verified] |
