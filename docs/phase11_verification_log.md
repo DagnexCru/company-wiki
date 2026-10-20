@@ -250,3 +250,4 @@
 | 246 | dx | use-auth-hook | Document custom useAuth() hook for consuming authentication state in components | [Automated Verified] |
 | 247 | dx | service-layer-pattern | Document frontend API service layer encapsulating all Axios HTTP requests | [Automated Verified] |
 | 248 | dx | type-safety-interfaces | Document TypeScript interfaces for Article, Category, Tag, User, Revision, Audit | [Automated Verified] |
+| 249 | dx | vite-build-performance | Document Vite production build performance compiling 2,000+ modules in <3s | [Automated Verified] |
