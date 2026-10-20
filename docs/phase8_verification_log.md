@@ -89,3 +89,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #85**: log_audit_event ARTICLE_REJECT recording on review rejection with feedback — [Automated Verified]
 - [x] **Verification Check #86**: log_audit_event ARTICLE_RESTORE recording on revision restoration — [Automated Verified]
 - [x] **Verification Check #87**: log_audit_event USER_REGISTER recording on account registration — [Automated Verified]
+- [x] **Verification Check #88**: log_audit_event AUTH_LOGIN recording on successful JWT login — [Automated Verified]
