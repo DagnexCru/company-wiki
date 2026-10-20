@@ -26,3 +26,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #22**: Article.create_revision content change detection on perform_update — [Automated Verified]
 - [x] **Verification Check #23**: Article.create_revision title change detection on perform_update — [Automated Verified]
 - [x] **Verification Check #24**: Article.create_revision summary change detection on perform_update — [Automated Verified]
+- [x] **Verification Check #25**: Article.create_revision user-specified change_summary capture — [Automated Verified]
