@@ -95,3 +95,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 090 | `test(phase10): verify scenario 9 audit trail records ARTICLE_RESTORE event` | Revision restore logs audit event with restored_from_revision reference. | [Automated Verified] |
 | 091 | `test(phase10): verify scenario 10 user logs out via POST /api/v1/auth/logout/` | Logout endpoint accepts refresh token and returns HTTP 200 OK. | [Automated Verified] |
 | 092 | `test(phase10): verify scenario 10 refresh token blacklisted in database` | BlacklistedToken table records token, preventing reuse for token refresh. | [Automated Verified] |
+| 093 | `test(phase10): verify scenario 10 blacklisted refresh token reuse rejected (401)` | Attempting to refresh access using blacklisted token returns 401 token_not_valid. | [Automated Verified] |
