@@ -73,3 +73,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 068 | `test(phase10): verify scenario 7 reviewer attempting role modification returns 403` | Reviewers lack administrative permissions; returns HTTP 403 Forbidden. | [Automated Verified] |
 | 069 | `test(phase10): verify scenario 7 ID guessing attack does not expose unpublished articles` | Direct UUID or slug lookup of unpublished content by unauthorized user returns 404. | [Automated Verified] |
 | 070 | `test(phase10): verify scenario 7 detailed error messages omit sensitive stack traces` | Error responses return clean JSON error details without internal exceptions. | [Automated Verified] |
+| 071 | `test(phase10): verify scenario 8 admin creates new taxonomy category` | Administrator creates category with name, slug, description, and color. | [Automated Verified] |
