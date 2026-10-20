@@ -32,3 +32,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #28**: ArticleRevisionSerializer field serialization and read-only enforcement — [Automated Verified]
 - [x] **Verification Check #29**: ArticleRevisionListSerializer compact serialization for timelines — [Automated Verified]
 - [x] **Verification Check #30**: GET /api/v1/articles/{slug}/revisions/ authentication enforcement — [Automated Verified]
+- [x] **Verification Check #31**: GET /api/v1/articles/{slug}/revisions/ author access to own article — [Automated Verified]
