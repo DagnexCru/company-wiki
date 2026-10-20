@@ -186,3 +186,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 181 | `test(phase10): audit article list query performance and execution time (<50ms)` | Paginated article queries execute in under 35ms on PostgreSQL. | [Automated Verified] |
 | 182 | `test(phase10): audit compound index coverage on articles (status, updated_at)` | Explain analyze confirms index scan on status and timestamp filters. | [Automated Verified] |
 | 183 | `test(phase10): audit compound index coverage on articles (author, status)` | Explain analyze confirms index scan on author draft queries. | [Automated Verified] |
+| 184 | `test(phase10): audit index coverage on article URL slug lookup` | Unique B-tree index on slug ensures O(1) single-article retrieval. | [Automated Verified] |
