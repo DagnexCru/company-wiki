@@ -18,3 +18,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 13 | `feat(phase9): order recent_published_articles by -published_at primary key` | Primary descending ordering by publication timestamp presents newest releases first. | [Automated Verified] |
 | 14 | `feat(phase9): provide fallback ordering by -created_at for legacy articles` | Secondary fallback ordering ensures stable deterministic ordering when published_at is identical. | [Automated Verified] |
 | 15 | `feat(phase9): serialize recent_published_articles with ArticleListSerializer` | List serializer returns title, slug, summary, read time, author, and category metadata. | [Automated Verified] |
+| 16 | `feat(phase9): embed author summary inside recent_published_articles payload` | Author details include user UUID, username, full name, email, and role badge. | [Automated Verified] |
