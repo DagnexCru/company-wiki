@@ -9,3 +9,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 04 | `feat(phase9): register and verify /api/v1/articles/dashboard/ alias route` | Articles dashboard alias route provides backward compatibility and identical telemetry payload. | [Automated Verified] |
 | 05 | `feat(phase9): validate response payload envelope and uppercase role enum` | DashboardResponseSerializer ensures role enum matches accounts Role definitions exactly. | [Automated Verified] |
 | 06 | `feat(phase9): calculate total_published_articles as non-negative integer` | Total published documentation metric accurately reflects accessible company wiki entries. | [Automated Verified] |
+| 07 | `test(phase9): verify total_published_articles strictly counts PUBLISHED status` | Aggregation filters exclusively for status=Article.Status.PUBLISHED in the database. | [Automated Verified] |
