@@ -6,3 +6,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 01 | `test(phase9): verify unauthenticated request to /api/v1/dashboard/ returns 401` | Dashboard endpoint rejects unauthenticated requests with HTTP 401 Unauthorized. | [Automated Verified] |
 | 02 | `test(phase9): verify invalid JWT Bearer token rejection on dashboard endpoint` | Dashboard endpoint returns 401 when provided with invalid or malformed Bearer tokens. | [Automated Verified] |
 | 03 | `test(phase9): verify expired token rejection on dashboard endpoint` | Dashboard endpoint rejects expired JWT tokens with token_not_valid error code. | [Automated Verified] |
+| 04 | `feat(phase9): register and verify /api/v1/articles/dashboard/ alias route` | Articles dashboard alias route provides backward compatibility and identical telemetry payload. | [Automated Verified] |
