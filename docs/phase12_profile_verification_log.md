@@ -13,3 +13,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 07 | `feat(profile): render high-contrast status badge for Granted permissions` | Emerald checkmark badge with glow effect on allowed capabilities. | [Automated Verified] |
 | 08 | `feat(profile): render distinct gray badge with explanation for Restricted capabilities` | Clarifies security rationale for capabilities barred by RBAC. | [Automated Verified] |
 | 09 | `feat(profile): add interactive toggle switches for Email Notification preferences` | Allows users to toggle review alerts, publishing digests, and security notices. | [Automated Verified] |
+| 10 | `feat(profile): add Editor & Markdown preferences section to user profile` | Preferences for editor preview layout and draft auto-save intervals. | [Automated Verified] |
