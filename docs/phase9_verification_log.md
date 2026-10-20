@@ -39,3 +39,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 34 | `test(phase9): verify Reader admin_metrics field is strictly null` | System-wide administration metrics are null for unauthorized reader accounts. | [Automated Verified] |
 | 35 | `test(phase9): verify Reader cannot deduce unpublished draft titles` | Negative security test confirms draft titles do not appear in any reader payload section. | [Automated Verified] |
 | 36 | `test(phase9): verify Reader cannot observe editorial review queue backlog` | Review workload telemetry is inaccessible to non-reviewer user accounts. | [Automated Verified] |
+| 37 | `test(phase9): verify Reader cannot view total user accounts or audit volume` | Sensitive system telemetry is protected from regular internal employees. | [Automated Verified] |
