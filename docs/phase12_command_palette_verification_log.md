@@ -62,3 +62,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 56 | `feat(palette): style backdrop overlay with dark frosted glassmorphism` | bg-slate-950/80 backdrop-blur-md creates focus on the command palette. | [Automated Verified] |
 | 57 | `feat(palette): style modal container with elevated border and dark slate surface` | bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl. | [Automated Verified] |
 | 58 | `feat(palette): style active selection with brand-600/20 glow and border` | Highlighted item uses bg-brand-600/20 border-brand-500/40 text-white. | [Automated Verified] |
+| 59 | `feat(palette): add ESC badge in search header for desktop keyboard hint` | Monospace ESC pill button indicates how to dismiss the modal. | [Automated Verified] |
