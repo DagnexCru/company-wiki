@@ -10,7 +10,6 @@ import {
   AlertCircle,
   ArrowRight,
   ArrowLeft,
-  Sparkles,
   FileText,
   CheckCircle2,
   Shield,
@@ -54,28 +53,35 @@ export const RegisterPage = () => {
         <div className="absolute -bottom-40 left-1/3 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
       </div>
 
-      {/* LEFT COLUMN: Enterprise Showcase Panel (Visible on Desktop) */}
-      <div className="hidden lg:flex lg:w-1/2 xl:w-5/12 bg-slate-950/70 border-r border-slate-800/80 p-12 xl:p-16 flex-col justify-between relative overflow-hidden backdrop-blur-xl">
+      {/* LEFT COLUMN: Enterprise Showcase Panel (Top-Aligned) */}
+      <div className="hidden lg:flex lg:w-1/2 xl:w-5/12 bg-slate-950/70 border-r border-slate-800/80 p-8 sm:p-12 lg:p-14 xl:p-16 flex-col justify-between relative overflow-hidden backdrop-blur-xl">
         {/* Subtle Ambient Background Highlight */}
         <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Top Header / Back Button */}
-        <div className="space-y-8 z-10">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Home</span>
-          </Link>
+        {/* Content Container */}
+        <div className="space-y-6 z-10">
+          {/* Top Row: Back to Home Link (matches right side top bar) */}
+          <div className="flex items-center justify-between h-5">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span>Back to Home</span>
+            </Link>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-950 text-brand-300 border border-brand-800/80 uppercase tracking-wider">
+              Staff Enrollment
+            </span>
+          </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 ring-1 ring-white/20">
-              <BookOpen className="w-6 h-6" />
+          {/* Brand Header */}
+          <div className="flex items-center gap-3 pt-2">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 ring-1 ring-white/20">
+              <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl tracking-tight text-white">
+                <span className="font-extrabold text-lg tracking-tight text-white">
                   Company<span className="text-brand-400">Wiki</span>
                 </span>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-950 text-brand-300 border border-brand-800/80 uppercase tracking-wider">
@@ -85,57 +91,51 @@ export const RegisterPage = () => {
               <p className="text-xs text-slate-400">Knowledge Base & SOP Wiki</p>
             </div>
           </div>
-        </div>
 
-        {/* Middle Value Proposition & Highlights */}
-        <div className="space-y-8 py-10 z-10">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-950/80 border border-brand-800/60 text-brand-300 text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Join Your Team Workspace</span>
-            </div>
-            <h2 className="text-3xl xl:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          {/* Headline & Value Pitch */}
+          <div className="space-y-2 pt-1">
+            <h2 className="text-2xl xl:text-3xl font-extrabold text-white tracking-tight leading-snug">
               Create and share knowledge that moves teams forward.
             </h2>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-lg">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-lg">
               Set up your staff account to access internal policies, draft technical runbooks, and
               collaborate on approved company procedures.
             </p>
           </div>
 
           {/* Value Cards */}
-          <div className="space-y-3.5">
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3.5 shadow-sm">
-              <div className="w-9 h-9 rounded-xl bg-indigo-950 text-indigo-400 border border-indigo-800/60 flex items-center justify-center shrink-0 mt-0.5">
+          <div className="space-y-3 pt-2">
+            <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3 shadow-sm">
+              <div className="w-8 h-8 rounded-xl bg-indigo-950 text-indigo-400 border border-indigo-800/60 flex items-center justify-center shrink-0 mt-0.5">
                 <FileText className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white">Author & Maintain Guides</h4>
-                <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                <h4 className="text-xs font-bold text-white">Author & Maintain Guides</h4>
+                <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
                   Write clear procedures in Markdown with live preview, headings, code blocks, and tags.
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3.5 shadow-sm">
-              <div className="w-9 h-9 rounded-xl bg-amber-950 text-amber-400 border border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3 shadow-sm">
+              <div className="w-8 h-8 rounded-xl bg-amber-950 text-amber-400 border border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white">Participate in Peer Review</h4>
-                <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                <h4 className="text-xs font-bold text-white">Participate in Peer Review</h4>
+                <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
                   Review submitted drafts and provide feedback to ensure institutional accuracy.
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3.5 shadow-sm">
-              <div className="w-9 h-9 rounded-xl bg-purple-950 text-purple-400 border border-purple-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800/80 flex items-start gap-3 shadow-sm">
+              <div className="w-8 h-8 rounded-xl bg-purple-950 text-purple-400 border border-purple-800/60 flex items-center justify-center shrink-0 mt-0.5">
                 <Shield className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white">Role-Based Access</h4>
-                <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                <h4 className="text-xs font-bold text-white">Role-Based Access</h4>
+                <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
                   Your account role grants appropriate access for reading, authoring, or administrative oversight.
                 </p>
               </div>
@@ -143,54 +143,64 @@ export const RegisterPage = () => {
           </div>
 
           {/* Testimonial / Quote Box */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-brand-950/40 to-slate-900/60 border border-brand-800/40 text-xs text-slate-300 italic leading-relaxed">
+          <div className="p-3.5 rounded-2xl bg-gradient-to-r from-brand-950/40 to-slate-900/60 border border-brand-800/40 text-xs text-slate-300 italic leading-relaxed">
             "Documenting our processes in one central wiki ensures every new hire hits the ground running from day one."
-            <div className="not-italic text-[11px] text-slate-400 font-semibold mt-2">
+            <div className="not-italic text-[11px] text-slate-400 font-semibold mt-1.5">
               — Onboarding & Operations Team
             </div>
           </div>
         </div>
 
         {/* Bottom Footer Note */}
-        <div className="text-xs text-slate-500 z-10 flex items-center justify-between">
+        <div className="text-xs text-slate-500 z-10 flex items-center justify-between pt-6 border-t border-slate-800/60">
           <span>&copy; 2026 CompanyWiki Inc.</span>
           <span>Internal Knowledge Base</span>
         </div>
       </div>
 
-      {/* RIGHT COLUMN: Authentication Form Panel */}
-      <div className="flex-1 flex flex-col justify-center items-center p-6 sm:p-12 lg:p-16 relative">
-        {/* Mobile Header Link (When Left Column is hidden on small screens) */}
-        <div className="w-full max-w-md lg:hidden flex items-center justify-between mb-8">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Home</span>
-          </Link>
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center text-white">
-              <BookOpen className="w-4 h-4" />
-            </div>
-            <span className="font-bold text-white text-sm">CompanyWiki</span>
-          </div>
-        </div>
-
-        {/* Centered Form Card */}
+      {/* RIGHT COLUMN: Authentication Form Panel (Top-Aligned) */}
+      <div className="flex-1 flex flex-col justify-start items-center p-8 sm:p-12 lg:p-14 xl:p-16 relative overflow-y-auto">
         <div className="w-full max-w-md space-y-6">
-          {/* Card Title & Introduction */}
-          <div className="space-y-2 text-center lg:text-left">
-            <h1 className="text-3xl font-extrabold text-white tracking-tight">
+          {/* Top Row: Matches left column Back to Home baseline */}
+          <div className="hidden lg:flex items-center justify-between text-xs text-slate-400 h-5">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700/80 uppercase tracking-wider">
+              Registration Portal
+            </span>
+            <span className="flex items-center gap-1.5 text-emerald-400 text-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Corporate Onboarding
+            </span>
+          </div>
+
+          {/* Mobile Header Link (When Left Column is hidden on small screens) */}
+          <div className="w-full lg:hidden flex items-center justify-between">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span>Back to Home</span>
+            </Link>
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                <BookOpen className="w-4 h-4" />
+              </div>
+              <span className="font-bold text-white text-sm">CompanyWiki</span>
+            </div>
+          </div>
+
+          {/* Card Title & Introduction: Sits on the exact same horizontal plane as left headline */}
+          <div className="space-y-1.5 text-center lg:text-left pt-2">
+            <h1 className="text-2xl xl:text-3xl font-extrabold text-white tracking-tight">
               Create Staff Account
             </h1>
-            <p className="text-sm text-slate-400">
+            <p className="text-xs text-slate-400">
               Join your organization's internal knowledge management platform.
             </p>
           </div>
 
           {/* Glassmorphic Form Container */}
-          <div className="bg-slate-800/80 backdrop-blur-2xl rounded-3xl border border-slate-700/80 p-8 shadow-2xl ring-1 ring-white/10 space-y-6">
+          <div className="bg-slate-800/80 backdrop-blur-2xl rounded-3xl border border-slate-700/80 p-7 shadow-2xl ring-1 ring-white/10 space-y-5">
             {error && (
               <div className="p-3.5 rounded-xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs flex items-start gap-2.5">
                 <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
@@ -198,7 +208,7 @@ export const RegisterPage = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5">
                   Full Name
