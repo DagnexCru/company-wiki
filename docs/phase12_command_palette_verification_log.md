@@ -47,3 +47,4 @@ Comprehensive verification log for Global Command Palette (Ctrl+K / Cmd+K), real
 | 41 | `feat(palette): route category item selection to /articles?category=:slug` | Clicking or selecting category navigates directly to filtered article view. | [Automated Verified] |
 | 42 | `feat(palette): render tag results with hashtag prefix and article count` | Tag rows format as #tag_name with emerald tag icon. | [Automated Verified] |
 | 43 | `feat(palette): route tag item selection to /articles?tag=:slug` | Clicking or selecting tag navigates directly to filtered article view. | [Automated Verified] |
+| 44 | `feat(palette): initialize selectedIndex to 0 on new query or tab switch` | Selection always resets to the top item when search terms change. | [Automated Verified] |
