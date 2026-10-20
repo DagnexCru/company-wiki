@@ -9,3 +9,4 @@ Comprehensive verification log for Dedicated User Profile (/profile), interactiv
 | 03 | `feat(profile): add interactive hover micro-animations to user identity card` | Hover state elevates user card with border highlights and smooth transitions. | [Automated Verified] |
 | 04 | `feat(profile): extract role-gated permissions from dashboard into standalone grid` | Moves permission inspection into dedicated /profile route. | [Automated Verified] |
 | 05 | `feat(profile): implement interactive hover elevation for permission boxes` | Permission cards scale and highlight upon cursor hover. | [Automated Verified] |
+| 06 | `feat(profile): add detailed capability descriptions to each role-gated permission` | Explains architectural implications of each permission item. | [Automated Verified] |
