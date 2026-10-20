@@ -24,3 +24,4 @@
 | 20 | setup | drf-permissions | Document REST_FRAMEWORK DEFAULT_PERMISSION_CLASSES set to IsAuthenticated | [Automated Verified] |
 | 21 | setup | drf-pagination | Document REST_FRAMEWORK PAGE_SIZE default set to 10 articles per page | [Automated Verified] |
 | 22 | setup | drf-renderer | Verify REST_FRAMEWORK JSONRenderer configured for API production payloads | [Automated Verified] |
+| 23 | setup | static-root | Document STATIC_ROOT and STATIC_URL asset configuration for deployment | [Automated Verified] |
