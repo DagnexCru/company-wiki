@@ -241,3 +241,4 @@
 | 237 | dx | pagination-controls | Document reusable Pagination component with Previous, Next, and Page indicators | [Automated Verified] |
 | 238 | dx | empty-state-component | Document EmptyState component with contextual icon, title, and action button | [Automated Verified] |
 | 239 | dx | loading-spinner | Document consistent loading spinner and skeleton screen loaders | [Automated Verified] |
+| 240 | dx | error-boundary | Document React ErrorBoundary catching unhandled render errors gracefully | [Automated Verified] |
