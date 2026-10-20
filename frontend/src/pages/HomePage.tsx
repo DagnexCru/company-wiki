@@ -20,6 +20,8 @@ import {
   CheckSquare,
   Menu,
   X,
+  Sparkles,
+  LogOut,
 } from "lucide-react";
 
 export const HomePage = () => {
@@ -34,6 +36,36 @@ export const HomePage = () => {
       navigate(searchQuery ? `/articles?search=${encodeURIComponent(searchQuery)}` : "/articles");
     } else {
       navigate("/login");
+    }
+  };
+
+  const getRoleBadge = (role?: string) => {
+    switch (role) {
+      case "ADMIN":
+        return {
+          label: "Administrator",
+          icon: "👑",
+          classes: "bg-purple-950/60 text-purple-300 border-purple-800/60",
+        };
+      case "AUTHOR":
+        return {
+          label: "Author",
+          icon: "✍️",
+          classes: "bg-emerald-950/60 text-emerald-300 border-emerald-800/60",
+        };
+      case "REVIEWER":
+        return {
+          label: "Reviewer",
+          icon: "🔍",
+          classes: "bg-amber-950/60 text-amber-300 border-amber-800/60",
+        };
+      case "READER":
+      default:
+        return {
+          label: "Reader",
+          icon: "📖",
+          classes: "bg-sky-950/60 text-sky-300 border-sky-800/60",
+        };
     }
   };
 
@@ -88,10 +120,10 @@ export const HomePage = () => {
             </a>
           </nav>
 
-          {/* User Auth Actions & Mobile Menu Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* User Auth Actions (Desktop Only - hidden on mobile/tablet) */}
+          <div className="hidden md:flex items-center gap-3">
             {user ? (
-              <div className="hidden sm:flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 <Link
                   to="/dashboard"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.02]"
@@ -107,7 +139,7 @@ export const HomePage = () => {
                 </button>
               </div>
             ) : (
-              <div className="hidden sm:flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 <Link
                   to="/login"
                   className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
@@ -123,91 +155,157 @@ export const HomePage = () => {
                 </Link>
               </div>
             )}
-
-            {/* Mobile Hamburger Button */}
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              aria-label="Toggle navigation menu"
-              className="p-2 -mr-1 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl transition md:hidden"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+            className="p-2 -mr-1 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl transition md:hidden"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
         {/* Mobile Dropdown Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-b border-slate-800 bg-slate-900/95 backdrop-blur-2xl px-4 py-4 space-y-3 animate-in fade-in-50 duration-150">
-            <nav className="flex flex-col space-y-1 text-sm font-medium text-slate-300">
-              <a
-                href="#features"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
-              >
-                Features
-              </a>
-              <a
-                href="#categories"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
-              >
-                Categories
-              </a>
-              <a
-                href="#workflow"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
-              >
-                Editorial Workflow
-              </a>
-              <a
-                href="#architecture"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
-              >
-                Architecture
-              </a>
-              <a
-                href="#security"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-white transition"
-              >
-                Security
-              </a>
-            </nav>
+          <div className="md:hidden border-b border-slate-800 bg-slate-900/98 backdrop-blur-2xl px-4 py-5 space-y-4 animate-in fade-in-50 duration-150 shadow-2xl">
+            {/* User Profile Card or Guest Welcome Card */}
+            {user ? (
+              <div className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/70 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm shrink-0">
+                    {user.full_name
+                      ? user.full_name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .toUpperCase()
+                      : user.username.slice(0, 2).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="font-bold text-white text-sm leading-tight">
+                      {user.full_name || user.username}
+                    </p>
+                    <div className="flex items-center gap-1 mt-0.5">
+                      <span
+                        className={`inline-flex items-center gap-1 text-[10px] px-1.5 py-0.2 rounded-full border font-semibold ${
+                          getRoleBadge(user.role).classes
+                        }`}
+                      >
+                        <span>{getRoleBadge(user.role).icon}</span>
+                        <span>{getRoleBadge(user.role).label}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-            <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
-              {user ? (
-                <>
+                <div className="flex items-center gap-2">
                   <Link
                     to="/dashboard"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full text-center py-2.5 rounded-xl bg-brand-600 text-white font-semibold text-sm shadow-md"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs shadow-md transition"
                   >
-                    Go to Dashboard
+                    <span>Dashboard</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
                       logout();
                     }}
-                    className="w-full text-center py-2 rounded-xl bg-slate-800 text-slate-300 text-sm font-medium"
+                    title="Sign Out"
+                    className="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-950/30 rounded-xl transition"
                   >
-                    Sign Out
+                    <LogOut className="w-4 h-4" />
                   </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to="/login"
+                </div>
+              </div>
+            ) : (
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-brand-950/40 via-indigo-950/40 to-slate-900 border border-brand-800/40 flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs font-bold text-white">Enterprise Knowledge</p>
+                  <p className="text-[11px] text-slate-400">Sign in to browse SOPs & guides</p>
+                </div>
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-xs shadow-md shrink-0"
+                >
+                  <span>Sign In</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
+
+            {/* Navigation Section Cards with Icons & Chevrons */}
+            <div className="space-y-1.5">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1 mb-1">
+                Explore Wiki Sections
+              </p>
+              {[
+                {
+                  href: "#features",
+                  label: "Features",
+                  desc: "Instant search, Markdown editor, and reviews",
+                  icon: Sparkles,
+                  color: "text-brand-400 bg-brand-950/60 border-brand-800/50",
+                },
+                {
+                  href: "#categories",
+                  label: "Categories",
+                  desc: "Engineering, IT, HR, and compliance playbooks",
+                  icon: FolderTree,
+                  color: "text-indigo-400 bg-indigo-950/60 border-indigo-800/50",
+                },
+                {
+                  href: "#workflow",
+                  label: "Editorial Workflow",
+                  desc: "Multi-tier draft, review, and publishing states",
+                  icon: CheckSquare,
+                  color: "text-emerald-400 bg-emerald-950/60 border-emerald-800/50",
+                },
+                {
+                  href: "#architecture",
+                  label: "Architecture",
+                  desc: "Workspaces, linear versioning, and unified taxonomy",
+                  icon: GitCommit,
+                  color: "text-sky-400 bg-sky-950/60 border-sky-800/50",
+                },
+                {
+                  href: "#security",
+                  label: "Security & Access",
+                  desc: "Role-based permissions, draft isolation, and audit trail",
+                  icon: Shield,
+                  color: "text-purple-400 bg-purple-950/60 border-purple-800/50",
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-sm shadow-md"
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/40 hover:bg-slate-800/90 border border-slate-800/80 hover:border-slate-700 transition group"
                   >
-                    Sign In to Workspace
-                  </Link>
-                </>
-              )}
+                    <div className="flex items-center gap-3">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center border shrink-0 ${item.color}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-xs font-bold text-white group-hover:text-brand-300 transition-colors">
+                          {item.label}
+                        </p>
+                        <p className="text-[10px] text-slate-400 line-clamp-1">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}
