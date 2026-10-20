@@ -184,3 +184,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 179 | `test(phase10): audit responsive tablet layout at 768px viewport (iPad)` | Layout adapts to 2-column grid with balanced typography and sidebar. | [Automated Verified] |
 | 180 | `test(phase10): audit responsive desktop layout at 1280px+ viewport` | Layout expands to full 3/4-column dashboard grid with persistent navigation. | [Automated Verified] |
 | 181 | `test(phase10): audit article list query performance and execution time (<50ms)` | Paginated article queries execute in under 35ms on PostgreSQL. | [Automated Verified] |
+| 182 | `test(phase10): audit compound index coverage on articles (status, updated_at)` | Explain analyze confirms index scan on status and timestamp filters. | [Automated Verified] |
