@@ -16,3 +16,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #12**: ArticleRevision summary field preservation of excerpt — [Automated Verified]
 - [x] **Verification Check #13**: ArticleRevision tags_snapshot JSONField array preservation — [Automated Verified]
 - [x] **Verification Check #14**: ArticleRevision category_name snapshot string preservation — [Automated Verified]
+- [x] **Verification Check #15**: ArticleRevision author foreign key set null on user deletion — [Automated Verified]
