@@ -89,3 +89,4 @@
 | 85 | api | articles-filter-status | Specify GET /api/v1/articles/?status={status} role-scoped status filtering | [Automated Verified] |
 | 86 | api | articles-filter-author | Specify GET /api/v1/articles/?author={username} author filtering mechanism | [Automated Verified] |
 | 87 | api | articles-sort | Specify GET /api/v1/articles/?ordering={field} validated sorting fields whitelist | [Automated Verified] |
+| 88 | api | articles-search | Specify GET /api/v1/articles/?search={query} multi-field search across title/content | [Automated Verified] |
