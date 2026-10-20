@@ -91,3 +91,4 @@ Comprehensive verification log for Role-Aware Dashboard & Content Discovery.
 | 86 | `feat(phase9): render KPI Card 2 for author drafts and in-review workloads` | Author KPI card displays active drafts and pending review workload counts. | [Automated Verified] |
 | 87 | `feat(phase9): render KPI Card 3 for editorial review queue volume` | Reviewer KPI card displays queue count with direct link to editorial queue. | [Automated Verified] |
 | 88 | `feat(phase9): render KPI Card 4 for administrator organizational health` | Admin KPI card displays total active users and taxonomy coverage metrics. | [Automated Verified] |
+| 89 | `feat(phase9): render Reviewer Action Queue widget with 1-click inspection` | Queue widget renders top submissions with author and category metadata. | [Automated Verified] |
