@@ -116,3 +116,4 @@
 | 112 | api | http-200-ok | Document HTTP 200 OK standard response semantics for query operations | [Automated Verified] |
 | 113 | api | http-201-created | Document HTTP 201 Created standard response semantics for creation operations | [Automated Verified] |
 | 114 | api | http-204-no-content | Document HTTP 204 No Content response semantics for deletions | [Automated Verified] |
+| 115 | api | http-400-bad-request | Document HTTP 400 Bad Request field-level validation error structure | [Automated Verified] |
