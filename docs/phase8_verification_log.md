@@ -36,3 +36,4 @@ This log documents the granular verification checks executed for Phase 8.
 - [x] **Verification Check #32**: GET /api/v1/articles/{slug}/revisions/ admin access to any article — [Automated Verified]
 - [x] **Verification Check #33**: GET /api/v1/articles/{slug}/revisions/ reviewer access to in_review articles — [Automated Verified]
 - [x] **Verification Check #34**: GET /api/v1/articles/{slug}/revisions/ reader authorization rejection (403) — [Automated Verified]
+- [x] **Verification Check #35**: GET /api/v1/articles/{slug}/revisions/{rev_num}/ single snapshot lookup — [Automated Verified]
