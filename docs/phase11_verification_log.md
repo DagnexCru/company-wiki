@@ -142,3 +142,4 @@
 | 138 | roles | reader-capabilities | Document Reader read-only access limited to published knowledge articles | [Automated Verified] |
 | 139 | roles | is-admin-class | Document IsAdministrator permission class checking user.role == 'administrator' | [Automated Verified] |
 | 140 | roles | is-reviewer-class | Document IsReviewer permission class checking user.role in ['reviewer', 'admin'] | [Automated Verified] |
+| 141 | roles | is-author-class | Document IsAuthorOrReadOnly object-level permission class for article modifications | [Automated Verified] |
