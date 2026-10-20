@@ -136,3 +136,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 131 | `test(phase10): audit password exclusion from user serialization` | User serializers exclude password hash from all GET endpoint responses. | [Automated Verified] |
 | 132 | `test(phase10): audit password exclusion from audit trail event details` | AuditEvent.details JSON never stores passwords, hashes, or plain secrets. | [Automated Verified] |
 | 133 | `test(phase10): audit JWT refresh token exclusion from audit event details` | Logout and login audit records omit raw token strings from details. | [Automated Verified] |
+| 134 | `test(phase10): audit sensitive header sanitization in error logs` | Authorization Bearer tokens masked in system server logs. | [Automated Verified] |
