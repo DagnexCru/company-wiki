@@ -10,11 +10,19 @@ import {
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
+interface NavItem {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  path: string;
+  exact: boolean;
+  badge?: string;
+}
+
 export const Sidebar = () => {
   const { user } = useAuth();
   const location = useLocation();
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       label: "Dashboard",
       icon: LayoutDashboard,
@@ -47,7 +55,6 @@ export const Sidebar = () => {
       label: "Audit & History",
       icon: History,
       path: "/history",
-      badge: "Phase 8",
       exact: false,
     },
     ...(user?.role === "ADMIN"
