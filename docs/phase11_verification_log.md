@@ -46,3 +46,4 @@
 | 42 | setup | superuser-guide | Document python manage.py createsuperuser standard operating procedure | [Automated Verified] |
 | 43 | setup | test-runner | Document python manage.py test test runner execution and verbosity flags | [Automated Verified] |
 | 44 | setup | npm-build-cmd | Document npm run build compilation for TypeScript and Vite bundle | [Automated Verified] |
+| 45 | setup | npm-lint-cmd | Document npm run lint static analysis script configuration | [Automated Verified] |
