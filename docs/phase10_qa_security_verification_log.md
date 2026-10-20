@@ -41,3 +41,4 @@ Comprehensive verification log for Quality Assurance, Accessibility, Security, a
 | 036 | `test(phase10): verify scenario 4 audit trail records ARTICLE_APPROVE event` | Audit event ARTICLE_APPROVE logged attributing action to reviewer. | [Automated Verified] |
 | 037 | `test(phase10): verify scenario 4 reviewer rejects article via POST /api/v1/articles/{slug}/reject/` | Reviewer returns article to author with mandatory revision feedback. | [Automated Verified] |
 | 038 | `test(phase10): verify scenario 4 rejection requires minimum 5 characters feedback` | API rejects empty or short rejection reason with HTTP 400 Bad Request. | [Automated Verified] |
+| 039 | `test(phase10): verify scenario 4 independent review invariant author cannot self-approve` | Author attempting to approve own submission is rejected with HTTP 403 Forbidden. | [Automated Verified] |
