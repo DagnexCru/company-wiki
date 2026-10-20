@@ -214,3 +214,4 @@
 | 210 | workflow | audit-trail-target | Verify audit trail records target_type (Article, Category, User) and target_id | [Automated Verified] |
 | 211 | workflow | audit-trail-metadata | Verify audit trail stores structured JSON metadata for action context | [Automated Verified] |
 | 212 | workflow | audit-trail-no-secrets | Audit audit event payloads ensuring zero password or token leakage | [Automated Verified] |
+| 213 | workflow | audit-trail-immutable | Document audit log table has no update or delete endpoints | [Automated Verified] |
