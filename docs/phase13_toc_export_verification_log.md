@@ -92,3 +92,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 086 | `test(scrollspy): verify reading progress handles window resize events` | Recalculates document scrollHeight when viewport dimensions change. | [Automated Verified] |
 | 087 | `test(scrollspy): verify active heading sync with TOC item highlighting` | Highlighted TOC anchor matches element currently centered in viewport. | [Automated Verified] |
 | 088 | `test(scrollspy): verify URL hash does not trigger infinite scroll loop` | Hash changes via replaceState do not invoke disruptive scroll jumps. | [Automated Verified] |
+| 089 | `test(scrollspy): verify scroll-spy CPU usage under 2% during continuous scroll` | Passive listener architecture eliminates main-thread CPU bottlenecks. | [Automated Verified] |
