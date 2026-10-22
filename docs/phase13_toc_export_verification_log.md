@@ -6,3 +6,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | :---: | :--- | :--- | :---: |
 | 001 | `feat(toc): implement slugifyHeading utility function` | Converts raw heading text to URL-safe alphanumeric kebab-case slug. | [Automated Verified] |
 | 002 | `test(toc): verify slugifyHeading lowercase conversion invariant` | Ensures uppercase characters are consistently lowercased. | [Automated Verified] |
+| 003 | `test(toc): verify slugifyHeading whitespace to single hyphen conversion` | Consecutive spaces are collapsed into a single hyphen. | [Automated Verified] |
