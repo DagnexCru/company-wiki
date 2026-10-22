@@ -22,3 +22,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 016 | `test(toc): verify extractHeadings returns empty array on content with zero headers` | Articles with plain paragraphs return empty array. | [Automated Verified] |
 | 017 | `test(toc): verify extractHeadings text trimming on extracted titles` | Removes surrounding whitespace from extracted heading labels. | [Automated Verified] |
 | 018 | `test(toc): verify extractHeadings handles headings with trailing markdown hashes` | Correctly handles closed markdown headers like '## Title ##'. | [Automated Verified] |
+| 019 | `test(toc): verify extractHeadings handles headings containing inline links` | Extracts readable anchor text while omitting markdown link syntax. | [Automated Verified] |
