@@ -65,3 +65,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 059 | `test(google-auth): verify rejection of unverified Google email (email_verified=false)` | Rejects accounts where email verification has not been completed. | [Automated Verified] |
 | 060 | `test(google-auth): verify acceptance of boolean True email_verified` | Standard boolean True accepted. | [Automated Verified] |
 | 061 | `test(google-auth): verify acceptance of string 'true' email_verified` | Stringified boolean 'true' accepted for robustness. | [Automated Verified] |
+| 062 | `test(google-auth): verify rejection of missing email in token payload` | Raises AuthenticationFailed if Google payload lacks email claim. | [Automated Verified] |
