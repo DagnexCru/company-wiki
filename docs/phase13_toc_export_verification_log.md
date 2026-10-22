@@ -154,3 +154,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 148 | `feat(export-md): append complete article body markdown in exported file` | Appends raw article.content markdown string. | [Automated Verified] |
 | 149 | `feat(export-md): create Blob with text/markdown;charset=utf-8 MIME type` | Standard MIME type ensures correct OS file association. | [Automated Verified] |
 | 150 | `feat(export-md): name exported file using article slug ({article.slug}.md)` | Generates clean, descriptive filename matching article slug. | [Automated Verified] |
+| 151 | `feat(export-md): trigger simulated link click for cross-browser download` | Creates temporary anchor, invokes click(), and cleans up DOM element. | [Automated Verified] |
