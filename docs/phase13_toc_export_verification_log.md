@@ -48,3 +48,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 042 | `test(markdown): verify heading anchor link has aria-label for accessibility` | Screen readers announce 'Direct link to heading'. | [Automated Verified] |
 | 043 | `test(markdown): verify heading anchor link has no-print class` | Anchor hash links are hidden in print media. | [Automated Verified] |
 | 044 | `test(markdown): verify heading scroll-mt-24 maintains visibility across all responsive breakpoints` | Anchor landing position leaves comfortable whitespace on mobile and desktop. | [Automated Verified] |
+| 045 | `test(markdown): verify heading anchor link keyboard focus ring` | Visible focus ring displays when tabbing through document headings. | [Automated Verified] |
