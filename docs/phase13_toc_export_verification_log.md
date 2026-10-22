@@ -63,3 +63,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 057 | `feat(toc): render inactive state styling with text-slate-400 and hover white` | Unselected items maintain subtle contrast to prevent visual distraction. | [Automated Verified] |
 | 058 | `feat(toc): add title tooltip attribute on TOC links for truncated text` | Full heading text visible on hover when label exceeds sidebar width. | [Automated Verified] |
 | 059 | `feat(toc): limit desktop TOC max height to calc(100vh - 16rem)` | Prevents sidebar overflow on laptops with independent scrollbar. | [Automated Verified] |
+| 060 | `feat(toc): add subtle footer note 'Scroll or click to jump' with BookOpen icon` | Guides first-time users on interaction capabilities. | [Automated Verified] |
