@@ -19,3 +19,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 013 | `test(auth-google): verify GIS script does not block initial page rendering` | Async and defer attributes ensure non-blocking DOM parsing. | [Automated Verified] |
 | 014 | `test(auth-google): verify CSP headers permit accounts.google.com connections` | Content Security Policy accommodates Google OAuth domain endpoints. | [Automated Verified] |
 | 015 | `test(auth-google): verify CORS allows authenticated requests from frontend port 3000` | http://localhost:3000 is included in CORS_ALLOWED_ORIGINS. | [Automated Verified] |
+| 016 | `test(auth-google): verify CORS allows authenticated requests from frontend port 5173` | http://localhost:5173 is included in CORS_ALLOWED_ORIGINS. | [Automated Verified] |
