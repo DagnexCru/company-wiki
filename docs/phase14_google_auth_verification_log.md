@@ -131,3 +131,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 125 | `test(google-auth): verify existing user password remains intact upon Google sign-in` | Users with existing local passwords retain their password hash. | [Automated Verified] |
 | 126 | `test(google-auth): verify existing user can sign in via both password and Google` | Dual-authentication capability for accounts matching corporate email. | [Automated Verified] |
 | 127 | `test(google-auth): verify user last_login timestamp updates on Google sign-in` | SimpleJWT UPDATE_LAST_LOGIN updates record. | [Automated Verified] |
+| 128 | `test(google-auth): verify zero duplicate user creation when email matches existing record` | Prevents duplicate account records in PostgreSQL. | [Automated Verified] |
