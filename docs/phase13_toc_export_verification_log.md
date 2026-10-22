@@ -70,3 +70,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 064 | `style(toc): apply glassmorphic dark theme tokens to desktop TOC card` | Uses bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl. | [Automated Verified] |
 | 065 | `style(toc): style TOC scrollbar with sleek minimal width` | Custom scrollbar matches dark workspace aesthetics. | [Automated Verified] |
 | 066 | `test(toc): verify TOC component renders with 0 console errors` | Clean component lifecycle with no warnings or memory leaks. | [Automated Verified] |
+| 067 | `test(toc): verify TOC component handles 50+ headings with smooth scrolling` | Large tables of contents scroll smoothly inside max-height container. | [Automated Verified] |
