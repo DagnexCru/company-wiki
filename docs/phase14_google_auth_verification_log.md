@@ -123,3 +123,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 117 | `feat(google-auth): update empty full_name if Google provides name` | Populates blank user profile name from verified Google identity. | [Automated Verified] |
 | 118 | `test(google-auth): verify existing full_name is preserved if already set` | Does not overwrite customized full names in user profiles. | [Automated Verified] |
 | 119 | `feat(google-auth): enforce account active check on existing user sign-in` | Validates user.is_active before permitting session creation. | [Automated Verified] |
+| 120 | `feat(google-auth): reject deactivated user accounts with HTTP 403 Forbidden` | Blocks access to deactivated staff accounts. | [Automated Verified] |
