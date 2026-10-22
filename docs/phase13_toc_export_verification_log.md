@@ -55,3 +55,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 049 | `feat(toc): render sticky desktop sidebar with top-24 position` | Sidebar remains pinned in viewport during long document reads. | [Automated Verified] |
 | 050 | `feat(toc): render ListTree icon in desktop TOC header` | Visual icon designating structured navigation hierarchy. | [Automated Verified] |
 | 051 | `feat(toc): render reading progress percentage badge in desktop TOC header` | Displays real-time integer percentage read in monospace font. | [Automated Verified] |
+| 052 | `feat(toc): render mini progress bar in desktop TOC header` | Gradient progress track visually reflecting reader position. | [Automated Verified] |
