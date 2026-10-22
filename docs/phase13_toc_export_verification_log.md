@@ -186,3 +186,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 180 | `test(print-css): verify PDF export produces clean multi-page document` | PDF renders clean page numbers and margins in Chrome/Edge print engine. | [Automated Verified] |
 | 181 | `feat(share): implement handleCopyShareLink in ArticleDetailPage` | Copies current article URL to system clipboard via navigator.clipboard. | [Automated Verified] |
 | 182 | `feat(share): add copiedLink boolean state for temporary visual feedback` | Tracks copy state and automatically resets after 2.5 seconds. | [Automated Verified] |
+| 183 | `feat(share): render Share button with Share2 icon in top action bar` | Dedicated button in top action bar for instant link sharing. | [Automated Verified] |
