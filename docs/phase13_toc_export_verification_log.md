@@ -133,3 +133,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 127 | `feat(mobile-toc): render scrollable navigation list max-h-60 inside expanded mobile accordion` | Scrollable drawer accommodates long section lists on mobile phones. | [Automated Verified] |
 | 128 | `feat(mobile-toc): auto-collapse mobile accordion upon section link click` | Closes accordion after user taps heading to keep article visible. | [Automated Verified] |
 | 129 | `feat(mobile-toc): apply lg:hidden class to mobile accordion container` | Ensures mobile accordion is completely hidden on desktop viewports. | [Automated Verified] |
+| 130 | `feat(mobile-toc): apply hidden lg:block to desktop TOC sidebar` | Ensures desktop sidebar is completely hidden on mobile viewports. | [Automated Verified] |
