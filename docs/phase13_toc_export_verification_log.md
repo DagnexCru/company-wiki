@@ -162,3 +162,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 156 | `test(export-md): verify exported markdown file contains valid YAML frontmatter` | Frontmatter begins and ends with triple hyphens (---). | [Automated Verified] |
 | 157 | `test(export-md): verify exported markdown file preserves all code blocks and syntax` | Triple-backtick blocks and indentation preserved without escaping. | [Automated Verified] |
 | 158 | `test(export-md): verify exported markdown file preserves unicode characters and emoji` | UTF-8 encoding preserves international text and symbols. | [Automated Verified] |
+| 159 | `test(export-md): verify markdown export button has descriptive title tooltip` | Tooltip explains: 'Download clean Markdown with metadata frontmatter'. | [Automated Verified] |
