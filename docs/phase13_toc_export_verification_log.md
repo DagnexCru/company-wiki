@@ -67,3 +67,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 061 | `feat(toc): implement smooth scroll into view on TOC item click` | Invokes scrollIntoView({ behavior: 'smooth', block: 'start' }). | [Automated Verified] |
 | 062 | `feat(toc): update browser URL hash on TOC item click` | Synchronizes window.history.replaceState with clicked section id. | [Automated Verified] |
 | 063 | `feat(toc): trigger optional onSelectHeading callback on item click` | Allows parent container to intercept navigation events. | [Automated Verified] |
+| 064 | `style(toc): apply glassmorphic dark theme tokens to desktop TOC card` | Uses bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl. | [Automated Verified] |
