@@ -126,3 +126,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 120 | `feat(google-auth): reject deactivated user accounts with HTTP 403 Forbidden` | Blocks access to deactivated staff accounts. | [Automated Verified] |
 | 121 | `test(google-auth): verify deactivated user receives clear error explanation` | Response body explains account has been deactivated by administrator. | [Automated Verified] |
 | 122 | `test(google-auth): verify deactivated user cannot obtain JWT session tokens` | Access and refresh tokens are not issued to deactivated users. | [Automated Verified] |
+| 123 | `feat(google-auth): return is_new_user=False flag on existing user sign-in` | Informs frontend that user is an existing account holder. | [Automated Verified] |
