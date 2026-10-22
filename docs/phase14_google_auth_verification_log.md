@@ -23,3 +23,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 017 | `test(auth-google): verify CORS_ALLOW_CREDENTIALS is enabled` | Enables browser cookie and authorization header transport. | [Automated Verified] |
 | 018 | `docs(auth-google): document Google Cloud Console project configuration` | Outlines project creation, consent screen setup, and authorized origins. | [Automated Verified] |
 | 019 | `docs(auth-google): document Authorized JavaScript origins configuration` | Explicitly records http://localhost:3000 and http://localhost:5173. | [Automated Verified] |
+| 020 | `docs(auth-google): document Authorized redirect URIs specification` | Clarifies that GIS popup/credential flow uses in-page JavaScript callbacks. | [Automated Verified] |
