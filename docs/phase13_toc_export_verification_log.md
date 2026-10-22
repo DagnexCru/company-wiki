@@ -29,3 +29,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 023 | `test(toc): verify extractHeadings memoization in ArticleDetailPage useMemo` | Heading extraction only recalculates when article content string mutates. | [Automated Verified] |
 | 024 | `test(toc): verify slugifyHeading unit test suite passes cleanly` | All 18 edge-case slugification unit assertions pass. | [Automated Verified] |
 | 025 | `test(toc): verify extractHeadings unit test suite passes cleanly` | All 22 parser structure unit assertions pass. | [Automated Verified] |
+| 026 | `feat(markdown): add slugified HTML id attribute to h1 elements` | Allows direct browser anchor linking to top-level heading. | [Automated Verified] |
