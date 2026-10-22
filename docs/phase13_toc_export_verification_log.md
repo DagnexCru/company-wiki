@@ -201,3 +201,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 195 | `test(share): verify zero layout shift when Share button toggles to Copied! state` | Fixed button padding prevents jarring button width shifts. | [Automated Verified] |
 | 196 | `style(layout): expand ArticleDetailPage max width to max-w-6xl` | Provides comfortable reading column alongside 260px sticky sidebar. | [Automated Verified] |
 | 197 | `style(layout): apply 8-unit gap (gap-8) between article body and sidebar` | Generous whitespace prevents visual clutter. | [Automated Verified] |
+| 198 | `style(toc): apply brand-500 gradient to mini progress bar inside TOC widget` | Matches application brand colors (indigo/violet). | [Automated Verified] |
