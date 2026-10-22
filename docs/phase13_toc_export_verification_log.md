@@ -190,3 +190,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 184 | `feat(share): render Check icon and 'Copied!' label when copiedLink is true` | Instant visual confirmation that URL was copied to clipboard. | [Automated Verified] |
 | 185 | `style(share): style 'Copied!' label with emerald-500 accent color` | Positive green highlight indicates successful clipboard action. | [Automated Verified] |
 | 186 | `style(share): apply zoom-in animation to Check icon on copy success` | Micro-animation adds polished, responsive user experience. | [Automated Verified] |
+| 187 | `test(share): verify copy share link uses current window.location.href` | Copies exact canonical URL including any active hash anchors. | [Automated Verified] |
