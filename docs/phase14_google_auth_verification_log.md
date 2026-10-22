@@ -78,3 +78,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 072 | `test(google-auth): verify compliance with RFC 7519 JWT specifications` | Standard claims adhere to OAuth 2.0 core specifications. | [Automated Verified] |
 | 073 | `test(google-auth): verify compliance with OpenID Connect Core 1.0` | ID token claims adhere to OIDC profile standards. | [Automated Verified] |
 | 074 | `test(google-auth): verify error detail clarity for client applications` | Returns structured JSON error payloads with actionable descriptions. | [Automated Verified] |
+| 075 | `test(google-auth): verify HTTP status code 401 on authentication failures` | Ensures API clients receive standard 401 Unauthorized status. | [Automated Verified] |
