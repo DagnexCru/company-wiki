@@ -105,3 +105,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 099 | `feat(progress): set reading progress bar z-index to z-50` | Floats above page content but below system modals. | [Automated Verified] |
 | 100 | `feat(progress): add pointer-events-none to reading progress bar` | Prevents progress bar from intercepting user clicks or drag events. | [Automated Verified] |
 | 101 | `feat(progress): add smooth transition-all duration-150 ease-out to progress bar` | Smooth CSS interpolation avoids jerky progress increments. | [Automated Verified] |
+| 102 | `feat(progress): add ARIA role=progressbar to top progress bar` | Accessibility attribute informs assistive technologies of reading position. | [Automated Verified] |
