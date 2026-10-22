@@ -30,3 +30,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 024 | `feat(google-auth): set explicit 10-second timeout on Google token verification calls` | Prevents hung backend worker threads during network delays. | [Automated Verified] |
 | 025 | `feat(google-auth): parse JSON response from Google tokeninfo service` | Decodes UTF-8 response into structured Python dictionary. | [Automated Verified] |
 | 026 | `test(google-auth): verify verify_google_token rejects empty string token` | Raises AuthenticationFailed on empty token input. | [Automated Verified] |
+| 027 | `test(google-auth): verify verify_google_token rejects NoneType token` | Raises AuthenticationFailed when token is None. | [Automated Verified] |
