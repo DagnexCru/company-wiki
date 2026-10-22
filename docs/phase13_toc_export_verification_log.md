@@ -19,3 +19,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 013 | `test(toc): verify extractHeadings ignores deep levels (H4, H5, H6)` | Keeps TOC concise by filtering out level 4-6 headers. | [Automated Verified] |
 | 014 | `test(toc): verify extractHeadings duplicate slug deduplication` | Appends numerical suffixes (-1, -2) to resolve duplicate section titles. | [Automated Verified] |
 | 015 | `test(toc): verify extractHeadings returns empty array on empty markdown input` | Gracefully handles empty strings or undefined content without exceptions. | [Automated Verified] |
+| 016 | `test(toc): verify extractHeadings returns empty array on content with zero headers` | Articles with plain paragraphs return empty array. | [Automated Verified] |
