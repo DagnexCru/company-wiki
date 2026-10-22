@@ -183,3 +183,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 177 | `test(print-css): verify print dialog opens on Print / PDF button click` | Clicking button triggers window.print() method. | [Automated Verified] |
 | 178 | `test(print-css): verify print preview displays article title, metadata, and content` | Document header, author, date, and markdown body render completely. | [Automated Verified] |
 | 179 | `test(print-css): verify print stylesheet does not affect screen media styles` | All print rules scoped strictly within @media print query. | [Automated Verified] |
+| 180 | `test(print-css): verify PDF export produces clean multi-page document` | PDF renders clean page numbers and margins in Chrome/Edge print engine. | [Automated Verified] |
