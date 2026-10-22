@@ -124,3 +124,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 118 | `test(progress): verify progress bar responsiveness on ultra-wide screens (4K)` | Spans full viewport width on 3840px monitors without distortion. | [Automated Verified] |
 | 119 | `test(progress): verify progress bar accessibility compliance (WCAG 2.1)` | Passes automated axe-core accessibility audit for progress widgets. | [Automated Verified] |
 | 120 | `test(progress): verify progress bar color contrast against dark navbar` | Gradient delivers > 4.5:1 contrast ratio against slate-900 navigation bar. | [Automated Verified] |
+| 121 | `feat(mobile-toc): create collapsible mobile accordion in TableOfContents` | Compact accordion widget displayed on viewports smaller than lg breakpoint. | [Automated Verified] |
