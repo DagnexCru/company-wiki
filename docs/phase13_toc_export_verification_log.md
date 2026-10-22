@@ -52,3 +52,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 046 | `feat(toc): create TableOfContents component in components directory` | Modular React component for displaying hierarchical document navigation. | [Automated Verified] |
 | 047 | `feat(toc): define TableOfContentsProps TypeScript interface` | Strict prop contract for headings, activeId, readingProgress, and onSelectHeading. | [Automated Verified] |
 | 048 | `feat(toc): render null when headings array is empty` | Table of Contents gracefully unmounts when article has no sections. | [Automated Verified] |
+| 049 | `feat(toc): render sticky desktop sidebar with top-24 position` | Sidebar remains pinned in viewport during long document reads. | [Automated Verified] |
