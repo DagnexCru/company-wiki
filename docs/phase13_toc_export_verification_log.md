@@ -40,3 +40,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 034 | `feat(markdown): add hover anchor link icon (#) to h3 elements` | Displays subtle interactive hash link on H3 hover. | [Automated Verified] |
 | 035 | `style(markdown): style heading hover anchor link with indigo-400 accent` | Anchor icon transitions smoothly from transparent to indigo-400 on hover. | [Automated Verified] |
 | 036 | `style(markdown): set heading group hover trigger for anchor hash icon` | Parent heading hover activates opacity transition on child anchor link. | [Automated Verified] |
+| 037 | `test(markdown): verify heading anchor links navigate smoothly to target section` | Clicking anchor link triggers native smooth scroll to heading element. | [Automated Verified] |
