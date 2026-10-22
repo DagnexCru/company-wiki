@@ -165,3 +165,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 159 | `test(export-md): verify markdown export button has descriptive title tooltip` | Tooltip explains: 'Download clean Markdown with metadata frontmatter'. | [Automated Verified] |
 | 160 | `test(export-md): verify markdown export handles articles without tags or categories` | Conditional YAML generation handles null fields gracefully. | [Automated Verified] |
 | 161 | `feat(export-pdf): implement handlePrint in ArticleDetailPage` | Invokes browser native print dialog: window.print(). | [Automated Verified] |
+| 162 | `feat(export-pdf): add Print / PDF button in top action bar` | Dedicated button in top navigation bar for instant document printing. | [Automated Verified] |
