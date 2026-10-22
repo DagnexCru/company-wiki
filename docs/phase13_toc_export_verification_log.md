@@ -180,3 +180,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 174 | `feat(print-css): configure page-break-after avoid on h1, h2, h3 headings` | Prevents orphan headings at the bottom of printed pages. | [Automated Verified] |
 | 175 | `feat(print-css): set standard 0.75in print margins (@page { margin: 0.75in })` | Standard margins for US Letter and A4 document layouts. | [Automated Verified] |
 | 176 | `feat(print-css): preserve monospace typography on code blocks during print` | Fenced code blocks render in clean Consolas/Courier font with light gray bg. | [Automated Verified] |
+| 177 | `test(print-css): verify print dialog opens on Print / PDF button click` | Clicking button triggers window.print() method. | [Automated Verified] |
