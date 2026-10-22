@@ -89,3 +89,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 083 | `test(google-auth): verify new user role invariant is strictly CustomUser.Role.READER` | Confirms new user cannot obtain AUTHOR, REVIEWER, or ADMIN roles. | [Automated Verified] |
 | 084 | `feat(google-auth): derive base username from email address local-part` | Uses portion before @ symbol as starting username candidate. | [Automated Verified] |
 | 085 | `feat(google-auth): sanitize base username to alphanumeric and underscore characters` | Strips special characters, spaces, and dots from username candidate. | [Automated Verified] |
+| 086 | `feat(google-auth): enforce minimum 3-character length on auto-generated username` | Prepends 'user_' if sanitized local-part is shorter than 3 characters. | [Automated Verified] |
