@@ -192,3 +192,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 186 | `style(share): apply zoom-in animation to Check icon on copy success` | Micro-animation adds polished, responsive user experience. | [Automated Verified] |
 | 187 | `test(share): verify copy share link uses current window.location.href` | Copies exact canonical URL including any active hash anchors. | [Automated Verified] |
 | 188 | `test(share): verify copiedLink state automatically resets to false after 2500ms` | Timeout callback restores original Share button state cleanly. | [Automated Verified] |
+| 189 | `test(share): verify share button tooltip explains link sharing capability` | Tooltip: 'Copy direct shareable link'. | [Automated Verified] |
