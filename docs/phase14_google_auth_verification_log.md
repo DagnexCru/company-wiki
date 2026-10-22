@@ -33,3 +33,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 027 | `test(google-auth): verify verify_google_token rejects NoneType token` | Raises AuthenticationFailed when token is None. | [Automated Verified] |
 | 028 | `test(google-auth): verify verify_google_token rejects non-string token types` | Validates input type strictly before initiating HTTP requests. | [Automated Verified] |
 | 029 | `test(google-auth): verify verify_google_token handles HTTP 400 Bad Request from Google` | Catches HTTPError and translates to user-friendly AuthenticationFailed message. | [Automated Verified] |
+| 030 | `test(google-auth): verify verify_google_token handles HTTP 401 Unauthorized from Google` | Correctly identifies revoked or invalid token signatures. | [Automated Verified] |
