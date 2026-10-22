@@ -140,3 +140,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 134 | `feat(mobile-toc): set mobile order-2 and desktop lg:order-1 on article container` | Article content takes primary left position on desktop. | [Automated Verified] |
 | 135 | `feat(mobile-toc): add no-print class to mobile accordion container` | Mobile accordion is suppressed in print media. | [Automated Verified] |
 | 136 | `test(mobile-toc): verify mobile accordion expands on tap` | Clicking header expands list of document headings. | [Automated Verified] |
+| 137 | `test(mobile-toc): verify mobile accordion collapses on second tap` | Clicking expanded header toggles drawer closed. | [Automated Verified] |
