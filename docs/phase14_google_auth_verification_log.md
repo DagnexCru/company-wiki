@@ -22,3 +22,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 016 | `test(auth-google): verify CORS allows authenticated requests from frontend port 5173` | http://localhost:5173 is included in CORS_ALLOWED_ORIGINS. | [Automated Verified] |
 | 017 | `test(auth-google): verify CORS_ALLOW_CREDENTIALS is enabled` | Enables browser cookie and authorization header transport. | [Automated Verified] |
 | 018 | `docs(auth-google): document Google Cloud Console project configuration` | Outlines project creation, consent screen setup, and authorized origins. | [Automated Verified] |
+| 019 | `docs(auth-google): document Authorized JavaScript origins configuration` | Explicitly records http://localhost:3000 and http://localhost:5173. | [Automated Verified] |
