@@ -80,3 +80,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 074 | `test(google-auth): verify error detail clarity for client applications` | Returns structured JSON error payloads with actionable descriptions. | [Automated Verified] |
 | 075 | `test(google-auth): verify HTTP status code 401 on authentication failures` | Ensures API clients receive standard 401 Unauthorized status. | [Automated Verified] |
 | 076 | `test(google-auth): verify logging of audience mismatch security events` | Security logs capture attempted cross-application token usage. | [Automated Verified] |
+| 077 | `test(google-auth): verify logging of unverified email security events` | Security logs capture unverified email signup attempts. | [Automated Verified] |
