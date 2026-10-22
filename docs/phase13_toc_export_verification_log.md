@@ -57,3 +57,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 051 | `feat(toc): render reading progress percentage badge in desktop TOC header` | Displays real-time integer percentage read in monospace font. | [Automated Verified] |
 | 052 | `feat(toc): render mini progress bar in desktop TOC header` | Gradient progress track visually reflecting reader position. | [Automated Verified] |
 | 053 | `feat(toc): render hierarchical indentation for level 3 headings` | H3 items indented pl-5 with smaller font size (text-[11px]). | [Automated Verified] |
+| 054 | `feat(toc): render bold weight for level 2 headings` | H2 items styled with font-medium leading section hierarchy. | [Automated Verified] |
