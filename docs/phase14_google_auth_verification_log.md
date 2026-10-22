@@ -16,3 +16,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 010 | `test(auth-google): verify settings handles empty GOOGLE_CLIENT_SECRET gracefully` | Defaults to empty string without raising startup exceptions. | [Automated Verified] |
 | 011 | `feat(auth-google): add Google Identity Services client script to index.html` | Embeds https://accounts.google.com/gsi/client with async defer attributes. | [Automated Verified] |
 | 012 | `test(auth-google): verify Google script load integrity in browser head` | Ensures GIS script tag is properly positioned in HTML document head. | [Automated Verified] |
+| 013 | `test(auth-google): verify GIS script does not block initial page rendering` | Async and defer attributes ensure non-blocking DOM parsing. | [Automated Verified] |
