@@ -79,3 +79,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 073 | `feat(scrollspy): clamp reading progress between 0% and 100%` | Math.min(100, Math.max(0, progress)) prevents out-of-bounds values. | [Automated Verified] |
 | 074 | `feat(scrollspy): determine active heading via getBoundingClientRect.top` | Identifies highest section header within 140px of viewport top. | [Automated Verified] |
 | 075 | `feat(scrollspy): default active heading to first section at document top` | Ensures first section highlights immediately when reading begins. | [Automated Verified] |
+| 076 | `feat(scrollspy): highlight last heading when scrolled to bottom of document` | Transitions active indicator to final section upon reaching article footer. | [Automated Verified] |
