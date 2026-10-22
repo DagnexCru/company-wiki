@@ -110,3 +110,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 104 | `test(google-auth): verify Administrator can promote Google-provisioned READER to REVIEWER` | Admin panel allows upgrading role to REVIEWER. | [Automated Verified] |
 | 105 | `test(google-auth): verify Administrator can promote Google-provisioned READER to ADMIN` | Admin panel allows upgrading role to ADMIN. | [Automated Verified] |
 | 106 | `test(google-auth): verify Google-provisioned READER cannot author articles directly` | RBAC permission checks block draft authoring for READER role. | [Automated Verified] |
+| 107 | `test(google-auth): verify Google-provisioned READER cannot approve articles directly` | RBAC permission checks block review queue access for READER role. | [Automated Verified] |
