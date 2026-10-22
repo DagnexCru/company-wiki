@@ -114,3 +114,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 108 | `test(progress): verify progress bar width matches readingProgress percentage` | CSS width style attribute equals exact calculated percentage. | [Automated Verified] |
 | 109 | `test(progress): verify progress bar opacity and visibility across dark mode` | Vibrant gradient stands out crisply against dark bg-slate-950 backdrop. | [Automated Verified] |
 | 110 | `test(progress): verify progress bar visibility across light mode` | Indigo-purple gradient provides high contrast against light background. | [Automated Verified] |
+| 111 | `test(progress): verify progress bar does not shift document layout (fixed position)` | Fixed positioning prevents cumulative layout shift (CLS = 0). | [Automated Verified] |
