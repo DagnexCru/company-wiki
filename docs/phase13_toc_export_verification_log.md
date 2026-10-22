@@ -61,3 +61,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 055 | `feat(toc): render Hash icon next to each TOC link item` | Consistent visual bullet indicator for section links. | [Automated Verified] |
 | 056 | `feat(toc): render active state styling with indigo left border and tinted background` | Current section highlighted with bg-indigo-600/15 and border-l-2 border-indigo-400. | [Automated Verified] |
 | 057 | `feat(toc): render inactive state styling with text-slate-400 and hover white` | Unselected items maintain subtle contrast to prevent visual distraction. | [Automated Verified] |
+| 058 | `feat(toc): add title tooltip attribute on TOC links for truncated text` | Full heading text visible on hover when label exceeds sidebar width. | [Automated Verified] |
