@@ -149,3 +149,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 143 | `feat(export-md): include article category in YAML frontmatter when present` | Exports category name string in YAML metadata. | [Automated Verified] |
 | 144 | `feat(export-md): include tags list in YAML frontmatter when present` | Exports tags as structured YAML array: tags: ["tag1", "tag2"]. | [Automated Verified] |
 | 145 | `feat(export-md): include article last_updated timestamp in YAML frontmatter` | Preserves ISO update timestamp in exported document. | [Automated Verified] |
+| 146 | `feat(export-md): include article title as top H1 heading in exported markdown` | Appends # {article.title} below frontmatter. | [Automated Verified] |
