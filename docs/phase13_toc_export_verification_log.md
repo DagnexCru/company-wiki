@@ -87,3 +87,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 081 | `test(scrollspy): verify scroll-spy handles short sections correctly` | Short sections trigger active state without skipping. | [Automated Verified] |
 | 082 | `test(scrollspy): verify scroll-spy handles articles with single heading` | Single heading remains active throughout reading. | [Automated Verified] |
 | 083 | `test(scrollspy): verify scroll-spy handles articles with zero headings` | No errors thrown when headings list is empty. | [Automated Verified] |
+| 084 | `test(scrollspy): verify reading progress is 0% at top of document` | Initial scroll position reports exactly 0%. | [Automated Verified] |
