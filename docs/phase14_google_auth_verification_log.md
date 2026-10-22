@@ -87,3 +87,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 081 | `feat(google-auth): implement automatic account provisioning for new Google signups` | Automatically registers users presenting valid Google credentials. | [Automated Verified] |
 | 082 | `feat(google-auth): assign READER role to all new Google signups by default` | Enforces least-privilege principle to prevent unauthorized content authoring. | [Automated Verified] |
 | 083 | `test(google-auth): verify new user role invariant is strictly CustomUser.Role.READER` | Confirms new user cannot obtain AUTHOR, REVIEWER, or ADMIN roles. | [Automated Verified] |
+| 084 | `feat(google-auth): derive base username from email address local-part` | Uses portion before @ symbol as starting username candidate. | [Automated Verified] |
