@@ -61,3 +61,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 055 | `feat(google-auth): validate token audience matches configured GOOGLE_CLIENT_ID` | Ensures aud claim matches backend application client ID. | [Automated Verified] |
 | 056 | `test(google-auth): verify rejection of token generated for different client ID` | Rejects tokens issued for third-party Google Cloud projects. | [Automated Verified] |
 | 057 | `test(google-auth): verify audience validation bypassed when GOOGLE_CLIENT_ID is empty` | Permits local testing or wildcard mode when client ID is not enforced. | [Automated Verified] |
+| 058 | `feat(google-auth): validate email_verified claim is True` | Mandates that Google has confirmed email ownership. | [Automated Verified] |
