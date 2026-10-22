@@ -182,3 +182,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 176 | `feat(print-css): preserve monospace typography on code blocks during print` | Fenced code blocks render in clean Consolas/Courier font with light gray bg. | [Automated Verified] |
 | 177 | `test(print-css): verify print dialog opens on Print / PDF button click` | Clicking button triggers window.print() method. | [Automated Verified] |
 | 178 | `test(print-css): verify print preview displays article title, metadata, and content` | Document header, author, date, and markdown body render completely. | [Automated Verified] |
+| 179 | `test(print-css): verify print stylesheet does not affect screen media styles` | All print rules scoped strictly within @media print query. | [Automated Verified] |
