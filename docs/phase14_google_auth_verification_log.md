@@ -26,3 +26,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 020 | `docs(auth-google): document Authorized redirect URIs specification` | Clarifies that GIS popup/credential flow uses in-page JavaScript callbacks. | [Automated Verified] |
 | 021 | `feat(google-auth): create verify_google_token service in accounts app` | Implements backend token validation service via Google tokeninfo API. | [Automated Verified] |
 | 022 | `feat(google-auth): urlencode raw ID token in tokeninfo request URL` | Ensures URL-safe encoding of complex JWT string tokens. | [Automated Verified] |
+| 023 | `feat(google-auth): configure custom User-Agent header for Google API requests` | Identifies CompanyWiki-Auth/1.0 client in HTTP request headers. | [Automated Verified] |
