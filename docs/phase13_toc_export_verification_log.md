@@ -109,3 +109,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 103 | `feat(progress): add aria-valuenow to reading progress bar` | Dynamically updates current percentage for screen readers. | [Automated Verified] |
 | 104 | `feat(progress): add aria-valuemin=0 and aria-valuemax=100` | Standard progress bar accessibility bounds. | [Automated Verified] |
 | 105 | `feat(progress): add reading-progress-bar class for print suppression` | Ensures progress bar is hidden when printing or exporting PDF. | [Automated Verified] |
+| 106 | `feat(progress): sync desktop TOC mini progress bar with global reading progress` | Dual-indicator synchronization across top bar and sidebar widget. | [Automated Verified] |
