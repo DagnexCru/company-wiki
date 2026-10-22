@@ -44,3 +44,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 038 | `test(google-auth): verify token payload includes user email address` | Extracts verified email address string. | [Automated Verified] |
 | 039 | `test(google-auth): verify token payload includes user full name` | Extracts name property when provided by Google profile. | [Automated Verified] |
 | 040 | `test(google-auth): verify token payload includes user profile picture URL` | Captures picture attribute for avatar display. | [Automated Verified] |
+| 041 | `test(google-auth): verify token payload includes given_name` | Captures first name component. | [Automated Verified] |
