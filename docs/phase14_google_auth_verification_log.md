@@ -57,3 +57,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 051 | `feat(google-auth): validate token issuer against accounts.google.com` | Ensures iss equals 'accounts.google.com' or 'https://accounts.google.com'. | [Automated Verified] |
 | 052 | `test(google-auth): verify rejection of untrusted token issuer (http://evil.com)` | Rejects spoofed tokens from non-Google issuers. | [Automated Verified] |
 | 053 | `test(google-auth): verify acceptance of accounts.google.com issuer` | Validates standard unadorned Google issuer identifier. | [Automated Verified] |
+| 054 | `test(google-auth): verify acceptance of https://accounts.google.com issuer` | Validates HTTPS-prefixed Google issuer identifier. | [Automated Verified] |
