@@ -86,3 +86,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 080 | `test(scrollspy): verify scroll-spy detects heading when scrolling up` | Active heading correctly reverses when reader scrolls backward. | [Automated Verified] |
 | 081 | `test(scrollspy): verify scroll-spy handles short sections correctly` | Short sections trigger active state without skipping. | [Automated Verified] |
 | 082 | `test(scrollspy): verify scroll-spy handles articles with single heading` | Single heading remains active throughout reading. | [Automated Verified] |
+| 083 | `test(scrollspy): verify scroll-spy handles articles with zero headings` | No errors thrown when headings list is empty. | [Automated Verified] |
