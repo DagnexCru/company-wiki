@@ -9,3 +9,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 003 | `feat(auth-google): add GOOGLE_CLIENT_ID to core settings.py` | Registers client ID setting in Django core configuration. | [Automated Verified] |
 | 004 | `feat(auth-google): add GOOGLE_CLIENT_SECRET to core settings.py` | Registers client secret setting in Django core configuration. | [Automated Verified] |
 | 005 | `feat(auth-google): configure VITE_GOOGLE_CLIENT_ID in frontend env` | Exposes Google Client ID to Vite frontend runtime via import.meta.env. | [Automated Verified] |
+| 006 | `feat(auth-google): create frontend google.ts configuration module` | Exports typed GOOGLE_CLIENT_ID constant with fallback support. | [Automated Verified] |
