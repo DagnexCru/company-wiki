@@ -43,3 +43,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 037 | `test(google-auth): verify token payload includes Google user identifier (sub)` | Captures unique immutable Google subject ID. | [Automated Verified] |
 | 038 | `test(google-auth): verify token payload includes user email address` | Extracts verified email address string. | [Automated Verified] |
 | 039 | `test(google-auth): verify token payload includes user full name` | Extracts name property when provided by Google profile. | [Automated Verified] |
+| 040 | `test(google-auth): verify token payload includes user profile picture URL` | Captures picture attribute for avatar display. | [Automated Verified] |
