@@ -151,3 +151,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 145 | `feat(export-md): include article last_updated timestamp in YAML frontmatter` | Preserves ISO update timestamp in exported document. | [Automated Verified] |
 | 146 | `feat(export-md): include article title as top H1 heading in exported markdown` | Appends # {article.title} below frontmatter. | [Automated Verified] |
 | 147 | `feat(export-md): include article summary as blockquote in exported markdown` | Appends > {article.summary} when summary exists. | [Automated Verified] |
+| 148 | `feat(export-md): append complete article body markdown in exported file` | Appends raw article.content markdown string. | [Automated Verified] |
