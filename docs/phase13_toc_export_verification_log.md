@@ -126,3 +126,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 120 | `test(progress): verify progress bar color contrast against dark navbar` | Gradient delivers > 4.5:1 contrast ratio against slate-900 navigation bar. | [Automated Verified] |
 | 121 | `feat(mobile-toc): create collapsible mobile accordion in TableOfContents` | Compact accordion widget displayed on viewports smaller than lg breakpoint. | [Automated Verified] |
 | 122 | `feat(mobile-toc): add mobileExpanded boolean state in TableOfContents` | Toggles accordion expansion with smooth disclosure animation. | [Automated Verified] |
+| 123 | `feat(mobile-toc): display section count in mobile accordion header` | Shows 'On This Page ({headings.length} sections)'. | [Automated Verified] |
