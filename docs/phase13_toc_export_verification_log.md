@@ -117,3 +117,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 111 | `test(progress): verify progress bar does not shift document layout (fixed position)` | Fixed positioning prevents cumulative layout shift (CLS = 0). | [Automated Verified] |
 | 112 | `test(progress): verify progress bar renders 0% width before initial scroll` | Width begins at 0% when page first mounts. | [Automated Verified] |
 | 113 | `test(progress): verify progress bar reaches 100% width on footer scroll` | Width reaches 100% when reading concludes. | [Automated Verified] |
+| 114 | `test(progress): verify progress bar performance profile on mobile GPUs` | Hardware-accelerated CSS transitions render at native frame rate. | [Automated Verified] |
