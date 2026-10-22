@@ -96,3 +96,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 090 | `test(scrollspy): verify scroll listener cleanup across fast page transitions` | Rapid navigation between articles leaves zero dangling listeners. | [Automated Verified] |
 | 091 | `test(scrollspy): verify scroll-spy behavior with sticky headers` | 140px threshold cleanly accounts for 64px header and padding. | [Automated Verified] |
 | 092 | `test(scrollspy): verify scroll-spy maintains accuracy during browser zoom` | Viewport calculations remain proportional under 125% and 150% zoom. | [Automated Verified] |
+| 093 | `test(scrollspy): verify reading progress round integer formatting in UI` | Math.round avoids unformatted floating-point decimals in UI badges. | [Automated Verified] |
