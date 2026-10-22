@@ -119,3 +119,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 113 | `test(google-auth): verify existing AUTHOR role preserved upon Google sign-in` | Author account retains full authoring privileges. | [Automated Verified] |
 | 114 | `test(google-auth): verify existing REVIEWER role preserved upon Google sign-in` | Reviewer account retains editorial review privileges. | [Automated Verified] |
 | 115 | `test(google-auth): verify existing ADMIN role preserved upon Google sign-in` | Administrator account retains complete governance privileges. | [Automated Verified] |
+| 116 | `test(google-auth): verify existing READER role preserved upon Google sign-in` | Reader account remains intact. | [Automated Verified] |
