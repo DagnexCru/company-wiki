@@ -46,3 +46,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 040 | `test(markdown): verify heading text extraction handles React children strings` | Extracts clean string representation when child is plain string. | [Automated Verified] |
 | 041 | `test(markdown): verify heading text extraction handles React array children` | Extracts joined text when children contain nested elements or spans. | [Automated Verified] |
 | 042 | `test(markdown): verify heading anchor link has aria-label for accessibility` | Screen readers announce 'Direct link to heading'. | [Automated Verified] |
+| 043 | `test(markdown): verify heading anchor link has no-print class` | Anchor hash links are hidden in print media. | [Automated Verified] |
