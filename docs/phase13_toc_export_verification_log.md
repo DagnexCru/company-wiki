@@ -147,3 +147,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 141 | `feat(export-md): implement handleDownloadMarkdown in ArticleDetailPage` | Generates and triggers browser download of raw markdown file. | [Automated Verified] |
 | 142 | `feat(export-md): generate standard YAML frontmatter header in exported file` | Includes title, slug, author, status, estimated_read_time, category, and tags. | [Automated Verified] |
 | 143 | `feat(export-md): include article category in YAML frontmatter when present` | Exports category name string in YAML metadata. | [Automated Verified] |
+| 144 | `feat(export-md): include tags list in YAML frontmatter when present` | Exports tags as structured YAML array: tags: ["tag1", "tag2"]. | [Automated Verified] |
