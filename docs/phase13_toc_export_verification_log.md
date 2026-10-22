@@ -11,3 +11,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 005 | `test(toc): verify slugifyHeading markdown formatting removal` | Removes bold (**), italic (*), and backticks (`) before slugification. | [Automated Verified] |
 | 006 | `test(toc): verify slugifyHeading leading and trailing hyphen trim` | Ensures slug does not begin or end with dangling hyphens. | [Automated Verified] |
 | 007 | `test(toc): verify slugifyHeading fallback on non-latin or symbol-only headers` | Generates safe fallback slug 'section' when input contains no alphanumeric characters. | [Automated Verified] |
+| 008 | `feat(toc): implement extractHeadings parser for markdown content` | Regular expression parses markdown headings while ignoring code blocks. | [Automated Verified] |
