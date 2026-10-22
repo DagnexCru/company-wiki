@@ -25,3 +25,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 019 | `docs(auth-google): document Authorized JavaScript origins configuration` | Explicitly records http://localhost:3000 and http://localhost:5173. | [Automated Verified] |
 | 020 | `docs(auth-google): document Authorized redirect URIs specification` | Clarifies that GIS popup/credential flow uses in-page JavaScript callbacks. | [Automated Verified] |
 | 021 | `feat(google-auth): create verify_google_token service in accounts app` | Implements backend token validation service via Google tokeninfo API. | [Automated Verified] |
+| 022 | `feat(google-auth): urlencode raw ID token in tokeninfo request URL` | Ensures URL-safe encoding of complex JWT string tokens. | [Automated Verified] |
