@@ -207,3 +207,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 201 | `test(ui): verify responsive layout on mobile (375px), tablet (768px), and desktop (1440px)` | Layout adapts fluidly without broken elements across all breakpoints. | [Automated Verified] |
 | 202 | `test(ui): verify dark theme contrast ratios meet WCAG AA standards (> 4.5:1)` | All text and interactive controls maintain high readability contrast. | [Automated Verified] |
 | 203 | `test(ui): verify zero horizontal overflow on mobile viewports` | Horizontal scrollbar never appears on mobile screens. | [Automated Verified] |
+| 204 | `test(ui): verify keyboard focus rings visible on all interactive TOC and export items` | Focus ring provides clear keyboard navigation cue. | [Automated Verified] |
