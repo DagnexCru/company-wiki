@@ -199,3 +199,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 193 | `test(share): verify export & share button keyboard accessibility` | All three buttons focusable and actionable via Space or Enter keys. | [Automated Verified] |
 | 194 | `test(share): verify export & share suite responsive wrapping on narrow mobile screens` | Flexbox wraps cleanly without horizontal scrollbar overflow. | [Automated Verified] |
 | 195 | `test(share): verify zero layout shift when Share button toggles to Copied! state` | Fixed button padding prevents jarring button width shifts. | [Automated Verified] |
+| 196 | `style(layout): expand ArticleDetailPage max width to max-w-6xl` | Provides comfortable reading column alongside 260px sticky sidebar. | [Automated Verified] |
