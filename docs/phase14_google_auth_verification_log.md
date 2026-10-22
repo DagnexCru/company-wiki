@@ -96,3 +96,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 090 | `test(google-auth): verify username length capping at 150 characters` | Ensures candidate username never exceeds Django CharField limits. | [Automated Verified] |
 | 091 | `feat(google-auth): store Google full name in user.full_name profile field` | Saves user's display name from Google account profile. | [Automated Verified] |
 | 092 | `test(google-auth): verify fallback when Google profile does not provide name` | Leaves full_name blank without raising validation errors. | [Automated Verified] |
+| 093 | `feat(google-auth): set unusable password on Google-provisioned accounts` | Calls set_unusable_password() to block password-based credential stuffing. | [Automated Verified] |
