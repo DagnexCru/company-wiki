@@ -75,3 +75,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 069 | `test(toc): verify TOC active item indicator transitions smoothly (duration-150)` | Color and border transitions avoid abrupt flashing. | [Automated Verified] |
 | 070 | `test(toc): verify TOC component adheres to strict TypeScript type safety` | All props and event handlers strictly typed without any casting. | [Automated Verified] |
 | 071 | `feat(scrollspy): implement scroll event listener in ArticleDetailPage` | Listens to window scroll events with passive: true for high FPS. | [Automated Verified] |
+| 072 | `feat(scrollspy): calculate reading progress percentage from window.scrollY` | Formula: (scrollY / (scrollHeight - innerHeight)) * 100. | [Automated Verified] |
