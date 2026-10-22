@@ -62,3 +62,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 056 | `test(google-auth): verify rejection of token generated for different client ID` | Rejects tokens issued for third-party Google Cloud projects. | [Automated Verified] |
 | 057 | `test(google-auth): verify audience validation bypassed when GOOGLE_CLIENT_ID is empty` | Permits local testing or wildcard mode when client ID is not enforced. | [Automated Verified] |
 | 058 | `feat(google-auth): validate email_verified claim is True` | Mandates that Google has confirmed email ownership. | [Automated Verified] |
+| 059 | `test(google-auth): verify rejection of unverified Google email (email_verified=false)` | Rejects accounts where email verification has not been completed. | [Automated Verified] |
