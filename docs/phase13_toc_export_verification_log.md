@@ -108,3 +108,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 102 | `feat(progress): add ARIA role=progressbar to top progress bar` | Accessibility attribute informs assistive technologies of reading position. | [Automated Verified] |
 | 103 | `feat(progress): add aria-valuenow to reading progress bar` | Dynamically updates current percentage for screen readers. | [Automated Verified] |
 | 104 | `feat(progress): add aria-valuemin=0 and aria-valuemax=100` | Standard progress bar accessibility bounds. | [Automated Verified] |
+| 105 | `feat(progress): add reading-progress-bar class for print suppression` | Ensures progress bar is hidden when printing or exporting PDF. | [Automated Verified] |
