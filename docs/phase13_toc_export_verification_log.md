@@ -144,3 +144,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 138 | `test(mobile-toc): verify tapping section link scrolls smoothly to heading on mobile` | Smoothly scrolls mobile viewport to target section. | [Automated Verified] |
 | 139 | `test(mobile-toc): verify mobile accordion touch targets meet 44px minimum` | Buttons and links provide comfortable touch area for mobile taps. | [Automated Verified] |
 | 140 | `test(mobile-toc): verify mobile accordion background styling in dark mode` | Uses bg-slate-900/90 border-slate-800 rounded-2xl. | [Automated Verified] |
+| 141 | `feat(export-md): implement handleDownloadMarkdown in ArticleDetailPage` | Generates and triggers browser download of raw markdown file. | [Automated Verified] |
