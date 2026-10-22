@@ -8,3 +8,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 002 | `test(toc): verify slugifyHeading lowercase conversion invariant` | Ensures uppercase characters are consistently lowercased. | [Automated Verified] |
 | 003 | `test(toc): verify slugifyHeading whitespace to single hyphen conversion` | Consecutive spaces are collapsed into a single hyphen. | [Automated Verified] |
 | 004 | `test(toc): verify slugifyHeading punctuation stripping` | Strips exclamation points, question marks, commas, and periods. | [Automated Verified] |
+| 005 | `test(toc): verify slugifyHeading markdown formatting removal` | Removes bold (**), italic (*), and backticks (`) before slugification. | [Automated Verified] |
