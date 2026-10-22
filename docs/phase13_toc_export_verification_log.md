@@ -174,3 +174,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 168 | `feat(print-css): hide action buttons in print media (button, .no-print)` | Suppresses Edit, Delete, Submit, and Export buttons from print output. | [Automated Verified] |
 | 169 | `feat(print-css): hide reading progress bar in print media (.reading-progress-bar)` | Suppresses top progress bar from printed output. | [Automated Verified] |
 | 170 | `feat(print-css): reset dark theme background to crisp white (#ffffff) for print` | Saves printer ink and ensures high-contrast readable paper printouts. | [Automated Verified] |
+| 171 | `feat(print-css): reset text color to solid black (#111827) for print` | High-contrast typography for crisp text printing. | [Automated Verified] |
