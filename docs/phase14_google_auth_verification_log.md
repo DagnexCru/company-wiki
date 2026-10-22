@@ -124,3 +124,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 118 | `test(google-auth): verify existing full_name is preserved if already set` | Does not overwrite customized full names in user profiles. | [Automated Verified] |
 | 119 | `feat(google-auth): enforce account active check on existing user sign-in` | Validates user.is_active before permitting session creation. | [Automated Verified] |
 | 120 | `feat(google-auth): reject deactivated user accounts with HTTP 403 Forbidden` | Blocks access to deactivated staff accounts. | [Automated Verified] |
+| 121 | `test(google-auth): verify deactivated user receives clear error explanation` | Response body explains account has been deactivated by administrator. | [Automated Verified] |
