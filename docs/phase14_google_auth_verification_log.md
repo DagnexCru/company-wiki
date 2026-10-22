@@ -14,3 +14,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 008 | `test(auth-google): verify GOOGLE_CLIENT_SECRET format and prefix validity` | Client Secret begins with valid GOCSPX- prefix. | [Automated Verified] |
 | 009 | `test(auth-google): verify settings handles empty GOOGLE_CLIENT_ID gracefully` | Defaults to empty string if environment variable is not defined. | [Automated Verified] |
 | 010 | `test(auth-google): verify settings handles empty GOOGLE_CLIENT_SECRET gracefully` | Defaults to empty string without raising startup exceptions. | [Automated Verified] |
+| 011 | `feat(auth-google): add Google Identity Services client script to index.html` | Embeds https://accounts.google.com/gsi/client with async defer attributes. | [Automated Verified] |
