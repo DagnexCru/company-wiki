@@ -10,3 +10,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 004 | `test(toc): verify slugifyHeading punctuation stripping` | Strips exclamation points, question marks, commas, and periods. | [Automated Verified] |
 | 005 | `test(toc): verify slugifyHeading markdown formatting removal` | Removes bold (**), italic (*), and backticks (`) before slugification. | [Automated Verified] |
 | 006 | `test(toc): verify slugifyHeading leading and trailing hyphen trim` | Ensures slug does not begin or end with dangling hyphens. | [Automated Verified] |
+| 007 | `test(toc): verify slugifyHeading fallback on non-latin or symbol-only headers` | Generates safe fallback slug 'section' when input contains no alphanumeric characters. | [Automated Verified] |
