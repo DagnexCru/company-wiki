@@ -173,3 +173,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 167 | `feat(print-css): hide table of contents in print media (.no-print, TableOfContents)` | Suppresses desktop TOC and mobile accordion from print output. | [Automated Verified] |
 | 168 | `feat(print-css): hide action buttons in print media (button, .no-print)` | Suppresses Edit, Delete, Submit, and Export buttons from print output. | [Automated Verified] |
 | 169 | `feat(print-css): hide reading progress bar in print media (.reading-progress-bar)` | Suppresses top progress bar from printed output. | [Automated Verified] |
+| 170 | `feat(print-css): reset dark theme background to crisp white (#ffffff) for print` | Saves printer ink and ensures high-contrast readable paper printouts. | [Automated Verified] |
