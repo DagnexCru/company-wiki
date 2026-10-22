@@ -120,3 +120,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 114 | `test(progress): verify progress bar performance profile on mobile GPUs` | Hardware-accelerated CSS transitions render at native frame rate. | [Automated Verified] |
 | 115 | `test(progress): verify progress bar remains visible during sticky header transitions` | Remains pinned at viewport top-0 even as user scrolls past hero header. | [Automated Verified] |
 | 116 | `test(progress): verify progress bar handles short articles (scrollHeight <= innerHeight)` | Articles fitting on a single screen default cleanly to 100% or 0%. | [Automated Verified] |
+| 117 | `test(progress): verify progress bar handles dynamic image loading expansion` | Recalculates progress accurately as embedded images finish loading. | [Automated Verified] |
