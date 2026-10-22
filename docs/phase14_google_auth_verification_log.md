@@ -70,3 +70,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 064 | `test(google-auth): verify email trimming of leading and trailing whitespace` | Removes accidental whitespace from email address. | [Automated Verified] |
 | 065 | `test(google-auth): verify token expiration enforcement via Google tokeninfo` | Google tokeninfo endpoint rejects expired tokens with HTTP 400. | [Automated Verified] |
 | 066 | `test(google-auth): verify rejection of malformed JWT structure` | Non-JWT strings are rejected immediately by Google tokeninfo. | [Automated Verified] |
+| 067 | `test(google-auth): verify rejection of truncated token strings` | Incomplete tokens fail signature verification. | [Automated Verified] |
