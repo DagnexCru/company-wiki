@@ -32,3 +32,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 026 | `feat(markdown): add slugified HTML id attribute to h1 elements` | Allows direct browser anchor linking to top-level heading. | [Automated Verified] |
 | 027 | `feat(markdown): add slugified HTML id attribute to h2 elements` | Renders slugified id on all H2 headings matching TOC anchors. | [Automated Verified] |
 | 028 | `feat(markdown): add slugified HTML id attribute to h3 elements` | Renders slugified id on all H3 subheadings matching TOC anchors. | [Automated Verified] |
+| 029 | `feat(markdown): add scroll-mt-24 scroll margin to h1 elements` | Ensures sticky 64px header does not overlap heading upon anchor navigation. | [Automated Verified] |
