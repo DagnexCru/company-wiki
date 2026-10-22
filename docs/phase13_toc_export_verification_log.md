@@ -209,3 +209,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 203 | `test(ui): verify zero horizontal overflow on mobile viewports` | Horizontal scrollbar never appears on mobile screens. | [Automated Verified] |
 | 204 | `test(ui): verify keyboard focus rings visible on all interactive TOC and export items` | Focus ring provides clear keyboard navigation cue. | [Automated Verified] |
 | 205 | `test(ui): verify frontend production build succeeds with 0 errors (tsc -b && vite build)` | Compiles cleanly with zero TypeScript errors or lint issues. | [Automated Verified] |
+| 206 | `test(e2e): verify end-to-end reading flow with scroll-spy, TOC jump, and markdown export` | Full user journey passes automated functional verification. | [Automated Verified] |
