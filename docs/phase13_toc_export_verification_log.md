@@ -65,3 +65,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 059 | `feat(toc): limit desktop TOC max height to calc(100vh - 16rem)` | Prevents sidebar overflow on laptops with independent scrollbar. | [Automated Verified] |
 | 060 | `feat(toc): add subtle footer note 'Scroll or click to jump' with BookOpen icon` | Guides first-time users on interaction capabilities. | [Automated Verified] |
 | 061 | `feat(toc): implement smooth scroll into view on TOC item click` | Invokes scrollIntoView({ behavior: 'smooth', block: 'start' }). | [Automated Verified] |
+| 062 | `feat(toc): update browser URL hash on TOC item click` | Synchronizes window.history.replaceState with clicked section id. | [Automated Verified] |
