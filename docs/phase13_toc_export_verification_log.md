@@ -100,3 +100,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 094 | `test(scrollspy): verify passive scroll listener does not block touch gestures` | Touch scroll on mobile devices maintains 120Hz smooth scrolling. | [Automated Verified] |
 | 095 | `test(scrollspy): verify scroll-spy state updates do not trigger unnecessary re-renders` | ActiveHeadingId only sets state when ID genuinely changes. | [Automated Verified] |
 | 096 | `feat(progress): add top-pinned reading progress bar to ArticleDetailPage` | Fixed top-0 horizontal bar spanning full viewport width. | [Automated Verified] |
+| 097 | `feat(progress): style reading progress bar with multi-color gradient` | Gradient: from-indigo-500 via-purple-500 to-pink-500. | [Automated Verified] |
