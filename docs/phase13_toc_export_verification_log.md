@@ -20,3 +20,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 014 | `test(toc): verify extractHeadings duplicate slug deduplication` | Appends numerical suffixes (-1, -2) to resolve duplicate section titles. | [Automated Verified] |
 | 015 | `test(toc): verify extractHeadings returns empty array on empty markdown input` | Gracefully handles empty strings or undefined content without exceptions. | [Automated Verified] |
 | 016 | `test(toc): verify extractHeadings returns empty array on content with zero headers` | Articles with plain paragraphs return empty array. | [Automated Verified] |
+| 017 | `test(toc): verify extractHeadings text trimming on extracted titles` | Removes surrounding whitespace from extracted heading labels. | [Automated Verified] |
