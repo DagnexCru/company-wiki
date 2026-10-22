@@ -97,3 +97,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 091 | `feat(google-auth): store Google full name in user.full_name profile field` | Saves user's display name from Google account profile. | [Automated Verified] |
 | 092 | `test(google-auth): verify fallback when Google profile does not provide name` | Leaves full_name blank without raising validation errors. | [Automated Verified] |
 | 093 | `feat(google-auth): set unusable password on Google-provisioned accounts` | Calls set_unusable_password() to block password-based credential stuffing. | [Automated Verified] |
+| 094 | `test(google-auth): verify has_usable_password() is False for Google-provisioned users` | Ensures account cannot be accessed via direct password login. | [Automated Verified] |
