@@ -128,3 +128,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 122 | `test(google-auth): verify deactivated user cannot obtain JWT session tokens` | Access and refresh tokens are not issued to deactivated users. | [Automated Verified] |
 | 123 | `feat(google-auth): return is_new_user=False flag on existing user sign-in` | Informs frontend that user is an existing account holder. | [Automated Verified] |
 | 124 | `feat(google-auth): return HTTP 200 OK on existing user authentication` | Adheres to RESTful convention for successful authentication. | [Automated Verified] |
+| 125 | `test(google-auth): verify existing user password remains intact upon Google sign-in` | Users with existing local passwords retain their password hash. | [Automated Verified] |
