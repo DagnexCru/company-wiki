@@ -72,3 +72,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 066 | `test(toc): verify TOC component renders with 0 console errors` | Clean component lifecycle with no warnings or memory leaks. | [Automated Verified] |
 | 067 | `test(toc): verify TOC component handles 50+ headings with smooth scrolling` | Large tables of contents scroll smoothly inside max-height container. | [Automated Verified] |
 | 068 | `test(toc): verify TOC item click scrolls target heading to top of viewport` | Target element aligns 96px below viewport top. | [Automated Verified] |
+| 069 | `test(toc): verify TOC active item indicator transitions smoothly (duration-150)` | Color and border transitions avoid abrupt flashing. | [Automated Verified] |
