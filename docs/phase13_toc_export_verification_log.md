@@ -135,3 +135,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 129 | `feat(mobile-toc): apply lg:hidden class to mobile accordion container` | Ensures mobile accordion is completely hidden on desktop viewports. | [Automated Verified] |
 | 130 | `feat(mobile-toc): apply hidden lg:block to desktop TOC sidebar` | Ensures desktop sidebar is completely hidden on mobile viewports. | [Automated Verified] |
 | 131 | `feat(mobile-toc): configure responsive flex layout in ArticleDetailPage` | Two-column flex on lg screens (flex-row), single column on mobile (flex-col). | [Automated Verified] |
+| 132 | `feat(mobile-toc): set mobile order-1 on TOC container to render above article` | Mobile users see table of contents immediately before article text. | [Automated Verified] |
