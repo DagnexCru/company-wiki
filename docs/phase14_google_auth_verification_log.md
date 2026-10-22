@@ -75,3 +75,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 069 | `test(google-auth): verify rejection of revoked Google credentials` | Revoked session tokens are identified and barred. | [Automated Verified] |
 | 070 | `test(google-auth): verify cross-origin token validation security` | Prevents phishing attacks from unauthorized client origins. | [Automated Verified] |
 | 071 | `test(google-auth): verify token replay resistance via timestamp checks` | Guarantees tokens cannot be replayed past validity window. | [Automated Verified] |
+| 072 | `test(google-auth): verify compliance with RFC 7519 JWT specifications` | Standard claims adhere to OAuth 2.0 core specifications. | [Automated Verified] |
