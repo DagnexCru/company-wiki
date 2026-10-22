@@ -203,3 +203,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 197 | `style(layout): apply 8-unit gap (gap-8) between article body and sidebar` | Generous whitespace prevents visual clutter. | [Automated Verified] |
 | 198 | `style(toc): apply brand-500 gradient to mini progress bar inside TOC widget` | Matches application brand colors (indigo/violet). | [Automated Verified] |
 | 199 | `style(toc): refine typography tracking and line heights in markdown headings` | Consistent tracking-tight on H1/H2 and leading-relaxed on body. | [Automated Verified] |
+| 200 | `style(toc): ensure dark theme token consistency across TOC and article page` | bg-slate-900, border-slate-800, text-slate-100, text-slate-400. | [Automated Verified] |
