@@ -84,3 +84,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 078 | `feat(scrollspy): debounce/throttle scroll calculations for 60fps performance` | Passive scroll listener maintains 60+ frames per second during rapid scroll. | [Automated Verified] |
 | 079 | `test(scrollspy): verify scroll-spy detects heading when scrolling down` | Active heading shifts sequentially as reader progresses through document. | [Automated Verified] |
 | 080 | `test(scrollspy): verify scroll-spy detects heading when scrolling up` | Active heading correctly reverses when reader scrolls backward. | [Automated Verified] |
+| 081 | `test(scrollspy): verify scroll-spy handles short sections correctly` | Short sections trigger active state without skipping. | [Automated Verified] |
