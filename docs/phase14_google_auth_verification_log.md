@@ -108,3 +108,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 102 | `test(google-auth): verify new user created_at timestamp recording` | Records exact registration timestamp via timezone.now. | [Automated Verified] |
 | 103 | `test(google-auth): verify Administrator can promote Google-provisioned READER to AUTHOR` | Admin panel allows upgrading role to AUTHOR. | [Automated Verified] |
 | 104 | `test(google-auth): verify Administrator can promote Google-provisioned READER to REVIEWER` | Admin panel allows upgrading role to REVIEWER. | [Automated Verified] |
+| 105 | `test(google-auth): verify Administrator can promote Google-provisioned READER to ADMIN` | Admin panel allows upgrading role to ADMIN. | [Automated Verified] |
