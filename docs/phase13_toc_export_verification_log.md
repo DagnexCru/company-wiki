@@ -77,3 +77,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 071 | `feat(scrollspy): implement scroll event listener in ArticleDetailPage` | Listens to window scroll events with passive: true for high FPS. | [Automated Verified] |
 | 072 | `feat(scrollspy): calculate reading progress percentage from window.scrollY` | Formula: (scrollY / (scrollHeight - innerHeight)) * 100. | [Automated Verified] |
 | 073 | `feat(scrollspy): clamp reading progress between 0% and 100%` | Math.min(100, Math.max(0, progress)) prevents out-of-bounds values. | [Automated Verified] |
+| 074 | `feat(scrollspy): determine active heading via getBoundingClientRect.top` | Identifies highest section header within 140px of viewport top. | [Automated Verified] |
