@@ -121,3 +121,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 115 | `test(google-auth): verify existing ADMIN role preserved upon Google sign-in` | Administrator account retains complete governance privileges. | [Automated Verified] |
 | 116 | `test(google-auth): verify existing READER role preserved upon Google sign-in` | Reader account remains intact. | [Automated Verified] |
 | 117 | `feat(google-auth): update empty full_name if Google provides name` | Populates blank user profile name from verified Google identity. | [Automated Verified] |
+| 118 | `test(google-auth): verify existing full_name is preserved if already set` | Does not overwrite customized full names in user profiles. | [Automated Verified] |
