@@ -24,3 +24,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 018 | `test(toc): verify extractHeadings handles headings with trailing markdown hashes` | Correctly handles closed markdown headers like '## Title ##'. | [Automated Verified] |
 | 019 | `test(toc): verify extractHeadings handles headings containing inline links` | Extracts readable anchor text while omitting markdown link syntax. | [Automated Verified] |
 | 020 | `test(toc): verify extractHeadings handles headings containing inline code tags` | Preserves function names inside backticks while stripping backticks for slug. | [Automated Verified] |
+| 021 | `test(toc): verify extractHeadings performance on 10,000-line markdown documents` | RegEx parsing completes in under 5 milliseconds for long-form documentation. | [Automated Verified] |
