@@ -156,3 +156,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 150 | `feat(export-md): name exported file using article slug ({article.slug}.md)` | Generates clean, descriptive filename matching article slug. | [Automated Verified] |
 | 151 | `feat(export-md): trigger simulated link click for cross-browser download` | Creates temporary anchor, invokes click(), and cleans up DOM element. | [Automated Verified] |
 | 152 | `feat(export-md): revoke object URL with URL.revokeObjectURL to prevent memory leaks` | Releases allocated blob URL from browser memory. | [Automated Verified] |
+| 153 | `feat(export-md): add Download Markdown button with .MD label in top action bar` | Quick-access button in article detail header controls. | [Automated Verified] |
