@@ -113,3 +113,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 107 | `test(google-auth): verify Google-provisioned READER cannot approve articles directly` | RBAC permission checks block review queue access for READER role. | [Automated Verified] |
 | 108 | `test(google-auth): verify Google-provisioned READER can browse and search published articles` | Allows full knowledge base discovery access. | [Automated Verified] |
 | 109 | `test(google-auth): verify Google-provisioned READER can access user profile (/profile)` | Allows viewing account details and permissions breakdown. | [Automated Verified] |
+| 110 | `test(google-auth): verify user count increments by exactly 1 upon Google signup` | Database user table count increases by one. | [Automated Verified] |
