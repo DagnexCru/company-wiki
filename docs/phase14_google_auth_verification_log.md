@@ -27,3 +27,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 021 | `feat(google-auth): create verify_google_token service in accounts app` | Implements backend token validation service via Google tokeninfo API. | [Automated Verified] |
 | 022 | `feat(google-auth): urlencode raw ID token in tokeninfo request URL` | Ensures URL-safe encoding of complex JWT string tokens. | [Automated Verified] |
 | 023 | `feat(google-auth): configure custom User-Agent header for Google API requests` | Identifies CompanyWiki-Auth/1.0 client in HTTP request headers. | [Automated Verified] |
+| 024 | `feat(google-auth): set explicit 10-second timeout on Google token verification calls` | Prevents hung backend worker threads during network delays. | [Automated Verified] |
