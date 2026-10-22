@@ -59,3 +59,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 053 | `feat(toc): render hierarchical indentation for level 3 headings` | H3 items indented pl-5 with smaller font size (text-[11px]). | [Automated Verified] |
 | 054 | `feat(toc): render bold weight for level 2 headings` | H2 items styled with font-medium leading section hierarchy. | [Automated Verified] |
 | 055 | `feat(toc): render Hash icon next to each TOC link item` | Consistent visual bullet indicator for section links. | [Automated Verified] |
+| 056 | `feat(toc): render active state styling with indigo left border and tinted background` | Current section highlighted with bg-indigo-600/15 and border-l-2 border-indigo-400. | [Automated Verified] |
