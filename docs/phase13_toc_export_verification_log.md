@@ -112,3 +112,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 106 | `feat(progress): sync desktop TOC mini progress bar with global reading progress` | Dual-indicator synchronization across top bar and sidebar widget. | [Automated Verified] |
 | 107 | `feat(progress): sync mobile accordion percentage badge with global reading progress` | Mobile users see exact reading completion percentage. | [Automated Verified] |
 | 108 | `test(progress): verify progress bar width matches readingProgress percentage` | CSS width style attribute equals exact calculated percentage. | [Automated Verified] |
+| 109 | `test(progress): verify progress bar opacity and visibility across dark mode` | Vibrant gradient stands out crisply against dark bg-slate-950 backdrop. | [Automated Verified] |
