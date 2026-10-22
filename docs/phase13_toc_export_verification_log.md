@@ -74,3 +74,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 068 | `test(toc): verify TOC item click scrolls target heading to top of viewport` | Target element aligns 96px below viewport top. | [Automated Verified] |
 | 069 | `test(toc): verify TOC active item indicator transitions smoothly (duration-150)` | Color and border transitions avoid abrupt flashing. | [Automated Verified] |
 | 070 | `test(toc): verify TOC component adheres to strict TypeScript type safety` | All props and event handlers strictly typed without any casting. | [Automated Verified] |
+| 071 | `feat(scrollspy): implement scroll event listener in ArticleDetailPage` | Listens to window scroll events with passive: true for high FPS. | [Automated Verified] |
