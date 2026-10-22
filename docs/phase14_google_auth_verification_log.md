@@ -74,3 +74,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 068 | `test(google-auth): verify rejection of tampered payload claims` | Modified token bodies fail signature checksum. | [Automated Verified] |
 | 069 | `test(google-auth): verify rejection of revoked Google credentials` | Revoked session tokens are identified and barred. | [Automated Verified] |
 | 070 | `test(google-auth): verify cross-origin token validation security` | Prevents phishing attacks from unauthorized client origins. | [Automated Verified] |
+| 071 | `test(google-auth): verify token replay resistance via timestamp checks` | Guarantees tokens cannot be replayed past validity window. | [Automated Verified] |
