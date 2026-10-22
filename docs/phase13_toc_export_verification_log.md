@@ -175,3 +175,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 169 | `feat(print-css): hide reading progress bar in print media (.reading-progress-bar)` | Suppresses top progress bar from printed output. | [Automated Verified] |
 | 170 | `feat(print-css): reset dark theme background to crisp white (#ffffff) for print` | Saves printer ink and ensures high-contrast readable paper printouts. | [Automated Verified] |
 | 171 | `feat(print-css): reset text color to solid black (#111827) for print` | High-contrast typography for crisp text printing. | [Automated Verified] |
+| 172 | `feat(print-css): remove background colors, shadows, and borders from article container` | Article renders as clean continuous document without card borders. | [Automated Verified] |
