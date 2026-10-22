@@ -169,3 +169,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 163 | `feat(export-pdf): render Printer icon on Print / PDF button` | Lucide Printer icon designates hardcopy and PDF generation. | [Automated Verified] |
 | 164 | `feat(print-css): add comprehensive @media print stylesheet in index.css` | Dedicated print rules for paper and PDF export formats. | [Automated Verified] |
 | 165 | `feat(print-css): hide application navigation header in print media (nav, header.sticky)` | Suppresses top navigation bar from appearing on printed pages. | [Automated Verified] |
+| 166 | `feat(print-css): hide application sidebar in print media (aside, .sidebar)` | Suppresses left navigation sidebar from printed pages. | [Automated Verified] |
