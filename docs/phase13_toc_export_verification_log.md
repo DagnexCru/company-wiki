@@ -81,3 +81,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 075 | `feat(scrollspy): default active heading to first section at document top` | Ensures first section highlights immediately when reading begins. | [Automated Verified] |
 | 076 | `feat(scrollspy): highlight last heading when scrolled to bottom of document` | Transitions active indicator to final section upon reaching article footer. | [Automated Verified] |
 | 077 | `feat(scrollspy): remove scroll event listener on component unmount` | Prevents memory leaks when navigating away from article. | [Automated Verified] |
+| 078 | `feat(scrollspy): debounce/throttle scroll calculations for 60fps performance` | Passive scroll listener maintains 60+ frames per second during rapid scroll. | [Automated Verified] |
