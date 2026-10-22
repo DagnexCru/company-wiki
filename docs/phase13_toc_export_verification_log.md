@@ -200,3 +200,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 194 | `test(share): verify export & share suite responsive wrapping on narrow mobile screens` | Flexbox wraps cleanly without horizontal scrollbar overflow. | [Automated Verified] |
 | 195 | `test(share): verify zero layout shift when Share button toggles to Copied! state` | Fixed button padding prevents jarring button width shifts. | [Automated Verified] |
 | 196 | `style(layout): expand ArticleDetailPage max width to max-w-6xl` | Provides comfortable reading column alongside 260px sticky sidebar. | [Automated Verified] |
+| 197 | `style(layout): apply 8-unit gap (gap-8) between article body and sidebar` | Generous whitespace prevents visual clutter. | [Automated Verified] |
