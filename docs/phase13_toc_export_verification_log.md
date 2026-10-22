@@ -119,3 +119,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 113 | `test(progress): verify progress bar reaches 100% width on footer scroll` | Width reaches 100% when reading concludes. | [Automated Verified] |
 | 114 | `test(progress): verify progress bar performance profile on mobile GPUs` | Hardware-accelerated CSS transitions render at native frame rate. | [Automated Verified] |
 | 115 | `test(progress): verify progress bar remains visible during sticky header transitions` | Remains pinned at viewport top-0 even as user scrolls past hero header. | [Automated Verified] |
+| 116 | `test(progress): verify progress bar handles short articles (scrollHeight <= innerHeight)` | Articles fitting on a single screen default cleanly to 100% or 0%. | [Automated Verified] |
