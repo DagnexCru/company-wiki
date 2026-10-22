@@ -102,3 +102,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 096 | `test(google-auth): verify new user is_staff defaults to False` | Ensures auto-provisioned accounts lack Django admin panel access. | [Automated Verified] |
 | 097 | `test(google-auth): verify new user is_superuser defaults to False` | Ensures auto-provisioned accounts lack superuser privileges. | [Automated Verified] |
 | 098 | `feat(google-auth): return is_new_user=True flag on first-time registration` | Informs frontend that a new staff account was created. | [Automated Verified] |
+| 099 | `feat(google-auth): return HTTP 201 Created on new account provisioning` | Adheres to RESTful convention for resource creation. | [Automated Verified] |
