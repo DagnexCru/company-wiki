@@ -129,3 +129,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 123 | `feat(mobile-toc): display section count in mobile accordion header` | Shows 'On This Page ({headings.length} sections)'. | [Automated Verified] |
 | 124 | `feat(mobile-toc): display reading percentage badge in mobile accordion header` | Shows '{Math.round(readingProgress)}% read'. | [Automated Verified] |
 | 125 | `feat(mobile-toc): render ChevronDown/ChevronUp toggle icons in mobile accordion` | Dynamic icon indicates expandable disclosure state. | [Automated Verified] |
+| 126 | `feat(mobile-toc): add aria-expanded attribute to mobile accordion toggle button` | Screen readers announce collapsed/expanded state. | [Automated Verified] |
