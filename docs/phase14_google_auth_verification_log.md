@@ -54,3 +54,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 048 | `test(google-auth): verify thread-safe execution of verify_google_token` | Stateless functional implementation operates safely across concurrent threads. | [Automated Verified] |
 | 049 | `test(google-auth): verify performance of token verification under 200ms` | Standard tokeninfo round-trip completes well within interactive SLA. | [Automated Verified] |
 | 050 | `test(google-auth): verify memory garbage collection after token response parsing` | Response objects and buffers are cleanly closed using context managers. | [Automated Verified] |
+| 051 | `feat(google-auth): validate token issuer against accounts.google.com` | Ensures iss equals 'accounts.google.com' or 'https://accounts.google.com'. | [Automated Verified] |
