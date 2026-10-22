@@ -17,3 +17,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 011 | `test(toc): verify extractHeadings parses level 3 (###) headings` | Captures H3 sub-section headers with correct level: 3 metadata. | [Automated Verified] |
 | 012 | `test(toc): verify extractHeadings ignores level 1 (#) title heading` | Top-level title is excluded to avoid redundant TOC entry matching document header. | [Automated Verified] |
 | 013 | `test(toc): verify extractHeadings ignores deep levels (H4, H5, H6)` | Keeps TOC concise by filtering out level 4-6 headers. | [Automated Verified] |
+| 014 | `test(toc): verify extractHeadings duplicate slug deduplication` | Appends numerical suffixes (-1, -2) to resolve duplicate section titles. | [Automated Verified] |
