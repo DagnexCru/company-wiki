@@ -184,3 +184,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 178 | `test(print-css): verify print preview displays article title, metadata, and content` | Document header, author, date, and markdown body render completely. | [Automated Verified] |
 | 179 | `test(print-css): verify print stylesheet does not affect screen media styles` | All print rules scoped strictly within @media print query. | [Automated Verified] |
 | 180 | `test(print-css): verify PDF export produces clean multi-page document` | PDF renders clean page numbers and margins in Chrome/Edge print engine. | [Automated Verified] |
+| 181 | `feat(share): implement handleCopyShareLink in ArticleDetailPage` | Copies current article URL to system clipboard via navigator.clipboard. | [Automated Verified] |
