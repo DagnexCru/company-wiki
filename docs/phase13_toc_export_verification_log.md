@@ -88,3 +88,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 082 | `test(scrollspy): verify scroll-spy handles articles with single heading` | Single heading remains active throughout reading. | [Automated Verified] |
 | 083 | `test(scrollspy): verify scroll-spy handles articles with zero headings` | No errors thrown when headings list is empty. | [Automated Verified] |
 | 084 | `test(scrollspy): verify reading progress is 0% at top of document` | Initial scroll position reports exactly 0%. | [Automated Verified] |
+| 085 | `test(scrollspy): verify reading progress reaches 100% at bottom of document` | Scroll position at document end reports exactly 100%. | [Automated Verified] |
