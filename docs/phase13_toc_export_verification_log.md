@@ -160,3 +160,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 154 | `feat(export-md): render Download icon on markdown export button` | Lucide Download icon designates file export capability. | [Automated Verified] |
 | 155 | `style(export-md): style markdown export button with dark theme tokens` | Consistent border, hover elevation, and text color styling. | [Automated Verified] |
 | 156 | `test(export-md): verify exported markdown file contains valid YAML frontmatter` | Frontmatter begins and ends with triple hyphens (---). | [Automated Verified] |
+| 157 | `test(export-md): verify exported markdown file preserves all code blocks and syntax` | Triple-backtick blocks and indentation preserved without escaping. | [Automated Verified] |
