@@ -12,3 +12,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 006 | `test(toc): verify slugifyHeading leading and trailing hyphen trim` | Ensures slug does not begin or end with dangling hyphens. | [Automated Verified] |
 | 007 | `test(toc): verify slugifyHeading fallback on non-latin or symbol-only headers` | Generates safe fallback slug 'section' when input contains no alphanumeric characters. | [Automated Verified] |
 | 008 | `feat(toc): implement extractHeadings parser for markdown content` | Regular expression parses markdown headings while ignoring code blocks. | [Automated Verified] |
+| 009 | `test(toc): verify extractHeadings ignores headers inside triple-backtick blocks` | Code snippet headings are excluded from table of contents. | [Automated Verified] |
