@@ -133,3 +133,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 127 | `test(google-auth): verify user last_login timestamp updates on Google sign-in` | SimpleJWT UPDATE_LAST_LOGIN updates record. | [Automated Verified] |
 | 128 | `test(google-auth): verify zero duplicate user creation when email matches existing record` | Prevents duplicate account records in PostgreSQL. | [Automated Verified] |
 | 129 | `test(google-auth): verify case-insensitivity on email match (User@Company.com)` | Matches user@company.com regardless of casing. | [Automated Verified] |
+| 130 | `test(google-auth): verify existing user username is never modified on Google sign-in` | Preserves original corporate username identifier. | [Automated Verified] |
