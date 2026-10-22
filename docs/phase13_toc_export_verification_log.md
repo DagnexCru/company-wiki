@@ -41,3 +41,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 035 | `style(markdown): style heading hover anchor link with indigo-400 accent` | Anchor icon transitions smoothly from transparent to indigo-400 on hover. | [Automated Verified] |
 | 036 | `style(markdown): set heading group hover trigger for anchor hash icon` | Parent heading hover activates opacity transition on child anchor link. | [Automated Verified] |
 | 037 | `test(markdown): verify heading anchor links navigate smoothly to target section` | Clicking anchor link triggers native smooth scroll to heading element. | [Automated Verified] |
+| 038 | `test(markdown): verify heading anchor link updates browser URL hash` | Clicking anchor updates window.location.hash without page reload. | [Automated Verified] |
