@@ -71,3 +71,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 065 | `test(google-auth): verify token expiration enforcement via Google tokeninfo` | Google tokeninfo endpoint rejects expired tokens with HTTP 400. | [Automated Verified] |
 | 066 | `test(google-auth): verify rejection of malformed JWT structure` | Non-JWT strings are rejected immediately by Google tokeninfo. | [Automated Verified] |
 | 067 | `test(google-auth): verify rejection of truncated token strings` | Incomplete tokens fail signature verification. | [Automated Verified] |
+| 068 | `test(google-auth): verify rejection of tampered payload claims` | Modified token bodies fail signature checksum. | [Automated Verified] |
