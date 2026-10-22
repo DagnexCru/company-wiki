@@ -98,3 +98,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 092 | `test(google-auth): verify fallback when Google profile does not provide name` | Leaves full_name blank without raising validation errors. | [Automated Verified] |
 | 093 | `feat(google-auth): set unusable password on Google-provisioned accounts` | Calls set_unusable_password() to block password-based credential stuffing. | [Automated Verified] |
 | 094 | `test(google-auth): verify has_usable_password() is False for Google-provisioned users` | Ensures account cannot be accessed via direct password login. | [Automated Verified] |
+| 095 | `test(google-auth): verify new user is_active defaults to True` | Ensures auto-provisioned accounts can immediately browse documentation. | [Automated Verified] |
