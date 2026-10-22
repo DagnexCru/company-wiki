@@ -158,3 +158,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 152 | `feat(export-md): revoke object URL with URL.revokeObjectURL to prevent memory leaks` | Releases allocated blob URL from browser memory. | [Automated Verified] |
 | 153 | `feat(export-md): add Download Markdown button with .MD label in top action bar` | Quick-access button in article detail header controls. | [Automated Verified] |
 | 154 | `feat(export-md): render Download icon on markdown export button` | Lucide Download icon designates file export capability. | [Automated Verified] |
+| 155 | `style(export-md): style markdown export button with dark theme tokens` | Consistent border, hover elevation, and text color styling. | [Automated Verified] |
