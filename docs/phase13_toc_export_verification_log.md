@@ -134,3 +134,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 128 | `feat(mobile-toc): auto-collapse mobile accordion upon section link click` | Closes accordion after user taps heading to keep article visible. | [Automated Verified] |
 | 129 | `feat(mobile-toc): apply lg:hidden class to mobile accordion container` | Ensures mobile accordion is completely hidden on desktop viewports. | [Automated Verified] |
 | 130 | `feat(mobile-toc): apply hidden lg:block to desktop TOC sidebar` | Ensures desktop sidebar is completely hidden on mobile viewports. | [Automated Verified] |
+| 131 | `feat(mobile-toc): configure responsive flex layout in ArticleDetailPage` | Two-column flex on lg screens (flex-row), single column on mobile (flex-col). | [Automated Verified] |
