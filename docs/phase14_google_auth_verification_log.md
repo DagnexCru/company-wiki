@@ -72,3 +72,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 066 | `test(google-auth): verify rejection of malformed JWT structure` | Non-JWT strings are rejected immediately by Google tokeninfo. | [Automated Verified] |
 | 067 | `test(google-auth): verify rejection of truncated token strings` | Incomplete tokens fail signature verification. | [Automated Verified] |
 | 068 | `test(google-auth): verify rejection of tampered payload claims` | Modified token bodies fail signature checksum. | [Automated Verified] |
+| 069 | `test(google-auth): verify rejection of revoked Google credentials` | Revoked session tokens are identified and barred. | [Automated Verified] |
