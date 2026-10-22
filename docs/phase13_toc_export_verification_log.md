@@ -23,3 +23,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 017 | `test(toc): verify extractHeadings text trimming on extracted titles` | Removes surrounding whitespace from extracted heading labels. | [Automated Verified] |
 | 018 | `test(toc): verify extractHeadings handles headings with trailing markdown hashes` | Correctly handles closed markdown headers like '## Title ##'. | [Automated Verified] |
 | 019 | `test(toc): verify extractHeadings handles headings containing inline links` | Extracts readable anchor text while omitting markdown link syntax. | [Automated Verified] |
+| 020 | `test(toc): verify extractHeadings handles headings containing inline code tags` | Preserves function names inside backticks while stripping backticks for slug. | [Automated Verified] |
