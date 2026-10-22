@@ -85,3 +85,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 079 | `test(google-auth): verify zero plaintext token persistence in database` | Google tokens are verified in-memory and never written to tables. | [Automated Verified] |
 | 080 | `test(google-auth): verify idempotent token verification behavior` | Validating the same token multiple times yields consistent results. | [Automated Verified] |
 | 081 | `feat(google-auth): implement automatic account provisioning for new Google signups` | Automatically registers users presenting valid Google credentials. | [Automated Verified] |
+| 082 | `feat(google-auth): assign READER role to all new Google signups by default` | Enforces least-privilege principle to prevent unauthorized content authoring. | [Automated Verified] |
