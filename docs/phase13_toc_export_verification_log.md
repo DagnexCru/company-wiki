@@ -194,3 +194,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 188 | `test(share): verify copiedLink state automatically resets to false after 2500ms` | Timeout callback restores original Share button state cleanly. | [Automated Verified] |
 | 189 | `test(share): verify share button tooltip explains link sharing capability` | Tooltip: 'Copy direct shareable link'. | [Automated Verified] |
 | 190 | `test(share): verify share button handles clipboard API permissions rejection` | Graceful fallback if clipboard write permission is blocked. | [Automated Verified] |
+| 191 | `test(share): verify export & share buttons grouped in cohesive segmented container` | Buttons nested in rounded-xl container with subtle border. | [Automated Verified] |
