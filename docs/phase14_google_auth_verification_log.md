@@ -116,3 +116,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 110 | `test(google-auth): verify user count increments by exactly 1 upon Google signup` | Database user table count increases by one. | [Automated Verified] |
 | 111 | `feat(google-auth): implement existing user lookup via case-insensitive email match` | Finds existing account via email__iexact query. | [Automated Verified] |
 | 112 | `feat(google-auth): preserve existing user role upon Google sign-in` | Ensures Author, Reviewer, or Admin roles are never demoted or overwritten. | [Automated Verified] |
+| 113 | `test(google-auth): verify existing AUTHOR role preserved upon Google sign-in` | Author account retains full authoring privileges. | [Automated Verified] |
