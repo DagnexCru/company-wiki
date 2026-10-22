@@ -67,3 +67,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 061 | `test(google-auth): verify acceptance of string 'true' email_verified` | Stringified boolean 'true' accepted for robustness. | [Automated Verified] |
 | 062 | `test(google-auth): verify rejection of missing email in token payload` | Raises AuthenticationFailed if Google payload lacks email claim. | [Automated Verified] |
 | 063 | `feat(google-auth): sanitize and lowercase extracted email address` | Normalizes email string to prevent casing collisions. | [Automated Verified] |
+| 064 | `test(google-auth): verify email trimming of leading and trailing whitespace` | Removes accidental whitespace from email address. | [Automated Verified] |
