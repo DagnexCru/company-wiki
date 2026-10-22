@@ -185,3 +185,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 179 | `test(print-css): verify print stylesheet does not affect screen media styles` | All print rules scoped strictly within @media print query. | [Automated Verified] |
 | 180 | `test(print-css): verify PDF export produces clean multi-page document` | PDF renders clean page numbers and margins in Chrome/Edge print engine. | [Automated Verified] |
 | 181 | `feat(share): implement handleCopyShareLink in ArticleDetailPage` | Copies current article URL to system clipboard via navigator.clipboard. | [Automated Verified] |
+| 182 | `feat(share): add copiedLink boolean state for temporary visual feedback` | Tracks copy state and automatically resets after 2.5 seconds. | [Automated Verified] |
