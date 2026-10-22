@@ -90,3 +90,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 084 | `test(scrollspy): verify reading progress is 0% at top of document` | Initial scroll position reports exactly 0%. | [Automated Verified] |
 | 085 | `test(scrollspy): verify reading progress reaches 100% at bottom of document` | Scroll position at document end reports exactly 100%. | [Automated Verified] |
 | 086 | `test(scrollspy): verify reading progress handles window resize events` | Recalculates document scrollHeight when viewport dimensions change. | [Automated Verified] |
+| 087 | `test(scrollspy): verify active heading sync with TOC item highlighting` | Highlighted TOC anchor matches element currently centered in viewport. | [Automated Verified] |
