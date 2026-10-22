@@ -159,3 +159,7 @@ CORS_ALLOWED_ORIGINS = list(
 
 
 CORS_ALLOW_CREDENTIALS = True
+
+# Google OAuth 2.0 Credentials
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", "")

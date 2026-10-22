@@ -1,7 +1,8 @@
+from unittest.mock import patch
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
-from rest_framework.test import APIClient
+from rest_framework.test import APIClient, APITestCase
 from apps.accounts.models import CustomUser
 
 
@@ -317,4 +318,102 @@ class UserManagementRoleTests(TestCase):
         self.assertIn("deactivate", res.data["error"])
         self.admin.refresh_from_db()
         self.assertTrue(self.admin.is_active)
+
+
+class GoogleAuthTests(APITestCase):
+    """
+    Test suite for Google OAuth 2.0 authentication and user auto-provisioning.
+    """
+
+    def setUp(self):
+        self.google_auth_url = reverse("auth-google")
+        self.existing_user = CustomUser.objects.create_user(
+            email="existing@company.com",
+            username="existing_emp",
+            full_name="Existing Employee",
+            role=CustomUser.Role.AUTHOR,
+        )
+
+    def test_google_auth_missing_token(self):
+        """Missing token in request returns HTTP 400 Bad Request."""
+        res = self.client.post(self.google_auth_url, {}, format="json")
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
+    @patch("apps.accounts.views.verify_google_token")
+    def test_google_auth_new_user_provisioning(self, mock_verify):
+        """New Google account automatically provisions as READER and returns JWT tokens."""
+        mock_verify.return_value = {
+            "email": "new.hire@company.com",
+            "name": "New Hire",
+            "sub": "google-sub-12345",
+            "email_verified": True,
+        }
+        res = self.client.post(
+            self.google_auth_url,
+            {"credential": "mock-valid-google-id-token"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(res.data["is_new_user"])
+        self.assertIn("access", res.data)
+        self.assertIn("refresh", res.data)
+        self.assertEqual(res.data["user"]["email"], "new.hire@company.com")
+        self.assertEqual(res.data["user"]["role"], CustomUser.Role.READER)
+
+        # Verify DB entry
+        user = CustomUser.objects.get(email="new.hire@company.com")
+        self.assertEqual(user.role, CustomUser.Role.READER)
+        self.assertEqual(user.full_name, "New Hire")
+        self.assertTrue(user.is_active)
+
+    @patch("apps.accounts.views.verify_google_token")
+    def test_google_auth_existing_user_login(self, mock_verify):
+        """Existing Google account logs in without altering assigned role."""
+        mock_verify.return_value = {
+            "email": "existing@company.com",
+            "name": "Existing Employee",
+            "sub": "google-sub-99999",
+            "email_verified": True,
+        }
+        res = self.client.post(
+            self.google_auth_url,
+            {"id_token": "mock-valid-google-id-token"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertFalse(res.data["is_new_user"])
+        self.assertEqual(res.data["user"]["role"], CustomUser.Role.AUTHOR)
+
+    @patch("apps.accounts.views.verify_google_token")
+    def test_google_auth_deactivated_user_blocked(self, mock_verify):
+        """Deactivated accounts are rejected with HTTP 403 Forbidden."""
+        self.existing_user.is_active = False
+        self.existing_user.save()
+
+        mock_verify.return_value = {
+            "email": "existing@company.com",
+            "name": "Existing Employee",
+            "sub": "google-sub-99999",
+            "email_verified": True,
+        }
+        res = self.client.post(
+            self.google_auth_url,
+            {"credential": "mock-valid-google-id-token"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertIn("deactivated", res.data["detail"].lower())
+
+    @patch("apps.accounts.views.verify_google_token")
+    def test_google_auth_invalid_token_rejected(self, mock_verify):
+        """Invalid or expired Google tokens raise HTTP 401 AuthenticationFailed."""
+        from rest_framework.exceptions import AuthenticationFailed
+        mock_verify.side_effect = AuthenticationFailed("Google token verification failed.")
+
+        res = self.client.post(
+            self.google_auth_url,
+            {"credential": "mock-invalid-token"},
+            format="json",
+        )
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 

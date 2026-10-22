@@ -18,7 +18,9 @@ from apps.accounts.serializers import (
     UserStatusUpdateSerializer,
     CustomTokenObtainPairSerializer,
     LogoutSerializer,
+    GoogleAuthSerializer,
 )
+from apps.accounts.google_auth import verify_google_token
 from apps.audit.models import AuditEvent
 from apps.audit.services import log_audit_event
 
@@ -92,6 +94,104 @@ class CustomLoginView(TokenObtainPairView):
                     request=request,
                 )
         return response
+
+
+class GoogleAuthView(APIView):
+    """
+    Authenticate or register an internal user via Google OAuth 2.0 / Google Identity Services.
+    POST /api/v1/auth/google/
+    """
+
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = GoogleAuthSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        raw_token = serializer.validated_data["token"]
+
+        payload = verify_google_token(raw_token)
+        email = payload.get("email", "").lower().strip()
+        full_name = payload.get("name", "").strip()
+
+        user = CustomUser.objects.filter(email__iexact=email).first()
+        is_new_user = False
+
+        if user:
+            if not user.is_active:
+                return Response(
+                    {
+                        "error": "Account deactivated",
+                        "detail": "This user account has been deactivated. Please contact an administrator.",
+                    },
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+            if full_name and not user.full_name:
+                user.full_name = full_name
+                user.save(update_fields=["full_name", "updated_at"])
+
+            log_audit_event(
+                action=AuditEvent.Action.AUTH_LOGIN,
+                resource_type="auth",
+                actor=user,
+                resource_id=user.id,
+                resource_name=user.username,
+                details={"email": user.email, "provider": "google", "role": user.role},
+                request=request,
+            )
+        else:
+            is_new_user = True
+            # Derive unique username from email prefix
+            base_username = email.split("@")[0]
+            clean_username = "".join(c for c in base_username if c.isalnum() or c == "_")
+            if len(clean_username) < 3:
+                clean_username = f"user_{clean_username}"
+
+            candidate_username = clean_username
+            suffix = 1
+            while CustomUser.objects.filter(username__iexact=candidate_username).exists():
+                candidate_username = f"{clean_username[:140]}_{suffix}"
+                suffix += 1
+
+            user = CustomUser.objects.create_user(
+                email=email,
+                username=candidate_username,
+                full_name=full_name,
+                role=CustomUser.Role.READER,
+            )
+
+            log_audit_event(
+                action=AuditEvent.Action.USER_REGISTER,
+                resource_type="user",
+                actor=user,
+                resource_id=user.id,
+                resource_name=user.username,
+                details={"email": user.email, "provider": "google", "role": user.role},
+                request=request,
+            )
+
+        # Generate SimpleJWT tokens
+        refresh = RefreshToken.for_user(user)
+        refresh["email"] = user.email
+        refresh["username"] = user.username
+        refresh["role"] = user.role
+        refresh["full_name"] = user.full_name
+
+        user_data = UserSerializer(user).data
+
+        return Response(
+            {
+                "message": (
+                    "New account created and signed in with Google successfully."
+                    if is_new_user
+                    else "Signed in with Google successfully."
+                ),
+                "user": user_data,
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
+                "is_new_user": is_new_user,
+            },
+            status=status.HTTP_201_CREATED if is_new_user else status.HTTP_200_OK,
+        )
 
 
 class CustomTokenRefreshView(TokenRefreshView):

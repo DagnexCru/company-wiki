@@ -172,3 +172,20 @@ class LogoutSerializer(serializers.Serializer):
 
     refresh = serializers.CharField(required=True)
 
+
+class GoogleAuthSerializer(serializers.Serializer):
+    """
+    Serializer to validate incoming Google ID token or credential payload.
+    Supports either 'credential' (Google Identity Services GIS) or 'id_token'.
+    """
+
+    credential = serializers.CharField(required=False, allow_blank=True)
+    id_token = serializers.CharField(required=False, allow_blank=True)
+
+    def validate(self, attrs):
+        token = attrs.get("credential") or attrs.get("id_token")
+        if not token or not token.strip():
+            raise serializers.ValidationError("Either 'credential' or 'id_token' is required.")
+        attrs["token"] = token.strip()
+        return attrs
+

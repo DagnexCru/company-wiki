@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   Shield,
 } from "lucide-react";
+import { GoogleSignInButton } from "../components/GoogleSignInButton";
 
 export const RegisterPage = () => {
   const [fullName, setFullName] = useState("");
@@ -320,6 +321,18 @@ export const RegisterPage = () => {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
+
+            {/* Divider */}
+            <div className="relative flex items-center justify-center my-1">
+              <div className="border-t border-slate-700/80 w-full" />
+              <span className="bg-slate-800/90 px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider shrink-0">
+                Or continue with
+              </span>
+              <div className="border-t border-slate-700/80 w-full" />
+            </div>
+
+            {/* Google Sign-Up Button */}
+            <GoogleSignInButton mode="signup" />
           </div>
 
           {/* Login Navigation Link */}

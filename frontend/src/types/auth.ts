@@ -37,6 +37,7 @@ export interface AuthResponse {
   user: User;
   access: string;
   refresh: string;
+  is_new_user?: boolean;
 }
 
 export interface AuthContextType {
@@ -44,8 +45,10 @@ export interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (credentials: LoginCredentials) => Promise<void>;
+  loginWithGoogle: (credential: string) => Promise<AuthResponse>;
   register: (data: RegisterData) => Promise<void>;
   logout: () => Promise<void>;
   error: string | null;
   clearError: () => void;
 }
+

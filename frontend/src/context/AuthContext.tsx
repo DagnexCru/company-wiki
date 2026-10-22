@@ -48,6 +48,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const loginWithGoogle = async (credential: string) => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      const response = await authService.loginWithGoogle(credential);
+      setUser(response.user);
+      return response;
+    } catch (err: any) {
+      const message =
+        err.response?.data?.detail ||
+        err.response?.data?.error ||
+        err.response?.data?.message ||
+        "Google authentication failed. Please try again.";
+      setError(message);
+      throw new Error(message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const register = async (data: RegisterData) => {
     setError(null);
     setIsLoading(true);
@@ -91,6 +111,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         isAuthenticated: !!user,
         isLoading,
         login,
+        loginWithGoogle,
         register,
         logout,
         error,
