@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -14,6 +14,10 @@ import {
   CheckSquare,
   History,
   AlertTriangle,
+  Printer,
+  Download,
+  Share2,
+  Check,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -24,6 +28,8 @@ import { WorkflowStatusBadge } from "../components/WorkflowStatusBadge";
 import { SubmitReviewModal } from "../components/SubmitReviewModal";
 import { ReviewModal } from "../components/ReviewModal";
 import { ReviewTimeline } from "../components/ReviewTimeline";
+import { TableOfContents } from "../components/TableOfContents";
+import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
 
@@ -40,6 +46,11 @@ export const ArticleDetailPage: React.FC = () => {
   const [actionSuccess, setActionSuccess] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+
+  // Table of Contents & Reading Progress States
+  const [activeHeadingId, setActiveHeadingId] = useState<string>("");
+  const [readingProgress, setReadingProgress] = useState<number>(0);
+  const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
   // Workflow Modal States
   const [showSubmitModal, setShowSubmitModal] = useState<boolean>(false);
@@ -79,6 +90,85 @@ export const ArticleDetailPage: React.FC = () => {
   useEffect(() => {
     fetchArticle();
   }, [fetchArticle]);
+
+  // Extract table of contents headings
+  const headings = useMemo(() => {
+    return article ? extractHeadings(article.content) : [];
+  }, [article?.content]);
+
+  // Scroll listener for reading progress bar and active heading scroll-spy
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+      setReadingProgress(progress);
+
+      // Determine active heading
+      if (headings.length > 0) {
+        let currentActive = headings[0].id;
+        for (const h of headings) {
+          const el = document.getElementById(h.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 140) {
+              currentActive = h.id;
+            }
+          }
+        }
+        setActiveHeadingId(currentActive);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headings]);
+
+  const handleDownloadMarkdown = () => {
+    if (!article) return;
+    const frontmatter = [
+      "---",
+      `title: "${article.title}"`,
+      `slug: "${article.slug}"`,
+      `author: "${article.author.full_name || article.author.username}"`,
+      `status: "${article.status}"`,
+      `estimated_read_time: ${article.estimated_read_time}`,
+      article.category ? `category: "${article.category.name}"` : null,
+      article.tags && article.tags.length > 0
+        ? `tags: [${article.tags.map((t) => `"${t.name}"`).join(", ")}]`
+        : null,
+      `last_updated: "${article.updated_at}"`,
+      "---",
+      "",
+      `# ${article.title}`,
+      "",
+      article.summary ? `> ${article.summary}\n` : "",
+      article.content,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const blob = new Blob([frontmatter], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${article.slug}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleCopyShareLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 2500);
+  };
 
   const canModify =
     user && article && (user.role === "ADMIN" || user.id === article.author.id);
@@ -168,7 +258,17 @@ export const ArticleDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-2 space-y-8 animate-in fade-in duration-300">
+    <div className="max-w-6xl mx-auto py-2 space-y-8 animate-in fade-in duration-300 relative">
+      {/* Pinned Top Reading Progress Bar */}
+      <div
+        className="reading-progress-bar fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 transition-all duration-150 ease-out pointer-events-none"
+        style={{ width: `${readingProgress}%` }}
+        role="progressbar"
+        aria-valuenow={Math.round(readingProgress)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      />
+
       {/* Top Bar with Navigation and Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
         <Link
@@ -180,6 +280,48 @@ export const ArticleDetailPage: React.FC = () => {
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center gap-2">
+          {/* Export & Sharing Suite */}
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
+            <button
+              type="button"
+              onClick={handleCopyShareLink}
+              title="Copy direct shareable link"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
+            >
+              {copiedLink ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-500 animate-in zoom-in duration-200" />
+                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleDownloadMarkdown}
+              title="Download clean Markdown with metadata frontmatter"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
+            >
+              <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+              <span>.MD</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handlePrint}
+              title="Print or export as clean PDF"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
+            >
+              <Printer className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+              <span>Print / PDF</span>
+            </button>
+          </div>
+
           {/* Submit for Review Button (Draft or Rejected by author) */}
           {canSubmit && (article.status === "draft" || article.status === "rejected") && (
             <button
@@ -357,28 +499,44 @@ export const ArticleDetailPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Document Content */}
-      <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
-        <MarkdownViewer content={article.content} />
-      </article>
+      {/* Article Body & Table of Contents Responsive Two-Column Layout */}
+      <div className="flex flex-col lg:flex-row items-start gap-8">
+        <div className="flex-1 min-w-0 space-y-8 w-full order-2 lg:order-1">
+          {/* Main Document Content */}
+          <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
+            <MarkdownViewer content={article.content} />
+          </article>
 
-      {/* Review History Section (Visible to Author, Reviewers, and Admins) */}
-      {(user?.role === "ADMIN" || user?.role === "REVIEWER" || isAuthor) && (
-        <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 md:p-8 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
-            <div className="flex items-center gap-2.5">
-              <History className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                Editorial Review History & Audit Trail
-              </h3>
-            </div>
-            <span className="text-xs text-slate-400">
-              {reviews.length} recorded events
-            </span>
+          {/* Review History Section (Visible to Author, Reviewers, and Admins) */}
+          {(user?.role === "ADMIN" || user?.role === "REVIEWER" || isAuthor) && (
+            <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 md:p-8 shadow-xs space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <History className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    Editorial Review History & Audit Trail
+                  </h3>
+                </div>
+                <span className="text-xs text-slate-400">
+                  {reviews.length} recorded events
+                </span>
+              </div>
+              <ReviewTimeline records={reviews} isLoading={loadingReviews} />
+            </section>
+          )}
+        </div>
+
+        {/* Table of Contents (handles mobile accordion + sticky desktop sidebar) */}
+        {headings.length > 0 && (
+          <div className="w-full lg:w-64 shrink-0 order-1 lg:order-2">
+            <TableOfContents
+              headings={headings}
+              activeId={activeHeadingId}
+              readingProgress={readingProgress}
+            />
           </div>
-          <ReviewTimeline records={reviews} isLoading={loadingReviews} />
-        </section>
-      )}
+        )}
+      </div>
 
       {/* Submit for Review Modal */}
       {showSubmitModal && (

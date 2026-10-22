@@ -1,4 +1,5 @@
 import React from "react";
+import { slugifyHeading } from "../utils/headingUtils";
 
 interface MarkdownViewerProps {
   content: string;
@@ -63,25 +64,33 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
 
     // Headings
     if (line.startsWith("# ")) {
+      const headingText = line.slice(2).trim();
+      const id = slugifyHeading(headingText);
       elements.push(
-        <h1 key={index} className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-6 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800">
-          {renderInline(line.slice(2))}
+        <h1 key={index} id={id} className="scroll-mt-24 text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-6 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800 group">
+          {renderInline(headingText)}
         </h1>
       );
       return;
     }
     if (line.startsWith("## ")) {
+      const headingText = line.slice(3).trim();
+      const id = slugifyHeading(headingText);
       elements.push(
-        <h2 key={index} className="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-100 mt-5 mb-2.5">
-          {renderInline(line.slice(3))}
+        <h2 key={index} id={id} className="scroll-mt-24 text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-100 mt-6 mb-2.5 flex items-center justify-between group">
+          <span>{renderInline(headingText)}</span>
+          <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-indigo-400 text-sm transition-opacity ml-2">#</a>
         </h2>
       );
       return;
     }
     if (line.startsWith("### ")) {
+      const headingText = line.slice(4).trim();
+      const id = slugifyHeading(headingText);
       elements.push(
-        <h3 key={index} className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-2">
-          {renderInline(line.slice(4))}
+        <h3 key={index} id={id} className="scroll-mt-24 text-lg font-semibold text-slate-800 dark:text-slate-200 mt-5 mb-2 flex items-center justify-between group">
+          <span>{renderInline(headingText)}</span>
+          <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-indigo-400 text-xs transition-opacity ml-2">#</a>
         </h3>
       );
       return;
