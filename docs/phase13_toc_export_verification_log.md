@@ -80,3 +80,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 074 | `feat(scrollspy): determine active heading via getBoundingClientRect.top` | Identifies highest section header within 140px of viewport top. | [Automated Verified] |
 | 075 | `feat(scrollspy): default active heading to first section at document top` | Ensures first section highlights immediately when reading begins. | [Automated Verified] |
 | 076 | `feat(scrollspy): highlight last heading when scrolled to bottom of document` | Transitions active indicator to final section upon reaching article footer. | [Automated Verified] |
+| 077 | `feat(scrollspy): remove scroll event listener on component unmount` | Prevents memory leaks when navigating away from article. | [Automated Verified] |
