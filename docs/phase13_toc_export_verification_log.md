@@ -172,3 +172,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 166 | `feat(print-css): hide application sidebar in print media (aside, .sidebar)` | Suppresses left navigation sidebar from printed pages. | [Automated Verified] |
 | 167 | `feat(print-css): hide table of contents in print media (.no-print, TableOfContents)` | Suppresses desktop TOC and mobile accordion from print output. | [Automated Verified] |
 | 168 | `feat(print-css): hide action buttons in print media (button, .no-print)` | Suppresses Edit, Delete, Submit, and Export buttons from print output. | [Automated Verified] |
+| 169 | `feat(print-css): hide reading progress bar in print media (.reading-progress-bar)` | Suppresses top progress bar from printed output. | [Automated Verified] |
