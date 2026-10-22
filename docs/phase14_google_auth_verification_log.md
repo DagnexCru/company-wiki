@@ -69,3 +69,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 063 | `feat(google-auth): sanitize and lowercase extracted email address` | Normalizes email string to prevent casing collisions. | [Automated Verified] |
 | 064 | `test(google-auth): verify email trimming of leading and trailing whitespace` | Removes accidental whitespace from email address. | [Automated Verified] |
 | 065 | `test(google-auth): verify token expiration enforcement via Google tokeninfo` | Google tokeninfo endpoint rejects expired tokens with HTTP 400. | [Automated Verified] |
+| 066 | `test(google-auth): verify rejection of malformed JWT structure` | Non-JWT strings are rejected immediately by Google tokeninfo. | [Automated Verified] |
