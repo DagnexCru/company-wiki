@@ -64,3 +64,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 058 | `feat(google-auth): validate email_verified claim is True` | Mandates that Google has confirmed email ownership. | [Automated Verified] |
 | 059 | `test(google-auth): verify rejection of unverified Google email (email_verified=false)` | Rejects accounts where email verification has not been completed. | [Automated Verified] |
 | 060 | `test(google-auth): verify acceptance of boolean True email_verified` | Standard boolean True accepted. | [Automated Verified] |
+| 061 | `test(google-auth): verify acceptance of string 'true' email_verified` | Stringified boolean 'true' accepted for robustness. | [Automated Verified] |
