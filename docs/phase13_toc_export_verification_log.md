@@ -102,3 +102,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 096 | `feat(progress): add top-pinned reading progress bar to ArticleDetailPage` | Fixed top-0 horizontal bar spanning full viewport width. | [Automated Verified] |
 | 097 | `feat(progress): style reading progress bar with multi-color gradient` | Gradient: from-indigo-500 via-purple-500 to-pink-500. | [Automated Verified] |
 | 098 | `feat(progress): set reading progress bar height to h-1 (4px)` | Slim 4px profile provides clear visual cue without obscuring content. | [Automated Verified] |
+| 099 | `feat(progress): set reading progress bar z-index to z-50` | Floats above page content but below system modals. | [Automated Verified] |
