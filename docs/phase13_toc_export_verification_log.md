@@ -138,3 +138,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 132 | `feat(mobile-toc): set mobile order-1 on TOC container to render above article` | Mobile users see table of contents immediately before article text. | [Automated Verified] |
 | 133 | `feat(mobile-toc): set desktop lg:order-2 on TOC container for right sidebar` | Desktop users see table of contents docked on the right side. | [Automated Verified] |
 | 134 | `feat(mobile-toc): set mobile order-2 and desktop lg:order-1 on article container` | Article content takes primary left position on desktop. | [Automated Verified] |
+| 135 | `feat(mobile-toc): add no-print class to mobile accordion container` | Mobile accordion is suppressed in print media. | [Automated Verified] |
