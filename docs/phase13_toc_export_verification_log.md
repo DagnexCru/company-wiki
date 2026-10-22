@@ -177,3 +177,4 @@ Comprehensive verification log documenting all 210 verified invariants for Optio
 | 171 | `feat(print-css): reset text color to solid black (#111827) for print` | High-contrast typography for crisp text printing. | [Automated Verified] |
 | 172 | `feat(print-css): remove background colors, shadows, and borders from article container` | Article renders as clean continuous document without card borders. | [Automated Verified] |
 | 173 | `feat(print-css): configure page-break-inside avoid on code blocks and tables` | Prevents code snippets and tables from splitting awkwardly across pages. | [Automated Verified] |
+| 174 | `feat(print-css): configure page-break-after avoid on h1, h2, h3 headings` | Prevents orphan headings at the bottom of printed pages. | [Automated Verified] |
