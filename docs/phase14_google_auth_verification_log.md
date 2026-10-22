@@ -130,3 +130,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 124 | `feat(google-auth): return HTTP 200 OK on existing user authentication` | Adheres to RESTful convention for successful authentication. | [Automated Verified] |
 | 125 | `test(google-auth): verify existing user password remains intact upon Google sign-in` | Users with existing local passwords retain their password hash. | [Automated Verified] |
 | 126 | `test(google-auth): verify existing user can sign in via both password and Google` | Dual-authentication capability for accounts matching corporate email. | [Automated Verified] |
+| 127 | `test(google-auth): verify user last_login timestamp updates on Google sign-in` | SimpleJWT UPDATE_LAST_LOGIN updates record. | [Automated Verified] |
