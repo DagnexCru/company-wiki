@@ -149,3 +149,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 143 | `test(jwt-google): verify access token expiration matches 60-minute lifetime` | Token exp claim aligns with settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME']. | [Automated Verified] |
 | 144 | `test(jwt-google): verify refresh token expiration matches 7-day lifetime` | Token exp claim aligns with settings.SIMPLE_JWT['REFRESH_TOKEN_LIFETIME']. | [Automated Verified] |
 | 145 | `test(jwt-google): verify access token verifies with SECRET_KEY signing key` | HMAC-SHA256 signature validates cleanly against SECRET_KEY. | [Automated Verified] |
+| 146 | `test(jwt-google): verify access token grants access to protected /api/v1/articles/ endpoints` | Bearer token authorizes protected API requests. | [Automated Verified] |
