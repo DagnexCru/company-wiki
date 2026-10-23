@@ -160,3 +160,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 154 | `test(jwt-google): verify expired access token rejection with 401 Unauthorized` | Guards API against stale session tokens. | [Automated Verified] |
 | 155 | `test(jwt-google): verify frontend tokenStorage.setTokens stores access and refresh tokens` | Stores JWT tokens in browser secure storage. | [Automated Verified] |
 | 156 | `test(jwt-google): verify frontend tokenStorage.getAccessToken retrieves active token` | Provides token for Axios request interceptor. | [Automated Verified] |
+| 157 | `test(jwt-google): verify Axios interceptor attaches Bearer token to API requests` | Outgoing HTTP requests include Authorization: Bearer <access_token>. | [Automated Verified] |
