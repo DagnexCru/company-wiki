@@ -229,3 +229,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 223 | `test(login-page): verify error alert banner displays Google verification failure` | Surfaces server error messages in high-contrast alert box. | [Automated Verified] |
 | 224 | `test(register-page): verify Google signup navigates to /dashboard with READER role` | New users land on dashboard with appropriate Reader view. | [Automated Verified] |
 | 225 | `test(register-page): verify error alert banner displays Google registration failure` | Surfaces registration errors gracefully. | [Automated Verified] |
+| 226 | `test(e2e-google): verify end-to-end Google authentication flow from frontend to backend` | Validates complete sequence from button click to JWT session. | [Automated Verified] |
