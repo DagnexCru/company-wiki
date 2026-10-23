@@ -213,3 +213,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 207 | `style(google-btn): render Lucide Loader2 spinner during token verification` | Animated spinning indicator with brand-400 accent color. | [Automated Verified] |
 | 208 | `style(google-btn): render 'Verifying with Google...' label during processing` | Clear progress communication while contacting server. | [Automated Verified] |
 | 209 | `style(google-btn): render 'Sign in with Google' label when mode='signin'` | Standard sign-in label for login page. | [Automated Verified] |
+| 210 | `style(google-btn): render 'Sign up with Google' label when mode='signup'` | Standard onboarding label for registration page. | [Automated Verified] |
