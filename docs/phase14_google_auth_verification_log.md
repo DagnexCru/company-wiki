@@ -141,3 +141,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 135 | `test(google-auth): verify existing user articles and revisions remain properly linked` | Foreign key relationships remain fully intact. | [Automated Verified] |
 | 136 | `feat(jwt-google): generate SimpleJWT RefreshToken for authenticated Google user` | Creates cryptographically signed refresh token. | [Automated Verified] |
 | 137 | `feat(jwt-google): generate SimpleJWT AccessToken from user refresh token` | Creates standard 60-minute access token for API authorization. | [Automated Verified] |
+| 138 | `feat(jwt-google): embed user email claim in JWT token payload` | Includes token['email'] = user.email in JWT claims. | [Automated Verified] |
