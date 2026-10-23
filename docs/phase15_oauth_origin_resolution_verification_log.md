@@ -42,3 +42,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 036 | `test(gis): verify prompt moment listener detects unshown prompt states` | Monitors when One Tap is skipped or blocked by browser. | [Automated Verified] |
 | 037 | `test(gis): verify prompt dismissal recovery via rendered button click` | Users can click standard button if One Tap notification is closed. | [Automated Verified] |
 | 038 | `test(gis): verify GIS script polling interval cleanup on component unmount` | Clears setInterval timer to guarantee 0 memory leaks. | [Automated Verified] |
+| 039 | `test(gis): verify GIS script cache across client-side route transitions` | Reuses pre-loaded Google SDK without redundant script fetching. | [Automated Verified] |
