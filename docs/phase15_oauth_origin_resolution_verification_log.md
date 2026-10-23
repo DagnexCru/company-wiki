@@ -30,3 +30,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 024 | `feat(gis): configure left logo alignment on rendered Google button` | Positions authentic Google G icon prominently on the left. | [Automated Verified] |
 | 025 | `feat(gis): configure outline theme on rendered Google button` | Matches dark glassmorphic container aesthetics. | [Automated Verified] |
 | 026 | `feat(gis): set cancel_on_tap_outside to true for GIS prompt` | Prevents modal lockups if user taps outside account prompt. | [Automated Verified] |
+| 027 | `test(gis): verify GIS client library handles window.location.origin extraction` | Google SDK reads protocol and host from parent window. | [Automated Verified] |
