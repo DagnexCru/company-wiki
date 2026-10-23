@@ -33,3 +33,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 027 | `test(gis): verify GIS client library handles window.location.origin extraction` | Google SDK reads protocol and host from parent window. | [Automated Verified] |
 | 028 | `test(gis): verify Google popup receives valid origin header in postMessage` | PostMessage handshake validates origin between popup and opener. | [Automated Verified] |
 | 029 | `test(gis): verify rejection of unauthorized origin by Google authorization server` | Google returns error 400 origin_mismatch when origin is unregistered. | [Automated Verified] |
+| 030 | `test(gis): verify acceptance of registered origin http://localhost:5173` | Google authorization server accepts requests from port 5173. | [Automated Verified] |
