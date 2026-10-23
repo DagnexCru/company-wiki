@@ -96,3 +96,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 090 | `test(error-handling): verify double-click prevention on Google sign-in button` | Ignores redundant clicks while authentication is pending. | [Automated Verified] |
 | 091 | `test(error-handling): verify error notification styling matches brand design system` | Uses rose-950 background with rose-800 border and rose-200 text. | [Automated Verified] |
 | 092 | `test(error-handling): verify zero unhandled Promise rejections in AuthContext` | All async operations contained in try/catch blocks. | [Automated Verified] |
+| 093 | `test(error-handling): verify error boundary catches unexpected component exceptions` | React error boundary prevents whole-page crashes. | [Automated Verified] |
