@@ -28,3 +28,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 022 | `feat(gis): render official Google button iframe directly in DOM` | Mounts secure Google iframe for native OAuth popup handling. | [Automated Verified] |
 | 023 | `feat(gis): configure rectangular button shape with width 380px` | Provides full-width enterprise touch target for authentication. | [Automated Verified] |
 | 024 | `feat(gis): configure left logo alignment on rendered Google button` | Positions authentic Google G icon prominently on the left. | [Automated Verified] |
+| 025 | `feat(gis): configure outline theme on rendered Google button` | Matches dark glassmorphic container aesthetics. | [Automated Verified] |
