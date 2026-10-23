@@ -68,3 +68,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 062 | `feat(security): configure Cross-Origin-Embedder-Policy headers` | Maintains high-security isolation without blocking Google iframe. | [Automated Verified] |
 | 063 | `feat(security): configure Referrer-Policy strict-origin-when-cross-origin` | Protects sensitive URL parameters while providing origin to Google. | [Automated Verified] |
 | 064 | `test(security): verify Google popup opener reference remains intact` | Prevents window.closed polling race conditions. | [Automated Verified] |
+| 065 | `test(security): verify third-party cookie blocking mitigation in modern browsers` | GIS credential flow functions seamlessly under partitioned cookies. | [Automated Verified] |
