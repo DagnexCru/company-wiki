@@ -163,3 +163,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 157 | `test(jwt-google): verify Axios interceptor attaches Bearer token to API requests` | Outgoing HTTP requests include Authorization: Bearer <access_token>. | [Automated Verified] |
 | 158 | `test(jwt-google): verify Axios 401 response interceptor attempts token refresh` | Automatically refreshes session when access token expires. | [Automated Verified] |
 | 159 | `test(jwt-google): verify frontend session termination and redirect on refresh failure` | Clears tokens and redirects to /login if refresh fails. | [Automated Verified] |
+| 160 | `test(jwt-google): verify localStorage wiki_user synchronization with JWT claims` | Cached user profile matches embedded token claims. | [Automated Verified] |
