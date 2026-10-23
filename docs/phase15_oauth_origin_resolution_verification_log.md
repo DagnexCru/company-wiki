@@ -86,3 +86,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 080 | `test(security): verify Content Security Policy allows *.google.com frame-src` | Permits Google OAuth authentication iframe rendering. | [Automated Verified] |
 | 081 | `feat(error-handling): implement user-friendly error banners for OAuth origin mismatches` | Explains origin error in plain language with corrective steps. | [Automated Verified] |
 | 082 | `feat(error-handling): catch popup closed by user events gracefully` | Resets loading spinner without showing disruptive error alerts. | [Automated Verified] |
+| 083 | `feat(error-handling): catch network timeout errors during Google verification` | Offers retry action if internet connection drops. | [Automated Verified] |
