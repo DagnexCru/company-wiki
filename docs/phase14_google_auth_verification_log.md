@@ -144,3 +144,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 138 | `feat(jwt-google): embed user email claim in JWT token payload` | Includes token['email'] = user.email in JWT claims. | [Automated Verified] |
 | 139 | `feat(jwt-google): embed user username claim in JWT token payload` | Includes token['username'] = user.username in JWT claims. | [Automated Verified] |
 | 140 | `feat(jwt-google): embed user role claim in JWT token payload` | Includes token['role'] = user.role in JWT claims. | [Automated Verified] |
+| 141 | `feat(jwt-google): embed user full_name claim in JWT token payload` | Includes token['full_name'] = user.full_name in JWT claims. | [Automated Verified] |
