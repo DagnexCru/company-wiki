@@ -54,3 +54,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 048 | `style(ui-diag): add smooth fade-in animation on diagnostic banner expansion` | Snappy 200ms ease-in disclosure transition. | [Automated Verified] |
 | 049 | `style(ui-diag): style origin code box with font-mono and brand-300 accent` | High-contrast monospace presentation of the URI. | [Automated Verified] |
 | 050 | `style(ui-diag): apply hover state to copy button (bg-slate-800 hover:bg-slate-700)` | Tactile button feedback for interactive controls. | [Automated Verified] |
+| 051 | `test(ui-diag): verify toggle state switches showOriginHelp on user click` | Expands and collapses diagnostic panel reliably. | [Automated Verified] |
