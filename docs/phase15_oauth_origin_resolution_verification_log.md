@@ -98,3 +98,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 092 | `test(error-handling): verify zero unhandled Promise rejections in AuthContext` | All async operations contained in try/catch blocks. | [Automated Verified] |
 | 093 | `test(error-handling): verify error boundary catches unexpected component exceptions` | React error boundary prevents whole-page crashes. | [Automated Verified] |
 | 094 | `test(error-handling): verify Google SDK failure fallback to standard email/password login` | Users can always sign in with credentials if Google is unreachable. | [Automated Verified] |
+| 095 | `test(error-handling): verify password toggle visibility remains unaffected` | Password input field functionality remains intact. | [Automated Verified] |
