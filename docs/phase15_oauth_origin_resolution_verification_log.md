@@ -47,3 +47,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 041 | `feat(ui-diag): add origin configuration diagnostic helper in GoogleSignInButton` | Provides expandable troubleshooting panel directly below Google button. | [Automated Verified] |
 | 042 | `feat(ui-diag): display active window origin in diagnostic helper` | Shows exact current origin (e.g. http://localhost:5173). | [Automated Verified] |
 | 043 | `feat(ui-diag): implement copy-to-clipboard button for active origin URI` | One-click copy enables instant pasting into Google Cloud Console. | [Automated Verified] |
+| 044 | `feat(ui-diag): add visual checkmark confirmation on origin copy success` | Displays 'Copied!' toast with emerald check icon for 2.5 seconds. | [Automated Verified] |
