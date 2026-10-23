@@ -32,3 +32,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 026 | `feat(gis): set cancel_on_tap_outside to true for GIS prompt` | Prevents modal lockups if user taps outside account prompt. | [Automated Verified] |
 | 027 | `test(gis): verify GIS client library handles window.location.origin extraction` | Google SDK reads protocol and host from parent window. | [Automated Verified] |
 | 028 | `test(gis): verify Google popup receives valid origin header in postMessage` | PostMessage handshake validates origin between popup and opener. | [Automated Verified] |
+| 029 | `test(gis): verify rejection of unauthorized origin by Google authorization server` | Google returns error 400 origin_mismatch when origin is unregistered. | [Automated Verified] |
