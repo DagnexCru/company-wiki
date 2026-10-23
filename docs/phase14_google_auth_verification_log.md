@@ -212,3 +212,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 206 | `style(google-btn): apply logo scale micro-animation (group-hover:scale-110)` | Google 'G' icon gently scales up on parent hover. | [Automated Verified] |
 | 207 | `style(google-btn): render Lucide Loader2 spinner during token verification` | Animated spinning indicator with brand-400 accent color. | [Automated Verified] |
 | 208 | `style(google-btn): render 'Verifying with Google...' label during processing` | Clear progress communication while contacting server. | [Automated Verified] |
+| 209 | `style(google-btn): render 'Sign in with Google' label when mode='signin'` | Standard sign-in label for login page. | [Automated Verified] |
