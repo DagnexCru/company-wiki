@@ -191,3 +191,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 185 | `feat(frontend-gis): implement prompt/One Tap trigger on custom button click` | Invokes window.google.accounts.id.prompt() on button activation. | [Automated Verified] |
 | 186 | `feat(frontend-gis): implement fallback click to hidden button when One Tap is skipped` | Ensures Google account chooser popup opens reliably. | [Automated Verified] |
 | 187 | `feat(frontend-gis): handle GIS credential callback with response.credential token` | Extracts Google ID token string from credential callback. | [Automated Verified] |
+| 188 | `feat(frontend-gis): implement loginWithGoogle in authService.ts` | Dispatches POST /auth/google/ request with { credential } payload. | [Automated Verified] |
