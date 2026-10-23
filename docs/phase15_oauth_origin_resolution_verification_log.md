@@ -105,3 +105,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 099 | `test(error-handling): verify form auto-fill behavior with Google credentials` | Browser password managers interact smoothly with auth inputs. | [Automated Verified] |
 | 100 | `test(error-handling): verify user session timeout redirects to /login` | Expired sessions navigate cleanly back to login page. | [Automated Verified] |
 | 101 | `test(build): verify frontend production bundle compilation with tsc -b and vite build` | Compiles cleanly with zero TypeScript errors. | [Automated Verified] |
+| 102 | `test(build): verify zero unused variables or imports in GoogleSignInButton` | Complies with strict noUnusedLocals TypeScript config. | [Automated Verified] |
