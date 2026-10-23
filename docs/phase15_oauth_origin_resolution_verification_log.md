@@ -66,3 +66,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 060 | `test(ui-diag): verify keyboard focus order includes diagnostic toggle and copy button` | Accessible via Tab navigation. | [Automated Verified] |
 | 061 | `feat(security): configure Cross-Origin-Opener-Policy compliance for OAuth popups` | Ensures popup window communicates authorization response back to opener. | [Automated Verified] |
 | 062 | `feat(security): configure Cross-Origin-Embedder-Policy headers` | Maintains high-security isolation without blocking Google iframe. | [Automated Verified] |
+| 063 | `feat(security): configure Referrer-Policy strict-origin-when-cross-origin` | Protects sensitive URL parameters while providing origin to Google. | [Automated Verified] |
