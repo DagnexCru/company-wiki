@@ -115,3 +115,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 109 | `docs(guide): compile complete Google OAuth origin troubleshooting guide` | Detailed guide saved in docs/google_oauth_origin_troubleshooting_guide.md. | [Automated Verified] |
 | 110 | `docs(guide): record Google Cloud Console step-by-step navigation in documentation` | Step-by-step instructions with direct console URLs. | [Automated Verified] |
 | 111 | `docs(guide): record Authorized JavaScript origins list in documentation` | Lists all 4 required development URLs. | [Automated Verified] |
+| 112 | `docs(guide): document Google Cloud Console caching delay notice (30s-5m)` | Informs developers of propagation latency. | [Automated Verified] |
