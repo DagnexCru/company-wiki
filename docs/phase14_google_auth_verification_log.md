@@ -176,3 +176,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 170 | `test(audit-google): verify actor foreign key linked to authenticated user` | Audit record references CustomUser instance. | [Automated Verified] |
 | 171 | `test(audit-google): verify resource_type set to 'auth' for login events` | Categorizes audit record under authentication domain. | [Automated Verified] |
 | 172 | `test(audit-google): verify resource_type set to 'user' for registration events` | Categorizes audit record under user management domain. | [Automated Verified] |
+| 173 | `test(audit-google): verify audit event timestamp matches timezone.now()` | Chronologically accurate timestamp logged. | [Automated Verified] |
