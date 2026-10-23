@@ -55,3 +55,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 049 | `style(ui-diag): style origin code box with font-mono and brand-300 accent` | High-contrast monospace presentation of the URI. | [Automated Verified] |
 | 050 | `style(ui-diag): apply hover state to copy button (bg-slate-800 hover:bg-slate-700)` | Tactile button feedback for interactive controls. | [Automated Verified] |
 | 051 | `test(ui-diag): verify toggle state switches showOriginHelp on user click` | Expands and collapses diagnostic panel reliably. | [Automated Verified] |
+| 052 | `test(ui-diag): verify clipboard API writes exact origin without whitespace` | Copies clean URL string to system clipboard. | [Automated Verified] |
