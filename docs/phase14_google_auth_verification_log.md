@@ -146,3 +146,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 140 | `feat(jwt-google): embed user role claim in JWT token payload` | Includes token['role'] = user.role in JWT claims. | [Automated Verified] |
 | 141 | `feat(jwt-google): embed user full_name claim in JWT token payload` | Includes token['full_name'] = user.full_name in JWT claims. | [Automated Verified] |
 | 142 | `feat(jwt-google): embed user UUID in token subject/user_id claim` | Standard JWT subject identifies user uniquely. | [Automated Verified] |
+| 143 | `test(jwt-google): verify access token expiration matches 60-minute lifetime` | Token exp claim aligns with settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME']. | [Automated Verified] |
