@@ -175,3 +175,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 169 | `test(audit-google): verify USER_REGISTER event created in database on Google registration` | AuditEvent record exists with action='USER_REGISTER'. | [Automated Verified] |
 | 170 | `test(audit-google): verify actor foreign key linked to authenticated user` | Audit record references CustomUser instance. | [Automated Verified] |
 | 171 | `test(audit-google): verify resource_type set to 'auth' for login events` | Categorizes audit record under authentication domain. | [Automated Verified] |
+| 172 | `test(audit-google): verify resource_type set to 'user' for registration events` | Categorizes audit record under user management domain. | [Automated Verified] |
