@@ -179,3 +179,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 173 | `test(audit-google): verify audit event timestamp matches timezone.now()` | Chronologically accurate timestamp logged. | [Automated Verified] |
 | 174 | `test(audit-google): verify audit events visible in administrative audit log (/audit)` | Administrators can inspect Google sign-in events in audit table. | [Automated Verified] |
 | 175 | `test(audit-google): verify non-administrators cannot query audit event logs` | RBAC protects audit event endpoints from unauthorized inspection. | [Automated Verified] |
+| 176 | `test(audit-google): verify audit logging does not fail if client IP is localhost` | Handles IPv4 and IPv6 loopback addresses seamlessly. | [Automated Verified] |
