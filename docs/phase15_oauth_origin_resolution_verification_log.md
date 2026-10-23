@@ -94,3 +94,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 088 | `test(error-handling): verify loading indicator displays 'Verifying Google account...'` | Clear status communication while contacting backend. | [Automated Verified] |
 | 089 | `test(error-handling): verify button opacity and cursor style during loading state` | Cursor shows not-allowed and opacity reduces to 60%. | [Automated Verified] |
 | 090 | `test(error-handling): verify double-click prevention on Google sign-in button` | Ignores redundant clicks while authentication is pending. | [Automated Verified] |
+| 091 | `test(error-handling): verify error notification styling matches brand design system` | Uses rose-950 background with rose-800 border and rose-200 text. | [Automated Verified] |
