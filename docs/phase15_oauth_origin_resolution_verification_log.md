@@ -79,3 +79,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 073 | `test(security): verify HTTPS redirection compatibility for production deployments` | Production origins require HTTPS per Google OAuth specifications. | [Automated Verified] |
 | 074 | `test(security): verify localhost HTTP exception handling per RFC 8252` | Google OAuth permits HTTP exclusively for localhost loopback. | [Automated Verified] |
 | 075 | `test(security): verify IP loopback (127.0.0.1) origin acceptance` | Handles numeric IP address alongside localhost hostname. | [Automated Verified] |
+| 076 | `test(security): verify IPv6 loopback ([::1]) origin acceptance` | Handles IPv6 localhost format where supported. | [Automated Verified] |
