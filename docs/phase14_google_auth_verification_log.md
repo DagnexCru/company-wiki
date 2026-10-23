@@ -169,3 +169,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 163 | `feat(audit-google): set provider='google' in audit event details payload` | Differentiates Google authentication from standard password logins. | [Automated Verified] |
 | 164 | `feat(audit-google): record user role in audit event details` | Audits role status at the time of authentication. | [Automated Verified] |
 | 165 | `feat(audit-google): record user email in audit event details` | Audits email identity associated with Google login. | [Automated Verified] |
+| 166 | `feat(audit-google): record client IP address in audit event metadata` | Extracts remote IP from request META (REMOTE_ADDR/HTTP_X_FORWARDED_FOR). | [Automated Verified] |
