@@ -156,3 +156,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 150 | `test(jwt-google): verify logout blacklisting on /api/v1/auth/logout/ for Google sessions` | Logging out invalidates active refresh token. | [Automated Verified] |
 | 151 | `test(jwt-google): verify blacklisted token rejected on subsequent refresh attempts` | SimpleJWT rejects blacklisted tokens with 401 Unauthorized. | [Automated Verified] |
 | 152 | `test(jwt-google): verify token headers format 'Bearer <token>'` | Standard HTTP Authorization header format accepted. | [Automated Verified] |
+| 153 | `test(jwt-google): verify malformed Bearer token rejection with 401 Unauthorized` | Guards API against corrupted authorization headers. | [Automated Verified] |
