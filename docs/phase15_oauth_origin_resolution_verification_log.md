@@ -18,3 +18,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 012 | `test(origin): verify scheme invariance (http vs https) in development` | Ensures HTTP protocol is used consistently for localhost origins. | [Automated Verified] |
 | 013 | `test(origin): verify port matching precision between browser and Google GIS` | Browser window.location.origin matches GIS initialization origin. | [Automated Verified] |
 | 014 | `test(origin): verify absence of trailing slash in configured JavaScript origins` | Strict adherence to Google OAuth origin formatting rules. | [Automated Verified] |
+| 015 | `test(origin): verify path-free origin format in Google Cloud Console` | Confirms origins contain no subpaths or route suffixes. | [Automated Verified] |
