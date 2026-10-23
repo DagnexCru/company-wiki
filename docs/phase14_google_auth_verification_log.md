@@ -178,3 +178,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 172 | `test(audit-google): verify resource_type set to 'user' for registration events` | Categorizes audit record under user management domain. | [Automated Verified] |
 | 173 | `test(audit-google): verify audit event timestamp matches timezone.now()` | Chronologically accurate timestamp logged. | [Automated Verified] |
 | 174 | `test(audit-google): verify audit events visible in administrative audit log (/audit)` | Administrators can inspect Google sign-in events in audit table. | [Automated Verified] |
+| 175 | `test(audit-google): verify non-administrators cannot query audit event logs` | RBAC protects audit event endpoints from unauthorized inspection. | [Automated Verified] |
