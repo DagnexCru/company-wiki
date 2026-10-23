@@ -100,3 +100,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 094 | `test(error-handling): verify Google SDK failure fallback to standard email/password login` | Users can always sign in with credentials if Google is unreachable. | [Automated Verified] |
 | 095 | `test(error-handling): verify password toggle visibility remains unaffected` | Password input field functionality remains intact. | [Automated Verified] |
 | 096 | `test(error-handling): verify demo credentials helper remains functional` | Seed account quick sign-in remains operational. | [Automated Verified] |
+| 097 | `test(error-handling): verify registration role selector remains functional` | Role dropdown operates cleanly on RegisterPage. | [Automated Verified] |
