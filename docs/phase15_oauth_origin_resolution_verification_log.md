@@ -51,3 +51,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 045 | `feat(ui-diag): link directly to Google Cloud Console Credentials page` | Provides external link to https://console.cloud.google.com/apis/credentials. | [Automated Verified] |
 | 046 | `feat(ui-diag): style diagnostic banner with dark theme tokens (bg-slate-900/90, border-slate-700)` | Blends seamlessly into authentication card layout. | [Automated Verified] |
 | 047 | `feat(ui-diag): render AlertCircle icon in diagnostic warning header` | Visual indicator highlighting origin mismatch guidance. | [Automated Verified] |
+| 048 | `style(ui-diag): add smooth fade-in animation on diagnostic banner expansion` | Snappy 200ms ease-in disclosure transition. | [Automated Verified] |
