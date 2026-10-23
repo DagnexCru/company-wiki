@@ -143,3 +143,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 137 | `feat(jwt-google): generate SimpleJWT AccessToken from user refresh token` | Creates standard 60-minute access token for API authorization. | [Automated Verified] |
 | 138 | `feat(jwt-google): embed user email claim in JWT token payload` | Includes token['email'] = user.email in JWT claims. | [Automated Verified] |
 | 139 | `feat(jwt-google): embed user username claim in JWT token payload` | Includes token['username'] = user.username in JWT claims. | [Automated Verified] |
+| 140 | `feat(jwt-google): embed user role claim in JWT token payload` | Includes token['role'] = user.role in JWT claims. | [Automated Verified] |
