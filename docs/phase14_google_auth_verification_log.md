@@ -198,3 +198,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 192 | `feat(frontend-gis): implement success callback onSuccess in GoogleSignInButton` | Allows custom redirection or notifications on successful authentication. | [Automated Verified] |
 | 193 | `test(frontend-gis): verify GoogleSignInButton unmount cleans up polling interval` | Clears checkInterval timer to prevent memory leaks. | [Automated Verified] |
 | 194 | `test(frontend-gis): verify GoogleSignInButton handles offline/network failure gracefully` | Alerts user if GIS script fails to load due to connection loss. | [Automated Verified] |
+| 195 | `test(frontend-gis): verify GoogleSignInButton supports mode='signin' and mode='signup'` | Adapts button text and GIS options dynamically. | [Automated Verified] |
