@@ -181,3 +181,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 175 | `test(audit-google): verify non-administrators cannot query audit event logs` | RBAC protects audit event endpoints from unauthorized inspection. | [Automated Verified] |
 | 176 | `test(audit-google): verify audit logging does not fail if client IP is localhost` | Handles IPv4 and IPv6 loopback addresses seamlessly. | [Automated Verified] |
 | 177 | `test(audit-google): verify audit log immutability (no update/delete permissions)` | Audit logs are append-only to preserve legal integrity. | [Automated Verified] |
+| 178 | `test(audit-google): verify audit log detail JSON serialization validity` | Details JSONField preserves dictionary structure without truncation. | [Automated Verified] |
