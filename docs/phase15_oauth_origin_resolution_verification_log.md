@@ -70,3 +70,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 064 | `test(security): verify Google popup opener reference remains intact` | Prevents window.closed polling race conditions. | [Automated Verified] |
 | 065 | `test(security): verify third-party cookie blocking mitigation in modern browsers` | GIS credential flow functions seamlessly under partitioned cookies. | [Automated Verified] |
 | 066 | `test(security): verify Chrome Privacy Sandbox compatibility for Google Sign-In` | Supports FedCM (Federated Credential Management) API. | [Automated Verified] |
+| 067 | `test(security): verify Safari Intelligent Tracking Prevention (ITP) compatibility` | Credential exchange operates without third-party cookie reliance. | [Automated Verified] |
