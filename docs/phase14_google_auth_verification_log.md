@@ -209,3 +209,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 203 | `style(google-btn): apply interactive hover elevation (hover:bg-slate-800, hover:border-slate-600)` | Subtle border highlight and background shift on hover. | [Automated Verified] |
 | 204 | `style(google-btn): apply scale micro-animation on hover (hover:scale-[1.01])` | Tactile spring response on cursor hover. | [Automated Verified] |
 | 205 | `style(google-btn): apply active depress micro-animation (active:scale-[0.99])` | Tactile feedback on button click/press. | [Automated Verified] |
+| 206 | `style(google-btn): apply logo scale micro-animation (group-hover:scale-110)` | Google 'G' icon gently scales up on parent hover. | [Automated Verified] |
