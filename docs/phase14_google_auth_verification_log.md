@@ -226,3 +226,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 220 | `feat(register-page): add 'Or continue with' divider above Google button in RegisterPage` | Clean visual separation between registration form and Google SSO. | [Automated Verified] |
 | 221 | `style(register-page): style divider with consistent typography and line borders` | Consistent visual hierarchy across login and register screens. | [Automated Verified] |
 | 222 | `test(login-page): verify Google sign-in navigates to requested destination route` | Redirects to redirect target or /dashboard upon successful login. | [Automated Verified] |
+| 223 | `test(login-page): verify error alert banner displays Google verification failure` | Surfaces server error messages in high-contrast alert box. | [Automated Verified] |
