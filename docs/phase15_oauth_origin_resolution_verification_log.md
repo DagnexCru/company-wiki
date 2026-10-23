@@ -89,3 +89,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 083 | `feat(error-handling): catch network timeout errors during Google verification` | Offers retry action if internet connection drops. | [Automated Verified] |
 | 084 | `feat(error-handling): surface backend 403 account deactivated messages` | Displays administrative contact message if account is inactive. | [Automated Verified] |
 | 085 | `feat(error-handling): surface backend 401 token invalidity messages` | Informs user if Google token expired during transmission. | [Automated Verified] |
+| 086 | `test(error-handling): verify isProcessing state resets on verification error` | Re-enables button so user can retry immediately. | [Automated Verified] |
