@@ -219,3 +219,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 213 | `test(google-btn): verify visible focus ring on keyboard navigation` | Clear focus outline indicator for assistive technology users. | [Automated Verified] |
 | 214 | `test(google-btn): verify button typography contrast ratio exceeds 4.5:1` | Text-slate-200 on slate-900 delivers > 7:1 contrast ratio. | [Automated Verified] |
 | 215 | `test(google-btn): verify responsive width expands to 100% of form container` | Adapts fluidly across mobile and desktop card dimensions. | [Automated Verified] |
+| 216 | `feat(login-page): embed GoogleSignInButton in LoginPage.tsx` | Provides Google authentication option on primary sign-in page. | [Automated Verified] |
