@@ -167,3 +167,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 161 | `feat(audit-google): log AUTH_LOGIN audit event on existing user Google sign-in` | Records successful Google authentication in audit ledger. | [Automated Verified] |
 | 162 | `feat(audit-google): log USER_REGISTER audit event on new user Google signup` | Records new account provisioning in audit ledger. | [Automated Verified] |
 | 163 | `feat(audit-google): set provider='google' in audit event details payload` | Differentiates Google authentication from standard password logins. | [Automated Verified] |
+| 164 | `feat(audit-google): record user role in audit event details` | Audits role status at the time of authentication. | [Automated Verified] |
