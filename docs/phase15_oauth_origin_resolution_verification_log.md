@@ -35,3 +35,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 029 | `test(gis): verify rejection of unauthorized origin by Google authorization server` | Google returns error 400 origin_mismatch when origin is unregistered. | [Automated Verified] |
 | 030 | `test(gis): verify acceptance of registered origin http://localhost:5173` | Google authorization server accepts requests from port 5173. | [Automated Verified] |
 | 031 | `test(gis): verify acceptance of registered origin http://localhost:3000` | Google authorization server accepts requests from port 3000. | [Automated Verified] |
+| 032 | `test(gis): verify acceptance of registered origin http://127.0.0.1:5173` | Google authorization server accepts requests from IP origin. | [Automated Verified] |
