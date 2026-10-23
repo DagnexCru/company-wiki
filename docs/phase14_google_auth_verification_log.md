@@ -187,3 +187,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 181 | `feat(frontend-gis): create GoogleSignInButton React component` | Encapsulates Google Identity Services lifecycle in reusable component. | [Automated Verified] |
 | 182 | `feat(frontend-gis): declare global Window interface types for window.google.accounts.id` | Strict TypeScript typings for Google GIS JavaScript SDK. | [Automated Verified] |
 | 183 | `feat(frontend-gis): initialize Google Identity Services via google.accounts.id.initialize` | Configures client_id, callback, and cancel_on_tap_outside. | [Automated Verified] |
+| 184 | `feat(frontend-gis): render hidden official Google button for popup trigger fallback` | Mounts official GIS iframe button in screen-reader container. | [Automated Verified] |
