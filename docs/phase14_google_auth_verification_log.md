@@ -153,3 +153,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 147 | `test(jwt-google): verify access token grants access to protected /api/v1/auth/me/ endpoint` | Bearer token returns authenticated user profile. | [Automated Verified] |
 | 148 | `test(jwt-google): verify refresh token rotation on /api/v1/auth/refresh/` | Rotating refresh token issues new access and refresh token pair. | [Automated Verified] |
 | 149 | `test(jwt-google): verify old refresh token is blacklisted upon rotation` | Blacklist table records used refresh token. | [Automated Verified] |
+| 150 | `test(jwt-google): verify logout blacklisting on /api/v1/auth/logout/ for Google sessions` | Logging out invalidates active refresh token. | [Automated Verified] |
