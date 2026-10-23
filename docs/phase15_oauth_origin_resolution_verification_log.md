@@ -7,3 +7,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 001 | `fix(vite): align development server port to 5173` | Matches Google Cloud Console registered default JavaScript origin. | [Automated Verified] |
 | 002 | `feat(vite): add VITE_PORT environment variable fallback to vite.config.ts` | Allows runtime configuration of development server port. | [Automated Verified] |
 | 003 | `feat(vite): enable host=true in vite.config.ts for local IP accessibility` | Permits testing across localhost and 127.0.0.1 origins. | [Automated Verified] |
+| 004 | `test(vite): verify default port resolves to 5173 when VITE_PORT is unset` | Standard development environment initializes on port 5173. | [Automated Verified] |
