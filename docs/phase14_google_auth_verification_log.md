@@ -216,3 +216,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 210 | `style(google-btn): render 'Sign up with Google' label when mode='signup'` | Standard onboarding label for registration page. | [Automated Verified] |
 | 211 | `test(google-btn): verify touch target size exceeds 44px on mobile viewports` | Complies with WCAG mobile touch accessibility guidelines. | [Automated Verified] |
 | 212 | `test(google-btn): verify keyboard accessibility (Tab focus and Enter/Space trigger)` | Button is fully navigable and actionable via keyboard. | [Automated Verified] |
+| 213 | `test(google-btn): verify visible focus ring on keyboard navigation` | Clear focus outline indicator for assistive technology users. | [Automated Verified] |
