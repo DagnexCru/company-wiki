@@ -44,3 +44,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 038 | `test(gis): verify GIS script polling interval cleanup on component unmount` | Clears setInterval timer to guarantee 0 memory leaks. | [Automated Verified] |
 | 039 | `test(gis): verify GIS script cache across client-side route transitions` | Reuses pre-loaded Google SDK without redundant script fetching. | [Automated Verified] |
 | 040 | `test(gis): verify Google GIS accessibility tags and screen reader labels` | Google iframe includes descriptive aria-label for accessibility. | [Automated Verified] |
+| 041 | `feat(ui-diag): add origin configuration diagnostic helper in GoogleSignInButton` | Provides expandable troubleshooting panel directly below Google button. | [Automated Verified] |
