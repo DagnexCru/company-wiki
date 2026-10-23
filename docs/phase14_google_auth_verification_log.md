@@ -172,3 +172,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 166 | `feat(audit-google): record client IP address in audit event metadata` | Extracts remote IP from request META (REMOTE_ADDR/HTTP_X_FORWARDED_FOR). | [Automated Verified] |
 | 167 | `feat(audit-google): record User-Agent string in audit event metadata` | Extracts browser and device telemetry for security monitoring. | [Automated Verified] |
 | 168 | `test(audit-google): verify AUTH_LOGIN event created in database on Google login` | AuditEvent record exists with action='AUTH_LOGIN'. | [Automated Verified] |
+| 169 | `test(audit-google): verify USER_REGISTER event created in database on Google registration` | AuditEvent record exists with action='USER_REGISTER'. | [Automated Verified] |
