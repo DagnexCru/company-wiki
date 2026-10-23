@@ -10,3 +10,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 004 | `test(vite): verify default port resolves to 5173 when VITE_PORT is unset` | Standard development environment initializes on port 5173. | [Automated Verified] |
 | 005 | `test(vite): verify custom port assignment when VITE_PORT is provided` | Custom environment configurations load successfully. | [Automated Verified] |
 | 006 | `test(vite): verify server host binding accommodates both localhost and 127.0.0.1` | Listens cleanly across local network adapters. | [Automated Verified] |
+| 007 | `test(vite): verify CORS headers in Django allow frontend requests from port 5173` | CORS_ALLOWED_ORIGINS includes http://localhost:5173 and http://127.0.0.1:5173. | [Automated Verified] |
