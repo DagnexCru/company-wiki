@@ -40,3 +40,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 034 | `test(gis): verify Google GIS iframe isolates authentication context` | Cross-origin sandbox protects credentials from parent DOM. | [Automated Verified] |
 | 035 | `test(gis): verify credential callback fires only upon successful user selection` | Prevents false-positive token submission attempts. | [Automated Verified] |
 | 036 | `test(gis): verify prompt moment listener detects unshown prompt states` | Monitors when One Tap is skipped or blocked by browser. | [Automated Verified] |
+| 037 | `test(gis): verify prompt dismissal recovery via rendered button click` | Users can click standard button if One Tap notification is closed. | [Automated Verified] |
