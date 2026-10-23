@@ -17,3 +17,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 011 | `docs(origin): document standard local development URLs in troubleshooting guide` | Records http://localhost:5173 and http://localhost:3000. | [Automated Verified] |
 | 012 | `test(origin): verify scheme invariance (http vs https) in development` | Ensures HTTP protocol is used consistently for localhost origins. | [Automated Verified] |
 | 013 | `test(origin): verify port matching precision between browser and Google GIS` | Browser window.location.origin matches GIS initialization origin. | [Automated Verified] |
+| 014 | `test(origin): verify absence of trailing slash in configured JavaScript origins` | Strict adherence to Google OAuth origin formatting rules. | [Automated Verified] |
