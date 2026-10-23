@@ -235,3 +235,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 229 | `docs(auth-google): document Google authentication architecture in verification log` | Records API endpoints, payload formats, and security invariants. | [Automated Verified] |
 | 230 | `refactor(auth-google): polish code formatting, docstrings, and type definitions` | Ensures pristine code quality across backend and frontend. | [Automated Verified] |
 | 231 | `test(auth-google): verify zero console warnings in React browser tree` | Clean component lifecycle with no React warnings or leaks. | [Automated Verified] |
+| 232 | `test(auth-google): verify dev server hot module replacement (HMR) stability` | Vite HMR updates seamlessly without server crashes. | [Automated Verified] |
