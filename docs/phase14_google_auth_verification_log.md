@@ -151,3 +151,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 145 | `test(jwt-google): verify access token verifies with SECRET_KEY signing key` | HMAC-SHA256 signature validates cleanly against SECRET_KEY. | [Automated Verified] |
 | 146 | `test(jwt-google): verify access token grants access to protected /api/v1/articles/ endpoints` | Bearer token authorizes protected API requests. | [Automated Verified] |
 | 147 | `test(jwt-google): verify access token grants access to protected /api/v1/auth/me/ endpoint` | Bearer token returns authenticated user profile. | [Automated Verified] |
+| 148 | `test(jwt-google): verify refresh token rotation on /api/v1/auth/refresh/` | Rotating refresh token issues new access and refresh token pair. | [Automated Verified] |
