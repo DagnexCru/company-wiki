@@ -69,3 +69,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 063 | `feat(security): configure Referrer-Policy strict-origin-when-cross-origin` | Protects sensitive URL parameters while providing origin to Google. | [Automated Verified] |
 | 064 | `test(security): verify Google popup opener reference remains intact` | Prevents window.closed polling race conditions. | [Automated Verified] |
 | 065 | `test(security): verify third-party cookie blocking mitigation in modern browsers` | GIS credential flow functions seamlessly under partitioned cookies. | [Automated Verified] |
+| 066 | `test(security): verify Chrome Privacy Sandbox compatibility for Google Sign-In` | Supports FedCM (Federated Credential Management) API. | [Automated Verified] |
