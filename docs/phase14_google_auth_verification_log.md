@@ -201,3 +201,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 195 | `test(frontend-gis): verify GoogleSignInButton supports mode='signin' and mode='signup'` | Adapts button text and GIS options dynamically. | [Automated Verified] |
 | 196 | `test(frontend-gis): verify GoogleSignInButton disables click when isProcessing is true` | Prevents duplicate concurrent token submissions. | [Automated Verified] |
 | 197 | `test(frontend-gis): verify GoogleSignInButton handles missing credential response` | Catches empty or cancelled Google popup events. | [Automated Verified] |
+| 198 | `test(frontend-gis): verify GoogleSignInButton navigates to /dashboard on default success` | Redirects authenticated user to workspace dashboard. | [Automated Verified] |
