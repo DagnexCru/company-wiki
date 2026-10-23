@@ -225,3 +225,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 219 | `feat(register-page): embed GoogleSignInButton in RegisterPage.tsx` | Provides Google authentication option on registration page. | [Automated Verified] |
 | 220 | `feat(register-page): add 'Or continue with' divider above Google button in RegisterPage` | Clean visual separation between registration form and Google SSO. | [Automated Verified] |
 | 221 | `style(register-page): style divider with consistent typography and line borders` | Consistent visual hierarchy across login and register screens. | [Automated Verified] |
+| 222 | `test(login-page): verify Google sign-in navigates to requested destination route` | Redirects to redirect target or /dashboard upon successful login. | [Automated Verified] |
