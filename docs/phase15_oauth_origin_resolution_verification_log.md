@@ -92,3 +92,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 086 | `test(error-handling): verify isProcessing state resets on verification error` | Re-enables button so user can retry immediately. | [Automated Verified] |
 | 087 | `test(error-handling): verify error message cleared on subsequent login attempt` | Clears previous failure banners when user re-initiates flow. | [Automated Verified] |
 | 088 | `test(error-handling): verify loading indicator displays 'Verifying Google account...'` | Clear status communication while contacting backend. | [Automated Verified] |
+| 089 | `test(error-handling): verify button opacity and cursor style during loading state` | Cursor shows not-allowed and opacity reduces to 60%. | [Automated Verified] |
