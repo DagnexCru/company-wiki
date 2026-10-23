@@ -158,3 +158,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 152 | `test(jwt-google): verify token headers format 'Bearer <token>'` | Standard HTTP Authorization header format accepted. | [Automated Verified] |
 | 153 | `test(jwt-google): verify malformed Bearer token rejection with 401 Unauthorized` | Guards API against corrupted authorization headers. | [Automated Verified] |
 | 154 | `test(jwt-google): verify expired access token rejection with 401 Unauthorized` | Guards API against stale session tokens. | [Automated Verified] |
+| 155 | `test(jwt-google): verify frontend tokenStorage.setTokens stores access and refresh tokens` | Stores JWT tokens in browser secure storage. | [Automated Verified] |
