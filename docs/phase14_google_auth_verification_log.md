@@ -170,3 +170,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 164 | `feat(audit-google): record user role in audit event details` | Audits role status at the time of authentication. | [Automated Verified] |
 | 165 | `feat(audit-google): record user email in audit event details` | Audits email identity associated with Google login. | [Automated Verified] |
 | 166 | `feat(audit-google): record client IP address in audit event metadata` | Extracts remote IP from request META (REMOTE_ADDR/HTTP_X_FORWARDED_FOR). | [Automated Verified] |
+| 167 | `feat(audit-google): record User-Agent string in audit event metadata` | Extracts browser and device telemetry for security monitoring. | [Automated Verified] |
