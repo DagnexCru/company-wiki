@@ -25,3 +25,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 019 | `test(origin): verify clean browser navigation to /login on port 5173` | Sign-in portal loads with zero route errors. | [Automated Verified] |
 | 020 | `test(origin): verify clean browser navigation to /register on port 5173` | Onboarding portal loads with zero route errors. | [Automated Verified] |
 | 021 | `feat(gis): initialize Google Identity Services on active window origin` | SDK inherits parent window origin context automatically. | [Automated Verified] |
+| 022 | `feat(gis): render official Google button iframe directly in DOM` | Mounts secure Google iframe for native OAuth popup handling. | [Automated Verified] |
