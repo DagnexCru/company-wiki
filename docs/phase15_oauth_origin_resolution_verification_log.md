@@ -73,3 +73,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 067 | `test(security): verify Safari Intelligent Tracking Prevention (ITP) compatibility` | Credential exchange operates without third-party cookie reliance. | [Automated Verified] |
 | 068 | `test(security): verify Firefox Enhanced Tracking Protection (ETP) compatibility` | Popup authorization completes cleanly in strict tracking mode. | [Automated Verified] |
 | 069 | `test(security): verify Edge tracking prevention compatibility` | Standard OAuth 2.0 token response accepted across Edge tiers. | [Automated Verified] |
+| 070 | `test(security): verify popup closure detection without memory leaks` | Cancels pending listeners when user manually closes Google popup. | [Automated Verified] |
