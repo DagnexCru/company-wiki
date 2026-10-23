@@ -13,3 +13,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 007 | `test(vite): verify CORS headers in Django allow frontend requests from port 5173` | CORS_ALLOWED_ORIGINS includes http://localhost:5173 and http://127.0.0.1:5173. | [Automated Verified] |
 | 008 | `test(vite): verify CORS headers in Django allow frontend requests from port 3000` | CORS_ALLOWED_ORIGINS preserves backward compatibility with port 3000. | [Automated Verified] |
 | 009 | `test(vite): verify hot module replacement (HMR) operates smoothly on port 5173` | Vite WebSocket connection upgrades without CORS blockage. | [Automated Verified] |
+| 010 | `test(vite): verify static assets served with correct MIME types on port 5173` | JavaScript and CSS assets delivered with standard Content-Type headers. | [Automated Verified] |
