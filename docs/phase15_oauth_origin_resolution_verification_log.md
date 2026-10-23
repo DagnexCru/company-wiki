@@ -38,3 +38,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 032 | `test(gis): verify acceptance of registered origin http://127.0.0.1:5173` | Google authorization server accepts requests from IP origin. | [Automated Verified] |
 | 033 | `test(gis): verify acceptance of registered origin http://127.0.0.1:3000` | Google authorization server accepts requests from IP origin. | [Automated Verified] |
 | 034 | `test(gis): verify Google GIS iframe isolates authentication context` | Cross-origin sandbox protects credentials from parent DOM. | [Automated Verified] |
+| 035 | `test(gis): verify credential callback fires only upon successful user selection` | Prevents false-positive token submission attempts. | [Automated Verified] |
