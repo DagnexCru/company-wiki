@@ -227,3 +227,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 221 | `style(register-page): style divider with consistent typography and line borders` | Consistent visual hierarchy across login and register screens. | [Automated Verified] |
 | 222 | `test(login-page): verify Google sign-in navigates to requested destination route` | Redirects to redirect target or /dashboard upon successful login. | [Automated Verified] |
 | 223 | `test(login-page): verify error alert banner displays Google verification failure` | Surfaces server error messages in high-contrast alert box. | [Automated Verified] |
+| 224 | `test(register-page): verify Google signup navigates to /dashboard with READER role` | New users land on dashboard with appropriate Reader view. | [Automated Verified] |
