@@ -199,3 +199,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 193 | `test(frontend-gis): verify GoogleSignInButton unmount cleans up polling interval` | Clears checkInterval timer to prevent memory leaks. | [Automated Verified] |
 | 194 | `test(frontend-gis): verify GoogleSignInButton handles offline/network failure gracefully` | Alerts user if GIS script fails to load due to connection loss. | [Automated Verified] |
 | 195 | `test(frontend-gis): verify GoogleSignInButton supports mode='signin' and mode='signup'` | Adapts button text and GIS options dynamically. | [Automated Verified] |
+| 196 | `test(frontend-gis): verify GoogleSignInButton disables click when isProcessing is true` | Prevents duplicate concurrent token submissions. | [Automated Verified] |
