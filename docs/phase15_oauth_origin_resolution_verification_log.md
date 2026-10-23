@@ -64,3 +64,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 058 | `test(ui-diag): verify diagnostic helper resets state on page navigation` | Does not persist opened state across unmounts. | [Automated Verified] |
 | 059 | `test(ui-diag): verify zero layout shift when diagnostic helper toggles` | Smooth height expansion prevents content jumping. | [Automated Verified] |
 | 060 | `test(ui-diag): verify keyboard focus order includes diagnostic toggle and copy button` | Accessible via Tab navigation. | [Automated Verified] |
+| 061 | `feat(security): configure Cross-Origin-Opener-Policy compliance for OAuth popups` | Ensures popup window communicates authorization response back to opener. | [Automated Verified] |
