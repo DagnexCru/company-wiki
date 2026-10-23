@@ -19,3 +19,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 013 | `test(origin): verify port matching precision between browser and Google GIS` | Browser window.location.origin matches GIS initialization origin. | [Automated Verified] |
 | 014 | `test(origin): verify absence of trailing slash in configured JavaScript origins` | Strict adherence to Google OAuth origin formatting rules. | [Automated Verified] |
 | 015 | `test(origin): verify path-free origin format in Google Cloud Console` | Confirms origins contain no subpaths or route suffixes. | [Automated Verified] |
+| 016 | `test(origin): verify Django API proxy and Axios baseURL synchronization` | Axios points reliably to http://localhost:8000/api/v1. | [Automated Verified] |
