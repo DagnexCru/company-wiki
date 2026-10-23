@@ -194,3 +194,4 @@ Comprehensive verification log documenting all 234 verified invariants for Googl
 | 188 | `feat(frontend-gis): implement loginWithGoogle in authService.ts` | Dispatches POST /auth/google/ request with { credential } payload. | [Automated Verified] |
 | 189 | `feat(frontend-gis): implement loginWithGoogle in AuthContext.tsx` | Updates global authentication state and user profile upon success. | [Automated Verified] |
 | 190 | `feat(frontend-gis): handle isProcessing loading state during authentication` | Displays spinner and disables button during backend verification. | [Automated Verified] |
+| 191 | `feat(frontend-gis): implement error reporting callback onError in GoogleSignInButton` | Surfaces verification errors to parent login/register forms. | [Automated Verified] |
