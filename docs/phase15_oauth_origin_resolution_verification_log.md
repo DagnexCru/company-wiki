@@ -61,3 +61,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 055 | `test(ui-diag): verify diagnostic helper visibility across mobile screens` | Responsive layout wraps cleanly on 320px viewports. | [Automated Verified] |
 | 056 | `test(ui-diag): verify diagnostic helper typography contrast exceeds WCAG AA standards` | Maintains readability on dark slate backdrop. | [Automated Verified] |
 | 057 | `test(ui-diag): verify diagnostic helper does not obstruct primary login form inputs` | Positioned neatly below OAuth divider without layout displacement. | [Automated Verified] |
+| 058 | `test(ui-diag): verify diagnostic helper resets state on page navigation` | Does not persist opened state across unmounts. | [Automated Verified] |
