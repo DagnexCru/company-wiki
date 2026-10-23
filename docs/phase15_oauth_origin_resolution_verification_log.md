@@ -121,3 +121,4 @@ Comprehensive verification log documenting all 120 verified invariants for resol
 | 115 | `refactor(code): ensure dark theme aesthetic consistency across auth components` | Uniform slate-900, slate-800, and brand-500 palette. | [Automated Verified] |
 | 116 | `test(ux): verify mobile responsive layout across 375px, 414px, and 768px viewports` | Pixel-perfect rendering on smartphones and tablets. | [Automated Verified] |
 | 117 | `test(ux): verify desktop layout across 1024px, 1440px, and 1920px viewports` | Balanced two-column enterprise layout on wide monitors. | [Automated Verified] |
+| 118 | `test(ux): verify browser tab title and favicon consistency` | Company Wiki branding displays consistently in tab bar. | [Automated Verified] |
