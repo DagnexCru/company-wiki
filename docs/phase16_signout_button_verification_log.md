@@ -139,3 +139,4 @@
 | 133 | `test(google-auth): verify Google user avatar fallback to initials upon sign out` | `google-auth` | ✅ PASSED | Resets avatar display to default state. |
 | 134 | `test(google-auth): verify cross-origin iframe cleanup on session termination` | `google-auth` | ✅ PASSED | Ensures Google iframe is cleanly removed. |
 | 135 | `test(google-auth): verify no tracking cookies persist after explicit sign out` | `google-auth` | ✅ PASSED | Complies with user privacy preferences. |
+| 136 | `test(google-auth): verify subsequent Google sign-in prompts account chooser` | `google-auth` | ✅ PASSED | Allows user to pick different Google account. |
