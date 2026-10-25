@@ -214,3 +214,4 @@
 | 208 | `test(cross-browser): verify button alignment on ultra-wide 4K monitors` | `cross-browser` | ✅ PASSED | Validates max-width container constraints. |
 | 209 | `test(cross-browser): verify high-DPI Retina icon sharpness` | `cross-browser` | ✅ PASSED | Validates SVG vector scaling at 2x and 3x device pixel ratios. |
 | 210 | `test(cross-browser): verify smooth 60fps/120fps animation rendering` | `cross-browser` | ✅ PASSED | Validates hardware-accelerated transform transitions. |
+| 211 | `test(cross-browser): verify touch-to-hover behavior on hybrid touch laptops` | `cross-browser` | ✅ PASSED | Ensures clicks register cleanly on touchscreen laptops. |
