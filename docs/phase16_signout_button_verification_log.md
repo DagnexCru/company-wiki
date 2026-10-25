@@ -279,3 +279,4 @@
 | 273 | `build(prod): measure First Contentful Paint (FCP) remains under 0.8s` | `prod` | ✅ PASSED | Preserves blazing fast initial page loading. |
 | 274 | `build(prod): measure Cumulative Layout Shift (CLS) remains at 0.00` | `prod` | ✅ PASSED | Guarantees visual stability with zero shifting elements. |
 | 275 | `build(prod): measure Interaction to Next Paint (INP) remains under 50ms` | `prod` | ✅ PASSED | Provides instant response when clicking Sign Out button. |
+| 276 | `test(e2e): verify end-to-end user login, browse, and sign out cycle` | `e2e` | ✅ PASSED | Validates complete user journey in automated browser test. |
