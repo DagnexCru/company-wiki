@@ -37,3 +37,4 @@
 | 31 | `feat(sidebar-ui): configure cursor-pointer feedback on sidebar button` | `sidebar-ui` | ✅ PASSED | Provides clear interactive affordance. |
 | 32 | `feat(sidebar-ui): add top border divider (border-t border-slate-800) above footer` | `sidebar-ui` | ✅ PASSED | Separates primary navigation from session controls. |
 | 33 | `feat(sidebar-ui): configure text-xs font-semibold typography for sidebar action` | `sidebar-ui` | ✅ PASSED | Ensures crisp legibility on high-density displays. |
+| 34 | `test(sidebar-ui): verify sidebar button executes logout and closes sheet` | `sidebar-ui` | ✅ PASSED | Validates sequential execution of onClose and logout. |
