@@ -187,3 +187,4 @@
 | 181 | `test(security-guard): verify ProtectedRoute redirects unauthenticated users to /login` | `security-guard` | ✅ PASSED | Guards sensitive wiki content from unauthorized visitors. |
 | 182 | `test(security-guard): verify attempted URL preserved in location.state.from` | `security-guard` | ✅ PASSED | Enables post-login redirection to originally requested page. |
 | 183 | `test(security-guard): verify immediate dismissal of open modals upon sign out` | `security-guard` | ✅ PASSED | Closes active dialogs and overlays on session end. |
+| 184 | `test(security-guard): verify article draft edit lock released upon author sign out` | `security-guard` | ✅ PASSED | Frees collaborative editing locks for other teammates. |
