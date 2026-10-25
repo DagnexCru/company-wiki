@@ -64,3 +64,4 @@
 | 58 | `test(profile-ui): verify immediate cache eviction upon profile sign out` | `profile-ui` | ✅ PASSED | Clears profile query cache upon button activation. |
 | 59 | `test(profile-ui): verify profile role badge (ADMIN/EDITOR/VIEWER) remains intact` | `profile-ui` | ✅ PASSED | Preserves RBAC badge styling and layout. |
 | 60 | `test(profile-ui): verify clean unmount of ProfilePage after sign out redirection` | `profile-ui` | ✅ PASSED | Guarantees zero memory leaks or dangling listeners. |
+| 61 | `feat(home-ui): upgrade desktop landing nav sign out button to matching styled pill` | `home-ui` | ✅ PASSED | Replaces basic text button with modern high-affordance button. |
