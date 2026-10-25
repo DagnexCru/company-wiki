@@ -217,3 +217,4 @@
 | 211 | `test(cross-browser): verify touch-to-hover behavior on hybrid touch laptops` | `cross-browser` | ✅ PASSED | Ensures clicks register cleanly on touchscreen laptops. |
 | 212 | `test(cross-browser): verify prevention of text selection on double-clicking button` | `cross-browser` | ✅ PASSED | Applies select-none where appropriate. |
 | 213 | `test(cross-browser): verify CSS variable fallback support` | `cross-browser` | ✅ PASSED | Guarantees graceful degradation on older rendering engines. |
+| 214 | `test(cross-browser): verify flexbox box-sizing consistency across browsers` | `cross-browser` | ✅ PASSED | Eliminates cross-platform padding discrepancies. |
