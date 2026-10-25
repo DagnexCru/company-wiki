@@ -230,3 +230,4 @@
 | 224 | `feat(telemetry): capture anonymized user identifier in audit log` | `telemetry` | ✅ PASSED | Correlates session events while respecting privacy. |
 | 225 | `feat(telemetry): calculate total session duration prior to logout` | `telemetry` | ✅ PASSED | Measures user session length for engagement analytics. |
 | 226 | `feat(telemetry): count total articles browsed during active session` | `telemetry` | ✅ PASSED | Tracks workflow productivity metrics. |
+| 227 | `feat(telemetry): transmit telemetry payload via navigator.sendBeacon` | `telemetry` | ✅ PASSED | Guarantees reliable delivery even as page unloads. |
