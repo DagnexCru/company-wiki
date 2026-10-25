@@ -39,3 +39,4 @@
 | 33 | `feat(sidebar-ui): configure text-xs font-semibold typography for sidebar action` | `sidebar-ui` | ✅ PASSED | Ensures crisp legibility on high-density displays. |
 | 34 | `test(sidebar-ui): verify sidebar button executes logout and closes sheet` | `sidebar-ui` | ✅ PASSED | Validates sequential execution of onClose and logout. |
 | 35 | `test(sidebar-ui): verify sidebar footer renders Active Role badge correctly` | `sidebar-ui` | ✅ PASSED | Maintains role display (ADMIN/EDITOR/VIEWER). |
+| 36 | `test(sidebar-ui): verify keyboard focus order in sidebar navigation` | `sidebar-ui` | ✅ PASSED | Places Sign Out at end of tab sequence logically. |
