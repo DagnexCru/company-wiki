@@ -94,3 +94,4 @@
 | 88 | `test(auth-core): verify AuthContext isAuthenticated evaluates to false` | `auth-core` | ✅ PASSED | Confirms auth guard blocks protected routes. |
 | 89 | `test(auth-core): verify AuthContext user state is null` | `auth-core` | ✅ PASSED | Confirms user metadata is cleared from memory. |
 | 90 | `test(auth-core): verify Axios subsequent requests omit Authorization header` | `auth-core` | ✅ PASSED | Prevents unauthorized requests with stale credentials. |
+| 91 | `test(auth-core): verify ProtectedRoute intercepts subsequent access to /dashboard` | `auth-core` | ✅ PASSED | Redirects unauthenticated user to login. |
