@@ -233,3 +233,4 @@
 | 227 | `feat(telemetry): transmit telemetry payload via navigator.sendBeacon` | `telemetry` | ✅ PASSED | Guarantees reliable delivery even as page unloads. |
 | 228 | `feat(telemetry): log security alert if server blacklist API returns error` | `telemetry` | ✅ PASSED | Flags backend revocation failures for admin inspection. |
 | 229 | `feat(telemetry): mask sensitive authorization tokens in telemetry logs` | `telemetry` | ✅ PASSED | Guarantees credentials never appear in plain text logs. |
+| 230 | `feat(telemetry): ensure compliance with GDPR session data minimization` | `telemetry` | ✅ PASSED | Purges ephemeral tracking identifiers upon logout. |
