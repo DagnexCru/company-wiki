@@ -142,3 +142,4 @@
 | 136 | `test(google-auth): verify subsequent Google sign-in prompts account chooser` | `google-auth` | ✅ PASSED | Allows user to pick different Google account. |
 | 137 | `test(google-auth): verify federated sign out audit log entry` | `google-auth` | ✅ PASSED | Records OAuth provider disconnection in logs. |
 | 138 | `test(google-auth): verify offline sign out handling when Google servers unreachable` | `google-auth` | ✅ PASSED | Permits local logout even if offline. |
+| 139 | `test(google-auth): verify clean DOM without orphan GIS elements` | `google-auth` | ✅ PASSED | Validates thorough DOM node garbage collection. |
