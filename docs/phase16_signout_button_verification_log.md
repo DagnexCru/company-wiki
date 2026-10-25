@@ -35,3 +35,4 @@
 | 29 | `feat(sidebar-ui): conditionally render Sign Out button only when user is authenticated` | `sidebar-ui` | ✅ PASSED | Hides sign out control for unauthenticated guests. |
 | 30 | `feat(sidebar-ui): set touch target height exceeding 40px for tablet ergonomics` | `sidebar-ui` | ✅ PASSED | Optimizes mobile ergonomics and prevents mis-taps. |
 | 31 | `feat(sidebar-ui): configure cursor-pointer feedback on sidebar button` | `sidebar-ui` | ✅ PASSED | Provides clear interactive affordance. |
+| 32 | `feat(sidebar-ui): add top border divider (border-t border-slate-800) above footer` | `sidebar-ui` | ✅ PASSED | Separates primary navigation from session controls. |
