@@ -158,3 +158,4 @@
 | 152 | `style(ui-affordance): verify readability in bright ambient lighting conditions` | `ui-affordance` | ✅ PASSED | Tests high brightness contrast on mobile displays. |
 | 153 | `style(ui-affordance): verify readability in dark OLED viewing conditions` | `ui-affordance` | ✅ PASSED | Eliminates glare while preserving edge sharpness. |
 | 154 | `style(ui-affordance): ensure zero icon distortion across viewport scaling` | `ui-affordance` | ✅ PASSED | Maintains fixed 14x14px and 16x16px icon dimensions. |
+| 155 | `style(ui-affordance): configure cursor pointer indicator on interactive elements` | `ui-affordance` | ✅ PASSED | Standardizes web cursor behavior across all browsers. |
