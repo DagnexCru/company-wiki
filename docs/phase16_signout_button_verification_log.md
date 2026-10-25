@@ -10,3 +10,4 @@
 | 4 | `feat(header-ui): style button with dark slate pill background (bg-slate-800/80)` | `header-ui` | ✅ PASSED | Blends seamlessly into enterprise navigation header. |
 | 5 | `feat(header-ui): add subtle border container (border-slate-700/80)` | `header-ui` | ✅ PASSED | Creates defined button boundaries without visual clutter. |
 | 6 | `feat(header-ui): add rose accent color on hover (hover:bg-rose-950/40)` | `header-ui` | ✅ PASSED | Communicates safe session-ending action with gentle rose tint. |
+| 7 | `feat(header-ui): add rose border highlight on hover (hover:border-rose-500/50)` | `header-ui` | ✅ PASSED | Enhances visual focus when cursor hovers over button. |
