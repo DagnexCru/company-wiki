@@ -237,3 +237,4 @@
 | 231 | `feat(telemetry): attach correlation ID across client and server audit logs` | `telemetry` | ✅ PASSED | Enables end-to-end request tracing for security audits. |
 | 232 | `feat(telemetry): integrate with Django security audit logging middleware` | `telemetry` | ✅ PASSED | Stores audit trail in structured backend security log. |
 | 233 | `feat(telemetry): protect audit logs against client-side tampering` | `telemetry` | ✅ PASSED | Signs telemetry packets with server-validated timestamps. |
+| 234 | `feat(telemetry): format audit entries as structured JSON lines` | `telemetry` | ✅ PASSED | Facilitates ingestion into enterprise SIEM platforms. |
