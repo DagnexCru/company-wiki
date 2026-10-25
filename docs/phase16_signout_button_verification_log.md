@@ -160,3 +160,4 @@
 | 154 | `style(ui-affordance): ensure zero icon distortion across viewport scaling` | `ui-affordance` | ✅ PASSED | Maintains fixed 14x14px and 16x16px icon dimensions. |
 | 155 | `style(ui-affordance): configure cursor pointer indicator on interactive elements` | `ui-affordance` | ✅ PASSED | Standardizes web cursor behavior across all browsers. |
 | 156 | `style(ui-affordance): support reduced motion user preference media queries` | `ui-affordance` | ✅ PASSED | Disables scale animations when prefers-reduced-motion is on. |
+| 157 | `style(ui-affordance): provide immediate visual feedback on click` | `ui-affordance` | ✅ PASSED | Renders depression state within single frame (<16ms). |
