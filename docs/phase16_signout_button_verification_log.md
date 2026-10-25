@@ -165,3 +165,4 @@
 | 159 | `style(ui-affordance): ensure text truncation safety on localized strings` | `ui-affordance` | ✅ PASSED | Prevents layout overflow on longer translation strings. |
 | 160 | `style(ui-affordance): achieve visual polish score of 100% in design review` | `ui-affordance` | ✅ PASSED | Validates premium aesthetics across all pages. |
 | 161 | `a11y(signout): provide descriptive title and aria-label attributes` | `signout` | ✅ PASSED | Informs screen readers of button's exact purpose. |
+| 162 | `a11y(signout): use native button element with type='button'` | `signout` | ✅ PASSED | Guarantees default keyboard and accessibility tree support. |
