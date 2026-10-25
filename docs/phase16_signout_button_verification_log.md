@@ -188,3 +188,4 @@
 | 182 | `test(security-guard): verify attempted URL preserved in location.state.from` | `security-guard` | ✅ PASSED | Enables post-login redirection to originally requested page. |
 | 183 | `test(security-guard): verify immediate dismissal of open modals upon sign out` | `security-guard` | ✅ PASSED | Closes active dialogs and overlays on session end. |
 | 184 | `test(security-guard): verify article draft edit lock released upon author sign out` | `security-guard` | ✅ PASSED | Frees collaborative editing locks for other teammates. |
+| 185 | `test(security-guard): verify review approval draft cleared on sign out` | `security-guard` | ✅ PASSED | Prevents uncommitted review actions from lingering in state. |
