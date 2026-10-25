@@ -46,3 +46,4 @@
 | 40 | `test(sidebar-ui): verify sidebar ARIA landmark and button semantics` | `sidebar-ui` | ✅ PASSED | Provides assistive technology with proper button role. |
 | 41 | `feat(profile-ui): add dedicated 'Sign Out of Account' button on ProfilePage` | `profile-ui` | ✅ PASSED | Empowers users to terminate sessions directly from profile. |
 | 42 | `feat(profile-ui): import LogOut icon from lucide-react in ProfilePage` | `profile-ui` | ✅ PASSED | Adds visual exit cue to account management screen. |
+| 43 | `feat(profile-ui): extract logout function from useAuth hook in ProfilePage` | `profile-ui` | ✅ PASSED | Binds profile button to global authentication provider. |
