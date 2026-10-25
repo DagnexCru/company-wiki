@@ -15,3 +15,4 @@
 | 9 | `feat(header-ui): add micro-scale hover animation (hover:scale-[1.02])` | `header-ui` | ✅ PASSED | Delivers responsive tactile feel on desktop mouseover. |
 | 10 | `feat(header-ui): add active press micro-scale feedback (active:scale-[0.98])` | `header-ui` | ✅ PASSED | Provides clear tactile feedback on mouse click. |
 | 11 | `feat(header-ui): add descriptive title attribute 'Sign out of your session'` | `header-ui` | ✅ PASSED | Improves native browser tooltip accessibility. |
+| 12 | `feat(header-ui): configure type='button' attribute for semantic correctness` | `header-ui` | ✅ PASSED | Prevents accidental form submissions within header container. |
