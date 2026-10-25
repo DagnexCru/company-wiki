@@ -169,3 +169,4 @@
 | 163 | `a11y(signout): enable full keyboard navigation via Tab key` | `signout` | ✅ PASSED | Ensures users can reach button without mouse. |
 | 164 | `a11y(signout): support Enter and Spacebar keyboard activation` | `signout` | ✅ PASSED | Follows W3C WAI-ARIA button pattern specifications. |
 | 165 | `a11y(signout): ensure text contrast ratio exceeds 4.5:1 against slate-800` | `signout` | ✅ PASSED | Achieves AAA contrast compliance on dark backgrounds. |
+| 166 | `a11y(signout): mark decorative LogOut icon with aria-hidden='true'` | `signout` | ✅ PASSED | Prevents redundant or confusing screen reader announcements. |
