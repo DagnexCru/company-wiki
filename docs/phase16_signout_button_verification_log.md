@@ -244,3 +244,4 @@
 | 238 | `feat(telemetry): enforce 90-day retention policy for authentication logs` | `telemetry` | ✅ PASSED | Complies with enterprise data governance standards. |
 | 239 | `feat(telemetry): verify SOC 2 Type II audit compliance for authentication lifecycle` | `telemetry` | ✅ PASSED | Meets strict industry security audit benchmarks. |
 | 240 | `feat(telemetry): complete security audit sign-off for Phase 16` | `telemetry` | ✅ PASSED | Approves session termination implementation for production. |
+| 241 | `refactor(arch): isolate sign out button presentation from authentication logic` | `arch` | ✅ PASSED | Maintains clean separation of concerns in React components. |
