@@ -102,3 +102,4 @@
 | 96 | `test(auth-core): verify pending API requests are aborted upon logout` | `auth-core` | ✅ PASSED | Cancels in-flight Axios requests via AbortController. |
 | 97 | `test(auth-core): verify auto-save draft interval is cleared on logout` | `auth-core` | ✅ PASSED | Stops background article draft saving timer. |
 | 98 | `test(auth-core): verify public user settings (e.g. theme) are preserved` | `auth-core` | ✅ PASSED | Keeps non-sensitive preferences intact. |
+| 99 | `test(auth-core): verify zero unhandled promise rejections during logout` | `auth-core` | ✅ PASSED | Wraps session teardown in robust try/finally block. |
