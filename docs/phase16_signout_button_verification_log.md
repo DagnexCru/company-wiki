@@ -184,3 +184,4 @@
 | 178 | `a11y(signout): maintain correct logical tab order in application DOM` | `signout` | ✅ PASSED | Orders header actions naturally after user profile link. |
 | 179 | `a11y(signout): run automated axe-core accessibility audit on all pages` | `signout` | ✅ PASSED | Confirms zero accessibility violations across routes. |
 | 180 | `a11y(signout): achieve 100% Google Lighthouse accessibility score` | `signout` | ✅ PASSED | Validates industry-standard accessibility excellence. |
+| 181 | `test(security-guard): verify ProtectedRoute redirects unauthenticated users to /login` | `security-guard` | ✅ PASSED | Guards sensitive wiki content from unauthorized visitors. |
