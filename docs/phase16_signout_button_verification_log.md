@@ -162,3 +162,4 @@
 | 156 | `style(ui-affordance): support reduced motion user preference media queries` | `ui-affordance` | ✅ PASSED | Disables scale animations when prefers-reduced-motion is on. |
 | 157 | `style(ui-affordance): provide immediate visual feedback on click` | `ui-affordance` | ✅ PASSED | Renders depression state within single frame (<16ms). |
 | 158 | `style(ui-affordance): standardize button height across header and sidebar` | `ui-affordance` | ✅ PASSED | Maintains vertical rhythm in application chrome. |
+| 159 | `style(ui-affordance): ensure text truncation safety on localized strings` | `ui-affordance` | ✅ PASSED | Prevents layout overflow on longer translation strings. |
