@@ -191,3 +191,4 @@
 | 185 | `test(security-guard): verify review approval draft cleared on sign out` | `security-guard` | ✅ PASSED | Prevents uncommitted review actions from lingering in state. |
 | 186 | `test(security-guard): verify dashboard tag filters reset to default on logout` | `security-guard` | ✅ PASSED | Cleans user filter state for next session. |
 | 187 | `test(security-guard): verify in-progress file uploads safely aborted on sign out` | `security-guard` | ✅ PASSED | Terminates background chunked uploads cleanly. |
+| 188 | `test(security-guard): verify notification badge count reset to zero` | `security-guard` | ✅ PASSED | Clears personal notification counters from header. |
