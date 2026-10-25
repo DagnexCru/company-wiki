@@ -43,3 +43,4 @@
 | 37 | `test(sidebar-ui): verify sidebar button contrast in dark mode` | `sidebar-ui` | ✅ PASSED | Meets accessibility standards across all themes. |
 | 38 | `test(sidebar-ui): verify no memory leak on rapid sidebar mount/unmount` | `sidebar-ui` | ✅ PASSED | Validates clean React component lifecycle. |
 | 39 | `test(sidebar-ui): verify sidebar responsiveness across tablet portrait mode` | `sidebar-ui` | ✅ PASSED | Renders without horizontal clipping or overflow. |
+| 40 | `test(sidebar-ui): verify sidebar ARIA landmark and button semantics` | `sidebar-ui` | ✅ PASSED | Provides assistive technology with proper button role. |
