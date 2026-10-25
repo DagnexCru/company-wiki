@@ -258,3 +258,4 @@
 | 252 | `refactor(arch): document component props and behavior with JSDoc comments` | `arch` | ✅ PASSED | Provides developer guidance directly in IDE tooltips. |
 | 253 | `refactor(arch): minimize DOM element footprint with lean button structure` | `arch` | ✅ PASSED | Avoids superfluous div wrappers around button. |
 | 254 | `refactor(arch): stabilize React reconciliation with unique element keys` | `arch` | ✅ PASSED | Optimizes virtual DOM diffing performance. |
+| 255 | `refactor(arch): avoid external runtime CSS dependencies` | `arch` | ✅ PASSED | Relies entirely on compiled Tailwind utility classes. |
