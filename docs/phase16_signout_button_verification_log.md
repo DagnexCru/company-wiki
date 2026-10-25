@@ -14,3 +14,4 @@
 | 8 | `feat(header-ui): add text color transition to rose-300 on hover` | `header-ui` | ✅ PASSED | Harmonizes text with icon accent on hover state. |
 | 9 | `feat(header-ui): add micro-scale hover animation (hover:scale-[1.02])` | `header-ui` | ✅ PASSED | Delivers responsive tactile feel on desktop mouseover. |
 | 10 | `feat(header-ui): add active press micro-scale feedback (active:scale-[0.98])` | `header-ui` | ✅ PASSED | Provides clear tactile feedback on mouse click. |
+| 11 | `feat(header-ui): add descriptive title attribute 'Sign out of your session'` | `header-ui` | ✅ PASSED | Improves native browser tooltip accessibility. |
