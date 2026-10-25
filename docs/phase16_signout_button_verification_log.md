@@ -66,3 +66,4 @@
 | 60 | `test(profile-ui): verify clean unmount of ProfilePage after sign out redirection` | `profile-ui` | ✅ PASSED | Guarantees zero memory leaks or dangling listeners. |
 | 61 | `feat(home-ui): upgrade desktop landing nav sign out button to matching styled pill` | `home-ui` | ✅ PASSED | Replaces basic text button with modern high-affordance button. |
 | 62 | `feat(home-ui): add LogOut icon to desktop landing Sign Out button` | `home-ui` | ✅ PASSED | Unifies iconography across all application views. |
+| 63 | `feat(home-ui): style desktop landing button with dark slate pill and rose hover` | `home-ui` | ✅ PASSED | bg-slate-800/80 border-slate-700/80 hover:bg-rose-950/40. |
