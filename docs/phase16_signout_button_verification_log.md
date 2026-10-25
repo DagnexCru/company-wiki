@@ -224,3 +224,4 @@
 | 218 | `test(cross-browser): verify layout stability during font swap (FOUT)` | `cross-browser` | ✅ PASSED | Eliminates cumulative layout shift on slow connections. |
 | 219 | `test(cross-browser): verify automated visual regression snapshots` | `cross-browser` | ✅ PASSED | Passes visual diff comparison tests with 0% mismatch. |
 | 220 | `test(cross-browser): verify cross-platform consistency across Windows, macOS, and Linux` | `cross-browser` | ✅ PASSED | Delivers identical user experience on all operating systems. |
+| 221 | `feat(telemetry): record client-side session termination event` | `telemetry` | ✅ PASSED | Emits structured audit log when user initiates sign out. |
