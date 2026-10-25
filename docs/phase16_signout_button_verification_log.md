@@ -205,3 +205,4 @@
 | 199 | `test(security-guard): verify browser session history handles sign out gracefully` | `security-guard` | ✅ PASSED | Prevents navigation loops when hitting back button. |
 | 200 | `test(security-guard): verify zero stale state leaks in React DevTools inspection` | `security-guard` | ✅ PASSED | Confirms all user context trees reset to initial state. |
 | 201 | `test(cross-browser): verify button rendering in Google Chrome (Blink)` | `cross-browser` | ✅ PASSED | Validates pixel-perfect layout and hover effects. |
+| 202 | `test(cross-browser): verify button rendering in Mozilla Firefox (Gecko)` | `cross-browser` | ✅ PASSED | Validates CSS flexbox and pseudo-class styling. |
