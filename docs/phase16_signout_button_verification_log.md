@@ -177,3 +177,4 @@
 | 171 | `a11y(signout): test with NVDA screen reader on Windows` | `signout` | ✅ PASSED | Announces 'Sign Out, button' clearly. |
 | 172 | `a11y(signout): test with VoiceOver on macOS and iOS` | `signout` | ✅ PASSED | Reads button role and label accurately. |
 | 173 | `a11y(signout): test with TalkBack on Android` | `signout` | ✅ PASSED | Provides audible touch exploration feedback. |
+| 174 | `a11y(signout): prevent keyboard trap inside mobile navigation drawers` | `signout` | ✅ PASSED | Allows Esc key to dismiss drawer and return focus. |
