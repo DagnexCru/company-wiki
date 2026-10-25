@@ -174,3 +174,4 @@
 | 168 | `a11y(signout): verify full compatibility with Windows High Contrast Mode` | `signout` | ✅ PASSED | Preserves border and text visibility in contrast modes. |
 | 169 | `a11y(signout): verify compatibility with macOS Invert Colors` | `signout` | ✅ PASSED | Renders legible colors when display inversion is active. |
 | 170 | `a11y(signout): satisfy WCAG 2.1 AAA touch target guidelines` | `signout` | ✅ PASSED | Provides ample touch target padding for motor accessibility. |
+| 171 | `a11y(signout): test with NVDA screen reader on Windows` | `signout` | ✅ PASSED | Announces 'Sign Out, button' clearly. |
