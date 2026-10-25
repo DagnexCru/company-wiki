@@ -12,3 +12,4 @@
 | 6 | `feat(header-ui): add rose accent color on hover (hover:bg-rose-950/40)` | `header-ui` | ✅ PASSED | Communicates safe session-ending action with gentle rose tint. |
 | 7 | `feat(header-ui): add rose border highlight on hover (hover:border-rose-500/50)` | `header-ui` | ✅ PASSED | Enhances visual focus when cursor hovers over button. |
 | 8 | `feat(header-ui): add text color transition to rose-300 on hover` | `header-ui` | ✅ PASSED | Harmonizes text with icon accent on hover state. |
+| 9 | `feat(header-ui): add micro-scale hover animation (hover:scale-[1.02])` | `header-ui` | ✅ PASSED | Delivers responsive tactile feel on desktop mouseover. |
