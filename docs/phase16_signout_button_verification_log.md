@@ -145,3 +145,4 @@
 | 139 | `test(google-auth): verify clean DOM without orphan GIS elements` | `google-auth` | ✅ PASSED | Validates thorough DOM node garbage collection. |
 | 140 | `test(google-auth): verify regression testing of Google sign-in after sign out` | `google-auth` | ✅ PASSED | Confirms end-to-end re-login operates cleanly. |
 | 141 | `style(ui-affordance): eliminate ambiguous standalone arrow glyph` | `ui-affordance` | ✅ PASSED | Replaces [-> symbol with unambiguous button containing text. |
+| 142 | `style(ui-affordance): combine exit icon with explicit text label` | `ui-affordance` | ✅ PASSED | Provides dual visual affordance for cognitive ease. |
