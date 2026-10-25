@@ -79,3 +79,4 @@
 | 73 | `test(home-ui): verify unauthenticated visitors see 'Sign In' and 'Access Wiki' CTAs` | `home-ui` | ✅ PASSED | Ensures visitor experience remains pristine. |
 | 74 | `test(home-ui): verify authenticated state shows user avatar, role badge, and Sign Out` | `home-ui` | ✅ PASSED | Validates complete user session header on home page. |
 | 75 | `test(home-ui): verify mobile drawer backdrop dismisses on click` | `home-ui` | ✅ PASSED | Allows closing drawer by tapping backdrop overlay. |
+| 76 | `test(home-ui): verify smooth CSS transitions during drawer toggle` | `home-ui` | ✅ PASSED | Delivers 60fps animations across mobile devices. |
