@@ -154,3 +154,4 @@
 | 148 | `style(ui-affordance): maintain optical center alignment between icon and text` | `ui-affordance` | ✅ PASSED | Creates balanced layout with gap-1.5 spacing. |
 | 149 | `style(ui-affordance): enforce rounded-xl curvature matching design tokens` | `ui-affordance` | ✅ PASSED | Harmonizes button silhouette with surrounding components. |
 | 150 | `style(ui-affordance): add border-slate-700/80 outline for crisp edge definition` | `ui-affordance` | ✅ PASSED | Enhances button prominence on low-contrast screens. |
+| 151 | `style(ui-affordance): verify button distinctiveness from primary brand actions` | `ui-affordance` | ✅ PASSED | Distinguishes session logout from content creation buttons. |
