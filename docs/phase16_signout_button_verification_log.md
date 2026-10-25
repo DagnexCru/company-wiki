@@ -73,3 +73,4 @@
 | 67 | `feat(home-ui): add LogOut icon alongside label in mobile drawer button` | `home-ui` | ✅ PASSED | Provides consistent dual cue across mobile navigation. |
 | 68 | `feat(home-ui): style mobile drawer Sign Out button with rose hover accents` | `home-ui` | ✅ PASSED | Coordinates with theme-wide destructive action styling. |
 | 69 | `feat(home-ui): automatically close mobile drawer when Sign Out is clicked` | `home-ui` | ✅ PASSED | Calls setMobileMenuOpen(false) prior to logout(). |
+| 70 | `feat(home-ui): preserve 'Go to Dashboard' primary CTA hierarchy` | `home-ui` | ✅ PASSED | Maintains prominent brand gradient button alongside Sign Out. |
