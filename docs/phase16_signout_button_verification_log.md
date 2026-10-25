@@ -171,3 +171,4 @@
 | 165 | `a11y(signout): ensure text contrast ratio exceeds 4.5:1 against slate-800` | `signout` | ✅ PASSED | Achieves AAA contrast compliance on dark backgrounds. |
 | 166 | `a11y(signout): mark decorative LogOut icon with aria-hidden='true'` | `signout` | ✅ PASSED | Prevents redundant or confusing screen reader announcements. |
 | 167 | `a11y(signout): implement visible focus ring indicators for keyboard users` | `signout` | ✅ PASSED | Displays distinct focus ring on focus-visible state. |
+| 168 | `a11y(signout): verify full compatibility with Windows High Contrast Mode` | `signout` | ✅ PASSED | Preserves border and text visibility in contrast modes. |
