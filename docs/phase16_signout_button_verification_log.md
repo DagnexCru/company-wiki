@@ -92,3 +92,4 @@
 | 86 | `test(auth-core): verify localStorage is completely cleared of session tokens` | `auth-core` | ✅ PASSED | Asserts localStorage.getItem('token') is null. |
 | 87 | `test(auth-core): verify localStorage is completely cleared of refresh tokens` | `auth-core` | ✅ PASSED | Asserts localStorage.getItem('refresh_token') is null. |
 | 88 | `test(auth-core): verify AuthContext isAuthenticated evaluates to false` | `auth-core` | ✅ PASSED | Confirms auth guard blocks protected routes. |
+| 89 | `test(auth-core): verify AuthContext user state is null` | `auth-core` | ✅ PASSED | Confirms user metadata is cleared from memory. |
