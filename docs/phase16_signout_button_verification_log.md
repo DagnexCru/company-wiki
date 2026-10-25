@@ -77,3 +77,4 @@
 | 71 | `test(home-ui): verify desktop landing Sign Out button triggers AuthContext logout` | `home-ui` | ✅ PASSED | Confirms session termination from landing page. |
 | 72 | `test(home-ui): verify mobile drawer Sign Out closes menu and logs out` | `home-ui` | ✅ PASSED | Validates combined state reset on mobile touch. |
 | 73 | `test(home-ui): verify unauthenticated visitors see 'Sign In' and 'Access Wiki' CTAs` | `home-ui` | ✅ PASSED | Ensures visitor experience remains pristine. |
+| 74 | `test(home-ui): verify authenticated state shows user avatar, role badge, and Sign Out` | `home-ui` | ✅ PASSED | Validates complete user session header on home page. |
