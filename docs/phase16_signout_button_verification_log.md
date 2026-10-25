@@ -130,3 +130,4 @@
 | 124 | `feat(google-auth): clear Google OAuth state indicators from sessionStorage` | `google-auth` | ✅ PASSED | Sanitizes temporary auth handshakes. |
 | 125 | `feat(google-auth): provide smooth transition back to Google login button` | `google-auth` | ✅ PASSED | Re-renders Google button in pristine state. |
 | 126 | `test(google-auth): verify Google GIS library handles disableAutoSelect call` | `google-auth` | ✅ PASSED | Confirms Google SDK method execution. |
+| 127 | `test(google-auth): verify One Tap prompt remains disabled until next explicit login` | `google-auth` | ✅ PASSED | Prevents intrusive modal loops. |
