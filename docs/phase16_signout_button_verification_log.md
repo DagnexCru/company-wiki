@@ -58,3 +58,4 @@
 | 52 | `test(profile-ui): verify user UUID copy button remains fully functional` | `profile-ui` | ✅ PASSED | Preserves copy-to-clipboard behavior alongside sign out. |
 | 53 | `test(profile-ui): verify zero layout shift on profile identity card` | `profile-ui` | ✅ PASSED | Maintains fixed height and padding bounds. |
 | 54 | `test(profile-ui): verify profile button accessibility tags and aria-label` | `profile-ui` | ✅ PASSED | Ensures screen reader identifies action as account sign out. |
+| 55 | `test(profile-ui): verify profile button renders cleanly on mobile viewports` | `profile-ui` | ✅ PASSED | Scales to full card width across small screens. |
