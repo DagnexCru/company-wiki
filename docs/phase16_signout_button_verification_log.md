@@ -99,3 +99,4 @@
 | 93 | `test(auth-core): verify ProtectedRoute intercepts subsequent access to /profile` | `auth-core` | ✅ PASSED | Guards profile page against unauthorized access. |
 | 94 | `test(auth-core): verify browser back button cannot access protected cached DOM` | `auth-core` | ✅ PASSED | Enforces fresh route evaluation on history pop. |
 | 95 | `test(auth-core): verify multi-tab logout synchronization via storage event` | `auth-core` | ✅ PASSED | Broadcasts session invalidation to other open tabs. |
+| 96 | `test(auth-core): verify pending API requests are aborted upon logout` | `auth-core` | ✅ PASSED | Cancels in-flight Axios requests via AbortController. |
