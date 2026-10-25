@@ -255,3 +255,4 @@
 | 249 | `refactor(arch): ensure full testability with React Testing Library` | `arch` | ✅ PASSED | Exposes semantic role and accessible name for tests. |
 | 250 | `refactor(arch): eliminate dangling event listeners in component lifecycle` | `arch` | ✅ PASSED | Guarantees zero memory leaks on component unmount. |
 | 251 | `refactor(arch): ensure React 19 / 18 concurrent rendering compatibility` | `arch` | ✅ PASSED | Works seamlessly with modern React state scheduling. |
+| 252 | `refactor(arch): document component props and behavior with JSDoc comments` | `arch` | ✅ PASSED | Provides developer guidance directly in IDE tooltips. |
