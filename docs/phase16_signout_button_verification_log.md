@@ -19,3 +19,4 @@
 | 13 | `feat(header-ui): set rounded-xl border radius for design system consistency` | `header-ui` | ✅ PASSED | Aligns button geometry with user profile badge and search pill. |
 | 14 | `feat(header-ui): configure shadow-xs utility for subtle elevation` | `header-ui` | ✅ PASSED | Provides gentle depth on dark navigation bar. |
 | 15 | `feat(header-ui): align icon and label with inline-flex gap-1.5` | `header-ui` | ✅ PASSED | Ensures optical alignment between icon and text. |
+| 16 | `test(header-ui): verify button contrast ratio exceeds WCAG 2.1 AA standards` | `header-ui` | ✅ PASSED | Slate-300 text on slate-800 achieves > 5:1 contrast. |
