@@ -103,3 +103,4 @@
 | 97 | `test(auth-core): verify auto-save draft interval is cleared on logout` | `auth-core` | ✅ PASSED | Stops background article draft saving timer. |
 | 98 | `test(auth-core): verify public user settings (e.g. theme) are preserved` | `auth-core` | ✅ PASSED | Keeps non-sensitive preferences intact. |
 | 99 | `test(auth-core): verify zero unhandled promise rejections during logout` | `auth-core` | ✅ PASSED | Wraps session teardown in robust try/finally block. |
+| 100 | `test(auth-core): verify AuthProvider re-render cycle is minimal and performant` | `auth-core` | ✅ PASSED | Limits component re-renders to necessary consumers. |
