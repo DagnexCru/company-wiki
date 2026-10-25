@@ -118,3 +118,4 @@
 | 112 | `test(backend-auth): verify database transaction rollback on blacklist failure` | `backend-auth` | ✅ PASSED | Maintains relational database integrity. |
 | 113 | `test(backend-auth): verify rate limiter protects logout endpoint from flood attacks` | `backend-auth` | ✅ PASSED | Applies throttling to prevent denial of service. |
 | 114 | `test(backend-auth): verify CORS headers allow POST from frontend origins` | `backend-auth` | ✅ PASSED | Ensures seamless cross-origin request handling. |
+| 115 | `test(backend-auth): verify automated management command purges expired blacklists` | `backend-auth` | ✅ PASSED | Prevents unbounded growth of blacklisted tokens. |
