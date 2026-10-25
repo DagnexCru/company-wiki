@@ -147,3 +147,4 @@
 | 141 | `style(ui-affordance): eliminate ambiguous standalone arrow glyph` | `ui-affordance` | ✅ PASSED | Replaces [-> symbol with unambiguous button containing text. |
 | 142 | `style(ui-affordance): combine exit icon with explicit text label` | `ui-affordance` | ✅ PASSED | Provides dual visual affordance for cognitive ease. |
 | 143 | `style(ui-affordance): calibrate subtle rose accent against dark slate backdrop` | `ui-affordance` | ✅ PASSED | Balances destructive semantic with elegant dark theme. |
+| 144 | `style(ui-affordance): apply smooth 200ms cubic-bezier transition curves` | `ui-affordance` | ✅ PASSED | Ensures fluid animations on all hover states. |
