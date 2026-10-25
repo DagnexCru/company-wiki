@@ -132,3 +132,4 @@
 | 126 | `test(google-auth): verify Google GIS library handles disableAutoSelect call` | `google-auth` | ✅ PASSED | Confirms Google SDK method execution. |
 | 127 | `test(google-auth): verify One Tap prompt remains disabled until next explicit login` | `google-auth` | ✅ PASSED | Prevents intrusive modal loops. |
 | 128 | `test(google-auth): verify federated JWT signature validation expires properly` | `google-auth` | ✅ PASSED | Rejects expired Google ID tokens. |
+| 129 | `test(google-auth): verify error boundary catches Google SDK network timeouts` | `google-auth` | ✅ PASSED | Prevents application lockup if Google CDN is slow. |
