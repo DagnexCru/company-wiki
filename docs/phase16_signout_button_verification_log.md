@@ -164,3 +164,4 @@
 | 158 | `style(ui-affordance): standardize button height across header and sidebar` | `ui-affordance` | ✅ PASSED | Maintains vertical rhythm in application chrome. |
 | 159 | `style(ui-affordance): ensure text truncation safety on localized strings` | `ui-affordance` | ✅ PASSED | Prevents layout overflow on longer translation strings. |
 | 160 | `style(ui-affordance): achieve visual polish score of 100% in design review` | `ui-affordance` | ✅ PASSED | Validates premium aesthetics across all pages. |
+| 161 | `a11y(signout): provide descriptive title and aria-label attributes` | `signout` | ✅ PASSED | Informs screen readers of button's exact purpose. |
