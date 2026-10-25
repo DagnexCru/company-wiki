@@ -193,3 +193,4 @@
 | 187 | `test(security-guard): verify in-progress file uploads safely aborted on sign out` | `security-guard` | ✅ PASSED | Terminates background chunked uploads cleanly. |
 | 188 | `test(security-guard): verify notification badge count reset to zero` | `security-guard` | ✅ PASSED | Clears personal notification counters from header. |
 | 189 | `test(security-guard): verify personal activity stream cleared from local memory` | `security-guard` | ✅ PASSED | Prevents user activity leaking to shared computer. |
+| 190 | `test(security-guard): verify admin navigation items removed from DOM on sign out` | `security-guard` | ✅ PASSED | Hides user management and admin console links. |
