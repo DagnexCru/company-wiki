@@ -108,3 +108,4 @@
 | 102 | `feat(backend-auth): add refresh token to BlacklistedToken table in database` | `backend-auth` | ✅ PASSED | Stores JTI to permanently revoke compromised tokens. |
 | 103 | `feat(backend-auth): rotate CSRF token on user session termination` | `backend-auth` | ✅ PASSED | Mitigates cross-site request forgery risks. |
 | 104 | `feat(backend-auth): return HTTP 205 Reset Content on successful logout` | `backend-auth` | ✅ PASSED | Signals browser client to clear cached state. |
+| 105 | `feat(backend-auth): enforce IsAuthenticated permission on logout view` | `backend-auth` | ✅ PASSED | Requires valid session to perform explicit logout. |
