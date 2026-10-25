@@ -27,3 +27,4 @@
 | 21 | `feat(sidebar-ui): add dedicated full-width Sign Out button in sidebar footer` | `sidebar-ui` | ✅ PASSED | Integrates convenient logout action into persistent sidebar. |
 | 22 | `feat(sidebar-ui): import LogOut icon from lucide-react in Sidebar component` | `sidebar-ui` | ✅ PASSED | Adds session exit iconography to navigation drawer. |
 | 23 | `feat(sidebar-ui): extract logout action from useAuth hook in Sidebar` | `sidebar-ui` | ✅ PASSED | Connects sidebar button directly to global authentication state. |
+| 24 | `feat(sidebar-ui): place Sign Out button beneath Active Role indicator badge` | `sidebar-ui` | ✅ PASSED | Creates logical information hierarchy in sidebar footer. |
