@@ -17,3 +17,4 @@
 | 11 | `feat(header-ui): add descriptive title attribute 'Sign out of your session'` | `header-ui` | ✅ PASSED | Improves native browser tooltip accessibility. |
 | 12 | `feat(header-ui): configure type='button' attribute for semantic correctness` | `header-ui` | ✅ PASSED | Prevents accidental form submissions within header container. |
 | 13 | `feat(header-ui): set rounded-xl border radius for design system consistency` | `header-ui` | ✅ PASSED | Aligns button geometry with user profile badge and search pill. |
+| 14 | `feat(header-ui): configure shadow-xs utility for subtle elevation` | `header-ui` | ✅ PASSED | Provides gentle depth on dark navigation bar. |
