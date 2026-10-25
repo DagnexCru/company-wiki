@@ -34,3 +34,4 @@
 | 28 | `feat(sidebar-ui): automatically dismiss sidebar on click via onClose callback` | `sidebar-ui` | ✅ PASSED | Closes mobile drawer upon user initiating sign out. |
 | 29 | `feat(sidebar-ui): conditionally render Sign Out button only when user is authenticated` | `sidebar-ui` | ✅ PASSED | Hides sign out control for unauthenticated guests. |
 | 30 | `feat(sidebar-ui): set touch target height exceeding 40px for tablet ergonomics` | `sidebar-ui` | ✅ PASSED | Optimizes mobile ergonomics and prevents mis-taps. |
+| 31 | `feat(sidebar-ui): configure cursor-pointer feedback on sidebar button` | `sidebar-ui` | ✅ PASSED | Provides clear interactive affordance. |
