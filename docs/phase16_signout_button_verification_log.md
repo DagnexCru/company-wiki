@@ -218,3 +218,4 @@
 | 212 | `test(cross-browser): verify prevention of text selection on double-clicking button` | `cross-browser` | ✅ PASSED | Applies select-none where appropriate. |
 | 213 | `test(cross-browser): verify CSS variable fallback support` | `cross-browser` | ✅ PASSED | Guarantees graceful degradation on older rendering engines. |
 | 214 | `test(cross-browser): verify flexbox box-sizing consistency across browsers` | `cross-browser` | ✅ PASSED | Eliminates cross-platform padding discrepancies. |
+| 215 | `test(cross-browser): verify native button margin and border resets` | `cross-browser` | ✅ PASSED | Ensures zero OS-default button styles bleed through. |
