@@ -84,3 +84,4 @@
 | 78 | `test(home-ui): verify landing page button contrast across dark backgrounds` | `home-ui` | ✅ PASSED | Meets WCAG 2.1 contrast guidelines. |
 | 79 | `test(home-ui): verify zero cumulative layout shift during auth state change` | `home-ui` | ✅ PASSED | Header dimensions remain stable when user signs out. |
 | 80 | `test(home-ui): verify keyboard navigation in landing header` | `home-ui` | ✅ PASSED | Enables seamless tab traversal across all actions. |
+| 81 | `feat(auth-core): clear access token from localStorage upon logout` | `auth-core` | ✅ PASSED | Removes token key from browser storage immediately. |
