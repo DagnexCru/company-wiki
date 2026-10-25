@@ -110,3 +110,4 @@
 | 104 | `feat(backend-auth): return HTTP 205 Reset Content on successful logout` | `backend-auth` | ✅ PASSED | Signals browser client to clear cached state. |
 | 105 | `feat(backend-auth): enforce IsAuthenticated permission on logout view` | `backend-auth` | ✅ PASSED | Requires valid session to perform explicit logout. |
 | 106 | `test(backend-auth): verify blacklisted refresh token cannot obtain new access token` | `backend-auth` | ✅ PASSED | Returns 401 Unauthorized on refresh attempt. |
+| 107 | `test(backend-auth): verify expired refresh token handled gracefully` | `backend-auth` | ✅ PASSED | Returns 200/205 without crashing backend worker. |
