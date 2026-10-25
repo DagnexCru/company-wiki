@@ -247,3 +247,4 @@
 | 241 | `refactor(arch): isolate sign out button presentation from authentication logic` | `arch` | ✅ PASSED | Maintains clean separation of concerns in React components. |
 | 242 | `refactor(arch): compose reusable Tailwind utility classes for destructive buttons` | `arch` | ✅ PASSED | Defines standard design tokens for session termination. |
 | 243 | `refactor(arch): optimize tree-shaking for lucide-react LogOut icon` | `arch` | ✅ PASSED | Imports only required icon vector to minimize bundle size. |
+| 244 | `refactor(arch): enforce strict TypeScript typing across auth handlers` | `arch` | ✅ PASSED | Guarantees zero 'any' types in authentication triggers. |
