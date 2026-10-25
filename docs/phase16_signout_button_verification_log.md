@@ -126,3 +126,4 @@
 | 120 | `test(backend-auth): verify integration test for login -> refresh -> logout -> block` | `backend-auth` | ✅ PASSED | Validates complete backend lifecycle. |
 | 121 | `feat(google-auth): disconnect Google Identity Services session on app logout` | `google-auth` | ✅ PASSED | Calls google.accounts.id.disableAutoSelect() on sign out. |
 | 122 | `feat(google-auth): clear Google profile picture and display name cache` | `google-auth` | ✅ PASSED | Removes federated identity data from client state. |
+| 123 | `feat(google-auth): prevent immediate One Tap re-prompt after manual sign out` | `google-auth` | ✅ PASSED | Suppresses prompt to respect user intent to stay signed out. |
