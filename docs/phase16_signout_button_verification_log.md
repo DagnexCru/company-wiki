@@ -180,3 +180,4 @@
 | 174 | `a11y(signout): prevent keyboard trap inside mobile navigation drawers` | `signout` | ✅ PASSED | Allows Esc key to dismiss drawer and return focus. |
 | 175 | `a11y(signout): ensure non-color dependent affordance with text + icon combo` | `signout` | ✅ PASSED | Accommodates color-blind users with clear text label. |
 | 176 | `a11y(signout): preserve focus position after closing navigation menus` | `signout` | ✅ PASSED | Returns focus to menu trigger button upon dismissal. |
+| 177 | `a11y(signout): eliminate autoplay animations that could trigger vestibular distress` | `signout` | ✅ PASSED | Keeps animations subtle and user-controlled. |
