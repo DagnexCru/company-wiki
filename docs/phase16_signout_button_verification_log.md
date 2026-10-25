@@ -148,3 +148,4 @@
 | 142 | `style(ui-affordance): combine exit icon with explicit text label` | `ui-affordance` | ✅ PASSED | Provides dual visual affordance for cognitive ease. |
 | 143 | `style(ui-affordance): calibrate subtle rose accent against dark slate backdrop` | `ui-affordance` | ✅ PASSED | Balances destructive semantic with elegant dark theme. |
 | 144 | `style(ui-affordance): apply smooth 200ms cubic-bezier transition curves` | `ui-affordance` | ✅ PASSED | Ensures fluid animations on all hover states. |
+| 145 | `style(ui-affordance): configure hover:scale-[1.02] micro-interaction` | `ui-affordance` | ✅ PASSED | Adds responsive spring feel to button interaction. |
