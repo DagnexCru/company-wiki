@@ -89,3 +89,4 @@
 | 83 | `feat(auth-core): reset user profile state to null in AuthContext` | `auth-core` | ✅ PASSED | Invalidates user session object in React state. |
 | 84 | `feat(auth-core): remove Authorization header from default Axios instance` | `auth-core` | ✅ PASSED | Revokes Bearer token on outbound HTTP client. |
 | 85 | `feat(auth-core): trigger React Router navigation to /login on logout` | `auth-core` | ✅ PASSED | Redirects user to authentication entry point. |
+| 86 | `test(auth-core): verify localStorage is completely cleared of session tokens` | `auth-core` | ✅ PASSED | Asserts localStorage.getItem('token') is null. |
