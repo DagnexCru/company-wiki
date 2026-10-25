@@ -48,3 +48,4 @@
 | 42 | `feat(profile-ui): import LogOut icon from lucide-react in ProfilePage` | `profile-ui` | ✅ PASSED | Adds visual exit cue to account management screen. |
 | 43 | `feat(profile-ui): extract logout function from useAuth hook in ProfilePage` | `profile-ui` | ✅ PASSED | Binds profile button to global authentication provider. |
 | 44 | `feat(profile-ui): position Sign Out button below User UUID container` | `profile-ui` | ✅ PASSED | Organizes identity card with clear termination action. |
+| 45 | `feat(profile-ui): add subtle border-t divider above profile Sign Out action` | `profile-ui` | ✅ PASSED | Visually demarcates user metadata from session actions. |
