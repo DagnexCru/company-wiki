@@ -124,3 +124,4 @@
 | 118 | `test(backend-auth): verify DRF serializer validates refresh token payload` | `backend-auth` | ✅ PASSED | Ensures schema compliance before processing. |
 | 119 | `test(backend-auth): verify unit tests pass for accounts/views.py logout handler` | `backend-auth` | ✅ PASSED | Maintains 100% backend test pass rate. |
 | 120 | `test(backend-auth): verify integration test for login -> refresh -> logout -> block` | `backend-auth` | ✅ PASSED | Validates complete backend lifecycle. |
+| 121 | `feat(google-auth): disconnect Google Identity Services session on app logout` | `google-auth` | ✅ PASSED | Calls google.accounts.id.disableAutoSelect() on sign out. |
