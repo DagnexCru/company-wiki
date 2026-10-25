@@ -241,3 +241,4 @@
 | 235 | `feat(telemetry): monitor abnormal logout spikes to detect anomaly patterns` | `telemetry` | ✅ PASSED | Alerts on potential credential stuffing or bot attacks. |
 | 236 | `feat(telemetry): log concurrent session termination events` | `telemetry` | ✅ PASSED | Detects when user is signed out from multiple devices. |
 | 237 | `feat(telemetry): verify zero unhandled exceptions in telemetry dispatch` | `telemetry` | ✅ PASSED | Wraps telemetry sender in protective error handling. |
+| 238 | `feat(telemetry): enforce 90-day retention policy for authentication logs` | `telemetry` | ✅ PASSED | Complies with enterprise data governance standards. |
