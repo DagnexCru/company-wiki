@@ -54,3 +54,4 @@
 | 48 | `feat(profile-ui): add icon translation micro-animation (group-hover:-translate-x-0.5)` | `profile-ui` | ✅ PASSED | Nudges exit icon leftward indicating outward navigation. |
 | 49 | `feat(profile-ui): add active scale reduction (active:scale-[0.99]) on click` | `profile-ui` | ✅ PASSED | Confirms user click action with tactile feedback. |
 | 50 | `feat(profile-ui): configure font-semibold text-xs typography for profile action` | `profile-ui` | ✅ PASSED | Matches enterprise density of profile page. |
+| 51 | `test(profile-ui): verify profile Sign Out button clears session and redirects` | `profile-ui` | ✅ PASSED | Successfully invalidates auth token and redirects to login. |
