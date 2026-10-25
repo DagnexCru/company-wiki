@@ -62,3 +62,4 @@
 | 56 | `test(profile-ui): verify profile button contrast in dark mode` | `profile-ui` | ✅ PASSED | Rose-300 on dark slate ensures high visibility. |
 | 57 | `test(profile-ui): verify keyboard tab focus lands smoothly on profile Sign Out` | `profile-ui` | ✅ PASSED | Tab navigation navigates naturally to button. |
 | 58 | `test(profile-ui): verify immediate cache eviction upon profile sign out` | `profile-ui` | ✅ PASSED | Clears profile query cache upon button activation. |
+| 59 | `test(profile-ui): verify profile role badge (ADMIN/EDITOR/VIEWER) remains intact` | `profile-ui` | ✅ PASSED | Preserves RBAC badge styling and layout. |
