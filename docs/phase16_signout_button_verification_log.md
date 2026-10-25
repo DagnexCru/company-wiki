@@ -41,3 +41,4 @@
 | 35 | `test(sidebar-ui): verify sidebar footer renders Active Role badge correctly` | `sidebar-ui` | ✅ PASSED | Maintains role display (ADMIN/EDITOR/VIEWER). |
 | 36 | `test(sidebar-ui): verify keyboard focus order in sidebar navigation` | `sidebar-ui` | ✅ PASSED | Places Sign Out at end of tab sequence logically. |
 | 37 | `test(sidebar-ui): verify sidebar button contrast in dark mode` | `sidebar-ui` | ✅ PASSED | Meets accessibility standards across all themes. |
+| 38 | `test(sidebar-ui): verify no memory leak on rapid sidebar mount/unmount` | `sidebar-ui` | ✅ PASSED | Validates clean React component lifecycle. |
