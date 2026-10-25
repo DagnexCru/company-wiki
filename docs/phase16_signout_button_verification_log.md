@@ -96,3 +96,4 @@
 | 90 | `test(auth-core): verify Axios subsequent requests omit Authorization header` | `auth-core` | ✅ PASSED | Prevents unauthorized requests with stale credentials. |
 | 91 | `test(auth-core): verify ProtectedRoute intercepts subsequent access to /dashboard` | `auth-core` | ✅ PASSED | Redirects unauthenticated user to login. |
 | 92 | `test(auth-core): verify ProtectedRoute intercepts subsequent access to /articles/new` | `auth-core` | ✅ PASSED | Blocks article creation without active session. |
+| 93 | `test(auth-core): verify ProtectedRoute intercepts subsequent access to /profile` | `auth-core` | ✅ PASSED | Guards profile page against unauthorized access. |
