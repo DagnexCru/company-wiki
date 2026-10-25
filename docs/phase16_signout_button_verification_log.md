@@ -134,3 +134,4 @@
 | 128 | `test(google-auth): verify federated JWT signature validation expires properly` | `google-auth` | ✅ PASSED | Rejects expired Google ID tokens. |
 | 129 | `test(google-auth): verify error boundary catches Google SDK network timeouts` | `google-auth` | ✅ PASSED | Prevents application lockup if Google CDN is slow. |
 | 130 | `test(google-auth): verify Google sign-in origin configuration helper remains intact` | `google-auth` | ✅ PASSED | Preserves port troubleshooting widget. |
+| 131 | `test(google-auth): verify copy origin button works properly after sign out` | `google-auth` | ✅ PASSED | Maintains diagnostic helper functionality. |
