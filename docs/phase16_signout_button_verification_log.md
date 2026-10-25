@@ -250,3 +250,4 @@
 | 244 | `refactor(arch): enforce strict TypeScript typing across auth handlers` | `arch` | ✅ PASSED | Guarantees zero 'any' types in authentication triggers. |
 | 245 | `refactor(arch): satisfy strict noUnusedLocals compilation rules` | `arch` | ✅ PASSED | Ensures zero unused imports or variables in TypeScript. |
 | 246 | `refactor(arch): satisfy strict noUnusedParameters compilation rules` | `arch` | ✅ PASSED | Maintains pristine function parameter hygiene. |
+| 247 | `refactor(arch): eliminate duplicate inline CSS across navigation components` | `arch` | ✅ PASSED | Consolidates shared button classes into cohesive tokens. |
