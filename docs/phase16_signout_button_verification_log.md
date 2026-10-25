@@ -196,3 +196,4 @@
 | 190 | `test(security-guard): verify admin navigation items removed from DOM on sign out` | `security-guard` | ✅ PASSED | Hides user management and admin console links. |
 | 191 | `test(security-guard): verify direct URL access to /admin/users blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when accessing admin area. |
 | 192 | `test(security-guard): verify direct URL access to /articles/new blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when creating new article. |
+| 193 | `test(security-guard): verify direct URL access to /reviews blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when viewing reviews. |
