@@ -261,3 +261,4 @@
 | 255 | `refactor(arch): avoid external runtime CSS dependencies` | `arch` | ✅ PASSED | Relies entirely on compiled Tailwind utility classes. |
 | 256 | `refactor(arch): achieve A+ maintainability score in static code analysis` | `arch` | ✅ PASSED | Validates low cyclomatic complexity across components. |
 | 257 | `refactor(arch): maintain clean git diff with atomic, purposeful line edits` | `arch` | ✅ PASSED | Facilitates effortless peer review in pull requests. |
+| 258 | `refactor(arch): export clean component interfaces from index module` | `arch` | ✅ PASSED | Simplifies import paths across application codebase. |
