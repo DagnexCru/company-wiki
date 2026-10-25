@@ -50,3 +50,4 @@
 | 44 | `feat(profile-ui): position Sign Out button below User UUID container` | `profile-ui` | ✅ PASSED | Organizes identity card with clear termination action. |
 | 45 | `feat(profile-ui): add subtle border-t divider above profile Sign Out action` | `profile-ui` | ✅ PASSED | Visually demarcates user metadata from session actions. |
 | 46 | `feat(profile-ui): style profile button with full-width rose badge styling` | `profile-ui` | ✅ PASSED | bg-rose-500/10 border-rose-500/30 text-rose-300. |
+| 47 | `feat(profile-ui): add hover elevation and shadow bloom (hover:shadow-rose-950/40)` | `profile-ui` | ✅ PASSED | Creates premium depth effect on mouse interaction. |
