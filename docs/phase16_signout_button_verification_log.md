@@ -8,3 +8,4 @@
 | 2 | `feat(header-ui): add LogOut icon from lucide-react with smooth color transition` | `header-ui` | ✅ PASSED | Provides immediate visual cue for session termination. |
 | 3 | `feat(header-ui): implement text label 'Sign Out' with responsive visibility` | `header-ui` | ✅ PASSED | Displays clear typography with hidden sm:inline responsiveness. |
 | 4 | `feat(header-ui): style button with dark slate pill background (bg-slate-800/80)` | `header-ui` | ✅ PASSED | Blends seamlessly into enterprise navigation header. |
+| 5 | `feat(header-ui): add subtle border container (border-slate-700/80)` | `header-ui` | ✅ PASSED | Creates defined button boundaries without visual clutter. |
