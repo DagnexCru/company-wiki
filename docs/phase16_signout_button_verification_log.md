@@ -113,3 +113,4 @@
 | 107 | `test(backend-auth): verify expired refresh token handled gracefully` | `backend-auth` | ✅ PASSED | Returns 200/205 without crashing backend worker. |
 | 108 | `test(backend-auth): verify malformed token rejected with 400 Bad Request` | `backend-auth` | ✅ PASSED | Validates input sanitization on logout endpoint. |
 | 109 | `test(backend-auth): verify access token naturally expires within 15 minutes` | `backend-auth` | ✅ PASSED | Limits exposure window for stateless access tokens. |
+| 110 | `test(backend-auth): verify security audit log records logout event with IP address` | `backend-auth` | ✅ PASSED | Tracks user termination for compliance logging. |
