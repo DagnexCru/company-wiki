@@ -111,3 +111,4 @@
 | 105 | `feat(backend-auth): enforce IsAuthenticated permission on logout view` | `backend-auth` | ✅ PASSED | Requires valid session to perform explicit logout. |
 | 106 | `test(backend-auth): verify blacklisted refresh token cannot obtain new access token` | `backend-auth` | ✅ PASSED | Returns 401 Unauthorized on refresh attempt. |
 | 107 | `test(backend-auth): verify expired refresh token handled gracefully` | `backend-auth` | ✅ PASSED | Returns 200/205 without crashing backend worker. |
+| 108 | `test(backend-auth): verify malformed token rejected with 400 Bad Request` | `backend-auth` | ✅ PASSED | Validates input sanitization on logout endpoint. |
