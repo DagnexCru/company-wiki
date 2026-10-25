@@ -52,3 +52,4 @@
 | 46 | `feat(profile-ui): style profile button with full-width rose badge styling` | `profile-ui` | ✅ PASSED | bg-rose-500/10 border-rose-500/30 text-rose-300. |
 | 47 | `feat(profile-ui): add hover elevation and shadow bloom (hover:shadow-rose-950/40)` | `profile-ui` | ✅ PASSED | Creates premium depth effect on mouse interaction. |
 | 48 | `feat(profile-ui): add icon translation micro-animation (group-hover:-translate-x-0.5)` | `profile-ui` | ✅ PASSED | Nudges exit icon leftward indicating outward navigation. |
+| 49 | `feat(profile-ui): add active scale reduction (active:scale-[0.99]) on click` | `profile-ui` | ✅ PASSED | Confirms user click action with tactile feedback. |
