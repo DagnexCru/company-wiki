@@ -231,3 +231,4 @@
 | 225 | `feat(telemetry): calculate total session duration prior to logout` | `telemetry` | ✅ PASSED | Measures user session length for engagement analytics. |
 | 226 | `feat(telemetry): count total articles browsed during active session` | `telemetry` | ✅ PASSED | Tracks workflow productivity metrics. |
 | 227 | `feat(telemetry): transmit telemetry payload via navigator.sendBeacon` | `telemetry` | ✅ PASSED | Guarantees reliable delivery even as page unloads. |
+| 228 | `feat(telemetry): log security alert if server blacklist API returns error` | `telemetry` | ✅ PASSED | Flags backend revocation failures for admin inspection. |
