@@ -20,3 +20,4 @@
 | 14 | `feat(header-ui): configure shadow-xs utility for subtle elevation` | `header-ui` | ✅ PASSED | Provides gentle depth on dark navigation bar. |
 | 15 | `feat(header-ui): align icon and label with inline-flex gap-1.5` | `header-ui` | ✅ PASSED | Ensures optical alignment between icon and text. |
 | 16 | `test(header-ui): verify button contrast ratio exceeds WCAG 2.1 AA standards` | `header-ui` | ✅ PASSED | Slate-300 text on slate-800 achieves > 5:1 contrast. |
+| 17 | `test(header-ui): verify zero layout shift during hover and active transitions` | `header-ui` | ✅ PASSED | Preserves layout stability with CLS = 0 in header. |
