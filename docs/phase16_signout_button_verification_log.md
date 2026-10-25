@@ -152,3 +152,4 @@
 | 146 | `style(ui-affordance): configure active:scale-[0.98] click depression` | `ui-affordance` | ✅ PASSED | Simulates mechanical button press for user confirmation. |
 | 147 | `style(ui-affordance): ensure minimum 40px touch bounding box on touchscreens` | `ui-affordance` | ✅ PASSED | Prevents fat-finger mis-clicks on mobile devices. |
 | 148 | `style(ui-affordance): maintain optical center alignment between icon and text` | `ui-affordance` | ✅ PASSED | Creates balanced layout with gap-1.5 spacing. |
+| 149 | `style(ui-affordance): enforce rounded-xl curvature matching design tokens` | `ui-affordance` | ✅ PASSED | Harmonizes button silhouette with surrounding components. |
