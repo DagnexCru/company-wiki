@@ -26,3 +26,4 @@
 | 20 | `test(header-ui): verify mobile viewport hides text label while keeping icon button touch target` | `header-ui` | ✅ PASSED | Maintains responsive layout on narrow screens. |
 | 21 | `feat(sidebar-ui): add dedicated full-width Sign Out button in sidebar footer` | `sidebar-ui` | ✅ PASSED | Integrates convenient logout action into persistent sidebar. |
 | 22 | `feat(sidebar-ui): import LogOut icon from lucide-react in Sidebar component` | `sidebar-ui` | ✅ PASSED | Adds session exit iconography to navigation drawer. |
+| 23 | `feat(sidebar-ui): extract logout action from useAuth hook in Sidebar` | `sidebar-ui` | ✅ PASSED | Connects sidebar button directly to global authentication state. |
