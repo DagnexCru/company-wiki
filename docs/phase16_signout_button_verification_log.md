@@ -100,3 +100,4 @@
 | 94 | `test(auth-core): verify browser back button cannot access protected cached DOM` | `auth-core` | ✅ PASSED | Enforces fresh route evaluation on history pop. |
 | 95 | `test(auth-core): verify multi-tab logout synchronization via storage event` | `auth-core` | ✅ PASSED | Broadcasts session invalidation to other open tabs. |
 | 96 | `test(auth-core): verify pending API requests are aborted upon logout` | `auth-core` | ✅ PASSED | Cancels in-flight Axios requests via AbortController. |
+| 97 | `test(auth-core): verify auto-save draft interval is cleared on logout` | `auth-core` | ✅ PASSED | Stops background article draft saving timer. |
