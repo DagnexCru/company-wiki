@@ -16,3 +16,4 @@
 | 10 | `feat(header-ui): add active press micro-scale feedback (active:scale-[0.98])` | `header-ui` | ✅ PASSED | Provides clear tactile feedback on mouse click. |
 | 11 | `feat(header-ui): add descriptive title attribute 'Sign out of your session'` | `header-ui` | ✅ PASSED | Improves native browser tooltip accessibility. |
 | 12 | `feat(header-ui): configure type='button' attribute for semantic correctness` | `header-ui` | ✅ PASSED | Prevents accidental form submissions within header container. |
+| 13 | `feat(header-ui): set rounded-xl border radius for design system consistency` | `header-ui` | ✅ PASSED | Aligns button geometry with user profile badge and search pill. |
