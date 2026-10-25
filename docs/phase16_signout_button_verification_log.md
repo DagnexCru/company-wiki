@@ -202,3 +202,4 @@
 | 196 | `test(security-guard): verify signing out from /profile redirects cleanly to /login` | `security-guard` | ✅ PASSED | Handles self-referential route invalidation safely. |
 | 197 | `test(security-guard): verify signing out from article view redirects cleanly to /login` | `security-guard` | ✅ PASSED | Redirects readers securely without state errors. |
 | 198 | `test(security-guard): verify signing out from landing page stays on landing page` | `security-guard` | ✅ PASSED | Refreshes header state gracefully without jarring reload. |
+| 199 | `test(security-guard): verify browser session history handles sign out gracefully` | `security-guard` | ✅ PASSED | Prevents navigation loops when hitting back button. |
