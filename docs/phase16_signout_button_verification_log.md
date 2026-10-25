@@ -227,3 +227,4 @@
 | 221 | `feat(telemetry): record client-side session termination event` | `telemetry` | ✅ PASSED | Emits structured audit log when user initiates sign out. |
 | 222 | `feat(telemetry): capture sign out trigger source (header, sidebar, profile, home)` | `telemetry` | ✅ PASSED | Identifies UX touchpoint utilized for session termination. |
 | 223 | `feat(telemetry): record UTC timestamp in ISO 8601 format on logout` | `telemetry` | ✅ PASSED | Provides accurate temporal tracking for compliance. |
+| 224 | `feat(telemetry): capture anonymized user identifier in audit log` | `telemetry` | ✅ PASSED | Correlates session events while respecting privacy. |
