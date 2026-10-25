@@ -176,3 +176,4 @@
 | 170 | `a11y(signout): satisfy WCAG 2.1 AAA touch target guidelines` | `signout` | ✅ PASSED | Provides ample touch target padding for motor accessibility. |
 | 171 | `a11y(signout): test with NVDA screen reader on Windows` | `signout` | ✅ PASSED | Announces 'Sign Out, button' clearly. |
 | 172 | `a11y(signout): test with VoiceOver on macOS and iOS` | `signout` | ✅ PASSED | Reads button role and label accurately. |
+| 173 | `a11y(signout): test with TalkBack on Android` | `signout` | ✅ PASSED | Provides audible touch exploration feedback. |
