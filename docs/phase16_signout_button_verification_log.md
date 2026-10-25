@@ -197,3 +197,4 @@
 | 191 | `test(security-guard): verify direct URL access to /admin/users blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when accessing admin area. |
 | 192 | `test(security-guard): verify direct URL access to /articles/new blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when creating new article. |
 | 193 | `test(security-guard): verify direct URL access to /reviews blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when viewing reviews. |
+| 194 | `test(security-guard): verify direct URL access to /profile blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when viewing user profile. |
