@@ -135,3 +135,4 @@
 | 129 | `test(google-auth): verify error boundary catches Google SDK network timeouts` | `google-auth` | ✅ PASSED | Prevents application lockup if Google CDN is slow. |
 | 130 | `test(google-auth): verify Google sign-in origin configuration helper remains intact` | `google-auth` | ✅ PASSED | Preserves port troubleshooting widget. |
 | 131 | `test(google-auth): verify copy origin button works properly after sign out` | `google-auth` | ✅ PASSED | Maintains diagnostic helper functionality. |
+| 132 | `test(google-auth): verify Google client ID environment variable loading` | `google-auth` | ✅ PASSED | Confirms VITE_GOOGLE_CLIENT_ID parses correctly. |
