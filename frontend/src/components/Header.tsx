@@ -126,11 +126,13 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
             </Link>
 
             <button
+              type="button"
               onClick={() => logout()}
-              title="Sign out"
-              className="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-950/30 rounded-lg transition ml-1"
+              title="Sign out of your session"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700/80 hover:border-rose-500/50 bg-slate-800/80 hover:bg-rose-950/40 text-slate-300 hover:text-rose-300 text-xs font-semibold shadow-xs transition-all duration-200 cursor-pointer group hover:scale-[1.02] active:scale-[0.98] ml-1"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-400 transition-colors" />
+              <span>Sign Out</span>
             </button>
           </>
         ) : (

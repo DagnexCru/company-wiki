@@ -132,10 +132,12 @@ export const HomePage = () => {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
+                  type="button"
                   onClick={logout}
-                  className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-700/80 hover:border-rose-500/50 bg-slate-800/80 hover:bg-rose-950/40 text-slate-300 hover:text-rose-300 text-sm font-semibold shadow-xs transition-all duration-200 cursor-pointer group hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Sign Out
+                  <LogOut className="w-4 h-4 text-slate-400 group-hover:text-rose-400 transition-colors" />
+                  <span>Sign Out</span>
                 </button>
               </div>
             ) : (
@@ -211,14 +213,16 @@ export const HomePage = () => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <button
+                    type="button"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       logout();
                     }}
-                    title="Sign Out"
-                    className="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-950/30 rounded-xl transition"
+                    title="Sign Out of your session"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700/80 hover:border-rose-500/50 bg-slate-800/80 hover:bg-rose-950/40 text-slate-300 hover:text-rose-300 text-xs font-semibold shadow-xs transition-all duration-200 cursor-pointer group"
                   >
-                    <LogOut className="w-4 h-4" />
+                    <LogOut className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-400 transition-colors" />
+                    <span>Sign Out</span>
                   </button>
                 </div>
               </div>

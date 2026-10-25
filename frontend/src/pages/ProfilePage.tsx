@@ -10,11 +10,12 @@ import {
   Sliders,
   CheckCircle,
   ArrowRight,
+  LogOut,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 export const ProfilePage: React.FC = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [copiedUuid, setCopiedUuid] = useState(false);
 
   // User Settings State (Local Interactive Preferences)
@@ -229,6 +230,18 @@ export const ProfilePage: React.FC = () => {
               <span className="font-mono text-[11px] text-slate-300 truncate block bg-slate-900/90 p-2 rounded-lg border border-slate-800 select-all">
                 {user?.id || "e02746a5-cb45-4be2-9ef5-202446824be9"}
               </span>
+            </div>
+
+            {/* Dedicated Meaningful Sign Out Button */}
+            <div className="pt-2 border-t border-slate-800/80">
+              <button
+                type="button"
+                onClick={logout}
+                className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 hover:border-rose-500/50 transition-all duration-200 shadow-sm hover:shadow-rose-950/40 hover:scale-[1.01] active:scale-[0.99] group"
+              >
+                <LogOut className="w-4 h-4 text-rose-400 group-hover:text-rose-300 transition-transform group-hover:-translate-x-0.5" />
+                <span>Sign Out of Account</span>
+              </button>
             </div>
           </div>
         </div>
