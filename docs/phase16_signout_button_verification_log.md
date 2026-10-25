@@ -201,3 +201,4 @@
 | 195 | `test(security-guard): verify smooth page transition during redirect to login` | `security-guard` | ✅ PASSED | Eliminates screen flicker or flash of unstyled content. |
 | 196 | `test(security-guard): verify signing out from /profile redirects cleanly to /login` | `security-guard` | ✅ PASSED | Handles self-referential route invalidation safely. |
 | 197 | `test(security-guard): verify signing out from article view redirects cleanly to /login` | `security-guard` | ✅ PASSED | Redirects readers securely without state errors. |
+| 198 | `test(security-guard): verify signing out from landing page stays on landing page` | `security-guard` | ✅ PASSED | Refreshes header state gracefully without jarring reload. |
