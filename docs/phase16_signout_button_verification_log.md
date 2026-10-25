@@ -32,3 +32,4 @@
 | 26 | `feat(sidebar-ui): add rose accent hover state in sidebar (hover:bg-rose-950/40)` | `sidebar-ui` | ✅ PASSED | Differentiates destructive action from regular navigation links. |
 | 27 | `feat(sidebar-ui): add group hover transition to sidebar LogOut icon` | `sidebar-ui` | ✅ PASSED | Illuminates icon to rose-400 on row hover. |
 | 28 | `feat(sidebar-ui): automatically dismiss sidebar on click via onClose callback` | `sidebar-ui` | ✅ PASSED | Closes mobile drawer upon user initiating sign out. |
+| 29 | `feat(sidebar-ui): conditionally render Sign Out button only when user is authenticated` | `sidebar-ui` | ✅ PASSED | Hides sign out control for unauthenticated guests. |
