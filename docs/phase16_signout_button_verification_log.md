@@ -246,3 +246,4 @@
 | 240 | `feat(telemetry): complete security audit sign-off for Phase 16` | `telemetry` | ✅ PASSED | Approves session termination implementation for production. |
 | 241 | `refactor(arch): isolate sign out button presentation from authentication logic` | `arch` | ✅ PASSED | Maintains clean separation of concerns in React components. |
 | 242 | `refactor(arch): compose reusable Tailwind utility classes for destructive buttons` | `arch` | ✅ PASSED | Defines standard design tokens for session termination. |
+| 243 | `refactor(arch): optimize tree-shaking for lucide-react LogOut icon` | `arch` | ✅ PASSED | Imports only required icon vector to minimize bundle size. |
