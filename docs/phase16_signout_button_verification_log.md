@@ -123,3 +123,4 @@
 | 117 | `test(backend-auth): verify SSL/TLS enforcement for credential transport` | `backend-auth` | ✅ PASSED | Mandates HTTPS in production deployments. |
 | 118 | `test(backend-auth): verify DRF serializer validates refresh token payload` | `backend-auth` | ✅ PASSED | Ensures schema compliance before processing. |
 | 119 | `test(backend-auth): verify unit tests pass for accounts/views.py logout handler` | `backend-auth` | ✅ PASSED | Maintains 100% backend test pass rate. |
+| 120 | `test(backend-auth): verify integration test for login -> refresh -> logout -> block` | `backend-auth` | ✅ PASSED | Validates complete backend lifecycle. |
