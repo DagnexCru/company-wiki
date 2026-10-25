@@ -30,3 +30,4 @@
 | 24 | `feat(sidebar-ui): place Sign Out button beneath Active Role indicator badge` | `sidebar-ui` | ✅ PASSED | Creates logical information hierarchy in sidebar footer. |
 | 25 | `feat(sidebar-ui): style sidebar Sign Out with rounded-xl and slate-800 container` | `sidebar-ui` | ✅ PASSED | Maintains cohesive aesthetic across sidebar controls. |
 | 26 | `feat(sidebar-ui): add rose accent hover state in sidebar (hover:bg-rose-950/40)` | `sidebar-ui` | ✅ PASSED | Differentiates destructive action from regular navigation links. |
+| 27 | `feat(sidebar-ui): add group hover transition to sidebar LogOut icon` | `sidebar-ui` | ✅ PASSED | Illuminates icon to rose-400 on row hover. |
