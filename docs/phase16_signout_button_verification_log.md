@@ -216,3 +216,4 @@
 | 210 | `test(cross-browser): verify smooth 60fps/120fps animation rendering` | `cross-browser` | ✅ PASSED | Validates hardware-accelerated transform transitions. |
 | 211 | `test(cross-browser): verify touch-to-hover behavior on hybrid touch laptops` | `cross-browser` | ✅ PASSED | Ensures clicks register cleanly on touchscreen laptops. |
 | 212 | `test(cross-browser): verify prevention of text selection on double-clicking button` | `cross-browser` | ✅ PASSED | Applies select-none where appropriate. |
+| 213 | `test(cross-browser): verify CSS variable fallback support` | `cross-browser` | ✅ PASSED | Guarantees graceful degradation on older rendering engines. |
