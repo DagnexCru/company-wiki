@@ -207,3 +207,4 @@
 | 201 | `test(cross-browser): verify button rendering in Google Chrome (Blink)` | `cross-browser` | ✅ PASSED | Validates pixel-perfect layout and hover effects. |
 | 202 | `test(cross-browser): verify button rendering in Mozilla Firefox (Gecko)` | `cross-browser` | ✅ PASSED | Validates CSS flexbox and pseudo-class styling. |
 | 203 | `test(cross-browser): verify button rendering in Apple Safari (WebKit)` | `cross-browser` | ✅ PASSED | Validates backdrop-filter and shadow-xs rendering. |
+| 204 | `test(cross-browser): verify button rendering in Microsoft Edge (Chromium)` | `cross-browser` | ✅ PASSED | Validates Windows system integration and font anti-aliasing. |
