@@ -87,3 +87,4 @@
 | 81 | `feat(auth-core): clear access token from localStorage upon logout` | `auth-core` | ✅ PASSED | Removes token key from browser storage immediately. |
 | 82 | `feat(auth-core): clear refresh token from localStorage upon logout` | `auth-core` | ✅ PASSED | Removes refresh_token key from browser storage immediately. |
 | 83 | `feat(auth-core): reset user profile state to null in AuthContext` | `auth-core` | ✅ PASSED | Invalidates user session object in React state. |
+| 84 | `feat(auth-core): remove Authorization header from default Axios instance` | `auth-core` | ✅ PASSED | Revokes Bearer token on outbound HTTP client. |
