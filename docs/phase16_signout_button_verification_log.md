@@ -235,3 +235,4 @@
 | 229 | `feat(telemetry): mask sensitive authorization tokens in telemetry logs` | `telemetry` | ✅ PASSED | Guarantees credentials never appear in plain text logs. |
 | 230 | `feat(telemetry): ensure compliance with GDPR session data minimization` | `telemetry` | ✅ PASSED | Purges ephemeral tracking identifiers upon logout. |
 | 231 | `feat(telemetry): attach correlation ID across client and server audit logs` | `telemetry` | ✅ PASSED | Enables end-to-end request tracing for security audits. |
+| 232 | `feat(telemetry): integrate with Django security audit logging middleware` | `telemetry` | ✅ PASSED | Stores audit trail in structured backend security log. |
