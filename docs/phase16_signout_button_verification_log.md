@@ -59,3 +59,4 @@
 | 53 | `test(profile-ui): verify zero layout shift on profile identity card` | `profile-ui` | ✅ PASSED | Maintains fixed height and padding bounds. |
 | 54 | `test(profile-ui): verify profile button accessibility tags and aria-label` | `profile-ui` | ✅ PASSED | Ensures screen reader identifies action as account sign out. |
 | 55 | `test(profile-ui): verify profile button renders cleanly on mobile viewports` | `profile-ui` | ✅ PASSED | Scales to full card width across small screens. |
+| 56 | `test(profile-ui): verify profile button contrast in dark mode` | `profile-ui` | ✅ PASSED | Rose-300 on dark slate ensures high visibility. |
