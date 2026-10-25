@@ -209,3 +209,4 @@
 | 203 | `test(cross-browser): verify button rendering in Apple Safari (WebKit)` | `cross-browser` | ✅ PASSED | Validates backdrop-filter and shadow-xs rendering. |
 | 204 | `test(cross-browser): verify button rendering in Microsoft Edge (Chromium)` | `cross-browser` | ✅ PASSED | Validates Windows system integration and font anti-aliasing. |
 | 205 | `test(cross-browser): verify button responsiveness on iOS Mobile Safari` | `cross-browser` | ✅ PASSED | Validates touch event handling without delay. |
+| 206 | `test(cross-browser): verify button responsiveness on Android Chrome` | `cross-browser` | ✅ PASSED | Validates material ripple and touch response. |
