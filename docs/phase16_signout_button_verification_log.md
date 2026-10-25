@@ -82,3 +82,4 @@
 | 76 | `test(home-ui): verify smooth CSS transitions during drawer toggle` | `home-ui` | ✅ PASSED | Delivers 60fps animations across mobile devices. |
 | 77 | `test(home-ui): verify landing page navigation bar sticky behavior on scroll` | `home-ui` | ✅ PASSED | Stays anchored to top with backdrop-blur styling. |
 | 78 | `test(home-ui): verify landing page button contrast across dark backgrounds` | `home-ui` | ✅ PASSED | Meets WCAG 2.1 contrast guidelines. |
+| 79 | `test(home-ui): verify zero cumulative layout shift during auth state change` | `home-ui` | ✅ PASSED | Header dimensions remain stable when user signs out. |
