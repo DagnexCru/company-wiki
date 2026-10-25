@@ -40,3 +40,4 @@
 | 34 | `test(sidebar-ui): verify sidebar button executes logout and closes sheet` | `sidebar-ui` | ✅ PASSED | Validates sequential execution of onClose and logout. |
 | 35 | `test(sidebar-ui): verify sidebar footer renders Active Role badge correctly` | `sidebar-ui` | ✅ PASSED | Maintains role display (ADMIN/EDITOR/VIEWER). |
 | 36 | `test(sidebar-ui): verify keyboard focus order in sidebar navigation` | `sidebar-ui` | ✅ PASSED | Places Sign Out at end of tab sequence logically. |
+| 37 | `test(sidebar-ui): verify sidebar button contrast in dark mode` | `sidebar-ui` | ✅ PASSED | Meets accessibility standards across all themes. |
