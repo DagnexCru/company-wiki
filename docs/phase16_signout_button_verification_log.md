@@ -137,3 +137,4 @@
 | 131 | `test(google-auth): verify copy origin button works properly after sign out` | `google-auth` | ✅ PASSED | Maintains diagnostic helper functionality. |
 | 132 | `test(google-auth): verify Google client ID environment variable loading` | `google-auth` | ✅ PASSED | Confirms VITE_GOOGLE_CLIENT_ID parses correctly. |
 | 133 | `test(google-auth): verify Google user avatar fallback to initials upon sign out` | `google-auth` | ✅ PASSED | Resets avatar display to default state. |
+| 134 | `test(google-auth): verify cross-origin iframe cleanup on session termination` | `google-auth` | ✅ PASSED | Ensures Google iframe is cleanly removed. |
