@@ -23,3 +23,4 @@
 | 17 | `test(header-ui): verify zero layout shift during hover and active transitions` | `header-ui` | ✅ PASSED | Preserves layout stability with CLS = 0 in header. |
 | 18 | `test(header-ui): verify button click executes logout handler synchronously` | `header-ui` | ✅ PASSED | Triggers AuthContext logout function without delay. |
 | 19 | `test(header-ui): verify button remains accessible via keyboard tab navigation` | `header-ui` | ✅ PASSED | Receives focus outline correctly on keyboard tab. |
+| 20 | `test(header-ui): verify mobile viewport hides text label while keeping icon button touch target` | `header-ui` | ✅ PASSED | Maintains responsive layout on narrow screens. |
