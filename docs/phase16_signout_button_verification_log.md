@@ -200,3 +200,4 @@
 | 194 | `test(security-guard): verify direct URL access to /profile blocked after sign out` | `security-guard` | ✅ PASSED | Asserts redirect to login when viewing user profile. |
 | 195 | `test(security-guard): verify smooth page transition during redirect to login` | `security-guard` | ✅ PASSED | Eliminates screen flicker or flash of unstyled content. |
 | 196 | `test(security-guard): verify signing out from /profile redirects cleanly to /login` | `security-guard` | ✅ PASSED | Handles self-referential route invalidation safely. |
+| 197 | `test(security-guard): verify signing out from article view redirects cleanly to /login` | `security-guard` | ✅ PASSED | Redirects readers securely without state errors. |
