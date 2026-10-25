@@ -106,3 +106,4 @@
 | 100 | `test(auth-core): verify AuthProvider re-render cycle is minimal and performant` | `auth-core` | ✅ PASSED | Limits component re-renders to necessary consumers. |
 | 101 | `feat(backend-auth): handle refresh token revocation in Django logout endpoint` | `backend-auth` | ✅ PASSED | Accepts refresh token for server-side blacklisting. |
 | 102 | `feat(backend-auth): add refresh token to BlacklistedToken table in database` | `backend-auth` | ✅ PASSED | Stores JTI to permanently revoke compromised tokens. |
+| 103 | `feat(backend-auth): rotate CSRF token on user session termination` | `backend-auth` | ✅ PASSED | Mitigates cross-site request forgery risks. |
