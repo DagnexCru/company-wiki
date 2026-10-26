@@ -24,3 +24,4 @@
 | 18 | `test(media-config): verify orphan media attachment detection and cleanup routine` | `media-config` | ✅ PASSED | Provides management command to prune unlinked draft assets. |
 | 19 | `test(media-config): verify security headers prevent MIME-sniffing on served media` | `media-config` | ✅ PASSED | Sends X-Content-Type-Options: nosniff on all media responses. |
 | 20 | `test(media-config): verify HTTP Range request support for large video or audio media` | `media-config` | ✅ PASSED | Permits partial content streaming when applicable. |
+| 21 | `feat(attachment-model): define ArticleAttachment model with UUID primary key` | `attachment-model` | ✅ PASSED | Uses uuid.uuid4 for distributed, tamper-resistant IDs. |
