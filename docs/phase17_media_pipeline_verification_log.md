@@ -146,3 +146,4 @@
 | 140 | `test(cursor-engine): verify unit test coverage for insertMarkdownSnippet function` | `cursor-engine` | ✅ PASSED | Validates string manipulation logic across 10 test cases. |
 | 141 | `feat(toolbar-ui): add 'Insert Image' button to Markdown editor toolbar` | `toolbar-ui` | ✅ PASSED | Provides prominent manual file picker access. |
 | 142 | `feat(toolbar-ui): import ImageIcon (Image) from lucide-react in ArticleEditorPage` | `toolbar-ui` | ✅ PASSED | Adds visual media icon to toolbar controls. |
+| 143 | `feat(toolbar-ui): render hidden file input element with ref=fileInputRef` | `toolbar-ui` | ✅ PASSED | Supports programmatic click triggering. |
