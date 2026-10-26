@@ -236,3 +236,4 @@
 | 230 | `test(audit-media): verify Author role can upload and manage attachments for own articles` | `audit-media` | ✅ PASSED | Empowers documentation creators. |
 | 231 | `test(audit-media): verify Reader role cannot upload or delete media attachments` | `audit-media` | ✅ PASSED | Enforces read-only access for viewer accounts. |
 | 232 | `test(audit-media): verify audit log entry creation on every successful upload` | `audit-media` | ✅ PASSED | Asserts AuditEvent table records new row. |
+| 233 | `test(audit-media): verify audit log immutability preventing client-side alteration` | `audit-media` | ✅ PASSED | Guarantees integrity of compliance trail. |
