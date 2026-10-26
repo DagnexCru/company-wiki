@@ -230,3 +230,4 @@
 | 224 | `feat(audit-media): record client IP address and user-agent in upload audit entry` | `audit-media` | ✅ PASSED | Tracks network origin of uploaded files. |
 | 225 | `feat(audit-media): link audit event to article ID and slug when available` | `audit-media` | ✅ PASSED | Enables filtering audit trail by specific documentation topic. |
 | 226 | `feat(audit-media): attribute ArticleAttachment.uploader to request.user` | `audit-media` | ✅ PASSED | Stores direct database relationship to uploading user. |
+| 227 | `feat(audit-media): expose uploader_username in ArticleAttachmentSerializer` | `audit-media` | ✅ PASSED | Displays creator attribution in attachment metadata. |
