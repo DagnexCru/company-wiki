@@ -105,3 +105,4 @@
 | 99 | `test(dnd-ui): verify cross-platform drag support from Windows Explorer` | `dnd-ui` | ✅ PASSED | Ingests files dragged from desktop folder. |
 | 100 | `test(dnd-ui): verify cross-platform drag support from macOS Finder` | `dnd-ui` | ✅ PASSED | Ingests files dragged from Mac desktop. |
 | 101 | `feat(paste-ui): attach onPaste event listener to editor Markdown textarea` | `paste-ui` | ✅ PASSED | Intercepts clipboard events for screenshot detection. |
+| 102 | `feat(paste-ui): inspect clipboardData.items for image MIME types` | `paste-ui` | ✅ PASSED | Detects pasted bitmap and vector data. |
