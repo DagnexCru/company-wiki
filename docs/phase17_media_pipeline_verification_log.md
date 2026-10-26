@@ -168,3 +168,4 @@
 | 162 | `feat(gallery-ui): conditionally display gallery tray only when attachments exist` | `gallery-ui` | ✅ PASSED | Keeps editor uncluttered when no files are attached. |
 | 163 | `feat(gallery-ui): display total attached media counter (Attached Media (N))` | `gallery-ui` | ✅ PASSED | Informs author of total assets embedded in draft. |
 | 164 | `feat(gallery-ui): import Paperclip icon from lucide-react for gallery header` | `gallery-ui` | ✅ PASSED | Provides recognized attachment iconography. |
+| 165 | `feat(gallery-ui): render micro-thumbnail image preview for uploaded images` | `gallery-ui` | ✅ PASSED | Displays 28x28px object-cover thumbnail. |
