@@ -153,3 +153,4 @@
 | 147 | `feat(toolbar-ui): programmatically click file input when 'Insert Image' button is clicked` | `toolbar-ui` | ✅ PASSED | Opens native OS file picker dialog. |
 | 148 | `feat(toolbar-ui): disable upload button during active upload (disabled={isUploadingMedia})` | `toolbar-ui` | ✅ PASSED | Prevents duplicate concurrent submissions. |
 | 149 | `feat(toolbar-ui): render spinning Loader2 icon in place of image icon while uploading` | `toolbar-ui` | ✅ PASSED | Delivers clear visual busy indicator. |
+| 150 | `feat(toolbar-ui): change button text to 'Uploading...' during active upload` | `toolbar-ui` | ✅ PASSED | Provides textual status feedback. |
