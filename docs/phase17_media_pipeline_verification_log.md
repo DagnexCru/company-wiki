@@ -79,3 +79,4 @@
 | 73 | `test(security): verify oversized file upload returns 400 with max_size_bytes metadata` | `security` | ✅ PASSED | Validates boundary condition error payload. |
 | 74 | `test(security): verify disallowed file extension returns 400 with allowed formats list` | `security` | ✅ PASSED | Informs user of permitted file types. |
 | 75 | `test(security): verify temporary file buffer cleanup on failed upload` | `security` | ✅ PASSED | Leaves zero orphan temp files in OS /tmp directory. |
+| 76 | `test(security): verify token authentication validated on every multipart chunk` | `security` | ✅ PASSED | Prevents session hijack during upload stream. |
