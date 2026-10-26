@@ -241,3 +241,4 @@
 | 235 | `test(audit-media): verify user session timeout terminates upload capability` | `audit-media` | ✅ PASSED | Revokes upload access if token expires. |
 | 236 | `test(audit-media): verify cross-tenant data isolation prevents asset leakage` | `audit-media` | ✅ PASSED | Blocks accessing attachments from other organizations. |
 | 237 | `test(audit-media): verify telemetry beacon captures upload duration in milliseconds` | `audit-media` | ✅ PASSED | Monitors storage latency across regions. |
+| 238 | `test(audit-media): verify GDPR compliance: media purges upon user account deletion` | `audit-media` | ✅ PASSED | Supports right-to-be-forgotten data governance. |
