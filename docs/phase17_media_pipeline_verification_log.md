@@ -74,3 +74,4 @@
 | 68 | `feat(security): sanitize SVG uploads against cross-site scripting (XSS)` | `security` | ✅ PASSED | Strips embedded JavaScript from vector graphics. |
 | 69 | `feat(security): eliminate null-byte character injections in filenames` | `security` | ✅ PASSED | Protects against C-level string termination exploits. |
 | 70 | `feat(security): enforce rate limiting on media upload endpoint` | `security` | ✅ PASSED | Prevents automated storage denial of service. |
+| 71 | `test(security): verify unauthenticated upload request receives 401 Unauthorized` | `security` | ✅ PASSED | Guards endpoint against anonymous access. |
