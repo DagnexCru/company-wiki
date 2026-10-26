@@ -42,3 +42,4 @@
 | 36 | `test(attachment-model): generate migration 0006_articleattachment` | `attachment-model` | ✅ PASSED | Creates clean Django schema migration file. |
 | 37 | `test(attachment-model): apply migration 0006_articleattachment to PostgreSQL database` | `attachment-model` | ✅ PASSED | Executes DDL statements with zero database errors. |
 | 38 | `test(attachment-model): verify backward compatibility with existing Article model` | `attachment-model` | ✅ PASSED | Ensures zero regressions across existing articles. |
+| 39 | `test(attachment-model): verify transaction atomicity during attachment insertion` | `attachment-model` | ✅ PASSED | Rolls back cleanly if file storage write fails. |
