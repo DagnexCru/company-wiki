@@ -302,3 +302,4 @@
 | 296 | `test(compat): verify transparent PNG and SVG diagram visibility on dark surfaces` | `compat` | ✅ PASSED | Prevents black-on-black diagram invisibility. |
 | 297 | `test(compat): verify memory stability during repeated 50+ screenshot uploads` | `compat` | ✅ PASSED | Confirms zero memory leaks in React editor component. |
 | 298 | `test(compat): verify clean component unmount during active upload` | `compat` | ✅ PASSED | Aborts in-flight Axios requests via AbortController. |
+| 299 | `test(compat): verify visual regression diff is 0% across major browsers` | `compat` | ✅ PASSED | Delivers pixel-perfect UI consistency. |
