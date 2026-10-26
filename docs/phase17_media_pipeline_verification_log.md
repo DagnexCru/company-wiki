@@ -268,3 +268,4 @@
 | 262 | `a11y(media): configure aria-label on hidden file input element` | `media` | ✅ PASSED | Labels file picker dialog in accessibility tree. |
 | 263 | `a11y(media): ensure keyboard Tab order includes toolbar media upload action` | `media` | ✅ PASSED | Enables fully mouse-free media uploading. |
 | 264 | `a11y(media): provide visible focus ring indicators on keyboard focus (focus-visible:ring-2)` | `media` | ✅ PASSED | Highlights focused upload control clearly. |
+| 265 | `a11y(media): announce upload start and completion in ARIA live region` | `media` | ✅ PASSED | Provides audible progress feedback to screen reader users. |
