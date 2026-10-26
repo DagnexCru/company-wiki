@@ -63,3 +63,4 @@
 | 57 | `test(upload-api): verify upload completes in under 200ms for typical screenshot` | `upload-api` | ✅ PASSED | Validates fast ingestion latency. |
 | 58 | `test(upload-api): verify CORS headers allow multipart POST from frontend origin` | `upload-api` | ✅ PASSED | Prevents cross-origin blockage on uploads. |
 | 59 | `test(upload-api): verify DRF browsable API rendering for upload endpoint` | `upload-api` | ✅ PASSED | Allows interactive testing from browser API viewer. |
+| 60 | `test(upload-api): verify structured JSON error format on upload validation failure` | `upload-api` | ✅ PASSED | Returns error detail for client toast display. |
