@@ -251,3 +251,4 @@
 | 245 | `feat(cloud-storage): support AWS_S3_CUSTOM_DOMAIN for CloudFront CDN acceleration` | `cloud-storage` | ✅ PASSED | Distributes media globally with sub-50ms latency. |
 | 246 | `feat(cloud-storage): support AWS_S3_FILE_OVERWRITE=False to prevent asset collisions` | `cloud-storage` | ✅ PASSED | Guarantees immutable historical attachment links. |
 | 247 | `feat(cloud-storage): configure default ACL to public-read for published assets` | `cloud-storage` | ✅ PASSED | Allows browser clients to load diagrams without pre-signed URLs. |
+| 248 | `feat(cloud-storage): support server-side encryption at rest (AES-256 / SSE-S3)` | `cloud-storage` | ✅ PASSED | Meets enterprise data-at-rest encryption standards. |
