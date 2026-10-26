@@ -200,3 +200,4 @@
 | 194 | `test(status-ui): verify multiple simultaneous errors format as readable list` | `status-ui` | ✅ PASSED | Handles multiple rejected files gracefully. |
 | 195 | `test(status-ui): verify screen reader live region announces upload status updates` | `status-ui` | ✅ PASSED | Supports visually impaired authors. |
 | 196 | `test(status-ui): verify high-contrast border definition on status banners` | `status-ui` | ✅ PASSED | Meets WCAG 2.1 contrast requirements. |
+| 197 | `test(status-ui): verify status banner does not obscure textarea content` | `status-ui` | ✅ PASSED | Positions banner safely above editor field. |
