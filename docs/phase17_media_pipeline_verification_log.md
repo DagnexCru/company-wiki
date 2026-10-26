@@ -26,3 +26,4 @@
 | 20 | `test(media-config): verify HTTP Range request support for large video or audio media` | `media-config` | ✅ PASSED | Permits partial content streaming when applicable. |
 | 21 | `feat(attachment-model): define ArticleAttachment model with UUID primary key` | `attachment-model` | ✅ PASSED | Uses uuid.uuid4 for distributed, tamper-resistant IDs. |
 | 22 | `feat(attachment-model): configure ForeignKey to Article with CASCADE deletion` | `attachment-model` | ✅ PASSED | Links media attachments directly to parent knowledge article. |
+| 23 | `feat(attachment-model): configure nullable article ForeignKey for pre-save drafting` | `attachment-model` | ✅ PASSED | Allows uploading diagrams before article is initially saved. |
