@@ -264,3 +264,4 @@
 | 258 | `test(cloud-storage): verify frontend MarkdownViewer renders cloud URLs identically` | `cloud-storage` | ✅ PASSED | Requires zero client-side modifications for cloud storage. |
 | 259 | `test(cloud-storage): verify bandwidth optimization for vector SVG diagrams` | `cloud-storage` | ✅ PASSED | Delivers SVGs with gzip/brotli compression. |
 | 260 | `test(cloud-storage): verify automated health check probes media storage availability` | `cloud-storage` | ✅ PASSED | Alerts on cloud storage connection degradation. |
+| 261 | `a11y(media): add explicit aria-label to toolbar 'Insert Image' action button` | `media` | ✅ PASSED | Informs screen readers of button purpose. |
