@@ -220,3 +220,4 @@
 | 214 | `test(viewer-engine): verify diagram rendering alongside fenced code blocks and tables` | `viewer-engine` | ✅ PASSED | Preserves multi-element documentation formatting. |
 | 215 | `test(viewer-engine): verify image rendering scales cleanly on mobile phone screens` | `viewer-engine` | ✅ PASSED | Adapts fluidly without horizontal overflow. |
 | 216 | `test(viewer-engine): verify image rendering on ultra-wide 4K monitors` | `viewer-engine` | ✅ PASSED | Constrains maximum height to prevent excessive vertical scrolling. |
+| 217 | `test(viewer-engine): verify fallback alt text displayed if image fails to load` | `viewer-engine` | ✅ PASSED | Displays caption when media URL is unreachable. |
