@@ -217,3 +217,4 @@
 | 211 | `feat(viewer-engine): add target='_blank' and rel='noopener noreferrer' to external links` | `viewer-engine` | ✅ PASSED | Guards against tab-nabbing security vulnerabilities. |
 | 212 | `test(viewer-engine): verify image rendering in ArticleEditorPage Live Preview tab` | `viewer-engine` | ✅ PASSED | Validates instant preview of pasted screenshots. |
 | 213 | `test(viewer-engine): verify image rendering on ArticleDetailPage public view` | `viewer-engine` | ✅ PASSED | Ensures readers see crisp architecture diagrams. |
+| 214 | `test(viewer-engine): verify diagram rendering alongside fenced code blocks and tables` | `viewer-engine` | ✅ PASSED | Preserves multi-element documentation formatting. |
