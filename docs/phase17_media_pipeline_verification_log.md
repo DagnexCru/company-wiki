@@ -250,3 +250,4 @@
 | 244 | `feat(cloud-storage): support AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY loading` | `cloud-storage` | ✅ PASSED | Authenticates to IAM cloud storage credentials. |
 | 245 | `feat(cloud-storage): support AWS_S3_CUSTOM_DOMAIN for CloudFront CDN acceleration` | `cloud-storage` | ✅ PASSED | Distributes media globally with sub-50ms latency. |
 | 246 | `feat(cloud-storage): support AWS_S3_FILE_OVERWRITE=False to prevent asset collisions` | `cloud-storage` | ✅ PASSED | Guarantees immutable historical attachment links. |
+| 247 | `feat(cloud-storage): configure default ACL to public-read for published assets` | `cloud-storage` | ✅ PASSED | Allows browser clients to load diagrams without pre-signed URLs. |
