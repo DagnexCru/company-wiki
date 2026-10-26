@@ -315,3 +315,4 @@
 | 309 | `build(prod): verify Django system check passes with 0 issues via manage.py check` | `prod` | ✅ PASSED | Ensures backend configuration integrity. |
 | 310 | `build(prod): verify database migration 0006_articleattachment applied to PostgreSQL` | `prod` | ✅ PASSED | Confirms relational schema synchronization. |
 | 311 | `build(prod): verify unique asset hash generation for immutable caching` | `prod` | ✅ PASSED | Busts client browser caches on deployment. |
+| 312 | `build(prod): verify production source maps generated for error tracking` | `prod` | ✅ PASSED | Enables accurate stack traces in production logs. |
