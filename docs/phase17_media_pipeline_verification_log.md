@@ -281,3 +281,4 @@
 | 275 | `a11y(media): test with TalkBack on Android Chrome` | `media` | ✅ PASSED | Reads image captions and file sizes accurately. |
 | 276 | `a11y(media): ensure non-color dependent status cues (spinners + text labels)` | `media` | ✅ PASSED | Accommodates color-blind authors. |
 | 277 | `a11y(media): allow Escape key to dismiss drag-and-drop overlay` | `media` | ✅ PASSED | Provides quick exit from active drag state. |
+| 278 | `a11y(media): maintain logical focus position after modal file picker closes` | `media` | ✅ PASSED | Returns focus smoothly to upload button. |
