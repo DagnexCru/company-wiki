@@ -263,3 +263,4 @@
 | 257 | `test(cloud-storage): verify cross-region replication readiness for high availability` | `cloud-storage` | ✅ PASSED | Protects mission-critical SOP diagrams against outages. |
 | 258 | `test(cloud-storage): verify frontend MarkdownViewer renders cloud URLs identically` | `cloud-storage` | ✅ PASSED | Requires zero client-side modifications for cloud storage. |
 | 259 | `test(cloud-storage): verify bandwidth optimization for vector SVG diagrams` | `cloud-storage` | ✅ PASSED | Delivers SVGs with gzip/brotli compression. |
+| 260 | `test(cloud-storage): verify automated health check probes media storage availability` | `cloud-storage` | ✅ PASSED | Alerts on cloud storage connection degradation. |
