@@ -214,3 +214,4 @@
 | 208 | `feat(viewer-engine): render <figcaption> with centered, muted caption typography` | `viewer-engine` | ✅ PASSED | Displays descriptive diagram caption beneath image. |
 | 209 | `feat(viewer-engine): implement inline link parser for [label](url) in renderInline` | `viewer-engine` | ✅ PASSED | Enables clickable hyperlinks inside document text. |
 | 210 | `feat(viewer-engine): style inline links with indigo accent (text-indigo-600 dark:text-indigo-400)` | `viewer-engine` | ✅ PASSED | Differentiates hyperlinks from standard text. |
+| 211 | `feat(viewer-engine): add target='_blank' and rel='noopener noreferrer' to external links` | `viewer-engine` | ✅ PASSED | Guards against tab-nabbing security vulnerabilities. |
