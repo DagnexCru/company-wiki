@@ -195,3 +195,4 @@
 | 189 | `feat(status-ui): add micro-scale click animation on Insert button (active:scale-[0.98])` | `status-ui` | ✅ PASSED | Simulates tactile button press. |
 | 190 | `feat(status-ui): add hover border illumination on attachment gallery cards` | `status-ui` | ✅ PASSED | Highlights active item under mouse cursor. |
 | 191 | `feat(status-ui): calibrate icon and typography alignment in progress banner` | `status-ui` | ✅ PASSED | Ensures crisp optical vertical alignment. |
+| 192 | `test(status-ui): verify progress banner displays during slow network upload` | `status-ui` | ✅ PASSED | Validates feedback persistence during large file transfers. |
