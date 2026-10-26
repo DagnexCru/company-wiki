@@ -52,3 +52,4 @@
 | 46 | `feat(upload-api): parse optional article_slug parameter to associate attachment` | `upload-api` | ✅ PASSED | Links uploaded diagram to specific article slug. |
 | 47 | `feat(upload-api): handle invalid article_id or slug gracefully without 500 error` | `upload-api` | ✅ PASSED | Falls back to unlinked draft attachment. |
 | 48 | `feat(upload-api): instantiate ArticleAttachmentSerializer with request context` | `upload-api` | ✅ PASSED | Generates absolute URL in API response. |
+| 49 | `feat(upload-api): return HTTP 201 Created upon successful asset upload` | `upload-api` | ✅ PASSED | Adheres to HTTP RFC standards for created resources. |
