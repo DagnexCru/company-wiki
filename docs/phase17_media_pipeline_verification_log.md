@@ -293,3 +293,4 @@
 | 287 | `test(compat): verify clipboard paste (Cmd+V) in Apple Safari` | `compat` | ✅ PASSED | Validates webkit paste event handling on macOS. |
 | 288 | `test(compat): verify clipboard paste (Ctrl+V) in Microsoft Edge` | `compat` | ✅ PASSED | Validates Windows snipping tool clipboard paste. |
 | 289 | `test(compat): verify mobile file picker integration on iOS Safari` | `compat` | ✅ PASSED | Validates photo library and camera upload on iPhone. |
+| 290 | `test(compat): verify mobile file picker integration on Android Chrome` | `compat` | ✅ PASSED | Validates file manager upload on Android. |
