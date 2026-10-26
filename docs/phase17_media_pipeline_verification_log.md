@@ -174,3 +174,4 @@
 | 168 | `feat(gallery-ui): display human-readable formatted file size in KB` | `gallery-ui` | ✅ PASSED | Shows calculated (file_size / 1024).toFixed(0) KB. |
 | 169 | `feat(gallery-ui): add dedicated 'Insert' button on each attachment card` | `gallery-ui` | ✅ PASSED | Allows re-inserting Markdown tag into document anytime. |
 | 170 | `feat(gallery-ui): add 'Copy' button on each attachment card with clipboard copy` | `gallery-ui` | ✅ PASSED | Copies formatted Markdown tag to system clipboard. |
+| 171 | `feat(gallery-ui): toggle Check icon and green color on successful tag copy` | `gallery-ui` | ✅ PASSED | Provides instant visual confirmation of clipboard copy. |
