@@ -90,3 +90,4 @@
 | 84 | `feat(dnd-ui): implement boundary checking in onDragLeave to avoid flickering` | `dnd-ui` | ✅ PASSED | Keeps dropzone active until cursor completely exits container. |
 | 85 | `feat(dnd-ui): render animated visual dropzone overlay across active editor area` | `dnd-ui` | ✅ PASSED | Displays high-contrast backdrop when file is hovered. |
 | 86 | `feat(dnd-ui): style dropzone with dark indigo glassmorphism (bg-indigo-950/90)` | `dnd-ui` | ✅ PASSED | Blends elegantly into dark mode editing layout. |
+| 87 | `feat(dnd-ui): configure dashed border container (border-2 border-dashed border-indigo-500)` | `dnd-ui` | ✅ PASSED | Creates unmistakable target boundary. |
