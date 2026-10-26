@@ -172,3 +172,4 @@
 | 166 | `feat(gallery-ui): render Paperclip icon fallback for non-image attachments` | `gallery-ui` | ✅ PASSED | Distinguishes PDFs and diagram files. |
 | 167 | `feat(gallery-ui): display truncated original filename with tooltip on hover` | `gallery-ui` | ✅ PASSED | Prevents long filenames from breaking gallery layout. |
 | 168 | `feat(gallery-ui): display human-readable formatted file size in KB` | `gallery-ui` | ✅ PASSED | Shows calculated (file_size / 1024).toFixed(0) KB. |
+| 169 | `feat(gallery-ui): add dedicated 'Insert' button on each attachment card` | `gallery-ui` | ✅ PASSED | Allows re-inserting Markdown tag into document anytime. |
