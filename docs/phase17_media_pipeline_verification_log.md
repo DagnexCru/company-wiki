@@ -111,3 +111,4 @@
 | 105 | `feat(paste-ui): generate timestamped filename for pasted screenshots` | `paste-ui` | ✅ PASSED | Creates screenshot_YYYY-MM-DD_HH-mm-ss.png. |
 | 106 | `feat(paste-ui): support screenshots from Windows Snipping Tool (Win+Shift+S)` | `paste-ui` | ✅ PASSED | Enables instant pasting of captured screen regions. |
 | 107 | `feat(paste-ui): support screenshots from macOS Grab (Cmd+Shift+4)` | `paste-ui` | ✅ PASSED | Enables instant pasting of captured Mac screen areas. |
+| 108 | `feat(paste-ui): support screenshots from Linux Spectacle / Flameshot` | `paste-ui` | ✅ PASSED | Enables cross-platform developer screenshot workflows. |
