@@ -155,3 +155,4 @@
 | 149 | `feat(toolbar-ui): render spinning Loader2 icon in place of image icon while uploading` | `toolbar-ui` | ✅ PASSED | Delivers clear visual busy indicator. |
 | 150 | `feat(toolbar-ui): change button text to 'Uploading...' during active upload` | `toolbar-ui` | ✅ PASSED | Provides textual status feedback. |
 | 151 | `feat(toolbar-ui): style upload button with subtle indigo pill container (bg-indigo-50)` | `toolbar-ui` | ✅ PASSED | Harmonizes with editor design language. |
+| 152 | `feat(toolbar-ui): add hover state highlighting (hover:bg-indigo-100 dark:hover:bg-indigo-900/60)` | `toolbar-ui` | ✅ PASSED | Delivers responsive hover feedback. |
