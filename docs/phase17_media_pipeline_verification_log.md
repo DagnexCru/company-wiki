@@ -287,3 +287,4 @@
 | 281 | `test(compat): verify drag-and-drop file upload in Google Chrome (Blink)` | `compat` | ✅ PASSED | Validates chromium dataTransfer event handling. |
 | 282 | `test(compat): verify drag-and-drop file upload in Mozilla Firefox (Gecko)` | `compat` | ✅ PASSED | Validates gecko file drop event dispatching. |
 | 283 | `test(compat): verify drag-and-drop file upload in Apple Safari (WebKit)` | `compat` | ✅ PASSED | Validates webkit dropzone overlay rendering. |
+| 284 | `test(compat): verify drag-and-drop file upload in Microsoft Edge (Chromium)` | `compat` | ✅ PASSED | Validates Windows explorer drag interoperability. |
