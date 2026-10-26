@@ -66,3 +66,4 @@
 | 60 | `test(upload-api): verify structured JSON error format on upload validation failure` | `upload-api` | ✅ PASSED | Returns error detail for client toast display. |
 | 61 | `feat(security): enforce 10MB maximum file size ceiling in ArticleMediaUploadView` | `security` | ✅ PASSED | Blocks oversized files before filesystem write. |
 | 62 | `feat(security): return descriptive error payload when file exceeds 10MB` | `security` | ✅ PASSED | Displays user-friendly size warning. |
+| 63 | `feat(security): enforce image extension whitelist (.png, .jpg, .jpeg, .gif, .webp, .svg, .bmp)` | `security` | ✅ PASSED | Guarantees only valid visual formats are processed. |
