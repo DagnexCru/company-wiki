@@ -13,3 +13,4 @@
 | 7 | `feat(media-config): add collision-resistant 10-character UUID hex prefix to uploaded files` | `media-config` | ✅ PASSED | Guarantees unique filenames even if multiple users upload same name. |
 | 8 | `feat(media-config): implement clean_name filename sanitization replacing spaces with underscores` | `media-config` | ✅ PASSED | Eliminates URL encoding issues with spaces in filenames. |
 | 9 | `test(media-config): verify MEDIA_ROOT directory auto-creation on initial file upload` | `media-config` | ✅ PASSED | Asserts directory is safely created without permission errors. |
+| 10 | `test(media-config): verify prevention of directory traversal attacks via filename manipulation` | `media-config` | ✅ PASSED | Strips dangerous path delimiters like ../ and ..\. |
