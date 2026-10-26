@@ -19,3 +19,4 @@
 | 13 | `test(media-config): verify Content-Type header matches image format on served media` | `media-config` | ✅ PASSED | Asserts browser renders images inline without forced download. |
 | 14 | `test(media-config): verify production cloud storage adapter compatibility (S3/R2)` | `media-config` | ✅ PASSED | Supports dynamic swap to django-storages via environment variables. |
 | 15 | `test(media-config): verify media folder exclusion in root .gitignore` | `media-config` | ✅ PASSED | Prevents local development media binary files from entering git index. |
+| 16 | `test(media-config): verify disk space threshold monitoring on media storage volume` | `media-config` | ✅ PASSED | Guards server storage against exhaustion. |
