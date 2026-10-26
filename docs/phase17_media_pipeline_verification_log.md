@@ -39,3 +39,4 @@
 | 33 | `feat(attachment-model): implement __str__ method formatting filename and size` | `attachment-model` | ✅ PASSED | Provides clear representation in Django admin. |
 | 34 | `feat(attachment-model): implement file_url property returning accessible relative URL` | `attachment-model` | ✅ PASSED | Safely handles missing file exceptions. |
 | 35 | `feat(attachment-model): configure db_table as article_attachments` | `attachment-model` | ✅ PASSED | Adheres to clean PostgreSQL naming conventions. |
+| 36 | `test(attachment-model): generate migration 0006_articleattachment` | `attachment-model` | ✅ PASSED | Creates clean Django schema migration file. |
