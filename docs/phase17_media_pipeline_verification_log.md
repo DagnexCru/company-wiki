@@ -149,3 +149,4 @@
 | 143 | `feat(toolbar-ui): render hidden file input element with ref=fileInputRef` | `toolbar-ui` | ✅ PASSED | Supports programmatic click triggering. |
 | 144 | `feat(toolbar-ui): configure file input accept filter (image/*,.pdf,.svg,.drawio)` | `toolbar-ui` | ✅ PASSED | Restricts file dialog to supported media types. |
 | 145 | `feat(toolbar-ui): enable multiple attribute on file input` | `toolbar-ui` | ✅ PASSED | Allows selecting multiple diagrams at once. |
+| 146 | `feat(toolbar-ui): reset file input value on change (e.target.value = '')` | `toolbar-ui` | ✅ PASSED | Permits re-uploading identical filename if needed. |
