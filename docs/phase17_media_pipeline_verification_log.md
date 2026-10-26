@@ -187,3 +187,4 @@
 | 181 | `feat(status-ui): render dynamic upload status banner above editor textarea` | `status-ui` | ✅ PASSED | Provides real-time feedback during network transfer. |
 | 182 | `feat(status-ui): display active filename in progress banner (Uploading 'diagram.png'…)` | `status-ui` | ✅ PASSED | Identifies exactly which file is being ingested. |
 | 183 | `feat(status-ui): display success confirmation banner (Embedded 'diagram.png' into Markdown)` | `status-ui` | ✅ PASSED | Confirms successful upload and embedding. |
+| 184 | `feat(status-ui): render spinning Loader2 icon in progress banner` | `status-ui` | ✅ PASSED | Indicates active asynchronous operation. |
