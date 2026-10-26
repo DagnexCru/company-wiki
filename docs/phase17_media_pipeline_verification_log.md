@@ -203,3 +203,4 @@
 | 197 | `test(status-ui): verify status banner does not obscure textarea content` | `status-ui` | ✅ PASSED | Positions banner safely above editor field. |
 | 198 | `test(status-ui): verify status banner animates with smooth fade-in transition` | `status-ui` | ✅ PASSED | Eliminates visual pop-in artifacts. |
 | 199 | `test(status-ui): verify zero UI freeze during file encoding and network upload` | `status-ui` | ✅ PASSED | Maintains responsive typing performance. |
+| 200 | `test(status-ui): verify clean status reset when navigating away from editor` | `status-ui` | ✅ PASSED | Resets transient messages on route change. |
