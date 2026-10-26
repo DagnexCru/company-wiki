@@ -16,3 +16,4 @@
 | 10 | `test(media-config): verify prevention of directory traversal attacks via filename manipulation` | `media-config` | ✅ PASSED | Strips dangerous path delimiters like ../ and ..\. |
 | 11 | `test(media-config): verify Unicode filename normalization and UTF-8 encoding support` | `media-config` | ✅ PASSED | Preserves international filenames safely in database. |
 | 12 | `test(media-config): verify Cache-Control headers applied on served media assets` | `media-config` | ✅ PASSED | Improves client performance with immutable caching headers. |
+| 13 | `test(media-config): verify Content-Type header matches image format on served media` | `media-config` | ✅ PASSED | Asserts browser renders images inline without forced download. |
