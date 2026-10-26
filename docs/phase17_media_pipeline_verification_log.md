@@ -255,3 +255,4 @@
 | 249 | `feat(cloud-storage): support pre-signed URL generation for private team attachments` | `cloud-storage` | ✅ PASSED | Enables restricted media access when required. |
 | 250 | `feat(cloud-storage): configure automatic Content-Disposition header on S3 objects` | `cloud-storage` | ✅ PASSED | Ensures proper inline display in web browsers. |
 | 251 | `feat(cloud-storage): preserve local filesystem fallback when cloud env vars are unset` | `cloud-storage` | ✅ PASSED | Maintains seamless local development experience. |
+| 252 | `test(cloud-storage): verify absolute URL generation formats S3 CDN domain correctly` | `cloud-storage` | ✅ PASSED | Validates https://cdn.company.com/article_attachments/... URLs. |
