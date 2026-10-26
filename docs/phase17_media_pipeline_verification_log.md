@@ -33,3 +33,4 @@
 | 27 | `feat(attachment-model): add file_size PositiveIntegerField` | `attachment-model` | ✅ PASSED | Records exact asset size in bytes for client bandwidth calculations. |
 | 28 | `feat(attachment-model): add content_type CharField(max_length=120)` | `attachment-model` | ✅ PASSED | Records MIME type for browser content negotiation. |
 | 29 | `feat(attachment-model): add is_image boolean flag with default=True` | `attachment-model` | ✅ PASSED | Accelerates frontend rendering decisions for image vs document chips. |
+| 30 | `feat(attachment-model): add created_at DateTimeField with db_index=True` | `attachment-model` | ✅ PASSED | Enables rapid reverse-chronological ordering. |
