@@ -27,3 +27,4 @@
 | 21 | `feat(attachment-model): define ArticleAttachment model with UUID primary key` | `attachment-model` | ✅ PASSED | Uses uuid.uuid4 for distributed, tamper-resistant IDs. |
 | 22 | `feat(attachment-model): configure ForeignKey to Article with CASCADE deletion` | `attachment-model` | ✅ PASSED | Links media attachments directly to parent knowledge article. |
 | 23 | `feat(attachment-model): configure nullable article ForeignKey for pre-save drafting` | `attachment-model` | ✅ PASSED | Allows uploading diagrams before article is initially saved. |
+| 24 | `feat(attachment-model): configure ForeignKey to AUTH_USER_MODEL with SET_NULL deletion` | `attachment-model` | ✅ PASSED | Preserves upload audit history if author account is deleted. |
