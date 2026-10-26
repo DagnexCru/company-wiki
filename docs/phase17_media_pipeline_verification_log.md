@@ -190,3 +190,4 @@
 | 184 | `feat(status-ui): render spinning Loader2 icon in progress banner` | `status-ui` | ✅ PASSED | Indicates active asynchronous operation. |
 | 185 | `feat(status-ui): style status banner with indigo tint (bg-indigo-50 dark:bg-indigo-950/80)` | `status-ui` | ✅ PASSED | Differentiates informational banner from error alerts. |
 | 186 | `feat(status-ui): configure 3.5-second auto-dismissal timer on success message` | `status-ui` | ✅ PASSED | Cleans up editor view after user confirmation. |
+| 187 | `feat(status-ui): display red alert banner when file exceeds 10MB limit` | `status-ui` | ✅ PASSED | Provides prominent warning on rejected files. |
