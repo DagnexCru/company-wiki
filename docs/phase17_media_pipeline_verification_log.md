@@ -161,3 +161,4 @@
 | 155 | `test(toolbar-ui): verify upload button renders adjacent to Write and Preview tabs` | `toolbar-ui` | ✅ PASSED | Maintains compact, balanced toolbar layout. |
 | 156 | `test(toolbar-ui): verify button keyboard accessibility with Tab and Enter` | `toolbar-ui` | ✅ PASSED | Enables mouse-free file dialog launch. |
 | 157 | `test(toolbar-ui): verify file dialog cancellation preserves existing editor state` | `toolbar-ui` | ✅ PASSED | Causes zero errors when user cancels file picker. |
+| 158 | `test(toolbar-ui): verify button responsiveness on mobile viewports` | `toolbar-ui` | ✅ PASSED | Hides extended helper text on small screens while keeping button accessible. |
