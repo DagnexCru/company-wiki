@@ -297,3 +297,4 @@
 | 291 | `test(compat): verify hybrid touch and mouse interactions on touchscreen laptops` | `compat` | ✅ PASSED | Ensures clicks and taps register without conflict. |
 | 292 | `test(compat): verify high-DPI Retina diagram rendering clarity across displays` | `compat` | ✅ PASSED | Maintains crisp lines at 2x and 3x DPR. |
 | 293 | `test(compat): verify batch upload of multiple dragged files simultaneously` | `compat` | ✅ PASSED | Processes multi-file drops sequentially without failure. |
+| 294 | `test(compat): verify handling of non-file drag events prevents application errors` | `compat` | ✅ PASSED | Safely ignores dragged web hyperlinks. |
