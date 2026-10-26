@@ -223,3 +223,4 @@
 | 217 | `test(viewer-engine): verify fallback alt text displayed if image fails to load` | `viewer-engine` | ✅ PASSED | Displays caption when media URL is unreachable. |
 | 218 | `test(viewer-engine): verify high-DPI Retina vector diagram sharpness` | `viewer-engine` | ✅ PASSED | Preserves crisp lines on SVG architecture maps. |
 | 219 | `test(viewer-engine): verify zero cumulative layout shift during image loading` | `viewer-engine` | ✅ PASSED | Reserves container space to prevent page jumps. |
+| 220 | `test(viewer-engine): verify printing and PDF export of rendered markdown images` | `viewer-engine` | ✅ PASSED | Ensures diagrams appear clearly in exported documentation. |
