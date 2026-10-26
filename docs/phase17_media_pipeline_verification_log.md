@@ -225,3 +225,4 @@
 | 219 | `test(viewer-engine): verify zero cumulative layout shift during image loading` | `viewer-engine` | ✅ PASSED | Reserves container space to prevent page jumps. |
 | 220 | `test(viewer-engine): verify printing and PDF export of rendered markdown images` | `viewer-engine` | ✅ PASSED | Ensures diagrams appear clearly in exported documentation. |
 | 221 | `feat(audit-media): record AuditEvent.Action.ARTICLE_UPDATE on attachment creation` | `audit-media` | ✅ PASSED | Logs asset upload in central enterprise audit log. |
+| 222 | `feat(audit-media): capture original_filename, file_size, content_type in audit details` | `audit-media` | ✅ PASSED | Maintains granular forensic telemetry on all uploads. |
