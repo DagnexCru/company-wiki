@@ -73,3 +73,4 @@
 | 67 | `feat(security): inspect Content-Type header against file extension` | `security` | ✅ PASSED | Flags mismatched MIME types. |
 | 68 | `feat(security): sanitize SVG uploads against cross-site scripting (XSS)` | `security` | ✅ PASSED | Strips embedded JavaScript from vector graphics. |
 | 69 | `feat(security): eliminate null-byte character injections in filenames` | `security` | ✅ PASSED | Protects against C-level string termination exploits. |
+| 70 | `feat(security): enforce rate limiting on media upload endpoint` | `security` | ✅ PASSED | Prevents automated storage denial of service. |
