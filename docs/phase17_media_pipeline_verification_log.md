@@ -103,3 +103,4 @@
 | 97 | `test(dnd-ui): verify smooth 200ms opacity transition on dropzone entrance` | `dnd-ui` | ✅ PASSED | Provides fluid visual feedback at 60fps. |
 | 98 | `test(dnd-ui): verify high-contrast visibility across dark and light themes` | `dnd-ui` | ✅ PASSED | Guarantees readability in all display modes. |
 | 99 | `test(dnd-ui): verify cross-platform drag support from Windows Explorer` | `dnd-ui` | ✅ PASSED | Ingests files dragged from desktop folder. |
+| 100 | `test(dnd-ui): verify cross-platform drag support from macOS Finder` | `dnd-ui` | ✅ PASSED | Ingests files dragged from Mac desktop. |
