@@ -151,3 +151,4 @@
 | 145 | `feat(toolbar-ui): enable multiple attribute on file input` | `toolbar-ui` | ✅ PASSED | Allows selecting multiple diagrams at once. |
 | 146 | `feat(toolbar-ui): reset file input value on change (e.target.value = '')` | `toolbar-ui` | ✅ PASSED | Permits re-uploading identical filename if needed. |
 | 147 | `feat(toolbar-ui): programmatically click file input when 'Insert Image' button is clicked` | `toolbar-ui` | ✅ PASSED | Opens native OS file picker dialog. |
+| 148 | `feat(toolbar-ui): disable upload button during active upload (disabled={isUploadingMedia})` | `toolbar-ui` | ✅ PASSED | Prevents duplicate concurrent submissions. |
