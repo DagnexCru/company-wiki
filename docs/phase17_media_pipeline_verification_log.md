@@ -108,3 +108,4 @@
 | 102 | `feat(paste-ui): inspect clipboardData.items for image MIME types` | `paste-ui` | ✅ PASSED | Detects pasted bitmap and vector data. |
 | 103 | `feat(paste-ui): extract clipboard image blob via item.getAsFile()` | `paste-ui` | ✅ PASSED | Converts clipboard item into standard File object. |
 | 104 | `feat(paste-ui): prevent default text paste when image is present in clipboard` | `paste-ui` | ✅ PASSED | Prevents broken binary string insertion into textarea. |
+| 105 | `feat(paste-ui): generate timestamped filename for pasted screenshots` | `paste-ui` | ✅ PASSED | Creates screenshot_YYYY-MM-DD_HH-mm-ss.png. |
