@@ -180,3 +180,4 @@
 | 174 | `feat(gallery-ui): sort newly uploaded attachments to head of gallery list` | `gallery-ui` | ✅ PASSED | Shows most recently uploaded diagram first. |
 | 175 | `feat(gallery-ui): fetch existing article attachments on edit mode load` | `gallery-ui` | ✅ PASSED | Loads previously attached media when editing existing article. |
 | 176 | `test(gallery-ui): verify clicking 'Insert' on gallery card inserts tag at cursor` | `gallery-ui` | ✅ PASSED | Validates seamless re-insertion workflow. |
+| 177 | `test(gallery-ui): verify clicking 'Copy' copies valid ![Alt](URL) to clipboard` | `gallery-ui` | ✅ PASSED | Validates clipboard write operation. |
