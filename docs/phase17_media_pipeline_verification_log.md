@@ -132,3 +132,4 @@
 | 126 | `feat(cursor-engine): format image syntax with clean title: ![Title](URL)` | `cursor-engine` | ✅ PASSED | Generates readable, semantic Markdown tags. |
 | 127 | `feat(cursor-engine): format document syntax for non-image files: [Filename](URL)` | `cursor-engine` | ✅ PASSED | Generates clickable document links. |
 | 128 | `feat(cursor-engine): assemble new content string with embedded snippet` | `cursor-engine` | ✅ PASSED | Combines prefix, tag, and suffix into unified draft. |
+| 129 | `feat(cursor-engine): restore focus to textarea immediately after insertion` | `cursor-engine` | ✅ PASSED | Allows author to continue typing without re-clicking. |
