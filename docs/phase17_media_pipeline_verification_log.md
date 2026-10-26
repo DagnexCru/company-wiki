@@ -313,3 +313,4 @@
 | 307 | `build(prod): verify zero TypeScript compilation errors with tsc -b` | `prod` | ✅ PASSED | Guarantees full type safety across frontend. |
 | 308 | `build(prod): verify zero ESLint or Prettier warnings on modified files` | `prod` | ✅ PASSED | Enforces pristine code quality standards. |
 | 309 | `build(prod): verify Django system check passes with 0 issues via manage.py check` | `prod` | ✅ PASSED | Ensures backend configuration integrity. |
+| 310 | `build(prod): verify database migration 0006_articleattachment applied to PostgreSQL` | `prod` | ✅ PASSED | Confirms relational schema synchronization. |
