@@ -120,3 +120,4 @@
 | 114 | `test(paste-ui): verify clipboard blob garbage collection after upload` | `paste-ui` | ✅ PASSED | Prevents memory accumulation on repeated screenshot pastes. |
 | 115 | `test(paste-ui): verify rapid consecutive Ctrl+V pastes queue uploads sequentially` | `paste-ui` | ✅ PASSED | Prevents race conditions in markdown cursor insertion. |
 | 116 | `test(paste-ui): verify error toast displayed if clipboard upload fails` | `paste-ui` | ✅ PASSED | Alerts author if network drops during paste. |
+| 117 | `test(paste-ui): verify clipboard image format detection for image/png and image/jpeg` | `paste-ui` | ✅ PASSED | Handles both compressed and lossless screenshots. |
