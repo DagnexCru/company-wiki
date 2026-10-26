@@ -178,3 +178,4 @@
 | 172 | `feat(gallery-ui): style attachment cards with dark slate pill borders (border-slate-700)` | `gallery-ui` | ✅ PASSED | Matches enterprise dark theme tokens. |
 | 173 | `feat(gallery-ui): configure max-height with vertical overflow scrolling (max-h-36)` | `gallery-ui` | ✅ PASSED | Prevents large attachment lists from pushing page down. |
 | 174 | `feat(gallery-ui): sort newly uploaded attachments to head of gallery list` | `gallery-ui` | ✅ PASSED | Shows most recently uploaded diagram first. |
+| 175 | `feat(gallery-ui): fetch existing article attachments on edit mode load` | `gallery-ui` | ✅ PASSED | Loads previously attached media when editing existing article. |
