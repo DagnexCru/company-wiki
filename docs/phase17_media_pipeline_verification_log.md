@@ -6,3 +6,4 @@
 |---|-------|--------|:------:|--------|
 | 1 | `feat(media-config): configure MEDIA_ROOT path in settings.py` | `media-config` | ✅ PASSED | Points user media files directory to BASE_DIR / 'media'. |
 | 2 | `feat(media-config): configure MEDIA_URL to /media/ in settings.py` | `media-config` | ✅ PASSED | Exposes media file routing namespace. |
+| 3 | `feat(media-config): enable development media static serving in core/urls.py` | `media-config` | ✅ PASSED | Wires static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) when DEBUG=True. |
