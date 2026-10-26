@@ -228,3 +228,4 @@
 | 222 | `feat(audit-media): capture original_filename, file_size, content_type in audit details` | `audit-media` | ✅ PASSED | Maintains granular forensic telemetry on all uploads. |
 | 223 | `feat(audit-media): associate audit event with actor user ID and username` | `audit-media` | ✅ PASSED | Provides strict accountability for uploaded content. |
 | 224 | `feat(audit-media): record client IP address and user-agent in upload audit entry` | `audit-media` | ✅ PASSED | Tracks network origin of uploaded files. |
+| 225 | `feat(audit-media): link audit event to article ID and slug when available` | `audit-media` | ✅ PASSED | Enables filtering audit trail by specific documentation topic. |
