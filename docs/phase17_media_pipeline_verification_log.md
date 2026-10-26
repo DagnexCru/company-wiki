@@ -194,3 +194,4 @@
 | 188 | `feat(status-ui): add tactile cursor-pointer feedback on all attachment controls` | `status-ui` | ✅ PASSED | Follows web interactive affordance standards. |
 | 189 | `feat(status-ui): add micro-scale click animation on Insert button (active:scale-[0.98])` | `status-ui` | ✅ PASSED | Simulates tactile button press. |
 | 190 | `feat(status-ui): add hover border illumination on attachment gallery cards` | `status-ui` | ✅ PASSED | Highlights active item under mouse cursor. |
+| 191 | `feat(status-ui): calibrate icon and typography alignment in progress banner` | `status-ui` | ✅ PASSED | Ensures crisp optical vertical alignment. |
