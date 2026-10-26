@@ -229,3 +229,4 @@
 | 223 | `feat(audit-media): associate audit event with actor user ID and username` | `audit-media` | ✅ PASSED | Provides strict accountability for uploaded content. |
 | 224 | `feat(audit-media): record client IP address and user-agent in upload audit entry` | `audit-media` | ✅ PASSED | Tracks network origin of uploaded files. |
 | 225 | `feat(audit-media): link audit event to article ID and slug when available` | `audit-media` | ✅ PASSED | Enables filtering audit trail by specific documentation topic. |
+| 226 | `feat(audit-media): attribute ArticleAttachment.uploader to request.user` | `audit-media` | ✅ PASSED | Stores direct database relationship to uploading user. |
