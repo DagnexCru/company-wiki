@@ -14,3 +14,4 @@
 | 8 | `feat(media-config): implement clean_name filename sanitization replacing spaces with underscores` | `media-config` | ✅ PASSED | Eliminates URL encoding issues with spaces in filenames. |
 | 9 | `test(media-config): verify MEDIA_ROOT directory auto-creation on initial file upload` | `media-config` | ✅ PASSED | Asserts directory is safely created without permission errors. |
 | 10 | `test(media-config): verify prevention of directory traversal attacks via filename manipulation` | `media-config` | ✅ PASSED | Strips dangerous path delimiters like ../ and ..\. |
+| 11 | `test(media-config): verify Unicode filename normalization and UTF-8 encoding support` | `media-config` | ✅ PASSED | Preserves international filenames safely in database. |
