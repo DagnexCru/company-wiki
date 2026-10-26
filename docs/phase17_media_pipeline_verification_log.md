@@ -135,3 +135,4 @@
 | 129 | `feat(cursor-engine): restore focus to textarea immediately after insertion` | `cursor-engine` | ✅ PASSED | Allows author to continue typing without re-clicking. |
 | 130 | `feat(cursor-engine): advance cursor position to point immediately following inserted tag` | `cursor-engine` | ✅ PASSED | Places cursor ready for subsequent paragraph. |
 | 131 | `feat(cursor-engine): handle text replacement when text was highlighted during insertion` | `cursor-engine` | ✅ PASSED | Replaces selected placeholder text with uploaded tag. |
+| 132 | `feat(cursor-engine): append to end of document if textarea is not currently focused` | `cursor-engine` | ✅ PASSED | Provides safe fallback preventing content loss. |
