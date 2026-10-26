@@ -319,3 +319,4 @@
 | 313 | `build(prod): verify Content-Security-Policy allows media image rendering from API host` | `prod` | ✅ PASSED | Permits loading images from /media/ path. |
 | 314 | `build(prod): verify production environment variables load correctly` | `prod` | ✅ PASSED | Validates MEDIA_URL and CORS origins. |
 | 315 | `test(e2e): verify end-to-end user workflow: capture screenshot -> Ctrl+V -> render preview -> save article` | `e2e` | ✅ PASSED | Validates complete user journey. |
+| 316 | `test(e2e): verify remote GitHub repository synchronization` | `e2e` | ✅ PASSED | Prepares 320 atomic commits for remote push. |
