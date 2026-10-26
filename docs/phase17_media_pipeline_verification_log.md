@@ -249,3 +249,4 @@
 | 243 | `feat(cloud-storage): support AWS_S3_ENDPOINT_URL for Cloudflare R2 and MinIO integration` | `cloud-storage` | ✅ PASSED | Permits zero-egress cloud storage solutions. |
 | 244 | `feat(cloud-storage): support AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY loading` | `cloud-storage` | ✅ PASSED | Authenticates to IAM cloud storage credentials. |
 | 245 | `feat(cloud-storage): support AWS_S3_CUSTOM_DOMAIN for CloudFront CDN acceleration` | `cloud-storage` | ✅ PASSED | Distributes media globally with sub-50ms latency. |
+| 246 | `feat(cloud-storage): support AWS_S3_FILE_OVERWRITE=False to prevent asset collisions` | `cloud-storage` | ✅ PASSED | Guarantees immutable historical attachment links. |
