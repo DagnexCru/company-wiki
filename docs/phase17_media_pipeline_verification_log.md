@@ -123,3 +123,4 @@
 | 117 | `test(paste-ui): verify clipboard image format detection for image/png and image/jpeg` | `paste-ui` | ✅ PASSED | Handles both compressed and lossless screenshots. |
 | 118 | `test(paste-ui): verify clipboard paste works identically on Mac with Cmd+V` | `paste-ui` | ✅ PASSED | Maintains platform-agnostic keybinding compatibility. |
 | 119 | `test(paste-ui): verify undo stack (Ctrl+Z) removes inserted Markdown tag cleanly` | `paste-ui` | ✅ PASSED | Preserves native textarea history stack. |
+| 120 | `test(paste-ui): verify end-to-end user journey: Win+Shift+S -> Ctrl+V -> rendered image` | `paste-ui` | ✅ PASSED | Validates 1-second screenshot embedding workflow. |
