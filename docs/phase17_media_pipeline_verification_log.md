@@ -196,3 +196,4 @@
 | 190 | `feat(status-ui): add hover border illumination on attachment gallery cards` | `status-ui` | ✅ PASSED | Highlights active item under mouse cursor. |
 | 191 | `feat(status-ui): calibrate icon and typography alignment in progress banner` | `status-ui` | ✅ PASSED | Ensures crisp optical vertical alignment. |
 | 192 | `test(status-ui): verify progress banner displays during slow network upload` | `status-ui` | ✅ PASSED | Validates feedback persistence during large file transfers. |
+| 193 | `test(status-ui): verify progress banner clears on component unmount` | `status-ui` | ✅ PASSED | Prevents memory leaks from active setTimeout timers. |
