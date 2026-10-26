@@ -139,3 +139,4 @@
 | 133 | `feat(cursor-engine): trigger React state update for content with new value` | `cursor-engine` | ✅ PASSED | Synchronizes draft state for auto-save and submission. |
 | 134 | `feat(cursor-engine): update character count display dynamically after insertion` | `cursor-engine` | ✅ PASSED | Reflects updated document length in footer. |
 | 135 | `test(cursor-engine): verify insertion at beginning of empty document` | `cursor-engine` | ✅ PASSED | Creates valid markdown with zero leading whitespace. |
+| 136 | `test(cursor-engine): verify insertion in middle of existing multi-paragraph document` | `cursor-engine` | ✅ PASSED | Preserves surrounding paragraphs with proper line breaks. |
