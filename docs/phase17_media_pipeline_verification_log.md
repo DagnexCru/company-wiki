@@ -129,3 +129,4 @@
 | 123 | `feat(cursor-engine): split existing content into prefix and suffix substrings` | `cursor-engine` | ✅ PASSED | Isolates insertion target point precisely. |
 | 124 | `feat(cursor-engine): compute smart newline prefix ensuring image starts on new line` | `cursor-engine` | ✅ PASSED | Adds double newline if previous line has text. |
 | 125 | `feat(cursor-engine): compute smart newline suffix ensuring subsequent text follows on new line` | `cursor-engine` | ✅ PASSED | Preserves clean Markdown paragraph spacing. |
+| 126 | `feat(cursor-engine): format image syntax with clean title: ![Title](URL)` | `cursor-engine` | ✅ PASSED | Generates readable, semantic Markdown tags. |
