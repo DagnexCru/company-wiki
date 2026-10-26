@@ -232,3 +232,4 @@
 | 226 | `feat(audit-media): attribute ArticleAttachment.uploader to request.user` | `audit-media` | ✅ PASSED | Stores direct database relationship to uploading user. |
 | 227 | `feat(audit-media): expose uploader_username in ArticleAttachmentSerializer` | `audit-media` | ✅ PASSED | Displays creator attribution in attachment metadata. |
 | 228 | `test(audit-media): verify Admin role can inspect all media attachments across workspace` | `audit-media` | ✅ PASSED | Permits administrator asset oversight. |
+| 229 | `test(audit-media): verify Reviewer role can view attachments submitted with article for review` | `audit-media` | ✅ PASSED | Enables thorough review of diagrams prior to publication. |
