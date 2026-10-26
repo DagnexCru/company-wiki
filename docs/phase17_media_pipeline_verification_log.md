@@ -49,3 +49,4 @@
 | 43 | `feat(upload-api): route upload endpoint to POST /api/v1/articles/upload/` | `upload-api` | ✅ PASSED | Establishes clean RESTful upload URL. |
 | 44 | `feat(upload-api): validate presence of file in request.FILES payload` | `upload-api` | ✅ PASSED | Returns 400 Bad Request if file parameter is omitted. |
 | 45 | `feat(upload-api): parse optional article_id parameter to associate attachment` | `upload-api` | ✅ PASSED | Links uploaded diagram to specific article UUID. |
+| 46 | `feat(upload-api): parse optional article_slug parameter to associate attachment` | `upload-api` | ✅ PASSED | Links uploaded diagram to specific article slug. |
