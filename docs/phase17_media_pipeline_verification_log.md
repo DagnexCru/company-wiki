@@ -304,3 +304,4 @@
 | 298 | `test(compat): verify clean component unmount during active upload` | `compat` | ✅ PASSED | Aborts in-flight Axios requests via AbortController. |
 | 299 | `test(compat): verify visual regression diff is 0% across major browsers` | `compat` | ✅ PASSED | Delivers pixel-perfect UI consistency. |
 | 300 | `test(compat): verify platform parity across Windows, macOS, and Linux workstations` | `compat` | ✅ PASSED | Guarantees identical authoring experience for entire team. |
+| 301 | `build(prod): optimize Vite rollup chunks with tree-shaking for media icons` | `prod` | ✅ PASSED | Eliminates unreferenced icons from bundle. |
