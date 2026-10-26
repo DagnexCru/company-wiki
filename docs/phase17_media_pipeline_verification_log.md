@@ -157,3 +157,4 @@
 | 151 | `feat(toolbar-ui): style upload button with subtle indigo pill container (bg-indigo-50)` | `toolbar-ui` | ✅ PASSED | Harmonizes with editor design language. |
 | 152 | `feat(toolbar-ui): add hover state highlighting (hover:bg-indigo-100 dark:hover:bg-indigo-900/60)` | `toolbar-ui` | ✅ PASSED | Delivers responsive hover feedback. |
 | 153 | `feat(toolbar-ui): add descriptive title attribute explaining upload capabilities` | `toolbar-ui` | ✅ PASSED | Displays browser tooltip on mouse hover. |
+| 154 | `feat(toolbar-ui): render helper text 'Supports drag & drop, clipboard paste (Ctrl+V)'` | `toolbar-ui` | ✅ PASSED | Improves discoverability of modern input modes. |
