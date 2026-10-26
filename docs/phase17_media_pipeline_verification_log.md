@@ -115,3 +115,4 @@
 | 109 | `feat(paste-ui): support images copied from web browser context menu ('Copy Image')` | `paste-ui` | ✅ PASSED | Allows embedding referenced diagrams with Ctrl+V. |
 | 110 | `feat(paste-ui): dispatch extracted clipboard file to handleUploadFiles` | `paste-ui` | ✅ PASSED | Triggers automated upload and cursor insertion. |
 | 111 | `feat(paste-ui): preserve standard text pasting when clipboard contains text` | `paste-ui` | ✅ PASSED | Ensures normal copy-paste of code and text is untouched. |
+| 112 | `feat(paste-ui): display Pro Tip in editor footer: 'Paste screenshots with Ctrl+V'` | `paste-ui` | ✅ PASSED | Educates authors on available productivity shortcut. |
