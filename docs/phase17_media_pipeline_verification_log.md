@@ -54,3 +54,4 @@
 | 48 | `feat(upload-api): instantiate ArticleAttachmentSerializer with request context` | `upload-api` | ✅ PASSED | Generates absolute URL in API response. |
 | 49 | `feat(upload-api): return HTTP 201 Created upon successful asset upload` | `upload-api` | ✅ PASSED | Adheres to HTTP RFC standards for created resources. |
 | 50 | `feat(upload-api): implement ArticleAttachmentsListView at GET /api/v1/articles/<id>/attachments/` | `upload-api` | ✅ PASSED | Lists all media assets belonging to an article. |
+| 51 | `feat(upload-api): return 404 Not Found if article_id in attachments list does not exist` | `upload-api` | ✅ PASSED | Handles missing article queries gracefully. |
