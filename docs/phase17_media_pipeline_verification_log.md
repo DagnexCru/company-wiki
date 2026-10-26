@@ -46,3 +46,4 @@
 | 40 | `test(attachment-model): verify reverse relational manager article.attachments.all()` | `attachment-model` | ✅ PASSED | Retrieves complete media list linked to article. |
 | 41 | `feat(upload-api): implement ArticleMediaUploadView with MultiPartParser and FormParser` | `upload-api` | ✅ PASSED | Accepts standard multipart/form-data payloads. |
 | 42 | `feat(upload-api): enforce IsAuthenticated permission on upload endpoint` | `upload-api` | ✅ PASSED | Restricts media uploads to authenticated team members. |
+| 43 | `feat(upload-api): route upload endpoint to POST /api/v1/articles/upload/` | `upload-api` | ✅ PASSED | Establishes clean RESTful upload URL. |
