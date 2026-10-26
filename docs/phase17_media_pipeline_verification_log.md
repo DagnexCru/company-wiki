@@ -119,3 +119,4 @@
 | 113 | `feat(paste-ui): style keyboard shortcut chip with <kbd> tag (Ctrl+V)` | `paste-ui` | ✅ PASSED | Highlights shortcut with dark mono pill styling. |
 | 114 | `test(paste-ui): verify clipboard blob garbage collection after upload` | `paste-ui` | ✅ PASSED | Prevents memory accumulation on repeated screenshot pastes. |
 | 115 | `test(paste-ui): verify rapid consecutive Ctrl+V pastes queue uploads sequentially` | `paste-ui` | ✅ PASSED | Prevents race conditions in markdown cursor insertion. |
+| 116 | `test(paste-ui): verify error toast displayed if clipboard upload fails` | `paste-ui` | ✅ PASSED | Alerts author if network drops during paste. |
