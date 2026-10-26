@@ -59,3 +59,4 @@
 | 53 | `test(upload-api): verify upload response contains ready-to-paste markdown field` | `upload-api` | ✅ PASSED | Generates formatted ![title](url) syntax. |
 | 54 | `test(upload-api): verify upload response contains is_image boolean indicator` | `upload-api` | ✅ PASSED | Accurately categorizes image vs document files. |
 | 55 | `test(upload-api): verify upload response contains uploader_username` | `upload-api` | ✅ PASSED | Attributes asset to authenticated user. |
+| 56 | `test(upload-api): verify absolute URL resolves to valid development server host` | `upload-api` | ✅ PASSED | Includes protocol and port in generated URL. |
