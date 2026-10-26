@@ -301,3 +301,4 @@
 | 295 | `test(compat): verify clipboard paste of images copied from external websites` | `compat` | ✅ PASSED | Extracts image binary cleanly from browser context. |
 | 296 | `test(compat): verify transparent PNG and SVG diagram visibility on dark surfaces` | `compat` | ✅ PASSED | Prevents black-on-black diagram invisibility. |
 | 297 | `test(compat): verify memory stability during repeated 50+ screenshot uploads` | `compat` | ✅ PASSED | Confirms zero memory leaks in React editor component. |
+| 298 | `test(compat): verify clean component unmount during active upload` | `compat` | ✅ PASSED | Aborts in-flight Axios requests via AbortController. |
