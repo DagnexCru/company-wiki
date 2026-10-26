@@ -127,3 +127,4 @@
 | 121 | `feat(cursor-engine): track textarea reference via React useRef<HTMLTextAreaElement>` | `cursor-engine` | ✅ PASSED | Provides direct DOM access to selection coordinates. |
 | 122 | `feat(cursor-engine): capture selectionStart and selectionEnd at insertion time` | `cursor-engine` | ✅ PASSED | Determines exact cursor point in active draft. |
 | 123 | `feat(cursor-engine): split existing content into prefix and suffix substrings` | `cursor-engine` | ✅ PASSED | Isolates insertion target point precisely. |
+| 124 | `feat(cursor-engine): compute smart newline prefix ensuring image starts on new line` | `cursor-engine` | ✅ PASSED | Adds double newline if previous line has text. |
