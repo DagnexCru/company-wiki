@@ -22,3 +22,4 @@
 | 16 | `test(media-config): verify disk space threshold monitoring on media storage volume` | `media-config` | ✅ PASSED | Guards server storage against exhaustion. |
 | 17 | `test(media-config): verify clean deletion cascade when parent article is purged` | `media-config` | ✅ PASSED | Removes associated media assets cleanly when article is permanently deleted. |
 | 18 | `test(media-config): verify orphan media attachment detection and cleanup routine` | `media-config` | ✅ PASSED | Provides management command to prune unlinked draft assets. |
+| 19 | `test(media-config): verify security headers prevent MIME-sniffing on served media` | `media-config` | ✅ PASSED | Sends X-Content-Type-Options: nosniff on all media responses. |
