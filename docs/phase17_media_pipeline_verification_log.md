@@ -245,3 +245,4 @@
 | 239 | `test(audit-media): verify audit log export to structured JSON lines format` | `audit-media` | ✅ PASSED | Facilitates ingestion into enterprise SIEM tools. |
 | 240 | `test(audit-media): complete security audit sign-off for Phase 17 media pipeline` | `audit-media` | ✅ PASSED | Authorizes production deployment for media upload subsystem. |
 | 241 | `feat(cloud-storage): design storage backend abstraction compatible with django-storages` | `cloud-storage` | ✅ PASSED | Enables zero-code transition to cloud buckets. |
+| 242 | `feat(cloud-storage): support AWS_STORAGE_BUCKET_NAME environment variable configuration` | `cloud-storage` | ✅ PASSED | Points storage to target S3 bucket. |
