@@ -32,3 +32,4 @@
 | 26 | `feat(attachment-model): add original_filename CharField(max_length=255)` | `attachment-model` | ✅ PASSED | Stores pristine user filename for display in gallery chips. |
 | 27 | `feat(attachment-model): add file_size PositiveIntegerField` | `attachment-model` | ✅ PASSED | Records exact asset size in bytes for client bandwidth calculations. |
 | 28 | `feat(attachment-model): add content_type CharField(max_length=120)` | `attachment-model` | ✅ PASSED | Records MIME type for browser content negotiation. |
+| 29 | `feat(attachment-model): add is_image boolean flag with default=True` | `attachment-model` | ✅ PASSED | Accelerates frontend rendering decisions for image vs document chips. |
