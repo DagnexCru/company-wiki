@@ -226,3 +226,4 @@
 | 220 | `test(viewer-engine): verify printing and PDF export of rendered markdown images` | `viewer-engine` | ✅ PASSED | Ensures diagrams appear clearly in exported documentation. |
 | 221 | `feat(audit-media): record AuditEvent.Action.ARTICLE_UPDATE on attachment creation` | `audit-media` | ✅ PASSED | Logs asset upload in central enterprise audit log. |
 | 222 | `feat(audit-media): capture original_filename, file_size, content_type in audit details` | `audit-media` | ✅ PASSED | Maintains granular forensic telemetry on all uploads. |
+| 223 | `feat(audit-media): associate audit event with actor user ID and username` | `audit-media` | ✅ PASSED | Provides strict accountability for uploaded content. |
