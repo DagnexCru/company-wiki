@@ -252,3 +252,4 @@
 | 246 | `feat(cloud-storage): support AWS_S3_FILE_OVERWRITE=False to prevent asset collisions` | `cloud-storage` | ✅ PASSED | Guarantees immutable historical attachment links. |
 | 247 | `feat(cloud-storage): configure default ACL to public-read for published assets` | `cloud-storage` | ✅ PASSED | Allows browser clients to load diagrams without pre-signed URLs. |
 | 248 | `feat(cloud-storage): support server-side encryption at rest (AES-256 / SSE-S3)` | `cloud-storage` | ✅ PASSED | Meets enterprise data-at-rest encryption standards. |
+| 249 | `feat(cloud-storage): support pre-signed URL generation for private team attachments` | `cloud-storage` | ✅ PASSED | Enables restricted media access when required. |
