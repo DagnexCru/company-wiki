@@ -216,3 +216,4 @@
 | 210 | `feat(viewer-engine): style inline links with indigo accent (text-indigo-600 dark:text-indigo-400)` | `viewer-engine` | ✅ PASSED | Differentiates hyperlinks from standard text. |
 | 211 | `feat(viewer-engine): add target='_blank' and rel='noopener noreferrer' to external links` | `viewer-engine` | ✅ PASSED | Guards against tab-nabbing security vulnerabilities. |
 | 212 | `test(viewer-engine): verify image rendering in ArticleEditorPage Live Preview tab` | `viewer-engine` | ✅ PASSED | Validates instant preview of pasted screenshots. |
+| 213 | `test(viewer-engine): verify image rendering on ArticleDetailPage public view` | `viewer-engine` | ✅ PASSED | Ensures readers see crisp architecture diagrams. |
