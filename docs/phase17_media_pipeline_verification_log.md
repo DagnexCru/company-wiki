@@ -87,3 +87,4 @@
 | 81 | `feat(dnd-ui): bind onDragEnter, onDragOver, onDragLeave, onDrop to editor container` | `dnd-ui` | ✅ PASSED | Enables seamless drag-and-drop file ingestion. |
 | 82 | `feat(dnd-ui): prevent default browser action on dragover to enable file drop` | `dnd-ui` | ✅ PASSED | Prevents browser from navigating away to dropped image. |
 | 83 | `feat(dnd-ui): set dataTransfer.dropEffect to 'copy' during active dragover` | `dnd-ui` | ✅ PASSED | Displays native copy cursor indicator. |
+| 84 | `feat(dnd-ui): implement boundary checking in onDragLeave to avoid flickering` | `dnd-ui` | ✅ PASSED | Keeps dropzone active until cursor completely exits container. |
