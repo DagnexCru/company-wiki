@@ -170,3 +170,4 @@
 | 164 | `feat(gallery-ui): import Paperclip icon from lucide-react for gallery header` | `gallery-ui` | ✅ PASSED | Provides recognized attachment iconography. |
 | 165 | `feat(gallery-ui): render micro-thumbnail image preview for uploaded images` | `gallery-ui` | ✅ PASSED | Displays 28x28px object-cover thumbnail. |
 | 166 | `feat(gallery-ui): render Paperclip icon fallback for non-image attachments` | `gallery-ui` | ✅ PASSED | Distinguishes PDFs and diagram files. |
+| 167 | `feat(gallery-ui): display truncated original filename with tooltip on hover` | `gallery-ui` | ✅ PASSED | Prevents long filenames from breaking gallery layout. |
