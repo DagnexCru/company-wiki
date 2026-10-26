@@ -277,3 +277,4 @@
 | 271 | `a11y(media): mark decorative icons with aria-hidden='true' attribute` | `media` | ✅ PASSED | Prevents redundant announcements in screen readers. |
 | 272 | `a11y(media): respect prefers-reduced-motion media query on upload spinners` | `media` | ✅ PASSED | Suppresses bounce and spin animations when requested. |
 | 273 | `a11y(media): test with NVDA screen reader on Windows 11` | `media` | ✅ PASSED | Announces 'Insert Image, button' and upload status cleanly. |
+| 274 | `a11y(media): test with VoiceOver on macOS and iOS Safari` | `media` | ✅ PASSED | Navigates media gallery and toolbar without trap. |
