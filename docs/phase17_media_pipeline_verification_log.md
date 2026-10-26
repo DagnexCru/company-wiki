@@ -183,3 +183,4 @@
 | 177 | `test(gallery-ui): verify clicking 'Copy' copies valid ![Alt](URL) to clipboard` | `gallery-ui` | ✅ PASSED | Validates clipboard write operation. |
 | 178 | `test(gallery-ui): verify gallery renders cleanly with 10+ uploaded attachments` | `gallery-ui` | ✅ PASSED | Validates scroll container performance with many items. |
 | 179 | `test(gallery-ui): verify thumbnail image loading error displays fallback icon` | `gallery-ui` | ✅ PASSED | Handles broken thumbnail gracefully. |
+| 180 | `test(gallery-ui): verify gallery state preserved across Write and Preview tab switches` | `gallery-ui` | ✅ PASSED | Maintains attachment list when previewing article. |
