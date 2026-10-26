@@ -286,3 +286,4 @@
 | 280 | `a11y(media): achieve 100% Google Lighthouse accessibility score on editor` | `media` | ✅ PASSED | Validates industry-standard accessibility excellence. |
 | 281 | `test(compat): verify drag-and-drop file upload in Google Chrome (Blink)` | `compat` | ✅ PASSED | Validates chromium dataTransfer event handling. |
 | 282 | `test(compat): verify drag-and-drop file upload in Mozilla Firefox (Gecko)` | `compat` | ✅ PASSED | Validates gecko file drop event dispatching. |
+| 283 | `test(compat): verify drag-and-drop file upload in Apple Safari (WebKit)` | `compat` | ✅ PASSED | Validates webkit dropzone overlay rendering. |
