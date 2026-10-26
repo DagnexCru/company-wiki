@@ -234,3 +234,4 @@
 | 228 | `test(audit-media): verify Admin role can inspect all media attachments across workspace` | `audit-media` | ✅ PASSED | Permits administrator asset oversight. |
 | 229 | `test(audit-media): verify Reviewer role can view attachments submitted with article for review` | `audit-media` | ✅ PASSED | Enables thorough review of diagrams prior to publication. |
 | 230 | `test(audit-media): verify Author role can upload and manage attachments for own articles` | `audit-media` | ✅ PASSED | Empowers documentation creators. |
+| 231 | `test(audit-media): verify Reader role cannot upload or delete media attachments` | `audit-media` | ✅ PASSED | Enforces read-only access for viewer accounts. |
