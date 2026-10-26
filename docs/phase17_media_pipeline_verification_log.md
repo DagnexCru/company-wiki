@@ -300,3 +300,4 @@
 | 294 | `test(compat): verify handling of non-file drag events prevents application errors` | `compat` | ✅ PASSED | Safely ignores dragged web hyperlinks. |
 | 295 | `test(compat): verify clipboard paste of images copied from external websites` | `compat` | ✅ PASSED | Extracts image binary cleanly from browser context. |
 | 296 | `test(compat): verify transparent PNG and SVG diagram visibility on dark surfaces` | `compat` | ✅ PASSED | Prevents black-on-black diagram invisibility. |
+| 297 | `test(compat): verify memory stability during repeated 50+ screenshot uploads` | `compat` | ✅ PASSED | Confirms zero memory leaks in React editor component. |
