@@ -116,3 +116,4 @@
 | 110 | `feat(paste-ui): dispatch extracted clipboard file to handleUploadFiles` | `paste-ui` | ✅ PASSED | Triggers automated upload and cursor insertion. |
 | 111 | `feat(paste-ui): preserve standard text pasting when clipboard contains text` | `paste-ui` | ✅ PASSED | Ensures normal copy-paste of code and text is untouched. |
 | 112 | `feat(paste-ui): display Pro Tip in editor footer: 'Paste screenshots with Ctrl+V'` | `paste-ui` | ✅ PASSED | Educates authors on available productivity shortcut. |
+| 113 | `feat(paste-ui): style keyboard shortcut chip with <kbd> tag (Ctrl+V)` | `paste-ui` | ✅ PASSED | Highlights shortcut with dark mono pill styling. |
