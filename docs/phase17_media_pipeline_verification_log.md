@@ -12,3 +12,4 @@
 | 6 | `feat(media-config): implement date-partitioned storage structure (article_attachments/%Y/%m/)` | `media-config` | ✅ PASSED | Prevents filesystem directory degradation with thousands of files. |
 | 7 | `feat(media-config): add collision-resistant 10-character UUID hex prefix to uploaded files` | `media-config` | ✅ PASSED | Guarantees unique filenames even if multiple users upload same name. |
 | 8 | `feat(media-config): implement clean_name filename sanitization replacing spaces with underscores` | `media-config` | ✅ PASSED | Eliminates URL encoding issues with spaces in filenames. |
+| 9 | `test(media-config): verify MEDIA_ROOT directory auto-creation on initial file upload` | `media-config` | ✅ PASSED | Asserts directory is safely created without permission errors. |
