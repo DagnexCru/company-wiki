@@ -258,3 +258,4 @@
 | 252 | `test(cloud-storage): verify absolute URL generation formats S3 CDN domain correctly` | `cloud-storage` | ✅ PASSED | Validates https://cdn.company.com/article_attachments/... URLs. |
 | 253 | `test(cloud-storage): verify local storage URL formats /media/article_attachments/... correctly` | `cloud-storage` | ✅ PASSED | Validates development fallback URLs. |
 | 254 | `test(cloud-storage): verify MinIO local development server integration` | `cloud-storage` | ✅ PASSED | Supports Docker-based cloud storage emulation. |
+| 255 | `test(cloud-storage): verify Cloudflare R2 compatibility with S3-compliant API` | `cloud-storage` | ✅ PASSED | Validates cost-effective cloud media storage. |
