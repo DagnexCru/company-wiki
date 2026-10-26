@@ -35,3 +35,4 @@
 | 29 | `feat(attachment-model): add is_image boolean flag with default=True` | `attachment-model` | ✅ PASSED | Accelerates frontend rendering decisions for image vs document chips. |
 | 30 | `feat(attachment-model): add created_at DateTimeField with db_index=True` | `attachment-model` | ✅ PASSED | Enables rapid reverse-chronological ordering. |
 | 31 | `feat(attachment-model): add compound database index on (article, -created_at)` | `attachment-model` | ✅ PASSED | Optimizes fetching all media for an article. |
+| 32 | `feat(attachment-model): add compound database index on (uploader, -created_at)` | `attachment-model` | ✅ PASSED | Optimizes user media quota queries. |
