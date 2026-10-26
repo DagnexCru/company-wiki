@@ -198,3 +198,4 @@
 | 192 | `test(status-ui): verify progress banner displays during slow network upload` | `status-ui` | ✅ PASSED | Validates feedback persistence during large file transfers. |
 | 193 | `test(status-ui): verify progress banner clears on component unmount` | `status-ui` | ✅ PASSED | Prevents memory leaks from active setTimeout timers. |
 | 194 | `test(status-ui): verify multiple simultaneous errors format as readable list` | `status-ui` | ✅ PASSED | Handles multiple rejected files gracefully. |
+| 195 | `test(status-ui): verify screen reader live region announces upload status updates` | `status-ui` | ✅ PASSED | Supports visually impaired authors. |
