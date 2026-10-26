@@ -122,3 +122,4 @@
 | 116 | `test(paste-ui): verify error toast displayed if clipboard upload fails` | `paste-ui` | ✅ PASSED | Alerts author if network drops during paste. |
 | 117 | `test(paste-ui): verify clipboard image format detection for image/png and image/jpeg` | `paste-ui` | ✅ PASSED | Handles both compressed and lossless screenshots. |
 | 118 | `test(paste-ui): verify clipboard paste works identically on Mac with Cmd+V` | `paste-ui` | ✅ PASSED | Maintains platform-agnostic keybinding compatibility. |
+| 119 | `test(paste-ui): verify undo stack (Ctrl+Z) removes inserted Markdown tag cleanly` | `paste-ui` | ✅ PASSED | Preserves native textarea history stack. |
