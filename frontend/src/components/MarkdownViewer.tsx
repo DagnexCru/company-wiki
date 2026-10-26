@@ -19,7 +19,7 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
 
   const renderInline = (text: string): React.ReactNode => {
     // Process inline bold, code, and links
-    const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
+    const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
     return parts.map((part, idx) => {
       if (part.startsWith("`") && part.endsWith("`")) {
         return (
@@ -33,6 +33,20 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
       }
       if (part.startsWith("**") && part.endsWith("**")) {
         return <strong key={idx} className="font-semibold text-slate-900 dark:text-white">{part.slice(2, -2)}</strong>;
+      }
+      const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (linkMatch) {
+        return (
+          <a
+            key={idx}
+            href={linkMatch[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+          >
+            {linkMatch[1]}
+          </a>
+        );
       }
       return part;
     });
@@ -59,6 +73,29 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
 
     if (inCodeBlock) {
       codeBuffer.push(line);
+      return;
+    }
+
+    // Images: ![alt](url)
+    const imgMatch = line.trim().match(/^!\[(.*?)\]\((.*?)\)$/);
+    if (imgMatch) {
+      const altText = imgMatch[1] || "Diagram";
+      const srcUrl = imgMatch[2];
+      elements.push(
+        <figure key={index} className="my-5 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 shadow-xs">
+          <img
+            src={srcUrl}
+            alt={altText}
+            loading="lazy"
+            className="w-full max-h-[550px] object-contain rounded-t-2xl bg-slate-950/20"
+          />
+          {altText && (
+            <figcaption className="px-4 py-2 text-center text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-800/40">
+              {altText}
+            </figcaption>
+          )}
+        </figure>
+      );
       return;
     }
 

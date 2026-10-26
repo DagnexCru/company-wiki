@@ -4,6 +4,7 @@ import type {
   ArticleFilterParams,
   ArticleInput,
   ArticleListItem,
+  ArticleAttachment,
   PaginatedResponse,
 } from "../types/article";
 
@@ -58,6 +59,35 @@ export const articleService = {
     const response = await api.post<{ detail: string; status: string }>(
       `/articles/${slug}/archive/`
     );
+    return response.data;
+  },
+
+  /**
+   * Upload media asset (diagram, screenshot, illustration, attachment) for Markdown insertion.
+   * Supports drag-and-drop and clipboard paste (Ctrl+V).
+   */
+  async uploadMedia(file: File, articleId?: string, articleSlug?: string): Promise<ArticleAttachment> {
+    const formData = new FormData();
+    formData.append("file", file);
+    if (articleId) {
+      formData.append("article_id", articleId);
+    }
+    if (articleSlug) {
+      formData.append("article_slug", articleSlug);
+    }
+    const response = await api.post<ArticleAttachment>("/articles/upload/", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  },
+
+  /**
+   * Fetch all media attachments for a given article.
+   */
+  async getArticleAttachments(articleId: string): Promise<ArticleAttachment[]> {
+    const response = await api.get<ArticleAttachment[]>(`/articles/${articleId}/attachments/`);
     return response.data;
   },
 };

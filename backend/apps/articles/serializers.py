@@ -258,3 +258,47 @@ class ArticleRevisionListSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = fields
 
+
+class ArticleAttachmentSerializer(serializers.ModelSerializer):
+    """
+    Serializer for uploaded article media attachments (images, diagrams, screenshots).
+    Provides absolute URLs and ready-to-paste Markdown syntax.
+    """
+    url = serializers.SerializerMethodField()
+    markdown = serializers.SerializerMethodField()
+    uploader_username = serializers.CharField(source="uploader.username", read_only=True, default="Unknown")
+
+    class Meta:
+        from apps.articles.models import ArticleAttachment
+        model = ArticleAttachment
+        fields = [
+            "id",
+            "article",
+            "uploader",
+            "uploader_username",
+            "original_filename",
+            "file_size",
+            "content_type",
+            "is_image",
+            "url",
+            "markdown",
+            "created_at",
+        ]
+        read_only_fields = ["id", "uploader", "file_size", "content_type", "is_image", "url", "markdown", "created_at"]
+
+    def get_url(self, obj):
+        request = self.context.get("request")
+        if obj.file:
+            if request:
+                return request.build_absolute_uri(obj.file.url)
+            return obj.file.url
+        return ""
+
+    def get_markdown(self, obj):
+        url = self.get_url(obj)
+        clean_title = obj.original_filename.rsplit(".", 1)[0].replace("-", " ").replace("_", " ").title()
+        if obj.is_image:
+            return f"![{clean_title}]({url})"
+        return f"[{obj.original_filename}]({url})"
+
+

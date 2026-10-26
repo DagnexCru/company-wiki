@@ -291,3 +291,63 @@ class ArticleRevision(models.Model):
 # Reading speed benchmark: Standard adult reading velocity is calibrated at 200 words per minute.
 
 # Slug Collision Handling: Uses progressive numeric suffix incrementing.
+
+
+def article_attachment_upload_path(instance, filename):
+    clean_name = filename.replace(" ", "_")
+    unique_prefix = uuid.uuid4().hex[:10]
+    date_path = timezone.now().strftime("%Y/%m")
+    return f"article_attachments/{date_path}/{unique_prefix}_{clean_name}"
+
+
+class ArticleAttachment(models.Model):
+    """
+    Uploaded media attachment (architecture diagrams, screenshots, SOP assets)
+    supporting drag-and-drop and clipboard paste in the Markdown editor.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="attachments",
+        help_text="Optional associated article when uploaded within a specific article context.",
+    )
+    uploader = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="uploaded_attachments",
+        help_text="User who uploaded this media attachment.",
+    )
+    file = models.FileField(
+        upload_to=article_attachment_upload_path,
+        help_text="Uploaded media file stored on server filesystem or cloud storage.",
+    )
+    original_filename = models.CharField(max_length=255, help_text="Original client filename.")
+    file_size = models.PositiveIntegerField(help_text="File size in bytes.")
+    content_type = models.CharField(max_length=120, help_text="MIME type of the uploaded file.")
+    is_image = models.BooleanField(default=True, help_text="Indicates whether the file is an image.")
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+
+    class Meta:
+        db_table = "article_attachments"
+        verbose_name = "Article Attachment"
+        verbose_name_plural = "Article Attachments"
+        ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=["article", "-created_at"], name="art_att_article_idx"),
+            models.Index(fields=["uploader", "-created_at"], name="art_att_uploader_idx"),
+        ]
+
+    def __str__(self):
+        return f"{self.original_filename} ({self.file_size} bytes)"
+
+    @property
+    def file_url(self):
+        if self.file:
+            return self.file.url
+        return ""
+

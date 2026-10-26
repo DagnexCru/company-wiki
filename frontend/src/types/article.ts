@@ -65,3 +65,18 @@ export interface ArticleFilterParams {
   page?: number;
   page_size?: number;
 }
+
+export interface ArticleAttachment {
+  id: string;
+  article?: string | null;
+  uploader?: string | null;
+  uploader_username: string;
+  original_filename: string;
+  file_size: number;
+  content_type: string;
+  is_image: boolean;
+  url: string;
+  markdown: string;
+  created_at: string;
+}
+

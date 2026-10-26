@@ -2,11 +2,13 @@ import difflib
 from django.db import models
 from django.utils import timezone
 from rest_framework import viewsets, permissions, status
+from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
 from apps.articles.serializers import (
     ArticleListSerializer,
@@ -14,6 +16,7 @@ from apps.articles.serializers import (
     ArticleCreateUpdateSerializer,
     ArticleRevisionSerializer,
     ArticleRevisionListSerializer,
+    ArticleAttachmentSerializer,
 )
 from apps.workflows.models import ReviewRecord
 from apps.workflows.serializers import ReviewRecordSerializer
@@ -746,3 +749,118 @@ class ArticleViewSet(viewsets.ModelViewSet):
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
 # Archival Policy: Drafts are purged; active content is soft-archived to protect citations.
+
+
+class ArticleMediaUploadView(APIView):
+    """
+    Dedicated endpoint for uploading media assets (diagrams, screenshots, illustrations, attachments)
+    supporting drag-and-drop and clipboard paste (Ctrl+V) directly within the Markdown editor.
+    URL: POST /api/v1/articles/upload/
+    """
+    parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [permissions.IsAuthenticated]
+
+    # Maximum file size: 10 Megabytes
+    MAX_FILE_SIZE = 10 * 1024 * 1024
+    ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp"}
+    ALLOWED_DOC_EXTENSIONS = {".pdf", ".drawio", ".json", ".txt", ".md", ".zip"}
+
+    def post(self, request, *args, **kwargs):
+        uploaded_file = request.FILES.get("file")
+        if not uploaded_file:
+            return Response(
+                {"error": "No file provided in 'file' multipart payload."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 1. Size Validation
+        if uploaded_file.size > self.MAX_FILE_SIZE:
+            size_mb = uploaded_file.size / (1024 * 1024)
+            return Response(
+                {
+                    "error": f"File size ({size_mb:.1f}MB) exceeds the maximum allowed limit of 10MB.",
+                    "max_size_bytes": self.MAX_FILE_SIZE,
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 2. Extension & Content-Type Sanitization
+        filename = uploaded_file.name
+        ext = ""
+        if "." in filename:
+            ext = "." + filename.rsplit(".", 1)[1].lower()
+
+        is_image = ext in self.ALLOWED_IMAGE_EXTENSIONS or (uploaded_file.content_type and uploaded_file.content_type.startswith("image/"))
+        if not is_image and ext not in self.ALLOWED_DOC_EXTENSIONS:
+            return Response(
+                {
+                    "error": f"Unsupported file format '{ext}'. Allowed image and diagram formats: {', '.join(sorted(self.ALLOWED_IMAGE_EXTENSIONS | self.ALLOWED_DOC_EXTENSIONS))}",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 3. Associate with optional article context if provided
+        article = None
+        article_id = request.data.get("article_id")
+        article_slug = request.data.get("article_slug")
+        if article_id:
+            try:
+                article = Article.objects.get(id=article_id)
+            except (Article.DoesNotExist, ValueError):
+                pass
+        elif article_slug:
+            try:
+                article = Article.objects.get(slug=article_slug)
+            except Article.DoesNotExist:
+                pass
+
+        # 4. Create Attachment Record
+        attachment = ArticleAttachment.objects.create(
+            article=article,
+            uploader=request.user if request.user.is_authenticated else None,
+            file=uploaded_file,
+            original_filename=filename,
+            file_size=uploaded_file.size,
+            content_type=uploaded_file.content_type or "application/octet-stream",
+            is_image=is_image,
+        )
+
+        # 5. Audit Logging
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_UPDATE if article else AuditEvent.Action.ARTICLE_CREATE,
+            resource_type="article_attachment",
+            actor=request.user,
+            resource_id=attachment.id,
+            resource_name=attachment.original_filename,
+            details={
+                "original_filename": attachment.original_filename,
+                "file_size": attachment.file_size,
+                "content_type": attachment.content_type,
+                "is_image": attachment.is_image,
+                "article_id": str(article.id) if article else None,
+                "article_slug": article.slug if article else None,
+            },
+            request=request,
+        )
+
+        serializer = ArticleAttachmentSerializer(attachment, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class ArticleAttachmentsListView(APIView):
+    """
+    List all media attachments associated with a given article.
+    URL: GET /api/v1/articles/<uuid:article_id>/attachments/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, article_id, *args, **kwargs):
+        try:
+            article = Article.objects.get(id=article_id)
+        except Article.DoesNotExist:
+            return Response({"error": "Article not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        attachments = ArticleAttachment.objects.filter(article=article).order_by("-created_at")
+        serializer = ArticleAttachmentSerializer(attachments, many=True, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
