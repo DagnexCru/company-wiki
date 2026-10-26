@@ -107,3 +107,4 @@
 | 101 | `feat(paste-ui): attach onPaste event listener to editor Markdown textarea` | `paste-ui` | ✅ PASSED | Intercepts clipboard events for screenshot detection. |
 | 102 | `feat(paste-ui): inspect clipboardData.items for image MIME types` | `paste-ui` | ✅ PASSED | Detects pasted bitmap and vector data. |
 | 103 | `feat(paste-ui): extract clipboard image blob via item.getAsFile()` | `paste-ui` | ✅ PASSED | Converts clipboard item into standard File object. |
+| 104 | `feat(paste-ui): prevent default text paste when image is present in clipboard` | `paste-ui` | ✅ PASSED | Prevents broken binary string insertion into textarea. |
