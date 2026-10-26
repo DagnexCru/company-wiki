@@ -294,3 +294,4 @@
 | 288 | `test(compat): verify clipboard paste (Ctrl+V) in Microsoft Edge` | `compat` | ✅ PASSED | Validates Windows snipping tool clipboard paste. |
 | 289 | `test(compat): verify mobile file picker integration on iOS Safari` | `compat` | ✅ PASSED | Validates photo library and camera upload on iPhone. |
 | 290 | `test(compat): verify mobile file picker integration on Android Chrome` | `compat` | ✅ PASSED | Validates file manager upload on Android. |
+| 291 | `test(compat): verify hybrid touch and mouse interactions on touchscreen laptops` | `compat` | ✅ PASSED | Ensures clicks and taps register without conflict. |
