@@ -260,3 +260,4 @@
 | 254 | `test(cloud-storage): verify MinIO local development server integration` | `cloud-storage` | ✅ PASSED | Supports Docker-based cloud storage emulation. |
 | 255 | `test(cloud-storage): verify Cloudflare R2 compatibility with S3-compliant API` | `cloud-storage` | ✅ PASSED | Validates cost-effective cloud media storage. |
 | 256 | `test(cloud-storage): verify multi-part S3 upload threshold for large diagrams` | `cloud-storage` | ✅ PASSED | Splits transfers above 5MB into parallel streams. |
+| 257 | `test(cloud-storage): verify cross-region replication readiness for high availability` | `cloud-storage` | ✅ PASSED | Protects mission-critical SOP diagrams against outages. |
