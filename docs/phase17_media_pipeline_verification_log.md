@@ -92,3 +92,4 @@
 | 86 | `feat(dnd-ui): style dropzone with dark indigo glassmorphism (bg-indigo-950/90)` | `dnd-ui` | ✅ PASSED | Blends elegantly into dark mode editing layout. |
 | 87 | `feat(dnd-ui): configure dashed border container (border-2 border-dashed border-indigo-500)` | `dnd-ui` | ✅ PASSED | Creates unmistakable target boundary. |
 | 88 | `feat(dnd-ui): add animated bouncing UploadCloud icon in dropzone overlay` | `dnd-ui` | ✅ PASSED | Delivers intuitive visual guidance to the user. |
+| 89 | `feat(dnd-ui): display bold headline 'Drop Diagram or Image Here'` | `dnd-ui` | ✅ PASSED | Communicates immediate drop affordance. |
