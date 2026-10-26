@@ -144,3 +144,4 @@
 | 138 | `test(cursor-engine): verify zero textarea scroll jump during cursor update` | `cursor-engine` | ✅ PASSED | Maintains vertical viewport position on long articles. |
 | 139 | `test(cursor-engine): verify synthetic change event fires for form dirty tracking` | `cursor-engine` | ✅ PASSED | Enables 'Unsaved Changes' warning prompt. |
 | 140 | `test(cursor-engine): verify unit test coverage for insertMarkdownSnippet function` | `cursor-engine` | ✅ PASSED | Validates string manipulation logic across 10 test cases. |
+| 141 | `feat(toolbar-ui): add 'Insert Image' button to Markdown editor toolbar` | `toolbar-ui` | ✅ PASSED | Provides prominent manual file picker access. |
