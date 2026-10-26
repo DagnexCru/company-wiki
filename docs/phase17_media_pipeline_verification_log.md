@@ -5,3 +5,4 @@
 | # | Check | Domain | Status | Detail |
 |---|-------|--------|:------:|--------|
 | 1 | `feat(media-config): configure MEDIA_ROOT path in settings.py` | `media-config` | ✅ PASSED | Points user media files directory to BASE_DIR / 'media'. |
+| 2 | `feat(media-config): configure MEDIA_URL to /media/ in settings.py` | `media-config` | ✅ PASSED | Exposes media file routing namespace. |
