@@ -165,3 +165,4 @@
 | 159 | `test(toolbar-ui): verify contrast ratio on upload button meets WCAG 2.1 AA` | `toolbar-ui` | ✅ PASSED | Indigo-600 text on indigo-50 achieves > 5:1 contrast. |
 | 160 | `test(toolbar-ui): verify zero layout shift when button toggles to uploading state` | `toolbar-ui` | ✅ PASSED | Maintains fixed button dimensions during icon swap. |
 | 161 | `feat(gallery-ui): render Attached Media gallery tray below editor textarea` | `gallery-ui` | ✅ PASSED | Displays session media assets in dedicated drawer. |
+| 162 | `feat(gallery-ui): conditionally display gallery tray only when attachments exist` | `gallery-ui` | ✅ PASSED | Keeps editor uncluttered when no files are attached. |
