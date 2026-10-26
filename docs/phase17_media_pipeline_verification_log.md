@@ -210,3 +210,4 @@
 | 204 | `feat(viewer-engine): add subtle border container (border-slate-200 dark:border-slate-800)` | `viewer-engine` | ✅ PASSED | Frames images neatly against dark background. |
 | 205 | `feat(viewer-engine): add soft background fill for transparent diagrams (bg-slate-950/20)` | `viewer-engine` | ✅ PASSED | Enhances contrast for transparent PNG architecture drawings. |
 | 206 | `feat(viewer-engine): configure responsive image sizing (w-full max-h-[550px] object-contain)` | `viewer-engine` | ✅ PASSED | Prevents diagram distortion while fitting container width. |
+| 207 | `feat(viewer-engine): add loading='lazy' attribute to rendered <img> elements` | `viewer-engine` | ✅ PASSED | Optimizes page load performance for articles with many images. |
