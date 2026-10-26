@@ -267,3 +267,4 @@
 | 261 | `a11y(media): add explicit aria-label to toolbar 'Insert Image' action button` | `media` | ✅ PASSED | Informs screen readers of button purpose. |
 | 262 | `a11y(media): configure aria-label on hidden file input element` | `media` | ✅ PASSED | Labels file picker dialog in accessibility tree. |
 | 263 | `a11y(media): ensure keyboard Tab order includes toolbar media upload action` | `media` | ✅ PASSED | Enables fully mouse-free media uploading. |
+| 264 | `a11y(media): provide visible focus ring indicators on keyboard focus (focus-visible:ring-2)` | `media` | ✅ PASSED | Highlights focused upload control clearly. |
