@@ -192,3 +192,4 @@
 | 186 | `feat(status-ui): configure 3.5-second auto-dismissal timer on success message` | `status-ui` | ✅ PASSED | Cleans up editor view after user confirmation. |
 | 187 | `feat(status-ui): display red alert banner when file exceeds 10MB limit` | `status-ui` | ✅ PASSED | Provides prominent warning on rejected files. |
 | 188 | `feat(status-ui): add tactile cursor-pointer feedback on all attachment controls` | `status-ui` | ✅ PASSED | Follows web interactive affordance standards. |
+| 189 | `feat(status-ui): add micro-scale click animation on Insert button (active:scale-[0.98])` | `status-ui` | ✅ PASSED | Simulates tactile button press. |
