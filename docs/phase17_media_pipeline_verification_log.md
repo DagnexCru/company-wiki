@@ -94,3 +94,4 @@
 | 88 | `feat(dnd-ui): add animated bouncing UploadCloud icon in dropzone overlay` | `dnd-ui` | ✅ PASSED | Delivers intuitive visual guidance to the user. |
 | 89 | `feat(dnd-ui): display bold headline 'Drop Diagram or Image Here'` | `dnd-ui` | ✅ PASSED | Communicates immediate drop affordance. |
 | 90 | `feat(dnd-ui): display descriptive subtext 'Automatic upload and Markdown tag insertion'` | `dnd-ui` | ✅ PASSED | Clarifies automated embedding behavior. |
+| 91 | `feat(dnd-ui): set pointer-events-none on drop overlay children` | `dnd-ui` | ✅ PASSED | Prevents dragLeave misfires caused by nested elements. |
