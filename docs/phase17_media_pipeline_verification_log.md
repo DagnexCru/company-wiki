@@ -47,3 +47,4 @@
 | 41 | `feat(upload-api): implement ArticleMediaUploadView with MultiPartParser and FormParser` | `upload-api` | ✅ PASSED | Accepts standard multipart/form-data payloads. |
 | 42 | `feat(upload-api): enforce IsAuthenticated permission on upload endpoint` | `upload-api` | ✅ PASSED | Restricts media uploads to authenticated team members. |
 | 43 | `feat(upload-api): route upload endpoint to POST /api/v1/articles/upload/` | `upload-api` | ✅ PASSED | Establishes clean RESTful upload URL. |
+| 44 | `feat(upload-api): validate presence of file in request.FILES payload` | `upload-api` | ✅ PASSED | Returns 400 Bad Request if file parameter is omitted. |
