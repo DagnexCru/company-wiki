@@ -130,3 +130,4 @@
 | 124 | `feat(cursor-engine): compute smart newline prefix ensuring image starts on new line` | `cursor-engine` | ✅ PASSED | Adds double newline if previous line has text. |
 | 125 | `feat(cursor-engine): compute smart newline suffix ensuring subsequent text follows on new line` | `cursor-engine` | ✅ PASSED | Preserves clean Markdown paragraph spacing. |
 | 126 | `feat(cursor-engine): format image syntax with clean title: ![Title](URL)` | `cursor-engine` | ✅ PASSED | Generates readable, semantic Markdown tags. |
+| 127 | `feat(cursor-engine): format document syntax for non-image files: [Filename](URL)` | `cursor-engine` | ✅ PASSED | Generates clickable document links. |
