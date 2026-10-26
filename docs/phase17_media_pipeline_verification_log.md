@@ -57,3 +57,4 @@
 | 51 | `feat(upload-api): return 404 Not Found if article_id in attachments list does not exist` | `upload-api` | ✅ PASSED | Handles missing article queries gracefully. |
 | 52 | `test(upload-api): verify upload response contains id, url, original_filename, file_size` | `upload-api` | ✅ PASSED | Validates complete JSON response schema. |
 | 53 | `test(upload-api): verify upload response contains ready-to-paste markdown field` | `upload-api` | ✅ PASSED | Generates formatted ![title](url) syntax. |
+| 54 | `test(upload-api): verify upload response contains is_image boolean indicator` | `upload-api` | ✅ PASSED | Accurately categorizes image vs document files. |
