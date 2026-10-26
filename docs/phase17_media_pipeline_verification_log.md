@@ -109,3 +109,4 @@
 | 103 | `feat(paste-ui): extract clipboard image blob via item.getAsFile()` | `paste-ui` | ✅ PASSED | Converts clipboard item into standard File object. |
 | 104 | `feat(paste-ui): prevent default text paste when image is present in clipboard` | `paste-ui` | ✅ PASSED | Prevents broken binary string insertion into textarea. |
 | 105 | `feat(paste-ui): generate timestamped filename for pasted screenshots` | `paste-ui` | ✅ PASSED | Creates screenshot_YYYY-MM-DD_HH-mm-ss.png. |
+| 106 | `feat(paste-ui): support screenshots from Windows Snipping Tool (Win+Shift+S)` | `paste-ui` | ✅ PASSED | Enables instant pasting of captured screen regions. |
