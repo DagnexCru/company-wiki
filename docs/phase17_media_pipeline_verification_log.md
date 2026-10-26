@@ -77,3 +77,4 @@
 | 71 | `test(security): verify unauthenticated upload request receives 401 Unauthorized` | `security` | ✅ PASSED | Guards endpoint against anonymous access. |
 | 72 | `test(security): verify Reader role cannot upload attachments` | `security` | ✅ PASSED | Enforces RBAC author/editor privileges. |
 | 73 | `test(security): verify oversized file upload returns 400 with max_size_bytes metadata` | `security` | ✅ PASSED | Validates boundary condition error payload. |
+| 74 | `test(security): verify disallowed file extension returns 400 with allowed formats list` | `security` | ✅ PASSED | Informs user of permitted file types. |
