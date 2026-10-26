@@ -295,3 +295,4 @@
 | 289 | `test(compat): verify mobile file picker integration on iOS Safari` | `compat` | ✅ PASSED | Validates photo library and camera upload on iPhone. |
 | 290 | `test(compat): verify mobile file picker integration on Android Chrome` | `compat` | ✅ PASSED | Validates file manager upload on Android. |
 | 291 | `test(compat): verify hybrid touch and mouse interactions on touchscreen laptops` | `compat` | ✅ PASSED | Ensures clicks and taps register without conflict. |
+| 292 | `test(compat): verify high-DPI Retina diagram rendering clarity across displays` | `compat` | ✅ PASSED | Maintains crisp lines at 2x and 3x DPR. |
