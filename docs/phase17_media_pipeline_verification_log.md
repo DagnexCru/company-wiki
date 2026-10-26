@@ -138,3 +138,4 @@
 | 132 | `feat(cursor-engine): append to end of document if textarea is not currently focused` | `cursor-engine` | ✅ PASSED | Provides safe fallback preventing content loss. |
 | 133 | `feat(cursor-engine): trigger React state update for content with new value` | `cursor-engine` | ✅ PASSED | Synchronizes draft state for auto-save and submission. |
 | 134 | `feat(cursor-engine): update character count display dynamically after insertion` | `cursor-engine` | ✅ PASSED | Reflects updated document length in footer. |
+| 135 | `test(cursor-engine): verify insertion at beginning of empty document` | `cursor-engine` | ✅ PASSED | Creates valid markdown with zero leading whitespace. |
