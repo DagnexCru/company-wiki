@@ -188,3 +188,4 @@
 | 182 | `feat(status-ui): display active filename in progress banner (Uploading 'diagram.png'…)` | `status-ui` | ✅ PASSED | Identifies exactly which file is being ingested. |
 | 183 | `feat(status-ui): display success confirmation banner (Embedded 'diagram.png' into Markdown)` | `status-ui` | ✅ PASSED | Confirms successful upload and embedding. |
 | 184 | `feat(status-ui): render spinning Loader2 icon in progress banner` | `status-ui` | ✅ PASSED | Indicates active asynchronous operation. |
+| 185 | `feat(status-ui): style status banner with indigo tint (bg-indigo-50 dark:bg-indigo-950/80)` | `status-ui` | ✅ PASSED | Differentiates informational banner from error alerts. |
