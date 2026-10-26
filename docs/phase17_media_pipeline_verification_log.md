@@ -30,3 +30,4 @@
 | 24 | `feat(attachment-model): configure ForeignKey to AUTH_USER_MODEL with SET_NULL deletion` | `attachment-model` | ✅ PASSED | Preserves upload audit history if author account is deleted. |
 | 25 | `feat(attachment-model): configure FileField with dynamic upload path callable` | `attachment-model` | ✅ PASSED | Delegates path construction to article_attachment_upload_path. |
 | 26 | `feat(attachment-model): add original_filename CharField(max_length=255)` | `attachment-model` | ✅ PASSED | Stores pristine user filename for display in gallery chips. |
+| 27 | `feat(attachment-model): add file_size PositiveIntegerField` | `attachment-model` | ✅ PASSED | Records exact asset size in bytes for client bandwidth calculations. |
