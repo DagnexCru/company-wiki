@@ -56,3 +56,4 @@
 | 50 | `feat(upload-api): implement ArticleAttachmentsListView at GET /api/v1/articles/<id>/attachments/` | `upload-api` | ✅ PASSED | Lists all media assets belonging to an article. |
 | 51 | `feat(upload-api): return 404 Not Found if article_id in attachments list does not exist` | `upload-api` | ✅ PASSED | Handles missing article queries gracefully. |
 | 52 | `test(upload-api): verify upload response contains id, url, original_filename, file_size` | `upload-api` | ✅ PASSED | Validates complete JSON response schema. |
+| 53 | `test(upload-api): verify upload response contains ready-to-paste markdown field` | `upload-api` | ✅ PASSED | Generates formatted ![title](url) syntax. |
