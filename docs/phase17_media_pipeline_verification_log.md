@@ -100,3 +100,4 @@
 | 94 | `feat(dnd-ui): handle drag cancelation when user presses Escape or leaves window` | `dnd-ui` | ✅ PASSED | Cleans up visual overlay state gracefully. |
 | 95 | `test(dnd-ui): verify zero cumulative layout shift (CLS = 0) during dropzone activation` | `dnd-ui` | ✅ PASSED | Maintains editor height and scroll position. |
 | 96 | `test(dnd-ui): verify non-file drag events (text/links) do not trigger image dropzone` | `dnd-ui` | ✅ PASSED | Permits internal text dragging within editor. |
+| 97 | `test(dnd-ui): verify smooth 200ms opacity transition on dropzone entrance` | `dnd-ui` | ✅ PASSED | Provides fluid visual feedback at 60fps. |
