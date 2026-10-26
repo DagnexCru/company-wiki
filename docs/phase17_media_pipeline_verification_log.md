@@ -101,3 +101,4 @@
 | 95 | `test(dnd-ui): verify zero cumulative layout shift (CLS = 0) during dropzone activation` | `dnd-ui` | ✅ PASSED | Maintains editor height and scroll position. |
 | 96 | `test(dnd-ui): verify non-file drag events (text/links) do not trigger image dropzone` | `dnd-ui` | ✅ PASSED | Permits internal text dragging within editor. |
 | 97 | `test(dnd-ui): verify smooth 200ms opacity transition on dropzone entrance` | `dnd-ui` | ✅ PASSED | Provides fluid visual feedback at 60fps. |
+| 98 | `test(dnd-ui): verify high-contrast visibility across dark and light themes` | `dnd-ui` | ✅ PASSED | Guarantees readability in all display modes. |
