@@ -207,3 +207,4 @@
 | 201 | `feat(viewer-engine): implement regular expression parser for ![alt](url) in MarkdownViewer` | `viewer-engine` | ✅ PASSED | Extracts image alt text and source URL from Markdown. |
 | 202 | `feat(viewer-engine): generate semantic HTML <figure> container for rendered images` | `viewer-engine` | ✅ PASSED | Follows modern HTML5 semantic markup standards. |
 | 203 | `feat(viewer-engine): apply rounded-2xl curvature to rendered diagram containers` | `viewer-engine` | ✅ PASSED | Aligns visual styling with company-wiki design system. |
+| 204 | `feat(viewer-engine): add subtle border container (border-slate-200 dark:border-slate-800)` | `viewer-engine` | ✅ PASSED | Frames images neatly against dark background. |
