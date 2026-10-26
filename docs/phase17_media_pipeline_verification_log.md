@@ -289,3 +289,4 @@
 | 283 | `test(compat): verify drag-and-drop file upload in Apple Safari (WebKit)` | `compat` | ✅ PASSED | Validates webkit dropzone overlay rendering. |
 | 284 | `test(compat): verify drag-and-drop file upload in Microsoft Edge (Chromium)` | `compat` | ✅ PASSED | Validates Windows explorer drag interoperability. |
 | 285 | `test(compat): verify clipboard paste (Ctrl+V) in Google Chrome` | `compat` | ✅ PASSED | Validates chromium clipboardData.items extraction. |
+| 286 | `test(compat): verify clipboard paste (Ctrl+V) in Mozilla Firefox` | `compat` | ✅ PASSED | Validates gecko clipboard image blob processing. |
