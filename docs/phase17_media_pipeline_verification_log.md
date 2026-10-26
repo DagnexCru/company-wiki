@@ -17,3 +17,4 @@
 | 11 | `test(media-config): verify Unicode filename normalization and UTF-8 encoding support` | `media-config` | ✅ PASSED | Preserves international filenames safely in database. |
 | 12 | `test(media-config): verify Cache-Control headers applied on served media assets` | `media-config` | ✅ PASSED | Improves client performance with immutable caching headers. |
 | 13 | `test(media-config): verify Content-Type header matches image format on served media` | `media-config` | ✅ PASSED | Asserts browser renders images inline without forced download. |
+| 14 | `test(media-config): verify production cloud storage adapter compatibility (S3/R2)` | `media-config` | ✅ PASSED | Supports dynamic swap to django-storages via environment variables. |
