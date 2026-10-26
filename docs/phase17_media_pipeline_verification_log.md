@@ -71,3 +71,4 @@
 | 65 | `feat(security): reject executable and script extensions (.exe, .sh, .bat, .js, .py)` | `security` | ✅ PASSED | Prevents malicious binary execution on server. |
 | 66 | `feat(security): sanitize double extensions to prevent file type spoofing` | `security` | ✅ PASSED | Neutralizes files named diagram.png.exe. |
 | 67 | `feat(security): inspect Content-Type header against file extension` | `security` | ✅ PASSED | Flags mismatched MIME types. |
+| 68 | `feat(security): sanitize SVG uploads against cross-site scripting (XSS)` | `security` | ✅ PASSED | Strips embedded JavaScript from vector graphics. |
