@@ -96,3 +96,4 @@
 | 90 | `feat(dnd-ui): display descriptive subtext 'Automatic upload and Markdown tag insertion'` | `dnd-ui` | ✅ PASSED | Clarifies automated embedding behavior. |
 | 91 | `feat(dnd-ui): set pointer-events-none on drop overlay children` | `dnd-ui` | ✅ PASSED | Prevents dragLeave misfires caused by nested elements. |
 | 92 | `feat(dnd-ui): process dropped files sequentially via handleUploadFiles pipeline` | `dnd-ui` | ✅ PASSED | Supports dragging single or multiple diagrams simultaneously. |
+| 93 | `feat(dnd-ui): automatically dismiss drop overlay upon file release in onDrop` | `dnd-ui` | ✅ PASSED | Restores standard editor view instantaneously. |
