@@ -266,3 +266,4 @@
 | 260 | `test(cloud-storage): verify automated health check probes media storage availability` | `cloud-storage` | ✅ PASSED | Alerts on cloud storage connection degradation. |
 | 261 | `a11y(media): add explicit aria-label to toolbar 'Insert Image' action button` | `media` | ✅ PASSED | Informs screen readers of button purpose. |
 | 262 | `a11y(media): configure aria-label on hidden file input element` | `media` | ✅ PASSED | Labels file picker dialog in accessibility tree. |
+| 263 | `a11y(media): ensure keyboard Tab order includes toolbar media upload action` | `media` | ✅ PASSED | Enables fully mouse-free media uploading. |
