@@ -28,3 +28,4 @@
 | 22 | `feat(attachment-model): configure ForeignKey to Article with CASCADE deletion` | `attachment-model` | ✅ PASSED | Links media attachments directly to parent knowledge article. |
 | 23 | `feat(attachment-model): configure nullable article ForeignKey for pre-save drafting` | `attachment-model` | ✅ PASSED | Allows uploading diagrams before article is initially saved. |
 | 24 | `feat(attachment-model): configure ForeignKey to AUTH_USER_MODEL with SET_NULL deletion` | `attachment-model` | ✅ PASSED | Preserves upload audit history if author account is deleted. |
+| 25 | `feat(attachment-model): configure FileField with dynamic upload path callable` | `attachment-model` | ✅ PASSED | Delegates path construction to article_attachment_upload_path. |
