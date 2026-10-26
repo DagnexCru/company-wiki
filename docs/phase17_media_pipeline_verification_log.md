@@ -21,3 +21,4 @@
 | 15 | `test(media-config): verify media folder exclusion in root .gitignore` | `media-config` | ✅ PASSED | Prevents local development media binary files from entering git index. |
 | 16 | `test(media-config): verify disk space threshold monitoring on media storage volume` | `media-config` | ✅ PASSED | Guards server storage against exhaustion. |
 | 17 | `test(media-config): verify clean deletion cascade when parent article is purged` | `media-config` | ✅ PASSED | Removes associated media assets cleanly when article is permanently deleted. |
+| 18 | `test(media-config): verify orphan media attachment detection and cleanup routine` | `media-config` | ✅ PASSED | Provides management command to prune unlinked draft assets. |
