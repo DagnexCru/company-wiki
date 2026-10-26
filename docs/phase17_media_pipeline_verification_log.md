@@ -280,3 +280,4 @@
 | 274 | `a11y(media): test with VoiceOver on macOS and iOS Safari` | `media` | ✅ PASSED | Navigates media gallery and toolbar without trap. |
 | 275 | `a11y(media): test with TalkBack on Android Chrome` | `media` | ✅ PASSED | Reads image captions and file sizes accurately. |
 | 276 | `a11y(media): ensure non-color dependent status cues (spinners + text labels)` | `media` | ✅ PASSED | Accommodates color-blind authors. |
+| 277 | `a11y(media): allow Escape key to dismiss drag-and-drop overlay` | `media` | ✅ PASSED | Provides quick exit from active drag state. |
