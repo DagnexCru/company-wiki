@@ -81,3 +81,4 @@
 | 75 | `test(security): verify temporary file buffer cleanup on failed upload` | `security` | ✅ PASSED | Leaves zero orphan temp files in OS /tmp directory. |
 | 76 | `test(security): verify token authentication validated on every multipart chunk` | `security` | ✅ PASSED | Prevents session hijack during upload stream. |
 | 77 | `test(security): verify cryptographic integrity of saved binary payload` | `security` | ✅ PASSED | Asserts byte count matches client payload. |
+| 78 | `test(security): verify EXIF GPS coordinate metadata stripped from images` | `security` | ✅ PASSED | Protects user location privacy. |
