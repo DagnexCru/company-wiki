@@ -163,3 +163,4 @@
 | 157 | `test(toolbar-ui): verify file dialog cancellation preserves existing editor state` | `toolbar-ui` | ✅ PASSED | Causes zero errors when user cancels file picker. |
 | 158 | `test(toolbar-ui): verify button responsiveness on mobile viewports` | `toolbar-ui` | ✅ PASSED | Hides extended helper text on small screens while keeping button accessible. |
 | 159 | `test(toolbar-ui): verify contrast ratio on upload button meets WCAG 2.1 AA` | `toolbar-ui` | ✅ PASSED | Indigo-600 text on indigo-50 achieves > 5:1 contrast. |
+| 160 | `test(toolbar-ui): verify zero layout shift when button toggles to uploading state` | `toolbar-ui` | ✅ PASSED | Maintains fixed button dimensions during icon swap. |
