@@ -247,3 +247,4 @@
 | 241 | `feat(cloud-storage): design storage backend abstraction compatible with django-storages` | `cloud-storage` | ✅ PASSED | Enables zero-code transition to cloud buckets. |
 | 242 | `feat(cloud-storage): support AWS_STORAGE_BUCKET_NAME environment variable configuration` | `cloud-storage` | ✅ PASSED | Points storage to target S3 bucket. |
 | 243 | `feat(cloud-storage): support AWS_S3_ENDPOINT_URL for Cloudflare R2 and MinIO integration` | `cloud-storage` | ✅ PASSED | Permits zero-egress cloud storage solutions. |
+| 244 | `feat(cloud-storage): support AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY loading` | `cloud-storage` | ✅ PASSED | Authenticates to IAM cloud storage credentials. |
