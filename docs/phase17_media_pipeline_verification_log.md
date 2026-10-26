@@ -221,3 +221,4 @@
 | 215 | `test(viewer-engine): verify image rendering scales cleanly on mobile phone screens` | `viewer-engine` | ✅ PASSED | Adapts fluidly without horizontal overflow. |
 | 216 | `test(viewer-engine): verify image rendering on ultra-wide 4K monitors` | `viewer-engine` | ✅ PASSED | Constrains maximum height to prevent excessive vertical scrolling. |
 | 217 | `test(viewer-engine): verify fallback alt text displayed if image fails to load` | `viewer-engine` | ✅ PASSED | Displays caption when media URL is unreachable. |
+| 218 | `test(viewer-engine): verify high-DPI Retina vector diagram sharpness` | `viewer-engine` | ✅ PASSED | Preserves crisp lines on SVG architecture maps. |
