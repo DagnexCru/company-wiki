@@ -91,3 +91,4 @@
 | 85 | `feat(dnd-ui): render animated visual dropzone overlay across active editor area` | `dnd-ui` | ✅ PASSED | Displays high-contrast backdrop when file is hovered. |
 | 86 | `feat(dnd-ui): style dropzone with dark indigo glassmorphism (bg-indigo-950/90)` | `dnd-ui` | ✅ PASSED | Blends elegantly into dark mode editing layout. |
 | 87 | `feat(dnd-ui): configure dashed border container (border-2 border-dashed border-indigo-500)` | `dnd-ui` | ✅ PASSED | Creates unmistakable target boundary. |
+| 88 | `feat(dnd-ui): add animated bouncing UploadCloud icon in dropzone overlay` | `dnd-ui` | ✅ PASSED | Delivers intuitive visual guidance to the user. |
