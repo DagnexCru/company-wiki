@@ -211,3 +211,4 @@
 | 205 | `feat(viewer-engine): add soft background fill for transparent diagrams (bg-slate-950/20)` | `viewer-engine` | ✅ PASSED | Enhances contrast for transparent PNG architecture drawings. |
 | 206 | `feat(viewer-engine): configure responsive image sizing (w-full max-h-[550px] object-contain)` | `viewer-engine` | ✅ PASSED | Prevents diagram distortion while fitting container width. |
 | 207 | `feat(viewer-engine): add loading='lazy' attribute to rendered <img> elements` | `viewer-engine` | ✅ PASSED | Optimizes page load performance for articles with many images. |
+| 208 | `feat(viewer-engine): render <figcaption> with centered, muted caption typography` | `viewer-engine` | ✅ PASSED | Displays descriptive diagram caption beneath image. |
