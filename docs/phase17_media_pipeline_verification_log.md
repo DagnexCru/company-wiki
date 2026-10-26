@@ -37,3 +37,4 @@
 | 31 | `feat(attachment-model): add compound database index on (article, -created_at)` | `attachment-model` | ✅ PASSED | Optimizes fetching all media for an article. |
 | 32 | `feat(attachment-model): add compound database index on (uploader, -created_at)` | `attachment-model` | ✅ PASSED | Optimizes user media quota queries. |
 | 33 | `feat(attachment-model): implement __str__ method formatting filename and size` | `attachment-model` | ✅ PASSED | Provides clear representation in Django admin. |
+| 34 | `feat(attachment-model): implement file_url property returning accessible relative URL` | `attachment-model` | ✅ PASSED | Safely handles missing file exceptions. |
