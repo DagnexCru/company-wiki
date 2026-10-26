@@ -284,3 +284,4 @@
 | 278 | `a11y(media): maintain logical focus position after modal file picker closes` | `media` | ✅ PASSED | Returns focus smoothly to upload button. |
 | 279 | `a11y(media): run automated axe-core accessibility audit on article editor` | `media` | ✅ PASSED | Confirms zero accessibility violations across media UI. |
 | 280 | `a11y(media): achieve 100% Google Lighthouse accessibility score on editor` | `media` | ✅ PASSED | Validates industry-standard accessibility excellence. |
+| 281 | `test(compat): verify drag-and-drop file upload in Google Chrome (Blink)` | `compat` | ✅ PASSED | Validates chromium dataTransfer event handling. |
