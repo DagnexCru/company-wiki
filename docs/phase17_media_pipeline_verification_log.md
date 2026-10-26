@@ -175,3 +175,4 @@
 | 169 | `feat(gallery-ui): add dedicated 'Insert' button on each attachment card` | `gallery-ui` | ✅ PASSED | Allows re-inserting Markdown tag into document anytime. |
 | 170 | `feat(gallery-ui): add 'Copy' button on each attachment card with clipboard copy` | `gallery-ui` | ✅ PASSED | Copies formatted Markdown tag to system clipboard. |
 | 171 | `feat(gallery-ui): toggle Check icon and green color on successful tag copy` | `gallery-ui` | ✅ PASSED | Provides instant visual confirmation of clipboard copy. |
+| 172 | `feat(gallery-ui): style attachment cards with dark slate pill borders (border-slate-700)` | `gallery-ui` | ✅ PASSED | Matches enterprise dark theme tokens. |
