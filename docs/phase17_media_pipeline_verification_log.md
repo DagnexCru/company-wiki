@@ -58,3 +58,4 @@
 | 52 | `test(upload-api): verify upload response contains id, url, original_filename, file_size` | `upload-api` | ✅ PASSED | Validates complete JSON response schema. |
 | 53 | `test(upload-api): verify upload response contains ready-to-paste markdown field` | `upload-api` | ✅ PASSED | Generates formatted ![title](url) syntax. |
 | 54 | `test(upload-api): verify upload response contains is_image boolean indicator` | `upload-api` | ✅ PASSED | Accurately categorizes image vs document files. |
+| 55 | `test(upload-api): verify upload response contains uploader_username` | `upload-api` | ✅ PASSED | Attributes asset to authenticated user. |
