@@ -10,3 +10,4 @@
 | 4 | `feat(media-config): set FILE_UPLOAD_MAX_MEMORY_SIZE to 10MB in settings.py` | `media-config` | ✅ PASSED | Permits high-resolution architecture diagrams and screenshots. |
 | 5 | `feat(media-config): set DATA_UPLOAD_MAX_MEMORY_SIZE to 10MB in settings.py` | `media-config` | ✅ PASSED | Aligns multipart request body limit with file upload limit. |
 | 6 | `feat(media-config): implement date-partitioned storage structure (article_attachments/%Y/%m/)` | `media-config` | ✅ PASSED | Prevents filesystem directory degradation with thousands of files. |
+| 7 | `feat(media-config): add collision-resistant 10-character UUID hex prefix to uploaded files` | `media-config` | ✅ PASSED | Guarantees unique filenames even if multiple users upload same name. |
