@@ -306,3 +306,4 @@
 | 300 | `test(compat): verify platform parity across Windows, macOS, and Linux workstations` | `compat` | ✅ PASSED | Guarantees identical authoring experience for entire team. |
 | 301 | `build(prod): optimize Vite rollup chunks with tree-shaking for media icons` | `prod` | ✅ PASSED | Eliminates unreferenced icons from bundle. |
 | 302 | `build(prod): verify minimal bundle size impact for media pipeline (< 1.2 kB)` | `prod` | ✅ PASSED | Keeps client-side bundle lean and fast. |
+| 303 | `build(prod): verify CSS purge removes unused utility classes from media UI` | `prod` | ✅ PASSED | Minimizes generated stylesheet footprint. |
