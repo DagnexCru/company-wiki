@@ -276,3 +276,4 @@
 | 270 | `a11y(media): verify text contrast ratio exceeds 4.5:1 on all upload controls` | `media` | ✅ PASSED | Guarantees readability for visually impaired users. |
 | 271 | `a11y(media): mark decorative icons with aria-hidden='true' attribute` | `media` | ✅ PASSED | Prevents redundant announcements in screen readers. |
 | 272 | `a11y(media): respect prefers-reduced-motion media query on upload spinners` | `media` | ✅ PASSED | Suppresses bounce and spin animations when requested. |
+| 273 | `a11y(media): test with NVDA screen reader on Windows 11` | `media` | ✅ PASSED | Announces 'Insert Image, button' and upload status cleanly. |
