@@ -318,3 +318,4 @@
 | 312 | `build(prod): verify production source maps generated for error tracking` | `prod` | ✅ PASSED | Enables accurate stack traces in production logs. |
 | 313 | `build(prod): verify Content-Security-Policy allows media image rendering from API host` | `prod` | ✅ PASSED | Permits loading images from /media/ path. |
 | 314 | `build(prod): verify production environment variables load correctly` | `prod` | ✅ PASSED | Validates MEDIA_URL and CORS origins. |
+| 315 | `test(e2e): verify end-to-end user workflow: capture screenshot -> Ctrl+V -> render preview -> save article` | `e2e` | ✅ PASSED | Validates complete user journey. |
