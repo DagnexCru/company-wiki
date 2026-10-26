@@ -112,3 +112,4 @@
 | 106 | `feat(paste-ui): support screenshots from Windows Snipping Tool (Win+Shift+S)` | `paste-ui` | ✅ PASSED | Enables instant pasting of captured screen regions. |
 | 107 | `feat(paste-ui): support screenshots from macOS Grab (Cmd+Shift+4)` | `paste-ui` | ✅ PASSED | Enables instant pasting of captured Mac screen areas. |
 | 108 | `feat(paste-ui): support screenshots from Linux Spectacle / Flameshot` | `paste-ui` | ✅ PASSED | Enables cross-platform developer screenshot workflows. |
+| 109 | `feat(paste-ui): support images copied from web browser context menu ('Copy Image')` | `paste-ui` | ✅ PASSED | Allows embedding referenced diagrams with Ctrl+V. |
