@@ -173,3 +173,4 @@
 | 167 | `feat(gallery-ui): display truncated original filename with tooltip on hover` | `gallery-ui` | ✅ PASSED | Prevents long filenames from breaking gallery layout. |
 | 168 | `feat(gallery-ui): display human-readable formatted file size in KB` | `gallery-ui` | ✅ PASSED | Shows calculated (file_size / 1024).toFixed(0) KB. |
 | 169 | `feat(gallery-ui): add dedicated 'Insert' button on each attachment card` | `gallery-ui` | ✅ PASSED | Allows re-inserting Markdown tag into document anytime. |
+| 170 | `feat(gallery-ui): add 'Copy' button on each attachment card with clipboard copy` | `gallery-ui` | ✅ PASSED | Copies formatted Markdown tag to system clipboard. |
