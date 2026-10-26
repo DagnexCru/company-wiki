@@ -291,3 +291,4 @@
 | 285 | `test(compat): verify clipboard paste (Ctrl+V) in Google Chrome` | `compat` | ✅ PASSED | Validates chromium clipboardData.items extraction. |
 | 286 | `test(compat): verify clipboard paste (Ctrl+V) in Mozilla Firefox` | `compat` | ✅ PASSED | Validates gecko clipboard image blob processing. |
 | 287 | `test(compat): verify clipboard paste (Cmd+V) in Apple Safari` | `compat` | ✅ PASSED | Validates webkit paste event handling on macOS. |
+| 288 | `test(compat): verify clipboard paste (Ctrl+V) in Microsoft Edge` | `compat` | ✅ PASSED | Validates Windows snipping tool clipboard paste. |
