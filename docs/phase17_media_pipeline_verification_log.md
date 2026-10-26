@@ -8,3 +8,4 @@
 | 2 | `feat(media-config): configure MEDIA_URL to /media/ in settings.py` | `media-config` | ✅ PASSED | Exposes media file routing namespace. |
 | 3 | `feat(media-config): enable development media static serving in core/urls.py` | `media-config` | ✅ PASSED | Wires static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) when DEBUG=True. |
 | 4 | `feat(media-config): set FILE_UPLOAD_MAX_MEMORY_SIZE to 10MB in settings.py` | `media-config` | ✅ PASSED | Permits high-resolution architecture diagrams and screenshots. |
+| 5 | `feat(media-config): set DATA_UPLOAD_MAX_MEMORY_SIZE to 10MB in settings.py` | `media-config` | ✅ PASSED | Aligns multipart request body limit with file upload limit. |
