@@ -68,3 +68,4 @@
 | 62 | `feat(security): return descriptive error payload when file exceeds 10MB` | `security` | ✅ PASSED | Displays user-friendly size warning. |
 | 63 | `feat(security): enforce image extension whitelist (.png, .jpg, .jpeg, .gif, .webp, .svg, .bmp)` | `security` | ✅ PASSED | Guarantees only valid visual formats are processed. |
 | 64 | `feat(security): enforce diagram format whitelist (.pdf, .drawio, .json, .txt, .md, .zip)` | `security` | ✅ PASSED | Permits safe technical attachments. |
+| 65 | `feat(security): reject executable and script extensions (.exe, .sh, .bat, .js, .py)` | `security` | ✅ PASSED | Prevents malicious binary execution on server. |
