@@ -33,3 +33,4 @@
 | 27 | `test(migration-presence): verify index utilization in query execution plan` | `migration-presence` | ✅ PASSED | Confirms index scan on active presence queries. |
 | 28 | `test(migration-presence): verify transaction rollback on failed presence operation` | `migration-presence` | ✅ PASSED | Maintains relational consistency. |
 | 29 | `test(migration-presence): verify zero lock contention under high concurrent presence writes` | `migration-presence` | ✅ PASSED | Validates row-level locking performance. |
+| 30 | `test(migration-presence): verify showmigrations confirms 0007_articlepresence applied` | `migration-presence` | ✅ PASSED | Validates migration ledger state. |
