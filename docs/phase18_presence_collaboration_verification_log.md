@@ -223,3 +223,4 @@
 | 217 | `test(lock-banner): verify responsive stacking of banner controls on mobile screens` | `lock-banner` | ✅ PASSED | Maintains usability on small viewports. |
 | 218 | `test(lock-banner): verify smooth entrance animation (animate-in slide-in-from-top-2)` | `lock-banner` | ✅ PASSED | Eliminates jarring layout jumps. |
 | 219 | `test(lock-banner): verify screen reader alert role announces conflict upon appearance` | `lock-banner` | ✅ PASSED | Informs visually impaired authors of conflict. |
+| 220 | `test(lock-banner): verify unit tests pass for EditLockBanner component` | `lock-banner` | ✅ PASSED | Validates component rendering across all states. |
