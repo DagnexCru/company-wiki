@@ -316,3 +316,4 @@
 | 310 | `build(prod): verify database migration 0007_articlepresence applied to PostgreSQL` | `prod` | ✅ PASSED | Confirms relational schema synchronization. |
 | 311 | `build(prod): verify unique asset hash generation for immutable caching` | `prod` | ✅ PASSED | Busts client browser caches on deployment. |
 | 312 | `build(prod): verify production source maps generated for error tracking` | `prod` | ✅ PASSED | Enables accurate stack traces in production logs. |
+| 313 | `build(prod): verify Content-Security-Policy allows presence beacon requests to API host` | `prod` | ✅ PASSED | Permits beacon and fetch to /presence/ path. |
