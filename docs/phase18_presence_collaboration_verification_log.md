@@ -97,3 +97,4 @@
 | 91 | `test(lock-actions): verify uncontested acquire-lock succeeds with 200 OK` | `lock-actions` | ✅ PASSED | Grants lock when no other editor is present. |
 | 92 | `test(lock-actions): verify contested acquire-lock returns 409 Conflict with lock details` | `lock-actions` | ✅ PASSED | Blocks second editor from silent overwrite. |
 | 93 | `test(lock-actions): verify forced acquire-lock with force=True succeeds with 200 OK` | `lock-actions` | ✅ PASSED | Permits override when previous editor is unresponsive. |
+| 94 | `test(lock-actions): verify forced takeover transfers lock ownership to new user` | `lock-actions` | ✅ PASSED | Asserts locked_by reflects new editor. |
