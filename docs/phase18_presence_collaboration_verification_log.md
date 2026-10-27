@@ -60,3 +60,4 @@
 | 54 | `test(heartbeat-api): verify switching status from viewing to editing updates database record` | `heartbeat-api` | ✅ PASSED | Reflects mode transitions in real time. |
 | 55 | `test(heartbeat-api): verify unauthenticated heartbeat request receives 401 Unauthorized` | `heartbeat-api` | ✅ PASSED | Guards endpoint against anonymous access. |
 | 56 | `test(heartbeat-api): verify non-existent article slug returns 404 Not Found` | `heartbeat-api` | ✅ PASSED | Handles invalid article lookups gracefully. |
+| 57 | `test(heartbeat-api): verify heartbeat endpoint latency remains under 50ms` | `heartbeat-api` | ✅ PASSED | Guarantees low overhead for 10-second beacon timer. |
