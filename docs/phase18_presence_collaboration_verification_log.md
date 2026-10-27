@@ -123,3 +123,4 @@
 | 117 | `test(presence-cleanup): verify unauthenticated leave request receives 401 Unauthorized` | `presence-cleanup` | ✅ PASSED | Guards leave endpoint appropriately. |
 | 118 | `test(presence-cleanup): verify browser crash recovery cleans up presence within 30s` | `presence-cleanup` | ✅ PASSED | Validates robust automated timeout mechanism. |
 | 119 | `test(presence-cleanup): verify zero memory leaks in Node/browser on repeated mount/unmount` | `presence-cleanup` | ✅ PASSED | Passes React memory stress tests. |
+| 120 | `test(presence-cleanup): verify unit test coverage for presence cleanup functions` | `presence-cleanup` | ✅ PASSED | Validates deletion logic across edge cases. |
