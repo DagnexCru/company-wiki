@@ -45,3 +45,4 @@
 | 39 | `test(migration-presence): verify Django model inspectdb mirrors applied schema` | `migration-presence` | ✅ PASSED | Validates ORM schema synchronization. |
 | 40 | `test(migration-presence): complete database migration sign-off for Phase 18` | `migration-presence` | ✅ PASSED | Approves presence persistence architecture. |
 | 41 | `feat(heartbeat-api): route heartbeat endpoint to POST /api/v1/articles/<slug_or_id>/presence/heartbeat/` | `heartbeat-api` | ✅ PASSED | Exposes heartbeat beacon URL. |
+| 42 | `feat(heartbeat-api): implement ArticlePresenceHeartbeatView with IsAuthenticated permission` | `heartbeat-api` | ✅ PASSED | Restricts presence tracking to authenticated members. |
