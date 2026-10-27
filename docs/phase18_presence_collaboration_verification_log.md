@@ -141,3 +141,4 @@
 | 135 | `test(presence-service): verify getPresence handles unauthenticated visitors gracefully` | `presence-service` | ✅ PASSED | Allows public viewing counts on public articles. |
 | 136 | `test(presence-service): verify Axios bearer token interceptor attaches to presence requests` | `presence-service` | ✅ PASSED | Ensures authenticated request delivery. |
 | 137 | `test(presence-service): verify network timeout handling in presenceService methods` | `presence-service` | ✅ PASSED | Prevents application hangs on slow networks. |
+| 138 | `test(presence-service): verify error response parsing in acquireLock conflict handling` | `presence-service` | ✅ PASSED | Extracts lock holder info from 409 response. |
