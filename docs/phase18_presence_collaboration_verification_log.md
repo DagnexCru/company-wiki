@@ -251,3 +251,4 @@
 | 245 | `feat(detail-presence): wrap navigation link and presence viewer in flex-wrap container` | `detail-presence` | ✅ PASSED | Ensures responsive layout across screen sizes. |
 | 246 | `feat(detail-presence): display live viewer avatars on article detail page` | `detail-presence` | ✅ PASSED | Shows colleagues reading the article in real time. |
 | 247 | `feat(detail-presence): display editing alert badge if someone is modifying draft` | `detail-presence` | ✅ PASSED | Alerts readers that live update is in progress. |
+| 248 | `feat(detail-presence): preserve existing reading progress bar and export suite` | `detail-presence` | ✅ PASSED | Integrates seamlessly with existing tools. |
