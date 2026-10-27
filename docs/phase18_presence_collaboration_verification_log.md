@@ -206,3 +206,4 @@
 | 200 | `test(tooltips): verify visual polish score of 100% in design review` | `tooltips` | ✅ PASSED | Validates premium look and feel. |
 | 201 | `feat(lock-banner): create EditLockBanner component in components/EditLockBanner.tsx` | `lock-banner` | ✅ PASSED | Renders soft edit lock conflict banner. |
 | 202 | `feat(lock-banner): display prominent warning alert when another user holds edit lock` | `lock-banner` | ✅ PASSED | Prevents accidental overwrite of colleagues' work. |
+| 203 | `feat(lock-banner): style conflict banner with amber/rose gradient border and background` | `lock-banner` | ✅ PASSED | bg-gradient-to-r from-amber-950/60 via-rose-950/40 border-amber-600/50. |
