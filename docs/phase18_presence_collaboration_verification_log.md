@@ -93,3 +93,4 @@
 | 87 | `feat(lock-actions): demote previous lock holder to status=viewing upon forced takeover` | `lock-actions` | ✅ PASSED | Re-assigns lock cleanly to new editor. |
 | 88 | `feat(lock-actions): update user presence status to editing upon successful acquisition` | `lock-actions` | ✅ PASSED | Establishes lock ownership in database. |
 | 89 | `feat(lock-actions): demote user status to viewing on release-lock action` | `lock-actions` | ✅ PASSED | Frees lock cleanly when user cancels or saves. |
+| 90 | `feat(lock-actions): return fresh presence payload upon acquire and release actions` | `lock-actions` | ✅ PASSED | Provides immediate updated state to client. |
