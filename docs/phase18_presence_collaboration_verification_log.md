@@ -83,3 +83,4 @@
 | 77 | `test(edit-lock): verify remaining lease calculation countdown accuracy` | `edit-lock` | ✅ PASSED | Monitors seconds remaining until expiration. |
 | 78 | `test(edit-lock): verify lock state synchronization across all connected viewers` | `edit-lock` | ✅ PASSED | Broadcasts lock status in heartbeat payload. |
 | 79 | `test(edit-lock): verify draft articles support edit locking prior to publication` | `edit-lock` | ✅ PASSED | Protects uncommitted drafts from overwrites. |
+| 80 | `test(edit-lock): verify published articles support edit locking during revision drafting` | `edit-lock` | ✅ PASSED | Protects live wiki updates from race conditions. |
