@@ -235,3 +235,4 @@
 | 229 | `test(lock-takeover): verify clicking 'Take Over Lock' displays confirmation buttons` | `lock-takeover` | ✅ PASSED | Validates step 1 transition. |
 | 230 | `test(lock-takeover): verify clicking 'Cancel' hides confirmation buttons` | `lock-takeover` | ✅ PASSED | Validates cancellation workflow. |
 | 231 | `test(lock-takeover): verify clicking 'Confirm' triggers onTakeOverLock callback` | `lock-takeover` | ✅ PASSED | Validates execution of takeover. |
+| 232 | `test(lock-takeover): verify successful takeover converts banner to green 'Edit Lock Active'` | `lock-takeover` | ✅ PASSED | Validates immediate UI state transition. |
