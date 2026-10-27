@@ -305,3 +305,4 @@
 | 299 | `test(cross-browser): verify screen reader announcements across NVDA, VoiceOver, and TalkBack` | `cross-browser` | ✅ PASSED | Validates universal accessibility. |
 | 300 | `test(cross-browser): verify platform parity across Windows, macOS, and Linux workstations` | `cross-browser` | ✅ PASSED | Delivers identical collaboration experience for all. |
 | 301 | `build(prod): optimize Vite rollup chunks with tree-shaking for presence icons` | `prod` | ✅ PASSED | Tree-shakes unreferenced icons from bundle. |
+| 302 | `build(prod): verify minimal bundle size impact for presence feature (< 1.5 kB)` | `prod` | ✅ PASSED | Keeps client-side bundle lean and fast. |
