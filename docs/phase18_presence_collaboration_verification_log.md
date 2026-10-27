@@ -152,3 +152,4 @@
 | 146 | `feat(presence-hook): attach beforeunload listener for immediate tab close cleanup` | `presence-hook` | ✅ PASSED | Frees presence and lock on browser close. |
 | 147 | `feat(presence-hook): unmount cleanup clears interval and calls presenceService.leave` | `presence-hook` | ✅ PASSED | Guarantees 0 memory leaks and clean state. |
 | 148 | `feat(presence-hook): expose acquireLock function supporting force override parameter` | `presence-hook` | ✅ PASSED | Enables components to trigger lock acquisition. |
+| 149 | `feat(presence-hook): expose releaseLock function for manual lock release` | `presence-hook` | ✅ PASSED | Enables components to free lock on save or cancel. |
