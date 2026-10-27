@@ -279,3 +279,4 @@
 | 273 | `test(editor-presence): verify first editor acquires lock and sees green 'Edit Lock Active'` | `editor-presence` | ✅ PASSED | Validates primary editor experience. |
 | 274 | `test(editor-presence): verify second editor opening same article sees amber conflict warning` | `editor-presence` | ✅ PASSED | Validates conflict detection. |
 | 275 | `test(editor-presence): verify second editor can take over lock and becomes active lock holder` | `editor-presence` | ✅ PASSED | Validates takeover workflow in editor. |
+| 276 | `test(editor-presence): verify saving draft releases lock and redirects cleanly` | `editor-presence` | ✅ PASSED | Validates post-save cleanup. |
