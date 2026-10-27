@@ -169,3 +169,4 @@
 | 163 | `feat(avatar-stack): compute two-letter initials from user full_name or username` | `avatar-stack` | ✅ PASSED | Displays clean initials (e.g. JD, AS) on avatars. |
 | 164 | `feat(avatar-stack): apply dynamic avatar_color background to each avatar circle` | `avatar-stack` | ✅ PASSED | Delivers vibrant, personalized visual identity. |
 | 165 | `feat(avatar-stack): add dark slate borders (border-2 border-slate-900) between avatars` | `avatar-stack` | ✅ PASSED | Separates overlapping avatar chips cleanly. |
+| 166 | `feat(avatar-stack): render glowing green dot (bg-emerald-400) on active viewing avatars` | `avatar-stack` | ✅ PASSED | Signals live presence connection. |
