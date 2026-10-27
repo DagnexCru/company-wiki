@@ -289,3 +289,4 @@
 | 283 | `test(cross-browser): verify presence heartbeat in Apple Safari (WebKit)` | `cross-browser` | ✅ PASSED | Validates webkit beforeunload beacon execution. |
 | 284 | `test(cross-browser): verify presence heartbeat in Microsoft Edge (Chromium)` | `cross-browser` | ✅ PASSED | Validates Windows browser integration. |
 | 285 | `test(cross-browser): verify multi-tab presence disambiguation using client_session_id` | `cross-browser` | ✅ PASSED | Same user opening 2 tabs shows 2 distinct sessions. |
+| 286 | `test(cross-browser): verify closing 1 of 2 open tabs preserves presence for remaining tab` | `cross-browser` | ✅ PASSED | Validates session isolation. |
