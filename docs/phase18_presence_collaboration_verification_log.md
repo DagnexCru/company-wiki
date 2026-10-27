@@ -100,3 +100,4 @@
 | 94 | `test(lock-actions): verify forced takeover transfers lock ownership to new user` | `lock-actions` | ✅ PASSED | Asserts locked_by reflects new editor. |
 | 95 | `test(lock-actions): verify release-lock frees lock for other editors immediately` | `lock-actions` | ✅ PASSED | Allows next editor to acquire lock without delay. |
 | 96 | `test(lock-actions): verify release-lock preserves user presence in viewers list` | `lock-actions` | ✅ PASSED | Leaves user in viewing state rather than removing. |
+| 97 | `test(lock-actions): verify unauthenticated acquire-lock receives 401 Unauthorized` | `lock-actions` | ✅ PASSED | Restricts lock actions to authenticated members. |
