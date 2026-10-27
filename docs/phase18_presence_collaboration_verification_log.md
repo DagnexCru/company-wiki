@@ -48,3 +48,4 @@
 | 42 | `feat(heartbeat-api): implement ArticlePresenceHeartbeatView with IsAuthenticated permission` | `heartbeat-api` | ✅ PASSED | Restricts presence tracking to authenticated members. |
 | 43 | `feat(heartbeat-api): support article lookup by either UUID primary key or unique URL slug` | `heartbeat-api` | ✅ PASSED | Enables flexible client-side routing. |
 | 44 | `feat(heartbeat-api): accept client_session_id in request body payload` | `heartbeat-api` | ✅ PASSED | Differentiates browser tabs for single user. |
+| 45 | `feat(heartbeat-api): accept status in request body payload (viewing or editing)` | `heartbeat-api` | ✅ PASSED | Updates user activity mode dynamically. |
