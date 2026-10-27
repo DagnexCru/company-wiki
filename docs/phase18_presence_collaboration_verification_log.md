@@ -257,3 +257,4 @@
 | 251 | `test(detail-presence): verify detail page does not acquire edit lock (mode='viewing')` | `detail-presence` | ✅ PASSED | Ensures readers do not block editors. |
 | 252 | `test(detail-presence): verify detail page displays active count accurately` | `detail-presence` | ✅ PASSED | Validates count label matching active viewers. |
 | 253 | `test(detail-presence): verify detail page updates presence every 10 seconds` | `detail-presence` | ✅ PASSED | Validates periodic heartbeat renewal. |
+| 254 | `test(detail-presence): verify detail page presence bar is accessible via keyboard` | `detail-presence` | ✅ PASSED | Supports keyboard tab traversal. |
