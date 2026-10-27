@@ -301,3 +301,4 @@
 | 295 | `test(cross-browser): verify zero memory leaks during 1-hour sustained presence session` | `cross-browser` | ✅ PASSED | Validates long-session memory footprint stability. |
 | 296 | `test(cross-browser): verify cross-origin requests include credentials and CORS headers` | `cross-browser` | ✅ PASSED | Ensures zero CORS errors in development or production. |
 | 297 | `test(cross-browser): verify visual regression test across major browsers is 0% diff` | `cross-browser` | ✅ PASSED | Guarantees pixel-perfect cross-platform consistency. |
+| 298 | `test(cross-browser): verify keyboard accessibility across Windows and macOS` | `cross-browser` | ✅ PASSED | Ensures Tab and Enter function identically. |
