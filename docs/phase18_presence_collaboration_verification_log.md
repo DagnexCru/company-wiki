@@ -185,3 +185,4 @@
 | 179 | `test(avatar-stack): verify high contrast ratio on avatar text across all avatar colors` | `avatar-stack` | ✅ PASSED | Ensures white initials are legible on all backgrounds. |
 | 180 | `test(avatar-stack): verify zero cumulative layout shift (CLS = 0) during avatar additions` | `avatar-stack` | ✅ PASSED | Maintains fixed header height. |
 | 181 | `feat(tooltips): implement floating tooltip on avatar hover with smooth transition` | `tooltips` | ✅ PASSED | Reveals colleague details on mouseover. |
+| 182 | `feat(tooltips): display user full_name and username in avatar tooltip` | `tooltips` | ✅ PASSED | Provides clear colleague identity. |
