@@ -215,3 +215,4 @@
 | 209 | `feat(lock-banner): style current user lock banner with bg-emerald-950/40 border-emerald-800/60` | `lock-banner` | ✅ PASSED | Provides calm reassurance when drafting. |
 | 210 | `feat(lock-banner): render CheckCircle icon and 'Edit Lock Active' confirmation label` | `lock-banner` | ✅ PASSED | Affirms protected drafting session. |
 | 211 | `feat(lock-banner): return null if article is not locked` | `lock-banner` | ✅ PASSED | Keeps editor interface clean when no conflict exists. |
+| 212 | `test(lock-banner): verify conflict banner renders when editLock.is_locked=True and is_current_user_lock=False` | `lock-banner` | ✅ PASSED | Validates conflict display logic. |
