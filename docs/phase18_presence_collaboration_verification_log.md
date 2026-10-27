@@ -254,3 +254,4 @@
 | 248 | `feat(detail-presence): preserve existing reading progress bar and export suite` | `detail-presence` | ✅ PASSED | Integrates seamlessly with existing tools. |
 | 249 | `test(detail-presence): verify user appears in viewer list upon opening ArticleDetailPage` | `detail-presence` | ✅ PASSED | Asserts presence beacon registers on mount. |
 | 250 | `test(detail-presence): verify user disappears from viewer list upon navigating away` | `detail-presence` | ✅ PASSED | Asserts unmount cleanup frees presence. |
+| 251 | `test(detail-presence): verify detail page does not acquire edit lock (mode='viewing')` | `detail-presence` | ✅ PASSED | Ensures readers do not block editors. |
