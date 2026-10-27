@@ -88,3 +88,4 @@
 | 82 | `feat(lock-actions): implement ArticlePresenceLockView at /presence/release-lock/` | `lock-actions` | ✅ PASSED | Endpoint for releasing edit locks. |
 | 83 | `feat(lock-actions): check for existing active edit lock from another user on acquire` | `lock-actions` | ✅ PASSED | Detects potential editing conflicts. |
 | 84 | `feat(lock-actions): return 409 Conflict when attempting to acquire active lock held by another` | `lock-actions` | ✅ PASSED | Prevents accidental lock theft. |
+| 85 | `feat(lock-actions): include can_take_over=True in 409 Conflict response payload` | `lock-actions` | ✅ PASSED | Empowers users to intentionally override abandoned locks. |
