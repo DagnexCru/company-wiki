@@ -31,3 +31,4 @@
 | 25 | `test(migration-presence): verify backward compatibility with existing Article and User tables` | `migration-presence` | ✅ PASSED | Zero regressions across existing schema. |
 | 26 | `test(migration-presence): verify foreign key constraint enforcement in PostgreSQL` | `migration-presence` | ✅ PASSED | Validates referential integrity on article_id and user_id. |
 | 27 | `test(migration-presence): verify index utilization in query execution plan` | `migration-presence` | ✅ PASSED | Confirms index scan on active presence queries. |
+| 28 | `test(migration-presence): verify transaction rollback on failed presence operation` | `migration-presence` | ✅ PASSED | Maintains relational consistency. |
