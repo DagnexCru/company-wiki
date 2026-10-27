@@ -190,3 +190,4 @@
 | 184 | `feat(tooltips): display active status in tooltip (Viewing vs Currently editing draft)` | `tooltips` | ✅ PASSED | Clarifies what colleague is doing. |
 | 185 | `feat(tooltips): render Eye icon for viewing state and Edit3 icon for editing state` | `tooltips` | ✅ PASSED | Provides intuitive iconographic cues. |
 | 186 | `feat(tooltips): style tooltip with dark slate container (bg-slate-900 border-slate-700)` | `tooltips` | ✅ PASSED | Matches enterprise dark theme aesthetics. |
+| 187 | `feat(tooltips): configure centered tooltip pointer triangle with rotate-45 border` | `tooltips` | ✅ PASSED | Aligns pointer arrow precisely above avatar. |
