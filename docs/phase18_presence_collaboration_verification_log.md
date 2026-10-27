@@ -108,3 +108,4 @@
 | 102 | `feat(presence-cleanup): delete presence row matching article, user, and client_session_id` | `presence-cleanup` | ✅ PASSED | Removes departing tab immediately. |
 | 103 | `feat(presence-cleanup): support delete of all user presence sessions for article if session_id omitted` | `presence-cleanup` | ✅ PASSED | Enables clean user departure. |
 | 104 | `feat(presence-cleanup): purge stale presences older than 5 minutes on each heartbeat` | `presence-cleanup` | ✅ PASSED | Keeps database table compact and performant. |
+| 105 | `feat(presence-cleanup): hook window beforeunload event in useArticlePresence hook` | `presence-cleanup` | ✅ PASSED | Transmits leave beacon when browser tab closes. |
