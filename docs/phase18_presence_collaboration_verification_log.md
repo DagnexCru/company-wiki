@@ -75,3 +75,4 @@
 | 69 | `feat(edit-lock): prioritize most recently active editor if multiple editing sessions exist` | `edit-lock` | ✅ PASSED | Resolves edge-case multi-editor anomalies. |
 | 70 | `feat(edit-lock): return is_locked=False when all active sessions have status=viewing` | `edit-lock` | ✅ PASSED | Indicates article draft is free for editing. |
 | 71 | `test(edit-lock): verify edit lock is active when editor sends status=editing` | `edit-lock` | ✅ PASSED | Asserts edit_lock.is_locked evaluates to True. |
+| 72 | `test(edit-lock): verify edit_lock.is_current_user_lock is True for lock holder` | `edit-lock` | ✅ PASSED | Confirms positive ownership identification. |
