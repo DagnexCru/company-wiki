@@ -49,3 +49,4 @@
 | 43 | `feat(heartbeat-api): support article lookup by either UUID primary key or unique URL slug` | `heartbeat-api` | ✅ PASSED | Enables flexible client-side routing. |
 | 44 | `feat(heartbeat-api): accept client_session_id in request body payload` | `heartbeat-api` | ✅ PASSED | Differentiates browser tabs for single user. |
 | 45 | `feat(heartbeat-api): accept status in request body payload (viewing or editing)` | `heartbeat-api` | ✅ PASSED | Updates user activity mode dynamically. |
+| 46 | `feat(heartbeat-api): perform atomic upsert via ArticlePresence.objects.update_or_create` | `heartbeat-api` | ✅ PASSED | Prevents race conditions in presence registration. |
