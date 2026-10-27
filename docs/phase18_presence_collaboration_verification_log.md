@@ -261,3 +261,4 @@
 | 255 | `test(detail-presence): verify detail page responsive layout on mobile phone screens` | `detail-presence` | ✅ PASSED | Wraps cleanly on narrow viewports. |
 | 256 | `test(detail-presence): verify detail page responsive layout on tablet screens` | `detail-presence` | ✅ PASSED | Aligns neatly on intermediate viewports. |
 | 257 | `test(detail-presence): verify detail page responsive layout on 4K desktop monitors` | `detail-presence` | ✅ PASSED | Maintains proportional visual rhythm. |
+| 258 | `test(detail-presence): verify zero layout jump on ArticleDetailPage during presence load` | `detail-presence` | ✅ PASSED | Preserves content stability. |
