@@ -24,3 +24,4 @@
 | 18 | `test(presence-model): verify is_active evaluates to False when heartbeat > 30s ago` | `presence-model` | ✅ PASSED | Validates expiration of abandoned sessions. |
 | 19 | `test(presence-model): verify custom db_table named article_presence` | `presence-model` | ✅ PASSED | Follows clean PostgreSQL relational naming conventions. |
 | 20 | `test(presence-model): verify string representation formatting in Django admin` | `presence-model` | ✅ PASSED | Ensures readable representation in admin list views. |
+| 21 | `feat(migration-presence): generate migration 0007_articlepresence` | `migration-presence` | ✅ PASSED | Creates clean Django schema migration file for presence. |
