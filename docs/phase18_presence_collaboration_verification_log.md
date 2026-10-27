@@ -104,3 +104,4 @@
 | 98 | `test(lock-actions): verify acquire-lock on non-existent article returns 404` | `lock-actions` | ✅ PASSED | Handles invalid article lookups safely. |
 | 99 | `test(lock-actions): verify release-lock by non-lock holder has no adverse effect` | `lock-actions` | ✅ PASSED | Ignores spurious release requests safely. |
 | 100 | `test(lock-actions): verify audit log event created on forced lock takeover` | `lock-actions` | ✅ PASSED | Records lock override in security telemetry. |
+| 101 | `feat(presence-cleanup): implement ArticlePresenceLeaveView at /presence/leave/` | `presence-cleanup` | ✅ PASSED | Endpoint for explicit session termination. |
