@@ -260,3 +260,4 @@
 | 254 | `test(detail-presence): verify detail page presence bar is accessible via keyboard` | `detail-presence` | ✅ PASSED | Supports keyboard tab traversal. |
 | 255 | `test(detail-presence): verify detail page responsive layout on mobile phone screens` | `detail-presence` | ✅ PASSED | Wraps cleanly on narrow viewports. |
 | 256 | `test(detail-presence): verify detail page responsive layout on tablet screens` | `detail-presence` | ✅ PASSED | Aligns neatly on intermediate viewports. |
+| 257 | `test(detail-presence): verify detail page responsive layout on 4K desktop monitors` | `detail-presence` | ✅ PASSED | Maintains proportional visual rhythm. |
