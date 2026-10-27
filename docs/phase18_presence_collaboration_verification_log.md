@@ -318,3 +318,4 @@
 | 312 | `build(prod): verify production source maps generated for error tracking` | `prod` | ✅ PASSED | Enables accurate stack traces in production logs. |
 | 313 | `build(prod): verify Content-Security-Policy allows presence beacon requests to API host` | `prod` | ✅ PASSED | Permits beacon and fetch to /presence/ path. |
 | 314 | `build(prod): verify production environment variables load correctly` | `prod` | ✅ PASSED | Validates CORS origins and database credentials. |
+| 315 | `test(e2e): verify end-to-end user workflow: open article -> view avatars -> edit draft -> lock acquired -> save` | `e2e` | ✅ PASSED | Validates complete collaboration cycle. |
