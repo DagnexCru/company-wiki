@@ -198,3 +198,4 @@
 | 192 | `test(tooltips): verify tooltip positions correctly above avatar circle` | `tooltips` | ✅ PASSED | Prevents awkward alignment or off-screen rendering. |
 | 193 | `test(tooltips): verify tooltip renders correctly near screen edge boundaries` | `tooltips` | ✅ PASSED | Maintains visibility on small screens. |
 | 194 | `test(tooltips): verify screen reader aria-label mirrors tooltip information` | `tooltips` | ✅ PASSED | Ensures accessibility for assistive devices. |
+| 195 | `test(tooltips): verify tooltip displays 'You' indicator for current user session` | `tooltips` | ✅ PASSED | Helps user identify own avatar in stack. |
