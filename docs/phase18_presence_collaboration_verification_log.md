@@ -125,3 +125,4 @@
 | 119 | `test(presence-cleanup): verify zero memory leaks in Node/browser on repeated mount/unmount` | `presence-cleanup` | ✅ PASSED | Passes React memory stress tests. |
 | 120 | `test(presence-cleanup): verify unit test coverage for presence cleanup functions` | `presence-cleanup` | ✅ PASSED | Validates deletion logic across edge cases. |
 | 121 | `feat(presence-service): create presenceService in frontend/src/services/presenceService.ts` | `presence-service` | ✅ PASSED | Provides clean API client for presence. |
+| 122 | `feat(presence-service): implement sendHeartbeat method sending client_session_id and status` | `presence-service` | ✅ PASSED | Dispatches periodic beacon via Axios. |
