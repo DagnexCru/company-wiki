@@ -292,3 +292,4 @@
 | 286 | `test(cross-browser): verify closing 1 of 2 open tabs preserves presence for remaining tab` | `cross-browser` | ✅ PASSED | Validates session isolation. |
 | 287 | `test(cross-browser): verify mobile browser tab backgrounding suspends heartbeat safely` | `cross-browser` | ✅ PASSED | Conserves mobile battery when tab is hidden. |
 | 288 | `test(cross-browser): verify mobile browser tab foregrounding sends immediate catch-up beacon` | `cross-browser` | ✅ PASSED | Restores active presence instantly on return. |
+| 289 | `test(cross-browser): verify touch-to-hover tooltip behavior on iOS and Android` | `cross-browser` | ✅ PASSED | Ensures tooltips function on touchscreen devices. |
