@@ -132,3 +132,4 @@
 | 126 | `feat(presence-service): implement getPresence method for read-only presence queries` | `presence-service` | ✅ PASSED | Calls GET /presence/ endpoint. |
 | 127 | `feat(presence-service): define PresenceUser interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides full TypeScript type safety for viewer metadata. |
 | 128 | `feat(presence-service): define EditLockInfo interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides TypeScript schema for edit lock state. |
+| 129 | `feat(presence-service): define ArticlePresenceResponse interface in types/presence.ts` | `presence-service` | ✅ PASSED | Models unified presence API response. |
