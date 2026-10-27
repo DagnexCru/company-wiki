@@ -319,3 +319,4 @@
 | 313 | `build(prod): verify Content-Security-Policy allows presence beacon requests to API host` | `prod` | ✅ PASSED | Permits beacon and fetch to /presence/ path. |
 | 314 | `build(prod): verify production environment variables load correctly` | `prod` | ✅ PASSED | Validates CORS origins and database credentials. |
 | 315 | `test(e2e): verify end-to-end user workflow: open article -> view avatars -> edit draft -> lock acquired -> save` | `e2e` | ✅ PASSED | Validates complete collaboration cycle. |
+| 316 | `test(e2e): verify remote GitHub repository synchronization` | `e2e` | ✅ PASSED | Prepares 320 atomic commits for remote push. |
