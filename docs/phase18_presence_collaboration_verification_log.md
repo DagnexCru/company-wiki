@@ -134,3 +134,4 @@
 | 128 | `feat(presence-service): define EditLockInfo interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides TypeScript schema for edit lock state. |
 | 129 | `feat(presence-service): define ArticlePresenceResponse interface in types/presence.ts` | `presence-service` | ✅ PASSED | Models unified presence API response. |
 | 130 | `feat(presence-service): assign deterministic avatar colors via hashing in serializer` | `presence-service` | ✅ PASSED | Provides consistent vibrant colors per user. |
+| 131 | `test(presence-service): verify sendHeartbeat returns parsed ArticlePresenceResponse` | `presence-service` | ✅ PASSED | Validates successful API roundtrip. |
