@@ -19,3 +19,4 @@
 | 13 | `test(presence-model): verify model validation rejects invalid status choices` | `presence-model` | ✅ PASSED | Ensures status is strictly viewing or editing. |
 | 14 | `test(presence-model): verify unique constraint prevents duplicate tab sessions` | `presence-model` | ✅ PASSED | Asserts IntegrityError on duplicate session insertion. |
 | 15 | `test(presence-model): verify CASCADE deletion when associated article is deleted` | `presence-model` | ✅ PASSED | Cleans up active presence records when article is removed. |
+| 16 | `test(presence-model): verify CASCADE deletion when user account is deleted` | `presence-model` | ✅ PASSED | Purges presence sessions on user removal. |
