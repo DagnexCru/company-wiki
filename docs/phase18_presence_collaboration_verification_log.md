@@ -273,3 +273,4 @@
 | 267 | `feat(editor-presence): wire onTakeOverLock callback to acquireLock(true)` | `editor-presence` | ✅ PASSED | Enables one-click lock takeover from banner. |
 | 268 | `feat(editor-presence): pass isSyncing state to EditLockBanner for spinner feedback` | `editor-presence` | ✅ PASSED | Shows busy state during lock takeover. |
 | 269 | `feat(editor-presence): auto-renew edit lock every 10 seconds while editor remains open` | `editor-presence` | ✅ PASSED | Prevents lock expiration during drafting. |
+| 270 | `feat(editor-presence): release edit lock cleanly on Save Draft or Submit for Review` | `editor-presence` | ✅ PASSED | Frees lock immediately upon successful save. |
