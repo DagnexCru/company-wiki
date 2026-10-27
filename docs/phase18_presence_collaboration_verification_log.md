@@ -212,3 +212,4 @@
 | 206 | `feat(lock-banner): display editor's full name and active status in alert body` | `lock-banner` | ✅ PASSED | Names specific colleague currently modifying draft. |
 | 207 | `feat(lock-banner): render 'Take Over Lock' action button on conflict banner` | `lock-banner` | ✅ PASSED | Provides resolution path for abandoned locks. |
 | 208 | `feat(lock-banner): render positive green confirmation banner when current user holds lock` | `lock-banner` | ✅ PASSED | Confirms user's edits are protected from conflict. |
+| 209 | `feat(lock-banner): style current user lock banner with bg-emerald-950/40 border-emerald-800/60` | `lock-banner` | ✅ PASSED | Provides calm reassurance when drafting. |
