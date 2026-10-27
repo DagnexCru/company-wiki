@@ -194,3 +194,4 @@
 | 188 | `feat(tooltips): set pointer-events-none on floating tooltip container` | `tooltips` | ✅ PASSED | Prevents tooltip from intercepting cursor clicks. |
 | 189 | `feat(tooltips): set z-index to z-30 ensuring tooltip renders above surrounding chrome` | `tooltips` | ✅ PASSED | Prevents clipping by nearby containers. |
 | 190 | `feat(tooltips): apply whitespace-nowrap preventing text wrapping in tooltip` | `tooltips` | ✅ PASSED | Keeps badge compact and readable on one line. |
+| 191 | `test(tooltips): verify tooltip appears on hover and disappears on mouseleave` | `tooltips` | ✅ PASSED | Validates hover state toggle. |
