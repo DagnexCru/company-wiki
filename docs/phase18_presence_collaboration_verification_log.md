@@ -69,3 +69,4 @@
 | 63 | `feat(edit-lock): calculate remaining lock lease in seconds (expires_in_seconds)` | `edit-lock` | ✅ PASSED | Provides countdown to lock expiration. |
 | 64 | `feat(edit-lock): evaluate is_current_user_lock boolean flag` | `edit-lock` | ✅ PASSED | Informs frontend whether current user holds the lock. |
 | 65 | `feat(edit-lock): generate human-readable conflict warning message` | `edit-lock` | ✅ PASSED | Warns editors that changes may conflict. |
+| 66 | `feat(edit-lock): automatically expire edit lock if editor heartbeat ceases for > 30s` | `edit-lock` | ✅ PASSED | Prevents permanent lockups from abandoned tabs. |
