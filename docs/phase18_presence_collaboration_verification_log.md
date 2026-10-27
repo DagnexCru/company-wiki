@@ -154,3 +154,4 @@
 | 148 | `feat(presence-hook): expose acquireLock function supporting force override parameter` | `presence-hook` | ✅ PASSED | Enables components to trigger lock acquisition. |
 | 149 | `feat(presence-hook): expose releaseLock function for manual lock release` | `presence-hook` | ✅ PASSED | Enables components to free lock on save or cancel. |
 | 150 | `feat(presence-hook): expose refreshPresence function for on-demand sync` | `presence-hook` | ✅ PASSED | Allows refreshing presence state after key actions. |
+| 151 | `feat(presence-hook): derive activeEditors list filtering status=editing viewers` | `presence-hook` | ✅ PASSED | Provides quick access to collaborating editors. |
