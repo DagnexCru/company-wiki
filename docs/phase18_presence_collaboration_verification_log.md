@@ -221,3 +221,4 @@
 | 215 | `test(lock-banner): verify conflict banner text formats editor name correctly` | `lock-banner` | ✅ PASSED | Asserts name appears in message body. |
 | 216 | `test(lock-banner): verify conflict banner contrast meets WCAG 2.1 AA standards` | `lock-banner` | ✅ PASSED | Amber and rose text on dark background meets standards. |
 | 217 | `test(lock-banner): verify responsive stacking of banner controls on mobile screens` | `lock-banner` | ✅ PASSED | Maintains usability on small viewports. |
+| 218 | `test(lock-banner): verify smooth entrance animation (animate-in slide-in-from-top-2)` | `lock-banner` | ✅ PASSED | Eliminates jarring layout jumps. |
