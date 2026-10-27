@@ -139,3 +139,4 @@
 | 133 | `test(presence-service): verify acquireLock transmits force boolean flag accurately` | `presence-service` | ✅ PASSED | Validates payload serialization. |
 | 134 | `test(presence-service): verify releaseLock sets user status back to viewing` | `presence-service` | ✅ PASSED | Validates lock release response. |
 | 135 | `test(presence-service): verify getPresence handles unauthenticated visitors gracefully` | `presence-service` | ✅ PASSED | Allows public viewing counts on public articles. |
+| 136 | `test(presence-service): verify Axios bearer token interceptor attaches to presence requests` | `presence-service` | ✅ PASSED | Ensures authenticated request delivery. |
