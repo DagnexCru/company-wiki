@@ -160,3 +160,4 @@
 | 154 | `feat(presence-hook): capture lockError string upon 409 Conflict` | `presence-hook` | ✅ PASSED | Exposes lock acquisition error details. |
 | 155 | `test(presence-hook): verify hook skips execution when user is unauthenticated` | `presence-hook` | ✅ PASSED | Prevents unauthorized heartbeat errors for guests. |
 | 156 | `test(presence-hook): verify hook skips execution when slugOrId is undefined` | `presence-hook` | ✅ PASSED | Handles loading states gracefully. |
+| 157 | `test(presence-hook): verify timer interval resets if slugOrId changes` | `presence-hook` | ✅ PASSED | Adapts cleanly to client-side route navigation. |
