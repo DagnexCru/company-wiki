@@ -47,3 +47,4 @@
 | 41 | `feat(heartbeat-api): route heartbeat endpoint to POST /api/v1/articles/<slug_or_id>/presence/heartbeat/` | `heartbeat-api` | ✅ PASSED | Exposes heartbeat beacon URL. |
 | 42 | `feat(heartbeat-api): implement ArticlePresenceHeartbeatView with IsAuthenticated permission` | `heartbeat-api` | ✅ PASSED | Restricts presence tracking to authenticated members. |
 | 43 | `feat(heartbeat-api): support article lookup by either UUID primary key or unique URL slug` | `heartbeat-api` | ✅ PASSED | Enables flexible client-side routing. |
+| 44 | `feat(heartbeat-api): accept client_session_id in request body payload` | `heartbeat-api` | ✅ PASSED | Differentiates browser tabs for single user. |
