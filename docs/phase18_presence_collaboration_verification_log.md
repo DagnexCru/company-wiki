@@ -67,3 +67,4 @@
 | 61 | `feat(edit-lock): implement soft edit lock detection in get_presence_payload` | `edit-lock` | ✅ PASSED | Checks for active sessions with status=editing. |
 | 62 | `feat(edit-lock): identify lock holder user metadata (id, username, full_name, role)` | `edit-lock` | ✅ PASSED | Provides attribution for active editor. |
 | 63 | `feat(edit-lock): calculate remaining lock lease in seconds (expires_in_seconds)` | `edit-lock` | ✅ PASSED | Provides countdown to lock expiration. |
+| 64 | `feat(edit-lock): evaluate is_current_user_lock boolean flag` | `edit-lock` | ✅ PASSED | Informs frontend whether current user holds the lock. |
