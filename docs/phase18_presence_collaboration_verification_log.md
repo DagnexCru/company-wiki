@@ -156,3 +156,4 @@
 | 150 | `feat(presence-hook): expose refreshPresence function for on-demand sync` | `presence-hook` | ✅ PASSED | Allows refreshing presence state after key actions. |
 | 151 | `feat(presence-hook): derive activeEditors list filtering status=editing viewers` | `presence-hook` | ✅ PASSED | Provides quick access to collaborating editors. |
 | 152 | `feat(presence-hook): derive otherViewers list excluding current tab session` | `presence-hook` | ✅ PASSED | Filters out self to display collaborating colleagues. |
+| 153 | `feat(presence-hook): track isSyncing boolean during active network requests` | `presence-hook` | ✅ PASSED | Exposes loading indicator state. |
