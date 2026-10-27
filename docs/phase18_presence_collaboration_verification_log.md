@@ -247,3 +247,4 @@
 | 241 | `feat(detail-presence): import useArticlePresence hook in ArticleDetailPage.tsx` | `detail-presence` | ✅ PASSED | Binds detail page to real-time presence. |
 | 242 | `feat(detail-presence): invoke useArticlePresence with mode='viewing' and active slug` | `detail-presence` | ✅ PASSED | Registers user as active reader. |
 | 243 | `feat(detail-presence): import ArticlePresenceViewer component in ArticleDetailPage.tsx` | `detail-presence` | ✅ PASSED | Brings viewer avatars into article view. |
+| 244 | `feat(detail-presence): integrate ArticlePresenceViewer in top navigation bar` | `detail-presence` | ✅ PASSED | Places avatars alongside 'Back to Knowledge Base' link. |
