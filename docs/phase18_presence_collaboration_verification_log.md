@@ -74,3 +74,4 @@
 | 68 | `feat(edit-lock): support multiple simultaneous viewers while single editor holds lock` | `edit-lock` | ✅ PASSED | Permits team collaboration and review. |
 | 69 | `feat(edit-lock): prioritize most recently active editor if multiple editing sessions exist` | `edit-lock` | ✅ PASSED | Resolves edge-case multi-editor anomalies. |
 | 70 | `feat(edit-lock): return is_locked=False when all active sessions have status=viewing` | `edit-lock` | ✅ PASSED | Indicates article draft is free for editing. |
+| 71 | `test(edit-lock): verify edit lock is active when editor sends status=editing` | `edit-lock` | ✅ PASSED | Asserts edit_lock.is_locked evaluates to True. |
