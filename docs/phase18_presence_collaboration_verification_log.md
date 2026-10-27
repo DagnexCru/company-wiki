@@ -216,3 +216,4 @@
 | 210 | `feat(lock-banner): render CheckCircle icon and 'Edit Lock Active' confirmation label` | `lock-banner` | ✅ PASSED | Affirms protected drafting session. |
 | 211 | `feat(lock-banner): return null if article is not locked` | `lock-banner` | ✅ PASSED | Keeps editor interface clean when no conflict exists. |
 | 212 | `test(lock-banner): verify conflict banner renders when editLock.is_locked=True and is_current_user_lock=False` | `lock-banner` | ✅ PASSED | Validates conflict display logic. |
+| 213 | `test(lock-banner): verify confirmation banner renders when editLock.is_locked=True and is_current_user_lock=True` | `lock-banner` | ✅ PASSED | Validates ownership display logic. |
