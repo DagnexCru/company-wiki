@@ -68,3 +68,4 @@
 | 62 | `feat(edit-lock): identify lock holder user metadata (id, username, full_name, role)` | `edit-lock` | ✅ PASSED | Provides attribution for active editor. |
 | 63 | `feat(edit-lock): calculate remaining lock lease in seconds (expires_in_seconds)` | `edit-lock` | ✅ PASSED | Provides countdown to lock expiration. |
 | 64 | `feat(edit-lock): evaluate is_current_user_lock boolean flag` | `edit-lock` | ✅ PASSED | Informs frontend whether current user holds the lock. |
+| 65 | `feat(edit-lock): generate human-readable conflict warning message` | `edit-lock` | ✅ PASSED | Warns editors that changes may conflict. |
