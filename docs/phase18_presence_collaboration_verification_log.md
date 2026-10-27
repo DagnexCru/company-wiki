@@ -297,3 +297,4 @@
 | 291 | `test(cross-browser): verify CSS keyframe animations (pulse, ping) render at 60fps` | `cross-browser` | ✅ PASSED | Delivers fluid visual cues across all browsers. |
 | 292 | `test(cross-browser): verify dark mode color fidelity on OLED displays` | `cross-browser` | ✅ PASSED | Validates rich black and vibrant avatar contrasts. |
 | 293 | `test(cross-browser): verify network drop recovery: automatic reconnection on next interval` | `cross-browser` | ✅ PASSED | Heals presence seamlessly after Wi-Fi blip. |
+| 294 | `test(cross-browser): verify low battery mode throttles timer without throwing errors` | `cross-browser` | ✅ PASSED | Handles background throttling gracefully. |
