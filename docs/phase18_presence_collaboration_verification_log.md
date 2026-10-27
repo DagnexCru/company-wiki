@@ -90,3 +90,4 @@
 | 84 | `feat(lock-actions): return 409 Conflict when attempting to acquire active lock held by another` | `lock-actions` | ✅ PASSED | Prevents accidental lock theft. |
 | 85 | `feat(lock-actions): include can_take_over=True in 409 Conflict response payload` | `lock-actions` | ✅ PASSED | Empowers users to intentionally override abandoned locks. |
 | 86 | `feat(lock-actions): support force=True parameter for intentional lock takeover` | `lock-actions` | ✅ PASSED | Allows taking over lock after user confirmation. |
+| 87 | `feat(lock-actions): demote previous lock holder to status=viewing upon forced takeover` | `lock-actions` | ✅ PASSED | Re-assigns lock cleanly to new editor. |
