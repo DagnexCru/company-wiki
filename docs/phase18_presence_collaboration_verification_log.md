@@ -285,3 +285,4 @@
 | 279 | `test(editor-presence): verify typing in textarea does not interrupt presence heartbeat` | `editor-presence` | ✅ PASSED | Maintains smooth editor responsiveness. |
 | 280 | `test(editor-presence): verify end-to-end concurrent editing prevention in ArticleEditorPage` | `editor-presence` | ✅ PASSED | Two editors modifying same article receive clear guidance. |
 | 281 | `test(cross-browser): verify presence heartbeat in Google Chrome (Blink)` | `cross-browser` | ✅ PASSED | Validates chromium network beacon dispatch. |
+| 282 | `test(cross-browser): verify presence heartbeat in Mozilla Firefox (Gecko)` | `cross-browser` | ✅ PASSED | Validates gecko timer and fetch handling. |
