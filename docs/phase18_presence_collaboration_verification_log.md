@@ -27,3 +27,4 @@
 | 21 | `feat(migration-presence): generate migration 0007_articlepresence` | `migration-presence` | ✅ PASSED | Creates clean Django schema migration file for presence. |
 | 22 | `feat(migration-presence): apply migration 0007_articlepresence to PostgreSQL` | `migration-presence` | ✅ PASSED | Executes DDL statements with zero database errors. |
 | 23 | `feat(migration-presence): create art_pres_art_stat_idx composite index` | `migration-presence` | ✅ PASSED | Indexes article, status, and -last_heartbeat columns. |
+| 24 | `feat(migration-presence): create art_pres_user_hb_idx composite index` | `migration-presence` | ✅ PASSED | Indexes user and -last_heartbeat columns. |
