@@ -269,3 +269,4 @@
 | 263 | `feat(editor-presence): import ArticlePresenceViewer and EditLockBanner in ArticleEditorPage` | `editor-presence` | ✅ PASSED | Brings presence and lock UI into editor. |
 | 264 | `feat(editor-presence): render ArticlePresenceViewer in editor top bar actions` | `editor-presence` | ✅ PASSED | Displays collaborating colleagues alongside Save buttons. |
 | 265 | `feat(editor-presence): render EditLockBanner above article editor form` | `editor-presence` | ✅ PASSED | Positions conflict warning prominently at top of form. |
+| 266 | `feat(editor-presence): automatically attempt to acquire edit lock upon opening editor` | `editor-presence` | ✅ PASSED | Establishes lock protection on draft entry. |
