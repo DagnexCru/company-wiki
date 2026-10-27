@@ -116,3 +116,4 @@
 | 110 | `test(presence-cleanup): verify stale session pruner removes records older than 5 minutes` | `presence-cleanup` | ✅ PASSED | Asserts database table does not accumulate orphan rows. |
 | 111 | `test(presence-cleanup): verify beforeunload beacon executes reliably on page reload` | `presence-cleanup` | ✅ PASSED | Handles page refresh without leaving phantom viewer. |
 | 112 | `test(presence-cleanup): verify leave endpoint handles already-deleted sessions gracefully` | `presence-cleanup` | ✅ PASSED | Returns 200 OK without database error. |
+| 113 | `test(presence-cleanup): verify network drop recovery: stale record times out in 30s` | `presence-cleanup` | ✅ PASSED | Ensures presence self-heals after connection loss. |
