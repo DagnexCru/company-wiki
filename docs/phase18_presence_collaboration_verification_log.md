@@ -175,3 +175,4 @@
 | 169 | `feat(avatar-stack): render '+N' overflow chip when viewers exceed maxDisplay limit (5)` | `avatar-stack` | ✅ PASSED | Prevents avatar stack from overflowing header on busy pages. |
 | 170 | `feat(avatar-stack): render pulsing green radar dot next to viewing count text` | `avatar-stack` | ✅ PASSED | Provides dynamic visual heartbeat on presence bar. |
 | 171 | `feat(avatar-stack): display pluralized viewer count label (1 viewing now vs N viewing now)` | `avatar-stack` | ✅ PASSED | Ensures correct English grammar on counts. |
+| 172 | `feat(avatar-stack): render editing alert pill in viewer when edit lock is active` | `avatar-stack` | ✅ PASSED | Alerts readers that article draft is being modified. |
