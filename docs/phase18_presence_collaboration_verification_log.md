@@ -282,3 +282,4 @@
 | 276 | `test(editor-presence): verify saving draft releases lock and redirects cleanly` | `editor-presence` | ✅ PASSED | Validates post-save cleanup. |
 | 277 | `test(editor-presence): verify canceling editor releases lock and returns to article` | `editor-presence` | ✅ PASSED | Validates post-cancel cleanup. |
 | 278 | `test(editor-presence): verify editor displays colleagues who are currently viewing article` | `editor-presence` | ✅ PASSED | Enables awareness of interested readers. |
+| 279 | `test(editor-presence): verify typing in textarea does not interrupt presence heartbeat` | `editor-presence` | ✅ PASSED | Maintains smooth editor responsiveness. |
