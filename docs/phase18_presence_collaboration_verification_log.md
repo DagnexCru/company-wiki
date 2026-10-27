@@ -14,3 +14,4 @@
 | 8 | `feat(presence-model): enforce unique_together on (article, user, client_session_id)` | `presence-model` | ✅ PASSED | Prevents duplicate presence rows for same browser tab. |
 | 9 | `feat(presence-model): implement __str__ method formatting user, status, and article title` | `presence-model` | ✅ PASSED | Provides clean diagnostic strings in logs and admin. |
 | 10 | `feat(presence-model): implement is_active property checking 30-second timeout window` | `presence-model` | ✅ PASSED | Evaluates active state based on recent beacon timestamp. |
+| 11 | `feat(presence-model): add compound index on (article, status, -last_heartbeat)` | `presence-model` | ✅ PASSED | Optimizes finding active editors and viewers for an article. |
