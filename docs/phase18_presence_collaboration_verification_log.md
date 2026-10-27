@@ -196,3 +196,4 @@
 | 190 | `feat(tooltips): apply whitespace-nowrap preventing text wrapping in tooltip` | `tooltips` | ✅ PASSED | Keeps badge compact and readable on one line. |
 | 191 | `test(tooltips): verify tooltip appears on hover and disappears on mouseleave` | `tooltips` | ✅ PASSED | Validates hover state toggle. |
 | 192 | `test(tooltips): verify tooltip positions correctly above avatar circle` | `tooltips` | ✅ PASSED | Prevents awkward alignment or off-screen rendering. |
+| 193 | `test(tooltips): verify tooltip renders correctly near screen edge boundaries` | `tooltips` | ✅ PASSED | Maintains visibility on small screens. |
