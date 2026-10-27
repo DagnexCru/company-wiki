@@ -131,3 +131,4 @@
 | 125 | `feat(presence-service): implement releaseLock method for freeing edit lock` | `presence-service` | ✅ PASSED | Calls /presence/release-lock/ endpoint. |
 | 126 | `feat(presence-service): implement getPresence method for read-only presence queries` | `presence-service` | ✅ PASSED | Calls GET /presence/ endpoint. |
 | 127 | `feat(presence-service): define PresenceUser interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides full TypeScript type safety for viewer metadata. |
+| 128 | `feat(presence-service): define EditLockInfo interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides TypeScript schema for edit lock state. |
