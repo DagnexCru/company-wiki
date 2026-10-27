@@ -192,3 +192,4 @@
 | 186 | `feat(tooltips): style tooltip with dark slate container (bg-slate-900 border-slate-700)` | `tooltips` | ✅ PASSED | Matches enterprise dark theme aesthetics. |
 | 187 | `feat(tooltips): configure centered tooltip pointer triangle with rotate-45 border` | `tooltips` | ✅ PASSED | Aligns pointer arrow precisely above avatar. |
 | 188 | `feat(tooltips): set pointer-events-none on floating tooltip container` | `tooltips` | ✅ PASSED | Prevents tooltip from intercepting cursor clicks. |
+| 189 | `feat(tooltips): set z-index to z-30 ensuring tooltip renders above surrounding chrome` | `tooltips` | ✅ PASSED | Prevents clipping by nearby containers. |
