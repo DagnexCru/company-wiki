@@ -298,3 +298,4 @@
 | 292 | `test(cross-browser): verify dark mode color fidelity on OLED displays` | `cross-browser` | ✅ PASSED | Validates rich black and vibrant avatar contrasts. |
 | 293 | `test(cross-browser): verify network drop recovery: automatic reconnection on next interval` | `cross-browser` | ✅ PASSED | Heals presence seamlessly after Wi-Fi blip. |
 | 294 | `test(cross-browser): verify low battery mode throttles timer without throwing errors` | `cross-browser` | ✅ PASSED | Handles background throttling gracefully. |
+| 295 | `test(cross-browser): verify zero memory leaks during 1-hour sustained presence session` | `cross-browser` | ✅ PASSED | Validates long-session memory footprint stability. |
