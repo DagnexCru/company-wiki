@@ -275,3 +275,4 @@
 | 269 | `feat(editor-presence): auto-renew edit lock every 10 seconds while editor remains open` | `editor-presence` | ✅ PASSED | Prevents lock expiration during drafting. |
 | 270 | `feat(editor-presence): release edit lock cleanly on Save Draft or Submit for Review` | `editor-presence` | ✅ PASSED | Frees lock immediately upon successful save. |
 | 271 | `feat(editor-presence): release edit lock cleanly when clicking Cancel link` | `editor-presence` | ✅ PASSED | Frees lock upon user abandoning draft. |
+| 272 | `feat(editor-presence): release edit lock cleanly on component unmount or tab close` | `editor-presence` | ✅ PASSED | Prevents lingering locks when closing browser. |
