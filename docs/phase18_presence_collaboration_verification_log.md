@@ -224,3 +224,4 @@
 | 218 | `test(lock-banner): verify smooth entrance animation (animate-in slide-in-from-top-2)` | `lock-banner` | ✅ PASSED | Eliminates jarring layout jumps. |
 | 219 | `test(lock-banner): verify screen reader alert role announces conflict upon appearance` | `lock-banner` | ✅ PASSED | Informs visually impaired authors of conflict. |
 | 220 | `test(lock-banner): verify unit tests pass for EditLockBanner component` | `lock-banner` | ✅ PASSED | Validates component rendering across all states. |
+| 221 | `feat(lock-takeover): implement two-step confirmation for 'Take Over Lock' action` | `lock-takeover` | ✅ PASSED | Prevents accidental lock theft with confirmation step. |
