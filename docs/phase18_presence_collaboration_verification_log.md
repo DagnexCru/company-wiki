@@ -118,3 +118,4 @@
 | 112 | `test(presence-cleanup): verify leave endpoint handles already-deleted sessions gracefully` | `presence-cleanup` | ✅ PASSED | Returns 200 OK without database error. |
 | 113 | `test(presence-cleanup): verify network drop recovery: stale record times out in 30s` | `presence-cleanup` | ✅ PASSED | Ensures presence self-heals after connection loss. |
 | 114 | `test(presence-cleanup): verify database vacuum cleans up deleted presence rows` | `presence-cleanup` | ✅ PASSED | Maintains optimal PostgreSQL storage efficiency. |
+| 115 | `test(presence-cleanup): verify high concurrency leave requests process without deadlock` | `presence-cleanup` | ✅ PASSED | Validates transaction isolation on deletions. |
