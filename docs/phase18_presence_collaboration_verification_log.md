@@ -110,3 +110,4 @@
 | 104 | `feat(presence-cleanup): purge stale presences older than 5 minutes on each heartbeat` | `presence-cleanup` | ✅ PASSED | Keeps database table compact and performant. |
 | 105 | `feat(presence-cleanup): hook window beforeunload event in useArticlePresence hook` | `presence-cleanup` | ✅ PASSED | Transmits leave beacon when browser tab closes. |
 | 106 | `feat(presence-cleanup): clean up interval timers on React component unmount` | `presence-cleanup` | ✅ PASSED | Guarantees zero dangling timer memory leaks. |
+| 107 | `test(presence-cleanup): verify leave endpoint removes user from active viewers immediately` | `presence-cleanup` | ✅ PASSED | Asserts user disappears from viewers list. |
