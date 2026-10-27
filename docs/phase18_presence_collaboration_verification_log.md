@@ -50,3 +50,4 @@
 | 44 | `feat(heartbeat-api): accept client_session_id in request body payload` | `heartbeat-api` | ✅ PASSED | Differentiates browser tabs for single user. |
 | 45 | `feat(heartbeat-api): accept status in request body payload (viewing or editing)` | `heartbeat-api` | ✅ PASSED | Updates user activity mode dynamically. |
 | 46 | `feat(heartbeat-api): perform atomic upsert via ArticlePresence.objects.update_or_create` | `heartbeat-api` | ✅ PASSED | Prevents race conditions in presence registration. |
+| 47 | `feat(heartbeat-api): update last_heartbeat timestamp to timezone.now() on beacon` | `heartbeat-api` | ✅ PASSED | Refreshes session expiration lease. |
