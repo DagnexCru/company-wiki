@@ -231,3 +231,4 @@
 | 225 | `feat(lock-takeover): disable Confirm button while takeover request is in flight` | `lock-takeover` | ✅ PASSED | Prevents duplicate concurrent takeover requests. |
 | 226 | `feat(lock-takeover): invoke onTakeOverLock callback with force=True parameter` | `lock-takeover` | ✅ PASSED | Triggers backend lock override API. |
 | 227 | `feat(lock-takeover): automatically dismiss confirmation prompt upon successful takeover` | `lock-takeover` | ✅ PASSED | Transitions banner to current user lock state. |
+| 228 | `feat(lock-takeover): render Cancel button restoring default 'Take Over Lock' button` | `lock-takeover` | ✅ PASSED | Allows author to back out of takeover. |
