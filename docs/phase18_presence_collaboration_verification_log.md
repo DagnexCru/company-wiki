@@ -219,3 +219,4 @@
 | 213 | `test(lock-banner): verify confirmation banner renders when editLock.is_locked=True and is_current_user_lock=True` | `lock-banner` | ✅ PASSED | Validates ownership display logic. |
 | 214 | `test(lock-banner): verify banner does not render when editLock.is_locked=False` | `lock-banner` | ✅ PASSED | Avoids unnecessary clutter. |
 | 215 | `test(lock-banner): verify conflict banner text formats editor name correctly` | `lock-banner` | ✅ PASSED | Asserts name appears in message body. |
+| 216 | `test(lock-banner): verify conflict banner contrast meets WCAG 2.1 AA standards` | `lock-banner` | ✅ PASSED | Amber and rose text on dark background meets standards. |
