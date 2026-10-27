@@ -209,3 +209,4 @@
 | 203 | `feat(lock-banner): style conflict banner with amber/rose gradient border and background` | `lock-banner` | ✅ PASSED | bg-gradient-to-r from-amber-950/60 via-rose-950/40 border-amber-600/50. |
 | 204 | `feat(lock-banner): render pulsing AlertTriangle icon in amber container` | `lock-banner` | ✅ PASSED | Immediately draws editor's attention to conflict. |
 | 205 | `feat(lock-banner): display headline 'Potential Edit Conflict Warning'` | `lock-banner` | ✅ PASSED | Communicates nature of advisory alert. |
+| 206 | `feat(lock-banner): display editor's full name and active status in alert body` | `lock-banner` | ✅ PASSED | Names specific colleague currently modifying draft. |
