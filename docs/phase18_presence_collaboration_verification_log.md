@@ -21,3 +21,4 @@
 | 15 | `test(presence-model): verify CASCADE deletion when associated article is deleted` | `presence-model` | ✅ PASSED | Cleans up active presence records when article is removed. |
 | 16 | `test(presence-model): verify CASCADE deletion when user account is deleted` | `presence-model` | ✅ PASSED | Purges presence sessions on user removal. |
 | 17 | `test(presence-model): verify is_active evaluates to True when heartbeat < 30s ago` | `presence-model` | ✅ PASSED | Validates positive active session determination. |
+| 18 | `test(presence-model): verify is_active evaluates to False when heartbeat > 30s ago` | `presence-model` | ✅ PASSED | Validates expiration of abandoned sessions. |
