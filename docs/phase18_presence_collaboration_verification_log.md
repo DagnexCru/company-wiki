@@ -271,3 +271,4 @@
 | 265 | `feat(editor-presence): render EditLockBanner above article editor form` | `editor-presence` | ✅ PASSED | Positions conflict warning prominently at top of form. |
 | 266 | `feat(editor-presence): automatically attempt to acquire edit lock upon opening editor` | `editor-presence` | ✅ PASSED | Establishes lock protection on draft entry. |
 | 267 | `feat(editor-presence): wire onTakeOverLock callback to acquireLock(true)` | `editor-presence` | ✅ PASSED | Enables one-click lock takeover from banner. |
+| 268 | `feat(editor-presence): pass isSyncing state to EditLockBanner for spinner feedback` | `editor-presence` | ✅ PASSED | Shows busy state during lock takeover. |
