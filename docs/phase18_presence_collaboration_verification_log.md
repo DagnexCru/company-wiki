@@ -201,3 +201,4 @@
 | 195 | `test(tooltips): verify tooltip displays 'You' indicator for current user session` | `tooltips` | ✅ PASSED | Helps user identify own avatar in stack. |
 | 196 | `test(tooltips): verify tooltip contrast exceeds WCAG 2.1 AA requirements` | `tooltips` | ✅ PASSED | White text on slate-900 achieves > 10:1 contrast. |
 | 197 | `test(tooltips): verify zero flickering when cursor moves across overlapping avatars` | `tooltips` | ✅ PASSED | Delivers smooth hover experience. |
+| 198 | `test(tooltips): verify tooltip renders without delay on modern browsers` | `tooltips` | ✅ PASSED | Optimizes CSS-only hover performance. |
