@@ -293,3 +293,4 @@
 | 287 | `test(cross-browser): verify mobile browser tab backgrounding suspends heartbeat safely` | `cross-browser` | ✅ PASSED | Conserves mobile battery when tab is hidden. |
 | 288 | `test(cross-browser): verify mobile browser tab foregrounding sends immediate catch-up beacon` | `cross-browser` | ✅ PASSED | Restores active presence instantly on return. |
 | 289 | `test(cross-browser): verify touch-to-hover tooltip behavior on iOS and Android` | `cross-browser` | ✅ PASSED | Ensures tooltips function on touchscreen devices. |
+| 290 | `test(cross-browser): verify avatar rendering on high-DPI Retina screens` | `cross-browser` | ✅ PASSED | Maintains sharp borders and text at 2x/3x DPR. |
