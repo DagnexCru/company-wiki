@@ -157,3 +157,4 @@
 | 151 | `feat(presence-hook): derive activeEditors list filtering status=editing viewers` | `presence-hook` | ✅ PASSED | Provides quick access to collaborating editors. |
 | 152 | `feat(presence-hook): derive otherViewers list excluding current tab session` | `presence-hook` | ✅ PASSED | Filters out self to display collaborating colleagues. |
 | 153 | `feat(presence-hook): track isSyncing boolean during active network requests` | `presence-hook` | ✅ PASSED | Exposes loading indicator state. |
+| 154 | `feat(presence-hook): capture lockError string upon 409 Conflict` | `presence-hook` | ✅ PASSED | Exposes lock acquisition error details. |
