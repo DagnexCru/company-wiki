@@ -54,3 +54,4 @@
 | 48 | `feat(heartbeat-api): query active presences within 30-second window` | `heartbeat-api` | ✅ PASSED | Retrieves currently viewing team members. |
 | 49 | `feat(heartbeat-api): serialize active viewers with ArticlePresenceSerializer` | `heartbeat-api` | ✅ PASSED | Returns rich metadata: user_id, name, role, avatar_color. |
 | 50 | `feat(heartbeat-api): return active_count integer in presence response payload` | `heartbeat-api` | ✅ PASSED | Provides total viewer count for client badge. |
+| 51 | `feat(heartbeat-api): return structured edit_lock object in presence response payload` | `heartbeat-api` | ✅ PASSED | Informs client if article draft is currently locked. |
