@@ -133,3 +133,4 @@
 | 127 | `feat(presence-service): define PresenceUser interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides full TypeScript type safety for viewer metadata. |
 | 128 | `feat(presence-service): define EditLockInfo interface in types/presence.ts` | `presence-service` | ✅ PASSED | Provides TypeScript schema for edit lock state. |
 | 129 | `feat(presence-service): define ArticlePresenceResponse interface in types/presence.ts` | `presence-service` | ✅ PASSED | Models unified presence API response. |
+| 130 | `feat(presence-service): assign deterministic avatar colors via hashing in serializer` | `presence-service` | ✅ PASSED | Provides consistent vibrant colors per user. |
