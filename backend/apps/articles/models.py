@@ -351,3 +351,66 @@ class ArticleAttachment(models.Model):
             return self.file.url
         return ""
 
+
+class ArticlePresence(models.Model):
+    """
+    Real-time collaborative presence and soft edit lock tracking.
+    Enables 'Currently viewing' avatars and conflict warning banners when multiple
+    editors view or modify the same article draft simultaneously.
+    """
+    class Status(models.TextChoices):
+        VIEWING = "viewing", "Viewing"
+        EDITING = "editing", "Editing"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="presence_sessions",
+        help_text="Article being viewed or edited.",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="article_presences",
+        help_text="User participating in presence session.",
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.VIEWING,
+        db_index=True,
+        help_text="Active user role: 'viewing' or 'editing'.",
+    )
+    client_session_id = models.CharField(
+        max_length=64,
+        db_index=True,
+        help_text="Unique client browser tab identifier to handle multi-tab sessions.",
+    )
+    last_heartbeat = models.DateTimeField(
+        default=timezone.now,
+        db_index=True,
+        help_text="Timestamp of latest client heartbeat beacon.",
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+
+    class Meta:
+        db_table = "article_presence"
+        verbose_name = "Article Presence"
+        verbose_name_plural = "Article Presences"
+        unique_together = ("article", "user", "client_session_id")
+        ordering = ["-last_heartbeat"]
+        indexes = [
+            models.Index(fields=["article", "status", "-last_heartbeat"], name="art_pres_art_stat_idx"),
+            models.Index(fields=["user", "-last_heartbeat"], name="art_pres_user_hb_idx"),
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} ({self.status}) on {self.article.title}"
+
+    @property
+    def is_active(self):
+        # Active if heartbeat received within last 30 seconds
+        return (timezone.now() - self.last_heartbeat).total_seconds() <= 30
+
+

@@ -302,3 +302,51 @@ class ArticleAttachmentSerializer(serializers.ModelSerializer):
         return f"[{obj.original_filename}]({url})"
 
 
+class ArticlePresenceSerializer(serializers.ModelSerializer):
+    """
+    Serializer for collaborative viewer presence avatars and edit locks.
+    """
+    user_id = serializers.CharField(source="user.id", read_only=True)
+    username = serializers.CharField(source="user.username", read_only=True)
+    full_name = serializers.CharField(source="user.full_name", read_only=True)
+    user_role = serializers.CharField(source="user.role", read_only=True)
+    avatar_color = serializers.SerializerMethodField()
+    is_active = serializers.BooleanField(read_only=True)
+
+    class Meta:
+        from apps.articles.models import ArticlePresence
+        model = ArticlePresence
+        fields = [
+            "id",
+            "article",
+            "user_id",
+            "username",
+            "full_name",
+            "user_role",
+            "status",
+            "client_session_id",
+            "avatar_color",
+            "last_heartbeat",
+            "is_active",
+        ]
+        read_only_fields = fields
+
+    def get_avatar_color(self, obj):
+        # Generate deterministic vibrant color from user ID/username
+        colors = [
+            "#6366f1",  # Indigo
+            "#8b5cf6",  # Violet
+            "#ec4899",  # Pink
+            "#f43f5e",  # Rose
+            "#06b6d4",  # Cyan
+            "#10b981",  # Emerald
+            "#f59e0b",  # Amber
+            "#3b82f6",  # Blue
+        ]
+        if not obj.user:
+            return colors[0]
+        hash_val = sum(ord(c) for c in (obj.user.username or str(obj.user.id)))
+        return colors[hash_val % len(colors)]
+
+
+

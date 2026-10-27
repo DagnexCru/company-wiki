@@ -29,6 +29,8 @@ import { SubmitReviewModal } from "../components/SubmitReviewModal";
 import { ReviewModal } from "../components/ReviewModal";
 import { ReviewTimeline } from "../components/ReviewTimeline";
 import { TableOfContents } from "../components/TableOfContents";
+import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
+import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
@@ -37,6 +39,12 @@ export const ArticleDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { user } = useAuth();
   const navigate = useNavigate();
+
+  // Real-Time Collaborative Presence Hook (Active Viewers & Live Lock Status)
+  const { viewers, activeCount, editLock } = useArticlePresence({
+    slugOrId: slug,
+    mode: "viewing",
+  });
 
   const [article, setArticle] = useState<ArticleDetail | null>(null);
   const [reviews, setReviews] = useState<ReviewRecord[]>([]);
@@ -270,13 +278,22 @@ export const ArticleDetailPage: React.FC = () => {
       />
 
       {/* Top Bar with Navigation and Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <Link
-          to="/articles"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back to Knowledge Base
-        </Link>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            to="/articles"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Knowledge Base
+          </Link>
+
+          {/* Live Collaborative Presence: Currently Viewing Avatars */}
+          <ArticlePresenceViewer
+            viewers={viewers}
+            activeCount={activeCount}
+            editLock={editLock}
+          />
+        </div>
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center gap-2">

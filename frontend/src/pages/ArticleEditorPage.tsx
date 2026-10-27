@@ -23,6 +23,9 @@ import { articleService } from "../services/articleService";
 import { taxonomyService } from "../services/taxonomyService";
 import { workflowService } from "../services/workflowService";
 import { MarkdownViewer } from "../components/MarkdownViewer";
+import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
+import { EditLockBanner } from "../components/EditLockBanner";
+import { useArticlePresence } from "../hooks/useArticlePresence";
 import type { ArticleInput, ArticleAttachment } from "../types/article";
 import type { Category, Tag } from "../types/taxonomy";
 
@@ -30,6 +33,18 @@ export const ArticleEditorPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const isEditing = Boolean(slug);
   const navigate = useNavigate();
+
+  // Real-Time Collaborative Presence & Soft Edit Lock Hook
+  const {
+    viewers,
+    activeCount,
+    editLock,
+    isSyncing: isPresenceSyncing,
+    acquireLock,
+  } = useArticlePresence({
+    slugOrId: slug,
+    mode: "editing",
+  });
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -319,10 +334,17 @@ export const ArticleEditorPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Active Viewers & Lock Indicator */}
+          <ArticlePresenceViewer
+            viewers={viewers}
+            activeCount={activeCount}
+            editLock={editLock}
+          />
+
           <Link
             to={isEditing ? `/articles/${slug}` : "/articles"}
-            className="px-3.5 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition"
+            className="px-3.5 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition cursor-pointer"
           >
             Cancel
           </Link>
@@ -330,7 +352,7 @@ export const ArticleEditorPage: React.FC = () => {
             type="button"
             onClick={(e) => handleSubmit(e, false)}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold shadow-2xs transition disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold shadow-2xs transition disabled:opacity-50 cursor-pointer"
           >
             <Save className="w-3.5 h-3.5" />
             <span>{saving ? "Saving..." : isEditing ? "Save Draft" : "Save as Draft"}</span>
@@ -339,13 +361,20 @@ export const ArticleEditorPage: React.FC = () => {
             type="button"
             onClick={(e) => handleSubmit(e, true)}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-xs shadow-indigo-600/20 transition disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-xs shadow-indigo-600/20 transition disabled:opacity-50 cursor-pointer"
           >
             <Send className="w-3.5 h-3.5" />
             <span>{saving ? "Submitting..." : isEditing && articleStatus === "rejected" ? "Save & Resubmit" : "Save & Submit for Review"}</span>
           </button>
         </div>
       </div>
+
+      {/* Soft Edit Lock Conflict Warning Banner */}
+      <EditLockBanner
+        editLock={editLock}
+        onTakeOverLock={() => acquireLock(true)}
+        isSyncing={isPresenceSyncing}
+      />
 
       {/* Rejection Alert if editing rejected article */}
       {articleStatus === "rejected" && rejectionReason && (
