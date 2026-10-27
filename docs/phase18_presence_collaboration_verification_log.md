@@ -20,3 +20,4 @@
 | 14 | `test(presence-model): verify unique constraint prevents duplicate tab sessions` | `presence-model` | ✅ PASSED | Asserts IntegrityError on duplicate session insertion. |
 | 15 | `test(presence-model): verify CASCADE deletion when associated article is deleted` | `presence-model` | ✅ PASSED | Cleans up active presence records when article is removed. |
 | 16 | `test(presence-model): verify CASCADE deletion when user account is deleted` | `presence-model` | ✅ PASSED | Purges presence sessions on user removal. |
+| 17 | `test(presence-model): verify is_active evaluates to True when heartbeat < 30s ago` | `presence-model` | ✅ PASSED | Validates positive active session determination. |
