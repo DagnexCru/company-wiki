@@ -180,3 +180,4 @@
 | 174 | `feat(avatar-stack): return null cleanly if viewers array is empty` | `avatar-stack` | ✅ PASSED | Avoids rendering empty container when alone. |
 | 175 | `test(avatar-stack): verify avatar stack renders 1, 3, and 6+ viewers correctly` | `avatar-stack` | ✅ PASSED | Validates layout across various viewer volumes. |
 | 176 | `test(avatar-stack): verify initials generator handles single names and empty strings safely` | `avatar-stack` | ✅ PASSED | Prevents runtime substring crashes. |
+| 177 | `test(avatar-stack): verify active editing pulse animation triggers on status=editing` | `avatar-stack` | ✅ PASSED | Validates visual differentiation. |
