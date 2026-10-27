@@ -136,3 +136,4 @@
 | 130 | `feat(presence-service): assign deterministic avatar colors via hashing in serializer` | `presence-service` | ✅ PASSED | Provides consistent vibrant colors per user. |
 | 131 | `test(presence-service): verify sendHeartbeat returns parsed ArticlePresenceResponse` | `presence-service` | ✅ PASSED | Validates successful API roundtrip. |
 | 132 | `test(presence-service): verify leave method resolves without uncaught errors` | `presence-service` | ✅ PASSED | Handles unmount cleanup safely. |
+| 133 | `test(presence-service): verify acquireLock transmits force boolean flag accurately` | `presence-service` | ✅ PASSED | Validates payload serialization. |
