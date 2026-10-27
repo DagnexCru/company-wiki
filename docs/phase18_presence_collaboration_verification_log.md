@@ -71,3 +71,4 @@
 | 65 | `feat(edit-lock): generate human-readable conflict warning message` | `edit-lock` | ✅ PASSED | Warns editors that changes may conflict. |
 | 66 | `feat(edit-lock): automatically expire edit lock if editor heartbeat ceases for > 30s` | `edit-lock` | ✅ PASSED | Prevents permanent lockups from abandoned tabs. |
 | 67 | `feat(edit-lock): allow read-only viewing of article while edit lock is active` | `edit-lock` | ✅ PASSED | Preserves reading experience for team members. |
+| 68 | `feat(edit-lock): support multiple simultaneous viewers while single editor holds lock` | `edit-lock` | ✅ PASSED | Permits team collaboration and review. |
