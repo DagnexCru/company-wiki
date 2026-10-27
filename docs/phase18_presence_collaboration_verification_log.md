@@ -64,3 +64,4 @@
 | 58 | `test(heartbeat-api): verify CORS headers allow POST from frontend origins` | `heartbeat-api` | ✅ PASSED | Prevents cross-origin blockage on heartbeat. |
 | 59 | `test(heartbeat-api): verify response schema adheres to ArticlePresenceResponse interface` | `heartbeat-api` | ✅ PASSED | Ensures TypeScript frontend compatibility. |
 | 60 | `test(heartbeat-api): verify automated test coverage for ArticlePresenceHeartbeatView` | `heartbeat-api` | ✅ PASSED | Maintains 100% backend test pass rate. |
+| 61 | `feat(edit-lock): implement soft edit lock detection in get_presence_payload` | `edit-lock` | ✅ PASSED | Checks for active sessions with status=editing. |
