@@ -187,3 +187,4 @@
 | 181 | `feat(tooltips): implement floating tooltip on avatar hover with smooth transition` | `tooltips` | ✅ PASSED | Reveals colleague details on mouseover. |
 | 182 | `feat(tooltips): display user full_name and username in avatar tooltip` | `tooltips` | ✅ PASSED | Provides clear colleague identity. |
 | 183 | `feat(tooltips): display user role badge in tooltip (ADMIN, AUTHOR, REVIEWER, READER)` | `tooltips` | ✅ PASSED | Communicates organizational permission level. |
+| 184 | `feat(tooltips): display active status in tooltip (Viewing vs Currently editing draft)` | `tooltips` | ✅ PASSED | Clarifies what colleague is doing. |
