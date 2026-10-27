@@ -210,3 +210,4 @@
 | 204 | `feat(lock-banner): render pulsing AlertTriangle icon in amber container` | `lock-banner` | ✅ PASSED | Immediately draws editor's attention to conflict. |
 | 205 | `feat(lock-banner): display headline 'Potential Edit Conflict Warning'` | `lock-banner` | ✅ PASSED | Communicates nature of advisory alert. |
 | 206 | `feat(lock-banner): display editor's full name and active status in alert body` | `lock-banner` | ✅ PASSED | Names specific colleague currently modifying draft. |
+| 207 | `feat(lock-banner): render 'Take Over Lock' action button on conflict banner` | `lock-banner` | ✅ PASSED | Provides resolution path for abandoned locks. |
