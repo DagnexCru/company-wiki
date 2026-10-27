@@ -233,3 +233,4 @@
 | 227 | `feat(lock-takeover): automatically dismiss confirmation prompt upon successful takeover` | `lock-takeover` | ✅ PASSED | Transitions banner to current user lock state. |
 | 228 | `feat(lock-takeover): render Cancel button restoring default 'Take Over Lock' button` | `lock-takeover` | ✅ PASSED | Allows author to back out of takeover. |
 | 229 | `test(lock-takeover): verify clicking 'Take Over Lock' displays confirmation buttons` | `lock-takeover` | ✅ PASSED | Validates step 1 transition. |
+| 230 | `test(lock-takeover): verify clicking 'Cancel' hides confirmation buttons` | `lock-takeover` | ✅ PASSED | Validates cancellation workflow. |
