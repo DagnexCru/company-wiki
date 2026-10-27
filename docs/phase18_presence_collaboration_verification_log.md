@@ -267,3 +267,4 @@
 | 261 | `feat(editor-presence): import useArticlePresence hook in ArticleEditorPage.tsx` | `editor-presence` | ✅ PASSED | Binds editor to collaborative presence. |
 | 262 | `feat(editor-presence): invoke useArticlePresence with mode='editing' and active slug` | `editor-presence` | ✅ PASSED | Registers user as active draft editor. |
 | 263 | `feat(editor-presence): import ArticlePresenceViewer and EditLockBanner in ArticleEditorPage` | `editor-presence` | ✅ PASSED | Brings presence and lock UI into editor. |
+| 264 | `feat(editor-presence): render ArticlePresenceViewer in editor top bar actions` | `editor-presence` | ✅ PASSED | Displays collaborating colleagues alongside Save buttons. |
