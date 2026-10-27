@@ -9,3 +9,4 @@
 | 3 | `feat(presence-model): configure ForeignKey to AUTH_USER_MODEL with CASCADE deletion` | `presence-model` | ✅ PASSED | Links presence sessions directly to authenticated users. |
 | 4 | `feat(presence-model): add status CharField with viewing and editing choices` | `presence-model` | ✅ PASSED | Differentiates passive readers from active draft editors. |
 | 5 | `feat(presence-model): add client_session_id CharField for multi-tab disambiguation` | `presence-model` | ✅ PASSED | Enables accurate tracking when user opens multiple browser tabs. |
+| 6 | `feat(presence-model): add last_heartbeat DateTimeField with db_index=True` | `presence-model` | ✅ PASSED | Enables rapid timestamp filtering for active vs stale sessions. |
