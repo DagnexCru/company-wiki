@@ -29,3 +29,4 @@
 | 23 | `feat(migration-presence): create art_pres_art_stat_idx composite index` | `migration-presence` | ✅ PASSED | Indexes article, status, and -last_heartbeat columns. |
 | 24 | `feat(migration-presence): create art_pres_user_hb_idx composite index` | `migration-presence` | ✅ PASSED | Indexes user and -last_heartbeat columns. |
 | 25 | `test(migration-presence): verify backward compatibility with existing Article and User tables` | `migration-presence` | ✅ PASSED | Zero regressions across existing schema. |
+| 26 | `test(migration-presence): verify foreign key constraint enforcement in PostgreSQL` | `migration-presence` | ✅ PASSED | Validates referential integrity on article_id and user_id. |
