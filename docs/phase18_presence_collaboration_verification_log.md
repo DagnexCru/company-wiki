@@ -39,3 +39,4 @@
 | 33 | `test(migration-presence): verify client_session_id varchar(64) capacity` | `migration-presence` | ✅ PASSED | Accommodates long random session hashes. |
 | 34 | `test(migration-presence): verify timestamp timezone storage in UTC` | `migration-presence` | ✅ PASSED | Ensures cross-timezone coordination accuracy. |
 | 35 | `test(migration-presence): verify table creation under company_wiki_db PostgreSQL catalog` | `migration-presence` | ✅ PASSED | Asserts correct database placement. |
+| 36 | `test(migration-presence): verify database privileges on article_presence table` | `migration-presence` | ✅ PASSED | Permits read/write for application user. |
