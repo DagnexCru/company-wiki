@@ -86,3 +86,4 @@
 | 80 | `test(edit-lock): verify published articles support edit locking during revision drafting` | `edit-lock` | ✅ PASSED | Protects live wiki updates from race conditions. |
 | 81 | `feat(lock-actions): implement ArticlePresenceLockView at /presence/acquire-lock/` | `lock-actions` | ✅ PASSED | Endpoint for acquiring or taking over edit locks. |
 | 82 | `feat(lock-actions): implement ArticlePresenceLockView at /presence/release-lock/` | `lock-actions` | ✅ PASSED | Endpoint for releasing edit locks. |
+| 83 | `feat(lock-actions): check for existing active edit lock from another user on acquire` | `lock-actions` | ✅ PASSED | Detects potential editing conflicts. |
