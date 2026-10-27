@@ -7,3 +7,4 @@
 | 1 | `feat(presence-model): define ArticlePresence model with UUID primary key` | `presence-model` | ✅ PASSED | Uses uuid.uuid4 for unique, distributed presence session IDs. |
 | 2 | `feat(presence-model): configure ForeignKey to Article with CASCADE deletion` | `presence-model` | ✅ PASSED | Associates active viewer sessions with target article. |
 | 3 | `feat(presence-model): configure ForeignKey to AUTH_USER_MODEL with CASCADE deletion` | `presence-model` | ✅ PASSED | Links presence sessions directly to authenticated users. |
+| 4 | `feat(presence-model): add status CharField with viewing and editing choices` | `presence-model` | ✅ PASSED | Differentiates passive readers from active draft editors. |
