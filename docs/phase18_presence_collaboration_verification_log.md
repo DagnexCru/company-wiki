@@ -264,3 +264,4 @@
 | 258 | `test(detail-presence): verify zero layout jump on ArticleDetailPage during presence load` | `detail-presence` | ✅ PASSED | Preserves content stability. |
 | 259 | `test(detail-presence): verify presence bar hidden gracefully if user is logged out` | `detail-presence` | ✅ PASSED | Maintains pristine guest reading experience. |
 | 260 | `test(detail-presence): verify end-to-end multi-user test on ArticleDetailPage` | `detail-presence` | ✅ PASSED | Two browser windows display each other's avatars. |
+| 261 | `feat(editor-presence): import useArticlePresence hook in ArticleEditorPage.tsx` | `editor-presence` | ✅ PASSED | Binds editor to collaborative presence. |
