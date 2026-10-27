@@ -106,3 +106,4 @@
 | 100 | `test(lock-actions): verify audit log event created on forced lock takeover` | `lock-actions` | ✅ PASSED | Records lock override in security telemetry. |
 | 101 | `feat(presence-cleanup): implement ArticlePresenceLeaveView at /presence/leave/` | `presence-cleanup` | ✅ PASSED | Endpoint for explicit session termination. |
 | 102 | `feat(presence-cleanup): delete presence row matching article, user, and client_session_id` | `presence-cleanup` | ✅ PASSED | Removes departing tab immediately. |
+| 103 | `feat(presence-cleanup): support delete of all user presence sessions for article if session_id omitted` | `presence-cleanup` | ✅ PASSED | Enables clean user departure. |
