@@ -287,3 +287,4 @@
 | 281 | `test(cross-browser): verify presence heartbeat in Google Chrome (Blink)` | `cross-browser` | ✅ PASSED | Validates chromium network beacon dispatch. |
 | 282 | `test(cross-browser): verify presence heartbeat in Mozilla Firefox (Gecko)` | `cross-browser` | ✅ PASSED | Validates gecko timer and fetch handling. |
 | 283 | `test(cross-browser): verify presence heartbeat in Apple Safari (WebKit)` | `cross-browser` | ✅ PASSED | Validates webkit beforeunload beacon execution. |
+| 284 | `test(cross-browser): verify presence heartbeat in Microsoft Edge (Chromium)` | `cross-browser` | ✅ PASSED | Validates Windows browser integration. |
