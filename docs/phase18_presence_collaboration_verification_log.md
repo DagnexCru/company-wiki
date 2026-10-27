@@ -283,3 +283,4 @@
 | 277 | `test(editor-presence): verify canceling editor releases lock and returns to article` | `editor-presence` | ✅ PASSED | Validates post-cancel cleanup. |
 | 278 | `test(editor-presence): verify editor displays colleagues who are currently viewing article` | `editor-presence` | ✅ PASSED | Enables awareness of interested readers. |
 | 279 | `test(editor-presence): verify typing in textarea does not interrupt presence heartbeat` | `editor-presence` | ✅ PASSED | Maintains smooth editor responsiveness. |
+| 280 | `test(editor-presence): verify end-to-end concurrent editing prevention in ArticleEditorPage` | `editor-presence` | ✅ PASSED | Two editors modifying same article receive clear guidance. |
