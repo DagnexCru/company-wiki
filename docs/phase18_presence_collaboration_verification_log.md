@@ -57,3 +57,4 @@
 | 51 | `feat(heartbeat-api): return structured edit_lock object in presence response payload` | `heartbeat-api` | ✅ PASSED | Informs client if article draft is currently locked. |
 | 52 | `test(heartbeat-api): verify initial heartbeat registers user as active viewer` | `heartbeat-api` | ✅ PASSED | Asserts user appears in viewers array. |
 | 53 | `test(heartbeat-api): verify successive heartbeats update last_heartbeat without creating duplicate rows` | `heartbeat-api` | ✅ PASSED | Validates upsert behavior. |
+| 54 | `test(heartbeat-api): verify switching status from viewing to editing updates database record` | `heartbeat-api` | ✅ PASSED | Reflects mode transitions in real time. |
