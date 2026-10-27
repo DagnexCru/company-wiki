@@ -250,3 +250,4 @@
 | 244 | `feat(detail-presence): integrate ArticlePresenceViewer in top navigation bar` | `detail-presence` | ✅ PASSED | Places avatars alongside 'Back to Knowledge Base' link. |
 | 245 | `feat(detail-presence): wrap navigation link and presence viewer in flex-wrap container` | `detail-presence` | ✅ PASSED | Ensures responsive layout across screen sizes. |
 | 246 | `feat(detail-presence): display live viewer avatars on article detail page` | `detail-presence` | ✅ PASSED | Shows colleagues reading the article in real time. |
+| 247 | `feat(detail-presence): display editing alert badge if someone is modifying draft` | `detail-presence` | ✅ PASSED | Alerts readers that live update is in progress. |
