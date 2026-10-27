@@ -124,3 +124,4 @@
 | 118 | `test(presence-cleanup): verify browser crash recovery cleans up presence within 30s` | `presence-cleanup` | ✅ PASSED | Validates robust automated timeout mechanism. |
 | 119 | `test(presence-cleanup): verify zero memory leaks in Node/browser on repeated mount/unmount` | `presence-cleanup` | ✅ PASSED | Passes React memory stress tests. |
 | 120 | `test(presence-cleanup): verify unit test coverage for presence cleanup functions` | `presence-cleanup` | ✅ PASSED | Validates deletion logic across edge cases. |
+| 121 | `feat(presence-service): create presenceService in frontend/src/services/presenceService.ts` | `presence-service` | ✅ PASSED | Provides clean API client for presence. |
