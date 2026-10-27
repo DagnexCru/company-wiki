@@ -173,3 +173,4 @@
 | 167 | `feat(avatar-stack): render pulsing pink ring and icon on actively editing avatars` | `avatar-stack` | ✅ PASSED | Visually distinguishes colleagues currently editing. |
 | 168 | `feat(avatar-stack): add micro-scale hover interaction (hover:scale-110 hover:z-10)` | `avatar-stack` | ✅ PASSED | Elevates hovered avatar above the stack. |
 | 169 | `feat(avatar-stack): render '+N' overflow chip when viewers exceed maxDisplay limit (5)` | `avatar-stack` | ✅ PASSED | Prevents avatar stack from overflowing header on busy pages. |
+| 170 | `feat(avatar-stack): render pulsing green radar dot next to viewing count text` | `avatar-stack` | ✅ PASSED | Provides dynamic visual heartbeat on presence bar. |
