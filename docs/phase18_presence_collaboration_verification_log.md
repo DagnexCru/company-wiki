@@ -121,3 +121,4 @@
 | 115 | `test(presence-cleanup): verify high concurrency leave requests process without deadlock` | `presence-cleanup` | ✅ PASSED | Validates transaction isolation on deletions. |
 | 116 | `test(presence-cleanup): verify leave endpoint returns updated presence payload` | `presence-cleanup` | ✅ PASSED | Allows client to confirm departure cleanly. |
 | 117 | `test(presence-cleanup): verify unauthenticated leave request receives 401 Unauthorized` | `presence-cleanup` | ✅ PASSED | Guards leave endpoint appropriately. |
+| 118 | `test(presence-cleanup): verify browser crash recovery cleans up presence within 30s` | `presence-cleanup` | ✅ PASSED | Validates robust automated timeout mechanism. |
