@@ -138,3 +138,4 @@
 | 132 | `test(presence-service): verify leave method resolves without uncaught errors` | `presence-service` | ✅ PASSED | Handles unmount cleanup safely. |
 | 133 | `test(presence-service): verify acquireLock transmits force boolean flag accurately` | `presence-service` | ✅ PASSED | Validates payload serialization. |
 | 134 | `test(presence-service): verify releaseLock sets user status back to viewing` | `presence-service` | ✅ PASSED | Validates lock release response. |
+| 135 | `test(presence-service): verify getPresence handles unauthenticated visitors gracefully` | `presence-service` | ✅ PASSED | Allows public viewing counts on public articles. |
