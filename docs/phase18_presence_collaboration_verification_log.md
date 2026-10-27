@@ -128,3 +128,4 @@
 | 122 | `feat(presence-service): implement sendHeartbeat method sending client_session_id and status` | `presence-service` | ✅ PASSED | Dispatches periodic beacon via Axios. |
 | 123 | `feat(presence-service): implement leave method for explicit session departure` | `presence-service` | ✅ PASSED | Calls /presence/leave/ endpoint. |
 | 124 | `feat(presence-service): implement acquireLock method with optional force parameter` | `presence-service` | ✅ PASSED | Handles lock acquisition and takeover. |
+| 125 | `feat(presence-service): implement releaseLock method for freeing edit lock` | `presence-service` | ✅ PASSED | Calls /presence/release-lock/ endpoint. |
