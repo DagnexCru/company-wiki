@@ -58,3 +58,4 @@
 | 52 | `test(heartbeat-api): verify initial heartbeat registers user as active viewer` | `heartbeat-api` | ✅ PASSED | Asserts user appears in viewers array. |
 | 53 | `test(heartbeat-api): verify successive heartbeats update last_heartbeat without creating duplicate rows` | `heartbeat-api` | ✅ PASSED | Validates upsert behavior. |
 | 54 | `test(heartbeat-api): verify switching status from viewing to editing updates database record` | `heartbeat-api` | ✅ PASSED | Reflects mode transitions in real time. |
+| 55 | `test(heartbeat-api): verify unauthenticated heartbeat request receives 401 Unauthorized` | `heartbeat-api` | ✅ PASSED | Guards endpoint against anonymous access. |
