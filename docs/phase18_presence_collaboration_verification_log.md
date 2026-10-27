@@ -80,3 +80,4 @@
 | 74 | `test(edit-lock): verify lock expires automatically after 30 seconds of inactivity` | `edit-lock` | ✅ PASSED | Asserts lock releases without manual intervention. |
 | 75 | `test(edit-lock): verify active editor heartbeat continuously extends lock lease` | `edit-lock` | ✅ PASSED | Prevents lock expiration while author is actively typing. |
 | 76 | `test(edit-lock): verify warning message formats editor's full name accurately` | `edit-lock` | ✅ PASSED | Displays clear attribution in warning banner. |
+| 77 | `test(edit-lock): verify remaining lease calculation countdown accuracy` | `edit-lock` | ✅ PASSED | Monitors seconds remaining until expiration. |
