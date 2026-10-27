@@ -237,3 +237,4 @@
 | 231 | `test(lock-takeover): verify clicking 'Confirm' triggers onTakeOverLock callback` | `lock-takeover` | ✅ PASSED | Validates execution of takeover. |
 | 232 | `test(lock-takeover): verify successful takeover converts banner to green 'Edit Lock Active'` | `lock-takeover` | ✅ PASSED | Validates immediate UI state transition. |
 | 233 | `test(lock-takeover): verify previous editor receives conflict notification on next heartbeat` | `lock-takeover` | ✅ PASSED | Notifies previous editor of takeover. |
+| 234 | `test(lock-takeover): verify takeover handles network failure gracefully with error toast` | `lock-takeover` | ✅ PASSED | Alerts author if takeover fails. |
