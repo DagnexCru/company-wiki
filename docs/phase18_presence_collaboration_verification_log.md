@@ -296,3 +296,4 @@
 | 290 | `test(cross-browser): verify avatar rendering on high-DPI Retina screens` | `cross-browser` | ✅ PASSED | Maintains sharp borders and text at 2x/3x DPR. |
 | 291 | `test(cross-browser): verify CSS keyframe animations (pulse, ping) render at 60fps` | `cross-browser` | ✅ PASSED | Delivers fluid visual cues across all browsers. |
 | 292 | `test(cross-browser): verify dark mode color fidelity on OLED displays` | `cross-browser` | ✅ PASSED | Validates rich black and vibrant avatar contrasts. |
+| 293 | `test(cross-browser): verify network drop recovery: automatic reconnection on next interval` | `cross-browser` | ✅ PASSED | Heals presence seamlessly after Wi-Fi blip. |
