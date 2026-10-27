@@ -286,3 +286,4 @@
 | 280 | `test(editor-presence): verify end-to-end concurrent editing prevention in ArticleEditorPage` | `editor-presence` | ✅ PASSED | Two editors modifying same article receive clear guidance. |
 | 281 | `test(cross-browser): verify presence heartbeat in Google Chrome (Blink)` | `cross-browser` | ✅ PASSED | Validates chromium network beacon dispatch. |
 | 282 | `test(cross-browser): verify presence heartbeat in Mozilla Firefox (Gecko)` | `cross-browser` | ✅ PASSED | Validates gecko timer and fetch handling. |
+| 283 | `test(cross-browser): verify presence heartbeat in Apple Safari (WebKit)` | `cross-browser` | ✅ PASSED | Validates webkit beforeunload beacon execution. |
