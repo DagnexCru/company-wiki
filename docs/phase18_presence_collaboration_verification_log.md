@@ -52,3 +52,4 @@
 | 46 | `feat(heartbeat-api): perform atomic upsert via ArticlePresence.objects.update_or_create` | `heartbeat-api` | ✅ PASSED | Prevents race conditions in presence registration. |
 | 47 | `feat(heartbeat-api): update last_heartbeat timestamp to timezone.now() on beacon` | `heartbeat-api` | ✅ PASSED | Refreshes session expiration lease. |
 | 48 | `feat(heartbeat-api): query active presences within 30-second window` | `heartbeat-api` | ✅ PASSED | Retrieves currently viewing team members. |
+| 49 | `feat(heartbeat-api): serialize active viewers with ArticlePresenceSerializer` | `heartbeat-api` | ✅ PASSED | Returns rich metadata: user_id, name, role, avatar_color. |
