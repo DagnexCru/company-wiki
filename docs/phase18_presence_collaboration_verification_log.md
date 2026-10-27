@@ -281,3 +281,4 @@
 | 275 | `test(editor-presence): verify second editor can take over lock and becomes active lock holder` | `editor-presence` | ✅ PASSED | Validates takeover workflow in editor. |
 | 276 | `test(editor-presence): verify saving draft releases lock and redirects cleanly` | `editor-presence` | ✅ PASSED | Validates post-save cleanup. |
 | 277 | `test(editor-presence): verify canceling editor releases lock and returns to article` | `editor-presence` | ✅ PASSED | Validates post-cancel cleanup. |
+| 278 | `test(editor-presence): verify editor displays colleagues who are currently viewing article` | `editor-presence` | ✅ PASSED | Enables awareness of interested readers. |
