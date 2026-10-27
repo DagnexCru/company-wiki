@@ -145,3 +145,4 @@
 | 139 | `test(presence-service): verify avatar color generator provides 8 distinct vibrant colors` | `presence-service` | ✅ PASSED | Validates color distribution across users. |
 | 140 | `test(presence-service): verify unit tests pass for presenceService methods` | `presence-service` | ✅ PASSED | Ensures robust client service layer. |
 | 141 | `feat(presence-hook): create useArticlePresence custom hook in frontend/src/hooks/` | `presence-hook` | ✅ PASSED | Encapsulates presence lifecycle in reusable React hook. |
+| 142 | `feat(presence-hook): generate stable clientSessionId using useMemo` | `presence-hook` | ✅ PASSED | Maintains tab identity across component re-renders. |
