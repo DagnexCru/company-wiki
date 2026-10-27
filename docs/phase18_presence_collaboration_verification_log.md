@@ -259,3 +259,4 @@
 | 253 | `test(detail-presence): verify detail page updates presence every 10 seconds` | `detail-presence` | ✅ PASSED | Validates periodic heartbeat renewal. |
 | 254 | `test(detail-presence): verify detail page presence bar is accessible via keyboard` | `detail-presence` | ✅ PASSED | Supports keyboard tab traversal. |
 | 255 | `test(detail-presence): verify detail page responsive layout on mobile phone screens` | `detail-presence` | ✅ PASSED | Wraps cleanly on narrow viewports. |
+| 256 | `test(detail-presence): verify detail page responsive layout on tablet screens` | `detail-presence` | ✅ PASSED | Aligns neatly on intermediate viewports. |
