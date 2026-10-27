@@ -40,3 +40,4 @@
 | 34 | `test(migration-presence): verify timestamp timezone storage in UTC` | `migration-presence` | ✅ PASSED | Ensures cross-timezone coordination accuracy. |
 | 35 | `test(migration-presence): verify table creation under company_wiki_db PostgreSQL catalog` | `migration-presence` | ✅ PASSED | Asserts correct database placement. |
 | 36 | `test(migration-presence): verify database privileges on article_presence table` | `migration-presence` | ✅ PASSED | Permits read/write for application user. |
+| 37 | `test(migration-presence): verify autovacuum settings on high-turnover presence table` | `migration-presence` | ✅ PASSED | Prevents database bloat on ephemeral presence data. |
