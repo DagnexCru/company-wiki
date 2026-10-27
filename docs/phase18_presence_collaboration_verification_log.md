@@ -35,3 +35,4 @@
 | 29 | `test(migration-presence): verify zero lock contention under high concurrent presence writes` | `migration-presence` | ✅ PASSED | Validates row-level locking performance. |
 | 30 | `test(migration-presence): verify showmigrations confirms 0007_articlepresence applied` | `migration-presence` | ✅ PASSED | Validates migration ledger state. |
 | 31 | `test(migration-presence): verify migration rollback safety with zero data corruption` | `migration-presence` | ✅ PASSED | Guarantees reversible migration schema. |
+| 32 | `test(migration-presence): verify column default values in PostgreSQL table` | `migration-presence` | ✅ PASSED | Validates status default is 'viewing'. |
