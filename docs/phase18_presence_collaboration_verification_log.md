@@ -149,3 +149,4 @@
 | 143 | `feat(presence-hook): manage viewers, editLock, activeCount state variables` | `presence-hook` | ✅ PASSED | Provides reactive presence data to consuming components. |
 | 144 | `feat(presence-hook): configure 10-second default heartbeat interval timer` | `presence-hook` | ✅ PASSED | Balances real-time responsiveness with minimal server load. |
 | 145 | `feat(presence-hook): dispatch initial heartbeat immediately on mount` | `presence-hook` | ✅ PASSED | Populates active viewers without 10-second delay. |
+| 146 | `feat(presence-hook): attach beforeunload listener for immediate tab close cleanup` | `presence-hook` | ✅ PASSED | Frees presence and lock on browser close. |
