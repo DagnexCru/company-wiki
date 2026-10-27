@@ -229,3 +229,4 @@
 | 223 | `feat(lock-takeover): render ShieldAlert icon on Confirm button with rose accent` | `lock-takeover` | ✅ PASSED | Signifies forceful override action. |
 | 224 | `feat(lock-takeover): render spinning Loader2 icon during active takeover request` | `lock-takeover` | ✅ PASSED | Provides busy feedback during network call. |
 | 225 | `feat(lock-takeover): disable Confirm button while takeover request is in flight` | `lock-takeover` | ✅ PASSED | Prevents duplicate concurrent takeover requests. |
+| 226 | `feat(lock-takeover): invoke onTakeOverLock callback with force=True parameter` | `lock-takeover` | ✅ PASSED | Triggers backend lock override API. |
