@@ -37,3 +37,4 @@
 | 31 | `test(migration-presence): verify migration rollback safety with zero data corruption` | `migration-presence` | ✅ PASSED | Guarantees reversible migration schema. |
 | 32 | `test(migration-presence): verify column default values in PostgreSQL table` | `migration-presence` | ✅ PASSED | Validates status default is 'viewing'. |
 | 33 | `test(migration-presence): verify client_session_id varchar(64) capacity` | `migration-presence` | ✅ PASSED | Accommodates long random session hashes. |
+| 34 | `test(migration-presence): verify timestamp timezone storage in UTC` | `migration-presence` | ✅ PASSED | Ensures cross-timezone coordination accuracy. |
