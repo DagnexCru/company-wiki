@@ -127,3 +127,4 @@
 | 121 | `feat(presence-service): create presenceService in frontend/src/services/presenceService.ts` | `presence-service` | ✅ PASSED | Provides clean API client for presence. |
 | 122 | `feat(presence-service): implement sendHeartbeat method sending client_session_id and status` | `presence-service` | ✅ PASSED | Dispatches periodic beacon via Axios. |
 | 123 | `feat(presence-service): implement leave method for explicit session departure` | `presence-service` | ✅ PASSED | Calls /presence/leave/ endpoint. |
+| 124 | `feat(presence-service): implement acquireLock method with optional force parameter` | `presence-service` | ✅ PASSED | Handles lock acquisition and takeover. |
