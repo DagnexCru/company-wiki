@@ -164,3 +164,4 @@
 | 158 | `test(presence-hook): verify rapid re-renders do not create duplicate interval timers` | `presence-hook` | ✅ PASSED | Maintains single timer instance. |
 | 159 | `test(presence-hook): verify hook unmount cleanly clears active interval timer` | `presence-hook` | ✅ PASSED | Verified with React Testing Library. |
 | 160 | `test(presence-hook): verify unit test coverage for useArticlePresence hook` | `presence-hook` | ✅ PASSED | Validates state transitions and callbacks. |
+| 161 | `feat(avatar-stack): create ArticlePresenceViewer component in components/` | `avatar-stack` | ✅ PASSED | Renders live collaborative presence avatars. |
