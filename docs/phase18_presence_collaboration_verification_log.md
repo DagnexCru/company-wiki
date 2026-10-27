@@ -163,3 +163,4 @@
 | 157 | `test(presence-hook): verify timer interval resets if slugOrId changes` | `presence-hook` | ✅ PASSED | Adapts cleanly to client-side route navigation. |
 | 158 | `test(presence-hook): verify rapid re-renders do not create duplicate interval timers` | `presence-hook` | ✅ PASSED | Maintains single timer instance. |
 | 159 | `test(presence-hook): verify hook unmount cleanly clears active interval timer` | `presence-hook` | ✅ PASSED | Verified with React Testing Library. |
+| 160 | `test(presence-hook): verify unit test coverage for useArticlePresence hook` | `presence-hook` | ✅ PASSED | Validates state transitions and callbacks. |
