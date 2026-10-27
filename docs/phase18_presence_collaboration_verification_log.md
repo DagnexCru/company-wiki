@@ -241,3 +241,4 @@
 | 235 | `test(lock-takeover): verify keyboard accessibility: Enter triggers Confirm, Esc triggers Cancel` | `lock-takeover` | ✅ PASSED | Supports keyboard navigation. |
 | 236 | `test(lock-takeover): verify touch target size on Confirm button exceeds 40px` | `lock-takeover` | ✅ PASSED | Optimized for mobile touch ergonomics. |
 | 237 | `test(lock-takeover): verify takeover action is recorded in security audit trail` | `lock-takeover` | ✅ PASSED | Ensures accountability for lock overrides. |
+| 238 | `test(lock-takeover): verify takeover cannot be performed by unauthenticated users` | `lock-takeover` | ✅ PASSED | Enforces permission boundary. |
