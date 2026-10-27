@@ -102,3 +102,4 @@
 | 96 | `test(lock-actions): verify release-lock preserves user presence in viewers list` | `lock-actions` | ✅ PASSED | Leaves user in viewing state rather than removing. |
 | 97 | `test(lock-actions): verify unauthenticated acquire-lock receives 401 Unauthorized` | `lock-actions` | ✅ PASSED | Restricts lock actions to authenticated members. |
 | 98 | `test(lock-actions): verify acquire-lock on non-existent article returns 404` | `lock-actions` | ✅ PASSED | Handles invalid article lookups safely. |
+| 99 | `test(lock-actions): verify release-lock by non-lock holder has no adverse effect` | `lock-actions` | ✅ PASSED | Ignores spurious release requests safely. |
