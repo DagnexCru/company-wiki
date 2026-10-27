@@ -200,3 +200,4 @@
 | 194 | `test(tooltips): verify screen reader aria-label mirrors tooltip information` | `tooltips` | ✅ PASSED | Ensures accessibility for assistive devices. |
 | 195 | `test(tooltips): verify tooltip displays 'You' indicator for current user session` | `tooltips` | ✅ PASSED | Helps user identify own avatar in stack. |
 | 196 | `test(tooltips): verify tooltip contrast exceeds WCAG 2.1 AA requirements` | `tooltips` | ✅ PASSED | White text on slate-900 achieves > 10:1 contrast. |
+| 197 | `test(tooltips): verify zero flickering when cursor moves across overlapping avatars` | `tooltips` | ✅ PASSED | Delivers smooth hover experience. |
