@@ -310,3 +310,4 @@
 | 304 | `build(prod): verify Terser minification compresses presenceService and hooks` | `prod` | ✅ PASSED | Produces highly optimized production bundles. |
 | 305 | `build(prod): verify Gzip compression ratio for updated presence assets` | `prod` | ✅ PASSED | Achieves high compression efficiency (< 0.4 kB delta). |
 | 306 | `build(prod): verify production build passes with 0 errors via npm run build` | `prod` | ✅ PASSED | Ensures complete production readiness. |
+| 307 | `build(prod): verify zero TypeScript compilation errors with tsc -b` | `prod` | ✅ PASSED | Guarantees complete type safety across frontend. |
