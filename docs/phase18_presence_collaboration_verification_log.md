@@ -129,3 +129,4 @@
 | 123 | `feat(presence-service): implement leave method for explicit session departure` | `presence-service` | ✅ PASSED | Calls /presence/leave/ endpoint. |
 | 124 | `feat(presence-service): implement acquireLock method with optional force parameter` | `presence-service` | ✅ PASSED | Handles lock acquisition and takeover. |
 | 125 | `feat(presence-service): implement releaseLock method for freeing edit lock` | `presence-service` | ✅ PASSED | Calls /presence/release-lock/ endpoint. |
+| 126 | `feat(presence-service): implement getPresence method for read-only presence queries` | `presence-service` | ✅ PASSED | Calls GET /presence/ endpoint. |
