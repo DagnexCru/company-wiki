@@ -165,3 +165,4 @@
 | 159 | `test(presence-hook): verify hook unmount cleanly clears active interval timer` | `presence-hook` | ✅ PASSED | Verified with React Testing Library. |
 | 160 | `test(presence-hook): verify unit test coverage for useArticlePresence hook` | `presence-hook` | ✅ PASSED | Validates state transitions and callbacks. |
 | 161 | `feat(avatar-stack): create ArticlePresenceViewer component in components/` | `avatar-stack` | ✅ PASSED | Renders live collaborative presence avatars. |
+| 162 | `feat(avatar-stack): render overlapping circular avatar chips with -space-x-2` | `avatar-stack` | ✅ PASSED | Creates modern stacked social avatar aesthetic. |
