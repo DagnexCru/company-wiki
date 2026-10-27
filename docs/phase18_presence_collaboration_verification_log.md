@@ -244,3 +244,4 @@
 | 238 | `test(lock-takeover): verify takeover cannot be performed by unauthenticated users` | `lock-takeover` | ✅ PASSED | Enforces permission boundary. |
 | 239 | `test(lock-takeover): verify smooth 150ms zoom-in transition on confirmation controls` | `lock-takeover` | ✅ PASSED | Provides polished tactile feedback. |
 | 240 | `test(lock-takeover): verify unit test coverage for takeover confirmation workflow` | `lock-takeover` | ✅ PASSED | Validates all state branches. |
+| 241 | `feat(detail-presence): import useArticlePresence hook in ArticleDetailPage.tsx` | `detail-presence` | ✅ PASSED | Binds detail page to real-time presence. |
