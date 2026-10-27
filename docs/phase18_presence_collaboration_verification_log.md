@@ -182,3 +182,4 @@
 | 176 | `test(avatar-stack): verify initials generator handles single names and empty strings safely` | `avatar-stack` | ✅ PASSED | Prevents runtime substring crashes. |
 | 177 | `test(avatar-stack): verify active editing pulse animation triggers on status=editing` | `avatar-stack` | ✅ PASSED | Validates visual differentiation. |
 | 178 | `test(avatar-stack): verify overflow badge displays exact count (+3 for 8 viewers)` | `avatar-stack` | ✅ PASSED | Validates overflow arithmetic. |
+| 179 | `test(avatar-stack): verify high contrast ratio on avatar text across all avatar colors` | `avatar-stack` | ✅ PASSED | Ensures white initials are legible on all backgrounds. |
