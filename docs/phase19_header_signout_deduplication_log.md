@@ -100,3 +100,4 @@
 | 94 | `test(auth-flow): verify audit log records user signout event if enabled` | `auth-flow` | ✅ PASSED | Provides audit trail for compliance. |
 | 95 | `test(auth-flow): verify logout response time completes in < 50ms locally` | `auth-flow` | ✅ PASSED | Ensures instantaneous UI responsiveness. |
 | 96 | `test(auth-flow): verify browser back button cannot navigate to cached forms` | `auth-flow` | ✅ PASSED | Prevents form resubmission after signout. |
+| 97 | `test(auth-flow): verify clean URL state without dangling tokens or codes` | `auth-flow` | ✅ PASSED | Purges any residual OAuth params. |
