@@ -75,3 +75,4 @@
 | 69 | `test(sidebar-signout): verify sidebar signout padding (p-3 space-y-2)` | `sidebar-signout` | ✅ PASSED | Ensures balanced spacing in footer container. |
 | 70 | `test(sidebar-signout): verify touch target height meets 44px minimum for mobile` | `sidebar-signout` | ✅ PASSED | Complies with mobile ergonomics best practices. |
 | 71 | `test(sidebar-signout): verify text contrast ratio on signout label (text-slate-300)` | `sidebar-signout` | ✅ PASSED | Guarantees excellent legibility on dark slate. |
+| 72 | `test(sidebar-signout): verify smooth transition duration (transition-colors 200ms)` | `sidebar-signout` | ✅ PASSED | Prevents jarring color flashes on hover. |
