@@ -126,3 +126,4 @@
 | 120 | `test(responsive-ui): verify safe-area-inset padding on notched mobile displays` | `responsive-ui` | ✅ PASSED | Prevents clipping on iPhone Dynamic Island/notch. |
 | 121 | `test(responsive-ui): verify landscape orientation handling on smartphones` | `responsive-ui` | ✅ PASSED | Maintains readable header and usable drawer. |
 | 122 | `test(responsive-ui): verify font size scaling uses clamp or Tailwind rem scale` | `responsive-ui` | ✅ PASSED | Maintains proportional typography. |
+| 123 | `test(responsive-ui): verify sidebar drawer z-index (z-50) over sticky header` | `responsive-ui` | ✅ PASSED | Ensures drawer covers header on mobile view. |
