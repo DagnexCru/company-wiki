@@ -30,3 +30,4 @@
 | 24 | `test(header-ui): verify accessibility aria-label on search button` | `header-ui` | ✅ PASSED | Preserves screen reader accessibility. |
 | 25 | `test(header-ui): verify zero console warnings on header component render` | `header-ui` | ✅ PASSED | Validates clean React render cycle. |
 | 26 | `feat(profile-link): optimize click target padding around profile badge` | `profile-link` | ✅ PASSED | Enhances touch and mouse ergonomics on /profile link. |
+| 27 | `style(profile-link): refine group-hover transition on user display name` | `profile-link` | ✅ PASSED | Smooth color transition to indigo-300 on hover. |
