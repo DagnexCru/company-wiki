@@ -170,3 +170,4 @@
 | 164 | `test(security-auth): verify audit trail captures IP and user agent on logout` | `security-auth` | ✅ PASSED | Logs security forensics for enterprise. |
 | 165 | `test(security-auth): verify password reset invalidates all existing sessions` | `security-auth` | ✅ PASSED | Forces re-authentication across devices. |
 | 166 | `test(security-auth): verify multi-tab session synchronization via broadcast` | `security-auth` | ✅ PASSED | BroadcastChannel or storage event sync. |
+| 167 | `test(security-auth): verify permission checks on role change without re-login` | `security-auth` | ✅ PASSED | Refreshes user profile on role updates. |
