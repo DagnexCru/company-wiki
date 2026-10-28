@@ -71,3 +71,4 @@
 | 65 | `test(sidebar-signout): verify cursor pointer is set on signout button` | `sidebar-signout` | ✅ PASSED | Ensures proper visual affordance. |
 | 66 | `test(sidebar-signout): verify shadow-xs depth styling matches design system` | `sidebar-signout` | ✅ PASSED | Maintains visual hierarchy in dark mode. |
 | 67 | `test(sidebar-signout): verify sticky footer positioning at bottom of sidebar` | `sidebar-signout` | ✅ PASSED | Keeps signout anchored regardless of nav scroll. |
+| 68 | `test(sidebar-signout): verify border-t border-slate-800 divider separation` | `sidebar-signout` | ✅ PASSED | Provides clear visual separation from nav items. |
