@@ -141,3 +141,4 @@
 | 135 | `test(command-palette): verify ESC key closes command palette cleanly` | `command-palette` | ✅ PASSED | Standard modal dismissal behavior. |
 | 136 | `test(command-palette): verify backdrop click dismisses command palette` | `command-palette` | ✅ PASSED | Enhances usability for mouse users. |
 | 137 | `test(command-palette): verify header search button dispatches open event` | `command-palette` | ✅ PASSED | CustomEvent('open-command-palette') works. |
+| 138 | `test(command-palette): verify search input autofocus on palette open` | `command-palette` | ✅ PASSED | Zero-click typing ready immediately. |
