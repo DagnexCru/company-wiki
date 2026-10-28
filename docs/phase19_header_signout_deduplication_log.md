@@ -155,3 +155,4 @@
 | 149 | `test(command-palette): verify scroll locking during active palette display` | `command-palette` | ✅ PASSED | Prevents document body scrolling under modal. |
 | 150 | `test(command-palette): complete command palette integration sign-off` | `command-palette` | ✅ PASSED | Signs off on keyboard-driven navigation. |
 | 151 | `feat(security-auth): verify Google OAuth tokens cleared on manual signout` | `security-auth` | ✅ PASSED | Purges Google credentials from client store. |
+| 152 | `feat(security-auth): verify local storage keys sanitized upon session end` | `security-auth` | ✅ PASSED | Leaves zero sensitive auth tokens in browser. |
