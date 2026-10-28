@@ -46,3 +46,4 @@
 | 40 | `test(profile-link): verify initials calculation handles special characters` | `profile-link` | ✅ PASSED | Safely upper-cases alphanumeric symbols. |
 | 41 | `test(profile-link): verify initials calculation with null full_name` | `profile-link` | ✅ PASSED | Gracefully falls back to username prefix. |
 | 42 | `test(profile-link): verify avatar background gradient stays crisp on retina displays` | `profile-link` | ✅ PASSED | Validates SVG / CSS gradient rendering. |
+| 43 | `test(profile-link): verify zero layout shift (CLS) when auth user loads` | `profile-link` | ✅ PASSED | Ensures layout stability during session hydration. |
