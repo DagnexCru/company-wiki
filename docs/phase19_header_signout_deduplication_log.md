@@ -184,3 +184,4 @@
 | 178 | `test(e2e-ui): execute complete user navigation smoke test` | `e2e-ui` | ✅ PASSED | Navigates Dashboard -> Articles -> Profile -> Sign Out. |
 | 179 | `test(e2e-ui): verify Vite production bundle builds with zero errors` | `e2e-ui` | ✅ PASSED | tsc -b && vite build executes cleanly. |
 | 180 | `test(e2e-ui): verify bundle size optimizations with tree-shaken Lucide icons` | `e2e-ui` | ✅ PASSED | Removes unused icons from vendor chunk. |
+| 181 | `test(e2e-ui): verify Django backend server responds with HTTP 200 on /api/v1/` | `e2e-ui` | ✅ PASSED | Confirms backend health check. |
