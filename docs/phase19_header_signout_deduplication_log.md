@@ -104,3 +104,4 @@
 | 98 | `test(auth-flow): verify session timeout warning triggers logout cleanly` | `auth-flow` | ✅ PASSED | Handles idle session timeout scenarios. |
 | 99 | `test(auth-flow): verify secure cookie clearing for HttpOnly setups` | `auth-flow` | ✅ PASSED | Prepares architecture for cookie-based auth. |
 | 100 | `test(auth-flow): complete session destruction and token clearing sign-off` | `auth-flow` | ✅ PASSED | Signs off on secure logout implementation. |
+| 101 | `feat(responsive-ui): test header right cluster on 320px mobile screens` | `responsive-ui` | ✅ PASSED | Ensures no horizontal scroll on narrow devices. |
