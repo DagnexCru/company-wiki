@@ -159,3 +159,4 @@
 | 153 | `feat(security-auth): verify CSRF token rotation or invalidation on logout` | `security-auth` | ✅ PASSED | Maintains robust protection against CSRF. |
 | 154 | `feat(security-auth): verify Content-Security-Policy compatibility` | `security-auth` | ✅ PASSED | Ensures strict script execution boundaries. |
 | 155 | `test(security-auth): verify XSS prevention in user full name rendering` | `security-auth` | ✅ PASSED | React automatically escapes interpolated text. |
+| 156 | `test(security-auth): verify no sensitive user claims exposed in DOM attributes` | `security-auth` | ✅ PASSED | Audit verifies clean data attribute usage. |
