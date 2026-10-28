@@ -92,3 +92,4 @@
 | 86 | `test(auth-flow): verify command palette clears user-specific history on logout` | `auth-flow` | ✅ PASSED | Purges recent searches from local state. |
 | 87 | `test(auth-flow): verify notification subscriptions unsubscribe on logout` | `auth-flow` | ✅ PASSED | Closes active event listeners cleanly. |
 | 88 | `test(auth-flow): verify public portal remains accessible without authentication` | `auth-flow` | ✅ PASSED | Ensures /public routes continue working. |
+| 89 | `test(auth-flow): verify re-login flow restores clean session state` | `auth-flow` | ✅ PASSED | Validates seamless re-authentication. |
