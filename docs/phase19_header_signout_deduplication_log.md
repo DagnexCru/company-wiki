@@ -132,3 +132,4 @@
 | 126 | `feat(command-palette): verify CommandPalette includes quick Sign Out option` | `command-palette` | ✅ PASSED | Provides power-user keyboard shortcut to sign out. |
 | 127 | `feat(command-palette): verify Ctrl+K / Cmd+K opens command palette instantly` | `command-palette` | ✅ PASSED | Ensures universal keyboard shortcut availability. |
 | 128 | `style(command-palette): verify Sign Out action displays LogOut icon in palette` | `command-palette` | ✅ PASSED | Maintains consistent iconography across app. |
+| 129 | `style(command-palette): verify Sign Out option categorized under Account group` | `command-palette` | ✅ PASSED | Ensures logical group clustering in search. |
