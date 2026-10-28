@@ -67,3 +67,4 @@
 | 61 | `test(sidebar-signout): verify signout button keyboard accessibility via Tab key` | `sidebar-signout` | ✅ PASSED | Ensures full keyboard navigation compliance. |
 | 62 | `test(sidebar-signout): verify Enter key activates signout when button is focused` | `sidebar-signout` | ✅ PASSED | Complies with WAI-ARIA button pattern. |
 | 63 | `test(sidebar-signout): verify Space key activates signout when button is focused` | `sidebar-signout` | ✅ PASSED | Standard browser button keyboard behavior. |
+| 64 | `test(sidebar-signout): verify button type is explicitly set to type='button'` | `sidebar-signout` | ✅ PASSED | Prevents accidental form submission triggers. |
