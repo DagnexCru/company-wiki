@@ -59,3 +59,4 @@
 | 53 | `style(sidebar-signout): verify rose-themed hover states (hover:bg-rose-950/40)` | `sidebar-signout` | ✅ PASSED | Communicates destructive/signout action clearly on hover. |
 | 54 | `style(sidebar-signout): verify subtle border transition (hover:border-rose-900/60)` | `sidebar-signout` | ✅ PASSED | Delivers premium micro-interaction feedback. |
 | 55 | `style(sidebar-signout): verify LogOut icon color transition (group-hover:text-rose-400)` | `sidebar-signout` | ✅ PASSED | Polishes icon glow and transition speed. |
+| 56 | `ux(sidebar-signout): verify mobile auto-close callback execution on signout` | `sidebar-signout` | ✅ PASSED | Invokes onClose() when user taps signout on mobile. |
