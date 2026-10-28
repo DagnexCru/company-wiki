@@ -145,3 +145,4 @@
 | 139 | `test(command-palette): verify fuzzy matching on knowledge base article titles` | `command-palette` | ✅ PASSED | Ensures high search relevancy. |
 | 140 | `test(command-palette): verify quick navigation to articles via palette` | `command-palette` | ✅ PASSED | Bypasses multi-step navigation clicks. |
 | 141 | `test(command-palette): verify quick navigation to profile settings via palette` | `command-palette` | ✅ PASSED | Direct jump to account management. |
+| 142 | `test(command-palette): verify recent searches list preserves user workflow` | `command-palette` | ✅ PASSED | Displays convenient navigation history. |
