@@ -40,3 +40,4 @@
 | 34 | `test(profile-link): verify unknown role defaults safely to Reader pill` | `profile-link` | ✅ PASSED | Ensures defensive rendering on unexpected roles. |
 | 35 | `test(profile-link): verify profile link cursor displays pointer on hover` | `profile-link` | ✅ PASSED | Confirms intuitive visual affordability. |
 | 36 | `test(profile-link): verify keyboard focus outline on profile link` | `profile-link` | ✅ PASSED | Enables tab navigation to user profile. |
+| 37 | `test(profile-link): verify title attribute tooltips for assistive devices` | `profile-link` | ✅ PASSED | Displays 'View profile and account settings'. |
