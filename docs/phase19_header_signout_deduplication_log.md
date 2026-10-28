@@ -81,3 +81,4 @@
 | 75 | `test(sidebar-signout): complete sidebar signout component verification` | `sidebar-signout` | ✅ PASSED | Signs off on left sidebar signout placement. |
 | 76 | `feat(auth-flow): verify AuthContext logout removes JWT access token` | `auth-flow` | ✅ PASSED | Clears localStorage access token on signout. |
 | 77 | `feat(auth-flow): verify AuthContext logout removes JWT refresh token` | `auth-flow` | ✅ PASSED | Clears localStorage refresh token on signout. |
+| 78 | `feat(auth-flow): verify AuthContext logout clears active user state object` | `auth-flow` | ✅ PASSED | Sets user state to null in React context. |
