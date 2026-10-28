@@ -164,3 +164,4 @@
 | 158 | `test(security-auth): verify refresh token rotation prevents replay attacks` | `security-auth` | ✅ PASSED | Django simplejwt rotates refresh tokens. |
 | 159 | `test(security-auth): verify blacklisted token table entries on signout` | `security-auth` | ✅ PASSED | Backend blacklists active refresh token. |
 | 160 | `test(security-auth): verify authorization header validation on Django views` | `security-auth` | ✅ PASSED | Rejects requests lacking valid Bearer prefix. |
+| 161 | `test(security-auth): verify CORS headers restrict origins appropriately` | `security-auth` | ✅ PASSED | Guards API against cross-origin abuse. |
