@@ -134,3 +134,4 @@
 | 128 | `style(command-palette): verify Sign Out action displays LogOut icon in palette` | `command-palette` | ✅ PASSED | Maintains consistent iconography across app. |
 | 129 | `style(command-palette): verify Sign Out option categorized under Account group` | `command-palette` | ✅ PASSED | Ensures logical group clustering in search. |
 | 130 | `ux(command-palette): verify searching 'logout' matches Sign Out action` | `command-palette` | ✅ PASSED | Supports intuitive keyword search aliases. |
+| 131 | `ux(command-palette): verify searching 'exit' matches Sign Out action` | `command-palette` | ✅ PASSED | Supports alternative exit vocabulary. |
