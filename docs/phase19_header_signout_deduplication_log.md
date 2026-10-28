@@ -39,3 +39,4 @@
 | 33 | `test(profile-link): verify READER role badge displays book icon and sky theme` | `profile-link` | ✅ PASSED | Validates Reader role styling. |
 | 34 | `test(profile-link): verify unknown role defaults safely to Reader pill` | `profile-link` | ✅ PASSED | Ensures defensive rendering on unexpected roles. |
 | 35 | `test(profile-link): verify profile link cursor displays pointer on hover` | `profile-link` | ✅ PASSED | Confirms intuitive visual affordability. |
+| 36 | `test(profile-link): verify keyboard focus outline on profile link` | `profile-link` | ✅ PASSED | Enables tab navigation to user profile. |
