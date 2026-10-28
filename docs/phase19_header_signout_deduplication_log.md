@@ -44,3 +44,4 @@
 | 38 | `test(profile-link): verify initials calculation handles single-word names` | `profile-link` | ✅ PASSED | Falls back to first two characters correctly. |
 | 39 | `test(profile-link): verify initials calculation handles multi-word names` | `profile-link` | ✅ PASSED | Extracts first letter of first and last name. |
 | 40 | `test(profile-link): verify initials calculation handles special characters` | `profile-link` | ✅ PASSED | Safely upper-cases alphanumeric symbols. |
+| 41 | `test(profile-link): verify initials calculation with null full_name` | `profile-link` | ✅ PASSED | Gracefully falls back to username prefix. |
