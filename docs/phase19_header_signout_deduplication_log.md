@@ -11,3 +11,4 @@
 | 5 | `style(header-ui): preserve avatar circle with dynamic initials fallback` | `header-ui` | ✅ PASSED | Ensures full name initials or username fallback remains centered. |
 | 6 | `style(header-ui): preserve interactive hover scaling on user profile avatar` | `header-ui` | ✅ PASSED | Maintains smooth group-hover:scale-105 transition. |
 | 7 | `style(header-ui): preserve role badge styling and indicator emoji` | `header-ui` | ✅ PASSED | Retains Administrator, Author, Reviewer, and Reader badges. |
+| 8 | `style(header-ui): maintain flexbox alignment in top navigation right cluster` | `header-ui` | ✅ PASSED | Ensures search icon and user profile align on flex center. |
