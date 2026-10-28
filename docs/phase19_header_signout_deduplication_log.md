@@ -19,3 +19,4 @@
 | 13 | `test(header-ui): verify unauthenticated state displays Sign in anchor` | `header-ui` | ✅ PASSED | Ensures guest users still see Sign in link to /login. |
 | 14 | `test(header-ui): verify top-right header layout on ultrawide viewports` | `header-ui` | ✅ PASSED | Prevents spacing distortion on 1440px+ displays. |
 | 15 | `test(header-ui): verify top-right header layout on standard 1080p desktop` | `header-ui` | ✅ PASSED | Validates clean spacing at 1920x1080 resolution. |
+| 16 | `test(header-ui): verify top-right header layout on 1366x768 laptop screens` | `header-ui` | ✅ PASSED | Ensures responsive flex containment without overlap. |
