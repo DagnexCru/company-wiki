@@ -79,3 +79,4 @@
 | 73 | `test(sidebar-signout): verify screen reader announcements for signout button` | `sidebar-signout` | ✅ PASSED | Validates screen reader friendliness. |
 | 74 | `test(sidebar-signout): verify sidebar signout does not flicker during page transitions` | `sidebar-signout` | ✅ PASSED | Ensures stable layout across routes. |
 | 75 | `test(sidebar-signout): complete sidebar signout component verification` | `sidebar-signout` | ✅ PASSED | Signs off on left sidebar signout placement. |
+| 76 | `feat(auth-flow): verify AuthContext logout removes JWT access token` | `auth-flow` | ✅ PASSED | Clears localStorage access token on signout. |
