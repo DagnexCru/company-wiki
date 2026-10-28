@@ -121,3 +121,4 @@
 | 115 | `test(responsive-ui): verify Workspace badge hidden gracefully on narrow widths` | `responsive-ui` | ✅ PASSED | Saves valuable header horizontal real estate. |
 | 116 | `test(responsive-ui): verify header border bottom styling remains continuous` | `responsive-ui` | ✅ PASSED | Ensures uninterrupted slate-800 divider. |
 | 117 | `test(responsive-ui): verify header height remains fixed at h-16 across devices` | `responsive-ui` | ✅ PASSED | Prevents layout jumps during responsive resizing. |
+| 118 | `test(responsive-ui): verify touch gesture responsiveness on mobile signout` | `responsive-ui` | ✅ PASSED | Zero input delay on touchstart/touchend. |
