@@ -91,3 +91,4 @@
 | 85 | `test(auth-flow): verify presence leave beacon is dispatched before session wipe` | `auth-flow` | ✅ PASSED | Releases active viewer locks on logout. |
 | 86 | `test(auth-flow): verify command palette clears user-specific history on logout` | `auth-flow` | ✅ PASSED | Purges recent searches from local state. |
 | 87 | `test(auth-flow): verify notification subscriptions unsubscribe on logout` | `auth-flow` | ✅ PASSED | Closes active event listeners cleanly. |
+| 88 | `test(auth-flow): verify public portal remains accessible without authentication` | `auth-flow` | ✅ PASSED | Ensures /public routes continue working. |
