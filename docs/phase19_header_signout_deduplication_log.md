@@ -96,3 +96,4 @@
 | 90 | `test(auth-flow): verify logout operates reliably across multiple browser tabs` | `auth-flow` | ✅ PASSED | Synchronizes session clearing via storage event. |
 | 91 | `test(auth-flow): verify logout handling during in-flight network requests` | `auth-flow` | ✅ PASSED | Aborts or gracefully handles pending promises. |
 | 92 | `test(auth-flow): verify zero memory leaks after session termination` | `auth-flow` | ✅ PASSED | Confirms garbage collection of user data. |
+| 93 | `test(auth-flow): verify remember-me token handling conforms to security policy` | `auth-flow` | ✅ PASSED | Invalidates persistent tokens on demand. |
