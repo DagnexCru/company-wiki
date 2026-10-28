@@ -37,3 +37,4 @@
 | 31 | `test(profile-link): verify AUTHOR role badge displays pencil icon and emerald theme` | `profile-link` | ✅ PASSED | Validates Author role styling. |
 | 32 | `test(profile-link): verify REVIEWER role badge displays search icon and amber theme` | `profile-link` | ✅ PASSED | Validates Reviewer role styling. |
 | 33 | `test(profile-link): verify READER role badge displays book icon and sky theme` | `profile-link` | ✅ PASSED | Validates Reader role styling. |
+| 34 | `test(profile-link): verify unknown role defaults safely to Reader pill` | `profile-link` | ✅ PASSED | Ensures defensive rendering on unexpected roles. |
