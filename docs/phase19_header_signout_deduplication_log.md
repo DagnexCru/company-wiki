@@ -148,3 +148,4 @@
 | 142 | `test(command-palette): verify recent searches list preserves user workflow` | `command-palette` | ✅ PASSED | Displays convenient navigation history. |
 | 143 | `test(command-palette): verify dark glassmorphism modal design aesthetic` | `command-palette` | ✅ PASSED | Matches enterprise theme consistency. |
 | 144 | `test(command-palette): verify keyboard shortcut badge 'Ctrl K' in header input` | `command-palette` | ✅ PASSED | Provides clear visual discovery for users. |
+| 145 | `test(command-palette): verify Mac OS detection displays 'Cmd K' appropriately` | `command-palette` | ✅ PASSED | Adapts platform modifier key symbol. |
