@@ -26,3 +26,4 @@
 | 20 | `test(header-ui): verify sticky header blur backdrop effect (backdrop-blur-md)` | `header-ui` | ✅ PASSED | Ensures translucent glassmorphism when scrolling. |
 | 21 | `test(header-ui): verify z-index stacking hierarchy (z-30) over page body` | `header-ui` | ✅ PASSED | Prevents article content from bleeding through header. |
 | 22 | `test(header-ui): verify DOM cleanliness with zero orphan button elements` | `header-ui` | ✅ PASSED | Confirms DOM tree inspection in React DevTools. |
+| 23 | `test(header-ui): verify HTML semantics use proper header and nav tags` | `header-ui` | ✅ PASSED | Ensures semantic web standards compliance. |
