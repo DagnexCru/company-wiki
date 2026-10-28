@@ -174,3 +174,4 @@
 | 168 | `test(security-auth): verify secure storage fallback when localStorage blocked` | `security-auth` | ✅ PASSED | Gracefully warns user if storage disabled. |
 | 169 | `test(security-auth): verify zero credentials leak into browser console logs` | `security-auth` | ✅ PASSED | Cleans up diagnostic print statements. |
 | 170 | `test(security-auth): complete security invalidation and token lifecycle sign-off` | `security-auth` | ✅ PASSED | Signs off on enterprise auth security. |
+| 171 | `feat(ui-dedup): verify header top-right contains only search and user profile` | `ui-dedup` | ✅ PASSED | Achieves clean, intentional header layout. |
