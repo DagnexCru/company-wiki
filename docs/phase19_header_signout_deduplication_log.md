@@ -138,3 +138,4 @@
 | 132 | `ux(command-palette): verify arrow key navigation highlights Sign Out option` | `command-palette` | ✅ PASSED | Enables fast keyboard selection. |
 | 133 | `ux(command-palette): verify pressing Enter on Sign Out executes logout` | `command-palette` | ✅ PASSED | Triggers session termination immediately. |
 | 134 | `test(command-palette): verify command palette closes before logout redirect` | `command-palette` | ✅ PASSED | Prevents orphaned dialog overlays. |
+| 135 | `test(command-palette): verify ESC key closes command palette cleanly` | `command-palette` | ✅ PASSED | Standard modal dismissal behavior. |
