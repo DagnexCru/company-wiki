@@ -9,3 +9,4 @@
 | 3 | `refactor(header-ui): purge unused logout auth context consumer from Header` | `header-ui` | ✅ PASSED | Streamlines useAuth hook consumption to user object only. |
 | 4 | `refactor(header-ui): remove superfluous React fragment wrapping user profile` | `header-ui` | ✅ PASSED | Flattens JSX tree structure around user profile link. |
 | 5 | `style(header-ui): preserve avatar circle with dynamic initials fallback` | `header-ui` | ✅ PASSED | Ensures full name initials or username fallback remains centered. |
+| 6 | `style(header-ui): preserve interactive hover scaling on user profile avatar` | `header-ui` | ✅ PASSED | Maintains smooth group-hover:scale-105 transition. |
