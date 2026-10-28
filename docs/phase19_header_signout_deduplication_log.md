@@ -135,3 +135,4 @@
 | 129 | `style(command-palette): verify Sign Out option categorized under Account group` | `command-palette` | ✅ PASSED | Ensures logical group clustering in search. |
 | 130 | `ux(command-palette): verify searching 'logout' matches Sign Out action` | `command-palette` | ✅ PASSED | Supports intuitive keyword search aliases. |
 | 131 | `ux(command-palette): verify searching 'exit' matches Sign Out action` | `command-palette` | ✅ PASSED | Supports alternative exit vocabulary. |
+| 132 | `ux(command-palette): verify arrow key navigation highlights Sign Out option` | `command-palette` | ✅ PASSED | Enables fast keyboard selection. |
