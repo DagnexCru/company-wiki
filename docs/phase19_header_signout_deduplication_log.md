@@ -23,3 +23,4 @@
 | 17 | `test(header-ui): verify top-right header layout on tablet 768px breakpoint` | `header-ui` | ✅ PASSED | Hides user textual name while retaining avatar circle. |
 | 18 | `test(header-ui): verify mobile drawer toggle button layout integrity` | `header-ui` | ✅ PASSED | Ensures hamburger menu remains positioned at left edge. |
 | 19 | `test(header-ui): verify knowledge base search bar stays centered in header` | `header-ui` | ✅ PASSED | Guarantees max-w-md search bar centering. |
+| 20 | `test(header-ui): verify sticky header blur backdrop effect (backdrop-blur-md)` | `header-ui` | ✅ PASSED | Ensures translucent glassmorphism when scrolling. |
