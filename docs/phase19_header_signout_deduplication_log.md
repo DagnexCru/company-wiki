@@ -64,3 +64,4 @@
 | 58 | `ux(sidebar-signout): verify role display box styling with slate-800 pill` | `sidebar-signout` | ✅ PASSED | Ensures neat contrast with Active Role label. |
 | 59 | `test(sidebar-signout): verify signout button renders only when user is authenticated` | `sidebar-signout` | ✅ PASSED | Prevents ghost buttons for guest sessions. |
 | 60 | `test(sidebar-signout): verify signout button click triggers auth logout dispatch` | `sidebar-signout` | ✅ PASSED | Validates invocation of AuthContext logout(). |
+| 61 | `test(sidebar-signout): verify signout button keyboard accessibility via Tab key` | `sidebar-signout` | ✅ PASSED | Ensures full keyboard navigation compliance. |
