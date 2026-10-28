@@ -139,3 +139,4 @@
 | 133 | `ux(command-palette): verify pressing Enter on Sign Out executes logout` | `command-palette` | ✅ PASSED | Triggers session termination immediately. |
 | 134 | `test(command-palette): verify command palette closes before logout redirect` | `command-palette` | ✅ PASSED | Prevents orphaned dialog overlays. |
 | 135 | `test(command-palette): verify ESC key closes command palette cleanly` | `command-palette` | ✅ PASSED | Standard modal dismissal behavior. |
+| 136 | `test(command-palette): verify backdrop click dismisses command palette` | `command-palette` | ✅ PASSED | Enhances usability for mouse users. |
