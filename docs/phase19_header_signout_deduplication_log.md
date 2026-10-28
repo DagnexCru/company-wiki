@@ -52,3 +52,4 @@
 | 46 | `test(profile-link): verify profile link preserves query params if needed` | `profile-link` | ✅ PASSED | Ensures clean URL transitions. |
 | 47 | `test(profile-link): verify active route styling does not conflict with header` | `profile-link` | ✅ PASSED | Prevents conflicting highlight classes. |
 | 48 | `test(profile-link): verify click event does not propagate unexpectedly` | `profile-link` | ✅ PASSED | Maintains isolation of header controls. |
+| 49 | `test(profile-link): verify compatibility with dark mode color tokens` | `profile-link` | ✅ PASSED | Ensures harmonious slate-200 / slate-900 contrast. |
