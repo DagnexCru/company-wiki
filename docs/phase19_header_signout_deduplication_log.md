@@ -51,3 +51,4 @@
 | 45 | `test(profile-link): verify profile navigation updates document title` | `profile-link` | ✅ PASSED | Ensures breadcrumb and title synchronization. |
 | 46 | `test(profile-link): verify profile link preserves query params if needed` | `profile-link` | ✅ PASSED | Ensures clean URL transitions. |
 | 47 | `test(profile-link): verify active route styling does not conflict with header` | `profile-link` | ✅ PASSED | Prevents conflicting highlight classes. |
+| 48 | `test(profile-link): verify click event does not propagate unexpectedly` | `profile-link` | ✅ PASSED | Maintains isolation of header controls. |
