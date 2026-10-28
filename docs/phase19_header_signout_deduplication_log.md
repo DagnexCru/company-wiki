@@ -183,3 +183,4 @@
 | 177 | `style(ui-dedup): verify brand palette fidelity across slate, indigo, and rose` | `ui-dedup` | ✅ PASSED | Adheres strictly to design tokens. |
 | 178 | `test(e2e-ui): execute complete user navigation smoke test` | `e2e-ui` | ✅ PASSED | Navigates Dashboard -> Articles -> Profile -> Sign Out. |
 | 179 | `test(e2e-ui): verify Vite production bundle builds with zero errors` | `e2e-ui` | ✅ PASSED | tsc -b && vite build executes cleanly. |
+| 180 | `test(e2e-ui): verify bundle size optimizations with tree-shaken Lucide icons` | `e2e-ui` | ✅ PASSED | Removes unused icons from vendor chunk. |
