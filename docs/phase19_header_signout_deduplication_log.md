@@ -112,3 +112,4 @@
 | 106 | `feat(responsive-ui): test header right cluster on 1280px standard desktop` | `responsive-ui` | ✅ PASSED | Full visual richness with ample breathing room. |
 | 107 | `feat(responsive-ui): test header right cluster on 1536px 2K displays` | `responsive-ui` | ✅ PASSED | Maintains proportional alignment and container max-width. |
 | 108 | `test(responsive-ui): verify mobile hamburger menu opens drawer smoothly` | `responsive-ui` | ✅ PASSED | Validates slide-in transition from left edge. |
+| 109 | `test(responsive-ui): verify mobile drawer backdrop closes on tap outside` | `responsive-ui` | ✅ PASSED | Ensures intuitive dismissal of sidebar. |
