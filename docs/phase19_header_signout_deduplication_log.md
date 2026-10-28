@@ -15,3 +15,4 @@
 | 9 | `test(header-ui): verify zero visual regression on user avatar display` | `header-ui` | ✅ PASSED | Validates 32x32 gradient circle with brand-to-indigo fill. |
 | 10 | `test(header-ui): verify user full name text hierarchy and truncation safety` | `header-ui` | ✅ PASSED | Prevents layout overflow on lengthy user full names. |
 | 11 | `test(header-ui): verify role pill contrast meets WCAG AA standards` | `header-ui` | ✅ PASSED | Ensures high contrast on dark slate background. |
+| 12 | `test(header-ui): verify profile link navigates to /profile correctly` | `header-ui` | ✅ PASSED | Validates React Router Link destination. |
