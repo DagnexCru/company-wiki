@@ -168,3 +168,4 @@
 | 162 | `test(security-auth): verify Secure and SameSite flags on auth cookies` | `security-auth` | ✅ PASSED | Standardizes enterprise cookie policies. |
 | 163 | `test(security-auth): verify rate limiting on authentication endpoints` | `security-auth` | ✅ PASSED | Prevents brute force attacks on /login. |
 | 164 | `test(security-auth): verify audit trail captures IP and user agent on logout` | `security-auth` | ✅ PASSED | Logs security forensics for enterprise. |
+| 165 | `test(security-auth): verify password reset invalidates all existing sessions` | `security-auth` | ✅ PASSED | Forces re-authentication across devices. |
