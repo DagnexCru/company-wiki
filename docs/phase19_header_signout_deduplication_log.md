@@ -101,3 +101,4 @@
 | 95 | `test(auth-flow): verify logout response time completes in < 50ms locally` | `auth-flow` | ✅ PASSED | Ensures instantaneous UI responsiveness. |
 | 96 | `test(auth-flow): verify browser back button cannot navigate to cached forms` | `auth-flow` | ✅ PASSED | Prevents form resubmission after signout. |
 | 97 | `test(auth-flow): verify clean URL state without dangling tokens or codes` | `auth-flow` | ✅ PASSED | Purges any residual OAuth params. |
+| 98 | `test(auth-flow): verify session timeout warning triggers logout cleanly` | `auth-flow` | ✅ PASSED | Handles idle session timeout scenarios. |
