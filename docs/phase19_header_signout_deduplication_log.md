@@ -176,3 +176,4 @@
 | 170 | `test(security-auth): complete security invalidation and token lifecycle sign-off` | `security-auth` | ✅ PASSED | Signs off on enterprise auth security. |
 | 171 | `feat(ui-dedup): verify header top-right contains only search and user profile` | `ui-dedup` | ✅ PASSED | Achieves clean, intentional header layout. |
 | 172 | `feat(ui-dedup): verify sidebar bottom remains single source of truth for signout` | `ui-dedup` | ✅ PASSED | Prevents visual duplication and user confusion. |
+| 173 | `feat(ui-dedup): verify user profile link in header leads to comprehensive profile` | `ui-dedup` | ✅ PASSED | Ensures intuitive profile access. |
