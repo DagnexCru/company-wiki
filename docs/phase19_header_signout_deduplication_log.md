@@ -34,3 +34,4 @@
 | 28 | `style(profile-link): standardize badge padding and font size (text-[10px])` | `profile-link` | ✅ PASSED | Maintains consistent typography scale across UI. |
 | 29 | `style(profile-link): verify role badge border opacity and subtle glow` | `profile-link` | ✅ PASSED | Polishes enterprise design aesthetics. |
 | 30 | `test(profile-link): verify ADMIN role badge displays crown icon and purple theme` | `profile-link` | ✅ PASSED | Validates Administrator role styling. |
+| 31 | `test(profile-link): verify AUTHOR role badge displays pencil icon and emerald theme` | `profile-link` | ✅ PASSED | Validates Author role styling. |
