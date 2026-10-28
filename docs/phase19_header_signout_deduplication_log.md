@@ -185,3 +185,4 @@
 | 179 | `test(e2e-ui): verify Vite production bundle builds with zero errors` | `e2e-ui` | ✅ PASSED | tsc -b && vite build executes cleanly. |
 | 180 | `test(e2e-ui): verify bundle size optimizations with tree-shaken Lucide icons` | `e2e-ui` | ✅ PASSED | Removes unused icons from vendor chunk. |
 | 181 | `test(e2e-ui): verify Django backend server responds with HTTP 200 on /api/v1/` | `e2e-ui` | ✅ PASSED | Confirms backend health check. |
+| 182 | `test(e2e-ui): verify PostgreSQL connection pool stability` | `e2e-ui` | ✅ PASSED | Maintains active connection pool without leaks. |
