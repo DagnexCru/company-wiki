@@ -66,3 +66,4 @@
 | 60 | `test(sidebar-signout): verify signout button click triggers auth logout dispatch` | `sidebar-signout` | ✅ PASSED | Validates invocation of AuthContext logout(). |
 | 61 | `test(sidebar-signout): verify signout button keyboard accessibility via Tab key` | `sidebar-signout` | ✅ PASSED | Ensures full keyboard navigation compliance. |
 | 62 | `test(sidebar-signout): verify Enter key activates signout when button is focused` | `sidebar-signout` | ✅ PASSED | Complies with WAI-ARIA button pattern. |
+| 63 | `test(sidebar-signout): verify Space key activates signout when button is focused` | `sidebar-signout` | ✅ PASSED | Standard browser button keyboard behavior. |
