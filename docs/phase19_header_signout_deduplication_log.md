@@ -83,3 +83,4 @@
 | 77 | `feat(auth-flow): verify AuthContext logout removes JWT refresh token` | `auth-flow` | ✅ PASSED | Clears localStorage refresh token on signout. |
 | 78 | `feat(auth-flow): verify AuthContext logout clears active user state object` | `auth-flow` | ✅ PASSED | Sets user state to null in React context. |
 | 79 | `feat(auth-flow): verify AuthContext logout clears session storage cache` | `auth-flow` | ✅ PASSED | Purges any ephemeral workspace draft cache. |
+| 80 | `feat(auth-flow): verify AuthContext logout redirects user to /login` | `auth-flow` | ✅ PASSED | Directs unauthenticated user to login screen. |
