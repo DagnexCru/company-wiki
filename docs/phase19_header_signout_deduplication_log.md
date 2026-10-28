@@ -115,3 +115,4 @@
 | 109 | `test(responsive-ui): verify mobile drawer backdrop closes on tap outside` | `responsive-ui` | ✅ PASSED | Ensures intuitive dismissal of sidebar. |
 | 110 | `test(responsive-ui): verify mobile drawer signout button stays pinned at bottom` | `responsive-ui` | ✅ PASSED | Ensures thumb-friendly reachability on mobile. |
 | 111 | `test(responsive-ui): verify body scroll lock when mobile sidebar is open` | `responsive-ui` | ✅ PASSED | Prevents background content from scrolling. |
+| 112 | `test(responsive-ui): verify transition ease-in-out on sidebar open/close` | `responsive-ui` | ✅ PASSED | Delivers smooth 60fps animations. |
