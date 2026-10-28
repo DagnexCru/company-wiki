@@ -87,3 +87,4 @@
 | 81 | `test(auth-flow): verify protected routes intercept unauthorized visits post-logout` | `auth-flow` | ✅ PASSED | Ensures PrivateRoute redirects to /login. |
 | 82 | `test(auth-flow): verify backend API returns 401 Unauthorized for expired tokens` | `auth-flow` | ✅ PASSED | Validates JWT rejection on backend endpoints. |
 | 83 | `test(auth-flow): verify Axios request interceptor removes Authorization header` | `auth-flow` | ✅ PASSED | Prevents sending stale Bearer token headers. |
+| 84 | `test(auth-flow): verify presence heartbeat stops firing immediately upon logout` | `auth-flow` | ✅ PASSED | Cancels active presence timer on signout. |
