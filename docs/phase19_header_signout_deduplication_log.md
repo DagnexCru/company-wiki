@@ -103,3 +103,4 @@
 | 97 | `test(auth-flow): verify clean URL state without dangling tokens or codes` | `auth-flow` | ✅ PASSED | Purges any residual OAuth params. |
 | 98 | `test(auth-flow): verify session timeout warning triggers logout cleanly` | `auth-flow` | ✅ PASSED | Handles idle session timeout scenarios. |
 | 99 | `test(auth-flow): verify secure cookie clearing for HttpOnly setups` | `auth-flow` | ✅ PASSED | Prepares architecture for cookie-based auth. |
+| 100 | `test(auth-flow): complete session destruction and token clearing sign-off` | `auth-flow` | ✅ PASSED | Signs off on secure logout implementation. |
