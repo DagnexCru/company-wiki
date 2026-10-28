@@ -62,3 +62,4 @@
 | 56 | `ux(sidebar-signout): verify mobile auto-close callback execution on signout` | `sidebar-signout` | ✅ PASSED | Invokes onClose() when user taps signout on mobile. |
 | 57 | `ux(sidebar-signout): verify active role indicator positioned directly above signout` | `sidebar-signout` | ✅ PASSED | Provides clear user context prior to logging out. |
 | 58 | `ux(sidebar-signout): verify role display box styling with slate-800 pill` | `sidebar-signout` | ✅ PASSED | Ensures neat contrast with Active Role label. |
+| 59 | `test(sidebar-signout): verify signout button renders only when user is authenticated` | `sidebar-signout` | ✅ PASSED | Prevents ghost buttons for guest sessions. |
