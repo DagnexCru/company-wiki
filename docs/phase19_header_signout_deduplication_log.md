@@ -93,3 +93,4 @@
 | 87 | `test(auth-flow): verify notification subscriptions unsubscribe on logout` | `auth-flow` | ✅ PASSED | Closes active event listeners cleanly. |
 | 88 | `test(auth-flow): verify public portal remains accessible without authentication` | `auth-flow` | ✅ PASSED | Ensures /public routes continue working. |
 | 89 | `test(auth-flow): verify re-login flow restores clean session state` | `auth-flow` | ✅ PASSED | Validates seamless re-authentication. |
+| 90 | `test(auth-flow): verify logout operates reliably across multiple browser tabs` | `auth-flow` | ✅ PASSED | Synchronizes session clearing via storage event. |
