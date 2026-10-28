@@ -129,3 +129,4 @@
 | 123 | `test(responsive-ui): verify sidebar drawer z-index (z-50) over sticky header` | `responsive-ui` | ✅ PASSED | Ensures drawer covers header on mobile view. |
 | 124 | `test(responsive-ui): verify close button in mobile sidebar drawer` | `responsive-ui` | ✅ PASSED | Provides explicit X button for drawer dismissal. |
 | 125 | `test(responsive-ui): complete responsive breakpoints and ergonomics sign-off` | `responsive-ui` | ✅ PASSED | Signs off on multi-device compatibility. |
+| 126 | `feat(command-palette): verify CommandPalette includes quick Sign Out option` | `command-palette` | ✅ PASSED | Provides power-user keyboard shortcut to sign out. |
