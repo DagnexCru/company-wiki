@@ -149,3 +149,4 @@
 | 143 | `test(command-palette): verify dark glassmorphism modal design aesthetic` | `command-palette` | ✅ PASSED | Matches enterprise theme consistency. |
 | 144 | `test(command-palette): verify keyboard shortcut badge 'Ctrl K' in header input` | `command-palette` | ✅ PASSED | Provides clear visual discovery for users. |
 | 145 | `test(command-palette): verify Mac OS detection displays 'Cmd K' appropriately` | `command-palette` | ✅ PASSED | Adapts platform modifier key symbol. |
+| 146 | `test(command-palette): verify zero event listener leaks on palette unmount` | `command-palette` | ✅ PASSED | Cleans up keydown listeners in useEffect. |
