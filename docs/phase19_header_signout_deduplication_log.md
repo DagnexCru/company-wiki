@@ -175,3 +175,4 @@
 | 169 | `test(security-auth): verify zero credentials leak into browser console logs` | `security-auth` | ✅ PASSED | Cleans up diagnostic print statements. |
 | 170 | `test(security-auth): complete security invalidation and token lifecycle sign-off` | `security-auth` | ✅ PASSED | Signs off on enterprise auth security. |
 | 171 | `feat(ui-dedup): verify header top-right contains only search and user profile` | `ui-dedup` | ✅ PASSED | Achieves clean, intentional header layout. |
+| 172 | `feat(ui-dedup): verify sidebar bottom remains single source of truth for signout` | `ui-dedup` | ✅ PASSED | Prevents visual duplication and user confusion. |
