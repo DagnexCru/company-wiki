@@ -41,3 +41,4 @@
 | 35 | `test(profile-link): verify profile link cursor displays pointer on hover` | `profile-link` | ✅ PASSED | Confirms intuitive visual affordability. |
 | 36 | `test(profile-link): verify keyboard focus outline on profile link` | `profile-link` | ✅ PASSED | Enables tab navigation to user profile. |
 | 37 | `test(profile-link): verify title attribute tooltips for assistive devices` | `profile-link` | ✅ PASSED | Displays 'View profile and account settings'. |
+| 38 | `test(profile-link): verify initials calculation handles single-word names` | `profile-link` | ✅ PASSED | Falls back to first two characters correctly. |
