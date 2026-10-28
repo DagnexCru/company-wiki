@@ -69,3 +69,4 @@
 | 63 | `test(sidebar-signout): verify Space key activates signout when button is focused` | `sidebar-signout` | ✅ PASSED | Standard browser button keyboard behavior. |
 | 64 | `test(sidebar-signout): verify button type is explicitly set to type='button'` | `sidebar-signout` | ✅ PASSED | Prevents accidental form submission triggers. |
 | 65 | `test(sidebar-signout): verify cursor pointer is set on signout button` | `sidebar-signout` | ✅ PASSED | Ensures proper visual affordance. |
+| 66 | `test(sidebar-signout): verify shadow-xs depth styling matches design system` | `sidebar-signout` | ✅ PASSED | Maintains visual hierarchy in dark mode. |
