@@ -98,3 +98,4 @@
 | 92 | `test(auth-flow): verify zero memory leaks after session termination` | `auth-flow` | ✅ PASSED | Confirms garbage collection of user data. |
 | 93 | `test(auth-flow): verify remember-me token handling conforms to security policy` | `auth-flow` | ✅ PASSED | Invalidates persistent tokens on demand. |
 | 94 | `test(auth-flow): verify audit log records user signout event if enabled` | `auth-flow` | ✅ PASSED | Provides audit trail for compliance. |
+| 95 | `test(auth-flow): verify logout response time completes in < 50ms locally` | `auth-flow` | ✅ PASSED | Ensures instantaneous UI responsiveness. |
