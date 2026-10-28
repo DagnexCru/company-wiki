@@ -117,3 +117,4 @@
 | 111 | `test(responsive-ui): verify body scroll lock when mobile sidebar is open` | `responsive-ui` | ✅ PASSED | Prevents background content from scrolling. |
 | 112 | `test(responsive-ui): verify transition ease-in-out on sidebar open/close` | `responsive-ui` | ✅ PASSED | Delivers smooth 60fps animations. |
 | 113 | `test(responsive-ui): verify search icon remains visible on mobile viewports` | `responsive-ui` | ✅ PASSED | Enables one-tap access to command palette. |
+| 114 | `test(responsive-ui): verify company logo scales responsively on small viewports` | `responsive-ui` | ✅ PASSED | Prevents logo distortion or cropping. |
