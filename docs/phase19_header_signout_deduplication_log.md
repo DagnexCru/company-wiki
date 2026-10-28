@@ -169,3 +169,4 @@
 | 163 | `test(security-auth): verify rate limiting on authentication endpoints` | `security-auth` | ✅ PASSED | Prevents brute force attacks on /login. |
 | 164 | `test(security-auth): verify audit trail captures IP and user agent on logout` | `security-auth` | ✅ PASSED | Logs security forensics for enterprise. |
 | 165 | `test(security-auth): verify password reset invalidates all existing sessions` | `security-auth` | ✅ PASSED | Forces re-authentication across devices. |
+| 166 | `test(security-auth): verify multi-tab session synchronization via broadcast` | `security-auth` | ✅ PASSED | BroadcastChannel or storage event sync. |
