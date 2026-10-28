@@ -130,3 +130,4 @@
 | 124 | `test(responsive-ui): verify close button in mobile sidebar drawer` | `responsive-ui` | ✅ PASSED | Provides explicit X button for drawer dismissal. |
 | 125 | `test(responsive-ui): complete responsive breakpoints and ergonomics sign-off` | `responsive-ui` | ✅ PASSED | Signs off on multi-device compatibility. |
 | 126 | `feat(command-palette): verify CommandPalette includes quick Sign Out option` | `command-palette` | ✅ PASSED | Provides power-user keyboard shortcut to sign out. |
+| 127 | `feat(command-palette): verify Ctrl+K / Cmd+K opens command palette instantly` | `command-palette` | ✅ PASSED | Ensures universal keyboard shortcut availability. |
