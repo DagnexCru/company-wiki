@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Search, LogOut, Menu } from "lucide-react";
+import { BookOpen, Search, Menu } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 interface HeaderProps {
@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ onToggleSidebar }: HeaderProps) => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   const getRoleBadge = (role?: string) => {
     switch (role) {
@@ -95,46 +95,34 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
           <Search className="w-5 h-5" />
         </button>
         {user ? (
-          <>
-            <Link
-              to="/profile"
-              className="flex items-center gap-2 pl-2 hover:opacity-90 transition group cursor-pointer"
-              title="View profile and account settings"
-            >
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm group-hover:scale-105 transition-transform">
-                {user.full_name
-                  ? user.full_name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")
-                      .toUpperCase()
-                  : user.username.slice(0, 2).toUpperCase()}
+          <Link
+            to="/profile"
+            className="flex items-center gap-2 pl-2 hover:opacity-90 transition group cursor-pointer"
+            title="View profile and account settings"
+          >
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm group-hover:scale-105 transition-transform">
+              {user.full_name
+                ? user.full_name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .toUpperCase()
+                : user.username.slice(0, 2).toUpperCase()}
+            </div>
+            <div className="hidden sm:block text-left text-xs">
+              <p className="font-bold text-slate-200 group-hover:text-indigo-300 transition-colors leading-tight">
+                {user.full_name || user.username}
+              </p>
+              <div className="flex items-center gap-1 mt-0.5">
+                <span
+                  className={`inline-flex items-center gap-1 text-[10px] px-1.5 py-0.2 rounded-full border font-semibold ${roleInfo.classes}`}
+                >
+                  <span>{roleInfo.icon}</span>
+                  <span>{roleInfo.label}</span>
+                </span>
               </div>
-              <div className="hidden sm:block text-left text-xs">
-                <p className="font-bold text-slate-200 group-hover:text-indigo-300 transition-colors leading-tight">
-                  {user.full_name || user.username}
-                </p>
-                <div className="flex items-center gap-1 mt-0.5">
-                  <span
-                    className={`inline-flex items-center gap-1 text-[10px] px-1.5 py-0.2 rounded-full border font-semibold ${roleInfo.classes}`}
-                  >
-                    <span>{roleInfo.icon}</span>
-                    <span>{roleInfo.label}</span>
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => logout()}
-              title="Sign out of your session"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700/80 hover:border-rose-500/50 bg-slate-800/80 hover:bg-rose-950/40 text-slate-300 hover:text-rose-300 text-xs font-semibold shadow-xs transition-all duration-200 cursor-pointer group hover:scale-[1.02] active:scale-[0.98] ml-1"
-            >
-              <LogOut className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-400 transition-colors" />
-              <span>Sign Out</span>
-            </button>
-          </>
+            </div>
+          </Link>
         ) : (
           <a
             href="/login"
