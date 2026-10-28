@@ -127,3 +127,4 @@
 | 121 | `test(responsive-ui): verify landscape orientation handling on smartphones` | `responsive-ui` | ✅ PASSED | Maintains readable header and usable drawer. |
 | 122 | `test(responsive-ui): verify font size scaling uses clamp or Tailwind rem scale` | `responsive-ui` | ✅ PASSED | Maintains proportional typography. |
 | 123 | `test(responsive-ui): verify sidebar drawer z-index (z-50) over sticky header` | `responsive-ui` | ✅ PASSED | Ensures drawer covers header on mobile view. |
+| 124 | `test(responsive-ui): verify close button in mobile sidebar drawer` | `responsive-ui` | ✅ PASSED | Provides explicit X button for drawer dismissal. |
