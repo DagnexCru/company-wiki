@@ -119,3 +119,4 @@
 | 113 | `test(responsive-ui): verify search icon remains visible on mobile viewports` | `responsive-ui` | ✅ PASSED | Enables one-tap access to command palette. |
 | 114 | `test(responsive-ui): verify company logo scales responsively on small viewports` | `responsive-ui` | ✅ PASSED | Prevents logo distortion or cropping. |
 | 115 | `test(responsive-ui): verify Workspace badge hidden gracefully on narrow widths` | `responsive-ui` | ✅ PASSED | Saves valuable header horizontal real estate. |
+| 116 | `test(responsive-ui): verify header border bottom styling remains continuous` | `responsive-ui` | ✅ PASSED | Ensures uninterrupted slate-800 divider. |
