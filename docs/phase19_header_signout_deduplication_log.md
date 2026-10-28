@@ -151,3 +151,4 @@
 | 145 | `test(command-palette): verify Mac OS detection displays 'Cmd K' appropriately` | `command-palette` | ✅ PASSED | Adapts platform modifier key symbol. |
 | 146 | `test(command-palette): verify zero event listener leaks on palette unmount` | `command-palette` | ✅ PASSED | Cleans up keydown listeners in useEffect. |
 | 147 | `test(command-palette): verify screen reader aria attributes on combobox` | `command-palette` | ✅ PASSED | Complies with ARIA 1.2 modal combobox pattern. |
+| 148 | `test(command-palette): verify performance during rapid keystroke filtering` | `command-palette` | ✅ PASSED | Maintains silky smooth 60fps typing. |
