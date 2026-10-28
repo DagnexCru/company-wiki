@@ -124,3 +124,4 @@
 | 118 | `test(responsive-ui): verify touch gesture responsiveness on mobile signout` | `responsive-ui` | ✅ PASSED | Zero input delay on touchstart/touchend. |
 | 119 | `test(responsive-ui): verify viewport meta tag sets initial-scale=1.0` | `responsive-ui` | ✅ PASSED | Guarantees crisp rendering without zoom bugs. |
 | 120 | `test(responsive-ui): verify safe-area-inset padding on notched mobile displays` | `responsive-ui` | ✅ PASSED | Prevents clipping on iPhone Dynamic Island/notch. |
+| 121 | `test(responsive-ui): verify landscape orientation handling on smartphones` | `responsive-ui` | ✅ PASSED | Maintains readable header and usable drawer. |
