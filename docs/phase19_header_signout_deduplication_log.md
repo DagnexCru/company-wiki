@@ -85,3 +85,4 @@
 | 79 | `feat(auth-flow): verify AuthContext logout clears session storage cache` | `auth-flow` | ✅ PASSED | Purges any ephemeral workspace draft cache. |
 | 80 | `feat(auth-flow): verify AuthContext logout redirects user to /login` | `auth-flow` | ✅ PASSED | Directs unauthenticated user to login screen. |
 | 81 | `test(auth-flow): verify protected routes intercept unauthorized visits post-logout` | `auth-flow` | ✅ PASSED | Ensures PrivateRoute redirects to /login. |
+| 82 | `test(auth-flow): verify backend API returns 401 Unauthorized for expired tokens` | `auth-flow` | ✅ PASSED | Validates JWT rejection on backend endpoints. |
