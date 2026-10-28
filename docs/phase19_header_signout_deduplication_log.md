@@ -70,3 +70,4 @@
 | 64 | `test(sidebar-signout): verify button type is explicitly set to type='button'` | `sidebar-signout` | ✅ PASSED | Prevents accidental form submission triggers. |
 | 65 | `test(sidebar-signout): verify cursor pointer is set on signout button` | `sidebar-signout` | ✅ PASSED | Ensures proper visual affordance. |
 | 66 | `test(sidebar-signout): verify shadow-xs depth styling matches design system` | `sidebar-signout` | ✅ PASSED | Maintains visual hierarchy in dark mode. |
+| 67 | `test(sidebar-signout): verify sticky footer positioning at bottom of sidebar` | `sidebar-signout` | ✅ PASSED | Keeps signout anchored regardless of nav scroll. |
