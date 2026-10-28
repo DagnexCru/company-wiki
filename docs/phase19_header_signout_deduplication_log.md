@@ -49,3 +49,4 @@
 | 43 | `test(profile-link): verify zero layout shift (CLS) when auth user loads` | `profile-link` | ✅ PASSED | Ensures layout stability during session hydration. |
 | 44 | `test(profile-link): verify fast rerender performance with React.memo compatibility` | `profile-link` | ✅ PASSED | Prevents unnecessary header repaints. |
 | 45 | `test(profile-link): verify profile navigation updates document title` | `profile-link` | ✅ PASSED | Ensures breadcrumb and title synchronization. |
+| 46 | `test(profile-link): verify profile link preserves query params if needed` | `profile-link` | ✅ PASSED | Ensures clean URL transitions. |
