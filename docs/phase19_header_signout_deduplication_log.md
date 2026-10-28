@@ -35,3 +35,4 @@
 | 29 | `style(profile-link): verify role badge border opacity and subtle glow` | `profile-link` | ✅ PASSED | Polishes enterprise design aesthetics. |
 | 30 | `test(profile-link): verify ADMIN role badge displays crown icon and purple theme` | `profile-link` | ✅ PASSED | Validates Administrator role styling. |
 | 31 | `test(profile-link): verify AUTHOR role badge displays pencil icon and emerald theme` | `profile-link` | ✅ PASSED | Validates Author role styling. |
+| 32 | `test(profile-link): verify REVIEWER role badge displays search icon and amber theme` | `profile-link` | ✅ PASSED | Validates Reviewer role styling. |
