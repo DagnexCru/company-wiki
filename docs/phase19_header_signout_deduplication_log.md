@@ -166,3 +166,4 @@
 | 160 | `test(security-auth): verify authorization header validation on Django views` | `security-auth` | ✅ PASSED | Rejects requests lacking valid Bearer prefix. |
 | 161 | `test(security-auth): verify CORS headers restrict origins appropriately` | `security-auth` | ✅ PASSED | Guards API against cross-origin abuse. |
 | 162 | `test(security-auth): verify Secure and SameSite flags on auth cookies` | `security-auth` | ✅ PASSED | Standardizes enterprise cookie policies. |
+| 163 | `test(security-auth): verify rate limiting on authentication endpoints` | `security-auth` | ✅ PASSED | Prevents brute force attacks on /login. |
