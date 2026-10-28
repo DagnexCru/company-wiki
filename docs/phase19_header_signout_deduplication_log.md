@@ -172,3 +172,4 @@
 | 166 | `test(security-auth): verify multi-tab session synchronization via broadcast` | `security-auth` | ✅ PASSED | BroadcastChannel or storage event sync. |
 | 167 | `test(security-auth): verify permission checks on role change without re-login` | `security-auth` | ✅ PASSED | Refreshes user profile on role updates. |
 | 168 | `test(security-auth): verify secure storage fallback when localStorage blocked` | `security-auth` | ✅ PASSED | Gracefully warns user if storage disabled. |
+| 169 | `test(security-auth): verify zero credentials leak into browser console logs` | `security-auth` | ✅ PASSED | Cleans up diagnostic print statements. |
