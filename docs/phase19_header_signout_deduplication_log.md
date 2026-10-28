@@ -178,3 +178,4 @@
 | 172 | `feat(ui-dedup): verify sidebar bottom remains single source of truth for signout` | `ui-dedup` | ✅ PASSED | Prevents visual duplication and user confusion. |
 | 173 | `feat(ui-dedup): verify user profile link in header leads to comprehensive profile` | `ui-dedup` | ✅ PASSED | Ensures intuitive profile access. |
 | 174 | `feat(ui-dedup): verify dedicated Sign Out button in ProfilePage accounts tab` | `ui-dedup` | ✅ PASSED | Provides secondary signout within profile. |
+| 175 | `style(ui-dedup): verify consistent typography across all navigation elements` | `ui-dedup` | ✅ PASSED | Harmonizes font weights and tracking. |
