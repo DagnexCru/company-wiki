@@ -31,3 +31,4 @@
 | 25 | `test(header-ui): verify zero console warnings on header component render` | `header-ui` | ✅ PASSED | Validates clean React render cycle. |
 | 26 | `feat(profile-link): optimize click target padding around profile badge` | `profile-link` | ✅ PASSED | Enhances touch and mouse ergonomics on /profile link. |
 | 27 | `style(profile-link): refine group-hover transition on user display name` | `profile-link` | ✅ PASSED | Smooth color transition to indigo-300 on hover. |
+| 28 | `style(profile-link): standardize badge padding and font size (text-[10px])` | `profile-link` | ✅ PASSED | Maintains consistent typography scale across UI. |
