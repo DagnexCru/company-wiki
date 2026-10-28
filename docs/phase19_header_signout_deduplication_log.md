@@ -162,3 +162,4 @@
 | 156 | `test(security-auth): verify no sensitive user claims exposed in DOM attributes` | `security-auth` | ✅ PASSED | Audit verifies clean data attribute usage. |
 | 157 | `test(security-auth): verify token expiration redirects smoothly to /login` | `security-auth` | ✅ PASSED | Auto-logout when JWT expires naturally. |
 | 158 | `test(security-auth): verify refresh token rotation prevents replay attacks` | `security-auth` | ✅ PASSED | Django simplejwt rotates refresh tokens. |
+| 159 | `test(security-auth): verify blacklisted token table entries on signout` | `security-auth` | ✅ PASSED | Backend blacklists active refresh token. |
