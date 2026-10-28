@@ -27,3 +27,4 @@
 | 21 | `test(header-ui): verify z-index stacking hierarchy (z-30) over page body` | `header-ui` | ✅ PASSED | Prevents article content from bleeding through header. |
 | 22 | `test(header-ui): verify DOM cleanliness with zero orphan button elements` | `header-ui` | ✅ PASSED | Confirms DOM tree inspection in React DevTools. |
 | 23 | `test(header-ui): verify HTML semantics use proper header and nav tags` | `header-ui` | ✅ PASSED | Ensures semantic web standards compliance. |
+| 24 | `test(header-ui): verify accessibility aria-label on search button` | `header-ui` | ✅ PASSED | Preserves screen reader accessibility. |
