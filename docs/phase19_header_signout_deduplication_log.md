@@ -45,3 +45,4 @@
 | 39 | `test(profile-link): verify initials calculation handles multi-word names` | `profile-link` | ✅ PASSED | Extracts first letter of first and last name. |
 | 40 | `test(profile-link): verify initials calculation handles special characters` | `profile-link` | ✅ PASSED | Safely upper-cases alphanumeric symbols. |
 | 41 | `test(profile-link): verify initials calculation with null full_name` | `profile-link` | ✅ PASSED | Gracefully falls back to username prefix. |
+| 42 | `test(profile-link): verify avatar background gradient stays crisp on retina displays` | `profile-link` | ✅ PASSED | Validates SVG / CSS gradient rendering. |
