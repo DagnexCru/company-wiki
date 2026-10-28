@@ -89,3 +89,4 @@
 | 83 | `test(auth-flow): verify Axios request interceptor removes Authorization header` | `auth-flow` | ✅ PASSED | Prevents sending stale Bearer token headers. |
 | 84 | `test(auth-flow): verify presence heartbeat stops firing immediately upon logout` | `auth-flow` | ✅ PASSED | Cancels active presence timer on signout. |
 | 85 | `test(auth-flow): verify presence leave beacon is dispatched before session wipe` | `auth-flow` | ✅ PASSED | Releases active viewer locks on logout. |
+| 86 | `test(auth-flow): verify command palette clears user-specific history on logout` | `auth-flow` | ✅ PASSED | Purges recent searches from local state. |
