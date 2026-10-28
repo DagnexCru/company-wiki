@@ -182,3 +182,4 @@
 | 176 | `style(ui-dedup): verify coherent icon sizing across header and sidebar` | `ui-dedup` | ✅ PASSED | Standardizes icons to 14px-20px bounds. |
 | 177 | `style(ui-dedup): verify brand palette fidelity across slate, indigo, and rose` | `ui-dedup` | ✅ PASSED | Adheres strictly to design tokens. |
 | 178 | `test(e2e-ui): execute complete user navigation smoke test` | `e2e-ui` | ✅ PASSED | Navigates Dashboard -> Articles -> Profile -> Sign Out. |
+| 179 | `test(e2e-ui): verify Vite production bundle builds with zero errors` | `e2e-ui` | ✅ PASSED | tsc -b && vite build executes cleanly. |
