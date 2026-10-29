@@ -124,3 +124,4 @@
 | 118 | `test(metadata-diff): verify diff stats deletions pill with Minus icon` | `metadata-diff` | ✅ PASSED | Displays '-Y removed' in rose pill. |
 | 119 | `test(metadata-diff): verify net change calculation correctness` | `metadata-diff` | ✅ PASSED | Additions and deletions sum matches line counts. |
 | 120 | `test(metadata-diff): verify summary diff handles rich text or multiline text` | `metadata-diff` | ✅ PASSED | Renders paragraphs without breaking card. |
+| 121 | `test(metadata-diff): verify metadata diff card layout in dark mode` | `metadata-diff` | ✅ PASSED | Ensures crisp borders and background contrast. |
