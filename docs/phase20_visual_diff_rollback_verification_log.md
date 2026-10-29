@@ -129,3 +129,4 @@
 | 123 | `test(metadata-diff): verify accessibility labels on metadata delta badges` | `metadata-diff` | ✅ PASSED | Provides clear screen reader context. |
 | 124 | `test(metadata-diff): verify zero memory leaks on rapid revision comparisons` | `metadata-diff` | ✅ PASSED | Cleans up component state on revision changes. |
 | 125 | `test(metadata-diff): complete metadata delta tracking verification` | `metadata-diff` | ✅ PASSED | Signs off on metadata comparison features. |
+| 126 | `feat(rbac-revisions): restrict revision history view to Admin, Reviewer, and Author` | `rbac-revisions` | ✅ PASSED | Prevents unauthorized access by Readers. |
