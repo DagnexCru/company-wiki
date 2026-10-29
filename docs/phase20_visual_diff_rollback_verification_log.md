@@ -27,3 +27,4 @@
 | 21 | `test(revision-model): verify database migration status is clean` | `revision-model` | ✅ PASSED | All PostgreSQL migrations fully up to date. |
 | 22 | `test(revision-model): verify RESTful revision endpoints routing` | `revision-model` | ✅ PASSED | Routes GET /revisions/ and GET /revisions/<rev>/. |
 | 23 | `test(revision-model): verify RESTful revision diff endpoint routing` | `revision-model` | ✅ PASSED | Routes GET /revisions/diff/?from=X&to=Y. |
+| 24 | `test(revision-model): verify RESTful revision restore endpoint routing` | `revision-model` | ✅ PASSED | Routes POST /revisions/<rev>/restore/. |
