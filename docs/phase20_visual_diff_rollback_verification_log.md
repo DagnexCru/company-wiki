@@ -77,3 +77,4 @@
 | 71 | `test(rollback): verify content equality between restored version and target` | `rollback` | ✅ PASSED | Asserts article.content matches target revision content. |
 | 72 | `test(rollback): verify audit trail records restore actor and IP address` | `rollback` | ✅ PASSED | Confirms audit event attributes. |
 | 73 | `test(rollback): verify Reader role receives 403 Forbidden on restore attempt` | `rollback` | ✅ PASSED | Enforces server-side security checks. |
+| 74 | `test(rollback): verify 404 response when restoring non-existent revision` | `rollback` | ✅ PASSED | Returns clear error message on invalid version. |
