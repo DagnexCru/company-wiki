@@ -102,3 +102,4 @@
 | 96 | `test(split-diff): verify column divider styling border-r border-slate-200` | `split-diff` | ✅ PASSED | Separates left and right split panes clearly. |
 | 97 | `test(split-diff): verify diff line counter badge in toolbar header` | `split-diff` | ✅ PASSED | Displays total diff lines count. |
 | 98 | `test(split-diff): verify toggle button active state styling with shadow-xs` | `split-diff` | ✅ PASSED | Indicates active Split or Unified mode clearly. |
+| 99 | `test(split-diff): verify view mode toggle persists during tab switches` | `split-diff` | ✅ PASSED | Retains user viewing preference. |
