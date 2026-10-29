@@ -50,3 +50,4 @@
 | 44 | `test(diff-engine): verify in-place sentence edits compute clean replacement diff` | `diff-engine` | ✅ PASSED | Calculates adjacent - and + diff line pairs. |
 | 45 | `test(diff-engine): verify whitespace change sensitivity in line comparison` | `diff-engine` | ✅ PASSED | Distinguishes indentation and whitespace changes. |
 | 46 | `test(diff-engine): verify code block syntax changes highlighted cleanly` | `diff-engine` | ✅ PASSED | Tracks modifications inside markdown code fences. |
+| 47 | `test(diff-engine): verify table syntax changes highlighted cleanly` | `diff-engine` | ✅ PASSED | Tracks markdown table row and column adjustments. |
