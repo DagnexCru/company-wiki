@@ -171,3 +171,4 @@
 | 165 | `feat(ui-polish): add optional reason input in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Captures justification for revision history log. |
 | 166 | `feat(ui-polish): style cancel and confirm buttons in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Provides clear visual hierarchy for actions. |
 | 167 | `feat(ui-polish): disable restore buttons during active submission` | `ui-polish` | ✅ PASSED | Prevents accidental double-clicks during rollback. |
+| 168 | `feat(ui-polish): show loading spinner during snapshot preview fetch` | `ui-polish` | ✅ PASSED | Delivers smooth visual feedback during loading. |
