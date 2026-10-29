@@ -109,3 +109,4 @@
 | 103 | `feat(metadata-diff): render Tag Changes card when tags added or removed` | `metadata-diff` | ✅ PASSED | Displays removed tags in rose badge and added tags in emerald badge. |
 | 104 | `feat(metadata-diff): render Summary / Excerpt Difference card when changed` | `metadata-diff` | ✅ PASSED | Displays side-by-side comparison of revision summaries. |
 | 105 | `style(metadata-diff): use amber-50 / amber-950 theme for title change alert` | `metadata-diff` | ✅ PASSED | Draws appropriate visual attention to title edits. |
+| 106 | `style(metadata-diff): use rose line-through text for removed metadata items` | `metadata-diff` | ✅ PASSED | Provides clear visual cues for deleted attributes. |
