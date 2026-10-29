@@ -47,3 +47,4 @@
 | 41 | `test(diff-engine): verify identical revisions produce 0 additions and 0 deletions` | `diff-engine` | ✅ PASSED | Asserts empty diff output when content matches. |
 | 42 | `test(diff-engine): verify multiline paragraph additions tracked accurately` | `diff-engine` | ✅ PASSED | Correctly identifies newly appended text sections. |
 | 43 | `test(diff-engine): verify multiline paragraph deletions tracked accurately` | `diff-engine` | ✅ PASSED | Correctly identifies removed text sections. |
+| 44 | `test(diff-engine): verify in-place sentence edits compute clean replacement diff` | `diff-engine` | ✅ PASSED | Calculates adjacent - and + diff line pairs. |
