@@ -156,3 +156,4 @@
 | 150 | `test(rbac-revisions): complete RBAC security and audit invariant sign-off` | `rbac-revisions` | ✅ PASSED | Signs off on revision security architecture. |
 | 151 | `feat(ui-polish): integrate version badge v{N} into ArticleDetailPage Revisions button` | `ui-polish` | ✅ PASSED | Displays current version pill beside Revisions label. |
 | 152 | `feat(ui-polish): add breadcrumb trail in ArticleRevisionHistoryPage` | `ui-polish` | ✅ PASSED | Navigates Articles / {slug} / Revision History. |
+| 153 | `feat(ui-polish): add 'Back to Article' action button in revision header` | `ui-polish` | ✅ PASSED | Provides one-click return to article reading view. |
