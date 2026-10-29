@@ -152,3 +152,4 @@
 | 146 | `test(rbac-revisions): verify rate limiting on revision diff calculations` | `rbac-revisions` | ✅ PASSED | Protects server CPU against abuse. |
 | 147 | `test(rbac-revisions): verify authorization header check on revision endpoints` | `rbac-revisions` | ✅ PASSED | Requires valid Bearer JWT token. |
 | 148 | `test(rbac-revisions): verify token expiration redirects gracefully to /login` | `rbac-revisions` | ✅ PASSED | Handles session expiration cleanly. |
+| 149 | `test(rbac-revisions): verify audit log inspection in Django Admin` | `rbac-revisions` | ✅ PASSED | Exposes revision audit records in admin portal. |
