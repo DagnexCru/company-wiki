@@ -165,3 +165,4 @@
 | 159 | `feat(ui-polish): add Preview button on each timeline revision card` | `ui-polish` | ✅ PASSED | Switches to snapshot tab for selected version. |
 | 160 | `feat(ui-polish): display restoration badge uppercase pill on restored versions` | `ui-polish` | ✅ PASSED | Identifies rollbacks visually in timeline. |
 | 161 | `feat(ui-polish): display author username and role in revision timeline cards` | `ui-polish` | ✅ PASSED | Identifies who authored each revision. |
+| 162 | `feat(ui-polish): display relative and formatted date on timeline cards` | `ui-polish` | ✅ PASSED | Shows readable creation timestamps. |
