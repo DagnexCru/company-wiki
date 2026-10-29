@@ -115,3 +115,4 @@
 | 109 | `test(metadata-diff): verify handling of empty category fallback text` | `metadata-diff` | ✅ PASSED | Displays (None) when category was unassigned. |
 | 110 | `test(metadata-diff): verify handling of empty summary fallback text` | `metadata-diff` | ✅ PASSED | Displays 'Empty summary' placeholder. |
 | 111 | `test(metadata-diff): verify tag changes card spans 2 columns in metadata grid` | `metadata-diff` | ✅ PASSED | Balances layout symmetry with md:col-span-2. |
+| 112 | `test(metadata-diff): verify multiple tag additions and deletions simultaneously` | `metadata-diff` | ✅ PASSED | Correctly separates added and removed tags. |
