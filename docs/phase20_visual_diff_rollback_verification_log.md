@@ -184,3 +184,4 @@
 | 178 | `test(e2e-diff): verify v{N} version badge increments to v{N+1} post-restore` | `e2e-diff` | ✅ PASSED | Validates version pill reactivity. |
 | 179 | `test(e2e-diff): verify Vite production bundle builds cleanly with zero errors` | `e2e-diff` | ✅ PASSED | tsc -b && vite build executes with code 0. |
 | 180 | `test(e2e-diff): verify Django backend passes all system checks with 0 issues` | `e2e-diff` | ✅ PASSED | manage.py check passes with 0 issues. |
+| 181 | `test(e2e-diff): verify cross-browser compatibility in Chrome, Edge, and Firefox` | `e2e-diff` | ✅ PASSED | Visual diff layout verified across engines. |
