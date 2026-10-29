@@ -71,3 +71,4 @@
 | 65 | `feat(rollback): add one-click restore button in revision timeline cards` | `rollback` | ✅ PASSED | Enables quick rollback directly from history list. |
 | 66 | `feat(rollback): add one-click restore button in snapshot preview header` | `rollback` | ✅ PASSED | Enables rollback after inspecting full version snapshot. |
 | 67 | `feat(rollback): implement RestoreConfirmModal dialog with reason input` | `rollback` | ✅ PASSED | Requires confirmation and explains non-destructive invariant. |
+| 68 | `feat(rollback): display clear green banner upon successful restoration` | `rollback` | ✅ PASSED | Notifies user of new revision number generated. |
