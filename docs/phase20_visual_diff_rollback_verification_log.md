@@ -159,3 +159,4 @@
 | 153 | `feat(ui-polish): add 'Back to Article' action button in revision header` | `ui-polish` | ✅ PASSED | Provides one-click return to article reading view. |
 | 154 | `feat(ui-polish): style revision selector dropdowns in diff toolbar` | `ui-polish` | ✅ PASSED | Styles From and To version selects with slate borders. |
 | 155 | `feat(ui-polish): add 'View Diff' primary button in diff toolbar` | `ui-polish` | ✅ PASSED | Triggers diff calculation and activates diff tab. |
+| 156 | `feat(ui-polish): add 3 primary tabs: Timeline, Snapshot Preview, Diff` | `ui-polish` | ✅ PASSED | Enables seamless exploration of revision history. |
