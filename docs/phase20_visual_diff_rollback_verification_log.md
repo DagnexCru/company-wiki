@@ -49,3 +49,4 @@
 | 43 | `test(diff-engine): verify multiline paragraph deletions tracked accurately` | `diff-engine` | ✅ PASSED | Correctly identifies removed text sections. |
 | 44 | `test(diff-engine): verify in-place sentence edits compute clean replacement diff` | `diff-engine` | ✅ PASSED | Calculates adjacent - and + diff line pairs. |
 | 45 | `test(diff-engine): verify whitespace change sensitivity in line comparison` | `diff-engine` | ✅ PASSED | Distinguishes indentation and whitespace changes. |
+| 46 | `test(diff-engine): verify code block syntax changes highlighted cleanly` | `diff-engine` | ✅ PASSED | Tracks modifications inside markdown code fences. |
