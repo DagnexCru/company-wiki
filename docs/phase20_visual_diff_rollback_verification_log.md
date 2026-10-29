@@ -79,3 +79,4 @@
 | 73 | `test(rollback): verify Reader role receives 403 Forbidden on restore attempt` | `rollback` | ✅ PASSED | Enforces server-side security checks. |
 | 74 | `test(rollback): verify 404 response when restoring non-existent revision` | `rollback` | ✅ PASSED | Returns clear error message on invalid version. |
 | 75 | `test(rollback): complete one-click rollback workflow verification` | `rollback` | ✅ PASSED | Signs off on non-destructive restoration. |
+| 76 | `feat(split-diff): implement Side-by-Side (Split) 2-column view in RevisionDiffViewer` | `split-diff` | ✅ PASSED | Renders original and target revisions in parallel panes. |
