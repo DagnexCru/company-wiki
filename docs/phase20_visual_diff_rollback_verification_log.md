@@ -68,3 +68,4 @@
 | 62 | `feat(rollback): implement revisionService.restoreRevision API client` | `rollback` | ✅ PASSED | Performs typed axios POST request with reason. |
 | 63 | `feat(rollback): add one-click restore button in RevisionDiffViewer for from_rev` | `rollback` | ✅ PASSED | Allows instant rollback to original revision from diff view. |
 | 64 | `feat(rollback): add one-click restore button in RevisionDiffViewer for to_rev` | `rollback` | ✅ PASSED | Allows instant rollback to target revision from diff view. |
+| 65 | `feat(rollback): add one-click restore button in revision timeline cards` | `rollback` | ✅ PASSED | Enables quick rollback directly from history list. |
