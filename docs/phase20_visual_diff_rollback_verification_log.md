@@ -63,3 +63,4 @@
 | 57 | `feat(rollback): log ARTICLE_RESTORE audit event in enterprise ledger` | `rollback` | ✅ PASSED | Creates tamper-evident audit record with actor and details. |
 | 58 | `feat(rollback): restrict rollback permissions to Admins and Authors` | `rollback` | ✅ PASSED | Prevents unauthorized users from reverting articles. |
 | 59 | `feat(rollback): restrict Author rollbacks to Draft or Rejected articles` | `rollback` | ✅ PASSED | Enforces workflow review requirements on published articles. |
+| 60 | `feat(rollback): permit Admin rollbacks across all article statuses` | `rollback` | ✅ PASSED | Provides administrative override capability. |
