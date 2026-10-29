@@ -108,3 +108,4 @@
 | 102 | `feat(metadata-diff): render Category Changed card when categories differ` | `metadata-diff` | ✅ PASSED | Shows old category crossed out and new category with folder icon. |
 | 103 | `feat(metadata-diff): render Tag Changes card when tags added or removed` | `metadata-diff` | ✅ PASSED | Displays removed tags in rose badge and added tags in emerald badge. |
 | 104 | `feat(metadata-diff): render Summary / Excerpt Difference card when changed` | `metadata-diff` | ✅ PASSED | Displays side-by-side comparison of revision summaries. |
+| 105 | `style(metadata-diff): use amber-50 / amber-950 theme for title change alert` | `metadata-diff` | ✅ PASSED | Draws appropriate visual attention to title edits. |
