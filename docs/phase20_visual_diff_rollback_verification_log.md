@@ -175,3 +175,4 @@
 | 169 | `feat(ui-polish): show loading spinner during diff calculation fetch` | `ui-polish` | ✅ PASSED | Delivers smooth visual feedback during diffing. |
 | 170 | `test(ui-polish): complete frontend ergonomics and responsive sign-off` | `ui-polish` | ✅ PASSED | Signs off on intuitive revision history UX. |
 | 171 | `test(e2e-diff): verify full round-trip: edit article -> create revision -> view diff` | `e2e-diff` | ✅ PASSED | Validates complete versioning lifecycle. |
+| 172 | `test(e2e-diff): verify side-by-side split visualizer renders additions and deletions` | `e2e-diff` | ✅ PASSED | Validates 2-column visual fidelity. |
