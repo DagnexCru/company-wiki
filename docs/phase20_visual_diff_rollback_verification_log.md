@@ -84,3 +84,4 @@
 | 78 | `feat(split-diff): implement synchronized dual-column row pairing algorithm` | `split-diff` | ✅ PASSED | Aligns corresponding deleted and added lines side-by-side. |
 | 79 | `feat(split-diff): display original line numbers in left pane` | `split-diff` | ✅ PASSED | Shows line numbers for source revision. |
 | 80 | `feat(split-diff): display target line numbers in right pane` | `split-diff` | ✅ PASSED | Shows line numbers for target revision. |
+| 81 | `feat(split-diff): render red deletion styling with minus prefix on left` | `split-diff` | ✅ PASSED | Highlights removed text in rose-50 / dark:rose-950. |
