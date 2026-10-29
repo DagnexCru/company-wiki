@@ -104,3 +104,4 @@
 | 98 | `test(split-diff): verify toggle button active state styling with shadow-xs` | `split-diff` | ✅ PASSED | Indicates active Split or Unified mode clearly. |
 | 99 | `test(split-diff): verify view mode toggle persists during tab switches` | `split-diff` | ✅ PASSED | Retains user viewing preference. |
 | 100 | `test(split-diff): complete split-pane line visualizer verification` | `split-diff` | ✅ PASSED | Signs off on 2-column side-by-side diff UI. |
+| 101 | `feat(metadata-diff): render Title Modified card when titles differ` | `metadata-diff` | ✅ PASSED | Highlights title changes with red strike-through and green addition. |
