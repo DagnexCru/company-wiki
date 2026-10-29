@@ -55,3 +55,4 @@
 | 49 | `test(diff-engine): verify response latency remains under 25ms for 50KB docs` | `diff-engine` | ✅ PASSED | Optimizes difflib execution performance. |
 | 50 | `test(diff-engine): complete diff engine backend architecture verification` | `diff-engine` | ✅ PASSED | Signs off on server-side comparison logic. |
 | 51 | `feat(rollback): implement restore_revision endpoint in ArticleViewSet` | `rollback` | ✅ PASSED | Exposes POST /api/v1/articles/<slug>/revisions/<rev>/restore/. |
+| 52 | `feat(rollback): enforce non-destructive roll-forward invariant on restore` | `rollback` | ✅ PASSED | Generates a NEW revision snapshot preserving all intermediate versions. |
