@@ -167,3 +167,4 @@
 | 161 | `feat(ui-polish): display author username and role in revision timeline cards` | `ui-polish` | ✅ PASSED | Identifies who authored each revision. |
 | 162 | `feat(ui-polish): display relative and formatted date on timeline cards` | `ui-polish` | ✅ PASSED | Shows readable creation timestamps. |
 | 163 | `feat(ui-polish): add Restore button on each timeline card for authorized users` | `ui-polish` | ✅ PASSED | Enables direct rollback from timeline list. |
+| 164 | `feat(ui-polish): style RestoreConfirmModal with amber alert banner` | `ui-polish` | ✅ PASSED | Emphasizes non-destructive history invariant. |
