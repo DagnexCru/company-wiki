@@ -98,3 +98,4 @@
 | 92 | `test(split-diff): verify zero text clipping on high-DPI displays` | `split-diff` | ✅ PASSED | Validates crisp font rendering on retina screens. |
 | 93 | `test(split-diff): verify Split View responsive behavior on tablet widths` | `split-diff` | ✅ PASSED | Adapts grid-cols-2 layout cleanly down to 768px. |
 | 94 | `test(split-diff): verify empty state rendering when revisions have no content diff` | `split-diff` | ✅ PASSED | Displays friendly AlertCircle empty state card. |
+| 95 | `test(split-diff): verify dark mode color contrast meets WCAG AA standards` | `split-diff` | ✅ PASSED | Ensures readable text on dark slate backgrounds. |
