@@ -64,3 +64,4 @@
 | 58 | `feat(rollback): restrict rollback permissions to Admins and Authors` | `rollback` | ✅ PASSED | Prevents unauthorized users from reverting articles. |
 | 59 | `feat(rollback): restrict Author rollbacks to Draft or Rejected articles` | `rollback` | ✅ PASSED | Enforces workflow review requirements on published articles. |
 | 60 | `feat(rollback): permit Admin rollbacks across all article statuses` | `rollback` | ✅ PASSED | Provides administrative override capability. |
+| 61 | `feat(rollback): return updated ArticleDetail and new revision numbers` | `rollback` | ✅ PASSED | Enables immediate client cache invalidation. |
