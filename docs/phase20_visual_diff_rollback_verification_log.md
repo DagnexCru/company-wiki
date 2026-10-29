@@ -169,3 +169,4 @@
 | 163 | `feat(ui-polish): add Restore button on each timeline card for authorized users` | `ui-polish` | ✅ PASSED | Enables direct rollback from timeline list. |
 | 164 | `feat(ui-polish): style RestoreConfirmModal with amber alert banner` | `ui-polish` | ✅ PASSED | Emphasizes non-destructive history invariant. |
 | 165 | `feat(ui-polish): add optional reason input in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Captures justification for revision history log. |
+| 166 | `feat(ui-polish): style cancel and confirm buttons in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Provides clear visual hierarchy for actions. |
