@@ -34,3 +34,4 @@
 | 28 | `feat(diff-engine): validate 'from' and 'to' parameters as valid integers` | `diff-engine` | ✅ PASSED | Prevents invalid or malformed query string injection. |
 | 29 | `feat(diff-engine): handle 404 response when source revision not found` | `diff-engine` | ✅ PASSED | Gracefully informs client of missing source revision. |
 | 30 | `feat(diff-engine): handle 404 response when target revision not found` | `diff-engine` | ✅ PASSED | Gracefully informs client of missing target revision. |
+| 31 | `feat(diff-engine): compute unified line diff via Python difflib` | `diff-engine` | ✅ PASSED | Generates standard unified diff lines with @@ hunks. |
