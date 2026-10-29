@@ -41,3 +41,4 @@
 | 35 | `feat(diff-engine): calculate summary modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_summary against to_summary. |
 | 36 | `feat(diff-engine): calculate category modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_category against to_category. |
 | 37 | `feat(diff-engine): calculate added and removed taxonomy tag sets` | `diff-engine` | ✅ PASSED | Computes set difference for tags_added/tags_removed. |
+| 38 | `feat(diff-engine): include from_content and to_content in diff payload` | `diff-engine` | ✅ PASSED | Provides full original and target text for split rendering. |
