@@ -136,3 +136,4 @@
 | 130 | `test(rbac-revisions): verify Admin can view revisions across all articles` | `rbac-revisions` | ✅ PASSED | Allows full administrative access to history. |
 | 131 | `test(rbac-revisions): verify Reviewer can view revisions for in_review and published articles` | `rbac-revisions` | ✅ PASSED | Permits editorial review of version deltas. |
 | 132 | `test(rbac-revisions): verify Author can view revisions for own articles` | `rbac-revisions` | ✅ PASSED | Allows authors to track and rollback own work. |
+| 133 | `test(rbac-revisions): verify unauthenticated requests to revision API rejected with 401` | `rbac-revisions` | ✅ PASSED | Guards revision endpoints against anonymous visits. |
