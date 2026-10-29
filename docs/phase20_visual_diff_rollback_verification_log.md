@@ -8,3 +8,4 @@
 | 2 | `feat(revision-model): verify sequential revision_number increment invariant` | `revision-model` | ✅ PASSED | Guarantees revision numbers strictly increment monotonically. |
 | 3 | `feat(revision-model): verify cascade deletion link with parent Article` | `revision-model` | ✅ PASSED | Ensures article deletion purges related historical revisions. |
 | 4 | `feat(revision-model): verify snapshot preservation of title, slug, summary, content` | `revision-model` | ✅ PASSED | Stores complete markdown body and executive summaries. |
+| 5 | `feat(revision-model): verify tags_snapshot JSONField preservation` | `revision-model` | ✅ PASSED | Preserves attached tag names at time of revision. |
