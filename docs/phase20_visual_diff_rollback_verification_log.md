@@ -161,3 +161,4 @@
 | 155 | `feat(ui-polish): add 'View Diff' primary button in diff toolbar` | `ui-polish` | ✅ PASSED | Triggers diff calculation and activates diff tab. |
 | 156 | `feat(ui-polish): add 3 primary tabs: Timeline, Snapshot Preview, Diff` | `ui-polish` | ✅ PASSED | Enables seamless exploration of revision history. |
 | 157 | `feat(ui-polish): auto-select latest revision on initial page load` | `ui-polish` | ✅ PASSED | Provides instant snapshot preview without extra clicks. |
+| 158 | `feat(ui-polish): auto-configure From/To diff between latest and previous version` | `ui-polish` | ✅ PASSED | Pre-populates most common comparison on 2+ revisions. |
