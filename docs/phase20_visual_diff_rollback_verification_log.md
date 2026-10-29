@@ -132,3 +132,4 @@
 | 126 | `feat(rbac-revisions): restrict revision history view to Admin, Reviewer, and Author` | `rbac-revisions` | ✅ PASSED | Prevents unauthorized access by Readers. |
 | 127 | `feat(rbac-revisions): display Revisions button on ArticleDetailPage for authorized roles` | `rbac-revisions` | ✅ PASSED | Shows History icon with v{N} version badge. |
 | 128 | `feat(rbac-revisions): hide Revisions button for unauthorized Reader role` | `rbac-revisions` | ✅ PASSED | Preserves confidentiality of internal editorial history. |
+| 129 | `feat(rbac-revisions): verify backend queryset permissions on revision actions` | `rbac-revisions` | ✅ PASSED | Enforces server-side authorization checks. |
