@@ -91,3 +91,4 @@
 | 85 | `feat(split-diff): render @@ hunk header banners spanning full split width` | `split-diff` | ✅ PASSED | Displays line range coordinates in indigo pill. |
 | 86 | `feat(split-diff): style sticky column headers for Split View (From vs To)` | `split-diff` | ✅ PASSED | Keeps revision badges visible during long scrolls. |
 | 87 | `style(split-diff): apply monospace font (font-mono text-xs) across diff lines` | `split-diff` | ✅ PASSED | Ensures fixed-width alignment for code and prose. |
+| 88 | `style(split-diff): apply subtle hover row highlight across split panes` | `split-diff` | ✅ PASSED | Enhances row tracking across wide viewports. |
