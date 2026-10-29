@@ -101,3 +101,4 @@
 | 95 | `test(split-diff): verify dark mode color contrast meets WCAG AA standards` | `split-diff` | ✅ PASSED | Ensures readable text on dark slate backgrounds. |
 | 96 | `test(split-diff): verify column divider styling border-r border-slate-200` | `split-diff` | ✅ PASSED | Separates left and right split panes clearly. |
 | 97 | `test(split-diff): verify diff line counter badge in toolbar header` | `split-diff` | ✅ PASSED | Displays total diff lines count. |
+| 98 | `test(split-diff): verify toggle button active state styling with shadow-xs` | `split-diff` | ✅ PASSED | Indicates active Split or Unified mode clearly. |
