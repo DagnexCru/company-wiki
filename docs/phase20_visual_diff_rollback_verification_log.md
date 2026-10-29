@@ -37,3 +37,4 @@
 | 31 | `feat(diff-engine): compute unified line diff via Python difflib` | `diff-engine` | ✅ PASSED | Generates standard unified diff lines with @@ hunks. |
 | 32 | `feat(diff-engine): calculate additions count in diff statistics` | `diff-engine` | ✅ PASSED | Computes total added lines marked with + prefix. |
 | 33 | `feat(diff-engine): calculate deletions count in diff statistics` | `diff-engine` | ✅ PASSED | Computes total removed lines marked with - prefix. |
+| 34 | `feat(diff-engine): calculate title modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_title against to_title. |
