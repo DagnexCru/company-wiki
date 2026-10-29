@@ -22,3 +22,4 @@
 | 16 | `test(revision-model): verify initial revision #1 generated on article creation` | `revision-model` | ✅ PASSED | Ensures every article begins with revision #1. |
 | 17 | `test(revision-model): verify author role captured in revision list serializer` | `revision-model` | ✅ PASSED | Provides role badge context in history timeline. |
 | 18 | `test(revision-model): verify ArticleDetailSerializer exposes revision_count` | `revision-model` | ✅ PASSED | Exposes total revision count to article readers. |
+| 19 | `test(revision-model): verify ArticleDetailSerializer exposes latest_revision_number` | `revision-model` | ✅ PASSED | Powers v{N} version badge in article header. |
