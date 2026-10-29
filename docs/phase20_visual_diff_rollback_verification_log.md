@@ -32,3 +32,4 @@
 | 26 | `feat(diff-engine): implement revision_diff endpoint in ArticleViewSet` | `diff-engine` | ✅ PASSED | Exposes structured diff payload via REST API. |
 | 27 | `feat(diff-engine): require both 'from' and 'to' query parameters` | `diff-engine` | ✅ PASSED | Enforces explicit comparison endpoints. |
 | 28 | `feat(diff-engine): validate 'from' and 'to' parameters as valid integers` | `diff-engine` | ✅ PASSED | Prevents invalid or malformed query string injection. |
+| 29 | `feat(diff-engine): handle 404 response when source revision not found` | `diff-engine` | ✅ PASSED | Gracefully informs client of missing source revision. |
