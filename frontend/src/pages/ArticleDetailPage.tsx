@@ -361,14 +361,18 @@ export const ArticleDetailPage: React.FC = () => {
             </Link>
           )}
 
-          {/* History & Revisions (Phase 8) */}
+          {/* History & Revisions (Phase 8 & 20) */}
           {(user?.role === "ADMIN" || user?.role === "REVIEWER" || article.author.id === user?.id) && (
             <Link
               to={`/articles/${article.slug}/revisions`}
+              title="View revision history, side-by-side diffs, and rollback tools"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium transition"
             >
               <History className="w-3.5 h-3.5 text-indigo-500" />
               <span>Revisions</span>
+              <span className="px-1.5 py-0.2 rounded-md bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 font-bold text-[10px]">
+                v{article.latest_revision_number || article.revision_count || 1}
+              </span>
             </Link>
           )}
 

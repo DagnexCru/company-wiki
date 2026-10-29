@@ -660,6 +660,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "tags_added": sorted(list(tags_to - tags_from)),
             "tags_removed": sorted(list(tags_from - tags_to)),
             "content_unified_diff": "".join(unified_diff),
+            "from_content": rev_from.content,
+            "to_content": rev_to.content,
             "stats": {
                 "additions": additions,
                 "deletions": deletions,

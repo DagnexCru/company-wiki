@@ -459,7 +459,11 @@ export const ArticleRevisionHistoryPage: React.FC = () => {
 
           {/* Tab 3: Diff Viewer */}
           {activeTab === "diff" && diffResult && (
-            <RevisionDiffViewer diff={diffResult} />
+            <RevisionDiffViewer
+              diff={diffResult}
+              canRestore={canRestore}
+              onRestore={(revNum) => openRestoreModal(revNum)}
+            />
           )}
         </div>
       )}

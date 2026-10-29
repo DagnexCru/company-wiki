@@ -67,6 +67,15 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     last_reviewer = ArticleAuthorSummarySerializer(read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
+    revision_count = serializers.SerializerMethodField()
+    latest_revision_number = serializers.SerializerMethodField()
+
+    def get_revision_count(self, obj):
+        return obj.revisions.count()
+
+    def get_latest_revision_number(self, obj):
+        latest = obj.revisions.order_by("-revision_number").first()
+        return latest.revision_number if latest else 1
 
     class Meta:
         model = Article
@@ -85,6 +94,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "rejection_reason",
             "is_featured",
             "estimated_read_time",
+            "revision_count",
+            "latest_revision_number",
             "submitted_at",
             "reviewed_at",
             "published_at",

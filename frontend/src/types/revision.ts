@@ -52,6 +52,8 @@ export interface RevisionDiffResult {
   tags_added: string[];
   tags_removed: string[];
   content_unified_diff: string;
+  from_content?: string;
+  to_content?: string;
   stats: {
     additions: number;
     deletions: number;

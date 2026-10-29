@@ -22,6 +22,8 @@ export interface ArticleListItem {
   status_display: string;
   is_featured: boolean;
   estimated_read_time: number;
+  revision_count?: number;
+  latest_revision_number?: number;
   submitted_at?: string | null;
   reviewed_at?: string | null;
   published_at: string | null;
