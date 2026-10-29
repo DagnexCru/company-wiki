@@ -21,3 +21,4 @@
 | 15 | `test(revision-model): verify Article.create_revision helper method` | `revision-model` | ✅ PASSED | Automates snapshot creation on article update. |
 | 16 | `test(revision-model): verify initial revision #1 generated on article creation` | `revision-model` | ✅ PASSED | Ensures every article begins with revision #1. |
 | 17 | `test(revision-model): verify author role captured in revision list serializer` | `revision-model` | ✅ PASSED | Provides role badge context in history timeline. |
+| 18 | `test(revision-model): verify ArticleDetailSerializer exposes revision_count` | `revision-model` | ✅ PASSED | Exposes total revision count to article readers. |
