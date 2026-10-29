@@ -80,3 +80,4 @@
 | 74 | `test(rollback): verify 404 response when restoring non-existent revision` | `rollback` | ✅ PASSED | Returns clear error message on invalid version. |
 | 75 | `test(rollback): complete one-click rollback workflow verification` | `rollback` | ✅ PASSED | Signs off on non-destructive restoration. |
 | 76 | `feat(split-diff): implement Side-by-Side (Split) 2-column view in RevisionDiffViewer` | `split-diff` | ✅ PASSED | Renders original and target revisions in parallel panes. |
+| 77 | `feat(split-diff): implement viewMode toggle between Split View and Unified View` | `split-diff` | ✅ PASSED | Allows users to switch between 2-column and 1-column modes. |
