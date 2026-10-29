@@ -86,3 +86,4 @@
 | 80 | `feat(split-diff): display target line numbers in right pane` | `split-diff` | ✅ PASSED | Shows line numbers for target revision. |
 | 81 | `feat(split-diff): render red deletion styling with minus prefix on left` | `split-diff` | ✅ PASSED | Highlights removed text in rose-50 / dark:rose-950. |
 | 82 | `feat(split-diff): render green addition styling with plus prefix on right` | `split-diff` | ✅ PASSED | Highlights added text in emerald-50 / dark:emerald-950. |
+| 83 | `feat(split-diff): render empty spacer rows when lines added without deletion` | `split-diff` | ✅ PASSED | Maintains vertical visual alignment between columns. |
