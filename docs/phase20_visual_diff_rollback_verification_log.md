@@ -17,3 +17,4 @@
 | 11 | `feat(revision-model): verify compound index on (article, -revision_number)` | `revision-model` | ✅ PASSED | Optimizes revision lookup by newest first. |
 | 12 | `feat(revision-model): verify compound index on (article, -created_at)` | `revision-model` | ✅ PASSED | Enables fast historical timeline pagination. |
 | 13 | `feat(revision-model): verify compound index on (author, -created_at)` | `revision-model` | ✅ PASSED | Optimizes author revision contributions audit. |
+| 14 | `test(revision-model): verify unique constraint on (article, revision_number)` | `revision-model` | ✅ PASSED | Guarantees no duplicate version numbers per article. |
