@@ -89,3 +89,4 @@
 | 83 | `feat(split-diff): render empty spacer rows when lines added without deletion` | `split-diff` | ✅ PASSED | Maintains vertical visual alignment between columns. |
 | 84 | `feat(split-diff): render empty spacer rows when lines deleted without addition` | `split-diff` | ✅ PASSED | Preserves column symmetry on deletions. |
 | 85 | `feat(split-diff): render @@ hunk header banners spanning full split width` | `split-diff` | ✅ PASSED | Displays line range coordinates in indigo pill. |
+| 86 | `feat(split-diff): style sticky column headers for Split View (From vs To)` | `split-diff` | ✅ PASSED | Keeps revision badges visible during long scrolls. |
