@@ -76,3 +76,4 @@
 | 70 | `test(rollback): verify restoring revision #1 when at revision #5 creates #6` | `rollback` | ✅ PASSED | Validates sequential version numbering logic. |
 | 71 | `test(rollback): verify content equality between restored version and target` | `rollback` | ✅ PASSED | Asserts article.content matches target revision content. |
 | 72 | `test(rollback): verify audit trail records restore actor and IP address` | `rollback` | ✅ PASSED | Confirms audit event attributes. |
+| 73 | `test(rollback): verify Reader role receives 403 Forbidden on restore attempt` | `rollback` | ✅ PASSED | Enforces server-side security checks. |
