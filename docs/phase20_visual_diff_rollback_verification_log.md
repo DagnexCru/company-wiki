@@ -19,3 +19,4 @@
 | 13 | `feat(revision-model): verify compound index on (author, -created_at)` | `revision-model` | ✅ PASSED | Optimizes author revision contributions audit. |
 | 14 | `test(revision-model): verify unique constraint on (article, revision_number)` | `revision-model` | ✅ PASSED | Guarantees no duplicate version numbers per article. |
 | 15 | `test(revision-model): verify Article.create_revision helper method` | `revision-model` | ✅ PASSED | Automates snapshot creation on article update. |
+| 16 | `test(revision-model): verify initial revision #1 generated on article creation` | `revision-model` | ✅ PASSED | Ensures every article begins with revision #1. |
