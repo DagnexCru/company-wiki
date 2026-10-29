@@ -70,3 +70,4 @@
 | 64 | `feat(rollback): add one-click restore button in RevisionDiffViewer for to_rev` | `rollback` | ✅ PASSED | Allows instant rollback to target revision from diff view. |
 | 65 | `feat(rollback): add one-click restore button in revision timeline cards` | `rollback` | ✅ PASSED | Enables quick rollback directly from history list. |
 | 66 | `feat(rollback): add one-click restore button in snapshot preview header` | `rollback` | ✅ PASSED | Enables rollback after inspecting full version snapshot. |
+| 67 | `feat(rollback): implement RestoreConfirmModal dialog with reason input` | `rollback` | ✅ PASSED | Requires confirmation and explains non-destructive invariant. |
