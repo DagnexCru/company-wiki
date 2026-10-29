@@ -7,3 +7,4 @@
 | 1 | `feat(revision-model): verify ArticleRevision immutable snapshot model` | `revision-model` | ✅ PASSED | Ensures revisions retain immutable state snapshots with sequential revision numbers. |
 | 2 | `feat(revision-model): verify sequential revision_number increment invariant` | `revision-model` | ✅ PASSED | Guarantees revision numbers strictly increment monotonically. |
 | 3 | `feat(revision-model): verify cascade deletion link with parent Article` | `revision-model` | ✅ PASSED | Ensures article deletion purges related historical revisions. |
+| 4 | `feat(revision-model): verify snapshot preservation of title, slug, summary, content` | `revision-model` | ✅ PASSED | Stores complete markdown body and executive summaries. |
