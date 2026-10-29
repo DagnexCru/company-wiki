@@ -65,3 +65,4 @@
 | 59 | `feat(rollback): restrict Author rollbacks to Draft or Rejected articles` | `rollback` | ✅ PASSED | Enforces workflow review requirements on published articles. |
 | 60 | `feat(rollback): permit Admin rollbacks across all article statuses` | `rollback` | ✅ PASSED | Provides administrative override capability. |
 | 61 | `feat(rollback): return updated ArticleDetail and new revision numbers` | `rollback` | ✅ PASSED | Enables immediate client cache invalidation. |
+| 62 | `feat(rollback): implement revisionService.restoreRevision API client` | `rollback` | ✅ PASSED | Performs typed axios POST request with reason. |
