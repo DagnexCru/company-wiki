@@ -151,3 +151,4 @@
 | 145 | `test(rbac-revisions): verify XSS sanitization in markdown diff rendering` | `rbac-revisions` | ✅ PASSED | React escapes raw HTML in diff lines. |
 | 146 | `test(rbac-revisions): verify rate limiting on revision diff calculations` | `rbac-revisions` | ✅ PASSED | Protects server CPU against abuse. |
 | 147 | `test(rbac-revisions): verify authorization header check on revision endpoints` | `rbac-revisions` | ✅ PASSED | Requires valid Bearer JWT token. |
+| 148 | `test(rbac-revisions): verify token expiration redirects gracefully to /login` | `rbac-revisions` | ✅ PASSED | Handles session expiration cleanly. |
