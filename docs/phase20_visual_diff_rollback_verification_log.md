@@ -40,3 +40,4 @@
 | 34 | `feat(diff-engine): calculate title modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_title against to_title. |
 | 35 | `feat(diff-engine): calculate summary modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_summary against to_summary. |
 | 36 | `feat(diff-engine): calculate category modification boolean and deltas` | `diff-engine` | ✅ PASSED | Compares from_category against to_category. |
+| 37 | `feat(diff-engine): calculate added and removed taxonomy tag sets` | `diff-engine` | ✅ PASSED | Computes set difference for tags_added/tags_removed. |
