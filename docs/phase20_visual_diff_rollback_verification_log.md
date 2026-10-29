@@ -170,3 +170,4 @@
 | 164 | `feat(ui-polish): style RestoreConfirmModal with amber alert banner` | `ui-polish` | ✅ PASSED | Emphasizes non-destructive history invariant. |
 | 165 | `feat(ui-polish): add optional reason input in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Captures justification for revision history log. |
 | 166 | `feat(ui-polish): style cancel and confirm buttons in RestoreConfirmModal` | `ui-polish` | ✅ PASSED | Provides clear visual hierarchy for actions. |
+| 167 | `feat(ui-polish): disable restore buttons during active submission` | `ui-polish` | ✅ PASSED | Prevents accidental double-clicks during rollback. |
