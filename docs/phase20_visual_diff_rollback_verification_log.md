@@ -54,3 +54,4 @@
 | 48 | `test(diff-engine): verify link and image markdown tag modifications` | `diff-engine` | ✅ PASSED | Detects URL and caption edits in diff engine. |
 | 49 | `test(diff-engine): verify response latency remains under 25ms for 50KB docs` | `diff-engine` | ✅ PASSED | Optimizes difflib execution performance. |
 | 50 | `test(diff-engine): complete diff engine backend architecture verification` | `diff-engine` | ✅ PASSED | Signs off on server-side comparison logic. |
+| 51 | `feat(rollback): implement restore_revision endpoint in ArticleViewSet` | `rollback` | ✅ PASSED | Exposes POST /api/v1/articles/<slug>/revisions/<rev>/restore/. |
