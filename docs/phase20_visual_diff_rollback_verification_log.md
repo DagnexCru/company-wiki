@@ -46,3 +46,4 @@
 | 40 | `feat(diff-engine): implement revisionService.getRevisionDiff API client` | `diff-engine` | ✅ PASSED | Performs typed axios GET request with params. |
 | 41 | `test(diff-engine): verify identical revisions produce 0 additions and 0 deletions` | `diff-engine` | ✅ PASSED | Asserts empty diff output when content matches. |
 | 42 | `test(diff-engine): verify multiline paragraph additions tracked accurately` | `diff-engine` | ✅ PASSED | Correctly identifies newly appended text sections. |
+| 43 | `test(diff-engine): verify multiline paragraph deletions tracked accurately` | `diff-engine` | ✅ PASSED | Correctly identifies removed text sections. |
