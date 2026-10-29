@@ -35,3 +35,4 @@
 | 29 | `feat(diff-engine): handle 404 response when source revision not found` | `diff-engine` | ✅ PASSED | Gracefully informs client of missing source revision. |
 | 30 | `feat(diff-engine): handle 404 response when target revision not found` | `diff-engine` | ✅ PASSED | Gracefully informs client of missing target revision. |
 | 31 | `feat(diff-engine): compute unified line diff via Python difflib` | `diff-engine` | ✅ PASSED | Generates standard unified diff lines with @@ hunks. |
+| 32 | `feat(diff-engine): calculate additions count in diff statistics` | `diff-engine` | ✅ PASSED | Computes total added lines marked with + prefix. |
