@@ -23,3 +23,4 @@
 | 17 | `test(revision-model): verify author role captured in revision list serializer` | `revision-model` | ✅ PASSED | Provides role badge context in history timeline. |
 | 18 | `test(revision-model): verify ArticleDetailSerializer exposes revision_count` | `revision-model` | ✅ PASSED | Exposes total revision count to article readers. |
 | 19 | `test(revision-model): verify ArticleDetailSerializer exposes latest_revision_number` | `revision-model` | ✅ PASSED | Powers v{N} version badge in article header. |
+| 20 | `test(revision-model): verify Django system check passes with zero errors` | `revision-model` | ✅ PASSED | python manage.py check reports 0 issues. |
