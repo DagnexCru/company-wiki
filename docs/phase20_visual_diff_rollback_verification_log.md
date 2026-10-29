@@ -173,3 +173,4 @@
 | 167 | `feat(ui-polish): disable restore buttons during active submission` | `ui-polish` | ✅ PASSED | Prevents accidental double-clicks during rollback. |
 | 168 | `feat(ui-polish): show loading spinner during snapshot preview fetch` | `ui-polish` | ✅ PASSED | Delivers smooth visual feedback during loading. |
 | 169 | `feat(ui-polish): show loading spinner during diff calculation fetch` | `ui-polish` | ✅ PASSED | Delivers smooth visual feedback during diffing. |
+| 170 | `test(ui-polish): complete frontend ergonomics and responsive sign-off` | `ui-polish` | ✅ PASSED | Signs off on intuitive revision history UX. |
