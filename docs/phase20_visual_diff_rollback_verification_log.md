@@ -44,3 +44,4 @@
 | 38 | `feat(diff-engine): include from_content and to_content in diff payload` | `diff-engine` | ✅ PASSED | Provides full original and target text for split rendering. |
 | 39 | `feat(diff-engine): implement RevisionDiffResult TypeScript interface` | `diff-engine` | ✅ PASSED | Provides strict frontend typing for diff payload. |
 | 40 | `feat(diff-engine): implement revisionService.getRevisionDiff API client` | `diff-engine` | ✅ PASSED | Performs typed axios GET request with params. |
+| 41 | `test(diff-engine): verify identical revisions produce 0 additions and 0 deletions` | `diff-engine` | ✅ PASSED | Asserts empty diff output when content matches. |
