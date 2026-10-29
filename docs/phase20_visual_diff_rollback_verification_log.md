@@ -150,3 +150,4 @@
 | 144 | `test(rbac-revisions): verify SQL injection prevention via Django ORM parameterized queries` | `rbac-revisions` | ✅ PASSED | Prevents malicious revision number payloads. |
 | 145 | `test(rbac-revisions): verify XSS sanitization in markdown diff rendering` | `rbac-revisions` | ✅ PASSED | React escapes raw HTML in diff lines. |
 | 146 | `test(rbac-revisions): verify rate limiting on revision diff calculations` | `rbac-revisions` | ✅ PASSED | Protects server CPU against abuse. |
+| 147 | `test(rbac-revisions): verify authorization header check on revision endpoints` | `rbac-revisions` | ✅ PASSED | Requires valid Bearer JWT token. |
