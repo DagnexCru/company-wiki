@@ -96,3 +96,4 @@
 | 90 | `test(split-diff): verify horizontal scroll containment on lengthy prose lines` | `split-diff` | ✅ PASSED | Prevents layout breaking via whitespace-pre-wrap break-all. |
 | 91 | `test(split-diff): verify max-h-[650px] overflow scroll container` | `split-diff` | ✅ PASSED | Provides smooth vertical scrolling for large diffs. |
 | 92 | `test(split-diff): verify zero text clipping on high-DPI displays` | `split-diff` | ✅ PASSED | Validates crisp font rendering on retina screens. |
+| 93 | `test(split-diff): verify Split View responsive behavior on tablet widths` | `split-diff` | ✅ PASSED | Adapts grid-cols-2 layout cleanly down to 768px. |
