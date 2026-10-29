@@ -177,3 +177,4 @@
 | 171 | `test(e2e-diff): verify full round-trip: edit article -> create revision -> view diff` | `e2e-diff` | ✅ PASSED | Validates complete versioning lifecycle. |
 | 172 | `test(e2e-diff): verify side-by-side split visualizer renders additions and deletions` | `e2e-diff` | ✅ PASSED | Validates 2-column visual fidelity. |
 | 173 | `test(e2e-diff): verify unified diff visualizer renders single-column stream` | `e2e-diff` | ✅ PASSED | Validates 1-column visual fidelity. |
+| 174 | `test(e2e-diff): verify toggle between split and unified view executes in < 5ms` | `e2e-diff` | ✅ PASSED | Validates client-side view switching speed. |
