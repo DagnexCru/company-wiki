@@ -56,3 +56,4 @@
 | 50 | `test(diff-engine): complete diff engine backend architecture verification` | `diff-engine` | ✅ PASSED | Signs off on server-side comparison logic. |
 | 51 | `feat(rollback): implement restore_revision endpoint in ArticleViewSet` | `rollback` | ✅ PASSED | Exposes POST /api/v1/articles/<slug>/revisions/<rev>/restore/. |
 | 52 | `feat(rollback): enforce non-destructive roll-forward invariant on restore` | `rollback` | ✅ PASSED | Generates a NEW revision snapshot preserving all intermediate versions. |
+| 53 | `feat(rollback): update article title, summary, and content on restore` | `rollback` | ✅ PASSED | Restores document fields from target historical revision. |
