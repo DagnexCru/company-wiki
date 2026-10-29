@@ -51,3 +51,4 @@
 | 45 | `test(diff-engine): verify whitespace change sensitivity in line comparison` | `diff-engine` | ✅ PASSED | Distinguishes indentation and whitespace changes. |
 | 46 | `test(diff-engine): verify code block syntax changes highlighted cleanly` | `diff-engine` | ✅ PASSED | Tracks modifications inside markdown code fences. |
 | 47 | `test(diff-engine): verify table syntax changes highlighted cleanly` | `diff-engine` | ✅ PASSED | Tracks markdown table row and column adjustments. |
+| 48 | `test(diff-engine): verify link and image markdown tag modifications` | `diff-engine` | ✅ PASSED | Detects URL and caption edits in diff engine. |
