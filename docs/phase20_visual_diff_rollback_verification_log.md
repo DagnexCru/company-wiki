@@ -154,3 +154,4 @@
 | 148 | `test(rbac-revisions): verify token expiration redirects gracefully to /login` | `rbac-revisions` | ✅ PASSED | Handles session expiration cleanly. |
 | 149 | `test(rbac-revisions): verify audit log inspection in Django Admin` | `rbac-revisions` | ✅ PASSED | Exposes revision audit records in admin portal. |
 | 150 | `test(rbac-revisions): complete RBAC security and audit invariant sign-off` | `rbac-revisions` | ✅ PASSED | Signs off on revision security architecture. |
+| 151 | `feat(ui-polish): integrate version badge v{N} into ArticleDetailPage Revisions button` | `ui-polish` | ✅ PASSED | Displays current version pill beside Revisions label. |
