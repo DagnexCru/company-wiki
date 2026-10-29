@@ -75,3 +75,4 @@
 | 69 | `test(rollback): verify rollback does not delete intermediate revisions` | `rollback` | ✅ PASSED | Asserts total revision count increases by exactly 1. |
 | 70 | `test(rollback): verify restoring revision #1 when at revision #5 creates #6` | `rollback` | ✅ PASSED | Validates sequential version numbering logic. |
 | 71 | `test(rollback): verify content equality between restored version and target` | `rollback` | ✅ PASSED | Asserts article.content matches target revision content. |
+| 72 | `test(rollback): verify audit trail records restore actor and IP address` | `rollback` | ✅ PASSED | Confirms audit event attributes. |
