@@ -116,3 +116,4 @@
 | 110 | `test(metadata-diff): verify handling of empty summary fallback text` | `metadata-diff` | ✅ PASSED | Displays 'Empty summary' placeholder. |
 | 111 | `test(metadata-diff): verify tag changes card spans 2 columns in metadata grid` | `metadata-diff` | ✅ PASSED | Balances layout symmetry with md:col-span-2. |
 | 112 | `test(metadata-diff): verify multiple tag additions and deletions simultaneously` | `metadata-diff` | ✅ PASSED | Correctly separates added and removed tags. |
+| 113 | `test(metadata-diff): verify tag alphabetical sorting in diff response` | `metadata-diff` | ✅ PASSED | Maintains deterministic tag presentation order. |
