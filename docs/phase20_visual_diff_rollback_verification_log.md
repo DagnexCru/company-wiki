@@ -127,3 +127,4 @@
 | 121 | `test(metadata-diff): verify metadata diff card layout in dark mode` | `metadata-diff` | ✅ PASSED | Ensures crisp borders and background contrast. |
 | 122 | `test(metadata-diff): verify metadata diff grid adapts to single column on mobile` | `metadata-diff` | ✅ PASSED | Stacks cards vertically on small screens. |
 | 123 | `test(metadata-diff): verify accessibility labels on metadata delta badges` | `metadata-diff` | ✅ PASSED | Provides clear screen reader context. |
+| 124 | `test(metadata-diff): verify zero memory leaks on rapid revision comparisons` | `metadata-diff` | ✅ PASSED | Cleans up component state on revision changes. |
