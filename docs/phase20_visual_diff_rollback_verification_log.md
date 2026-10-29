@@ -119,3 +119,4 @@
 | 113 | `test(metadata-diff): verify tag alphabetical sorting in diff response` | `metadata-diff` | ✅ PASSED | Maintains deterministic tag presentation order. |
 | 114 | `test(metadata-diff): verify title change truncation on lengthy headings` | `metadata-diff` | ✅ PASSED | Prevents card overflow on long article titles. |
 | 115 | `test(metadata-diff): verify created_at timestamp formatting on both revisions` | `metadata-diff` | ✅ PASSED | Formats dates cleanly with toLocaleDateString(). |
+| 116 | `test(metadata-diff): verify revision badge pill colors (indigo for from, emerald for to)` | `metadata-diff` | ✅ PASSED | Maintains distinct color coding for source and target. |
