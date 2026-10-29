@@ -106,3 +106,4 @@
 | 100 | `test(split-diff): complete split-pane line visualizer verification` | `split-diff` | ✅ PASSED | Signs off on 2-column side-by-side diff UI. |
 | 101 | `feat(metadata-diff): render Title Modified card when titles differ` | `metadata-diff` | ✅ PASSED | Highlights title changes with red strike-through and green addition. |
 | 102 | `feat(metadata-diff): render Category Changed card when categories differ` | `metadata-diff` | ✅ PASSED | Shows old category crossed out and new category with folder icon. |
+| 103 | `feat(metadata-diff): render Tag Changes card when tags added or removed` | `metadata-diff` | ✅ PASSED | Displays removed tags in rose badge and added tags in emerald badge. |
