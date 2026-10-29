@@ -25,3 +25,4 @@
 | 19 | `test(revision-model): verify ArticleDetailSerializer exposes latest_revision_number` | `revision-model` | ✅ PASSED | Powers v{N} version badge in article header. |
 | 20 | `test(revision-model): verify Django system check passes with zero errors` | `revision-model` | ✅ PASSED | python manage.py check reports 0 issues. |
 | 21 | `test(revision-model): verify database migration status is clean` | `revision-model` | ✅ PASSED | All PostgreSQL migrations fully up to date. |
+| 22 | `test(revision-model): verify RESTful revision endpoints routing` | `revision-model` | ✅ PASSED | Routes GET /revisions/ and GET /revisions/<rev>/. |
