@@ -134,3 +134,4 @@
 | 128 | `feat(rbac-revisions): hide Revisions button for unauthorized Reader role` | `rbac-revisions` | ✅ PASSED | Preserves confidentiality of internal editorial history. |
 | 129 | `feat(rbac-revisions): verify backend queryset permissions on revision actions` | `rbac-revisions` | ✅ PASSED | Enforces server-side authorization checks. |
 | 130 | `test(rbac-revisions): verify Admin can view revisions across all articles` | `rbac-revisions` | ✅ PASSED | Allows full administrative access to history. |
+| 131 | `test(rbac-revisions): verify Reviewer can view revisions for in_review and published articles` | `rbac-revisions` | ✅ PASSED | Permits editorial review of version deltas. |
