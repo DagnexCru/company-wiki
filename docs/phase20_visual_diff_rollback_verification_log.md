@@ -113,3 +113,4 @@
 | 107 | `style(metadata-diff): use emerald bold text for added metadata items` | `metadata-diff` | ✅ PASSED | Provides clear visual cues for added attributes. |
 | 108 | `test(metadata-diff): verify metadata cards hidden when no metadata changed` | `metadata-diff` | ✅ PASSED | Prevents visual clutter when only body content changed. |
 | 109 | `test(metadata-diff): verify handling of empty category fallback text` | `metadata-diff` | ✅ PASSED | Displays (None) when category was unassigned. |
+| 110 | `test(metadata-diff): verify handling of empty summary fallback text` | `metadata-diff` | ✅ PASSED | Displays 'Empty summary' placeholder. |
