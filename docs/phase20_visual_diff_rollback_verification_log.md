@@ -122,3 +122,4 @@
 | 116 | `test(metadata-diff): verify revision badge pill colors (indigo for from, emerald for to)` | `metadata-diff` | ✅ PASSED | Maintains distinct color coding for source and target. |
 | 117 | `test(metadata-diff): verify diff stats additions pill with Plus icon` | `metadata-diff` | ✅ PASSED | Displays '+X added' in emerald pill. |
 | 118 | `test(metadata-diff): verify diff stats deletions pill with Minus icon` | `metadata-diff` | ✅ PASSED | Displays '-Y removed' in rose pill. |
+| 119 | `test(metadata-diff): verify net change calculation correctness` | `metadata-diff` | ✅ PASSED | Additions and deletions sum matches line counts. |
