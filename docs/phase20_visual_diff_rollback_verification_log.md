@@ -139,3 +139,4 @@
 | 133 | `test(rbac-revisions): verify unauthenticated requests to revision API rejected with 401` | `rbac-revisions` | ✅ PASSED | Guards revision endpoints against anonymous visits. |
 | 134 | `test(rbac-revisions): verify Reader requests to revision API rejected with 403` | `rbac-revisions` | ✅ PASSED | Returns 403 Forbidden for unauthorized roles. |
 | 135 | `test(rbac-revisions): verify rollback endpoint rejects Reader with 403` | `rbac-revisions` | ✅ PASSED | Guards restore action against unauthorized execution. |
+| 136 | `test(rbac-revisions): verify Author cannot rollback published article without review` | `rbac-revisions` | ✅ PASSED | Preserves workflow approval integrity. |
