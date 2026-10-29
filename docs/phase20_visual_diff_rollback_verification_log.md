@@ -82,3 +82,4 @@
 | 76 | `feat(split-diff): implement Side-by-Side (Split) 2-column view in RevisionDiffViewer` | `split-diff` | ✅ PASSED | Renders original and target revisions in parallel panes. |
 | 77 | `feat(split-diff): implement viewMode toggle between Split View and Unified View` | `split-diff` | ✅ PASSED | Allows users to switch between 2-column and 1-column modes. |
 | 78 | `feat(split-diff): implement synchronized dual-column row pairing algorithm` | `split-diff` | ✅ PASSED | Aligns corresponding deleted and added lines side-by-side. |
+| 79 | `feat(split-diff): display original line numbers in left pane` | `split-diff` | ✅ PASSED | Shows line numbers for source revision. |
