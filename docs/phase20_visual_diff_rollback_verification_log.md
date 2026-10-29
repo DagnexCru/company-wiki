@@ -93,3 +93,4 @@
 | 87 | `style(split-diff): apply monospace font (font-mono text-xs) across diff lines` | `split-diff` | ✅ PASSED | Ensures fixed-width alignment for code and prose. |
 | 88 | `style(split-diff): apply subtle hover row highlight across split panes` | `split-diff` | ✅ PASSED | Enhances row tracking across wide viewports. |
 | 89 | `style(split-diff): render rounded-xl card container with slate-200 / slate-800 borders` | `split-diff` | ✅ PASSED | Matches company wiki enterprise theme. |
+| 90 | `test(split-diff): verify horizontal scroll containment on lengthy prose lines` | `split-diff` | ✅ PASSED | Prevents layout breaking via whitespace-pre-wrap break-all. |
