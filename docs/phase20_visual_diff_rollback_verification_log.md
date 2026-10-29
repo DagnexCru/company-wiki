@@ -43,3 +43,4 @@
 | 37 | `feat(diff-engine): calculate added and removed taxonomy tag sets` | `diff-engine` | ✅ PASSED | Computes set difference for tags_added/tags_removed. |
 | 38 | `feat(diff-engine): include from_content and to_content in diff payload` | `diff-engine` | ✅ PASSED | Provides full original and target text for split rendering. |
 | 39 | `feat(diff-engine): implement RevisionDiffResult TypeScript interface` | `diff-engine` | ✅ PASSED | Provides strict frontend typing for diff payload. |
+| 40 | `feat(diff-engine): implement revisionService.getRevisionDiff API client` | `diff-engine` | ✅ PASSED | Performs typed axios GET request with params. |
