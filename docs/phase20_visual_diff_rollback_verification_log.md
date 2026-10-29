@@ -117,3 +117,4 @@
 | 111 | `test(metadata-diff): verify tag changes card spans 2 columns in metadata grid` | `metadata-diff` | ✅ PASSED | Balances layout symmetry with md:col-span-2. |
 | 112 | `test(metadata-diff): verify multiple tag additions and deletions simultaneously` | `metadata-diff` | ✅ PASSED | Correctly separates added and removed tags. |
 | 113 | `test(metadata-diff): verify tag alphabetical sorting in diff response` | `metadata-diff` | ✅ PASSED | Maintains deterministic tag presentation order. |
+| 114 | `test(metadata-diff): verify title change truncation on lengthy headings` | `metadata-diff` | ✅ PASSED | Prevents card overflow on long article titles. |
