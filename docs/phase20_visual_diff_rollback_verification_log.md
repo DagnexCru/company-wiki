@@ -9,3 +9,4 @@
 | 3 | `feat(revision-model): verify cascade deletion link with parent Article` | `revision-model` | ✅ PASSED | Ensures article deletion purges related historical revisions. |
 | 4 | `feat(revision-model): verify snapshot preservation of title, slug, summary, content` | `revision-model` | ✅ PASSED | Stores complete markdown body and executive summaries. |
 | 5 | `feat(revision-model): verify tags_snapshot JSONField preservation` | `revision-model` | ✅ PASSED | Preserves attached tag names at time of revision. |
+| 6 | `feat(revision-model): verify category_name text snapshot preservation` | `revision-model` | ✅ PASSED | Preserves category name even if category is later renamed. |
