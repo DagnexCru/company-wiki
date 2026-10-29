@@ -163,3 +163,4 @@
 | 157 | `feat(ui-polish): auto-select latest revision on initial page load` | `ui-polish` | ✅ PASSED | Provides instant snapshot preview without extra clicks. |
 | 158 | `feat(ui-polish): auto-configure From/To diff between latest and previous version` | `ui-polish` | ✅ PASSED | Pre-populates most common comparison on 2+ revisions. |
 | 159 | `feat(ui-polish): add Preview button on each timeline revision card` | `ui-polish` | ✅ PASSED | Switches to snapshot tab for selected version. |
+| 160 | `feat(ui-polish): display restoration badge uppercase pill on restored versions` | `ui-polish` | ✅ PASSED | Identifies rollbacks visually in timeline. |
