@@ -143,3 +143,4 @@
 | 137 | `test(rbac-revisions): verify Admin can rollback published article directly` | `rbac-revisions` | ✅ PASSED | Permits emergency rollback by administrators. |
 | 138 | `test(rbac-revisions): verify audit event logged on every revision restoration` | `rbac-revisions` | ✅ PASSED | Logs ARTICLE_RESTORE with user, slug, and versions. |
 | 139 | `test(rbac-revisions): verify audit event logged on article initial creation revision` | `rbac-revisions` | ✅ PASSED | Logs initial version creation event. |
+| 140 | `test(rbac-revisions): verify audit event logged on article update revision` | `rbac-revisions` | ✅ PASSED | Logs update revision event in audit table. |
