@@ -111,3 +111,4 @@
 | 105 | `style(metadata-diff): use amber-50 / amber-950 theme for title change alert` | `metadata-diff` | ✅ PASSED | Draws appropriate visual attention to title edits. |
 | 106 | `style(metadata-diff): use rose line-through text for removed metadata items` | `metadata-diff` | ✅ PASSED | Provides clear visual cues for deleted attributes. |
 | 107 | `style(metadata-diff): use emerald bold text for added metadata items` | `metadata-diff` | ✅ PASSED | Provides clear visual cues for added attributes. |
+| 108 | `test(metadata-diff): verify metadata cards hidden when no metadata changed` | `metadata-diff` | ✅ PASSED | Prevents visual clutter when only body content changed. |
