@@ -24,3 +24,4 @@
 | 18 | `test(revision-model): verify ArticleDetailSerializer exposes revision_count` | `revision-model` | ✅ PASSED | Exposes total revision count to article readers. |
 | 19 | `test(revision-model): verify ArticleDetailSerializer exposes latest_revision_number` | `revision-model` | ✅ PASSED | Powers v{N} version badge in article header. |
 | 20 | `test(revision-model): verify Django system check passes with zero errors` | `revision-model` | ✅ PASSED | python manage.py check reports 0 issues. |
+| 21 | `test(revision-model): verify database migration status is clean` | `revision-model` | ✅ PASSED | All PostgreSQL migrations fully up to date. |
