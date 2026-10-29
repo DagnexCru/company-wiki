@@ -60,3 +60,4 @@
 | 54 | `feat(rollback): record restored_from_revision number in new snapshot` | `rollback` | ✅ PASSED | Explicitly audits provenance of restored content. |
 | 55 | `feat(rollback): set is_restoration boolean flag to True on new revision` | `rollback` | ✅ PASSED | Flags version in timeline as restored. |
 | 56 | `feat(rollback): accept optional reason parameter in restore payload` | `rollback` | ✅ PASSED | Appends author justification to change summary. |
+| 57 | `feat(rollback): log ARTICLE_RESTORE audit event in enterprise ledger` | `rollback` | ✅ PASSED | Creates tamper-evident audit record with actor and details. |
