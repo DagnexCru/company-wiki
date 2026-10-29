@@ -186,3 +186,4 @@
 | 180 | `test(e2e-diff): verify Django backend passes all system checks with 0 issues` | `e2e-diff` | ✅ PASSED | manage.py check passes with 0 issues. |
 | 181 | `test(e2e-diff): verify cross-browser compatibility in Chrome, Edge, and Firefox` | `e2e-diff` | ✅ PASSED | Visual diff layout verified across engines. |
 | 182 | `test(e2e-diff): verify mobile responsiveness with horizontal scroll containers` | `e2e-diff` | ✅ PASSED | Diff lines scroll cleanly without page overflow. |
+| 183 | `test(e2e-diff): verify PostgreSQL transaction rollback safety on API error` | `e2e-diff` | ✅ PASSED | Preserves database integrity on failed operations. |
