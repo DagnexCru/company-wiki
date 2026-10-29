@@ -147,3 +147,4 @@
 | 141 | `test(rbac-revisions): verify revision snapshots are read-only and immutable` | `rbac-revisions` | ✅ PASSED | Prevents modification or deletion of past revisions. |
 | 142 | `test(rbac-revisions): verify foreign key RESTRICT prevents accidental data corruption` | `rbac-revisions` | ✅ PASSED | Guards relational database integrity. |
 | 143 | `test(rbac-revisions): verify CSRF protection on rollback POST requests` | `rbac-revisions` | ✅ PASSED | Validates CSRF token handling. |
+| 144 | `test(rbac-revisions): verify SQL injection prevention via Django ORM parameterized queries` | `rbac-revisions` | ✅ PASSED | Prevents malicious revision number payloads. |
