@@ -13,3 +13,4 @@
 | 7 | `feat(revision-model): verify author foreign key tracking with null fallback` | `revision-model` | ✅ PASSED | Tracks user who generated revision snapshot. |
 | 8 | `feat(revision-model): verify change_summary description storage` | `revision-model` | ✅ PASSED | Stores human-readable reason for changes made. |
 | 9 | `feat(revision-model): verify is_restoration boolean flag on rollback snapshots` | `revision-model` | ✅ PASSED | Differentiates normal author edits from rollbacks. |
+| 10 | `feat(revision-model): verify restored_from_revision pointer tracking` | `revision-model` | ✅ PASSED | Links restored revision directly back to source version. |
