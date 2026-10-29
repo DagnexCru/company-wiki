@@ -29,3 +29,4 @@
 | 23 | `test(revision-model): verify RESTful revision diff endpoint routing` | `revision-model` | ✅ PASSED | Routes GET /revisions/diff/?from=X&to=Y. |
 | 24 | `test(revision-model): verify RESTful revision restore endpoint routing` | `revision-model` | ✅ PASSED | Routes POST /revisions/<rev>/restore/. |
 | 25 | `test(revision-model): complete revision data model verification` | `revision-model` | ✅ PASSED | Signs off on revision snapshot data architecture. |
+| 26 | `feat(diff-engine): implement revision_diff endpoint in ArticleViewSet` | `diff-engine` | ✅ PASSED | Exposes structured diff payload via REST API. |
