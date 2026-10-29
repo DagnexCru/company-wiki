@@ -181,3 +181,4 @@
 | 175 | `test(e2e-diff): verify one-click restore from diff header opens confirmation modal` | `e2e-diff` | ✅ PASSED | Triggers rollback modal from diff view. |
 | 176 | `test(e2e-diff): verify executing restore creates new revision and updates article` | `e2e-diff` | ✅ PASSED | Validates non-destructive roll-forward. |
 | 177 | `test(e2e-diff): verify article detail displays updated content immediately` | `e2e-diff` | ✅ PASSED | Validates cache invalidation and UI sync. |
+| 178 | `test(e2e-diff): verify v{N} version badge increments to v{N+1} post-restore` | `e2e-diff` | ✅ PASSED | Validates version pill reactivity. |
