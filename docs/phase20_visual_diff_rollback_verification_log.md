@@ -105,3 +105,4 @@
 | 99 | `test(split-diff): verify view mode toggle persists during tab switches` | `split-diff` | ✅ PASSED | Retains user viewing preference. |
 | 100 | `test(split-diff): complete split-pane line visualizer verification` | `split-diff` | ✅ PASSED | Signs off on 2-column side-by-side diff UI. |
 | 101 | `feat(metadata-diff): render Title Modified card when titles differ` | `metadata-diff` | ✅ PASSED | Highlights title changes with red strike-through and green addition. |
+| 102 | `feat(metadata-diff): render Category Changed card when categories differ` | `metadata-diff` | ✅ PASSED | Shows old category crossed out and new category with folder icon. |
