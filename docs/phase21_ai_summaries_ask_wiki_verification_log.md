@@ -132,3 +132,4 @@
 | 126 | `feat(palette-ai): add 'ai' filter tab chip in CommandPalette` | `palette-ai` | ✅ PASSED | Provides dedicated 'Ask AI' tab in command bar. |
 | 127 | `feat(palette-ai): display Sparkles icon on 'Ask AI' tab chip` | `palette-ai` | ✅ PASSED | Visually distinguishes AI features from standard search. |
 | 128 | `feat(palette-ai): inject dynamic 'Ask Wiki AI' action card when query is typed` | `palette-ai` | ✅ PASSED | Offers instant AI answer option at top of results. |
+| 129 | `feat(palette-ai): add static 'Ask Wiki AI Assistant' quick action in actions list` | `palette-ai` | ✅ PASSED | Discoverable even when search query is empty. |
