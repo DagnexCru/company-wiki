@@ -28,3 +28,4 @@
 | 22 | `test(ai-summary): verify 403 Forbidden when Reader attempts draft summary` | `ai-summary` | ✅ PASSED | Blocks unauthorized access to unpublished draft content. |
 | 23 | `test(ai-summary): verify Author can summarize own draft or rejected articles` | `ai-summary` | ✅ PASSED | Allows authors to test AI summarization during drafting. |
 | 24 | `test(ai-summary): verify Admin can summarize articles across all statuses` | `ai-summary` | ✅ PASSED | Grants full administrative access to summarization. |
+| 25 | `test(ai-summary): verify empty content fallback produces graceful defaults` | `ai-summary` | ✅ PASSED | Guarantees robust response when article body is minimal. |
