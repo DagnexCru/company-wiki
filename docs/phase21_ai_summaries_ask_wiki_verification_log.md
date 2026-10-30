@@ -113,3 +113,4 @@
 | 107 | `feat(drawer-ui): render timestamp and copy button on each message bubble` | `drawer-ui` | ✅ PASSED | Allows copying individual answers with check feedback. |
 | 108 | `feat(drawer-ui): render cited sources card list below AI answer bubble` | `drawer-ui` | ✅ PASSED | Displays authoritative documentation citations. |
 | 109 | `feat(drawer-ui): display match percentage pill on each cited source` | `drawer-ui` | ✅ PASSED | Shows confidence score (e.g. 96% match). |
+| 110 | `feat(drawer-ui): display category folder icon and article title for citations` | `drawer-ui` | ✅ PASSED | Enables quick recognition of documentation domain. |
