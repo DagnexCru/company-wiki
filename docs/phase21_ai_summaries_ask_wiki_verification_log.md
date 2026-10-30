@@ -9,3 +9,4 @@
 | 3 | `feat(ai-summary): enforce IsAuthenticated permission on AI summarization` | `ai-summary` | ✅ PASSED | Restricts automated summarization to authenticated workspace members. |
 | 4 | `feat(ai-summary): support lookup by either article UUID or unique slug` | `ai-summary` | ✅ PASSED | Provides flexible identifier resolution for client applications. |
 | 5 | `feat(ai-summary): enforce role-based article visibility before summarizing` | `ai-summary` | ✅ PASSED | Prevents unauthorized readers from summarizing non-published drafts. |
+| 6 | `feat(ai-summary): extract document headings hierarchy via regex parser` | `ai-summary` | ✅ PASSED | Identifies H1, H2, and H3 markdown section markers. |
