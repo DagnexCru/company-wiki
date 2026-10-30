@@ -42,3 +42,4 @@
 | 36 | `feat(ask-ai): extract keyword-centered sentence snippets for answer context` | `ask-ai` | ✅ PASSED | Pulls most informative sentence containing search terms. |
 | 37 | `feat(ask-ai): sort candidate sources descending by relevance score` | `ask-ai` | ✅ PASSED | Ranks most authoritative documentation at the top. |
 | 38 | `feat(ask-ai): limit top cited sources to 6 highest-scoring documents` | `ask-ai` | ✅ PASSED | Prevents context saturation and keeps citations focused. |
+| 39 | `feat(ask-ai): synthesize direct Markdown answer referencing primary source` | `ask-ai` | ✅ PASSED | Generates cohesive answer with bold titles and links. |
