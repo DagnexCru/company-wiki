@@ -82,3 +82,4 @@
 | 76 | `feat(tldr-ui): create ArticleAiSummaryCard component` | `tldr-ui` | ✅ PASSED | Builds modern, gradient AI summary card for articles. |
 | 77 | `feat(tldr-ui): implement initial compact trigger state with Sparkles icon` | `tldr-ui` | ✅ PASSED | Displays 'Generate TL;DR' button without cluttering reading view. |
 | 78 | `feat(tldr-ui): render estimated reading time comparison in initial card` | `tldr-ui` | ✅ PASSED | Shows how many minutes of reading the summary saves. |
+| 79 | `feat(tldr-ui): implement animated loading spinner during summary generation` | `tldr-ui` | ✅ PASSED | Provides clear visual feedback while AI is analyzing content. |
