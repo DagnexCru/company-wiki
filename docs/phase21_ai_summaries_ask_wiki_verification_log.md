@@ -45,3 +45,4 @@
 | 39 | `feat(ask-ai): synthesize direct Markdown answer referencing primary source` | `ask-ai` | ✅ PASSED | Generates cohesive answer with bold titles and links. |
 | 40 | `feat(ask-ai): generate complementary guidelines from secondary sources` | `ask-ai` | ✅ PASSED | Provides cross-article context when multiple guides match. |
 | 41 | `feat(ask-ai): include suggested follow-up questions in API response` | `ask-ai` | ✅ PASSED | Offers 3 relevant conversational follow-up prompts. |
+| 42 | `feat(ask-ai): return metadata for each cited source with match percent` | `ask-ai` | ✅ PASSED | Exposes source id, title, slug, excerpt, and score. |
