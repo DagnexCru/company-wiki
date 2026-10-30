@@ -145,3 +145,4 @@
 | 139 | `test(palette-ai): verify CommandPalette search input placeholder guidance` | `palette-ai` | ✅ PASSED | Guides user to search or ask questions. |
 | 140 | `test(palette-ai): verify screen reader announcements for Ask AI action` | `palette-ai` | ✅ PASSED | Exposes action description to assistive tech. |
 | 141 | `test(palette-ai): verify mobile view responsiveness of filter chips with Ask AI` | `palette-ai` | ✅ PASSED | Horizontal scroll bar allows smooth chip swiping. |
+| 142 | `test(palette-ai): verify clean unmount of event listeners in CommandPalette` | `palette-ai` | ✅ PASSED | Prevents memory leaks in React lifecycle. |
