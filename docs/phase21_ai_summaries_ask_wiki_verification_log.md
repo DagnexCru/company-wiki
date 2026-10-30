@@ -62,3 +62,4 @@
 | 56 | `feat(ai-service): implement generateArticleSummary client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/<slug>/ai-summary/. |
 | 57 | `feat(ai-service): implement askWikiAi client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/ask-ai/ with payload. |
 | 58 | `feat(ai-service): support force refresh option in generateArticleSummary` | `ai-service` | ✅ PASSED | Allows bypassing cached summary to regenerate. |
+| 59 | `test(ai-service): verify Axios authentication header attachment on AI calls` | `ai-service` | ✅ PASSED | Transmits JWT Bearer token on AI requests. |
