@@ -87,3 +87,4 @@
 | 81 | `feat(tldr-ui): render key takeaways bulleted list with CheckCircle2 icons` | `tldr-ui` | ✅ PASSED | Highlights top 3 to 5 actionable requirements. |
 | 82 | `feat(tldr-ui): display 'Saves ~X min read' pill badge in emerald font` | `tldr-ui` | ✅ PASSED | Quantifies productivity gain directly for readers. |
 | 83 | `feat(tldr-ui): display total key takeaways count badge in header` | `tldr-ui` | ✅ PASSED | Informs reader of number of bullet points extracted. |
+| 84 | `feat(tldr-ui): implement Copy Summary button with copied tooltip confirmation` | `tldr-ui` | ✅ PASSED | Copies formatted TL;DR and bullets to clipboard. |
