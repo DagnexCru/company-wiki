@@ -143,3 +143,4 @@
 | 137 | `test(palette-ai): verify Tab key switches between All, Ask AI, and Articles` | `palette-ai` | ✅ PASSED | Complies with keyboard accessibility standards. |
 | 138 | `test(palette-ai): verify zero lag during rapid query typing with AI action injected` | `palette-ai` | ✅ PASSED | Maintains silky smooth 60fps input responsiveness. |
 | 139 | `test(palette-ai): verify CommandPalette search input placeholder guidance` | `palette-ai` | ✅ PASSED | Guides user to search or ask questions. |
+| 140 | `test(palette-ai): verify screen reader announcements for Ask AI action` | `palette-ai` | ✅ PASSED | Exposes action description to assistive tech. |
