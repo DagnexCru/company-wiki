@@ -119,3 +119,4 @@
 | 113 | `feat(drawer-ui): render suggested follow-up questions as clickable action chips` | `drawer-ui` | ✅ PASSED | Allows one-click submission of follow-up queries. |
 | 114 | `feat(drawer-ui): render animated pulsing dots during answer synthesis` | `drawer-ui` | ✅ PASSED | Indicates active neural search and generation. |
 | 115 | `feat(drawer-ui): implement input composer with Send button and Enter key submit` | `drawer-ui` | ✅ PASSED | Enables rapid typing and submission. |
+| 116 | `feat(drawer-ui): disable composer submission while query is in-flight` | `drawer-ui` | ✅ PASSED | Prevents duplicate requests during generation. |
