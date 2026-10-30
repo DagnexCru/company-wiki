@@ -150,3 +150,4 @@
 | 144 | `test(palette-ai): verify recent searches list not polluted by AI questions` | `palette-ai` | ✅ PASSED | Separates conversational queries from navigation history. |
 | 145 | `test(palette-ai): complete CommandPalette AI integration verification` | `palette-ai` | ✅ PASSED | Signs off on global command bar AI features. |
 | 146 | `feat(security-ai): enforce role-based access control on AI documentation search` | `security-ai` | ✅ PASSED | Only searches articles the authenticated user can view. |
+| 147 | `feat(security-ai): verify confidential draft articles excluded from Reader AI searches` | `security-ai` | ✅ PASSED | Preserves confidentiality of internal drafts in review. |
