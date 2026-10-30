@@ -8,3 +8,4 @@
 | 2 | `feat(ai-summary): route ai-summary endpoint before generic router patterns` | `ai-summary` | ✅ PASSED | Ensures slug or UUID lookup resolves cleanly in URL dispatcher. |
 | 3 | `feat(ai-summary): enforce IsAuthenticated permission on AI summarization` | `ai-summary` | ✅ PASSED | Restricts automated summarization to authenticated workspace members. |
 | 4 | `feat(ai-summary): support lookup by either article UUID or unique slug` | `ai-summary` | ✅ PASSED | Provides flexible identifier resolution for client applications. |
+| 5 | `feat(ai-summary): enforce role-based article visibility before summarizing` | `ai-summary` | ✅ PASSED | Prevents unauthorized readers from summarizing non-published drafts. |
