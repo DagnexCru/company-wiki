@@ -23,3 +23,4 @@
 | 17 | `feat(ai-summary): compute algorithmic confidence score for summary quality` | `ai-summary` | ✅ PASSED | Returns confidence metric based on structural density. |
 | 18 | `feat(ai-summary): include headings_detected counter in API response` | `ai-summary` | ✅ PASSED | Audits structural depth of analyzed knowledge article. |
 | 19 | `feat(ai-summary): include original word count in summary payload` | `ai-summary` | ✅ PASSED | Supplies document length context to reader interface. |
+| 20 | `feat(ai-summary): return ISO 8601 generated_at timestamp in UTC` | `ai-summary` | ✅ PASSED | Records exact snapshot generation time for caching. |
