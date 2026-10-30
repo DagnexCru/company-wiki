@@ -10,3 +10,4 @@
 | 4 | `feat(ai-summary): support lookup by either article UUID or unique slug` | `ai-summary` | ✅ PASSED | Provides flexible identifier resolution for client applications. |
 | 5 | `feat(ai-summary): enforce role-based article visibility before summarizing` | `ai-summary` | ✅ PASSED | Prevents unauthorized readers from summarizing non-published drafts. |
 | 6 | `feat(ai-summary): extract document headings hierarchy via regex parser` | `ai-summary` | ✅ PASSED | Identifies H1, H2, and H3 markdown section markers. |
+| 7 | `feat(ai-summary): strip code blocks and base64 media from summarizer text` | `ai-summary` | ✅ PASSED | Prevents code snippets and image URLs from polluting summaries. |
