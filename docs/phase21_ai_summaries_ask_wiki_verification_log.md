@@ -91,3 +91,4 @@
 | 85 | `feat(tldr-ui): implement Regenerate button with rotating icon animation` | `tldr-ui` | ✅ PASSED | Allows forcing a fresh summary calculation. |
 | 86 | `feat(tldr-ui): implement Expand / Collapse accordion toggle button` | `tldr-ui` | ✅ PASSED | Allows readers to minimize summary after reading. |
 | 87 | `feat(tldr-ui): handle generation errors with inline retry button` | `tldr-ui` | ✅ PASSED | Displays friendly error message and allows one-click retry. |
+| 88 | `feat(tldr-ui): embed ArticleAiSummaryCard at top of ArticleDetailPage` | `tldr-ui` | ✅ PASSED | Positions summary directly above the main markdown body. |
