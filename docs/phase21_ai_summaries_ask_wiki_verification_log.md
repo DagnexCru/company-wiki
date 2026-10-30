@@ -109,3 +109,4 @@
 | 103 | `feat(drawer-ui): support pre-populating question query from custom event detail` | `drawer-ui` | ✅ PASSED | Enables passing search terms from Command Palette. |
 | 104 | `feat(drawer-ui): implement message thread history with User and AI bubbles` | `drawer-ui` | ✅ PASSED | Renders conversational exchange with distinct styling. |
 | 105 | `feat(drawer-ui): display AI welcome message with suggested starter questions` | `drawer-ui` | ✅ PASSED | Greets user and suggests common operational inquiries. |
+| 106 | `feat(drawer-ui): render Bot and User avatar icons beside message bubbles` | `drawer-ui` | ✅ PASSED | Provides clear visual cues for conversation turns. |
