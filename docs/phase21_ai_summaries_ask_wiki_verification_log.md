@@ -123,3 +123,4 @@
 | 117 | `feat(drawer-ui): auto-scroll message container to bottom on new messages` | `drawer-ui` | ✅ PASSED | Keeps latest answer in view automatically. |
 | 118 | `feat(drawer-ui): handle API errors gracefully with in-thread warning message` | `drawer-ui` | ✅ PASSED | Displays readable diagnostic message if query fails. |
 | 119 | `feat(drawer-ui): implement close button and backdrop click dismissal` | `drawer-ui` | ✅ PASSED | Provides intuitive modal close interactions. |
+| 120 | `feat(drawer-ui): create AskWikiFloatingButton component` | `drawer-ui` | ✅ PASSED | Builds floating trigger button in bottom-right corner. |
