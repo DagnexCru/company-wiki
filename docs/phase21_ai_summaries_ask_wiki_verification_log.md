@@ -39,3 +39,4 @@
 | 33 | `feat(ask-ai): perform multi-field Q search across title, summary, and content` | `ask-ai` | ✅ PASSED | Matches keywords in document body, excerpt, and title. |
 | 34 | `feat(ask-ai): perform tag name matching in Ask Wiki search engine` | `ask-ai` | ✅ PASSED | Includes taxonomy tags in relevance evaluation. |
 | 35 | `feat(ask-ai): compute relevance score between query and matched articles` | `ask-ai` | ✅ PASSED | Calculates title and content density match percentage. |
+| 36 | `feat(ask-ai): extract keyword-centered sentence snippets for answer context` | `ask-ai` | ✅ PASSED | Pulls most informative sentence containing search terms. |
