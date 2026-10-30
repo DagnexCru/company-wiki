@@ -54,3 +54,4 @@
 | 48 | `test(ask-ai): verify multi-word questions split into keyword tokens` | `ask-ai` | ✅ PASSED | Correctly processes complex conversational queries. |
 | 49 | `test(ask-ai): verify case-insensitive keyword matching in PostgreSQL` | `ask-ai` | ✅ PASSED | Uses icontains lookups for robust match sensitivity. |
 | 50 | `test(ask-ai): verify response latency remains under 45ms locally` | `ask-ai` | ✅ PASSED | Ensures instantaneous conversational search performance. |
+| 51 | `feat(ai-types): create AiSummaryResponse TypeScript interface` | `ai-types` | ✅ PASSED | Defines structured typing for article summary API response. |
