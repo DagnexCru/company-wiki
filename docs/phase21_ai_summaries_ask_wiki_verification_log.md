@@ -90,3 +90,4 @@
 | 84 | `feat(tldr-ui): implement Copy Summary button with copied tooltip confirmation` | `tldr-ui` | ✅ PASSED | Copies formatted TL;DR and bullets to clipboard. |
 | 85 | `feat(tldr-ui): implement Regenerate button with rotating icon animation` | `tldr-ui` | ✅ PASSED | Allows forcing a fresh summary calculation. |
 | 86 | `feat(tldr-ui): implement Expand / Collapse accordion toggle button` | `tldr-ui` | ✅ PASSED | Allows readers to minimize summary after reading. |
+| 87 | `feat(tldr-ui): handle generation errors with inline retry button` | `tldr-ui` | ✅ PASSED | Displays friendly error message and allows one-click retry. |
