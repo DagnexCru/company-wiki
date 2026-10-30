@@ -69,3 +69,4 @@
 | 63 | `test(ai-service): verify base URL configuration inherits from api instance` | `ai-service` | ✅ PASSED | Resolves against /api/v1/ configured endpoints. |
 | 64 | `test(ai-service): verify timeout settings protect against hanging requests` | `ai-service` | ✅ PASSED | Honors standard client timeout configuration. |
 | 65 | `test(ai-service): verify mock response compatibility for unit testing` | `ai-service` | ✅ PASSED | Enables predictable test harness stubbing. |
+| 66 | `test(ai-service): verify parameter serialization in post requests` | `ai-service` | ✅ PASSED | Validates JSON payload encoding. |
