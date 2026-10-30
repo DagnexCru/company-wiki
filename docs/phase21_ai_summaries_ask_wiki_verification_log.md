@@ -77,3 +77,4 @@
 | 71 | `test(ai-types): verify AiSummaryResponse includes time_saved_minutes` | `ai-types` | ✅ PASSED | Ensures read time savings metric is typed. |
 | 72 | `test(ai-types): verify AiSource includes relevance_score and category` | `ai-types` | ✅ PASSED | Ensures citation attributes are fully typed. |
 | 73 | `test(ai-types): verify AskWikiAiResponse includes suggested_questions` | `ai-types` | ✅ PASSED | Ensures follow-up questions array is typed. |
+| 74 | `test(ai-types): verify optional scope and article_slug in AskWikiAiRequest` | `ai-types` | ✅ PASSED | Permits scoped Q&A requests. |
