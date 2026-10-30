@@ -14,3 +14,4 @@
 | 8 | `feat(ai-summary): preserve clean markdown link text while stripping URLs` | `ai-summary` | ✅ PASSED | Maintains readability of anchor text in generated overview. |
 | 9 | `feat(ai-summary): extract bolded text spans as high-priority takeaways` | `ai-summary` | ✅ PASSED | Identifies author-emphasized concepts and requirements. |
 | 10 | `feat(ai-summary): extract markdown bullet list items as actionable checkpoints` | `ai-summary` | ✅ PASSED | Transforms lists into structured procedural takeaways. |
+| 11 | `feat(ai-summary): segment clean prose into punctuation-delimited sentences` | `ai-summary` | ✅ PASSED | Enables sentence-level salience scoring. |
