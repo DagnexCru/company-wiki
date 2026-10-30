@@ -114,3 +114,4 @@
 | 108 | `feat(drawer-ui): render cited sources card list below AI answer bubble` | `drawer-ui` | ✅ PASSED | Displays authoritative documentation citations. |
 | 109 | `feat(drawer-ui): display match percentage pill on each cited source` | `drawer-ui` | ✅ PASSED | Shows confidence score (e.g. 96% match). |
 | 110 | `feat(drawer-ui): display category folder icon and article title for citations` | `drawer-ui` | ✅ PASSED | Enables quick recognition of documentation domain. |
+| 111 | `feat(drawer-ui): link cited sources directly to /articles/<slug>` | `drawer-ui` | ✅ PASSED | Navigates to full article upon clicking source chip. |
