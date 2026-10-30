@@ -24,3 +24,4 @@
 | 18 | `feat(ai-summary): include headings_detected counter in API response` | `ai-summary` | ✅ PASSED | Audits structural depth of analyzed knowledge article. |
 | 19 | `feat(ai-summary): include original word count in summary payload` | `ai-summary` | ✅ PASSED | Supplies document length context to reader interface. |
 | 20 | `feat(ai-summary): return ISO 8601 generated_at timestamp in UTC` | `ai-summary` | ✅ PASSED | Records exact snapshot generation time for caching. |
+| 21 | `test(ai-summary): verify 404 response on non-existent article identifier` | `ai-summary` | ✅ PASSED | Returns clear error when slug or UUID not found. |
