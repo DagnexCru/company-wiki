@@ -110,3 +110,4 @@
 | 104 | `feat(drawer-ui): implement message thread history with User and AI bubbles` | `drawer-ui` | ✅ PASSED | Renders conversational exchange with distinct styling. |
 | 105 | `feat(drawer-ui): display AI welcome message with suggested starter questions` | `drawer-ui` | ✅ PASSED | Greets user and suggests common operational inquiries. |
 | 106 | `feat(drawer-ui): render Bot and User avatar icons beside message bubbles` | `drawer-ui` | ✅ PASSED | Provides clear visual cues for conversation turns. |
+| 107 | `feat(drawer-ui): render timestamp and copy button on each message bubble` | `drawer-ui` | ✅ PASSED | Allows copying individual answers with check feedback. |
