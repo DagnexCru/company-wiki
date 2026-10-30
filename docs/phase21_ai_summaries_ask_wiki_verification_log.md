@@ -60,3 +60,4 @@
 | 54 | `feat(ai-types): create AskWikiAiResponse TypeScript interface` | `ai-types` | ✅ PASSED | Defines complete response contract for Ask Wiki AI assistant. |
 | 55 | `feat(ai-service): create aiService module in frontend services` | `ai-service` | ✅ PASSED | Centralizes all AI-related API client calls. |
 | 56 | `feat(ai-service): implement generateArticleSummary client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/<slug>/ai-summary/. |
+| 57 | `feat(ai-service): implement askWikiAi client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/ask-ai/ with payload. |
