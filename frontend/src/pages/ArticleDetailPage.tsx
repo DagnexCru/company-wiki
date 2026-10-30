@@ -30,6 +30,7 @@ import { ReviewModal } from "../components/ReviewModal";
 import { ReviewTimeline } from "../components/ReviewTimeline";
 import { TableOfContents } from "../components/TableOfContents";
 import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
+import { ArticleAiSummaryCard } from "../components/ArticleAiSummaryCard";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -523,6 +524,13 @@ export const ArticleDetailPage: React.FC = () => {
       {/* Article Body & Table of Contents Responsive Two-Column Layout */}
       <div className="flex flex-col lg:flex-row items-start gap-8">
         <div className="flex-1 min-w-0 space-y-8 w-full order-2 lg:order-1">
+          {/* AI-Powered Instant TL;DR Summary & Key Takeaways */}
+          <ArticleAiSummaryCard
+            articleSlug={article.slug}
+            articleTitle={article.title}
+            estimatedReadTime={article.estimated_read_time}
+          />
+
           {/* Main Document Content */}
           <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
             <MarkdownViewer content={article.content} />

@@ -78,7 +78,7 @@ export const CommandPalette: React.FC = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<"all" | "articles" | "categories" | "tags" | "actions">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "articles" | "categories" | "tags" | "actions" | "ai">("all");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -162,6 +162,18 @@ export const CommandPalette: React.FC = () => {
 
   // Define All Quick Actions with RBAC
   const quickActions: PaletteAction[] = useMemo(() => [
+    {
+      id: "act-ask-ai",
+      type: "action",
+      title: "Ask Wiki AI Assistant",
+      subtitle: "Ask natural language questions and get answers distilled from documentation",
+      icon: Sparkles,
+      iconColor: "text-purple-400 bg-purple-950/60 border-purple-800/60",
+      perform: () => {
+        setIsOpen(false);
+        window.dispatchEvent(new CustomEvent("open-ask-wiki-ai", { detail: { query } }));
+      },
+    },
     {
       id: "act-new-article",
       type: "action",
@@ -301,6 +313,26 @@ export const CommandPalette: React.FC = () => {
   const combinedItems: PaletteItem[] = useMemo(() => {
     const trimmed = query.trim().toLowerCase();
     const items: PaletteItem[] = [];
+
+    // Dynamic AI Prompt action when query is typed or on 'ai' tab
+    if (trimmed || activeTab === "ai") {
+      items.push({
+        id: "act-dynamic-ask-ai",
+        type: "action",
+        title: trimmed ? `Ask Wiki AI: "${trimmed}"` : "Ask Wiki AI Assistant",
+        subtitle: "Search company knowledge base and synthesize a direct AI answer",
+        icon: Sparkles,
+        iconColor: "text-purple-400 bg-purple-950/60 border-purple-800/60",
+        perform: () => {
+          setIsOpen(false);
+          window.dispatchEvent(new CustomEvent("open-ask-wiki-ai", { detail: { query: trimmed } }));
+        },
+      });
+    }
+
+    if (activeTab === "ai") {
+      return items;
+    }
 
     // 1. Matched Actions
     if (activeTab === "all" || activeTab === "actions") {
@@ -487,6 +519,7 @@ export const CommandPalette: React.FC = () => {
         <div className="flex items-center gap-1.5 px-4 py-2 bg-slate-900/60 border-b border-slate-800/80 text-xs overflow-x-auto scrollbar-none">
           {[
             { id: "all", label: "All" },
+            { id: "ai", label: "Ask AI" },
             { id: "articles", label: "Articles" },
             { id: "categories", label: "Categories" },
             { id: "tags", label: "Tags" },

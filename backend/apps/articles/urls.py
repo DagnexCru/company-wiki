@@ -12,6 +12,10 @@ from apps.articles.presence_views import (
     ArticlePresenceLockView,
     ArticlePresenceListView,
 )
+from apps.articles.ai_views import (
+    ArticleAiSummaryView,
+    AskWikiAiView,
+)
 
 router = DefaultRouter()
 router.register(r"", ArticleViewSet, basename="article")
@@ -26,6 +30,9 @@ urlpatterns = [
     path("<str:slug_or_id>/presence/leave/", ArticlePresenceLeaveView.as_view(), name="article-presence-leave"),
     path("<str:slug_or_id>/presence/acquire-lock/", ArticlePresenceLockView.as_view(), {"action": "acquire"}, name="article-presence-acquire-lock"),
     path("<str:slug_or_id>/presence/release-lock/", ArticlePresenceLockView.as_view(), {"action": "release"}, name="article-presence-release-lock"),
+    # AI-Powered 'Ask Wiki' & Article Summary Routes
+    path("ask-ai/", AskWikiAiView.as_view(), name="article-ask-ai"),
+    path("<str:slug_or_id>/ai-summary/", ArticleAiSummaryView.as_view(), name="article-ai-summary"),
     path("", include(router.urls)),
 ]
 
