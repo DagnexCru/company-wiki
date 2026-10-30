@@ -106,3 +106,4 @@
 | 100 | `test(tldr-ui): complete ArticleDetailPage TL;DR UI verification` | `tldr-ui` | ✅ PASSED | Signs off on in-article AI summary feature. |
 | 101 | `feat(drawer-ui): create AskWikiAiDrawer component` | `drawer-ui` | ✅ PASSED | Builds interactive slide-over conversational AI drawer. |
 | 102 | `feat(drawer-ui): listen for global 'open-ask-wiki-ai' custom event` | `drawer-ui` | ✅ PASSED | Allows triggering assistant from anywhere in the app. |
+| 103 | `feat(drawer-ui): support pre-populating question query from custom event detail` | `drawer-ui` | ✅ PASSED | Enables passing search terms from Command Palette. |
