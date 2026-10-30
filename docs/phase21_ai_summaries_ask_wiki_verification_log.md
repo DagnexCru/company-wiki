@@ -64,3 +64,4 @@
 | 58 | `feat(ai-service): support force refresh option in generateArticleSummary` | `ai-service` | ✅ PASSED | Allows bypassing cached summary to regenerate. |
 | 59 | `test(ai-service): verify Axios authentication header attachment on AI calls` | `ai-service` | ✅ PASSED | Transmits JWT Bearer token on AI requests. |
 | 60 | `test(ai-service): verify error handling propagation in AI service methods` | `ai-service` | ✅ PASSED | Re-throws informative error messages to UI components. |
+| 61 | `test(ai-service): verify response data unboxing from Axios AxiosResponse` | `ai-service` | ✅ PASSED | Returns data payload directly to callers. |
