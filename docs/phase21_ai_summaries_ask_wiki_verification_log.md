@@ -130,3 +130,4 @@
 | 124 | `test(drawer-ui): verify input autofocus when drawer opens` | `drawer-ui` | ✅ PASSED | Ready for typing immediately upon opening. |
 | 125 | `test(drawer-ui): complete floating assistant drawer verification` | `drawer-ui` | ✅ PASSED | Signs off on conversational AI assistant drawer. |
 | 126 | `feat(palette-ai): add 'ai' filter tab chip in CommandPalette` | `palette-ai` | ✅ PASSED | Provides dedicated 'Ask AI' tab in command bar. |
+| 127 | `feat(palette-ai): display Sparkles icon on 'Ask AI' tab chip` | `palette-ai` | ✅ PASSED | Visually distinguishes AI features from standard search. |
