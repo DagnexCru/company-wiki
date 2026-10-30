@@ -19,3 +19,4 @@
 | 13 | `feat(ai-summary): generate executive TL;DR paragraph from core sentences` | `ai-summary` | ✅ PASSED | Synthesizes concise 2-sentence executive summary. |
 | 14 | `feat(ai-summary): calculate original article reading time in minutes` | `ai-summary` | ✅ PASSED | Uses 200 words-per-minute benchmark for baseline read time. |
 | 15 | `feat(ai-summary): calculate TL;DR reading time benchmark` | `ai-summary` | ✅ PASSED | Calibrates summary reading duration to ~1 minute. |
+| 16 | `feat(ai-summary): calculate time saved in minutes for reader metrics` | `ai-summary` | ✅ PASSED | Exposes reading efficiency gains directly to team members. |
