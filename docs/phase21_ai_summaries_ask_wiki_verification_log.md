@@ -71,3 +71,4 @@
 | 65 | `test(ai-service): verify mock response compatibility for unit testing` | `ai-service` | ✅ PASSED | Enables predictable test harness stubbing. |
 | 66 | `test(ai-service): verify parameter serialization in post requests` | `ai-service` | ✅ PASSED | Validates JSON payload encoding. |
 | 67 | `test(ai-service): verify concurrent AI requests execute independently` | `ai-service` | ✅ PASSED | Zero shared mutable state in service instance. |
+| 68 | `test(ai-service): verify network disconnection triggers user-facing alert` | `ai-service` | ✅ PASSED | Catches network failure and alerts user. |
