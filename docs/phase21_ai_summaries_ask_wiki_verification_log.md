@@ -31,3 +31,4 @@
 | 25 | `test(ai-summary): verify empty content fallback produces graceful defaults` | `ai-summary` | ✅ PASSED | Guarantees robust response when article body is minimal. |
 | 26 | `feat(ask-ai): implement AskWikiAiView endpoint in backend articles app` | `ask-ai` | ✅ PASSED | Exposes POST /api/v1/articles/ask-ai/ for natural language Q&A. |
 | 27 | `feat(ask-ai): route ask-ai endpoint before generic router patterns` | `ask-ai` | ✅ PASSED | Ensures /api/v1/articles/ask-ai/ resolves cleanly in URL dispatcher. |
+| 28 | `feat(ask-ai): enforce IsAuthenticated permission on Ask Wiki AI endpoint` | `ask-ai` | ✅ PASSED | Guards enterprise Q&A assistant against anonymous queries. |
