@@ -52,3 +52,4 @@
 | 46 | `test(ask-ai): verify query without matches returns helpful guidance` | `ask-ai` | ✅ PASSED | Suggests keyword refinement and directory browsing. |
 | 47 | `test(ask-ai): verify single-article scope restricts answer to target slug` | `ask-ai` | ✅ PASSED | Ensures scoped answers don't bleed across articles. |
 | 48 | `test(ask-ai): verify multi-word questions split into keyword tokens` | `ask-ai` | ✅ PASSED | Correctly processes complex conversational queries. |
+| 49 | `test(ask-ai): verify case-insensitive keyword matching in PostgreSQL` | `ask-ai` | ✅ PASSED | Uses icontains lookups for robust match sensitivity. |
