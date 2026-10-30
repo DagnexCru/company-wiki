@@ -108,3 +108,4 @@
 | 102 | `feat(drawer-ui): listen for global 'open-ask-wiki-ai' custom event` | `drawer-ui` | ✅ PASSED | Allows triggering assistant from anywhere in the app. |
 | 103 | `feat(drawer-ui): support pre-populating question query from custom event detail` | `drawer-ui` | ✅ PASSED | Enables passing search terms from Command Palette. |
 | 104 | `feat(drawer-ui): implement message thread history with User and AI bubbles` | `drawer-ui` | ✅ PASSED | Renders conversational exchange with distinct styling. |
+| 105 | `feat(drawer-ui): display AI welcome message with suggested starter questions` | `drawer-ui` | ✅ PASSED | Greets user and suggests common operational inquiries. |
