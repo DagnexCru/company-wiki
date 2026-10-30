@@ -152,3 +152,4 @@
 | 146 | `feat(security-ai): enforce role-based access control on AI documentation search` | `security-ai` | ✅ PASSED | Only searches articles the authenticated user can view. |
 | 147 | `feat(security-ai): verify confidential draft articles excluded from Reader AI searches` | `security-ai` | ✅ PASSED | Preserves confidentiality of internal drafts in review. |
 | 148 | `feat(security-ai): sanitize prompt inputs to prevent prompt injection` | `security-ai` | ✅ PASSED | Cleans user question text before database querying. |
+| 149 | `feat(security-ai): zero external telemetry transmission of company documentation` | `security-ai` | ✅ PASSED | Keeps all text analysis contained within company server boundary. |
