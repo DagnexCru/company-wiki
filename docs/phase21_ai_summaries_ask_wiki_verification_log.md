@@ -104,3 +104,4 @@
 | 98 | `test(tldr-ui): verify zero layout shift (CLS) when summary expands` | `tldr-ui` | ✅ PASSED | Pre-allocates container bounds smoothly. |
 | 99 | `test(tldr-ui): verify unmount cleans up active clipboard timeout timers` | `tldr-ui` | ✅ PASSED | Prevents memory leaks in React lifecycle. |
 | 100 | `test(tldr-ui): complete ArticleDetailPage TL;DR UI verification` | `tldr-ui` | ✅ PASSED | Signs off on in-article AI summary feature. |
+| 101 | `feat(drawer-ui): create AskWikiAiDrawer component` | `drawer-ui` | ✅ PASSED | Builds interactive slide-over conversational AI drawer. |
