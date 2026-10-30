@@ -157,3 +157,4 @@
 | 151 | `test(e2e-ai): verify end-to-end flow: Ctrl+K -> Ask Wiki AI -> click cited source` | `e2e-ai` | ✅ PASSED | Validates complete conversational search lifecycle. |
 | 152 | `test(e2e-ai): verify Vite production bundle builds with zero errors` | `e2e-ai` | ✅ PASSED | tsc -b && vite build compiles cleanly with exit code 0. |
 | 153 | `test(e2e-ai): verify Django backend passes all system checks with 0 issues` | `e2e-ai` | ✅ PASSED | manage.py check passes with 0 issues. |
+| 154 | `test(e2e-ai): verify cross-browser compatibility in Chrome, Firefox, and Edge` | `e2e-ai` | ✅ PASSED | Ensures animations and slide-over drawers work across browsers. |
