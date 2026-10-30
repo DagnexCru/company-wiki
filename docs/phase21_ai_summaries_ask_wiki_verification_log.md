@@ -75,3 +75,4 @@
 | 69 | `test(ai-service): verify token expiration triggers redirect to login` | `ai-service` | ✅ PASSED | Integrates with 401 interceptor cleanly. |
 | 70 | `test(ai-service): complete AI service layer verification` | `ai-service` | ✅ PASSED | Signs off on client-side AI communications. |
 | 71 | `test(ai-types): verify AiSummaryResponse includes time_saved_minutes` | `ai-types` | ✅ PASSED | Ensures read time savings metric is typed. |
+| 72 | `test(ai-types): verify AiSource includes relevance_score and category` | `ai-types` | ✅ PASSED | Ensures citation attributes are fully typed. |
