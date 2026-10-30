@@ -121,3 +121,4 @@
 | 115 | `feat(drawer-ui): implement input composer with Send button and Enter key submit` | `drawer-ui` | ✅ PASSED | Enables rapid typing and submission. |
 | 116 | `feat(drawer-ui): disable composer submission while query is in-flight` | `drawer-ui` | ✅ PASSED | Prevents duplicate requests during generation. |
 | 117 | `feat(drawer-ui): auto-scroll message container to bottom on new messages` | `drawer-ui` | ✅ PASSED | Keeps latest answer in view automatically. |
+| 118 | `feat(drawer-ui): handle API errors gracefully with in-thread warning message` | `drawer-ui` | ✅ PASSED | Displays readable diagnostic message if query fails. |
