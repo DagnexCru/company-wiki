@@ -34,3 +34,4 @@
 | 28 | `feat(ask-ai): enforce IsAuthenticated permission on Ask Wiki AI endpoint` | `ask-ai` | ✅ PASSED | Guards enterprise Q&A assistant against anonymous queries. |
 | 29 | `feat(ask-ai): validate non-empty query parameter in request body` | `ask-ai` | ✅ PASSED | Returns 400 Bad Request when query string is empty. |
 | 30 | `feat(ask-ai): filter articles using Article.objects.for_user() visibility` | `ask-ai` | ✅ PASSED | Enforces strict server-side tenant and role scoping. |
+| 31 | `feat(ask-ai): support global workspace scope and single-article scope` | `ask-ai` | ✅ PASSED | Allows querying entire wiki or focusing on specific article. |
