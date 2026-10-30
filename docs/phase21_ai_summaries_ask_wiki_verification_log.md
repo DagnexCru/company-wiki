@@ -48,3 +48,4 @@
 | 42 | `feat(ask-ai): return metadata for each cited source with match percent` | `ask-ai` | ✅ PASSED | Exposes source id, title, slug, excerpt, and score. |
 | 43 | `feat(ask-ai): include category name in cited source metadata` | `ask-ai` | ✅ PASSED | Helps users identify documentation domain. |
 | 44 | `feat(ask-ai): include last updated timestamp on cited sources` | `ask-ai` | ✅ PASSED | Signals documentation freshness to inquiring users. |
+| 45 | `feat(ask-ai): return AI model attribution string in response` | `ask-ai` | ✅ PASSED | Identifies assistant engine in chat metadata. |
