@@ -22,3 +22,4 @@
 | 16 | `feat(ai-summary): calculate time saved in minutes for reader metrics` | `ai-summary` | ✅ PASSED | Exposes reading efficiency gains directly to team members. |
 | 17 | `feat(ai-summary): compute algorithmic confidence score for summary quality` | `ai-summary` | ✅ PASSED | Returns confidence metric based on structural density. |
 | 18 | `feat(ai-summary): include headings_detected counter in API response` | `ai-summary` | ✅ PASSED | Audits structural depth of analyzed knowledge article. |
+| 19 | `feat(ai-summary): include original word count in summary payload` | `ai-summary` | ✅ PASSED | Supplies document length context to reader interface. |
