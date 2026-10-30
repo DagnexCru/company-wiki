@@ -61,3 +61,4 @@
 | 55 | `feat(ai-service): create aiService module in frontend services` | `ai-service` | ✅ PASSED | Centralizes all AI-related API client calls. |
 | 56 | `feat(ai-service): implement generateArticleSummary client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/<slug>/ai-summary/. |
 | 57 | `feat(ai-service): implement askWikiAi client method` | `ai-service` | ✅ PASSED | Performs POST to /api/v1/articles/ask-ai/ with payload. |
+| 58 | `feat(ai-service): support force refresh option in generateArticleSummary` | `ai-service` | ✅ PASSED | Allows bypassing cached summary to regenerate. |
