@@ -112,3 +112,4 @@
 | 106 | `feat(drawer-ui): render Bot and User avatar icons beside message bubbles` | `drawer-ui` | ✅ PASSED | Provides clear visual cues for conversation turns. |
 | 107 | `feat(drawer-ui): render timestamp and copy button on each message bubble` | `drawer-ui` | ✅ PASSED | Allows copying individual answers with check feedback. |
 | 108 | `feat(drawer-ui): render cited sources card list below AI answer bubble` | `drawer-ui` | ✅ PASSED | Displays authoritative documentation citations. |
+| 109 | `feat(drawer-ui): display match percentage pill on each cited source` | `drawer-ui` | ✅ PASSED | Shows confidence score (e.g. 96% match). |
