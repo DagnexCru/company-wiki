@@ -30,3 +30,4 @@
 | 24 | `test(ai-summary): verify Admin can summarize articles across all statuses` | `ai-summary` | ✅ PASSED | Grants full administrative access to summarization. |
 | 25 | `test(ai-summary): verify empty content fallback produces graceful defaults` | `ai-summary` | ✅ PASSED | Guarantees robust response when article body is minimal. |
 | 26 | `feat(ask-ai): implement AskWikiAiView endpoint in backend articles app` | `ask-ai` | ✅ PASSED | Exposes POST /api/v1/articles/ask-ai/ for natural language Q&A. |
+| 27 | `feat(ask-ai): route ask-ai endpoint before generic router patterns` | `ask-ai` | ✅ PASSED | Ensures /api/v1/articles/ask-ai/ resolves cleanly in URL dispatcher. |
