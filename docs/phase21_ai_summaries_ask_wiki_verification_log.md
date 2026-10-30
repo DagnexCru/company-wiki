@@ -138,3 +138,4 @@
 | 132 | `feat(palette-ai): update combinedItems memoization to support 'ai' active tab` | `palette-ai` | ✅ PASSED | Filters results cleanly when user picks Ask AI tab. |
 | 133 | `style(palette-ai): style Ask Wiki AI action card with purple/indigo border` | `palette-ai` | ✅ PASSED | Delivers premium visual polish for AI actions. |
 | 134 | `test(palette-ai): verify pressing Enter on dynamic Ask AI action opens drawer` | `palette-ai` | ✅ PASSED | Enables keyboard-only AI invocation. |
+| 135 | `test(palette-ai): verify typing question and selecting Ask AI preserves query` | `palette-ai` | ✅ PASSED | Transfers exact search phrase to drawer composer. |
