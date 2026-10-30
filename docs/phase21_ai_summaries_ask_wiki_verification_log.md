@@ -35,3 +35,4 @@
 | 29 | `feat(ask-ai): validate non-empty query parameter in request body` | `ask-ai` | ✅ PASSED | Returns 400 Bad Request when query string is empty. |
 | 30 | `feat(ask-ai): filter articles using Article.objects.for_user() visibility` | `ask-ai` | ✅ PASSED | Enforces strict server-side tenant and role scoping. |
 | 31 | `feat(ask-ai): support global workspace scope and single-article scope` | `ask-ai` | ✅ PASSED | Allows querying entire wiki or focusing on specific article. |
+| 32 | `feat(ask-ai): filter stop words from natural language question string` | `ask-ai` | ✅ PASSED | Removes low-signal conversational words from query parser. |
