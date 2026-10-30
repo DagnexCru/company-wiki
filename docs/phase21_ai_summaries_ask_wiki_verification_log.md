@@ -129,3 +129,4 @@
 | 123 | `test(drawer-ui): verify Escape key dismisses AskWikiAiDrawer` | `drawer-ui` | ✅ PASSED | Standard modal keyboard navigation pattern. |
 | 124 | `test(drawer-ui): verify input autofocus when drawer opens` | `drawer-ui` | ✅ PASSED | Ready for typing immediately upon opening. |
 | 125 | `test(drawer-ui): complete floating assistant drawer verification` | `drawer-ui` | ✅ PASSED | Signs off on conversational AI assistant drawer. |
+| 126 | `feat(palette-ai): add 'ai' filter tab chip in CommandPalette` | `palette-ai` | ✅ PASSED | Provides dedicated 'Ask AI' tab in command bar. |
