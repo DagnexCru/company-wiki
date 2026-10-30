@@ -89,3 +89,4 @@
 | 83 | `feat(tldr-ui): display total key takeaways count badge in header` | `tldr-ui` | ✅ PASSED | Informs reader of number of bullet points extracted. |
 | 84 | `feat(tldr-ui): implement Copy Summary button with copied tooltip confirmation` | `tldr-ui` | ✅ PASSED | Copies formatted TL;DR and bullets to clipboard. |
 | 85 | `feat(tldr-ui): implement Regenerate button with rotating icon animation` | `tldr-ui` | ✅ PASSED | Allows forcing a fresh summary calculation. |
+| 86 | `feat(tldr-ui): implement Expand / Collapse accordion toggle button` | `tldr-ui` | ✅ PASSED | Allows readers to minimize summary after reading. |
