@@ -94,3 +94,4 @@
 | 88 | `feat(tldr-ui): embed ArticleAiSummaryCard at top of ArticleDetailPage` | `tldr-ui` | ✅ PASSED | Positions summary directly above the main markdown body. |
 | 89 | `style(tldr-ui): apply brand-to-indigo gradient accents in light and dark mode` | `tldr-ui` | ✅ PASSED | Harmonizes with company wiki design system. |
 | 90 | `style(tldr-ui): apply rounded-2xl border and shadow-xs containment` | `tldr-ui` | ✅ PASSED | Delivers clean enterprise aesthetic without harsh lines. |
+| 91 | `test(tldr-ui): verify clipboard copy formats bullet points with unicode dots` | `tldr-ui` | ✅ PASSED | Ensures clean paste format in Slack, email, or docs. |
