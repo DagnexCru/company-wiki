@@ -78,3 +78,4 @@
 | 72 | `test(ai-types): verify AiSource includes relevance_score and category` | `ai-types` | ✅ PASSED | Ensures citation attributes are fully typed. |
 | 73 | `test(ai-types): verify AskWikiAiResponse includes suggested_questions` | `ai-types` | ✅ PASSED | Ensures follow-up questions array is typed. |
 | 74 | `test(ai-types): verify optional scope and article_slug in AskWikiAiRequest` | `ai-types` | ✅ PASSED | Permits scoped Q&A requests. |
+| 75 | `test(ai-types): complete AI TypeScript type definitions verification` | `ai-types` | ✅ PASSED | Signs off on AI interfaces and contracts. |
