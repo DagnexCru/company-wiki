@@ -148,3 +148,4 @@
 | 142 | `test(palette-ai): verify clean unmount of event listeners in CommandPalette` | `palette-ai` | ✅ PASSED | Prevents memory leaks in React lifecycle. |
 | 143 | `test(palette-ai): verify role checks on quick actions do not restrict AI assistant` | `palette-ai` | ✅ PASSED | Ensures all authenticated members can use Wiki AI. |
 | 144 | `test(palette-ai): verify recent searches list not polluted by AI questions` | `palette-ai` | ✅ PASSED | Separates conversational queries from navigation history. |
+| 145 | `test(palette-ai): complete CommandPalette AI integration verification` | `palette-ai` | ✅ PASSED | Signs off on global command bar AI features. |
