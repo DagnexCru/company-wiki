@@ -102,3 +102,4 @@
 | 96 | `test(tldr-ui): verify error banner dismisses when retry succeeds` | `tldr-ui` | ✅ PASSED | Clears error state on successful response. |
 | 97 | `test(tldr-ui): verify responsive button padding on touch devices` | `tldr-ui` | ✅ PASSED | Touch targets meet 44px minimum sizing. |
 | 98 | `test(tldr-ui): verify zero layout shift (CLS) when summary expands` | `tldr-ui` | ✅ PASSED | Pre-allocates container bounds smoothly. |
+| 99 | `test(tldr-ui): verify unmount cleans up active clipboard timeout timers` | `tldr-ui` | ✅ PASSED | Prevents memory leaks in React lifecycle. |
