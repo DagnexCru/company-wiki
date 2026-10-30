@@ -16,3 +16,4 @@
 | 10 | `feat(ai-summary): extract markdown bullet list items as actionable checkpoints` | `ai-summary` | ✅ PASSED | Transforms lists into structured procedural takeaways. |
 | 11 | `feat(ai-summary): segment clean prose into punctuation-delimited sentences` | `ai-summary` | ✅ PASSED | Enables sentence-level salience scoring. |
 | 12 | `feat(ai-summary): curate top 3 to 5 key takeaways per article` | `ai-summary` | ✅ PASSED | Caps bullet points to essential high-impact takeaways. |
+| 13 | `feat(ai-summary): generate executive TL;DR paragraph from core sentences` | `ai-summary` | ✅ PASSED | Synthesizes concise 2-sentence executive summary. |
