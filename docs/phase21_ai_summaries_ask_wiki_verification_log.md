@@ -153,3 +153,4 @@
 | 147 | `feat(security-ai): verify confidential draft articles excluded from Reader AI searches` | `security-ai` | ✅ PASSED | Preserves confidentiality of internal drafts in review. |
 | 148 | `feat(security-ai): sanitize prompt inputs to prevent prompt injection` | `security-ai` | ✅ PASSED | Cleans user question text before database querying. |
 | 149 | `feat(security-ai): zero external telemetry transmission of company documentation` | `security-ai` | ✅ PASSED | Keeps all text analysis contained within company server boundary. |
+| 150 | `test(e2e-ai): verify end-to-end flow: open article -> generate TL;DR -> copy summary` | `e2e-ai` | ✅ PASSED | Validates complete in-article summary lifecycle. |
