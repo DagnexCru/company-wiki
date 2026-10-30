@@ -58,3 +58,4 @@
 | 52 | `feat(ai-types): create AskWikiAiRequest TypeScript interface` | `ai-types` | ✅ PASSED | Defines request payload for natural language questions. |
 | 53 | `feat(ai-types): create AiSource TypeScript interface` | `ai-types` | ✅ PASSED | Defines cited article metadata and relevance scores. |
 | 54 | `feat(ai-types): create AskWikiAiResponse TypeScript interface` | `ai-types` | ✅ PASSED | Defines complete response contract for Ask Wiki AI assistant. |
+| 55 | `feat(ai-service): create aiService module in frontend services` | `ai-service` | ✅ PASSED | Centralizes all AI-related API client calls. |
