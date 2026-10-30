@@ -40,3 +40,4 @@
 | 34 | `feat(ask-ai): perform tag name matching in Ask Wiki search engine` | `ask-ai` | ✅ PASSED | Includes taxonomy tags in relevance evaluation. |
 | 35 | `feat(ask-ai): compute relevance score between query and matched articles` | `ask-ai` | ✅ PASSED | Calculates title and content density match percentage. |
 | 36 | `feat(ask-ai): extract keyword-centered sentence snippets for answer context` | `ask-ai` | ✅ PASSED | Pulls most informative sentence containing search terms. |
+| 37 | `feat(ask-ai): sort candidate sources descending by relevance score` | `ask-ai` | ✅ PASSED | Ranks most authoritative documentation at the top. |
