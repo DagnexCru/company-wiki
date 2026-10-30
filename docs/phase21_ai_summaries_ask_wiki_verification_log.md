@@ -83,3 +83,4 @@
 | 77 | `feat(tldr-ui): implement initial compact trigger state with Sparkles icon` | `tldr-ui` | ✅ PASSED | Displays 'Generate TL;DR' button without cluttering reading view. |
 | 78 | `feat(tldr-ui): render estimated reading time comparison in initial card` | `tldr-ui` | ✅ PASSED | Shows how many minutes of reading the summary saves. |
 | 79 | `feat(tldr-ui): implement animated loading spinner during summary generation` | `tldr-ui` | ✅ PASSED | Provides clear visual feedback while AI is analyzing content. |
+| 80 | `feat(tldr-ui): render executive overview paragraph in distinct callout` | `tldr-ui` | ✅ PASSED | Styles 2-sentence summary in translucent frosted container. |
