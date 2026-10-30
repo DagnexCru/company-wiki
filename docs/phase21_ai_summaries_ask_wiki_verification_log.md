@@ -142,3 +142,4 @@
 | 136 | `test(palette-ai): verify Ask AI tab displays dynamic action when query is empty` | `palette-ai` | ✅ PASSED | Shows general assistant launch prompt. |
 | 137 | `test(palette-ai): verify Tab key switches between All, Ask AI, and Articles` | `palette-ai` | ✅ PASSED | Complies with keyboard accessibility standards. |
 | 138 | `test(palette-ai): verify zero lag during rapid query typing with AI action injected` | `palette-ai` | ✅ PASSED | Maintains silky smooth 60fps input responsiveness. |
+| 139 | `test(palette-ai): verify CommandPalette search input placeholder guidance` | `palette-ai` | ✅ PASSED | Guides user to search or ask questions. |
