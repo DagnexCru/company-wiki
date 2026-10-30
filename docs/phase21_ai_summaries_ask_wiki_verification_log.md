@@ -56,3 +56,4 @@
 | 50 | `test(ask-ai): verify response latency remains under 45ms locally` | `ask-ai` | ✅ PASSED | Ensures instantaneous conversational search performance. |
 | 51 | `feat(ai-types): create AiSummaryResponse TypeScript interface` | `ai-types` | ✅ PASSED | Defines structured typing for article summary API response. |
 | 52 | `feat(ai-types): create AskWikiAiRequest TypeScript interface` | `ai-types` | ✅ PASSED | Defines request payload for natural language questions. |
+| 53 | `feat(ai-types): create AiSource TypeScript interface` | `ai-types` | ✅ PASSED | Defines cited article metadata and relevance scores. |
