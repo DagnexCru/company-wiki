@@ -134,3 +134,4 @@
 | 128 | `feat(palette-ai): inject dynamic 'Ask Wiki AI' action card when query is typed` | `palette-ai` | ✅ PASSED | Offers instant AI answer option at top of results. |
 | 129 | `feat(palette-ai): add static 'Ask Wiki AI Assistant' quick action in actions list` | `palette-ai` | ✅ PASSED | Discoverable even when search query is empty. |
 | 130 | `feat(palette-ai): trigger 'open-ask-wiki-ai' custom event with typed query` | `palette-ai` | ✅ PASSED | Seamlessly hands off search text to assistant drawer. |
+| 131 | `feat(palette-ai): auto-close CommandPalette when handing off to AI assistant` | `palette-ai` | ✅ PASSED | Prevents overlapping modals on screen. |
