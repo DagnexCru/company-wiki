@@ -97,3 +97,4 @@
 | 91 | `test(tldr-ui): verify clipboard copy formats bullet points with unicode dots` | `tldr-ui` | ✅ PASSED | Ensures clean paste format in Slack, email, or docs. |
 | 92 | `test(tldr-ui): verify summary card renders cleanly on mobile viewports` | `tldr-ui` | ✅ PASSED | Flex container wraps smoothly on narrow screens. |
 | 93 | `test(tldr-ui): verify dark mode color contrast meets WCAG AA standards` | `tldr-ui` | ✅ PASSED | Ensures slate-200 text on dark slate card background. |
+| 94 | `test(tldr-ui): verify expand/collapse state toggles smoothly` | `tldr-ui` | ✅ PASSED | Smooth state transition between collapsed and expanded. |
