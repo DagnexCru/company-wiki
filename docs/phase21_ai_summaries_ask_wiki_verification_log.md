@@ -136,3 +136,4 @@
 | 130 | `feat(palette-ai): trigger 'open-ask-wiki-ai' custom event with typed query` | `palette-ai` | ✅ PASSED | Seamlessly hands off search text to assistant drawer. |
 | 131 | `feat(palette-ai): auto-close CommandPalette when handing off to AI assistant` | `palette-ai` | ✅ PASSED | Prevents overlapping modals on screen. |
 | 132 | `feat(palette-ai): update combinedItems memoization to support 'ai' active tab` | `palette-ai` | ✅ PASSED | Filters results cleanly when user picks Ask AI tab. |
+| 133 | `style(palette-ai): style Ask Wiki AI action card with purple/indigo border` | `palette-ai` | ✅ PASSED | Delivers premium visual polish for AI actions. |
