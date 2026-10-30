@@ -49,3 +49,4 @@
 | 43 | `feat(ask-ai): include category name in cited source metadata` | `ask-ai` | ✅ PASSED | Helps users identify documentation domain. |
 | 44 | `feat(ask-ai): include last updated timestamp on cited sources` | `ask-ai` | ✅ PASSED | Signals documentation freshness to inquiring users. |
 | 45 | `feat(ask-ai): return AI model attribution string in response` | `ask-ai` | ✅ PASSED | Identifies assistant engine in chat metadata. |
+| 46 | `test(ask-ai): verify query without matches returns helpful guidance` | `ask-ai` | ✅ PASSED | Suggests keyword refinement and directory browsing. |
