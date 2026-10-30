@@ -127,3 +127,4 @@
 | 121 | `feat(drawer-ui): style floating button with gradient and pulsing Sparkles icon` | `drawer-ui` | ✅ PASSED | Draws subtle visual attention without obstructing content. |
 | 122 | `feat(drawer-ui): embed AskWikiAiDrawer and AskWikiFloatingButton in MainLayout` | `drawer-ui` | ✅ PASSED | Makes AI assistant universally available across all pages. |
 | 123 | `test(drawer-ui): verify Escape key dismisses AskWikiAiDrawer` | `drawer-ui` | ✅ PASSED | Standard modal keyboard navigation pattern. |
+| 124 | `test(drawer-ui): verify input autofocus when drawer opens` | `drawer-ui` | ✅ PASSED | Ready for typing immediately upon opening. |
