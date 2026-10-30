@@ -81,3 +81,4 @@
 | 75 | `test(ai-types): complete AI TypeScript type definitions verification` | `ai-types` | ✅ PASSED | Signs off on AI interfaces and contracts. |
 | 76 | `feat(tldr-ui): create ArticleAiSummaryCard component` | `tldr-ui` | ✅ PASSED | Builds modern, gradient AI summary card for articles. |
 | 77 | `feat(tldr-ui): implement initial compact trigger state with Sparkles icon` | `tldr-ui` | ✅ PASSED | Displays 'Generate TL;DR' button without cluttering reading view. |
+| 78 | `feat(tldr-ui): render estimated reading time comparison in initial card` | `tldr-ui` | ✅ PASSED | Shows how many minutes of reading the summary saves. |
