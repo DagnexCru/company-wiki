@@ -85,3 +85,4 @@
 | 79 | `feat(tldr-ui): implement animated loading spinner during summary generation` | `tldr-ui` | ✅ PASSED | Provides clear visual feedback while AI is analyzing content. |
 | 80 | `feat(tldr-ui): render executive overview paragraph in distinct callout` | `tldr-ui` | ✅ PASSED | Styles 2-sentence summary in translucent frosted container. |
 | 81 | `feat(tldr-ui): render key takeaways bulleted list with CheckCircle2 icons` | `tldr-ui` | ✅ PASSED | Highlights top 3 to 5 actionable requirements. |
+| 82 | `feat(tldr-ui): display 'Saves ~X min read' pill badge in emerald font` | `tldr-ui` | ✅ PASSED | Quantifies productivity gain directly for readers. |
