@@ -125,3 +125,4 @@
 | 119 | `feat(drawer-ui): implement close button and backdrop click dismissal` | `drawer-ui` | ✅ PASSED | Provides intuitive modal close interactions. |
 | 120 | `feat(drawer-ui): create AskWikiFloatingButton component` | `drawer-ui` | ✅ PASSED | Builds floating trigger button in bottom-right corner. |
 | 121 | `feat(drawer-ui): style floating button with gradient and pulsing Sparkles icon` | `drawer-ui` | ✅ PASSED | Draws subtle visual attention without obstructing content. |
+| 122 | `feat(drawer-ui): embed AskWikiAiDrawer and AskWikiFloatingButton in MainLayout` | `drawer-ui` | ✅ PASSED | Makes AI assistant universally available across all pages. |
