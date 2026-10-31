@@ -1,5 +1,6 @@
 import re
 import math
+import uuid
 from datetime import datetime
 from django.utils import timezone
 from django.db.models import Q
@@ -20,11 +21,12 @@ class ArticleAiSummaryView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, slug_or_id):
-        # 1. Lookup article by UUID or slug
+        # 1. Lookup article by UUID or slug safely without UUID validation error
         article = None
         try:
-            article = Article.objects.get(id=slug_or_id)
-        except (ValueError, Article.DoesNotExist):
+            val_uuid = uuid.UUID(str(slug_or_id))
+            article = Article.objects.get(id=val_uuid)
+        except (ValueError, AttributeError, Article.DoesNotExist):
             try:
                 article = Article.objects.get(slug=slug_or_id)
             except Article.DoesNotExist:
@@ -150,7 +152,11 @@ class AskWikiAiView(APIView):
         base_qs = Article.objects.for_user(user).filter(status=Article.Status.PUBLISHED)
 
         if scope == "article" and target_slug:
-            base_qs = base_qs.filter(Q(slug=target_slug) | Q(id=target_slug))
+            try:
+                valid_uuid = uuid.UUID(str(target_slug))
+                base_qs = base_qs.filter(Q(slug=target_slug) | Q(id=valid_uuid))
+            except (ValueError, AttributeError):
+                base_qs = base_qs.filter(slug=target_slug)
 
         # Query keywords for relevance matching
         keywords = [k.lower() for k in re.findall(r"\w{3,}", query) if k.lower() not in {
@@ -258,3 +264,4 @@ class AskWikiAiView(APIView):
             "model": "Company Wiki Neural Assistant",
             "timestamp": timezone.now().isoformat(),
         }, status=status.HTTP_200_OK)
+
