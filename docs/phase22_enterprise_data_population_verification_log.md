@@ -156,3 +156,4 @@
 | 150 | `test(workflow-seed): verify Article.objects.filter(is_featured=True).count() equals 4` | `workflow-seed` | ✅ PASSED | Confirms 4 featured guides on dashboard. |
 | 151 | `test(workflow-seed): verify estimated_read_time calculated accurately for all articles` | `workflow-seed` | ✅ PASSED | Word count / 200 formula verified. |
 | 152 | `test(workflow-seed): verify unique slugs generated with kebab-case` | `workflow-seed` | ✅ PASSED | Asserts URL friendliness of all articles. |
+| 153 | `test(workflow-seed): verify published_at timestamp set for published articles` | `workflow-seed` | ✅ PASSED | Ensures chronological ordering works. |
