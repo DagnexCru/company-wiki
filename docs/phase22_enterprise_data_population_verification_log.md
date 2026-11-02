@@ -47,3 +47,4 @@
 | 41 | `feat(taxonomy-cats): seed IT Support & Workplace category` | `taxonomy-cats` | ✅ PASSED | Configures hardware provisioning, VPN, and device encryption runbooks. |
 | 42 | `feat(taxonomy-cats): configure sky color token and life-buoy icon for IT Support` | `taxonomy-cats` | ✅ PASSED | Enables clear help-desk discoverability. |
 | 43 | `feat(taxonomy-cats): seed Product & Design System category` | `taxonomy-cats` | ✅ PASSED | Configures design tokens, Tailwind CSS, and accessibility standards. |
+| 44 | `feat(taxonomy-cats): configure cyan color token and layout icon for Design System` | `taxonomy-cats` | ✅ PASSED | Distinguishes frontend and UX documentation. |
