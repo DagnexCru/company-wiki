@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -18,6 +18,8 @@ import {
   Download,
   Share2,
   Check,
+  Eye,
+  ThumbsUp,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -31,6 +33,7 @@ import { ReviewTimeline } from "../components/ReviewTimeline";
 import { TableOfContents } from "../components/TableOfContents";
 import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
 import { ArticleAiSummaryCard } from "../components/ArticleAiSummaryCard";
+import { ArticleFeedbackWidget } from "../components/ArticleFeedbackWidget";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -60,6 +63,7 @@ export const ArticleDetailPage: React.FC = () => {
   const [activeHeadingId, setActiveHeadingId] = useState<string>("");
   const [readingProgress, setReadingProgress] = useState<number>(0);
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
+  const viewRecordedRef = useRef<string | null>(null);
 
   // Workflow Modal States
   const [showSubmitModal, setShowSubmitModal] = useState<boolean>(false);
@@ -72,6 +76,18 @@ export const ArticleDetailPage: React.FC = () => {
     try {
       const data = await articleService.getArticleBySlug(slug);
       setArticle(data);
+
+      // Record article view once per visit
+      if (viewRecordedRef.current !== data.slug) {
+        viewRecordedRef.current = data.slug;
+        articleService.recordView(data.slug).then((viewData) => {
+          if (viewData && typeof viewData.view_count === "number") {
+            setArticle((prev) => (prev ? { ...prev, view_count: viewData.view_count } : null));
+          }
+        }).catch((err) => {
+          console.debug("View tracking skipped:", err);
+        });
+      }
 
       // Load review history if authorized (Author, Reviewer, or Admin)
       if (user && (user.role === "ADMIN" || user.role === "REVIEWER" || user.id === data.author.id)) {
@@ -106,14 +122,28 @@ export const ArticleDetailPage: React.FC = () => {
   }, [article?.content]);
 
   // Scroll listener for reading progress bar and active heading scroll-spy
+  // Dual-aware: listens to both window and <main className="overflow-y-auto"> container
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
-      setReadingProgress(progress);
+    const mainEl = document.querySelector("main");
 
-      // Determine active heading
+    const handleScroll = () => {
+      // 1. Calculate window scroll progress
+      const winScrollTop = window.scrollY || document.documentElement.scrollTop;
+      const winDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const winProgress = winDocHeight > 0 ? (winScrollTop / winDocHeight) * 100 : 0;
+
+      // 2. Calculate main container scroll progress
+      let mainProgress = 0;
+      if (mainEl) {
+        const mainScrollTop = mainEl.scrollTop;
+        const mainScrollHeight = mainEl.scrollHeight - mainEl.clientHeight;
+        mainProgress = mainScrollHeight > 0 ? (mainScrollTop / mainScrollHeight) * 100 : 0;
+      }
+
+      const activeProgress = Math.min(100, Math.max(0, Math.max(winProgress, mainProgress)));
+      setReadingProgress(activeProgress);
+
+      // 3. Determine active heading for table of contents
       if (headings.length > 0) {
         let currentActive = headings[0].id;
         for (const h of headings) {
@@ -130,8 +160,17 @@ export const ArticleDetailPage: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    if (mainEl) {
+      mainEl.addEventListener("scroll", handleScroll, { passive: true });
+    }
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (mainEl) {
+        mainEl.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, [headings]);
 
   const handleDownloadMarkdown = () => {
@@ -270,7 +309,7 @@ export const ArticleDetailPage: React.FC = () => {
     <div className="max-w-6xl mx-auto py-2 space-y-8 animate-in fade-in duration-300 relative">
       {/* Pinned Top Reading Progress Bar */}
       <div
-        className="reading-progress-bar fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 transition-all duration-150 ease-out pointer-events-none"
+        className="reading-progress-bar fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-indigo-500 to-purple-500 shadow-sm shadow-brand-500/25 z-50 transition-all duration-150 ease-out pointer-events-none"
         style={{ width: `${readingProgress}%` }}
         role="progressbar"
         aria-valuenow={Math.round(readingProgress)}
@@ -516,7 +555,17 @@ export const ArticleDetailPage: React.FC = () => {
 
           <div className="flex items-center gap-1.5">
             <Clock className="w-4 h-4 text-slate-400" />
-            {article.estimated_read_time} min read
+            <span>⏱️ {article.estimated_read_time} min read (~{article.content ? article.content.split(/\s+/).filter(Boolean).length : 0} words)</span>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            <Eye className="w-4 h-4 text-slate-400" />
+            <span>👁️ {(article.view_count || 1).toLocaleString()} views</span>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            <ThumbsUp className="w-4 h-4 text-slate-400" />
+            <span>👍 {article.helpfulness_score ?? 100}% helpful ({article.helpful_count ?? 0})</span>
           </div>
         </div>
       </header>
@@ -534,6 +583,30 @@ export const ArticleDetailPage: React.FC = () => {
           {/* Main Document Content */}
           <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
             <MarkdownViewer content={article.content} />
+
+            {/* Reader UX: Interactive Helpful Feedback Widget & Quality Metrics */}
+            <ArticleFeedbackWidget
+              articleSlug={article.slug}
+              initialHelpfulCount={article.helpful_count}
+              initialUnhelpfulCount={article.unhelpful_count}
+              initialHelpfulnessScore={article.helpfulness_score}
+              initialUserFeedback={article.user_feedback}
+              canManageArticle={Boolean(isAuthor || isReviewerOrAdmin)}
+              initialFeedbackNotes={article.recent_feedback_notes}
+              onFeedbackUpdated={(updated) => {
+                setArticle((prev) =>
+                  prev
+                    ? {
+                        ...prev,
+                        helpful_count: updated.helpful_count,
+                        unhelpful_count: updated.unhelpful_count,
+                        helpfulness_score: updated.helpfulness_score,
+                        user_feedback: updated.user_feedback,
+                      }
+                    : null
+                );
+              }}
+            />
           </article>
 
           {/* Review History Section (Visible to Author, Reviewers, and Admins) */}
