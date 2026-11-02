@@ -71,3 +71,4 @@
 | 65 | `feat(taxonomy-tags): seed Kubernetes and Docker containerization tags` | `taxonomy-tags` | ✅ PASSED | Tags cluster orchestration and container runtimes. |
 | 66 | `feat(taxonomy-tags): seed DevOps and CI/CD automation tags` | `taxonomy-tags` | ✅ PASSED | Tags delivery pipelines and GitOps workflows. |
 | 67 | `feat(taxonomy-tags): seed AWS cloud infrastructure tag` | `taxonomy-tags` | ✅ PASSED | Tags Amazon Web Services cloud architecture. |
+| 68 | `feat(taxonomy-tags): seed Security, ZeroTrust, and SOC2 tags` | `taxonomy-tags` | ✅ PASSED | Tags enterprise compliance and perimeterless networks. |
