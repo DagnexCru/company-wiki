@@ -40,3 +40,4 @@
 | 34 | `feat(taxonomy-cats): configure purple color token and server icon for DevOps` | `taxonomy-cats` | ✅ PASSED | Provides distinctive infrastructure iconography. |
 | 35 | `feat(taxonomy-cats): seed Security & Compliance category` | `taxonomy-cats` | ✅ PASSED | Configures SOC 2, Zero-Trust, and cryptographic policies. |
 | 36 | `feat(taxonomy-cats): configure rose color token and shield icon for Security` | `taxonomy-cats` | ✅ PASSED | Highlights high-severity compliance content. |
+| 37 | `feat(taxonomy-cats): seed Incident Response & SRE category` | `taxonomy-cats` | ✅ PASSED | Configures severity matrices, on-call runbooks, and PIR guidelines. |
