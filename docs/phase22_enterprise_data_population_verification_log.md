@@ -74,3 +74,4 @@
 | 68 | `feat(taxonomy-tags): seed Security, ZeroTrust, and SOC2 tags` | `taxonomy-tags` | ✅ PASSED | Tags enterprise compliance and perimeterless networks. |
 | 69 | `feat(taxonomy-tags): seed GDPR privacy and data protection tag` | `taxonomy-tags` | ✅ PASSED | Tags European and global privacy regulations. |
 | 70 | `feat(taxonomy-tags): seed IncidentResponse, Runbook, and SRE tags` | `taxonomy-tags` | ✅ PASSED | Tags operational post-mortems and triage guides. |
+| 71 | `feat(taxonomy-tags): seed Observability monitoring tag` | `taxonomy-tags` | ✅ PASSED | Tags metrics, tracing, and log aggregation. |
