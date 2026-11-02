@@ -196,3 +196,4 @@
 | 190 | `test(e2e-wiki): verify CommandPalette search returns instant article matches` | `e2e-wiki` | ✅ PASSED | Validates Ctrl+K search index. |
 | 191 | `test(e2e-wiki): verify CommandPalette 'Ask AI' tab transfers query to drawer` | `e2e-wiki` | ✅ PASSED | Validates seamless AI assistant handoff. |
 | 192 | `test(e2e-wiki): verify AskWikiFloatingButton opens assistant from any route` | `e2e-wiki` | ✅ PASSED | Validates floating trigger responsiveness. |
+| 193 | `test(e2e-wiki): verify ArticleAiSummaryCard generates TL;DR on click` | `e2e-wiki` | ✅ PASSED | Validates in-article summary UI. |
