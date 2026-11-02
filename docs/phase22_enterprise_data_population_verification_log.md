@@ -189,3 +189,4 @@
 | 183 | `test(ai-eval): verify key takeaways count between 3 and 5 for all articles` | `ai-eval` | ✅ PASSED | Confirms consistent bullet points extraction. |
 | 184 | `test(ai-eval): verify executive TL;DR length between 50 and 350 characters` | `ai-eval` | ✅ PASSED | Confirms readable executive summaries. |
 | 185 | `test(ai-eval): complete AI neural engine evaluation over seeded content` | `ai-eval` | ✅ PASSED | Signs off on AI integration with company wiki. |
+| 186 | `test(e2e-wiki): verify DashboardView aggregates seeded metrics correctly` | `e2e-wiki` | ✅ PASSED | Validates total articles, categories, and tags. |
