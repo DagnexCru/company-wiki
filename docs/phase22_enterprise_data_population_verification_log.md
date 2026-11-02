@@ -89,3 +89,4 @@
 | 83 | `test(taxonomy-tags): verify tag chip display in CommandPalette tags tab` | `taxonomy-tags` | ✅ PASSED | Enables instant tag search via Ctrl+K. |
 | 84 | `test(taxonomy-tags): verify tag hashtag styling #tag in ArticleDetailPage` | `taxonomy-tags` | ✅ PASSED | Ensures readable tag badges in header. |
 | 85 | `test(taxonomy-tags): verify tag search keyword matching in AskWikiAiView` | `taxonomy-tags` | ✅ PASSED | Includes tag names in semantic relevance scoring. |
+| 86 | `test(taxonomy-tags): verify case-insensitive tag lookups` | `taxonomy-tags` | ✅ PASSED | Matches tags regardless of user input casing. |
