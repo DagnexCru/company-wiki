@@ -121,3 +121,4 @@
 | 115 | `feat(kb-articles): include WORM S3 Glacier tamper-evident log streaming` | `kb-articles` | ✅ PASSED | Protects compliance audit evidence. |
 | 116 | `feat(kb-articles): include quarterly user access review certification rules` | `kb-articles` | ✅ PASSED | Enforces automated inactive account deactivation. |
 | 117 | `feat(kb-articles): seed Frontend Design System Guidelines: Tailwind CSS & Accessibility` | `kb-articles` | ✅ PASSED | Documents dark-mode color semantic tokens. |
+| 118 | `feat(kb-articles): include WCAG 2.1 AA 4.5:1 contrast and keyboard focus rings` | `kb-articles` | ✅ PASSED | Ensures universal accessibility. |
