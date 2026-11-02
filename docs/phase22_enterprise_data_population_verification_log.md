@@ -144,3 +144,4 @@
 | 138 | `feat(workflow-seed): capture tags_snapshot JSON array for each revision` | `workflow-seed` | ✅ PASSED | Stores tags attached at time of creation. |
 | 139 | `feat(workflow-seed): capture category_name string for each revision` | `workflow-seed` | ✅ PASSED | Preserves category name in historical ledger. |
 | 140 | `feat(workflow-seed): set change_summary to verified production baseline` | `workflow-seed` | ✅ PASSED | Provides clear diagnostic reason in revision timeline. |
+| 141 | `feat(workflow-seed): create ReviewRecord SUBMIT event for vector search draft` | `workflow-seed` | ✅ PASSED | Populates Review Queue with authentic submission. |
