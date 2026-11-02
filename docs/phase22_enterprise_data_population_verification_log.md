@@ -138,3 +138,4 @@
 | 132 | `feat(kb-articles): include automated purge_customer_pii pipeline commands` | `kb-articles` | ✅ PASSED | Fulfills 30-day erasure compliance. |
 | 133 | `feat(kb-articles): seed Draft Proposal: Next-Generation Vector Search for Enterprise Wiki` | `kb-articles` | ✅ PASSED | Supplies in_review article for editorial testing. |
 | 134 | `feat(kb-articles): include pgvector 1536-dim embedding technical architecture` | `kb-articles` | ✅ PASSED | Provides authentic technical draft in review. |
+| 135 | `test(kb-articles): verify Article.objects.count() equals exactly 15 articles` | `kb-articles` | ✅ PASSED | Validates complete knowledge base ingestion. |
