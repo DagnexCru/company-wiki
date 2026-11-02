@@ -180,3 +180,4 @@
 | 174 | `test(ai-eval): test AskWikiAiView with query 'REST API idempotency key'` | `ai-eval` | ✅ PASSED | Validates API design guidelines match. |
 | 175 | `test(ai-eval): verify API query cites RESTful API Design Standards article` | `ai-eval` | ✅ PASSED | Asserts correct API standards citation. |
 | 176 | `test(ai-eval): test AskWikiAiView with query 'SOC 2 audit logging'` | `ai-eval` | ✅ PASSED | Validates SOC 2 compliance article match. |
+| 177 | `test(ai-eval): verify compliance query cites SOC 2 Type II Compliance article` | `ai-eval` | ✅ PASSED | Asserts correct audit logging citation. |
