@@ -120,3 +120,4 @@
 | 114 | `feat(kb-articles): seed SOC 2 Type II Compliance, Audit Logging & Cryptographic Keys` | `kb-articles` | ✅ PASSED | Documents continuous Trust Services audit controls. |
 | 115 | `feat(kb-articles): include WORM S3 Glacier tamper-evident log streaming` | `kb-articles` | ✅ PASSED | Protects compliance audit evidence. |
 | 116 | `feat(kb-articles): include quarterly user access review certification rules` | `kb-articles` | ✅ PASSED | Enforces automated inactive account deactivation. |
+| 117 | `feat(kb-articles): seed Frontend Design System Guidelines: Tailwind CSS & Accessibility` | `kb-articles` | ✅ PASSED | Documents dark-mode color semantic tokens. |
