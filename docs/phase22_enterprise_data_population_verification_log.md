@@ -201,3 +201,4 @@
 | 195 | `test(e2e-wiki): verify Django backend check passes with 0 issues` | `e2e-wiki` | ✅ PASSED | manage.py check reports zero errors. |
 | 196 | `test(e2e-wiki): verify PostgreSQL connection pool operates without leaks` | `e2e-wiki` | ✅ PASSED | Validates database connection efficiency. |
 | 197 | `test(e2e-wiki): verify zero layout shift or visual regressions across views` | `e2e-wiki` | ✅ PASSED | Ensures UI polish and responsiveness. |
+| 198 | `test(e2e-wiki): verify mobile viewport responsiveness on 375px and 414px` | `e2e-wiki` | ✅ PASSED | Validates mobile navigation and drawer. |
