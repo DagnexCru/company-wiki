@@ -20,3 +20,4 @@
 | 14 | `feat(data-reset): purge legacy AuditEvent records unless --keep-audit specified` | `data-reset` | ✅ PASSED | Provides clean audit trail for enterprise reset. |
 | 15 | `feat(data-reset): enforce transaction.atomic() boundary on purge operation` | `data-reset` | ✅ PASSED | Guarantees all-or-nothing execution without database corruption. |
 | 16 | `test(data-reset): verify zero orphan records post-purge in PostgreSQL` | `data-reset` | ✅ PASSED | Asserts referential integrity holds across all foreign keys. |
+| 17 | `test(data-reset): verify CustomUser count equals exactly 8 preserved users` | `data-reset` | ✅ PASSED | Validates all 8 registered users remain intact. |
