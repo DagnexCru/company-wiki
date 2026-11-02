@@ -160,3 +160,4 @@
 | 154 | `test(workflow-seed): verify article category foreign keys resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on category_id. |
 | 155 | `test(workflow-seed): verify article tags M2M associations resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on article_tags. |
 | 156 | `test(workflow-seed): verify author foreign keys resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on author_id. |
+| 157 | `test(workflow-seed): verify ReviewDetailPage displays vector search draft` | `workflow-seed` | ✅ PASSED | Ensures review interface loads submission. |
