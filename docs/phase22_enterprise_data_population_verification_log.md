@@ -28,3 +28,4 @@
 | 22 | `test(data-reset): verify sequence counters reset cleanly without collisions` | `data-reset` | ✅ PASSED | Prevents primary key collision errors on new insertions. |
 | 23 | `test(data-reset): verify Django ORM database connection stays healthy` | `data-reset` | ✅ PASSED | Validates persistent connection pool state. |
 | 24 | `test(data-reset): verify rollback safety on simulated command interruption` | `data-reset` | ✅ PASSED | Guarantees database consistency on SIGINT/SIGTERM. |
+| 25 | `test(data-reset): verify command output formats progress in ANSI colors` | `data-reset` | ✅ PASSED | Provides clear visual terminal feedback. |
