@@ -165,14 +165,25 @@ class AskWikiAiView(APIView):
 
         user = request.user
         raw_full_name = (user.full_name or "").strip()
+        client_name = request.data.get("user_name", "").strip()
+
         if raw_full_name and raw_full_name.lower() not in ["hacker attempt", "test", "anonymous"]:
-            person_name = raw_full_name.split()[0].title()
+            parts = raw_full_name.split()
+            person_name = parts[0].capitalize()
+        elif client_name and client_name.lower() not in ["there", "anonymous", "test"]:
+            parts = client_name.split()
+            person_name = parts[0].capitalize()
         elif user.username:
-            person_name = user.username.replace("_", " ").split()[0].title()
+            clean_un = re.sub(r"[._-]+", " ", user.username).strip()
+            parts = clean_un.split()
+            person_name = parts[0].capitalize() if parts else user.username.capitalize()
         elif user.email:
-            person_name = user.email.split("@")[0].replace(".", " ").split()[0].title()
+            clean_email = user.email.split("@")[0]
+            clean_email = re.sub(r"[._-]+", " ", clean_email).strip()
+            parts = clean_email.split()
+            person_name = parts[0].capitalize() if parts else "Colleague"
         else:
-            person_name = "Team Member"
+            person_name = "Colleague"
 
         # Normalize query text for conversational / greeting intent detection
         query_lower = query.lower()
@@ -373,12 +384,20 @@ class AskWikiAiView(APIView):
 
         headings = [h.strip() for h in re.findall(r"^#{2,3}\s+(.+)$", primary_art.content or "", flags=re.MULTILINE) if len(h.strip()) > 5][:3]
 
-        answer_lines = [
+        answer_lines = []
+        if is_first_interaction:
+            answer_lines.extend([
+                f"### 👋 Welcome, {person_name}!",
+                f"Great to assist you! Here is what our company documentation says regarding your question:",
+                "",
+            ])
+
+        answer_lines.extend([
             f"Based on internal documentation in **[{primary_art.title}](/articles/{primary_art.slug})** *({primary_source['category']})*:",
             "",
             f"> {primary_source['excerpt']}",
             "",
-        ]
+        ])
 
         if bullet_points:
             answer_lines.append("### Key Operating Guidelines & Details:")
@@ -393,6 +412,12 @@ class AskWikiAiView(APIView):
         if len(scored_sources) > 1:
             sec = scored_sources[1]
             answer_lines.append(f"🔗 **Related Context**: See also **[{sec['title']}](/articles/{sec['slug']})** in *{sec['category']}* for complementary requirements.")
+
+        if is_first_interaction:
+            answer_lines.extend([
+                "",
+                f"💡 *Welcome again, {person_name}! You can ask me anytime about Engineering standards, DevOps, Security, Incident Response, or HR policies.*",
+            ])
 
         synthesized_answer = "\n".join(answer_lines)
 

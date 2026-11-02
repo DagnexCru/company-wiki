@@ -18,6 +18,7 @@ export interface AskWikiAiRequest {
   scope?: "all" | "article";
   article_slug?: string;
   is_first_interaction?: boolean;
+  user_name?: string;
 }
 
 export interface AiSource {

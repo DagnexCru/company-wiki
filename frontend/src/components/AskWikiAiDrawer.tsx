@@ -46,14 +46,28 @@ export const AskWikiAiDrawer: React.FC = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const lastUserIdRef = useRef<string | undefined>(user?.id);
 
+  /**
+   * Intelligently extract the user's preferred first name or display name
+   * from full_name, username, or email.
+   */
   const getPersonName = (): string => {
-    const raw = (user?.full_name || "").trim();
+    if (!user) return "there";
+    const raw = (user.full_name || "").trim();
     if (raw && raw.toLowerCase() !== "hacker attempt") {
-      return raw.split(" ")[0];
+      const parts = raw.split(/\s+/);
+      return parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
     }
-    if (user?.username) {
-      return user.username.replace(/_/g, " ").split(" ")[0];
+    if (user.username) {
+      const clean = user.username.replace(/[._-]+/g, " ").trim();
+      const parts = clean.split(/\s+/);
+      return parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+    }
+    if (user.email) {
+      const prefix = user.email.split("@")[0].replace(/[._-]+/g, " ").trim();
+      const parts = prefix.split(/\s+/);
+      return parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
     }
     return "there";
   };
@@ -72,7 +86,7 @@ export const AskWikiAiDrawer: React.FC = () => {
   });
 
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
-    getInitialWelcome("there"),
+    getInitialWelcome(getPersonName()),
   ]);
 
   const handleSendQuery = async (queryText?: string) => {
@@ -96,6 +110,7 @@ export const AskWikiAiDrawer: React.FC = () => {
       const res: AskWikiAiResponse = await aiService.askWikiAi({
         query: textToSend,
         is_first_interaction: isFirst,
+        user_name: getPersonName(),
       });
 
       const aiMessage: ChatMessage = {
@@ -122,13 +137,19 @@ export const AskWikiAiDrawer: React.FC = () => {
     }
   };
 
-  // Synchronize personalized name once auth profile is loaded
+  // Synchronize personalized name and detect when user account switches / registers / logs in
   useEffect(() => {
-    if (user) {
-      const name = getPersonName();
+    const currentName = getPersonName();
+    if (lastUserIdRef.current !== user?.id) {
+      // Account changed: Reset message thread with new user's greeting
+      lastUserIdRef.current = user?.id;
+      setMessages([getInitialWelcome(currentName)]);
+      setQuery("");
+    } else {
+      // Same user: update welcome message if thread hasn't started yet
       setMessages((prev) => {
         if (prev.length === 1 && prev[0].id === "welcome-1") {
-          return [getInitialWelcome(name)];
+          return [getInitialWelcome(currentName)];
         }
         return prev;
       });
@@ -140,6 +161,15 @@ export const AskWikiAiDrawer: React.FC = () => {
     const handleOpenEvent = (event: Event) => {
       const customEvent = event as CustomEvent<{ query?: string }>;
       setIsOpen(true);
+      // Ensure welcome card has the latest name on open
+      const currentName = getPersonName();
+      setMessages((prev) => {
+        if (prev.length === 1 && prev[0].id === "welcome-1") {
+          return [getInitialWelcome(currentName)];
+        }
+        return prev;
+      });
+
       if (customEvent.detail?.query) {
         setQuery(customEvent.detail.query);
         handleSendQuery(customEvent.detail.query);
@@ -150,7 +180,7 @@ export const AskWikiAiDrawer: React.FC = () => {
 
     window.addEventListener("open-ask-wiki-ai", handleOpenEvent);
     return () => window.removeEventListener("open-ask-wiki-ai", handleOpenEvent);
-  }, []);
+  }, [user]);
 
   // Scroll to bottom on message updates
   useEffect(() => {
@@ -307,6 +337,12 @@ export const AskWikiAiDrawer: React.FC = () => {
                 <span className="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-indigo-950 text-indigo-300 border border-indigo-800">
                   Assistant
                 </span>
+                {user && (
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-950/80 text-indigo-300 border border-indigo-800/80 flex items-center gap-1">
+                    <UserIcon className="w-2.5 h-2.5" />
+                    {getPersonName()}
+                  </span>
+                )}
               </div>
               <p className="text-[11px] text-slate-400">
                 Direct answers synthesized from internal documentation
@@ -374,7 +410,7 @@ export const AskWikiAiDrawer: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-4 text-[10px] text-slate-400">
                   <span className="font-semibold text-slate-300">
-                    {msg.sender === "user" ? "You" : "Wiki AI Assistant"}
+                    {msg.sender === "user" ? (user ? getPersonName() : "You") : "Wiki AI Assistant"}
                   </span>
                   <div className="flex items-center gap-2">
                     <span>{msg.timestamp}</span>
