@@ -45,3 +45,4 @@
 | 39 | `feat(taxonomy-cats): seed People Operations & HR category` | `taxonomy-cats` | ✅ PASSED | Configures benefits, remote work, and performance evaluation guidelines. |
 | 40 | `feat(taxonomy-cats): configure emerald color token and users icon for HR` | `taxonomy-cats` | ✅ PASSED | Provides approachable workplace services styling. |
 | 41 | `feat(taxonomy-cats): seed IT Support & Workplace category` | `taxonomy-cats` | ✅ PASSED | Configures hardware provisioning, VPN, and device encryption runbooks. |
+| 42 | `feat(taxonomy-cats): configure sky color token and life-buoy icon for IT Support` | `taxonomy-cats` | ✅ PASSED | Enables clear help-desk discoverability. |
