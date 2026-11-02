@@ -148,3 +148,4 @@
 | 142 | `feat(workflow-seed): associate ReviewRecord actor with author user` | `workflow-seed` | ✅ PASSED | Records submitting engineer in workflow log. |
 | 143 | `feat(workflow-seed): record from_status='draft' and to_status='in_review'` | `workflow-seed` | ✅ PASSED | Validates state transition tracking. |
 | 144 | `feat(workflow-seed): record submission notes in ReviewRecord feedback field` | `workflow-seed` | ✅ PASSED | Provides review context for reviewers. |
+| 145 | `feat(workflow-seed): backdate submission timestamp to 2 hours ago` | `workflow-seed` | ✅ PASSED | Simulates realistic editorial wait time. |
