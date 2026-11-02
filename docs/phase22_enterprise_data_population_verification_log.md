@@ -31,3 +31,4 @@
 | 25 | `test(data-reset): verify command output formats progress in ANSI colors` | `data-reset` | ✅ PASSED | Provides clear visual terminal feedback. |
 | 26 | `test(data-reset): verify command execution completes in under 2 seconds` | `data-reset` | ✅ PASSED | Optimizes rapid test environment bootstrapping. |
 | 27 | `test(data-reset): verify Django test harness compatibility with reset command` | `data-reset` | ✅ PASSED | Enables predictable end-to-end test fixtures. |
+| 28 | `test(data-reset): verify backward compatibility with simplejwt auth tokens` | `data-reset` | ✅ PASSED | Ensures active JWT sessions remain valid for preserved users. |
