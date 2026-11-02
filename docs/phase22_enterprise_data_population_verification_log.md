@@ -163,3 +163,4 @@
 | 157 | `test(workflow-seed): verify ReviewDetailPage displays vector search draft` | `workflow-seed` | ✅ PASSED | Ensures review interface loads submission. |
 | 158 | `test(workflow-seed): verify ArticleRevisionHistoryPage renders revision timeline` | `workflow-seed` | ✅ PASSED | Ensures version history loads revision #1. |
 | 159 | `test(workflow-seed): verify RevisionDiffViewer compares revisions cleanly` | `workflow-seed` | ✅ PASSED | Ensures diff viewer operates on seeded data. |
+| 160 | `test(workflow-seed): complete workflow and revision seeding sign-off` | `workflow-seed` | ✅ PASSED | Signs off on revision and review baseline. |
