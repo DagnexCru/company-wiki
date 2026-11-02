@@ -145,3 +145,4 @@
 | 139 | `feat(workflow-seed): capture category_name string for each revision` | `workflow-seed` | ✅ PASSED | Preserves category name in historical ledger. |
 | 140 | `feat(workflow-seed): set change_summary to verified production baseline` | `workflow-seed` | ✅ PASSED | Provides clear diagnostic reason in revision timeline. |
 | 141 | `feat(workflow-seed): create ReviewRecord SUBMIT event for vector search draft` | `workflow-seed` | ✅ PASSED | Populates Review Queue with authentic submission. |
+| 142 | `feat(workflow-seed): associate ReviewRecord actor with author user` | `workflow-seed` | ✅ PASSED | Records submitting engineer in workflow log. |
