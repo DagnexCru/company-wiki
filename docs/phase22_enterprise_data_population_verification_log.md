@@ -132,3 +132,4 @@
 | 126 | `feat(kb-articles): seed Data Warehouse Architecture: Snowflake, dbt & Real-Time Pipelines` | `kb-articles` | ✅ PASSED | Documents Kafka Debezium CDC ingestion. |
 | 127 | `feat(kb-articles): include dbt Bronze/Silver/Gold dimensional modeling` | `kb-articles` | ✅ PASSED | Structures analytical data marts. |
 | 128 | `feat(kb-articles): include automated dbt schema assertion and null tests` | `kb-articles` | ✅ PASSED | Guarantees high data quality. |
+| 129 | `feat(kb-articles): seed Customer Escalation & Enterprise Support SLA Matrix` | `kb-articles` | ✅ PASSED | Documents 15-min Tier 1 response commitment. |
