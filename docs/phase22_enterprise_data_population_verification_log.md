@@ -87,3 +87,4 @@
 | 81 | `test(taxonomy-tags): verify TagSerializer exposes article_count` | `taxonomy-tags` | ✅ PASSED | Powers tag weight pills in directory. |
 | 82 | `test(taxonomy-tags): verify tag filtering in GET /api/v1/articles/?tag=slug` | `taxonomy-tags` | ✅ PASSED | Validates RESTful tag filtering endpoint. |
 | 83 | `test(taxonomy-tags): verify tag chip display in CommandPalette tags tab` | `taxonomy-tags` | ✅ PASSED | Enables instant tag search via Ctrl+K. |
+| 84 | `test(taxonomy-tags): verify tag hashtag styling #tag in ArticleDetailPage` | `taxonomy-tags` | ✅ PASSED | Ensures readable tag badges in header. |
