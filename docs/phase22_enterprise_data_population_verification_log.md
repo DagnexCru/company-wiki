@@ -109,3 +109,4 @@
 | 103 | `feat(kb-articles): include 3-phase canary promotion with Prometheus error gates` | `kb-articles` | ✅ PASSED | Protects against deployment regressions. |
 | 104 | `feat(kb-articles): include automated Slack /argocd rollback command procedures` | `kb-articles` | ✅ PASSED | Enables instant 1-click rollbacks. |
 | 105 | `feat(kb-articles): seed Global Remote Work Policy, Home Office Budget & Working Hours` | `kb-articles` | ✅ PASSED | Documents 4-hour UTC core overlap window. |
+| 106 | `feat(kb-articles): include $1,500 setup grant, $500 annual refresh, and internet stipend` | `kb-articles` | ✅ PASSED | Formalizes remote compensation perks. |
