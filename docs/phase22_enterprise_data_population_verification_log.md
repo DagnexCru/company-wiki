@@ -147,3 +147,4 @@
 | 141 | `feat(workflow-seed): create ReviewRecord SUBMIT event for vector search draft` | `workflow-seed` | ✅ PASSED | Populates Review Queue with authentic submission. |
 | 142 | `feat(workflow-seed): associate ReviewRecord actor with author user` | `workflow-seed` | ✅ PASSED | Records submitting engineer in workflow log. |
 | 143 | `feat(workflow-seed): record from_status='draft' and to_status='in_review'` | `workflow-seed` | ✅ PASSED | Validates state transition tracking. |
+| 144 | `feat(workflow-seed): record submission notes in ReviewRecord feedback field` | `workflow-seed` | ✅ PASSED | Provides review context for reviewers. |
