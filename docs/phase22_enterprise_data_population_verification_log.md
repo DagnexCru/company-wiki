@@ -105,3 +105,4 @@
 | 99 | `feat(kb-articles): include PgBouncer transaction pooling configuration file` | `kb-articles` | ✅ PASSED | Details port 6432 socket optimization. |
 | 100 | `feat(kb-articles): include statement_timeout and lock_timeout safety flags` | `kb-articles` | ✅ PASSED | Prevents runaway query table locking. |
 | 101 | `feat(kb-articles): include pg_trgm GIN indexing best practices` | `kb-articles` | ✅ PASSED | Optimizes fast text search queries. |
+| 102 | `feat(kb-articles): seed Continuous Delivery Pipeline Standards with ArgoCD & GitHub Actions` | `kb-articles` | ✅ PASSED | Documents declarative GitOps workflow. |
