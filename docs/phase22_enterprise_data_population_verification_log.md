@@ -205,3 +205,4 @@
 | 199 | `test(e2e-wiki): verify tablet viewport responsiveness on 768px and 1024px` | `e2e-wiki` | ✅ PASSED | Validates split-pane diff and TOC layout. |
 | 200 | `test(e2e-wiki): verify desktop viewport responsiveness on 1440px and 1920px` | `e2e-wiki` | ✅ PASSED | Validates wide-screen readability. |
 | 201 | `test(e2e-wiki): verify Category detail route displays related articles` | `e2e-wiki` | ✅ PASSED | Validates filtering articles by category slug. |
+| 202 | `test(e2e-wiki): verify Tag detail route displays related articles` | `e2e-wiki` | ✅ PASSED | Validates filtering articles by tag slug. |
