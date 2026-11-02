@@ -11,11 +11,13 @@ import {
   Copy,
   Check,
   Bot,
-  User,
+  User as UserIcon,
   ExternalLink,
+  RotateCcw,
 } from "lucide-react";
 import type { AskWikiAiResponse, AiSource } from "../types/ai";
 import { aiService } from "../services/aiService";
+import { useAuth } from "../context/AuthContext";
 
 interface ChatMessage {
   id: string;
@@ -26,27 +28,112 @@ interface ChatMessage {
   timestamp: string;
 }
 
+const QUICK_TOPICS = [
+  { label: "🚨 SEV-1 Escalation", query: "How do we escalate SEV-1 incidents?" },
+  { label: "💻 $1,500 Remote Stipend", query: "What is our remote work stipend and home office budget?" },
+  { label: "🛡️ Zero-Trust YubiKey", query: "What are our Zero-Trust and YubiKey security requirements?" },
+  { label: "🐘 PostgreSQL 16 HA", query: "How is our PostgreSQL 16 HA clustering configured?" },
+  { label: "☁️ ArgoCD Canary", query: "How do automated canary rollbacks work in ArgoCD?" },
+  { label: "📋 SOC 2 Audit Logging", query: "What are our SOC 2 Type II audit logging requirements?" },
+];
+
 export const AskWikiAiDrawer: React.FC = () => {
+  const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "welcome-1",
-      sender: "ai",
-      text: "Hello! I am your **Company Wiki AI Assistant**. Ask me anything about standard operating procedures, architecture guidelines, or team documentation.",
-      suggestedQuestions: [
-        "What are our standard deployment procedures?",
-        "How do I submit an article for review?",
-        "Where can I find our engineering style guide?",
-      ],
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    },
-  ]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const getPersonName = (): string => {
+    const raw = (user?.full_name || "").trim();
+    if (raw && raw.toLowerCase() !== "hacker attempt") {
+      return raw.split(" ")[0];
+    }
+    if (user?.username) {
+      return user.username.replace(/_/g, " ").split(" ")[0];
+    }
+    return "there";
+  };
+
+  const getInitialWelcome = (name: string): ChatMessage => ({
+    id: "welcome-1",
+    sender: "ai",
+    text: `### 👋 Welcome, ${name}!\n\nI am your **Company Wiki AI Assistant**. What can I help you with today?\n\nI have direct access to our verified corporate knowledge base across these core areas:\n\n- 🚨 **Incident Response & SRE**: SEV-1 to SEV-4 escalation runbooks, on-call paging, and SLA commitments.\n- 🛡️ **Security & Compliance**: Zero-Trust access, YubiKey hardware 2FA keys, and SOC 2 Type II audit logging.\n- 🏗️ **Engineering & Architecture**: High-availability PostgreSQL 16 clustering, PgBouncer pooling, and REST API idempotency.\n- ☁️ **DevOps & Cloud Infrastructure**: ArgoCD Canary GitOps deployments, Kubernetes manifests, and automated rollbacks.\n- 👥 **People Operations & HR**: Global remote work stipends ($1,500 budget), core working hours, and 30-day onboarding checklists.\n- 💻 **IT Support & Workplace**: MDM workstation security, BitLocker / FileVault enforcement, and hardware provisioning.\n- 🎨 **Product & Design System**: Tailwind design tokens, semantic palettes, and WCAG 2.1 AA accessibility standards.\n- 📊 **Data Engineering & Analytics**: Snowflake dbt data warehouse staging models and analytics pipelines.\n- 🤝 **Customer Support & Success**: Enterprise client SLAs, tier-3 support escalation matrices, and 99.9% uptime guarantees.\n- ⚖️ **Legal & Privacy Governance**: GDPR Right-to-be-Forgotten data subject erasure protocols.\n\n💡 *Feel free to ask any question in plain English (e.g., **"What is our remote work stipend?"** or **"How do we escalate SEV-1 incidents?"**), or tap any suggested question below!*`,
+    suggestedQuestions: [
+      "What is our remote work stipend and home office budget?",
+      "How do we escalate SEV-1 incidents?",
+      "What are our Zero-Trust and YubiKey security requirements?",
+      "How is our PostgreSQL 16 HA clustering configured?",
+    ],
+    timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+  });
+
+  const [messages, setMessages] = useState<ChatMessage[]>(() => [
+    getInitialWelcome("there"),
+  ]);
+
+  const handleSendQuery = async (queryText?: string) => {
+    const textToSend = (queryText || query).trim();
+    if (!textToSend || loading) return;
+
+    const isFirst = messages.filter((m) => m.sender === "user").length === 0;
+
+    const userMessage: ChatMessage = {
+      id: `user-${Date.now()}`,
+      sender: "user",
+      text: textToSend,
+      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setQuery("");
+    setLoading(true);
+
+    try {
+      const res: AskWikiAiResponse = await aiService.askWikiAi({
+        query: textToSend,
+        is_first_interaction: isFirst,
+      });
+
+      const aiMessage: ChatMessage = {
+        id: `ai-${Date.now()}`,
+        sender: "ai",
+        text: res.answer,
+        sources: res.sources,
+        suggestedQuestions: res.suggested_questions,
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      };
+      setMessages((prev) => [...prev, aiMessage]);
+    } catch (err: unknown) {
+      const errorMsg =
+        err instanceof Error ? err.message : "Failed to retrieve an answer from Wiki AI.";
+      const errorResponse: ChatMessage = {
+        id: `ai-err-${Date.now()}`,
+        sender: "ai",
+        text: `⚠️ **Error**: ${errorMsg}. Please ensure you are logged in and try again.`,
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      };
+      setMessages((prev) => [...prev, errorResponse]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Synchronize personalized name once auth profile is loaded
+  useEffect(() => {
+    if (user) {
+      const name = getPersonName();
+      setMessages((prev) => {
+        if (prev.length === 1 && prev[0].id === "welcome-1") {
+          return [getInitialWelcome(name)];
+        }
+        return prev;
+      });
+    }
+  }, [user]);
 
   // Listen for global custom event: open-ask-wiki-ai
   useEffect(() => {
@@ -72,51 +159,126 @@ export const AskWikiAiDrawer: React.FC = () => {
     }
   }, [messages, isOpen, loading]);
 
-  const handleSendQuery = async (queryText?: string) => {
-    const textToSend = (queryText || query).trim();
-    if (!textToSend || loading) return;
-
-    const userMessage: ChatMessage = {
-      id: `user-${Date.now()}`,
-      sender: "user",
-      text: textToSend,
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
+  const handleResetChat = () => {
+    setMessages([getInitialWelcome(getPersonName())]);
     setQuery("");
-    setLoading(true);
-
-    try {
-      const res: AskWikiAiResponse = await aiService.askWikiAi({ query: textToSend });
-      const aiMessage: ChatMessage = {
-        id: `ai-${Date.now()}`,
-        sender: "ai",
-        text: res.answer,
-        sources: res.sources,
-        suggestedQuestions: res.suggested_questions,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      };
-      setMessages((prev) => [...prev, aiMessage]);
-    } catch (err: unknown) {
-      const errorMsg =
-        err instanceof Error ? err.message : "Failed to retrieve an answer from Wiki AI.";
-      const errorResponse: ChatMessage = {
-        id: `ai-err-${Date.now()}`,
-        sender: "ai",
-        text: `⚠️ **Error**: ${errorMsg}. Please ensure you are logged in and try again.`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      };
-      setMessages((prev) => [...prev, errorResponse]);
-    } finally {
-      setLoading(false);
-    }
   };
 
   const handleCopyMessage = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  /**
+   * Safe inline Markdown formatter:
+   * Formats headers, quotes, bullet points, bolding, code tokens, and internal article links cleanly.
+   */
+  const renderFormattedAiText = (rawText: string) => {
+    const lines = rawText.split("\n");
+    const elements: React.ReactNode[] = [];
+
+    const parseInlineTokens = (lineText: string, keyPrefix: string): React.ReactNode => {
+      const regex = /(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
+      const parts = lineText.split(regex);
+
+      return parts.map((part, pIdx) => {
+        if (part.startsWith("`") && part.endsWith("`")) {
+          return (
+            <code
+              key={`${keyPrefix}-c-${pIdx}`}
+              className="px-1.5 py-0.5 rounded bg-slate-950 font-mono text-[11px] text-indigo-300 border border-slate-700/60"
+            >
+              {part.slice(1, -1)}
+            </code>
+          );
+        }
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return (
+            <strong key={`${keyPrefix}-b-${pIdx}`} className="font-semibold text-white">
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+        if (part.startsWith("*") && part.endsWith("*") && !part.startsWith("**")) {
+          return (
+            <em key={`${keyPrefix}-i-${pIdx}`} className="italic text-slate-300">
+              {part.slice(1, -1)}
+            </em>
+          );
+        }
+        const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (linkMatch) {
+          const linkTitle = linkMatch[1];
+          const linkHref = linkMatch[2];
+          if (linkHref.startsWith("/")) {
+            return (
+              <Link
+                key={`${keyPrefix}-l-${pIdx}`}
+                to={linkHref}
+                onClick={() => setIsOpen(false)}
+                className="text-indigo-400 hover:text-indigo-300 underline font-medium transition-colors"
+              >
+                {linkTitle}
+              </Link>
+            );
+          }
+          return (
+            <a
+              key={`${keyPrefix}-a-${pIdx}`}
+              href={linkHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-indigo-300 underline font-medium"
+            >
+              {linkTitle}
+            </a>
+          );
+        }
+        return part;
+      });
+    };
+
+    lines.forEach((line, idx) => {
+      const trimmed = line.trim();
+
+      if (trimmed.startsWith("### ")) {
+        elements.push(
+          <h4
+            key={`h4-${idx}`}
+            className="text-xs sm:text-sm font-bold text-indigo-200 mt-2 mb-1"
+          >
+            {parseInlineTokens(trimmed.slice(4), `h4-${idx}`)}
+          </h4>
+        );
+      } else if (trimmed.startsWith("> ")) {
+        elements.push(
+          <blockquote
+            key={`bq-${idx}`}
+            className="border-l-2 border-indigo-400 pl-2.5 py-1 my-1.5 italic text-slate-300 bg-slate-900/60 rounded-r text-[11px] leading-relaxed"
+          >
+            {parseInlineTokens(trimmed.slice(2), `bq-${idx}`)}
+          </blockquote>
+        );
+      } else if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+        elements.push(
+          <div key={`li-${idx}`} className="flex items-start gap-1.5 my-1 ml-1 text-slate-300">
+            <span className="text-indigo-400 font-bold shrink-0 leading-relaxed">•</span>
+            <span className="leading-relaxed">{parseInlineTokens(trimmed.slice(2), `li-${idx}`)}</span>
+          </div>
+        );
+      } else if (!trimmed) {
+        elements.push(<div key={`sp-${idx}`} className="h-1.5" />);
+      } else {
+        elements.push(
+          <p key={`p-${idx}`} className="leading-relaxed text-slate-200 my-0.5">
+            {parseInlineTokens(line, `p-${idx}`)}
+          </p>
+        );
+      }
+    });
+
+    return <div className="space-y-0.5">{elements}</div>;
   };
 
   if (!isOpen) return null;
@@ -152,14 +314,42 @@ export const AskWikiAiDrawer: React.FC = () => {
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsOpen(false)}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
-            title="Close Assistant"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={handleResetChat}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
+              title="Reset / Start New Chat"
+            >
+              <RotateCcw className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
+              title="Close Assistant"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Topic Shortcut Chips */}
+        <div className="px-4 py-2 bg-slate-950/40 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-[11px]">
+          <span className="text-slate-400 text-[10px] uppercase font-bold shrink-0 mr-1">
+            Quick Ask:
+          </span>
+          {QUICK_TOPICS.map((topic, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => handleSendQuery(topic.query)}
+              disabled={loading}
+              className="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-indigo-600 hover:text-white text-slate-300 border border-slate-700/60 transition whitespace-nowrap shrink-0 cursor-pointer disabled:opacity-40"
+            >
+              {topic.label}
+            </button>
+          ))}
         </div>
 
         {/* Message Thread Area */}
@@ -176,7 +366,7 @@ export const AskWikiAiDrawer: React.FC = () => {
               )}
 
               <div
-                className={`max-w-[85%] rounded-2xl p-3.5 space-y-2.5 ${
+                className={`max-w-[88%] rounded-2xl p-3.5 space-y-2.5 ${
                   msg.sender === "user"
                     ? "bg-brand-600 text-white rounded-br-none shadow-xs"
                     : "bg-slate-800/90 text-slate-200 border border-slate-700/80 rounded-bl-none shadow-xs"
@@ -203,9 +393,13 @@ export const AskWikiAiDrawer: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Message Text with simple formatting */}
-                <div className="leading-relaxed whitespace-pre-wrap font-sans text-xs">
-                  {msg.text}
+                {/* Message Body with clean formatting */}
+                <div className="font-sans text-xs">
+                  {msg.sender === "user" ? (
+                    <div className="whitespace-pre-wrap">{msg.text}</div>
+                  ) : (
+                    renderFormattedAiText(msg.text)
+                  )}
                 </div>
 
                 {/* Cited Sources */}
@@ -267,7 +461,7 @@ export const AskWikiAiDrawer: React.FC = () => {
 
               {msg.sender === "user" && (
                 <div className="w-7 h-7 rounded-lg bg-brand-700 text-white flex items-center justify-center shrink-0 mt-0.5">
-                  <User className="w-4 h-4" />
+                  <UserIcon className="w-4 h-4" />
                 </div>
               )}
             </div>
@@ -322,5 +516,5 @@ export const AskWikiAiDrawer: React.FC = () => {
     </div>
   );
 };
-export default AskWikiAiDrawer;
 
+export default AskWikiAiDrawer;

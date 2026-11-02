@@ -131,16 +131,31 @@ class ArticleAiSummaryView(APIView):
 class AskWikiAiView(APIView):
     """
     AI-Powered 'Ask Wiki' Assistant:
-    Searches indexed knowledge articles across the organization, synthesizes direct answers,
-    and returns authoritative citations with relevance scores and suggested follow-ups.
+    Intelligently identifies user intent (personalized greetings, introductions, casual chat,
+    or targeted technical documentation queries). Synthesizes natural, content-aware answers
+    with actionable excerpts, real bullet points, citations, and context-specific suggested follow-ups.
     POST /api/v1/articles/ask-ai/
     """
     permission_classes = [permissions.IsAuthenticated]
+
+    COMPANY_AREAS = [
+        {"icon": "🚨", "name": "Incident Response & SRE", "desc": "SEV-1 to SEV-4 escalation runbooks, on-call paging, and SLA commitments."},
+        {"icon": "🛡️", "name": "Security & Compliance", "desc": "Zero-Trust access, YubiKey hardware 2FA keys, and SOC 2 Type II audit logging."},
+        {"icon": "🏗️", "name": "Engineering & Architecture", "desc": "High-availability PostgreSQL 16 clustering, PgBouncer pooling, and REST API idempotency."},
+        {"icon": "☁️", "name": "DevOps & Cloud Infrastructure", "desc": "ArgoCD Canary GitOps deployments, Kubernetes manifests, and automated rollbacks."},
+        {"icon": "👥", "name": "People Operations & HR", "desc": "Global remote work stipends ($1,500 budget), core working hours, and 30-day onboarding checklists."},
+        {"icon": "💻", "name": "IT Support & Workplace", "desc": "MDM workstation security, BitLocker / FileVault enforcement, and hardware provisioning."},
+        {"icon": "🎨", "name": "Product & Design System", "desc": "Tailwind design tokens, semantic palettes, and WCAG 2.1 AA accessibility standards."},
+        {"icon": "📊", "name": "Data Engineering & Analytics", "desc": "Snowflake dbt data warehouse staging models and analytics pipelines."},
+        {"icon": "🤝", "name": "Customer Support & Success", "desc": "Enterprise client SLAs, tier-3 support escalation matrices, and 99.9% uptime guarantees."},
+        {"icon": "⚖️", "name": "Legal & Privacy Governance", "desc": "GDPR Right-to-be-Forgotten data subject erasure protocols."},
+    ]
 
     def post(self, request):
         query = request.data.get("query", "").strip()
         scope = request.data.get("scope", "all")  # "all" or "article"
         target_slug = request.data.get("article_slug", "")
+        is_first_interaction = bool(request.data.get("is_first_interaction", False))
 
         if not query:
             return Response(
@@ -149,6 +164,107 @@ class AskWikiAiView(APIView):
             )
 
         user = request.user
+        raw_full_name = (user.full_name or "").strip()
+        if raw_full_name and raw_full_name.lower() not in ["hacker attempt", "test", "anonymous"]:
+            person_name = raw_full_name.split()[0].title()
+        elif user.username:
+            person_name = user.username.replace("_", " ").split()[0].title()
+        elif user.email:
+            person_name = user.email.split("@")[0].replace(".", " ").split()[0].title()
+        else:
+            person_name = "Team Member"
+
+        # Normalize query text for conversational / greeting intent detection
+        query_lower = query.lower()
+        words = re.findall(r"\b[a-z0-9']+\b", query_lower)
+        flat_query = " ".join(words)
+
+        GREETINGS = {
+            "hey", "hi", "hello", "greetings", "good morning", "good afternoon",
+            "good evening", "howdy", "sup", "yo", "hola", "heya", "hai", "salut"
+        }
+        INTRO_QUESTIONS = [
+            "who are you", "what can you do", "what do you do", "introduce yourself",
+            "help me", "how can you help", "what is this", "what is wiki ai",
+            "what can i ask", "how does this work", "start", "menu", "help"
+        ]
+        THANKS_WORDS = {"thanks", "thank you", "thx", "appreciate it", "great thanks", "helpful", "perfect"}
+        FAREWELL_WORDS = {"bye", "goodbye", "cya", "see you later", "have a good one", "see ya"}
+
+        is_greeting = (
+            flat_query in GREETINGS or
+            (len(words) <= 2 and any(w in {"hey", "hi", "hello", "howdy", "yo", "sup", "hola"} for w in words)) or
+            (is_first_interaction and len(words) <= 4 and any(w in GREETINGS for w in words))
+        )
+        is_intro = any(p in flat_query for p in INTRO_QUESTIONS) or (len(words) <= 1 and flat_query in {"help", "start", "menu"})
+        is_thanks = flat_query in THANKS_WORDS or (len(words) <= 3 and any(w in {"thanks", "thx", "appreciate"} for w in words))
+        is_farewell = flat_query in FAREWELL_WORDS or (len(words) <= 3 and any(w in {"bye", "goodbye"} for w in words))
+
+        # 1. Conversational Intent: Greeting or First-Time Introduction
+        if is_greeting or is_intro:
+            intro_lines = [
+                f"### 👋 Welcome, {person_name}!",
+                "",
+                "I am your **Company Wiki AI Assistant**. What can I help you with today?",
+                "",
+                "I have direct access to our verified corporate knowledge base across these core areas:",
+                "",
+            ]
+            for area in self.COMPANY_AREAS:
+                intro_lines.append(f"- {area['icon']} **{area['name']}**: {area['desc']}")
+
+            intro_lines.extend([
+                "",
+                "💡 *Feel free to ask any question in plain English (e.g., **\"What is our remote work stipend?\"** or **\"How do we escalate SEV-1 incidents?\"**), or tap any suggested question below!*",
+            ])
+
+            return Response({
+                "query": query,
+                "scope": scope,
+                "intent": "greeting",
+                "answer": "\n".join(intro_lines),
+                "sources": [],
+                "suggested_questions": [
+                    "What is our remote work stipend and home office budget?",
+                    "How do we escalate SEV-1 incidents?",
+                    "What are our Zero-Trust and YubiKey security requirements?",
+                    "How is our PostgreSQL 16 HA clustering configured?",
+                ],
+                "model": "Company Wiki Neural Assistant",
+                "timestamp": timezone.now().isoformat(),
+            }, status=status.HTTP_200_OK)
+
+        # 2. Conversational Intent: Gratitude
+        if is_thanks:
+            return Response({
+                "query": query,
+                "scope": scope,
+                "intent": "thanks",
+                "answer": f"You're very welcome, **{person_name}**! 😊\n\nIf you ever have more questions regarding engineering architectures, incident runbooks, or company policies, I'm here 24/7 to help.",
+                "sources": [],
+                "suggested_questions": [
+                    "Where can I find our engineering architecture standards?",
+                    "What is our SOC 2 Type II audit logging policy?",
+                    "How do I submit an article for peer review?",
+                ],
+                "model": "Company Wiki Neural Assistant",
+                "timestamp": timezone.now().isoformat(),
+            }, status=status.HTTP_200_OK)
+
+        # 3. Conversational Intent: Farewell
+        if is_farewell:
+            return Response({
+                "query": query,
+                "scope": scope,
+                "intent": "farewell",
+                "answer": f"Goodbye, **{person_name}**! Have a productive rest of your day! 👋",
+                "sources": [],
+                "suggested_questions": [],
+                "model": "Company Wiki Neural Assistant",
+                "timestamp": timezone.now().isoformat(),
+            }, status=status.HTTP_200_OK)
+
+        # 4. Technical / Policy Documentation Search
         base_qs = Article.objects.for_user(user).filter(status=Article.Status.PUBLISHED)
 
         if scope == "article" and target_slug:
@@ -158,108 +274,185 @@ class AskWikiAiView(APIView):
             except (ValueError, AttributeError):
                 base_qs = base_qs.filter(slug=target_slug)
 
-        # Query keywords for relevance matching
-        keywords = [k.lower() for k in re.findall(r"\w{3,}", query) if k.lower() not in {
-            "what", "where", "how", "when", "which", "does", "with", "from", "that", "this", "have", "about"
-        }]
+        stop_words = {
+            "what", "where", "how", "when", "which", "does", "with", "from",
+            "that", "this", "have", "about", "tell", "show", "can", "should",
+            "would", "could", "will", "the", "and", "our", "are", "for", "please"
+        }
+        keywords = [k.lower() for k in re.findall(r"\b[a-zA-Z0-9]{3,}\b", query_lower) if k.lower() not in stop_words]
 
-        # Construct keyword filter
-        filter_q = Q()
-        for kw in keywords:
-            filter_q |= Q(title__icontains=kw) | Q(summary__icontains=kw) | Q(content__icontains=kw) | Q(tags__name__icontains=kw)
+        matched_articles = []
+        if keywords:
+            filter_q = Q()
+            for kw in keywords:
+                filter_q |= Q(title__icontains=kw) | Q(summary__icontains=kw) | Q(content__icontains=kw) | Q(tags__name__icontains=kw)
+            matched_articles = list(base_qs.filter(filter_q).distinct().select_related("category")[:6])
 
-        matched_articles = list(base_qs.filter(filter_q).distinct().select_related("category")[:6])
-
-        # If strict keyword filter yielded no matches, fallback to recent published articles
+        # If no articles match keywords, return a helpful no-match response instead of faking a match
         if not matched_articles:
-            matched_articles = list(base_qs.order_by("-updated_at")[:4])
+            no_match_text = (
+                f"I searched our internal knowledge base for **\"{query}\"**, but could not find a published article matching those specific terms.\n\n"
+                f"**Suggestions to find what you need:**\n"
+                f"- Explore by category: *Incident Response*, *Security*, *DevOps*, *Engineering*, or *People Operations*.\n"
+                f"- Try keywords such as: `remote work`, `incident`, `database`, `yubikey`, `gitops`, or `onboarding`.\n"
+                f"- Browse the [Article Directory](/articles) to view all published operational guides."
+            )
+            return Response({
+                "query": query,
+                "scope": scope,
+                "intent": "search_no_match",
+                "answer": no_match_text,
+                "sources": [],
+                "suggested_questions": [
+                    "What is our remote work stipend and home office budget?",
+                    "How do we escalate SEV-1 incidents?",
+                    "What are our Zero-Trust and YubiKey security requirements?",
+                    "How is our PostgreSQL 16 HA clustering configured?",
+                ],
+                "model": "Company Wiki Neural Assistant",
+                "timestamp": timezone.now().isoformat(),
+            }, status=status.HTTP_200_OK)
 
         # Score and extract relevant snippets from matched articles
         scored_sources = []
-        best_snippets = []
-
         for art in matched_articles:
             score = 0.50
             art_title_lower = art.title.lower()
             art_content_lower = (art.content or "").lower()
+            art_tags = [t.name.lower() for t in art.tags.all()]
 
             for kw in keywords:
                 if kw in art_title_lower:
+                    score += 0.25
+                if any(kw in t for t in art_tags):
                     score += 0.20
                 if kw in art_content_lower:
                     score += 0.10
 
-            score = min(0.98, round(score, 2))
+            score = min(0.99, round(score, 2))
 
-            # Extract an informative snippet matching keywords
-            snippet = art.summary or ""
-            if not snippet and art.content:
-                sentences = re.split(r"(?<=[.!?])\s+", art.content)
-                for s in sentences:
-                    if any(kw in s.lower() for kw in keywords) and 30 < len(s) < 220:
-                        snippet = s.strip()
-                        break
-                if not snippet and sentences:
-                    snippet = sentences[0][:180] + "..."
+            # Dynamic snippet extraction
+            raw_content = art.content or ""
+            paragraphs = [p.strip() for p in raw_content.split("\n\n") if p.strip() and not p.strip().startswith("#")]
+            best_snippet = art.summary or ""
+            for p in paragraphs:
+                p_clean = re.sub(r"^[#>\-*_~`\s]+", "", p)
+                if any(kw in p_clean.lower() for kw in keywords) and len(p_clean) > 40:
+                    best_snippet = p_clean[:280] + ("..." if len(p_clean) > 280 else "")
+                    break
+
+            if not best_snippet and paragraphs:
+                best_snippet = paragraphs[0][:200] + "..."
 
             scored_sources.append({
                 "id": str(art.id),
                 "title": art.title,
                 "slug": art.slug,
-                "excerpt": snippet,
+                "excerpt": best_snippet,
                 "relevance_score": score,
                 "category": art.category.name if art.category else "General",
                 "updated_at": art.updated_at.isoformat(),
+                "_article_obj": art,
             })
 
-            if snippet:
-                best_snippets.append(f"**From [{art.title}](/articles/{art.slug})**:\n> {snippet}")
-
         scored_sources.sort(key=lambda s: s["relevance_score"], reverse=True)
+        primary_source = scored_sources[0]
+        primary_art = primary_source["_article_obj"]
 
-        # Synthesize authoritative answer
-        primary_source = scored_sources[0] if scored_sources else None
+        # Extract actual actionable bullet points from primary article content
+        content_lines = (primary_art.content or "").split("\n")
+        bullet_points = []
+        for line in content_lines:
+            line_clean = line.strip()
+            if (line_clean.startswith("- ") or line_clean.startswith("* ") or re.match(r"^\d+\.\s+", line_clean)):
+                item = re.sub(r"^[-*]|\d+\.\s*", "", line_clean).strip()
+                if 20 < len(item) < 220 and item not in bullet_points:
+                    bullet_points.append(item)
+                if len(bullet_points) >= 4:
+                    break
 
-        if primary_source:
-            answer_parts = [
-                f"Based on internal documentation in **[{primary_source['title']}](/articles/{primary_source['slug']})**:",
-                "",
-                f"{primary_source['excerpt']}",
-                "",
-                "### Key Guidelines & Details:",
+        headings = [h.strip() for h in re.findall(r"^#{2,3}\s+(.+)$", primary_art.content or "", flags=re.MULTILINE) if len(h.strip()) > 5][:3]
+
+        answer_lines = [
+            f"Based on internal documentation in **[{primary_art.title}](/articles/{primary_art.slug})** *({primary_source['category']})*:",
+            "",
+            f"> {primary_source['excerpt']}",
+            "",
+        ]
+
+        if bullet_points:
+            answer_lines.append("### Key Operating Guidelines & Details:")
+            for bp in bullet_points:
+                answer_lines.append(f"- {bp}")
+            answer_lines.append("")
+
+        if headings:
+            answer_lines.append(f"📌 **Key Document Sections**: Includes operational guidance for *{', '.join(headings)}*.")
+            answer_lines.append("")
+
+        if len(scored_sources) > 1:
+            sec = scored_sources[1]
+            answer_lines.append(f"🔗 **Related Context**: See also **[{sec['title']}](/articles/{sec['slug']})** in *{sec['category']}* for complementary requirements.")
+
+        synthesized_answer = "\n".join(answer_lines)
+
+        # Dynamic suggested follow-ups tailored to category and article content
+        cat_name = (primary_art.category.name if primary_art.category else "").lower()
+        if "incident" in cat_name or "sre" in cat_name:
+            suggested = [
+                "Who acts as the Incident Commander for SEV-1 outages?",
+                "What is the paging response SLA for SEV-2 alerts?",
+                "Where can I find the postmortem template?",
+            ]
+        elif "security" in cat_name or "compliance" in cat_name:
+            suggested = [
+                "How do I enroll a secondary backup YubiKey?",
+                "What are our SOC 2 Type II audit logging requirements?",
+                "Who can grant emergency access to production environments?",
+            ]
+        elif "people" in cat_name or "hr" in cat_name:
+            suggested = [
+                "How do I submit receipts for the home office stipend?",
+                "What are our core collaboration working hours?",
+                "What is included in the new hire 30-day onboarding checklist?",
+            ]
+        elif "devops" in cat_name or "cloud" in cat_name:
+            suggested = [
+                "How do automated canary rollbacks trigger in ArgoCD?",
+                "What is our Kubernetes deployment manifest standard?",
+                "How do I verify container image signatures with Cosign?",
+            ]
+        elif "engineering" in cat_name or "architecture" in cat_name:
+            suggested = [
+                "How is PgBouncer transaction pooling configured?",
+                "What are the idempotency key requirements for REST APIs?",
+                "How do read replicas handle streaming replication lag?",
+            ]
+        elif "data" in cat_name or "analytics" in cat_name:
+            suggested = [
+                "How are dbt staging models partitioned in Snowflake?",
+                "What are the data retention policies for staging tables?",
+                "Where are ETL data pipeline health metrics monitored?",
+            ]
+        else:
+            suggested = [
+                f"What are the main prerequisites for {primary_art.title}?",
+                f"Who is the technical owner or maintainer of {primary_art.title}?",
+                "How do I propose revisions or updates to this guideline?",
             ]
 
-            if len(scored_sources) > 1:
-                secondary = scored_sources[1]
-                answer_parts.extend([
-                    f"- **Related Context**: See [{secondary['title']}](/articles/{secondary['slug']}) for complementary operating procedures ({secondary['category']}).",
-                    f"- **Best Practice**: Always consult the latest revision to ensure alignment with team standards.",
-                ])
-            else:
-                answer_parts.extend([
-                    "- Consult the full article for end-to-end configuration steps and troubleshooting matrices.",
-                    "- Ensure all required credentials and team permissions are verified before executing changes.",
-                ])
-
-            synthesized_answer = "\n".join(answer_parts)
-        else:
-            synthesized_answer = (
-                f"I searched the company documentation for **'{query}'**, but could not find a definitive guide matching all criteria. "
-                "Try refining your search terms or browsing through the Categories & Tags directory."
-            )
-
-        # Generate suggested follow-up queries
-        suggested = [
-            f"What are the prerequisites for {primary_source['title'] if primary_source else 'this procedure'}?",
-            "How do I request review permissions for this guide?",
-            "Where can I find the architecture troubleshooting matrix?",
+        # Clean non-serializable objects from scored_sources
+        cleaned_sources = [
+            {k: v for k, v in s.items() if not k.startswith("_")}
+            for s in scored_sources
         ]
 
         return Response({
             "query": query,
             "scope": scope,
+            "intent": "document_answer",
             "answer": synthesized_answer,
-            "sources": scored_sources,
+            "sources": cleaned_sources,
             "suggested_questions": suggested,
             "model": "Company Wiki Neural Assistant",
             "timestamp": timezone.now().isoformat(),

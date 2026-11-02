@@ -17,6 +17,7 @@ export interface AskWikiAiRequest {
   query: string;
   scope?: "all" | "article";
   article_slug?: string;
+  is_first_interaction?: boolean;
 }
 
 export interface AiSource {
@@ -32,6 +33,7 @@ export interface AiSource {
 export interface AskWikiAiResponse {
   query: string;
   scope: string;
+  intent?: string;
   answer: string;
   sources: AiSource[];
   suggested_questions: string[];
