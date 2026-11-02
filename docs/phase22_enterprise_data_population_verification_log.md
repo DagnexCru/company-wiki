@@ -207,3 +207,4 @@
 | 201 | `test(e2e-wiki): verify Category detail route displays related articles` | `e2e-wiki` | ✅ PASSED | Validates filtering articles by category slug. |
 | 202 | `test(e2e-wiki): verify Tag detail route displays related articles` | `e2e-wiki` | ✅ PASSED | Validates filtering articles by tag slug. |
 | 203 | `test(e2e-wiki): verify live collaborative presence indicators on seeded articles` | `e2e-wiki` | ✅ PASSED | Ensures viewer avatars render on new articles. |
+| 204 | `test(e2e-wiki): verify soft edit lock warning on simultaneous editing` | `e2e-wiki` | ✅ PASSED | Validates conflict prevention on seeded drafts. |
