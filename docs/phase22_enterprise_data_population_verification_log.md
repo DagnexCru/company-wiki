@@ -5,3 +5,4 @@
 | # | Check | Domain | Status | Detail |
 |---|-------|--------|:------:|--------|
 | 1 | `feat(data-reset): implement seed_enterprise_wiki management command` | `data-reset` | ✅ PASSED | Automates complete database reset while strictly preserving user accounts. |
+| 2 | `feat(data-reset): preserve CustomUser demo admin account admin@company.com` | `data-reset` | ✅ PASSED | Preserves system administrator user with full permissions. |
