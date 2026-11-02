@@ -26,3 +26,4 @@
 | 20 | `test(data-reset): verify database constraints prevent foreign key violations` | `data-reset` | ✅ PASSED | Validates on_delete CASCADE and SET_NULL behaviors. |
 | 21 | `test(data-reset): verify autovacuum triggers post bulk deletion` | `data-reset` | ✅ PASSED | Maintains optimal PostgreSQL table statistics. |
 | 22 | `test(data-reset): verify sequence counters reset cleanly without collisions` | `data-reset` | ✅ PASSED | Prevents primary key collision errors on new insertions. |
+| 23 | `test(data-reset): verify Django ORM database connection stays healthy` | `data-reset` | ✅ PASSED | Validates persistent connection pool state. |
