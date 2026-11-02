@@ -127,3 +127,4 @@
 | 121 | `feat(kb-articles): include 1Password 20-character random password policy` | `kb-articles` | ✅ PASSED | Eliminates weak credential reuse. |
 | 122 | `feat(kb-articles): include 24/7 lost device emergency remote wipe protocol` | `kb-articles` | ✅ PASSED | Protects against hardware theft. |
 | 123 | `feat(kb-articles): seed Engineering Git Workflow, Branching Conventions & Semantic Commits` | `kb-articles` | ✅ PASSED | Documents trunk-based branch prefixes. |
+| 124 | `feat(kb-articles): include Conventional Commits syntax specification` | `kb-articles` | ✅ PASSED | Enables automated release notes generation. |
