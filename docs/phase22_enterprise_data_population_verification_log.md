@@ -100,3 +100,4 @@
 | 94 | `feat(kb-articles): include 48-hour Blameless Post-Incident Review timeline` | `kb-articles` | ✅ PASSED | Enforces post-mortem root cause analysis. |
 | 95 | `feat(kb-articles): seed Zero-Trust Security Architecture & Identity-Aware Access Policies` | `kb-articles` | ✅ PASSED | Documents hardware YubiKey MFA requirements. |
 | 96 | `feat(kb-articles): include Teleport JIT proxy and dual-authorization rules` | `kb-articles` | ✅ PASSED | Eliminates raw SSH access to production. |
+| 97 | `feat(kb-articles): include AES-256 KMS key rotation and TLS 1.3 standards` | `kb-articles` | ✅ PASSED | Establishes cryptographic baseline. |
