@@ -94,3 +94,4 @@
 | 88 | `test(taxonomy-tags): verify tag snapshot serialization in ArticleRevision` | `taxonomy-tags` | ✅ PASSED | Preserves immutable tag historical snapshots. |
 | 89 | `test(taxonomy-tags): verify tag delta calculation in RevisionDiffViewer` | `taxonomy-tags` | ✅ PASSED | Accurately computes tags added vs removed. |
 | 90 | `test(taxonomy-tags): complete specialized taxonomy tag sign-off` | `taxonomy-tags` | ✅ PASSED | Signs off on 32 specialized taxonomy tags. |
+| 91 | `feat(kb-articles): seed Production Incident Management & Severity Escalation Framework` | `kb-articles` | ✅ PASSED | Provides comprehensive SEV-1 to SEV-4 runbooks. |
