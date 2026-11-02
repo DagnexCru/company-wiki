@@ -108,3 +108,4 @@
 | 102 | `feat(kb-articles): seed Continuous Delivery Pipeline Standards with ArgoCD & GitHub Actions` | `kb-articles` | ✅ PASSED | Documents declarative GitOps workflow. |
 | 103 | `feat(kb-articles): include 3-phase canary promotion with Prometheus error gates` | `kb-articles` | ✅ PASSED | Protects against deployment regressions. |
 | 104 | `feat(kb-articles): include automated Slack /argocd rollback command procedures` | `kb-articles` | ✅ PASSED | Enables instant 1-click rollbacks. |
+| 105 | `feat(kb-articles): seed Global Remote Work Policy, Home Office Budget & Working Hours` | `kb-articles` | ✅ PASSED | Documents 4-hour UTC core overlap window. |
