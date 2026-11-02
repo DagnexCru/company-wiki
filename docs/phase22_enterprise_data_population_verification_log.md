@@ -51,3 +51,4 @@
 | 45 | `feat(taxonomy-cats): seed Data Engineering & Analytics category` | `taxonomy-cats` | ✅ PASSED | Configures Snowflake, Kafka, dbt, and ETL pipeline standards. |
 | 46 | `feat(taxonomy-cats): configure teal color token and database icon for Data Engineering` | `taxonomy-cats` | ✅ PASSED | Identifies analytical warehouse resources. |
 | 47 | `feat(taxonomy-cats): seed Customer Support & Success category` | `taxonomy-cats` | ✅ PASSED | Configures enterprise SLAs, ticketing runbooks, and escalation paths. |
+| 48 | `feat(taxonomy-cats): configure orange color token and headphones icon for Support` | `taxonomy-cats` | ✅ PASSED | Clarifies client-facing operational policies. |
