@@ -198,3 +198,4 @@
 | 192 | `test(e2e-wiki): verify AskWikiFloatingButton opens assistant from any route` | `e2e-wiki` | ✅ PASSED | Validates floating trigger responsiveness. |
 | 193 | `test(e2e-wiki): verify ArticleAiSummaryCard generates TL;DR on click` | `e2e-wiki` | ✅ PASSED | Validates in-article summary UI. |
 | 194 | `test(e2e-wiki): verify Vite production bundle builds with 0 errors` | `e2e-wiki` | ✅ PASSED | tsc -b && vite build compiles cleanly. |
+| 195 | `test(e2e-wiki): verify Django backend check passes with 0 issues` | `e2e-wiki` | ✅ PASSED | manage.py check reports zero errors. |
