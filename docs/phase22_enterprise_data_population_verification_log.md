@@ -78,3 +78,4 @@
 | 72 | `feat(taxonomy-tags): seed Onboarding and HR organizational tags` | `taxonomy-tags` | ✅ PASSED | Tags new hire playbooks and workplace rules. |
 | 73 | `feat(taxonomy-tags): seed RemoteWork operational tag` | `taxonomy-tags` | ✅ PASSED | Tags distributed team benefits and core collaboration hours. |
 | 74 | `feat(taxonomy-tags): seed DesignSystem and Tailwind UI tags` | `taxonomy-tags` | ✅ PASSED | Tags design tokens and atomic utility styling. |
+| 75 | `feat(taxonomy-tags): seed API and REST integration tags` | `taxonomy-tags` | ✅ PASSED | Tags HTTP interfaces and idempotency patterns. |
