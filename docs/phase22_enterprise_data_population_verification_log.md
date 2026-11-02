@@ -159,3 +159,4 @@
 | 153 | `test(workflow-seed): verify published_at timestamp set for published articles` | `workflow-seed` | ✅ PASSED | Ensures chronological ordering works. |
 | 154 | `test(workflow-seed): verify article category foreign keys resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on category_id. |
 | 155 | `test(workflow-seed): verify article tags M2M associations resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on article_tags. |
+| 156 | `test(workflow-seed): verify author foreign keys resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on author_id. |
