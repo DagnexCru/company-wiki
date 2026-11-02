@@ -52,3 +52,4 @@
 | 46 | `feat(taxonomy-cats): configure teal color token and database icon for Data Engineering` | `taxonomy-cats` | ✅ PASSED | Identifies analytical warehouse resources. |
 | 47 | `feat(taxonomy-cats): seed Customer Support & Success category` | `taxonomy-cats` | ✅ PASSED | Configures enterprise SLAs, ticketing runbooks, and escalation paths. |
 | 48 | `feat(taxonomy-cats): configure orange color token and headphones icon for Support` | `taxonomy-cats` | ✅ PASSED | Clarifies client-facing operational policies. |
+| 49 | `feat(taxonomy-cats): seed Legal & Privacy Governance category` | `taxonomy-cats` | ✅ PASSED | Configures GDPR, CCPA, and data retention schedules. |
