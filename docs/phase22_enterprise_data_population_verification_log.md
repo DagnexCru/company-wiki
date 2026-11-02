@@ -187,3 +187,4 @@
 | 181 | `test(ai-eval): verify Git query cites Engineering Git Workflow article` | `ai-eval` | ✅ PASSED | Asserts correct branching conventions citation. |
 | 182 | `test(ai-eval): test ArticleAiSummaryView on all 14 published articles` | `ai-eval` | ✅ PASSED | Validates TL;DR and key takeaways extraction. |
 | 183 | `test(ai-eval): verify key takeaways count between 3 and 5 for all articles` | `ai-eval` | ✅ PASSED | Confirms consistent bullet points extraction. |
+| 184 | `test(ai-eval): verify executive TL;DR length between 50 and 350 characters` | `ai-eval` | ✅ PASSED | Confirms readable executive summaries. |
