@@ -9,3 +9,4 @@
 | 3 | `feat(data-reset): preserve CustomUser demo author account author@company.com` | `data-reset` | ✅ PASSED | Preserves primary author user for content creation. |
 | 4 | `feat(data-reset): preserve CustomUser demo reviewer account reviewer@company.com` | `data-reset` | ✅ PASSED | Preserves editorial reviewer user for workflow validation. |
 | 5 | `feat(data-reset): preserve CustomUser demo reader account reader@company.com` | `data-reset` | ✅ PASSED | Preserves reader role user for permission testing. |
+| 6 | `feat(data-reset): preserve authenticated OAuth and custom user accounts` | `data-reset` | ✅ PASSED | Guarantees no user account data is lost during content reset. |
