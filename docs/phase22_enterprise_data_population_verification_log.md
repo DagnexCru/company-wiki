@@ -188,3 +188,4 @@
 | 182 | `test(ai-eval): test ArticleAiSummaryView on all 14 published articles` | `ai-eval` | ✅ PASSED | Validates TL;DR and key takeaways extraction. |
 | 183 | `test(ai-eval): verify key takeaways count between 3 and 5 for all articles` | `ai-eval` | ✅ PASSED | Confirms consistent bullet points extraction. |
 | 184 | `test(ai-eval): verify executive TL;DR length between 50 and 350 characters` | `ai-eval` | ✅ PASSED | Confirms readable executive summaries. |
+| 185 | `test(ai-eval): complete AI neural engine evaluation over seeded content` | `ai-eval` | ✅ PASSED | Signs off on AI integration with company wiki. |
