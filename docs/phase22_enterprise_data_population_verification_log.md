@@ -130,3 +130,4 @@
 | 124 | `feat(kb-articles): include Conventional Commits syntax specification` | `kb-articles` | ✅ PASSED | Enables automated release notes generation. |
 | 125 | `feat(kb-articles): include CODEOWNERS peer review and squash-merge rules` | `kb-articles` | ✅ PASSED | Preserves clean linear Git history. |
 | 126 | `feat(kb-articles): seed Data Warehouse Architecture: Snowflake, dbt & Real-Time Pipelines` | `kb-articles` | ✅ PASSED | Documents Kafka Debezium CDC ingestion. |
+| 127 | `feat(kb-articles): include dbt Bronze/Silver/Gold dimensional modeling` | `kb-articles` | ✅ PASSED | Structures analytical data marts. |
