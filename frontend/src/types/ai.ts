@@ -38,3 +38,4 @@ export interface AskWikiAiResponse {
   model: string;
   timestamp: string;
 }
+
