@@ -12,3 +12,4 @@
 | 6 | `feat(data-reset): preserve authenticated OAuth and custom user accounts` | `data-reset` | ✅ PASSED | Guarantees no user account data is lost during content reset. |
 | 7 | `feat(data-reset): purge stale ArticlePresence records across all sessions` | `data-reset` | ✅ PASSED | Clears abandoned live presence beacons from database. |
 | 8 | `feat(data-reset): purge old ArticleAttachment records and media links` | `data-reset` | ✅ PASSED | Removes legacy attachment pointers. |
+| 9 | `feat(data-reset): purge legacy ReviewRecord workflow transition events` | `data-reset` | ✅ PASSED | Resets editorial review ledger for fresh submissions. |
