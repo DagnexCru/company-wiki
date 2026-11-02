@@ -80,3 +80,4 @@
 | 74 | `feat(taxonomy-tags): seed DesignSystem and Tailwind UI tags` | `taxonomy-tags` | ✅ PASSED | Tags design tokens and atomic utility styling. |
 | 75 | `feat(taxonomy-tags): seed API and REST integration tags` | `taxonomy-tags` | ✅ PASSED | Tags HTTP interfaces and idempotency patterns. |
 | 76 | `feat(taxonomy-tags): seed Performance and Testing quality tags` | `taxonomy-tags` | ✅ PASSED | Tags benchmarks, load testing, and test suites. |
+| 77 | `feat(taxonomy-tags): seed Snowflake analytical warehouse tag` | `taxonomy-tags` | ✅ PASSED | Tags big data modeling and dimensional marts. |
