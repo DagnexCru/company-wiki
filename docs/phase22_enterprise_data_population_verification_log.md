@@ -143,3 +143,4 @@
 | 137 | `feat(workflow-seed): associate revision snapshot with corresponding author` | `workflow-seed` | ✅ PASSED | Preserves attribution on initial versions. |
 | 138 | `feat(workflow-seed): capture tags_snapshot JSON array for each revision` | `workflow-seed` | ✅ PASSED | Stores tags attached at time of creation. |
 | 139 | `feat(workflow-seed): capture category_name string for each revision` | `workflow-seed` | ✅ PASSED | Preserves category name in historical ledger. |
+| 140 | `feat(workflow-seed): set change_summary to verified production baseline` | `workflow-seed` | ✅ PASSED | Provides clear diagnostic reason in revision timeline. |
