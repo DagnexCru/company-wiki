@@ -21,3 +21,4 @@
 | 15 | `feat(data-reset): enforce transaction.atomic() boundary on purge operation` | `data-reset` | ✅ PASSED | Guarantees all-or-nothing execution without database corruption. |
 | 16 | `test(data-reset): verify zero orphan records post-purge in PostgreSQL` | `data-reset` | ✅ PASSED | Asserts referential integrity holds across all foreign keys. |
 | 17 | `test(data-reset): verify CustomUser count equals exactly 8 preserved users` | `data-reset` | ✅ PASSED | Validates all 8 registered users remain intact. |
+| 18 | `test(data-reset): verify admin_lead retains is_superuser and is_staff flags` | `data-reset` | ✅ PASSED | Confirms administrative privileges persist. |
