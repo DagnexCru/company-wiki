@@ -21,111 +21,121 @@ class ArticleAiSummaryView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, slug_or_id):
-        # 1. Lookup article by UUID or slug safely without UUID validation error
-        article = None
         try:
-            val_uuid = uuid.UUID(str(slug_or_id))
-            article = Article.objects.get(id=val_uuid)
-        except (ValueError, AttributeError, Article.DoesNotExist):
+            # 1. Lookup article by UUID or slug safely without UUID validation error
+            article = None
             try:
-                article = Article.objects.get(slug=slug_or_id)
-            except Article.DoesNotExist:
+                val_uuid = uuid.UUID(str(slug_or_id))
+                article = Article.objects.filter(id=val_uuid).first()
+            except (ValueError, AttributeError):
+                article = None
+
+            if not article:
+                article = Article.objects.filter(slug=slug_or_id).first()
+
+            if not article:
                 return Response(
                     {"detail": f"Article '{slug_or_id}' was not found."},
                     status=status.HTTP_404_NOT_FOUND,
                 )
 
-        # Enforce reading visibility
-        user = request.user
-        if not user.is_admin and article.status != Article.Status.PUBLISHED:
-            if article.author != user and user.role not in ["REVIEWER", "ADMIN"]:
-                return Response(
-                    {"detail": "You do not have permission to access this article."},
-                    status=status.HTTP_403_FORBIDDEN,
-                )
+            # Enforce reading visibility
+            user = request.user
+            if not getattr(user, "is_admin", False) and article.status != Article.Status.PUBLISHED:
+                user_role = getattr(user, "role", "")
+                if article.author != user and user_role not in ["REVIEWER", "ADMIN"]:
+                    return Response(
+                        {"detail": "You do not have permission to access this article."},
+                        status=status.HTTP_403_FORBIDDEN,
+                    )
 
-        raw_content = article.content or ""
-        word_count = len(raw_content.split())
-        read_time_original = max(1, math.ceil(word_count / 200))
+            raw_content = article.content or ""
+            word_count = len(raw_content.split())
+            read_time_original = max(1, math.ceil(word_count / 200))
 
-        # 2. Extract Headings and Structural Takeaways
-        headings = re.findall(r"^#{1,3}\s+(.+)$", raw_content, flags=re.MULTILINE)
-        bullet_items = re.findall(r"^[-*]\s+(.+)$", raw_content, flags=re.MULTILINE)
-        bold_takeaways = re.findall(r"\*\*([^*]{8,80})\*\*", raw_content)
+            # 2. Extract Headings and Structural Takeaways
+            headings = re.findall(r"^#{1,3}\s+(.+)$", raw_content, flags=re.MULTILINE)
+            bullet_items = re.findall(r"^[-*]\s+(.+)$", raw_content, flags=re.MULTILINE)
+            bold_takeaways = re.findall(r"\*\*([^*]{8,80})\*\*", raw_content)
 
-        # 3. Clean and Segment Sentences
-        clean_text = re.sub(r"```[\s\S]*?```", "", raw_content)  # remove code blocks
-        clean_text = re.sub(r"!\[.*?\]\(.*?\)", "", clean_text)  # remove images
-        clean_text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", clean_text)  # keep link text
-        clean_text = re.sub(r"^[#>\-*_~`\s]+", "", clean_text, flags=re.MULTILINE)
+            # 3. Clean and Segment Sentences
+            clean_text = re.sub(r"```[\s\S]*?```", "", raw_content)  # remove code blocks
+            clean_text = re.sub(r"!\[.*?\]\(.*?\)", "", clean_text)  # remove images
+            clean_text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", clean_text)  # keep link text
+            clean_text = re.sub(r"^[#>\-*_~`\s]+", "", clean_text, flags=re.MULTILINE)
 
-        sentences = [
-            s.strip() for s in re.split(r"(?<=[.!?])\s+", clean_text)
-            if len(s.strip()) > 25 and not s.strip().startswith("|")
-        ]
+            sentences = [
+                s.strip() for s in re.split(r"(?<=[.!?])\s+", clean_text)
+                if len(s.strip()) > 25 and not s.strip().startswith("|")
+            ]
 
-        # 4. Generate Key Takeaways (Curate 3 to 5 high-value points)
-        takeaways = []
+            # 4. Generate Key Takeaways (Curate 3 to 5 high-value points)
+            takeaways = []
 
-        # Prefer bolded takeaways if present
-        for b in bold_takeaways:
-            clean_b = b.strip(":").strip()
-            if 15 < len(clean_b) < 120 and clean_b not in takeaways:
-                takeaways.append(clean_b)
-            if len(takeaways) >= 2:
-                break
+            # Prefer bolded takeaways if present
+            for b in bold_takeaways:
+                clean_b = b.strip(":").strip()
+                if 15 < len(clean_b) < 120 and clean_b not in takeaways:
+                    takeaways.append(clean_b)
+                if len(takeaways) >= 2:
+                    break
 
-        # Next check explicit bullet items
-        for item in bullet_items:
-            clean_item = item.strip()
-            if 20 < len(clean_item) < 160 and clean_item not in takeaways:
-                takeaways.append(clean_item)
-            if len(takeaways) >= 4:
-                break
-
-        # Fallback to key heading-oriented sentences
-        if len(takeaways) < 3 and sentences:
-            for s in sentences[:8]:
-                if s not in takeaways and len(s) < 180:
-                    takeaways.append(s)
+            # Next check explicit bullet items
+            for item in bullet_items:
+                clean_item = item.strip()
+                if 20 < len(clean_item) < 160 and clean_item not in takeaways:
+                    takeaways.append(clean_item)
                 if len(takeaways) >= 4:
                     break
 
-        if not takeaways:
-            takeaways = [
-                f"Core overview and procedural requirements for {article.title}.",
-                "Standard operating guidelines and operational compliance checkpoints.",
-                "Reference architectural patterns and best practices for engineering teams.",
-            ]
+            # Fallback to key heading-oriented sentences
+            if len(takeaways) < 3 and sentences:
+                for s in sentences[:8]:
+                    if s not in takeaways and len(s) < 180:
+                        takeaways.append(s)
+                    if len(takeaways) >= 4:
+                        break
 
-        # 5. Generate Executive TL;DR
-        if article.summary and len(article.summary.strip()) > 30:
-            executive_tldr = article.summary.strip()
-        elif sentences:
-            # Pick first 2 informative sentences
-            executive_tldr = " ".join(sentences[:2])
-        else:
-            executive_tldr = f"This document provides the standard operating procedures and guidelines for {article.title}."
+            if not takeaways:
+                takeaways = [
+                    f"Core overview and procedural requirements for {article.title}.",
+                    "Standard operating guidelines and operational compliance checkpoints.",
+                    "Reference architectural patterns and best practices for engineering teams.",
+                ]
 
-        read_time_tldr = 1
-        time_saved = max(0, read_time_original - read_time_tldr)
+            # 5. Generate Executive TL;DR
+            if article.summary and len(article.summary.strip()) > 30:
+                executive_tldr = article.summary.strip()
+            elif sentences:
+                # Pick first 2 informative sentences
+                executive_tldr = " ".join(sentences[:2])
+            else:
+                executive_tldr = f"This document provides the standard operating procedures and guidelines for {article.title}."
 
-        response_data = {
-            "article_id": str(article.id),
-            "article_slug": article.slug,
-            "article_title": article.title,
-            "tldr": executive_tldr,
-            "key_takeaways": takeaways[:5],
-            "reading_time_original": read_time_original,
-            "reading_time_tldr": read_time_tldr,
-            "time_saved_minutes": time_saved,
-            "word_count_original": word_count,
-            "headings_detected": len(headings),
-            "confidence_score": 0.96 if len(takeaways) >= 3 else 0.88,
-            "generated_at": timezone.now().isoformat(),
-        }
+            read_time_tldr = 1
+            time_saved = max(0, read_time_original - read_time_tldr)
 
-        return Response(response_data, status=status.HTTP_200_OK)
+            response_data = {
+                "article_id": str(article.id),
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "tldr": executive_tldr,
+                "key_takeaways": takeaways[:5],
+                "reading_time_original": read_time_original,
+                "reading_time_tldr": read_time_tldr,
+                "time_saved_minutes": time_saved,
+                "word_count_original": word_count,
+                "headings_detected": len(headings),
+                "confidence_score": 0.96 if len(takeaways) >= 3 else 0.88,
+                "generated_at": timezone.now().isoformat(),
+            }
+
+            return Response(response_data, status=status.HTTP_200_OK)
+        except Exception as exc:
+            return Response(
+                {"detail": f"Unable to generate AI summary: {str(exc)}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
 
 class AskWikiAiView(APIView):
