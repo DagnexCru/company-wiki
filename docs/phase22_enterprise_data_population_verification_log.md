@@ -194,3 +194,4 @@
 | 188 | `test(e2e-wiki): verify Public Portal displays published articles to guests` | `e2e-wiki` | ✅ PASSED | Validates unauthenticated reading access. |
 | 189 | `test(e2e-wiki): verify Review Queue displays 1 pending article to Reviewer` | `e2e-wiki` | ✅ PASSED | Validates editorial queue workflow. |
 | 190 | `test(e2e-wiki): verify CommandPalette search returns instant article matches` | `e2e-wiki` | ✅ PASSED | Validates Ctrl+K search index. |
+| 191 | `test(e2e-wiki): verify CommandPalette 'Ask AI' tab transfers query to drawer` | `e2e-wiki` | ✅ PASSED | Validates seamless AI assistant handoff. |
