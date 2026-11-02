@@ -183,3 +183,4 @@
 | 177 | `test(ai-eval): verify compliance query cites SOC 2 Type II Compliance article` | `ai-eval` | ✅ PASSED | Asserts correct audit logging citation. |
 | 178 | `test(ai-eval): test AskWikiAiView with query 'BitLocker and FileVault encryption'` | `ai-eval` | ✅ PASSED | Validates IT workstation security match. |
 | 179 | `test(ai-eval): verify IT query cites IT Workstation Security article` | `ai-eval` | ✅ PASSED | Asserts correct workstation security citation. |
+| 180 | `test(ai-eval): test AskWikiAiView with query 'Git branch naming conventions'` | `ai-eval` | ✅ PASSED | Validates Git workflow article match. |
