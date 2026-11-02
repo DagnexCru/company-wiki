@@ -99,3 +99,4 @@
 | 93 | `feat(kb-articles): include Incident Commander and Communications Lead roles` | `kb-articles` | ✅ PASSED | Defines operational hierarchy during outages. |
 | 94 | `feat(kb-articles): include 48-hour Blameless Post-Incident Review timeline` | `kb-articles` | ✅ PASSED | Enforces post-mortem root cause analysis. |
 | 95 | `feat(kb-articles): seed Zero-Trust Security Architecture & Identity-Aware Access Policies` | `kb-articles` | ✅ PASSED | Documents hardware YubiKey MFA requirements. |
+| 96 | `feat(kb-articles): include Teleport JIT proxy and dual-authorization rules` | `kb-articles` | ✅ PASSED | Eliminates raw SSH access to production. |
