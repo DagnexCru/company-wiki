@@ -117,3 +117,4 @@
 | 111 | `feat(kb-articles): seed RESTful API Design Standards, Idempotency & Rate Limiting` | `kb-articles` | ✅ PASSED | Documents resource naming conventions. |
 | 112 | `feat(kb-articles): include Idempotency-Key Redis caching specification` | `kb-articles` | ✅ PASSED | Prevents duplicate payment and order processing. |
 | 113 | `feat(kb-articles): include RFC 7807 Problem Details error payload format` | `kb-articles` | ✅ PASSED | Standardizes API error messaging. |
+| 114 | `feat(kb-articles): seed SOC 2 Type II Compliance, Audit Logging & Cryptographic Keys` | `kb-articles` | ✅ PASSED | Documents continuous Trust Services audit controls. |
