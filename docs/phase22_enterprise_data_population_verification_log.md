@@ -24,3 +24,4 @@
 | 18 | `test(data-reset): verify admin_lead retains is_superuser and is_staff flags` | `data-reset` | ✅ PASSED | Confirms administrative privileges persist. |
 | 19 | `test(data-reset): verify password hashes remain valid for demo users` | `data-reset` | ✅ PASSED | Ensures immediate login capability post-reset. |
 | 20 | `test(data-reset): verify database constraints prevent foreign key violations` | `data-reset` | ✅ PASSED | Validates on_delete CASCADE and SET_NULL behaviors. |
+| 21 | `test(data-reset): verify autovacuum triggers post bulk deletion` | `data-reset` | ✅ PASSED | Maintains optimal PostgreSQL table statistics. |
