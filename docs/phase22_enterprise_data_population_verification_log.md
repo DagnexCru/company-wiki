@@ -139,3 +139,4 @@
 | 133 | `feat(kb-articles): seed Draft Proposal: Next-Generation Vector Search for Enterprise Wiki` | `kb-articles` | ✅ PASSED | Supplies in_review article for editorial testing. |
 | 134 | `feat(kb-articles): include pgvector 1536-dim embedding technical architecture` | `kb-articles` | ✅ PASSED | Provides authentic technical draft in review. |
 | 135 | `test(kb-articles): verify Article.objects.count() equals exactly 15 articles` | `kb-articles` | ✅ PASSED | Validates complete knowledge base ingestion. |
+| 136 | `feat(workflow-seed): generate immutable revision #1 for all 15 articles` | `workflow-seed` | ✅ PASSED | Creates clean versioning baseline in article_revisions. |
