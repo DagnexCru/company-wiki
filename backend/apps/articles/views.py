@@ -881,6 +881,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
         serializer = ArticleFeedbackSerializer(feedbacks_qs, many=True)
         return Response(
             {
+                "count": feedbacks_qs.count(),
                 "helpful_count": article.helpful_count,
                 "unhelpful_count": article.unhelpful_count,
                 "helpfulness_score": article.helpfulness_score,
