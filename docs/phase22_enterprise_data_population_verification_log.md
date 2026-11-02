@@ -101,3 +101,4 @@
 | 95 | `feat(kb-articles): seed Zero-Trust Security Architecture & Identity-Aware Access Policies` | `kb-articles` | ✅ PASSED | Documents hardware YubiKey MFA requirements. |
 | 96 | `feat(kb-articles): include Teleport JIT proxy and dual-authorization rules` | `kb-articles` | ✅ PASSED | Eliminates raw SSH access to production. |
 | 97 | `feat(kb-articles): include AES-256 KMS key rotation and TLS 1.3 standards` | `kb-articles` | ✅ PASSED | Establishes cryptographic baseline. |
+| 98 | `feat(kb-articles): seed PostgreSQL 16 High-Availability Clustering & Connection Optimization` | `kb-articles` | ✅ PASSED | Documents Patroni multi-AZ topology. |
