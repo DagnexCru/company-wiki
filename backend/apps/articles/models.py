@@ -130,6 +130,11 @@ class Article(models.Model):
         help_text="The reviewer or administrator who made the latest review decision.",
     )
     published_at = models.DateTimeField(null=True, blank=True, db_index=True)
+    view_count = models.PositiveIntegerField(
+        default=0,
+        help_text="Total verified views recorded for this article.",
+        db_index=True,
+    )
     created_at = models.DateTimeField(default=timezone.now, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -176,6 +181,21 @@ class Article(models.Model):
         """Estimate reading time in minutes assuming 200 words per minute."""
         word_count = len(self.content.split())
         return max(1, round(word_count / 200))
+
+    @property
+    def helpful_count(self):
+        return self.feedback_entries.filter(is_helpful=True).count()
+
+    @property
+    def unhelpful_count(self):
+        return self.feedback_entries.filter(is_helpful=False).count()
+
+    @property
+    def helpfulness_score(self):
+        total = self.helpful_count + self.unhelpful_count
+        if total == 0:
+            return 100
+        return round((self.helpful_count / total) * 100)
 
     def create_revision(
         self,
@@ -412,5 +432,49 @@ class ArticlePresence(models.Model):
     def is_active(self):
         # Active if heartbeat received within last 30 seconds
         return (timezone.now() - self.last_heartbeat).total_seconds() <= 30
+
+
+class ArticleFeedback(models.Model):
+    """
+    Reader feedback ratings and constructive commentary on knowledge article helpfulness.
+    Provides authors and content stewards with quality metrics and actionable improvement notes.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="feedback_entries",
+        db_index=True,
+        help_text="Article being rated.",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="article_feedbacks",
+        help_text="User who provided the feedback.",
+    )
+    is_helpful = models.BooleanField(help_text="True if reader rated thumbs-up, False for thumbs-down.")
+    note = models.TextField(blank=True, default="", help_text="Optional constructive feedback note for authors.")
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_feedback"
+        verbose_name = "Article Feedback"
+        verbose_name_plural = "Article Feedbacks"
+        ordering = ["-created_at"]
+        unique_together = ("article", "user")
+        indexes = [
+            models.Index(fields=["article", "is_helpful"], name="art_fb_art_hlp_idx"),
+            models.Index(fields=["article", "-created_at"], name="art_fb_art_created_idx"),
+        ]
+
+    def __str__(self):
+        rating = "Helpful" if self.is_helpful else "Unhelpful"
+        user_label = self.user.username if self.user else "Anonymous"
+        return f"{rating} feedback on {self.article.title} by {user_label}"
+
 
 
