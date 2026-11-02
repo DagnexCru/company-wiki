@@ -123,3 +123,4 @@
 | 117 | `feat(kb-articles): seed Frontend Design System Guidelines: Tailwind CSS & Accessibility` | `kb-articles` | ✅ PASSED | Documents dark-mode color semantic tokens. |
 | 118 | `feat(kb-articles): include WCAG 2.1 AA 4.5:1 contrast and keyboard focus rings` | `kb-articles` | ✅ PASSED | Ensures universal accessibility. |
 | 119 | `feat(kb-articles): include Lucide icon sizing rules (14px, 16px, 20px)` | `kb-articles` | ✅ PASSED | Standardizes UI typography and visual hierarchy. |
+| 120 | `feat(kb-articles): seed IT Workstation Security: BitLocker, FileVault & YubiKey Enrollment` | `kb-articles` | ✅ PASSED | Documents MDM full-disk encryption requirements. |
