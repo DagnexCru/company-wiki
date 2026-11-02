@@ -170,3 +170,4 @@
 | 164 | `test(ai-eval): test AskWikiAiView with query 'Zero-Trust security and YubiKey'` | `ai-eval` | ✅ PASSED | Validates security architecture match. |
 | 165 | `test(ai-eval): verify security query cites Zero-Trust Security Architecture` | `ai-eval` | ✅ PASSED | Asserts correct source link generation. |
 | 166 | `test(ai-eval): test AskWikiAiView with query 'PostgreSQL connection pooling'` | `ai-eval` | ✅ PASSED | Validates PgBouncer runbook match. |
+| 167 | `test(ai-eval): verify database query cites PostgreSQL 16 Clustering article` | `ai-eval` | ✅ PASSED | Asserts correct database guide citation. |
