@@ -152,3 +152,4 @@
 | 146 | `test(workflow-seed): verify ArticleRevision.objects.count() equals 15` | `workflow-seed` | ✅ PASSED | Validates 1:1 initial revision coverage. |
 | 147 | `test(workflow-seed): verify ReviewRecord.objects.count() equals 1` | `workflow-seed` | ✅ PASSED | Ensures Review Queue displays pending draft. |
 | 148 | `test(workflow-seed): verify Article.objects.published().count() equals 14` | `workflow-seed` | ✅ PASSED | Confirms 14 published articles ready for readers and AI. |
+| 149 | `test(workflow-seed): verify Article.objects.in_review().count() equals 1` | `workflow-seed` | ✅ PASSED | Confirms 1 article in review queue. |
