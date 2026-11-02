@@ -90,6 +90,55 @@ export const articleService = {
     const response = await api.get<ArticleAttachment[]>(`/articles/${articleId}/attachments/`);
     return response.data;
   },
+
+  /**
+   * Atomically increment and record view count for an article.
+   */
+  async recordView(slugOrId: string): Promise<{ view_count: number; slug: string }> {
+    const response = await api.post<{ view_count: number; slug: string }>(
+      `/articles/${slugOrId}/record-view/`
+    );
+    return response.data;
+  },
+
+  /**
+   * Submit or update helpfulness feedback (👍 / 👎) and optional note for authors.
+   */
+  async submitFeedback(
+    slugOrId: string,
+    payload: { is_helpful: boolean; note?: string }
+  ): Promise<{
+    detail: string;
+    helpful_count: number;
+    unhelpful_count: number;
+    helpfulness_score: number;
+    user_feedback: {
+      id: string;
+      is_helpful: boolean;
+      note: string;
+      updated_at: string;
+    };
+  }> {
+    const response = await api.post(
+      `/articles/${slugOrId}/feedback/`,
+      payload
+    );
+    return response.data;
+  },
+
+  /**
+   * Retrieve list of reader feedback notes for an article (Authors, Reviewers, Admins).
+   */
+  async getArticleFeedbacks(slugOrId: string): Promise<{
+    count: number;
+    helpful_count: number;
+    unhelpful_count: number;
+    helpfulness_score: number;
+    results: any[];
+  }> {
+    const response = await api.get(`/articles/${slugOrId}/feedbacks/`);
+    return response.data;
+  },
 };
 
 // API Service Layer: All requests include SimpleJWT bearer headers automatically via Axios interceptor.

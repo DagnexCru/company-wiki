@@ -10,6 +10,23 @@ export interface ArticleAuthor {
   role: "ADMIN" | "AUTHOR" | "REVIEWER" | "READER";
 }
 
+export interface UserFeedback {
+  id: string;
+  is_helpful: boolean;
+  note: string;
+  updated_at: string;
+}
+
+export interface FeedbackNote {
+  id: string;
+  is_helpful: boolean;
+  note: string;
+  user_name: string;
+  user_role: string;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface ArticleListItem {
   id: string;
   title: string;
@@ -22,6 +39,10 @@ export interface ArticleListItem {
   status_display: string;
   is_featured: boolean;
   estimated_read_time: number;
+  view_count?: number;
+  helpful_count?: number;
+  unhelpful_count?: number;
+  helpfulness_score?: number;
   revision_count?: number;
   latest_revision_number?: number;
   submitted_at?: string | null;
@@ -35,6 +56,12 @@ export interface ArticleListItem {
 
 export interface ArticleDetail extends ArticleListItem {
   content: string;
+  view_count: number;
+  helpful_count?: number;
+  unhelpful_count?: number;
+  helpfulness_score?: number;
+  user_feedback?: UserFeedback | null;
+  recent_feedback_notes?: FeedbackNote[];
 }
 
 export interface ArticleInput {
