@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
 from apps.articles.serializers import (
     ArticleListSerializer,
@@ -36,6 +36,8 @@ ALLOWED_ORDERING_FIELDS = {
     "-published_at",
     "status",
     "-status",
+    "view_count",
+    "-view_count",
 }
 
 
@@ -111,6 +113,9 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "revision_detail",
             "revision_diff",
             "restore_revision",
+            "feedback",
+            "feedbacks",
+            "record_view",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -206,6 +211,30 @@ class ArticleViewSet(viewsets.ModelViewSet):
         elif self.action == "retrieve":
             return ArticleDetailSerializer
         return ArticleCreateUpdateSerializer
+
+    def get_object(self):
+        """
+        Safely resolve article instance by slug or UUID without UUID validation exceptions.
+        """
+        queryset = self.filter_queryset(self.get_queryset())
+        lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
+        lookup_val = self.kwargs.get(lookup_url_kwarg)
+
+        filter_q = models.Q(slug=lookup_val)
+        try:
+            import uuid
+            val_uuid = uuid.UUID(str(lookup_val))
+            filter_q |= models.Q(id=val_uuid)
+        except (ValueError, AttributeError):
+            pass
+
+        obj = queryset.filter(filter_q).first()
+        if obj is None:
+            from django.http import Http404
+            raise Http404(f"No article found matching '{lookup_val}'.")
+
+        self.check_object_permissions(self.request, obj)
+        return obj
 
     def perform_create(self, serializer):
         """
@@ -744,6 +773,118 @@ class ArticleViewSet(viewsets.ModelViewSet):
                 "restored_from_revision": target_rev.revision_number,
                 "new_revision_number": new_rev.revision_number,
                 "article": ArticleDetailSerializer(article).data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated])
+    def feedback(self, request, slug=None):
+        """
+        Submit reader feedback (👍 or 👎) with optional constructive notes for authors.
+        POST /api/v1/articles/{slug}/feedback/
+        """
+        article = self.get_object()
+        is_helpful = request.data.get("is_helpful")
+        if is_helpful is None:
+            return Response(
+                {"detail": "Field 'is_helpful' (boolean) is required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        note = str(request.data.get("note", "")).strip()[:1000]
+
+        feedback_obj, created = ArticleFeedback.objects.update_or_create(
+            article=article,
+            user=request.user,
+            defaults={
+                "is_helpful": bool(is_helpful),
+                "note": note,
+            },
+        )
+
+        log_audit_event(
+            action=AuditEvent.Action.ARTICLE_UPDATE,
+            resource_type="article_feedback",
+            actor=request.user,
+            resource_id=feedback_obj.id,
+            resource_name=f"Feedback on {article.title}",
+            details={
+                "slug": article.slug,
+                "is_helpful": feedback_obj.is_helpful,
+                "has_note": bool(note),
+            },
+            request=request,
+        )
+
+        return Response(
+            {
+                "detail": "Feedback recorded successfully. Thank you!",
+                "feedback": {
+                    "id": str(feedback_obj.id),
+                    "is_helpful": feedback_obj.is_helpful,
+                    "note": feedback_obj.note,
+                    "updated_at": feedback_obj.updated_at.isoformat(),
+                },
+                "helpful_count": article.helpful_count,
+                "unhelpful_count": article.unhelpful_count,
+                "helpfulness_score": article.helpfulness_score,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["post"],
+        url_path="record-view",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def record_view(self, request, slug=None):
+        """
+        Atomically increment the verified view counter for this article.
+        POST /api/v1/articles/{slug}/record-view/
+        """
+        article = self.get_object()
+        from django.db.models import F
+
+        Article.objects.filter(id=article.id).update(view_count=F("view_count") + 1)
+        article.refresh_from_db(fields=["view_count"])
+
+        return Response(
+            {
+                "view_count": article.view_count,
+                "slug": article.slug,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["get"],
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def feedbacks(self, request, slug=None):
+        """
+        Retrieve all feedback entries and constructive notes for authors and reviewers.
+        GET /api/v1/articles/{slug}/feedbacks/
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to inspect reader feedback notes for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        from apps.articles.serializers import ArticleFeedbackSerializer
+
+        feedbacks_qs = article.feedback_entries.select_related("user").order_by("-created_at")
+        serializer = ArticleFeedbackSerializer(feedbacks_qs, many=True)
+        return Response(
+            {
+                "helpful_count": article.helpful_count,
+                "unhelpful_count": article.unhelpful_count,
+                "helpfulness_score": article.helpfulness_score,
+                "results": serializer.data,
             },
             status=status.HTTP_200_OK,
         )

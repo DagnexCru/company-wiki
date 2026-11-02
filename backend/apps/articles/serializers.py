@@ -1,9 +1,39 @@
 from rest_framework import serializers
 from django.utils.text import slugify
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article
+from apps.articles.models import Article, ArticleFeedback
 from apps.taxonomy.models import Category, Tag
 from apps.taxonomy.serializers import CategorySerializer, TagSerializer
+
+
+class ArticleFeedbackSerializer(serializers.ModelSerializer):
+    """
+    Serializer for reader feedback and constructive notes on article helpfulness.
+    """
+
+    user_name = serializers.SerializerMethodField()
+    user_role = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ArticleFeedback
+        fields = [
+            "id",
+            "is_helpful",
+            "note",
+            "user_name",
+            "user_role",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = fields
+
+    def get_user_name(self, obj):
+        if not obj.user:
+            return "Anonymous Reader"
+        return obj.user.full_name or obj.user.username
+
+    def get_user_role(self, obj):
+        return obj.user.role if obj.user else "READER"
 
 
 class ArticleAuthorSummarySerializer(serializers.ModelSerializer):
@@ -34,6 +64,9 @@ class ArticleListSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
+    view_count = serializers.IntegerField(read_only=True)
+    helpful_count = serializers.IntegerField(read_only=True)
+    helpfulness_score = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Article
@@ -49,6 +82,9 @@ class ArticleListSerializer(serializers.ModelSerializer):
             "status_display",
             "is_featured",
             "estimated_read_time",
+            "view_count",
+            "helpful_count",
+            "helpfulness_score",
             "published_at",
             "created_at",
             "updated_at",
@@ -59,6 +95,7 @@ class ArticleListSerializer(serializers.ModelSerializer):
 class ArticleDetailSerializer(serializers.ModelSerializer):
     """
     Full article serializer containing markdown document content and metadata.
+    Includes reading analytics and reader feedback.
     """
 
     author = ArticleAuthorSummarySerializer(read_only=True)
@@ -67,6 +104,12 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     last_reviewer = ArticleAuthorSummarySerializer(read_only=True)
     status_display = serializers.CharField(source="get_status_display", read_only=True)
     estimated_read_time = serializers.IntegerField(read_only=True)
+    view_count = serializers.IntegerField(read_only=True)
+    helpful_count = serializers.IntegerField(read_only=True)
+    unhelpful_count = serializers.IntegerField(read_only=True)
+    helpfulness_score = serializers.IntegerField(read_only=True)
+    user_feedback = serializers.SerializerMethodField()
+    recent_feedback_notes = serializers.SerializerMethodField()
     revision_count = serializers.SerializerMethodField()
     latest_revision_number = serializers.SerializerMethodField()
 
@@ -76,6 +119,28 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     def get_latest_revision_number(self, obj):
         latest = obj.revisions.order_by("-revision_number").first()
         return latest.revision_number if latest else 1
+
+    def get_user_feedback(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            fb = obj.feedback_entries.filter(user=request.user).first()
+            if fb:
+                return {
+                    "id": str(fb.id),
+                    "is_helpful": fb.is_helpful,
+                    "note": fb.note,
+                    "updated_at": fb.updated_at.isoformat(),
+                }
+        return None
+
+    def get_recent_feedback_notes(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            user = request.user
+            if user.role in ["ADMIN", "REVIEWER"] or user.id == obj.author.id:
+                notes_qs = obj.feedback_entries.exclude(note="").order_by("-created_at")[:10]
+                return ArticleFeedbackSerializer(notes_qs, many=True).data
+        return []
 
     class Meta:
         model = Article
@@ -94,6 +159,12 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "rejection_reason",
             "is_featured",
             "estimated_read_time",
+            "view_count",
+            "helpful_count",
+            "unhelpful_count",
+            "helpfulness_score",
+            "user_feedback",
+            "recent_feedback_notes",
             "revision_count",
             "latest_revision_number",
             "submitted_at",
