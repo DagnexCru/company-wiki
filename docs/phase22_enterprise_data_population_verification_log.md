@@ -114,3 +114,4 @@
 | 108 | `feat(kb-articles): seed New Hire Engineering Onboarding: First 30 Days Playbook` | `kb-articles` | ✅ PASSED | Documents Day 1 through Day 30 milestones. |
 | 109 | `feat(kb-articles): include local Docker monorepo setup commands` | `kb-articles` | ✅ PASSED | Guides environment bootstrapping. |
 | 110 | `feat(kb-articles): include Onboarding Buddy pairing and Good First Issue PR target` | `kb-articles` | ✅ PASSED | Accelerates developer time-to-first-commit. |
+| 111 | `feat(kb-articles): seed RESTful API Design Standards, Idempotency & Rate Limiting` | `kb-articles` | ✅ PASSED | Documents resource naming conventions. |
