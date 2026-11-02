@@ -43,3 +43,4 @@
 | 37 | `feat(taxonomy-cats): seed Incident Response & SRE category` | `taxonomy-cats` | ✅ PASSED | Configures severity matrices, on-call runbooks, and PIR guidelines. |
 | 38 | `feat(taxonomy-cats): configure amber color token and alert icon for Incident Response` | `taxonomy-cats` | ✅ PASSED | Visually signifies urgent operational protocols. |
 | 39 | `feat(taxonomy-cats): seed People Operations & HR category` | `taxonomy-cats` | ✅ PASSED | Configures benefits, remote work, and performance evaluation guidelines. |
+| 40 | `feat(taxonomy-cats): configure emerald color token and users icon for HR` | `taxonomy-cats` | ✅ PASSED | Provides approachable workplace services styling. |
