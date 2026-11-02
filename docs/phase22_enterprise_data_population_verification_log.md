@@ -135,3 +135,4 @@
 | 129 | `feat(kb-articles): seed Customer Escalation & Enterprise Support SLA Matrix` | `kb-articles` | ✅ PASSED | Documents 15-min Tier 1 response commitment. |
 | 130 | `feat(kb-articles): include executive escalation paths for SLA breaches` | `kb-articles` | ✅ PASSED | Ensures transparent client issue resolution. |
 | 131 | `feat(kb-articles): seed GDPR Compliance, Data Retention & Right-to-be-Forgotten Procedures` | `kb-articles` | ✅ PASSED | Documents Article 17 deletion workflows. |
+| 132 | `feat(kb-articles): include automated purge_customer_pii pipeline commands` | `kb-articles` | ✅ PASSED | Fulfills 30-day erasure compliance. |
