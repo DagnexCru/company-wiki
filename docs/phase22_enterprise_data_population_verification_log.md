@@ -61,3 +61,4 @@
 | 55 | `test(taxonomy-cats): verify category icon strings match Lucide icon registry` | `taxonomy-cats` | ✅ PASSED | Ensures frontend renders valid SVG vector icons. |
 | 56 | `test(taxonomy-cats): verify CategorySerializer includes article_count aggregation` | `taxonomy-cats` | ✅ PASSED | Powers dynamic badge counters in UI. |
 | 57 | `test(taxonomy-cats): verify category filtering in GET /api/v1/articles/?category=slug` | `taxonomy-cats` | ✅ PASSED | Validates RESTful query param filtering. |
+| 58 | `test(taxonomy-cats): verify category navigation in CommandPalette categories tab` | `taxonomy-cats` | ✅ PASSED | Enables fast category jumping via Ctrl+K. |
