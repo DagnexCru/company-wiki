@@ -203,3 +203,4 @@
 | 197 | `test(e2e-wiki): verify zero layout shift or visual regressions across views` | `e2e-wiki` | ✅ PASSED | Ensures UI polish and responsiveness. |
 | 198 | `test(e2e-wiki): verify mobile viewport responsiveness on 375px and 414px` | `e2e-wiki` | ✅ PASSED | Validates mobile navigation and drawer. |
 | 199 | `test(e2e-wiki): verify tablet viewport responsiveness on 768px and 1024px` | `e2e-wiki` | ✅ PASSED | Validates split-pane diff and TOC layout. |
+| 200 | `test(e2e-wiki): verify desktop viewport responsiveness on 1440px and 1920px` | `e2e-wiki` | ✅ PASSED | Validates wide-screen readability. |
