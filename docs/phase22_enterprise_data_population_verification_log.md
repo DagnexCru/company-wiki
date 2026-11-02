@@ -83,3 +83,4 @@
 | 77 | `feat(taxonomy-tags): seed Snowflake analytical warehouse tag` | `taxonomy-tags` | ✅ PASSED | Tags big data modeling and dimensional marts. |
 | 78 | `test(taxonomy-tags): verify Tag.objects.count() equals exactly 32 tags` | `taxonomy-tags` | ✅ PASSED | Validates complete taxonomy vocabulary. |
 | 79 | `test(taxonomy-tags): verify tag slug uniqueness across all 32 entries` | `taxonomy-tags` | ✅ PASSED | Guarantees clean URL filtering via tag slugs. |
+| 80 | `test(taxonomy-tags): verify ManyToMany relationship between Article and Tag` | `taxonomy-tags` | ✅ PASSED | Ensures articles can associate multiple tags. |
