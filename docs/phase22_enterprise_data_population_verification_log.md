@@ -131,3 +131,4 @@
 | 125 | `feat(kb-articles): include CODEOWNERS peer review and squash-merge rules` | `kb-articles` | ✅ PASSED | Preserves clean linear Git history. |
 | 126 | `feat(kb-articles): seed Data Warehouse Architecture: Snowflake, dbt & Real-Time Pipelines` | `kb-articles` | ✅ PASSED | Documents Kafka Debezium CDC ingestion. |
 | 127 | `feat(kb-articles): include dbt Bronze/Silver/Gold dimensional modeling` | `kb-articles` | ✅ PASSED | Structures analytical data marts. |
+| 128 | `feat(kb-articles): include automated dbt schema assertion and null tests` | `kb-articles` | ✅ PASSED | Guarantees high data quality. |
