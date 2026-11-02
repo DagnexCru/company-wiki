@@ -191,3 +191,4 @@
 | 185 | `test(ai-eval): complete AI neural engine evaluation over seeded content` | `ai-eval` | ✅ PASSED | Signs off on AI integration with company wiki. |
 | 186 | `test(e2e-wiki): verify DashboardView aggregates seeded metrics correctly` | `e2e-wiki` | ✅ PASSED | Validates total articles, categories, and tags. |
 | 187 | `test(e2e-wiki): verify featured articles list renders 4 cards on home dashboard` | `e2e-wiki` | ✅ PASSED | Ensures featured guides appear prominently. |
+| 188 | `test(e2e-wiki): verify Public Portal displays published articles to guests` | `e2e-wiki` | ✅ PASSED | Validates unauthenticated reading access. |
