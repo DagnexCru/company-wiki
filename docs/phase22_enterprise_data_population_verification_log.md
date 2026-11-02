@@ -62,3 +62,4 @@
 | 56 | `test(taxonomy-cats): verify CategorySerializer includes article_count aggregation` | `taxonomy-cats` | ✅ PASSED | Powers dynamic badge counters in UI. |
 | 57 | `test(taxonomy-cats): verify category filtering in GET /api/v1/articles/?category=slug` | `taxonomy-cats` | ✅ PASSED | Validates RESTful query param filtering. |
 | 58 | `test(taxonomy-cats): verify category navigation in CommandPalette categories tab` | `taxonomy-cats` | ✅ PASSED | Enables fast category jumping via Ctrl+K. |
+| 59 | `test(taxonomy-cats): verify category breadcrumbs on ArticleDetailPage` | `taxonomy-cats` | ✅ PASSED | Ensures intuitive parent navigation. |
