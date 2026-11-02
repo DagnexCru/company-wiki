@@ -154,3 +154,4 @@
 | 148 | `test(workflow-seed): verify Article.objects.published().count() equals 14` | `workflow-seed` | ✅ PASSED | Confirms 14 published articles ready for readers and AI. |
 | 149 | `test(workflow-seed): verify Article.objects.in_review().count() equals 1` | `workflow-seed` | ✅ PASSED | Confirms 1 article in review queue. |
 | 150 | `test(workflow-seed): verify Article.objects.filter(is_featured=True).count() equals 4` | `workflow-seed` | ✅ PASSED | Confirms 4 featured guides on dashboard. |
+| 151 | `test(workflow-seed): verify estimated_read_time calculated accurately for all articles` | `workflow-seed` | ✅ PASSED | Word count / 200 formula verified. |
