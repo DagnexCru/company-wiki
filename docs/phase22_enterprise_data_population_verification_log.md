@@ -171,3 +171,4 @@
 | 165 | `test(ai-eval): verify security query cites Zero-Trust Security Architecture` | `ai-eval` | ✅ PASSED | Asserts correct source link generation. |
 | 166 | `test(ai-eval): test AskWikiAiView with query 'PostgreSQL connection pooling'` | `ai-eval` | ✅ PASSED | Validates PgBouncer runbook match. |
 | 167 | `test(ai-eval): verify database query cites PostgreSQL 16 Clustering article` | `ai-eval` | ✅ PASSED | Asserts correct database guide citation. |
+| 168 | `test(ai-eval): test AskWikiAiView with query 'remote work budget and hours'` | `ai-eval` | ✅ PASSED | Validates HR policy match. |
