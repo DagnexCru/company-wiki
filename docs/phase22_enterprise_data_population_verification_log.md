@@ -185,3 +185,4 @@
 | 179 | `test(ai-eval): verify IT query cites IT Workstation Security article` | `ai-eval` | ✅ PASSED | Asserts correct workstation security citation. |
 | 180 | `test(ai-eval): test AskWikiAiView with query 'Git branch naming conventions'` | `ai-eval` | ✅ PASSED | Validates Git workflow article match. |
 | 181 | `test(ai-eval): verify Git query cites Engineering Git Workflow article` | `ai-eval` | ✅ PASSED | Asserts correct branching conventions citation. |
+| 182 | `test(ai-eval): test ArticleAiSummaryView on all 14 published articles` | `ai-eval` | ✅ PASSED | Validates TL;DR and key takeaways extraction. |
