@@ -141,3 +141,4 @@
 | 135 | `test(kb-articles): verify Article.objects.count() equals exactly 15 articles` | `kb-articles` | ✅ PASSED | Validates complete knowledge base ingestion. |
 | 136 | `feat(workflow-seed): generate immutable revision #1 for all 15 articles` | `workflow-seed` | ✅ PASSED | Creates clean versioning baseline in article_revisions. |
 | 137 | `feat(workflow-seed): associate revision snapshot with corresponding author` | `workflow-seed` | ✅ PASSED | Preserves attribution on initial versions. |
+| 138 | `feat(workflow-seed): capture tags_snapshot JSON array for each revision` | `workflow-seed` | ✅ PASSED | Stores tags attached at time of creation. |
