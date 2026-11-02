@@ -86,3 +86,4 @@
 | 80 | `test(taxonomy-tags): verify ManyToMany relationship between Article and Tag` | `taxonomy-tags` | ✅ PASSED | Ensures articles can associate multiple tags. |
 | 81 | `test(taxonomy-tags): verify TagSerializer exposes article_count` | `taxonomy-tags` | ✅ PASSED | Powers tag weight pills in directory. |
 | 82 | `test(taxonomy-tags): verify tag filtering in GET /api/v1/articles/?tag=slug` | `taxonomy-tags` | ✅ PASSED | Validates RESTful tag filtering endpoint. |
+| 83 | `test(taxonomy-tags): verify tag chip display in CommandPalette tags tab` | `taxonomy-tags` | ✅ PASSED | Enables instant tag search via Ctrl+K. |
