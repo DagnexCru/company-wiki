@@ -69,3 +69,4 @@
 | 63 | `feat(taxonomy-tags): seed Python and Django framework tags` | `taxonomy-tags` | ✅ PASSED | Tags backend runtime and application framework. |
 | 64 | `feat(taxonomy-tags): seed PostgreSQL and Database infrastructure tags` | `taxonomy-tags` | ✅ PASSED | Tags relational storage and connection pooling. |
 | 65 | `feat(taxonomy-tags): seed Kubernetes and Docker containerization tags` | `taxonomy-tags` | ✅ PASSED | Tags cluster orchestration and container runtimes. |
+| 66 | `feat(taxonomy-tags): seed DevOps and CI/CD automation tags` | `taxonomy-tags` | ✅ PASSED | Tags delivery pipelines and GitOps workflows. |
