@@ -85,3 +85,4 @@
 | 79 | `test(taxonomy-tags): verify tag slug uniqueness across all 32 entries` | `taxonomy-tags` | ✅ PASSED | Guarantees clean URL filtering via tag slugs. |
 | 80 | `test(taxonomy-tags): verify ManyToMany relationship between Article and Tag` | `taxonomy-tags` | ✅ PASSED | Ensures articles can associate multiple tags. |
 | 81 | `test(taxonomy-tags): verify TagSerializer exposes article_count` | `taxonomy-tags` | ✅ PASSED | Powers tag weight pills in directory. |
+| 82 | `test(taxonomy-tags): verify tag filtering in GET /api/v1/articles/?tag=slug` | `taxonomy-tags` | ✅ PASSED | Validates RESTful tag filtering endpoint. |
