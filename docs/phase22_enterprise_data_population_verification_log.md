@@ -146,3 +146,4 @@
 | 140 | `feat(workflow-seed): set change_summary to verified production baseline` | `workflow-seed` | ✅ PASSED | Provides clear diagnostic reason in revision timeline. |
 | 141 | `feat(workflow-seed): create ReviewRecord SUBMIT event for vector search draft` | `workflow-seed` | ✅ PASSED | Populates Review Queue with authentic submission. |
 | 142 | `feat(workflow-seed): associate ReviewRecord actor with author user` | `workflow-seed` | ✅ PASSED | Records submitting engineer in workflow log. |
+| 143 | `feat(workflow-seed): record from_status='draft' and to_status='in_review'` | `workflow-seed` | ✅ PASSED | Validates state transition tracking. |
