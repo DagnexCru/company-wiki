@@ -166,3 +166,4 @@
 | 160 | `test(workflow-seed): complete workflow and revision seeding sign-off` | `workflow-seed` | ✅ PASSED | Signs off on revision and review baseline. |
 | 161 | `test(ai-eval): test AskWikiAiView with query 'escalate production incidents'` | `ai-eval` | ✅ PASSED | Validates incident framework match and citation. |
 | 162 | `test(ai-eval): verify incident query cites Production Incident Management article` | `ai-eval` | ✅ PASSED | Asserts correct primary source attribution. |
+| 163 | `test(ai-eval): verify relevance score exceeds 90% for incident query` | `ai-eval` | ✅ PASSED | Validates high-confidence semantic scoring. |
