@@ -76,3 +76,4 @@
 | 70 | `feat(taxonomy-tags): seed IncidentResponse, Runbook, and SRE tags` | `taxonomy-tags` | ✅ PASSED | Tags operational post-mortems and triage guides. |
 | 71 | `feat(taxonomy-tags): seed Observability monitoring tag` | `taxonomy-tags` | ✅ PASSED | Tags metrics, tracing, and log aggregation. |
 | 72 | `feat(taxonomy-tags): seed Onboarding and HR organizational tags` | `taxonomy-tags` | ✅ PASSED | Tags new hire playbooks and workplace rules. |
+| 73 | `feat(taxonomy-tags): seed RemoteWork operational tag` | `taxonomy-tags` | ✅ PASSED | Tags distributed team benefits and core collaboration hours. |
