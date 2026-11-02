@@ -77,3 +77,4 @@
 | 71 | `feat(taxonomy-tags): seed Observability monitoring tag` | `taxonomy-tags` | ✅ PASSED | Tags metrics, tracing, and log aggregation. |
 | 72 | `feat(taxonomy-tags): seed Onboarding and HR organizational tags` | `taxonomy-tags` | ✅ PASSED | Tags new hire playbooks and workplace rules. |
 | 73 | `feat(taxonomy-tags): seed RemoteWork operational tag` | `taxonomy-tags` | ✅ PASSED | Tags distributed team benefits and core collaboration hours. |
+| 74 | `feat(taxonomy-tags): seed DesignSystem and Tailwind UI tags` | `taxonomy-tags` | ✅ PASSED | Tags design tokens and atomic utility styling. |
