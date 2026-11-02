@@ -75,3 +75,4 @@
 | 69 | `feat(taxonomy-tags): seed GDPR privacy and data protection tag` | `taxonomy-tags` | ✅ PASSED | Tags European and global privacy regulations. |
 | 70 | `feat(taxonomy-tags): seed IncidentResponse, Runbook, and SRE tags` | `taxonomy-tags` | ✅ PASSED | Tags operational post-mortems and triage guides. |
 | 71 | `feat(taxonomy-tags): seed Observability monitoring tag` | `taxonomy-tags` | ✅ PASSED | Tags metrics, tracing, and log aggregation. |
+| 72 | `feat(taxonomy-tags): seed Onboarding and HR organizational tags` | `taxonomy-tags` | ✅ PASSED | Tags new hire playbooks and workplace rules. |
