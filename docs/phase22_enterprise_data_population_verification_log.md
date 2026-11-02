@@ -151,3 +151,4 @@
 | 145 | `feat(workflow-seed): backdate submission timestamp to 2 hours ago` | `workflow-seed` | ✅ PASSED | Simulates realistic editorial wait time. |
 | 146 | `test(workflow-seed): verify ArticleRevision.objects.count() equals 15` | `workflow-seed` | ✅ PASSED | Validates 1:1 initial revision coverage. |
 | 147 | `test(workflow-seed): verify ReviewRecord.objects.count() equals 1` | `workflow-seed` | ✅ PASSED | Ensures Review Queue displays pending draft. |
+| 148 | `test(workflow-seed): verify Article.objects.published().count() equals 14` | `workflow-seed` | ✅ PASSED | Confirms 14 published articles ready for readers and AI. |
