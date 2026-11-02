@@ -134,3 +134,4 @@
 | 128 | `feat(kb-articles): include automated dbt schema assertion and null tests` | `kb-articles` | ✅ PASSED | Guarantees high data quality. |
 | 129 | `feat(kb-articles): seed Customer Escalation & Enterprise Support SLA Matrix` | `kb-articles` | ✅ PASSED | Documents 15-min Tier 1 response commitment. |
 | 130 | `feat(kb-articles): include executive escalation paths for SLA breaches` | `kb-articles` | ✅ PASSED | Ensures transparent client issue resolution. |
+| 131 | `feat(kb-articles): seed GDPR Compliance, Data Retention & Right-to-be-Forgotten Procedures` | `kb-articles` | ✅ PASSED | Documents Article 17 deletion workflows. |
