@@ -172,3 +172,4 @@
 | 166 | `test(ai-eval): test AskWikiAiView with query 'PostgreSQL connection pooling'` | `ai-eval` | ✅ PASSED | Validates PgBouncer runbook match. |
 | 167 | `test(ai-eval): verify database query cites PostgreSQL 16 Clustering article` | `ai-eval` | ✅ PASSED | Asserts correct database guide citation. |
 | 168 | `test(ai-eval): test AskWikiAiView with query 'remote work budget and hours'` | `ai-eval` | ✅ PASSED | Validates HR policy match. |
+| 169 | `test(ai-eval): verify HR query cites Global Remote Work Policy article` | `ai-eval` | ✅ PASSED | Asserts correct HR stipend citation. |
