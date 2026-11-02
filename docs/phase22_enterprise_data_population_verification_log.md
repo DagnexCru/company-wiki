@@ -96,3 +96,4 @@
 | 90 | `test(taxonomy-tags): complete specialized taxonomy tag sign-off` | `taxonomy-tags` | ✅ PASSED | Signs off on 32 specialized taxonomy tags. |
 | 91 | `feat(kb-articles): seed Production Incident Management & Severity Escalation Framework` | `kb-articles` | ✅ PASSED | Provides comprehensive SEV-1 to SEV-4 runbooks. |
 | 92 | `feat(kb-articles): include severity SLA matrix and Slack /incident command triggers` | `kb-articles` | ✅ PASSED | Documents automated incident channel creation. |
+| 93 | `feat(kb-articles): include Incident Commander and Communications Lead roles` | `kb-articles` | ✅ PASSED | Defines operational hierarchy during outages. |
