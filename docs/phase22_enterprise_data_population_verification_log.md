@@ -39,3 +39,4 @@
 | 33 | `feat(taxonomy-cats): seed DevOps & Cloud Infrastructure category` | `taxonomy-cats` | ✅ PASSED | Configures Kubernetes, CI/CD, and AWS infrastructure guides. |
 | 34 | `feat(taxonomy-cats): configure purple color token and server icon for DevOps` | `taxonomy-cats` | ✅ PASSED | Provides distinctive infrastructure iconography. |
 | 35 | `feat(taxonomy-cats): seed Security & Compliance category` | `taxonomy-cats` | ✅ PASSED | Configures SOC 2, Zero-Trust, and cryptographic policies. |
+| 36 | `feat(taxonomy-cats): configure rose color token and shield icon for Security` | `taxonomy-cats` | ✅ PASSED | Highlights high-severity compliance content. |
