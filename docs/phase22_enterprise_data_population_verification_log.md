@@ -125,3 +125,4 @@
 | 119 | `feat(kb-articles): include Lucide icon sizing rules (14px, 16px, 20px)` | `kb-articles` | ✅ PASSED | Standardizes UI typography and visual hierarchy. |
 | 120 | `feat(kb-articles): seed IT Workstation Security: BitLocker, FileVault & YubiKey Enrollment` | `kb-articles` | ✅ PASSED | Documents MDM full-disk encryption requirements. |
 | 121 | `feat(kb-articles): include 1Password 20-character random password policy` | `kb-articles` | ✅ PASSED | Eliminates weak credential reuse. |
+| 122 | `feat(kb-articles): include 24/7 lost device emergency remote wipe protocol` | `kb-articles` | ✅ PASSED | Protects against hardware theft. |
