@@ -22,3 +22,4 @@
 | 16 | `test(data-reset): verify zero orphan records post-purge in PostgreSQL` | `data-reset` | ✅ PASSED | Asserts referential integrity holds across all foreign keys. |
 | 17 | `test(data-reset): verify CustomUser count equals exactly 8 preserved users` | `data-reset` | ✅ PASSED | Validates all 8 registered users remain intact. |
 | 18 | `test(data-reset): verify admin_lead retains is_superuser and is_staff flags` | `data-reset` | ✅ PASSED | Confirms administrative privileges persist. |
+| 19 | `test(data-reset): verify password hashes remain valid for demo users` | `data-reset` | ✅ PASSED | Ensures immediate login capability post-reset. |
