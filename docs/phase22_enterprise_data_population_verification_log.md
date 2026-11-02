@@ -16,3 +16,4 @@
 | 10 | `feat(data-reset): purge legacy ArticleRevision historical snapshots` | `data-reset` | ✅ PASSED | Clears old revision trees to establish pristine baseline. |
 | 11 | `feat(data-reset): purge legacy Article records across all statuses` | `data-reset` | ✅ PASSED | Removes outdated demo articles. |
 | 12 | `feat(data-reset): purge legacy Tag records across all taxonomy trees` | `data-reset` | ✅ PASSED | Resets taxonomy tag vocabulary. |
+| 13 | `feat(data-reset): purge legacy Category records across all sections` | `data-reset` | ✅ PASSED | Resets category classification structure. |
