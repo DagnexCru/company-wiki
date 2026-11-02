@@ -157,3 +157,4 @@
 | 151 | `test(workflow-seed): verify estimated_read_time calculated accurately for all articles` | `workflow-seed` | ✅ PASSED | Word count / 200 formula verified. |
 | 152 | `test(workflow-seed): verify unique slugs generated with kebab-case` | `workflow-seed` | ✅ PASSED | Asserts URL friendliness of all articles. |
 | 153 | `test(workflow-seed): verify published_at timestamp set for published articles` | `workflow-seed` | ✅ PASSED | Ensures chronological ordering works. |
+| 154 | `test(workflow-seed): verify article category foreign keys resolve cleanly` | `workflow-seed` | ✅ PASSED | Validates relational integrity on category_id. |
