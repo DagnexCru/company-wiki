@@ -165,3 +165,4 @@
 | 159 | `test(workflow-seed): verify RevisionDiffViewer compares revisions cleanly` | `workflow-seed` | ✅ PASSED | Ensures diff viewer operates on seeded data. |
 | 160 | `test(workflow-seed): complete workflow and revision seeding sign-off` | `workflow-seed` | ✅ PASSED | Signs off on revision and review baseline. |
 | 161 | `test(ai-eval): test AskWikiAiView with query 'escalate production incidents'` | `ai-eval` | ✅ PASSED | Validates incident framework match and citation. |
+| 162 | `test(ai-eval): verify incident query cites Production Incident Management article` | `ai-eval` | ✅ PASSED | Asserts correct primary source attribution. |
