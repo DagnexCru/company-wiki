@@ -15,3 +15,4 @@
 | 9 | `feat(data-reset): purge legacy ReviewRecord workflow transition events` | `data-reset` | ✅ PASSED | Resets editorial review ledger for fresh submissions. |
 | 10 | `feat(data-reset): purge legacy ArticleRevision historical snapshots` | `data-reset` | ✅ PASSED | Clears old revision trees to establish pristine baseline. |
 | 11 | `feat(data-reset): purge legacy Article records across all statuses` | `data-reset` | ✅ PASSED | Removes outdated demo articles. |
+| 12 | `feat(data-reset): purge legacy Tag records across all taxonomy trees` | `data-reset` | ✅ PASSED | Resets taxonomy tag vocabulary. |
