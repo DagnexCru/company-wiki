@@ -98,3 +98,4 @@
 | 92 | `feat(kb-articles): include severity SLA matrix and Slack /incident command triggers` | `kb-articles` | ✅ PASSED | Documents automated incident channel creation. |
 | 93 | `feat(kb-articles): include Incident Commander and Communications Lead roles` | `kb-articles` | ✅ PASSED | Defines operational hierarchy during outages. |
 | 94 | `feat(kb-articles): include 48-hour Blameless Post-Incident Review timeline` | `kb-articles` | ✅ PASSED | Enforces post-mortem root cause analysis. |
+| 95 | `feat(kb-articles): seed Zero-Trust Security Architecture & Identity-Aware Access Policies` | `kb-articles` | ✅ PASSED | Documents hardware YubiKey MFA requirements. |
