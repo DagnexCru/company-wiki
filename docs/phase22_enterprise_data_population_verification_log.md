@@ -168,3 +168,4 @@
 | 162 | `test(ai-eval): verify incident query cites Production Incident Management article` | `ai-eval` | ✅ PASSED | Asserts correct primary source attribution. |
 | 163 | `test(ai-eval): verify relevance score exceeds 90% for incident query` | `ai-eval` | ✅ PASSED | Validates high-confidence semantic scoring. |
 | 164 | `test(ai-eval): test AskWikiAiView with query 'Zero-Trust security and YubiKey'` | `ai-eval` | ✅ PASSED | Validates security architecture match. |
+| 165 | `test(ai-eval): verify security query cites Zero-Trust Security Architecture` | `ai-eval` | ✅ PASSED | Asserts correct source link generation. |
