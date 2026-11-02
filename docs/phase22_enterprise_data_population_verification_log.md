@@ -18,3 +18,4 @@
 | 12 | `feat(data-reset): purge legacy Tag records across all taxonomy trees` | `data-reset` | ✅ PASSED | Resets taxonomy tag vocabulary. |
 | 13 | `feat(data-reset): purge legacy Category records across all sections` | `data-reset` | ✅ PASSED | Resets category classification structure. |
 | 14 | `feat(data-reset): purge legacy AuditEvent records unless --keep-audit specified` | `data-reset` | ✅ PASSED | Provides clean audit trail for enterprise reset. |
+| 15 | `feat(data-reset): enforce transaction.atomic() boundary on purge operation` | `data-reset` | ✅ PASSED | Guarantees all-or-nothing execution without database corruption. |
