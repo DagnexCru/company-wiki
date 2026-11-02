@@ -174,3 +174,4 @@
 | 168 | `test(ai-eval): test AskWikiAiView with query 'remote work budget and hours'` | `ai-eval` | ✅ PASSED | Validates HR policy match. |
 | 169 | `test(ai-eval): verify HR query cites Global Remote Work Policy article` | `ai-eval` | ✅ PASSED | Asserts correct HR stipend citation. |
 | 170 | `test(ai-eval): test AskWikiAiView with query 'new hire engineering onboarding'` | `ai-eval` | ✅ PASSED | Validates onboarding playbook match. |
+| 171 | `test(ai-eval): verify onboarding query cites First 30 Days Playbook article` | `ai-eval` | ✅ PASSED | Asserts correct onboarding citation. |
