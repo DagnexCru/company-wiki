@@ -19,3 +19,4 @@
 | 13 | `feat(data-reset): purge legacy Category records across all sections` | `data-reset` | ✅ PASSED | Resets category classification structure. |
 | 14 | `feat(data-reset): purge legacy AuditEvent records unless --keep-audit specified` | `data-reset` | ✅ PASSED | Provides clean audit trail for enterprise reset. |
 | 15 | `feat(data-reset): enforce transaction.atomic() boundary on purge operation` | `data-reset` | ✅ PASSED | Guarantees all-or-nothing execution without database corruption. |
+| 16 | `test(data-reset): verify zero orphan records post-purge in PostgreSQL` | `data-reset` | ✅ PASSED | Asserts referential integrity holds across all foreign keys. |
