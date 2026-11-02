@@ -150,3 +150,4 @@
 | 144 | `feat(workflow-seed): record submission notes in ReviewRecord feedback field` | `workflow-seed` | ✅ PASSED | Provides review context for reviewers. |
 | 145 | `feat(workflow-seed): backdate submission timestamp to 2 hours ago` | `workflow-seed` | ✅ PASSED | Simulates realistic editorial wait time. |
 | 146 | `test(workflow-seed): verify ArticleRevision.objects.count() equals 15` | `workflow-seed` | ✅ PASSED | Validates 1:1 initial revision coverage. |
+| 147 | `test(workflow-seed): verify ReviewRecord.objects.count() equals 1` | `workflow-seed` | ✅ PASSED | Ensures Review Queue displays pending draft. |
