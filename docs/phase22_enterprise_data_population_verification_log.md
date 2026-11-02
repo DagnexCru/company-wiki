@@ -8,3 +8,4 @@
 | 2 | `feat(data-reset): preserve CustomUser demo admin account admin@company.com` | `data-reset` | ✅ PASSED | Preserves system administrator user with full permissions. |
 | 3 | `feat(data-reset): preserve CustomUser demo author account author@company.com` | `data-reset` | ✅ PASSED | Preserves primary author user for content creation. |
 | 4 | `feat(data-reset): preserve CustomUser demo reviewer account reviewer@company.com` | `data-reset` | ✅ PASSED | Preserves editorial reviewer user for workflow validation. |
+| 5 | `feat(data-reset): preserve CustomUser demo reader account reader@company.com` | `data-reset` | ✅ PASSED | Preserves reader role user for permission testing. |
