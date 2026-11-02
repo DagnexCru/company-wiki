@@ -67,3 +67,4 @@
 | 61 | `feat(taxonomy-tags): seed Architecture and Backend technical tags` | `taxonomy-tags` | ✅ PASSED | Tags software architecture and server-side components. |
 | 62 | `feat(taxonomy-tags): seed Frontend, React, and TypeScript technical tags` | `taxonomy-tags` | ✅ PASSED | Tags modern client-side user interfaces. |
 | 63 | `feat(taxonomy-tags): seed Python and Django framework tags` | `taxonomy-tags` | ✅ PASSED | Tags backend runtime and application framework. |
+| 64 | `feat(taxonomy-tags): seed PostgreSQL and Database infrastructure tags` | `taxonomy-tags` | ✅ PASSED | Tags relational storage and connection pooling. |
