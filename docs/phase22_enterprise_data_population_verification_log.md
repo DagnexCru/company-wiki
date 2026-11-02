@@ -179,3 +179,4 @@
 | 173 | `test(ai-eval): verify CD query cites Continuous Delivery Pipeline article` | `ai-eval` | ✅ PASSED | Asserts correct DevOps citation. |
 | 174 | `test(ai-eval): test AskWikiAiView with query 'REST API idempotency key'` | `ai-eval` | ✅ PASSED | Validates API design guidelines match. |
 | 175 | `test(ai-eval): verify API query cites RESTful API Design Standards article` | `ai-eval` | ✅ PASSED | Asserts correct API standards citation. |
+| 176 | `test(ai-eval): test AskWikiAiView with query 'SOC 2 audit logging'` | `ai-eval` | ✅ PASSED | Validates SOC 2 compliance article match. |
