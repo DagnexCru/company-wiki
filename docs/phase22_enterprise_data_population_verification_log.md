@@ -90,3 +90,4 @@
 | 84 | `test(taxonomy-tags): verify tag hashtag styling #tag in ArticleDetailPage` | `taxonomy-tags` | ✅ PASSED | Ensures readable tag badges in header. |
 | 85 | `test(taxonomy-tags): verify tag search keyword matching in AskWikiAiView` | `taxonomy-tags` | ✅ PASSED | Includes tag names in semantic relevance scoring. |
 | 86 | `test(taxonomy-tags): verify case-insensitive tag lookups` | `taxonomy-tags` | ✅ PASSED | Matches tags regardless of user input casing. |
+| 87 | `test(taxonomy-tags): verify orphan tag cleanup handling` | `taxonomy-tags` | ✅ PASSED | Prevents database bloat on unused tag removal. |
