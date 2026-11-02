@@ -176,3 +176,4 @@
 | 170 | `test(ai-eval): test AskWikiAiView with query 'new hire engineering onboarding'` | `ai-eval` | ✅ PASSED | Validates onboarding playbook match. |
 | 171 | `test(ai-eval): verify onboarding query cites First 30 Days Playbook article` | `ai-eval` | ✅ PASSED | Asserts correct onboarding citation. |
 | 172 | `test(ai-eval): test AskWikiAiView with query 'ArgoCD canary deployments'` | `ai-eval` | ✅ PASSED | Validates GitOps CD pipeline match. |
+| 173 | `test(ai-eval): verify CD query cites Continuous Delivery Pipeline article` | `ai-eval` | ✅ PASSED | Asserts correct DevOps citation. |
