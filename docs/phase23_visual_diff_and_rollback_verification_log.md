@@ -19,3 +19,5 @@
   *Verification #2/115: Ensures regex tokenization preserves inline spaces and markdown delimiters.*
 - [x] **Checkpoint 003/115:** `feat(diff-engine): optimize split diff row pairing for deletion and insertion runs`  
   *Verification #3/115: Validates pairing of consecutive '-' and '+' rows in parseSplitDiff.*
+- [x] **Checkpoint 004/115:** `feat(diff-engine): synchronize row heights and gutter alignment in side-by-side mode`  
+  *Verification #4/115: Verifies table-row alignment across left (old) and right (new) diff panes.*
