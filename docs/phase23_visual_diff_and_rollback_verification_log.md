@@ -215,3 +215,5 @@
   *Verification #100/115: Verifies diff viewer avoids redundant recomputations on scroll.*
 - [x] **Checkpoint 101/115:** `feat(accessibility): add ARIA attributes and roles to RevisionDiffViewer`  
   *Verification #101/115: Verifies aria-label on diff rows and screen reader compatibility.*
+- [x] **Checkpoint 102/115:** `feat(accessibility): ensure WCAG AA contrast ratio for green additions and red deletions`  
+  *Verification #102/115: Verifies text contrast >= 4.5:1 across dark and light themes.*
