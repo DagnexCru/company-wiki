@@ -276,3 +276,5 @@
   *Verification #130/185: Verifies fixed bottom-right toast with slide-in animation.*
 - [x] **Checkpoint 131/185:** `feat(notification-bell): provide close button and 'View document' link on toast alert`  
   *Verification #131/185: Verifies toast can be dismissed or followed with one click.*
+- [x] **Checkpoint 132/185:** `feat(notification-bell): track known notification IDs to prevent duplicate toasts`  
+  *Verification #132/185: Verifies toast fires exclusively for genuinely new notifications.*
