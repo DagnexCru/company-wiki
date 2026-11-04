@@ -113,3 +113,5 @@
   *Verification #49/115: Verifies clicking 'View Snapshot' opens formatted markdown view.*
 - [x] **Checkpoint 050/115:** `feat(revision-history): add version delta badge (+X / -Y lines) on timeline cards`  
   *Verification #50/115: Verifies visual indicators of line change volume on each revision.*
+- [x] **Checkpoint 051/115:** `feat(revision-history): display revision tags snapshot chips in version details`  
+  *Verification #51/115: Verifies taxonomy state associated with each historical snapshot.*
