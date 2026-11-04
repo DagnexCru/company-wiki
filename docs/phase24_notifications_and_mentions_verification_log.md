@@ -254,3 +254,5 @@
   *Verification #119/185: Verifies slide-in-from-top-2 smooth entrance animation.*
 - [x] **Checkpoint 120/185:** `feat(notification-bell): close dropdown when clicking outside bell or overlay`  
   *Verification #120/185: Verifies standard popover dismissal behavior.*
+- [x] **Checkpoint 121/185:** `feat(notification-bell): implement segmented tabs for 'All' and 'Unread' filters`  
+  *Verification #121/185: Verifies active tab switches notification stream dynamically.*
