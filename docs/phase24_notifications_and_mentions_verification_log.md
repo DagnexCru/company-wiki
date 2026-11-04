@@ -92,3 +92,5 @@
   *Verification #38/185: Verifies character limit conforms to longest choice name.*
 - [x] **Checkpoint 039/185:** `feat(notification-model): ensure timezone-aware UTC timestamps on created_at`  
   *Verification #39/185: Verifies timezone.now default matches Django USE_TZ settings.*
+- [x] **Checkpoint 040/185:** `feat(notification-model): verify model integrity with Django check management command`  
+  *Verification #40/185: Verifies 0 model validation warnings from Django system check.*
