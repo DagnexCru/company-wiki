@@ -104,3 +104,5 @@
   *Verification #44/185: Verifies 404 returned if ID belongs to another user.*
 - [x] **Checkpoint 045/185:** `feat(notification-api): implement POST /mark-all-read/ updating bulk records`  
   *Verification #45/185: Verifies single UPDATE SQL statement marks all unread as read.*
+- [x] **Checkpoint 046/185:** `feat(notification-api): return updated_count and remaining unread_count (0) in bulk response`  
+  *Verification #46/185: Verifies frontend immediately updates local state from response.*
