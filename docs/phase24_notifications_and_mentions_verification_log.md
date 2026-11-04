@@ -66,3 +66,5 @@
   *Verification #25/185: Verifies default boolean invariant on database schema.*
 - [x] **Checkpoint 026/185:** `feat(notification-model): record read_at timestamp when notification is marked as read`  
   *Verification #26/185: Verifies timezone.now() is saved upon mark_as_read method call.*
+- [x] **Checkpoint 027/185:** `feat(notification-model): cascade delete notifications when recipient user is deleted`  
+  *Verification #27/185: Verifies models.CASCADE cleans up user notification records.*
