@@ -211,3 +211,5 @@
   *Verification #98/115: Verifies composite index optimizes revision history query latency.*
 - [x] **Checkpoint 099/115:** `feat(performance): optimize diff generation payload with gzip compression`  
   *Verification #99/115: Verifies compressed diff responses reduce bandwidth by 78%.*
+- [x] **Checkpoint 100/115:** `feat(performance): memoize LCS tokenization in React using useMemo hooks`  
+  *Verification #100/115: Verifies diff viewer avoids redundant recomputations on scroll.*
