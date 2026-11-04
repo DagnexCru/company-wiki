@@ -40,3 +40,5 @@
   *Verification #12/185: Verifies ellipsis suffix is appended on lengthy commentary.*
 - [x] **Checkpoint 013/185:** `feat(mention-tokenizer): preserve article reference FK on mention notification record`  
   *Verification #13/185: Verifies notif.article links to corresponding Article instance.*
+- [x] **Checkpoint 014/185:** `feat(mention-tokenizer): set relative link URL pointing to comment anchor (#comments)`  
+  *Verification #14/185: Verifies link format /articles/{slug}#comments resolves correctly.*
