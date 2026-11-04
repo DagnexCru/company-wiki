@@ -166,3 +166,5 @@
   *Verification #75/185: Verifies clicking notification scrolls directly to discussion section.*
 - [x] **Checkpoint 076/185:** `feat(comments-backend): test concurrent comment creation on popular articles`  
   *Verification #76/185: Verifies database transactions handle simultaneous comment posts.*
+- [x] **Checkpoint 077/185:** `feat(comments-backend): enforce maximum length on comment text (10,000 characters)`  
+  *Verification #77/185: Verifies abusive payload sizes are rejected.*
