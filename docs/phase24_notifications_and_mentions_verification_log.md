@@ -34,3 +34,5 @@
   *Verification #9/185: Verifies mentions inside code spans do not crash regex parser.*
 - [x] **Checkpoint 010/185:** `feat(mention-tokenizer): benchmark mention extraction speed (< 2ms per comment)`  
   *Verification #10/185: Verifies regex execution is sub-millisecond on 5,000-word payloads.*
+- [x] **Checkpoint 011/185:** `feat(mention-tokenizer): resolve recipient user records using single bulk SQL query`  
+  *Verification #11/185: Verifies username__in=usernames prevents N+1 database queries.*
