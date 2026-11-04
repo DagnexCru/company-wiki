@@ -342,3 +342,5 @@
   *Verification #163/185: Verifies authors cannot approve their own submissions.*
 - [x] **Checkpoint 164/185:** `feat(review-mentions): display reviewer name and role badge in decision notification`  
   *Verification #164/185: Verifies recipient sees who reviewed their documentation.*
+- [x] **Checkpoint 165/185:** `feat(review-mentions): link rejection notification directly to /articles/{slug}/edit`  
+  *Verification #165/185: Verifies author can jump directly into revision editor with one click.*
