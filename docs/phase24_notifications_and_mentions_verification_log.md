@@ -54,3 +54,5 @@
   *Verification #19/185: Verifies actor.full_name or actor.username fallback logic.*
 - [x] **Checkpoint 020/185:** `feat(mention-tokenizer): write unit test suite for extract_mentions utility`  
   *Verification #20/185: Validates 100% test branch coverage for regex parser.*
+- [x] **Checkpoint 021/185:** `feat(notification-model): enforce UUID primary key on notifications table`  
+  *Verification #21/185: Verifies uuid.uuid4 default generation on notification rows.*
