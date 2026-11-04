@@ -111,3 +111,5 @@
   *Verification #48/115: Verifies one-click shortcut to inspect changes from previous version.*
 - [x] **Checkpoint 049/115:** `feat(revision-history): render full Markdown snapshot preview modal with sanitized HTML`  
   *Verification #49/115: Verifies clicking 'View Snapshot' opens formatted markdown view.*
+- [x] **Checkpoint 050/115:** `feat(revision-history): add version delta badge (+X / -Y lines) on timeline cards`  
+  *Verification #50/115: Verifies visual indicators of line change volume on each revision.*
