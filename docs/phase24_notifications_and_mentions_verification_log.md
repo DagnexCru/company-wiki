@@ -112,3 +112,5 @@
   *Verification #48/185: Verifies standard boolean query string parsing.*
 - [x] **Checkpoint 049/185:** `feat(notification-api): limit recent notifications list to top 50 items`  
   *Verification #49/185: Verifies pagination boundary avoids runaway JSON responses.*
+- [x] **Checkpoint 050/185:** `feat(notification-api): serialize sender full name, username, and role`  
+  *Verification #50/185: Verifies NotificationSenderSerializer returns nested actor details.*
