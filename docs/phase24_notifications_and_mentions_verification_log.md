@@ -74,3 +74,5 @@
   *Verification #29/185: Verifies notification record remains intact with dead link safety.*
 - [x] **Checkpoint 030/185:** `feat(notification-model): add human-readable __str__ representation for Django admin`  
   *Verification #30/185: Verifies '[MENTION] To: user - Title' string representation.*
+- [x] **Checkpoint 031/185:** `feat(notification-model): enforce max_length 255 on title headline`  
+  *Verification #31/185: Verifies schema constraint on notification title.*
