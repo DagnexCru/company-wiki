@@ -199,3 +199,5 @@
   *Verification #92/115: Verifies AI introduces HR, Engineering, Operations, and Security domains.*
 - [x] **Checkpoint 093/115:** `fix(ai): detect user account switch dynamically on registration and multi-account login`  
   *Verification #93/115: Verifies greeting refreshes whenever auth session changes.*
+- [x] **Checkpoint 094/115:** `fix(ai-summary): harden ArticleAiSummaryView against 500 unhandled exceptions`  
+  *Verification #94/115: Verifies try-except block returns graceful fallback summary on error.*
