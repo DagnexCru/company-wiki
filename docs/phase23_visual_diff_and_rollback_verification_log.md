@@ -127,3 +127,5 @@
   *Verification #56/115: Verifies contributors can filter history to specific team members.*
 - [x] **Checkpoint 057/115:** `feat(revision-history): highlight current published revision in timeline with primary pill`  
   *Verification #57/115: Verifies active version node is visually distinct from past snapshots.*
+- [x] **Checkpoint 058/115:** `feat(revision-history): support keyboard navigation (ArrowUp / ArrowDown) across timeline`  
+  *Verification #58/115: Verifies accessibility keyboard focus on revision list.*
