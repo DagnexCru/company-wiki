@@ -368,3 +368,5 @@
   *Verification #176/185: Confirms Admin, Author, Reviewer, and Reader have active demo alerts.*
 - [x] **Checkpoint 177/185:** `test(e2e-notifications): verify cross-browser compatibility in Chrome, Firefox, and Edge`  
   *Verification #177/185: Validates popover and mention dropdown render cleanly in all browsers.*
+- [x] **Checkpoint 178/185:** `test(e2e-notifications): verify responsive layout on mobile, tablet, and desktop viewports`  
+  *Verification #178/185: Validates 375px, 768px, and 1440px screen layout fidelity.*
