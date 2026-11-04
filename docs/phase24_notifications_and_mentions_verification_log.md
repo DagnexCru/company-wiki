@@ -242,3 +242,5 @@
   *Verification #113/185: Verifies dropdown auto-hides if no matching users are found.*
 - [x] **Checkpoint 114/185:** `feat(mention-textarea): preserve multi-line textarea resizing with resize-y utility`  
   *Verification #114/185: Verifies user can expand textarea height for long feedback.*
+- [x] **Checkpoint 115/185:** `feat(mention-textarea): verify zero TypeScript compilation errors in MentionTextarea`  
+  *Verification #115/185: Validates clean type checking in strict React mode.*
