@@ -143,3 +143,5 @@
   *Verification #64/115: Verifies ArticleDetailPage links readers and auditors to history page.*
 - [x] **Checkpoint 065/115:** `feat(article-detail): show current revision version counter badge in article header`  
   *Verification #65/115: Verifies vX badge rendered alongside status pills in hero section.*
+- [x] **Checkpoint 066/115:** `feat(article-detail): add quick diff shortcut in edit lock warning banner`  
+  *Verification #66/115: Verifies conflicting editors can inspect concurrent modifications.*
