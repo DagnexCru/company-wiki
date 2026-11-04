@@ -21,3 +21,5 @@
   *Verification #3/115: Validates pairing of consecutive '-' and '+' rows in parseSplitDiff.*
 - [x] **Checkpoint 004/115:** `feat(diff-engine): synchronize row heights and gutter alignment in side-by-side mode`  
   *Verification #4/115: Verifies table-row alignment across left (old) and right (new) diff panes.*
+- [x] **Checkpoint 005/115:** `feat(diff-engine): parse hunk header line numbers with regex extraction`  
+  *Verification #5/115: Validates parseUnifiedDiff extracting @@ -X,Y +A,B @@ line range boundaries.*
