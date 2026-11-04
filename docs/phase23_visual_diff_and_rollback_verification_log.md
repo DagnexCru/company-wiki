@@ -137,3 +137,5 @@
   *Verification #61/115: Verifies reviewers can inspect proposed edits with a single click.*
 - [x] **Checkpoint 062/115:** `feat(review-diff): pre-populate review diff with previous published version as base`  
   *Verification #62/115: Verifies review diff automatically compares pending draft against base.*
+- [x] **Checkpoint 063/115:** `feat(review-diff): display inline change summary in reviewer decision panel`  
+  *Verification #63/115: Verifies summary metrics (words changed, sections altered) for reviewer.*
