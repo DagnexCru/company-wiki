@@ -134,3 +134,5 @@
   *Verification #59/185: Verifies standard date parsing in frontend JavaScript.*
 - [x] **Checkpoint 060/185:** `feat(notification-api): write automated test cases for all NotificationViewSet actions`  
   *Verification #60/185: Validates list, unread_count, read, and mark_all_read test coverage.*
+- [x] **Checkpoint 061/185:** `feat(comments-backend): create ArticleComment model linked to Article and CustomUser`  
+  *Verification #61/185: Verifies foreign key constraints and cascade rules.*
