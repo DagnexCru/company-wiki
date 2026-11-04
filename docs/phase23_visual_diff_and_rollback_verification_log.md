@@ -193,3 +193,5 @@
   *Verification #89/115: Verifies @media print styles hide progress bar cleanly.*
 - [x] **Checkpoint 090/115:** `feat(reader-ux): verify reading analytics backend test suite in tests_reading_analytics`  
   *Verification #90/115: Validates view count and feedback model tests execute successfully.*
+- [x] **Checkpoint 091/115:** `fix(ai): personalize Ask Wiki AI greeting with logged-in user full name`  
+  *Verification #91/115: Verifies 'Welcome {first_name}!' dynamically addresses logged-in user.*
