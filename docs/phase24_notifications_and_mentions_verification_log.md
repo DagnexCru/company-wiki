@@ -182,3 +182,5 @@
   *Verification #83/185: Verifies autocomplete response stays lightweight.*
 - [x] **Checkpoint 084/185:** `feat(mentions-api): order suggestions alphabetically by username`  
   *Verification #84/185: Verifies predictable ordering in autocomplete dropdown.*
+- [x] **Checkpoint 085/185:** `feat(mentions-api): return id, username, full_name, role, and email in suggestion payload`  
+  *Verification #85/185: Verifies complete user metadata for frontend badge rendering.*
