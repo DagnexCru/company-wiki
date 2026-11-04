@@ -306,3 +306,5 @@
   *Verification #145/185: Verifies form resets cleanly for subsequent comments.*
 - [x] **Checkpoint 146/185:** `feat(comments-ui): display inline error message if comment submission fails`  
   *Verification #146/185: Verifies error banner displays backend detail string.*
+- [x] **Checkpoint 147/185:** `feat(comments-ui): render empty state placeholder when article has no comments`  
+  *Verification #147/185: Verifies 'Be the first to start the conversation' call-to-action.*
