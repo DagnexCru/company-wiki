@@ -94,3 +94,5 @@
   *Verification #39/185: Verifies timezone.now default matches Django USE_TZ settings.*
 - [x] **Checkpoint 040/185:** `feat(notification-model): verify model integrity with Django check management command`  
   *Verification #40/185: Verifies 0 model validation warnings from Django system check.*
+- [x] **Checkpoint 041/185:** `feat(notification-api): restrict NotificationViewSet strictly to IsAuthenticated users`  
+  *Verification #41/185: Verifies anonymous requests receive 401 Unauthorized.*
