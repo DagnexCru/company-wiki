@@ -164,3 +164,5 @@
   *Verification #74/185: Verifies auto_now=True records modification timestamps.*
 - [x] **Checkpoint 075/185:** `feat(comments-backend): set comment link anchor to /articles/{slug}#comments`  
   *Verification #75/185: Verifies clicking notification scrolls directly to discussion section.*
+- [x] **Checkpoint 076/185:** `feat(comments-backend): test concurrent comment creation on popular articles`  
+  *Verification #76/185: Verifies database transactions handle simultaneous comment posts.*
