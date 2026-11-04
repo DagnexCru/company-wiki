@@ -108,3 +108,5 @@
   *Verification #46/185: Verifies frontend immediately updates local state from response.*
 - [x] **Checkpoint 047/185:** `feat(notification-api): support ?filter=unread query parameter on notification list`  
   *Verification #47/185: Verifies filtering out already read notifications.*
+- [x] **Checkpoint 048/185:** `feat(notification-api): support ?is_read=false boolean query parameter on list`  
+  *Verification #48/185: Verifies standard boolean query string parsing.*
