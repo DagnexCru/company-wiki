@@ -169,3 +169,5 @@
   *Verification #77/115: Verifies progress fills accurately regardless of layout container scroll.*
 - [x] **Checkpoint 078/115:** `feat(reader-ux): compute estimated reading time at 200 words-per-minute standard`  
   *Verification #78/115: Verifies '⏱️ X min read' chip calculated dynamically from word count.*
+- [x] **Checkpoint 079/115:** `feat(reader-ux): add animated view count tracker incrementing on unique article reads`  
+  *Verification #79/115: Verifies atomic F() expression increment on Article view_count.*
