@@ -240,3 +240,5 @@
   *Verification #112/185: Verifies opacity and cursor styles when disabled.*
 - [x] **Checkpoint 113/185:** `feat(mention-textarea): handle empty suggestion results state gracefully`  
   *Verification #113/185: Verifies dropdown auto-hides if no matching users are found.*
+- [x] **Checkpoint 114/185:** `feat(mention-textarea): preserve multi-line textarea resizing with resize-y utility`  
+  *Verification #114/185: Verifies user can expand textarea height for long feedback.*
