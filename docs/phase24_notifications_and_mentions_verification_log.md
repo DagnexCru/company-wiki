@@ -322,3 +322,5 @@
   *Verification #153/185: Verifies avatar and comment body stack neatly on phones.*
 - [x] **Checkpoint 154/185:** `feat(comments-ui): handle network retry gracefully if comments fail to load`  
   *Verification #154/185: Verifies robust error boundary on comment stream.*
+- [x] **Checkpoint 155/185:** `feat(comments-ui): verify zero TypeScript compilation warnings in ArticleCommentsSection`  
+  *Verification #155/185: Validates strict type checking for comment component.*
