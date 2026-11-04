@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "apps.taxonomy",
     "apps.workflows",
     "apps.audit",
+    "apps.notifications",
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
