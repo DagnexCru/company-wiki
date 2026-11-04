@@ -312,3 +312,5 @@
   *Verification #148/185: Verifies clicking notification scrolls directly to comments section.*
 - [x] **Checkpoint 149/185:** `feat(comments-ui): support scroll-mt-20 to account for fixed header offset`  
   *Verification #149/185: Verifies comment target is not obscured by top navigation bar.*
+- [x] **Checkpoint 150/185:** `feat(comments-ui): preserve line breaks and whitespace formatting in comment text`  
+  *Verification #150/185: Verifies whitespace-pre-wrap renders paragraphs accurately.*
