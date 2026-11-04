@@ -160,3 +160,5 @@
   *Verification #72/185: Verifies unauthenticated users cannot post comments.*
 - [x] **Checkpoint 073/185:** `feat(comments-backend): support markdown formatting and line breaks in comment content`  
   *Verification #73/185: Verifies multi-line commentary is preserved faithfully.*
+- [x] **Checkpoint 074/185:** `feat(comments-backend): record updated_at timestamp when comments are modified`  
+  *Verification #74/185: Verifies auto_now=True records modification timestamps.*
