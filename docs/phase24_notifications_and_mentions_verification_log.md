@@ -256,3 +256,5 @@
   *Verification #120/185: Verifies standard popover dismissal behavior.*
 - [x] **Checkpoint 121/185:** `feat(notification-bell): implement segmented tabs for 'All' and 'Unread' filters`  
   *Verification #121/185: Verifies active tab switches notification stream dynamically.*
+- [x] **Checkpoint 122/185:** `feat(notification-bell): add 'Mark all read' button in dropdown header`  
+  *Verification #122/185: Verifies bulk mark-all-read clears badge and updates list.*
