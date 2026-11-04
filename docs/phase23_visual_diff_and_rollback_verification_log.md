@@ -155,3 +155,5 @@
   *Verification #70/115: Verifies compliance logs link to exact revision comparisons.*
 - [x] **Checkpoint 071/115:** `feat(audit-log): record diff hash in audit trail for cryptographic integrity verification`  
   *Verification #71/115: Verifies sha256 checksum recorded for diff payloads.*
+- [x] **Checkpoint 072/115:** `feat(reviewer-ux): display diff visualizer in drawer modal on ReviewDetailPage`  
+  *Verification #72/115: Verifies reviewer can review diff without navigating away from approval.*
