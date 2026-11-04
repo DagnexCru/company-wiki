@@ -57,3 +57,5 @@
   *Verification #21/115: Verifies author avatar, name, and relative timestamp display in comparison.*
 - [x] **Checkpoint 022/115:** `feat(diff-ui): show revision change message chip with quotation format`  
   *Verification #22/115: Verifies revision_message displays prominently in comparison card.*
+- [x] **Checkpoint 023/115:** `feat(diff-ui): add copy raw diff button for clipboard export`  
+  *Verification #23/115: Verifies clipboard integration for developer inspection.*
