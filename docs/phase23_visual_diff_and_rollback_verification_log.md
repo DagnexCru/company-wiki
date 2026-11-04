@@ -197,3 +197,5 @@
   *Verification #91/115: Verifies 'Welcome {first_name}!' dynamically addresses logged-in user.*
 - [x] **Checkpoint 092/115:** `fix(ai): introduce company knowledge domains when user greets with 'Hey' or 'Hello'`  
   *Verification #92/115: Verifies AI introduces HR, Engineering, Operations, and Security domains.*
+- [x] **Checkpoint 093/115:** `fix(ai): detect user account switch dynamically on registration and multi-account login`  
+  *Verification #93/115: Verifies greeting refreshes whenever auth session changes.*
