@@ -20,6 +20,10 @@ class ArticleAiSummaryView(APIView):
     """
     permission_classes = [permissions.IsAuthenticated]
 
+    def get(self, request, slug_or_id):
+        """Allow GET requests to retrieve the AI summary as well as POST."""
+        return self.post(request, slug_or_id)
+
     def post(self, request, slug_or_id):
         try:
             # 1. Lookup article by UUID or slug safely without UUID validation error
