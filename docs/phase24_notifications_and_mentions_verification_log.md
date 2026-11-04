@@ -216,3 +216,5 @@
   *Verification #100/185: Verifies selectedIndex cycles smoothly through suggestion list.*
 - [x] **Checkpoint 101/185:** `feat(mention-textarea): implement Enter and Tab keypress to select active suggestion`  
   *Verification #101/185: Verifies e.preventDefault() prevents unintended form submission.*
+- [x] **Checkpoint 102/185:** `feat(mention-textarea): implement Escape key listener to dismiss suggestion dropdown`  
+  *Verification #102/185: Verifies user can close menu without inserting a mention.*
