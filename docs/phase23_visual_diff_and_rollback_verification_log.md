@@ -145,3 +145,5 @@
   *Verification #65/115: Verifies vX badge rendered alongside status pills in hero section.*
 - [x] **Checkpoint 066/115:** `feat(article-detail): add quick diff shortcut in edit lock warning banner`  
   *Verification #66/115: Verifies conflicting editors can inspect concurrent modifications.*
+- [x] **Checkpoint 067/115:** `feat(article-detail): display revision count metric chip in document metadata row`  
+  *Verification #67/115: Verifies 'X revisions' chip alongside read time and views.*
