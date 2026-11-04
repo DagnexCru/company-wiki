@@ -151,3 +151,5 @@
   *Verification #68/115: Verifies reviewers can preview changes directly from the queue.*
 - [x] **Checkpoint 069/115:** `feat(review-queue): display diff change badge (+ lines / - lines) on pending review cards`  
   *Verification #69/115: Verifies reviewers see change magnitude at a glance in queue.*
+- [x] **Checkpoint 070/115:** `feat(audit-log): link audit trail version entries directly to diff visualizer`  
+  *Verification #70/115: Verifies compliance logs link to exact revision comparisons.*
