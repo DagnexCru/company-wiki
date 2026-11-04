@@ -107,3 +107,5 @@
   *Verification #46/115: Verifies deep-linking directly into comparison of revisions X and Y.*
 - [x] **Checkpoint 047/115:** `feat(revision-history): render interactive vertical timeline with version nodes and avatars`  
   *Verification #47/115: Verifies visual timeline spine connecting all historical revisions.*
+- [x] **Checkpoint 048/115:** `feat(revision-history): provide 'Diff vs previous (vN-1)' instant action on revision card`  
+  *Verification #48/115: Verifies one-click shortcut to inspect changes from previous version.*
