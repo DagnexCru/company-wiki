@@ -290,3 +290,5 @@
   *Verification #137/185: Verifies dynamic comment counter updates on new submission.*
 - [x] **Checkpoint 138/185:** `feat(comments-ui): embed MentionTextarea inside new comment form`  
   *Verification #138/185: Verifies team members can tag colleagues with @autocomplete.*
+- [x] **Checkpoint 139/185:** `feat(comments-ui): parse and highlight @username mention badges in comment body`  
+  *Verification #139/185: Verifies mentions render as styled blue pills with @ icon.*
