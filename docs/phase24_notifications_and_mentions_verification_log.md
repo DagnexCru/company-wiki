@@ -204,3 +204,5 @@
   *Verification #94/185: Verifies clean JSON response structure.*
 - [x] **Checkpoint 095/185:** `feat(mentions-api): write unit test suite for MentionSuggestionsView`  
   *Verification #95/185: Validates search filters, permissions, and result formatting.*
+- [x] **Checkpoint 096/185:** `feat(mention-textarea): create reusable MentionTextarea React component`  
+  *Verification #96/185: Verifies standalone component with value, onChange, and placeholder props.*
