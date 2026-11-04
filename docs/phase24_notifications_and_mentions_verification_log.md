@@ -366,3 +366,5 @@
   *Verification #175/185: Confirms Vite production build succeeds with 0 errors in 34.7s.*
 - [x] **Checkpoint 176/185:** `test(e2e-notifications): verify seeded demo accounts have pre-populated notifications`  
   *Verification #176/185: Confirms Admin, Author, Reviewer, and Reader have active demo alerts.*
+- [x] **Checkpoint 177/185:** `test(e2e-notifications): verify cross-browser compatibility in Chrome, Firefox, and Edge`  
+  *Verification #177/185: Validates popover and mention dropdown render cleanly in all browsers.*
