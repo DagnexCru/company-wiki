@@ -60,3 +60,5 @@
   *Verification #22/185: Verifies notif_recip_read_created_idx speeds up unread queries.*
 - [x] **Checkpoint 023/185:** `feat(notification-model): index recipient and created_at for descending timeline ordering`  
   *Verification #23/185: Verifies notif_recip_created_idx optimizes notification center feed.*
+- [x] **Checkpoint 024/185:** `feat(notification-model): define NotificationType TextChoices with 6 semantic variants`  
+  *Verification #24/185: Verifies MENTION, COMMENT, ARTICLE_UPDATED, REVIEW_REQUESTED, APPROVED, REJECTED.*
