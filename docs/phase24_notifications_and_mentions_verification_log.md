@@ -188,3 +188,5 @@
   *Verification #86/185: Verifies anonymous access is denied for internal directory privacy.*
 - [x] **Checkpoint 087/185:** `feat(mentions-api): filter out inactive user accounts from autocomplete suggestions`  
   *Verification #87/185: Verifies deactivated employees cannot be tagged in discussions.*
+- [x] **Checkpoint 088/185:** `feat(mentions-api): test case-insensitive matching on partial usernames`  
+  *Verification #88/185: Verifies q=adm matches 'admin_lead' and 'Admin'.*
