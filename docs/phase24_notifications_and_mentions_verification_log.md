@@ -118,3 +118,5 @@
   *Verification #51/185: Verifies NotificationArticleSerializer provides contextual data.*
 - [x] **Checkpoint 052/185:** `feat(notification-api): return 200 OK on successful mark_as_read mutation`  
   *Verification #52/185: Verifies status code conformance on detail action.*
+- [x] **Checkpoint 053/185:** `feat(notification-api): return 404 Not Found when marking non-existent notification ID`  
+  *Verification #53/185: Verifies error handling on invalid UUID parameter.*
