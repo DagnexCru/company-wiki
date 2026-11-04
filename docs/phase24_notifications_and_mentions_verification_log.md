@@ -228,3 +228,5 @@
   *Verification #106/185: Verifies bg-brand-600/30 and border-brand-500/40 active styling.*
 - [x] **Checkpoint 107/185:** `feat(mention-textarea): support mouse hover selection alongside keyboard navigation`  
   *Verification #107/185: Verifies onMouseEnter synchronizes selectedIndex state.*
+- [x] **Checkpoint 108/185:** `feat(mention-textarea): close suggestion dropdown when clicking outside textarea`  
+  *Verification #108/185: Verifies document mousedown event listener cleans up dropdown.*
