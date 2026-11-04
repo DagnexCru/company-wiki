@@ -63,3 +63,5 @@
   *Verification #24/115: Verifies version selectors remain visible when scrolling long diffs.*
 - [x] **Checkpoint 025/115:** `feat(diff-ui): implement responsive horizontal scrolling on narrow viewports`  
   *Verification #25/115: Verifies table-responsive overflow-x-auto on mobile screens.*
+- [x] **Checkpoint 026/115:** `feat(diff-ui): customize diff gutter icons with plus and minus indicators`  
+  *Verification #26/115: Verifies font-mono bold + / - symbols in line gutters.*
