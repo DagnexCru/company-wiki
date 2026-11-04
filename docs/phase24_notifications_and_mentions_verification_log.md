@@ -332,3 +332,5 @@
   *Verification #158/185: Verifies all active reviewers receive REVIEW_REQUESTED alert.*
 - [x] **Checkpoint 159/185:** `feat(review-mentions): automatically notify author when article is approved and published`  
   *Verification #159/185: Verifies author receives REVIEW_APPROVED alert with article link.*
+- [x] **Checkpoint 160/185:** `feat(review-mentions): automatically notify author when changes are requested (rejected)`  
+  *Verification #160/185: Verifies author receives REVIEW_REJECTED alert with feedback snippet.*
