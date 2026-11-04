@@ -78,3 +78,5 @@
   *Verification #31/185: Verifies schema constraint on notification title.*
 - [x] **Checkpoint 032/185:** `feat(notification-model): enforce max_length 500 on frontend navigation link`  
   *Verification #32/185: Verifies long deep-link paths fit without truncation.*
+- [x] **Checkpoint 033/185:** `feat(notification-model): order notifications descending by created_at by default`  
+  *Verification #33/185: Verifies Meta.ordering = ['-created_at'].*
