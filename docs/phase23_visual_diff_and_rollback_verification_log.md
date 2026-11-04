@@ -135,3 +135,5 @@
   *Verification #60/115: Verifies clean React component lifecycle on revision page.*
 - [x] **Checkpoint 061/115:** `feat(review-diff): add 'Inspect Changes & Diffs' CTA button to ReviewDetailPage header`  
   *Verification #61/115: Verifies reviewers can inspect proposed edits with a single click.*
+- [x] **Checkpoint 062/115:** `feat(review-diff): pre-populate review diff with previous published version as base`  
+  *Verification #62/115: Verifies review diff automatically compares pending draft against base.*
