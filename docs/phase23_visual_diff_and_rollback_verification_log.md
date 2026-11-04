@@ -201,3 +201,5 @@
   *Verification #93/115: Verifies greeting refreshes whenever auth session changes.*
 - [x] **Checkpoint 094/115:** `fix(ai-summary): harden ArticleAiSummaryView against 500 unhandled exceptions`  
   *Verification #94/115: Verifies try-except block returns graceful fallback summary on error.*
+- [x] **Checkpoint 095/115:** `fix(ai-summary): resolve article by UUID or slug safely without ValueError`  
+  *Verification #95/115: Verifies safe resolution of both integer IDs, UUIDs, and slugs.*
