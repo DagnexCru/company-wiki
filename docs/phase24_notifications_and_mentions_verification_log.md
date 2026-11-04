@@ -156,3 +156,5 @@
   *Verification #70/185: Verifies frontend can visually distinguish user's own comments.*
 - [x] **Checkpoint 071/185:** `feat(comments-backend): serialize comment author with id, username, full_name, and role`  
   *Verification #71/185: Verifies nested author information is provided in comment JSON.*
+- [x] **Checkpoint 072/185:** `feat(comments-backend): enforce authenticated permission on comments POST action`  
+  *Verification #72/185: Verifies unauthenticated users cannot post comments.*
