@@ -210,3 +210,5 @@
   *Verification #97/185: Verifies textarea.selectionStart calculates query boundary accurately.*
 - [x] **Checkpoint 098/185:** `feat(mention-textarea): open floating suggestions dropdown positioned above textarea`  
   *Verification #98/185: Verifies bottom-full z-50 dropdown remains visible without page overflow.*
+- [x] **Checkpoint 099/185:** `feat(mention-textarea): debounce mention suggestion API requests (150ms)`  
+  *Verification #99/185: Verifies rapid typing does not flood backend with HTTP requests.*
