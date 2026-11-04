@@ -238,3 +238,5 @@
   *Verification #111/185: Verifies intuitive user guidance inside suggestion popup.*
 - [x] **Checkpoint 112/185:** `feat(mention-textarea): support disabled prop during comment or review form submission`  
   *Verification #112/185: Verifies opacity and cursor styles when disabled.*
+- [x] **Checkpoint 113/185:** `feat(mention-textarea): handle empty suggestion results state gracefully`  
+  *Verification #113/185: Verifies dropdown auto-hides if no matching users are found.*
