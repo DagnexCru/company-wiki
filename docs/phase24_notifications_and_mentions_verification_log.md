@@ -260,3 +260,5 @@
   *Verification #122/185: Verifies bulk mark-all-read clears badge and updates list.*
 - [x] **Checkpoint 123/185:** `feat(notification-bell): render type-specific icons for each notification category`  
   *Verification #123/185: Verifies @ for MENTION, checkmark for APPROVED, clock for REVIEW.*
+- [x] **Checkpoint 124/185:** `feat(notification-bell): highlight unread notifications with brand tint and blue dot`  
+  *Verification #124/185: Verifies visual differentiation between read and unread items.*
