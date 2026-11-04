@@ -30,3 +30,5 @@
   *Verification #7/185: Verifies actor.id == recipient.id is skipped automatically.*
 - [x] **Checkpoint 008/185:** `feat(mention-tokenizer): sanitize mention text payload against XSS before database persistence`  
   *Verification #8/185: Verifies HTML stripping on raw mention content snippets.*
+- [x] **Checkpoint 009/185:** `feat(mention-tokenizer): handle multi-line markdown comments containing code blocks`  
+  *Verification #9/185: Verifies mentions inside code spans do not crash regex parser.*
