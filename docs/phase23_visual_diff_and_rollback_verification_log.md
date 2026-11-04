@@ -219,3 +219,5 @@
   *Verification #102/115: Verifies text contrast >= 4.5:1 across dark and light themes.*
 - [x] **Checkpoint 103/115:** `feat(ux): add keyboard focus trap inside rollback confirmation modal`  
   *Verification #103/115: Verifies Tab and Shift+Tab remain scoped inside active modal.*
+- [x] **Checkpoint 104/115:** `feat(ux): support Escape key to dismiss rollback modal and snapshot preview`  
+  *Verification #104/115: Verifies Esc key listener safely closes open overlays.*
