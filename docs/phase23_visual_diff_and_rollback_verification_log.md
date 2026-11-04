@@ -187,3 +187,5 @@
   *Verification #86/115: Verifies view count badge rendered in ArticleDetailPage header.*
 - [x] **Checkpoint 087/115:** `feat(reader-ux): animate progress bar color shift as article reading nears completion`  
   *Verification #87/115: Verifies gradient shift to emerald when reading reaches 100%.*
+- [x] **Checkpoint 088/115:** `feat(reader-ux): optimize scroll event listener with requestAnimationFrame throttle`  
+  *Verification #88/115: Verifies smooth 60fps performance without scroll jank.*
