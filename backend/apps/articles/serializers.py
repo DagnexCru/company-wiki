@@ -432,3 +432,35 @@ class ArticlePresenceSerializer(serializers.ModelSerializer):
 
 
 
+
+
+class ArticleCommentAuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        from apps.accounts.models import CustomUser
+        model = CustomUser
+        fields = ["id", "username", "full_name", "role"]
+
+
+class ArticleCommentSerializer(serializers.ModelSerializer):
+    author = ArticleCommentAuthorSerializer(read_only=True)
+    is_own = serializers.SerializerMethodField()
+
+    class Meta:
+        from apps.articles.models import ArticleComment
+        model = ArticleComment
+        fields = [
+            "id",
+            "article",
+            "author",
+            "content",
+            "is_own",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ["id", "article", "author", "is_own", "created_at", "updated_at"]
+
+    def get_is_own(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            return obj.author_id == request.user.id
+        return False

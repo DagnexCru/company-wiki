@@ -8,7 +8,9 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment
+from apps.notifications.services import notify_review_action, notify_article_updated, parse_and_notify_mentions
+from apps.notifications.models import Notification
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
 from apps.articles.serializers import (
     ArticleListSerializer,
@@ -17,6 +19,7 @@ from apps.articles.serializers import (
     ArticleRevisionSerializer,
     ArticleRevisionListSerializer,
     ArticleAttachmentSerializer,
+    ArticleCommentSerializer,
 )
 from apps.workflows.models import ReviewRecord
 from apps.workflows.serializers import ReviewRecordSerializer
@@ -280,6 +283,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
                 author=self.request.user,
                 change_summary=change_summary or "Article updated",
             )
+        if self.request.user and article.author and article.author != self.request.user:
+            notify_article_updated(article, self.request.user)
 
         log_audit_event(
             action=AuditEvent.Action.ARTICLE_UPDATE,
@@ -385,6 +390,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             to_status=Article.Status.IN_REVIEW,
             feedback=notes,
         )
+        notify_review_action(article, request.user, "SUBMIT", feedback=notes)
         log_audit_event(
             action=AuditEvent.Action.ARTICLE_SUBMIT,
             resource_type="article",
@@ -446,6 +452,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             to_status=Article.Status.PUBLISHED,
             feedback=feedback,
         )
+        notify_review_action(article, request.user, "APPROVE", feedback=feedback)
         log_audit_event(
             action=AuditEvent.Action.ARTICLE_APPROVE,
             resource_type="article",
@@ -512,6 +519,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             to_status=Article.Status.REJECTED,
             feedback=feedback,
         )
+        notify_review_action(article, request.user, "REJECT", feedback=feedback)
         log_audit_event(
             action=AuditEvent.Action.ARTICLE_REJECT,
             resource_type="article",
@@ -889,6 +897,56 @@ class ArticleViewSet(viewsets.ModelViewSet):
             },
             status=status.HTTP_200_OK,
         )
+    @action(detail=True, methods=["get", "post"], permission_classes=[permissions.IsAuthenticated])
+    def comments(self, request, slug=None):
+        """
+        List comments or post a new collaboration comment on this article.
+        GET /api/v1/articles/{slug}/comments/
+        POST /api/v1/articles/{slug}/comments/
+        Supports @username mentions which automatically notify mentioned users.
+        """
+        article = self.get_object()
+
+        if request.method == "GET":
+            comments_qs = ArticleComment.objects.filter(article=article).select_related("author").order_by("created_at")
+            serializer = ArticleCommentSerializer(comments_qs, many=True, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        elif request.method == "POST":
+            content = request.data.get("content", "").strip()
+            if not content:
+                return Response({"detail": "Comment content cannot be empty."}, status=status.HTTP_400_BAD_REQUEST)
+
+            comment = ArticleComment.objects.create(
+                article=article,
+                author=request.user,
+                content=content,
+            )
+
+            # 1. Parse and notify @mentions
+            parse_and_notify_mentions(
+                text=content,
+                actor=request.user,
+                link=f"/articles/{article.slug}#comments",
+                article=article,
+                custom_title=f"{request.user.full_name or request.user.username} mentioned you in a comment on '{article.title}'",
+            )
+
+            # 2. Notify article author if commenter is not author
+            if article.author and article.author != request.user:
+                Notification.objects.create(
+                    recipient=article.author,
+                    sender=request.user,
+                    notification_type=Notification.NotificationType.COMMENT,
+                    title=f"New comment on '{article.title}'",
+                    message=f"{request.user.full_name or request.user.username}: \"{content[:140]}\"",
+                    link=f"/articles/{article.slug}#comments",
+                    article=article,
+                )
+
+            serializer = ArticleCommentSerializer(comment, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
