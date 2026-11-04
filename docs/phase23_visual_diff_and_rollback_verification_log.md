@@ -51,3 +51,5 @@
   *Verification #18/115: Verifies unified view displays oldLineNum and newLineNum columns.*
 - [x] **Checkpoint 019/115:** `feat(diff-ui): add segmented tab toggle between Side-by-Side and Unified views`  
   *Verification #19/115: Verifies viewMode state persistence and active tab indicator.*
+- [x] **Checkpoint 020/115:** `feat(diff-ui): style hunk header rows with cyan badge and contextual code line count`  
+  *Verification #20/115: Verifies hunk banner renders with font-mono cyan styling.*
