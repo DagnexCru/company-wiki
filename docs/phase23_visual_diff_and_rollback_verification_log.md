@@ -49,3 +49,5 @@
   *Verification #17/115: Verifies bg-emerald-200 and bg-rose-200 inline token span styling.*
 - [x] **Checkpoint 018/115:** `feat(diff-ui): create unified line-by-line diff mode with dual line counter gutter`  
   *Verification #18/115: Verifies unified view displays oldLineNum and newLineNum columns.*
+- [x] **Checkpoint 019/115:** `feat(diff-ui): add segmented tab toggle between Side-by-Side and Unified views`  
+  *Verification #19/115: Verifies viewMode state persistence and active tab indicator.*
