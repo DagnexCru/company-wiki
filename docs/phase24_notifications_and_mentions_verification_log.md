@@ -206,3 +206,5 @@
   *Verification #95/185: Validates search filters, permissions, and result formatting.*
 - [x] **Checkpoint 096/185:** `feat(mention-textarea): create reusable MentionTextarea React component`  
   *Verification #96/185: Verifies standalone component with value, onChange, and placeholder props.*
+- [x] **Checkpoint 097/185:** `feat(mention-textarea): detect @ trigger character at cursor position in textarea`  
+  *Verification #97/185: Verifies textarea.selectionStart calculates query boundary accurately.*
