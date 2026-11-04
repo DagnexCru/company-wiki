@@ -159,3 +159,5 @@
   *Verification #72/115: Verifies reviewer can review diff without navigating away from approval.*
 - [x] **Checkpoint 073/115:** `feat(reviewer-ux): allow approving or requesting changes directly while viewing diff`  
   *Verification #73/115: Verifies review decision actions accessible inside diff view.*
+- [x] **Checkpoint 074/115:** `feat(reviewer-ux): highlight security-sensitive keyword changes in diffs for compliance`  
+  *Verification #74/115: Verifies flags on sensitive terms (e.g. passwords, secrets, GDPR).*
