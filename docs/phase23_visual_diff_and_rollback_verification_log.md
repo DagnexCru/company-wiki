@@ -17,3 +17,5 @@
   *Verification #1/115: Validates computeWordDiff dynamic programming matrix on word tokens.*
 - [x] **Checkpoint 002/115:** `feat(diff-engine): handle word-level punctuation and whitespace preservation`  
   *Verification #2/115: Ensures regex tokenization preserves inline spaces and markdown delimiters.*
+- [x] **Checkpoint 003/115:** `feat(diff-engine): optimize split diff row pairing for deletion and insertion runs`  
+  *Verification #3/115: Validates pairing of consecutive '-' and '+' rows in parseSplitDiff.*
