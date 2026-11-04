@@ -288,3 +288,5 @@
   *Verification #136/185: Verifies discussion thread mounted below article content.*
 - [x] **Checkpoint 137/185:** `feat(comments-ui): render total comments count badge in section header`  
   *Verification #137/185: Verifies dynamic comment counter updates on new submission.*
+- [x] **Checkpoint 138/185:** `feat(comments-ui): embed MentionTextarea inside new comment form`  
+  *Verification #138/185: Verifies team members can tag colleagues with @autocomplete.*
