@@ -152,3 +152,5 @@
   *Verification #68/185: Verifies author receives COMMENT notification if author != commenter.*
 - [x] **Checkpoint 069/185:** `feat(comments-backend): prevent duplicate author notification if author comments on own article`  
   *Verification #69/185: Verifies commenter.id == article.author.id does not self-notify.*
+- [x] **Checkpoint 070/185:** `feat(comments-backend): add is_own boolean serializer field based on request.user`  
+  *Verification #70/185: Verifies frontend can visually distinguish user's own comments.*
