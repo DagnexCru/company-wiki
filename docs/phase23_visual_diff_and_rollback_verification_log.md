@@ -185,3 +185,5 @@
   *Verification #85/115: Verifies author view of helpfulness ratio (e.g. 94% helpful from 48 votes).*
 - [x] **Checkpoint 086/115:** `feat(reader-ux): display view count chip with eye icon in document metadata header`  
   *Verification #86/115: Verifies view count badge rendered in ArticleDetailPage header.*
+- [x] **Checkpoint 087/115:** `feat(reader-ux): animate progress bar color shift as article reading nears completion`  
+  *Verification #87/115: Verifies gradient shift to emerald when reading reaches 100%.*
