@@ -189,3 +189,5 @@
   *Verification #87/115: Verifies gradient shift to emerald when reading reaches 100%.*
 - [x] **Checkpoint 088/115:** `feat(reader-ux): optimize scroll event listener with requestAnimationFrame throttle`  
   *Verification #88/115: Verifies smooth 60fps performance without scroll jank.*
+- [x] **Checkpoint 089/115:** `feat(reader-ux): auto-hide reading progress bar when viewing print or presentation mode`  
+  *Verification #89/115: Verifies @media print styles hide progress bar cleanly.*
