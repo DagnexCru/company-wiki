@@ -374,3 +374,5 @@
   *Verification #179/185: Validates index optimization on recipient and created_at fields.*
 - [x] **Checkpoint 180/185:** `perf(notifications): verify client-side bundle size increase is under 20kB gzipped`  
   *Verification #180/185: Validates lightweight footprint of notification and mention code.*
+- [x] **Checkpoint 181/185:** `docs(phase24): compile comprehensive In-App Notifications & @mentions user guide`  
+  *Verification #181/185: Documents collaboration workflows, mention syntax, and notification center.*
