@@ -179,3 +179,5 @@
   *Verification #82/115: Verifies text area for reader notes with 500-char max length.*
 - [x] **Checkpoint 083/115:** `feat(reader-ux): persist feedback in database via POST /api/articles/{id}/feedback/`  
   *Verification #83/115: Verifies ArticleFeedback model stores helpfulness, tags, and notes.*
+- [x] **Checkpoint 084/115:** `feat(reader-ux): prevent duplicate feedback spam using localStorage and user session cache`  
+  *Verification #84/115: Verifies submitted state persists and shows 'Thank you for your feedback!'.*
