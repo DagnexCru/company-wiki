@@ -360,3 +360,5 @@
   *Verification #172/185: Validates read mutation persists across page reloads.*
 - [x] **Checkpoint 173/185:** `test(e2e-notifications): verify toast alert appears dynamically when unread count increases`  
   *Verification #173/185: Validates background polling triggers floating toast alert.*
+- [x] **Checkpoint 174/185:** `test(e2e-notifications): verify all 10 Django notification tests pass with OK status`  
+  *Verification #174/185: Confirms python manage.py test apps.notifications passes cleanly.*
