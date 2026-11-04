@@ -316,3 +316,5 @@
   *Verification #150/185: Verifies whitespace-pre-wrap renders paragraphs accurately.*
 - [x] **Checkpoint 151/185:** `feat(comments-ui): display informational tip: 'Mentions automatically notify team members'`  
   *Verification #151/185: Verifies helpful collaboration guidance in form footer.*
+- [x] **Checkpoint 152/185:** `feat(comments-ui): ensure comment cards are accessible with semantic HTML markup`  
+  *Verification #152/185: Verifies section, header, and form tags for screen readers.*
