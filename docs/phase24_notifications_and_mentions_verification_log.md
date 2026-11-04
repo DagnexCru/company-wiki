@@ -138,3 +138,5 @@
   *Verification #61/185: Verifies foreign key constraints and cascade rules.*
 - [x] **Checkpoint 062/185:** `feat(comments-backend): index ArticleComment by article and created_at`  
   *Verification #62/185: Verifies art_com_art_created_idx speeds up comment stream loading.*
+- [x] **Checkpoint 063/185:** `feat(comments-backend): index ArticleComment by author and created_at`  
+  *Verification #63/185: Verifies art_com_author_created_idx tracks user contribution history.*
