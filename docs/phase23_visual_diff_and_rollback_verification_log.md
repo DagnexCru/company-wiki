@@ -147,3 +147,5 @@
   *Verification #66/115: Verifies conflicting editors can inspect concurrent modifications.*
 - [x] **Checkpoint 067/115:** `feat(article-detail): display revision count metric chip in document metadata row`  
   *Verification #67/115: Verifies 'X revisions' chip alongside read time and views.*
+- [x] **Checkpoint 068/115:** `feat(review-queue): add visual diff preview popup in ReviewQueuePage article cards`  
+  *Verification #68/115: Verifies reviewers can preview changes directly from the queue.*
