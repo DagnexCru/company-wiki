@@ -286,3 +286,5 @@
   *Verification #135/185: Validates clean React component state updates.*
 - [x] **Checkpoint 136/185:** `feat(comments-ui): create ArticleCommentsSection component for ArticleDetailPage`  
   *Verification #136/185: Verifies discussion thread mounted below article content.*
+- [x] **Checkpoint 137/185:** `feat(comments-ui): render total comments count badge in section header`  
+  *Verification #137/185: Verifies dynamic comment counter updates on new submission.*
