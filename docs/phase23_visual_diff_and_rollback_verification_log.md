@@ -69,3 +69,5 @@
   *Verification #27/115: Verifies dark mode classes for diff backgrounds and borders.*
 - [x] **Checkpoint 028/115:** `feat(diff-ui): add keyboard shortcut support to cycle between diff hunks`  
   *Verification #28/115: Verifies n/p key navigation between modified sections.*
+- [x] **Checkpoint 029/115:** `feat(diff-ui): highlight unchanged context lines with neutral slate palette`  
+  *Verification #29/115: Verifies unchanged lines use text-slate-600 / dark:text-slate-400.*
