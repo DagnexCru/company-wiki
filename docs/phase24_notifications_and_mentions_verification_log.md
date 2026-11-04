@@ -28,3 +28,5 @@
   *Verification #6/185: Verifies is_active=False accounts are excluded from receiving alerts.*
 - [x] **Checkpoint 007/185:** `feat(mention-tokenizer): prevent self-notification when users mention their own handle`  
   *Verification #7/185: Verifies actor.id == recipient.id is skipped automatically.*
+- [x] **Checkpoint 008/185:** `feat(mention-tokenizer): sanitize mention text payload against XSS before database persistence`  
+  *Verification #8/185: Verifies HTML stripping on raw mention content snippets.*
