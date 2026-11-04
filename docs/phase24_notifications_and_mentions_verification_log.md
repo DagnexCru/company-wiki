@@ -346,3 +346,5 @@
   *Verification #165/185: Verifies author can jump directly into revision editor with one click.*
 - [x] **Checkpoint 166/185:** `feat(review-mentions): link approval notification directly to published article page`  
   *Verification #166/185: Verifies author can inspect published document immediately.*
+- [x] **Checkpoint 167/185:** `feat(review-mentions): link review request notification directly to /reviews/{id}`  
+  *Verification #167/185: Verifies reviewer jumps directly into approval decision view.*
