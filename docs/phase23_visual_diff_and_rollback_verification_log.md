@@ -23,3 +23,5 @@
   *Verification #4/115: Verifies table-row alignment across left (old) and right (new) diff panes.*
 - [x] **Checkpoint 005/115:** `feat(diff-engine): parse hunk header line numbers with regex extraction`  
   *Verification #5/115: Validates parseUnifiedDiff extracting @@ -X,Y +A,B @@ line range boundaries.*
+- [x] **Checkpoint 006/115:** `feat(diff-engine): ensure edge cases with empty old revision string are handled gracefully`  
+  *Verification #6/115: Verifies brand new article revision 1 creation shows 100% additions.*
