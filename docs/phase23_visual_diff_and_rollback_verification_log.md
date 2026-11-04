@@ -207,3 +207,5 @@
   *Verification #96/115: Verifies CSRF token header present on all POST endpoints.*
 - [x] **Checkpoint 097/115:** `feat(security): validate input sanitation on rollback notes and revision comments`  
   *Verification #97/115: Verifies strip_tags prevents script injection in revision messages.*
+- [x] **Checkpoint 098/115:** `feat(performance): add database index on ArticleRevision(article, revision_number)`  
+  *Verification #98/115: Verifies composite index optimizes revision history query latency.*
