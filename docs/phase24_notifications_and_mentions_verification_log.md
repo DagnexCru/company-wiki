@@ -32,3 +32,5 @@
   *Verification #8/185: Verifies HTML stripping on raw mention content snippets.*
 - [x] **Checkpoint 009/185:** `feat(mention-tokenizer): handle multi-line markdown comments containing code blocks`  
   *Verification #9/185: Verifies mentions inside code spans do not crash regex parser.*
+- [x] **Checkpoint 010/185:** `feat(mention-tokenizer): benchmark mention extraction speed (< 2ms per comment)`  
+  *Verification #10/185: Verifies regex execution is sub-millisecond on 5,000-word payloads.*
