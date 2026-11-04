@@ -55,3 +55,5 @@
   *Verification #20/115: Verifies hunk banner renders with font-mono cyan styling.*
 - [x] **Checkpoint 021/115:** `feat(diff-ui): display revision author badge and formatted creation timestamp in header`  
   *Verification #21/115: Verifies author avatar, name, and relative timestamp display in comparison.*
+- [x] **Checkpoint 022/115:** `feat(diff-ui): show revision change message chip with quotation format`  
+  *Verification #22/115: Verifies revision_message displays prominently in comparison card.*
