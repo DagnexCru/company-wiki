@@ -292,3 +292,5 @@
   *Verification #138/185: Verifies team members can tag colleagues with @autocomplete.*
 - [x] **Checkpoint 139/185:** `feat(comments-ui): parse and highlight @username mention badges in comment body`  
   *Verification #139/185: Verifies mentions render as styled blue pills with @ icon.*
+- [x] **Checkpoint 140/185:** `feat(comments-ui): display author avatar initials and role badge on comment cards`  
+  *Verification #140/185: Verifies Admin, Author, Reviewer, and Reader visual cues.*
