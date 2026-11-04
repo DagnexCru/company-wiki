@@ -79,3 +79,5 @@
   *Verification #32/115: Validates auto-generated message: 'Rolled back to revision #X'.*
 - [x] **Checkpoint 033/115:** `feat(rollback): wire one-click restore button on RevisionDiffViewer comparison card`  
   *Verification #33/115: Verifies clicking restore opens confirmation modal with version details.*
+- [x] **Checkpoint 034/115:** `feat(rollback): display rollback confirmation modal with safety explanation`  
+  *Verification #34/115: Verifies modal clearly states 'No data will be lost; creates new version'.*
