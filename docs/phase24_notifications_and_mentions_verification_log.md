@@ -136,3 +136,5 @@
   *Verification #60/185: Validates list, unread_count, read, and mark_all_read test coverage.*
 - [x] **Checkpoint 061/185:** `feat(comments-backend): create ArticleComment model linked to Article and CustomUser`  
   *Verification #61/185: Verifies foreign key constraints and cascade rules.*
+- [x] **Checkpoint 062/185:** `feat(comments-backend): index ArticleComment by article and created_at`  
+  *Verification #62/185: Verifies art_com_art_created_idx speeds up comment stream loading.*
