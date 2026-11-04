@@ -198,3 +198,5 @@
   *Verification #91/185: Verifies indexed search delivers instant keystroke feedback.*
 - [x] **Checkpoint 092/185:** `feat(mentions-api): handle empty search query returning top default colleagues`  
   *Verification #92/185: Verifies typing bare @ immediately displays suggestion list.*
+- [x] **Checkpoint 093/185:** `feat(mentions-api): sanitize search query against SQL injection attacks`  
+  *Verification #93/185: Verifies Django ORM parameterized queries protect user search.*
