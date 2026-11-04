@@ -298,3 +298,5 @@
   *Verification #141/185: Verifies subtle brand border and tint on user's own comments.*
 - [x] **Checkpoint 142/185:** `feat(comments-ui): display relative timestamp (e.g. '15m ago') on each comment`  
   *Verification #142/185: Verifies formatted creation time on comment cards.*
+- [x] **Checkpoint 143/185:** `feat(comments-ui): implement optimistic comment append upon form submission`  
+  *Verification #143/185: Verifies immediate UI update without requiring full page refresh.*
