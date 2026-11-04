@@ -354,3 +354,5 @@
   *Verification #169/185: Verifies feedback CCing multiple reviewers notifies all of them.*
 - [x] **Checkpoint 170/185:** `feat(review-mentions): verify zero review workflow regressions across existing tests`  
   *Verification #170/185: Validates all review queue workflows operate seamlessly.*
+- [x] **Checkpoint 171/185:** `test(e2e-notifications): verify end-to-end notification lifecycle from comment to bell alert`  
+  *Verification #171/185: Validates full user flow from posting comment to bell unread count increment.*
