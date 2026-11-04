@@ -181,3 +181,5 @@
   *Verification #83/115: Verifies ArticleFeedback model stores helpfulness, tags, and notes.*
 - [x] **Checkpoint 084/115:** `feat(reader-ux): prevent duplicate feedback spam using localStorage and user session cache`  
   *Verification #84/115: Verifies submitted state persists and shows 'Thank you for your feedback!'.*
+- [x] **Checkpoint 085/115:** `feat(reader-ux): expose feedback metrics to article authors on dashboard`  
+  *Verification #85/115: Verifies author view of helpfulness ratio (e.g. 94% helpful from 48 votes).*
