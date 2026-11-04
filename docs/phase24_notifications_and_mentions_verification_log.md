@@ -302,3 +302,5 @@
   *Verification #143/185: Verifies immediate UI update without requiring full page refresh.*
 - [x] **Checkpoint 144/185:** `feat(comments-ui): disable submit button while comment is being posted`  
   *Verification #144/185: Verifies spinner animation and prevents duplicate posts.*
+- [x] **Checkpoint 145/185:** `feat(comments-ui): clear textarea content automatically after successful submission`  
+  *Verification #145/185: Verifies form resets cleanly for subsequent comments.*
