@@ -212,3 +212,5 @@
   *Verification #98/185: Verifies bottom-full z-50 dropdown remains visible without page overflow.*
 - [x] **Checkpoint 099/185:** `feat(mention-textarea): debounce mention suggestion API requests (150ms)`  
   *Verification #99/185: Verifies rapid typing does not flood backend with HTTP requests.*
+- [x] **Checkpoint 100/185:** `feat(mention-textarea): implement ArrowDown and ArrowUp keyboard navigation in suggestions`  
+  *Verification #100/185: Verifies selectedIndex cycles smoothly through suggestion list.*
