@@ -202,3 +202,5 @@
   *Verification #93/185: Verifies Django ORM parameterized queries protect user search.*
 - [x] **Checkpoint 094/185:** `feat(mentions-api): ensure zero console warnings or serializer errors on suggestion fetch`  
   *Verification #94/185: Verifies clean JSON response structure.*
+- [x] **Checkpoint 095/185:** `feat(mentions-api): write unit test suite for MentionSuggestionsView`  
+  *Verification #95/185: Validates search filters, permissions, and result formatting.*
