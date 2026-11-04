@@ -358,3 +358,5 @@
   *Verification #171/185: Validates full user flow from posting comment to bell unread count increment.*
 - [x] **Checkpoint 172/185:** `test(e2e-notifications): verify mark-as-read clears bell badge and updates database state`  
   *Verification #172/185: Validates read mutation persists across page reloads.*
+- [x] **Checkpoint 173/185:** `test(e2e-notifications): verify toast alert appears dynamically when unread count increases`  
+  *Verification #173/185: Validates background polling triggers floating toast alert.*
