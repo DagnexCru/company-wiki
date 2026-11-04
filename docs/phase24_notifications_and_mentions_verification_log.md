@@ -376,3 +376,5 @@
   *Verification #180/185: Validates lightweight footprint of notification and mention code.*
 - [x] **Checkpoint 181/185:** `docs(phase24): compile comprehensive In-App Notifications & @mentions user guide`  
   *Verification #181/185: Documents collaboration workflows, mention syntax, and notification center.*
+- [x] **Checkpoint 182/185:** `docs(phase24): document API specifications for /notifications/ and /mention-suggestions/`  
+  *Verification #182/185: Details request/response contracts and query parameters.*
