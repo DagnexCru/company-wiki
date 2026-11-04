@@ -26,3 +26,5 @@
   *Verification #5/185: Validates @username preceded by start-of-line, open-parenthesis, or space.*
 - [x] **Checkpoint 006/185:** `feat(mention-tokenizer): filter out inactive or deactivated accounts from notification targets`  
   *Verification #6/185: Verifies is_active=False accounts are excluded from receiving alerts.*
+- [x] **Checkpoint 007/185:** `feat(mention-tokenizer): prevent self-notification when users mention their own handle`  
+  *Verification #7/185: Verifies actor.id == recipient.id is skipped automatically.*
