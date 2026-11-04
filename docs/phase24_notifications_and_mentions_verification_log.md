@@ -258,3 +258,5 @@
   *Verification #121/185: Verifies active tab switches notification stream dynamically.*
 - [x] **Checkpoint 122/185:** `feat(notification-bell): add 'Mark all read' button in dropdown header`  
   *Verification #122/185: Verifies bulk mark-all-read clears badge and updates list.*
+- [x] **Checkpoint 123/185:** `feat(notification-bell): render type-specific icons for each notification category`  
+  *Verification #123/185: Verifies @ for MENTION, checkmark for APPROVED, clock for REVIEW.*
