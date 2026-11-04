@@ -18,3 +18,5 @@
   *Verification #1/185: Ensures extract_mentions captures usernames matching alphanumeric, underscores, hyphens.*
 - [x] **Checkpoint 002/185:** `feat(mention-tokenizer): strip trailing punctuation marks from captured handles`  
   *Verification #2/185: Verifies commas, periods, colons, and quotes are trimmed from @username tokens.*
+- [x] **Checkpoint 003/185:** `feat(mention-tokenizer): handle case-insensitive deduplication of repeated mentions`  
+  *Verification #3/185: Verifies duplicate @username mentions in a single comment produce single notification.*
