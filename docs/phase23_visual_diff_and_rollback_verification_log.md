@@ -15,3 +15,5 @@
 
 - [x] **Checkpoint 001/115:** `feat(diff-engine): implement dynamic programming LCS algorithm for word diffs`  
   *Verification #1/115: Validates computeWordDiff dynamic programming matrix on word tokens.*
+- [x] **Checkpoint 002/115:** `feat(diff-engine): handle word-level punctuation and whitespace preservation`  
+  *Verification #2/115: Ensures regex tokenization preserves inline spaces and markdown delimiters.*
