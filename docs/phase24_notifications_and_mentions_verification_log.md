@@ -252,3 +252,5 @@
   *Verification #118/185: Verifies count > 9 renders compact '9+' badge.*
 - [x] **Checkpoint 119/185:** `feat(notification-bell): toggle dropdown notification center on bell button click`  
   *Verification #119/185: Verifies slide-in-from-top-2 smooth entrance animation.*
+- [x] **Checkpoint 120/185:** `feat(notification-bell): close dropdown when clicking outside bell or overlay`  
+  *Verification #120/185: Verifies standard popover dismissal behavior.*
