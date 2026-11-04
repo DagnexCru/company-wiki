@@ -237,3 +237,5 @@
   *Verification #111/115: Validates responsive design across standard screen resolutions.*
 - [x] **Checkpoint 112/115:** `docs(phase23): document Visual Revision Diff & One-Click Rollback user guide`  
   *Verification #112/115: Compiles comprehensive visual diff guide and rollback workflows.*
+- [x] **Checkpoint 113/115:** `docs(phase23): document Reading Analytics & Feedback metrics guide for wiki authors`  
+  *Verification #113/115: Details view counting, reading duration algorithms, and feedback UX.*
