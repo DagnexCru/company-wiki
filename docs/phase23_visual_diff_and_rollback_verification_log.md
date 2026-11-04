@@ -167,3 +167,5 @@
   *Verification #76/115: Verifies 0-100% horizontal gradient bar at top of ArticleDetailPage.*
 - [x] **Checkpoint 077/115:** `feat(reader-ux): calculate reading progress with dual window and article container scroll`  
   *Verification #77/115: Verifies progress fills accurately regardless of layout container scroll.*
+- [x] **Checkpoint 078/115:** `feat(reader-ux): compute estimated reading time at 200 words-per-minute standard`  
+  *Verification #78/115: Verifies '⏱️ X min read' chip calculated dynamically from word count.*
