@@ -161,3 +161,5 @@
   *Verification #73/115: Verifies review decision actions accessible inside diff view.*
 - [x] **Checkpoint 074/115:** `feat(reviewer-ux): highlight security-sensitive keyword changes in diffs for compliance`  
   *Verification #74/115: Verifies flags on sensitive terms (e.g. passwords, secrets, GDPR).*
+- [x] **Checkpoint 075/115:** `feat(reviewer-ux): verify review diff workflow integration tests pass in frontend`  
+  *Verification #75/115: Verifies end-to-end review diff navigation succeeds in automated test.*
