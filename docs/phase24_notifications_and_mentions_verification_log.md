@@ -150,3 +150,5 @@
   *Verification #67/185: Verifies parse_and_notify_mentions is invoked upon save.*
 - [x] **Checkpoint 068/185:** `feat(comments-backend): automatically notify article author when a new comment is posted`  
   *Verification #68/185: Verifies author receives COMMENT notification if author != commenter.*
+- [x] **Checkpoint 069/185:** `feat(comments-backend): prevent duplicate author notification if author comments on own article`  
+  *Verification #69/185: Verifies commenter.id == article.author.id does not self-notify.*
