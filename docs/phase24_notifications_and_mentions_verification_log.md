@@ -224,3 +224,5 @@
   *Verification #104/185: Verifies seamless continuous typing after selecting a colleague.*
 - [x] **Checkpoint 105/185:** `feat(mention-textarea): display user avatar initials and role badge in suggestion items`  
   *Verification #105/185: Verifies Admin, Author, Reviewer, and Reader visual badges.*
+- [x] **Checkpoint 106/185:** `feat(mention-textarea): highlight currently selected suggestion item with brand tint`  
+  *Verification #106/185: Verifies bg-brand-600/30 and border-brand-500/40 active styling.*
