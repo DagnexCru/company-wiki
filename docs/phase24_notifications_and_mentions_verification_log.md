@@ -22,3 +22,5 @@
   *Verification #3/185: Verifies duplicate @username mentions in a single comment produce single notification.*
 - [x] **Checkpoint 004/185:** `feat(mention-tokenizer): ignore email addresses and non-handle @ characters`  
   *Verification #4/185: Verifies user@domain.com does not falsely trigger a mention alert.*
+- [x] **Checkpoint 005/185:** `feat(mention-tokenizer): support start-of-line and bracketed mentions`  
+  *Verification #5/185: Validates @username preceded by start-of-line, open-parenthesis, or space.*
