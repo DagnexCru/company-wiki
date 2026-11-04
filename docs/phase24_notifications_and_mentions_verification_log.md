@@ -174,3 +174,5 @@
   *Verification #79/185: Validates list, create, and validation error test branches.*
 - [x] **Checkpoint 080/185:** `feat(comments-backend): verify comments migration 0009_articlecomment applied successfully`  
   *Verification #80/185: Validates database schema integrity for article comments table.*
+- [x] **Checkpoint 081/185:** `feat(mentions-api): implement MentionSuggestionsView endpoint at /auth/mention-suggestions/`  
+  *Verification #81/185: Verifies query parameter q filters users by username and full_name.*
