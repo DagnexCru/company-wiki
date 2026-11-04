@@ -272,3 +272,5 @@
   *Verification #128/185: Verifies silent interval refresh keeps count synchronized.*
 - [x] **Checkpoint 129/185:** `feat(notification-bell): clean up polling interval on component unmount`  
   *Verification #129/185: Verifies zero memory leaks when navigating between pages.*
+- [x] **Checkpoint 130/185:** `feat(notification-bell): display floating in-app toast popup when new alert arrives`  
+  *Verification #130/185: Verifies fixed bottom-right toast with slide-in animation.*
