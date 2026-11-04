@@ -236,3 +236,5 @@
   *Verification #110/185: Verifies seamless aesthetic integration with dark wiki theme.*
 - [x] **Checkpoint 111/185:** `feat(mention-textarea): display keyboard shortcut hint (↑↓ Enter) in dropdown header`  
   *Verification #111/185: Verifies intuitive user guidance inside suggestion popup.*
+- [x] **Checkpoint 112/185:** `feat(mention-textarea): support disabled prop during comment or review form submission`  
+  *Verification #112/185: Verifies opacity and cursor styles when disabled.*
