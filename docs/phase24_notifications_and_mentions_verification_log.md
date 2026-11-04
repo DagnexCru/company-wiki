@@ -230,3 +230,5 @@
   *Verification #107/185: Verifies onMouseEnter synchronizes selectedIndex state.*
 - [x] **Checkpoint 108/185:** `feat(mention-textarea): close suggestion dropdown when clicking outside textarea`  
   *Verification #108/185: Verifies document mousedown event listener cleans up dropdown.*
+- [x] **Checkpoint 109/185:** `feat(mention-textarea): support onMouseDown preventDefault on suggestion buttons`  
+  *Verification #109/185: Verifies clicking a suggestion does not blur textarea prematurely.*
