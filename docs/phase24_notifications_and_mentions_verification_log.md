@@ -20,3 +20,5 @@
   *Verification #2/185: Verifies commas, periods, colons, and quotes are trimmed from @username tokens.*
 - [x] **Checkpoint 003/185:** `feat(mention-tokenizer): handle case-insensitive deduplication of repeated mentions`  
   *Verification #3/185: Verifies duplicate @username mentions in a single comment produce single notification.*
+- [x] **Checkpoint 004/185:** `feat(mention-tokenizer): ignore email addresses and non-handle @ characters`  
+  *Verification #4/185: Verifies user@domain.com does not falsely trigger a mention alert.*
