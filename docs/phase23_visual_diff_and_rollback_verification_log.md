@@ -89,3 +89,5 @@
   *Verification #37/115: Verifies toast: 'Successfully rolled forward to version #X'.*
 - [x] **Checkpoint 038/115:** `feat(rollback): record user attribution in revision history for rollback author`  
   *Verification #38/115: Verifies request.user is recorded as created_by on new revision.*
+- [x] **Checkpoint 039/115:** `feat(rollback): copy tags, category, and content accurately during version roll-forward`  
+  *Verification #39/115: Verifies snapshot attributes are faithfully replicated in new version.*
