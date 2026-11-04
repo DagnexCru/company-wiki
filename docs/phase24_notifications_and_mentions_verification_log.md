@@ -218,3 +218,5 @@
   *Verification #101/185: Verifies e.preventDefault() prevents unintended form submission.*
 - [x] **Checkpoint 102/185:** `feat(mention-textarea): implement Escape key listener to dismiss suggestion dropdown`  
   *Verification #102/185: Verifies user can close menu without inserting a mention.*
+- [x] **Checkpoint 103/185:** `feat(mention-textarea): insert @username and trailing space at exact cursor position`  
+  *Verification #103/185: Verifies surrounding text is preserved when mention is inserted.*
