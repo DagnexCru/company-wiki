@@ -184,3 +184,5 @@
   *Verification #84/185: Verifies predictable ordering in autocomplete dropdown.*
 - [x] **Checkpoint 085/185:** `feat(mentions-api): return id, username, full_name, role, and email in suggestion payload`  
   *Verification #85/185: Verifies complete user metadata for frontend badge rendering.*
+- [x] **Checkpoint 086/185:** `feat(mentions-api): restrict mention suggestions to authenticated team members`  
+  *Verification #86/185: Verifies anonymous access is denied for internal directory privacy.*
