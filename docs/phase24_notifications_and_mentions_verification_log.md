@@ -350,3 +350,5 @@
   *Verification #167/185: Verifies reviewer jumps directly into approval decision view.*
 - [x] **Checkpoint 168/185:** `feat(review-mentions): preserve review feedback audit logging alongside notifications`  
   *Verification #168/185: Verifies compliance audit trail records all review events.*
+- [x] **Checkpoint 169/185:** `feat(review-mentions): test mention parsing with multiple reviewers tagged in feedback`  
+  *Verification #169/185: Verifies feedback CCing multiple reviewers notifies all of them.*
