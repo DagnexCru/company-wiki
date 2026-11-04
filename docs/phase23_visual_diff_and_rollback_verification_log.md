@@ -139,3 +139,5 @@
   *Verification #62/115: Verifies review diff automatically compares pending draft against base.*
 - [x] **Checkpoint 063/115:** `feat(review-diff): display inline change summary in reviewer decision panel`  
   *Verification #63/115: Verifies summary metrics (words changed, sections altered) for reviewer.*
+- [x] **Checkpoint 064/115:** `feat(article-detail): add 'View Revisions & Diffs' link in Review History audit card`  
+  *Verification #64/115: Verifies ArticleDetailPage links readers and auditors to history page.*
