@@ -168,3 +168,5 @@
   *Verification #76/185: Verifies database transactions handle simultaneous comment posts.*
 - [x] **Checkpoint 077/185:** `feat(comments-backend): enforce maximum length on comment text (10,000 characters)`  
   *Verification #77/185: Verifies abusive payload sizes are rejected.*
+- [x] **Checkpoint 078/185:** `feat(comments-backend): verify ArticleComment deletion cascades cleanly with article`  
+  *Verification #78/185: Verifies deleting draft article purges related comments.*
