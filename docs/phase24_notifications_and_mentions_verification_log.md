@@ -126,3 +126,5 @@
   *Verification #55/185: Verifies JWT bearer authentication functions across origins.*
 - [x] **Checkpoint 056/185:** `feat(notification-api): verify rate limiting on notification polling endpoints`  
   *Verification #56/185: Verifies server absorbs background polling without degradation.*
+- [x] **Checkpoint 057/185:** `feat(notification-api): test unread-count endpoint response latency (< 10ms)`  
+  *Verification #57/185: Verifies indexed COUNT query executes near-instantaneously.*
