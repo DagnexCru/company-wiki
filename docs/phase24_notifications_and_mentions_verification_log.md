@@ -294,3 +294,5 @@
   *Verification #139/185: Verifies mentions render as styled blue pills with @ icon.*
 - [x] **Checkpoint 140/185:** `feat(comments-ui): display author avatar initials and role badge on comment cards`  
   *Verification #140/185: Verifies Admin, Author, Reviewer, and Reader visual cues.*
+- [x] **Checkpoint 141/185:** `feat(comments-ui): visually distinguish comments authored by current user (is_own)`  
+  *Verification #141/185: Verifies subtle brand border and tint on user's own comments.*
