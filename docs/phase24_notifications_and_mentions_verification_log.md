@@ -82,3 +82,5 @@
   *Verification #33/185: Verifies Meta.ordering = ['-created_at'].*
 - [x] **Checkpoint 034/185:** `feat(notification-model): register Notification in Django Admin with filters`  
   *Verification #34/185: Verifies admin dashboard can inspect notification volume.*
+- [x] **Checkpoint 035/185:** `feat(notification-model): optimize query with select_related on sender and article`  
+  *Verification #35/185: Verifies 0 redundant queries when serializing notification list.*
