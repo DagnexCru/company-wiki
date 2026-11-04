@@ -183,3 +183,5 @@
   *Verification #84/115: Verifies submitted state persists and shows 'Thank you for your feedback!'.*
 - [x] **Checkpoint 085/115:** `feat(reader-ux): expose feedback metrics to article authors on dashboard`  
   *Verification #85/115: Verifies author view of helpfulness ratio (e.g. 94% helpful from 48 votes).*
+- [x] **Checkpoint 086/115:** `feat(reader-ux): display view count chip with eye icon in document metadata header`  
+  *Verification #86/115: Verifies view count badge rendered in ArticleDetailPage header.*
