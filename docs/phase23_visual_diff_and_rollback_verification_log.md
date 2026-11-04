@@ -35,3 +35,5 @@
   *Verification #10/115: Ensures LCS execution does not block React UI thread on 10,000-word articles.*
 - [x] **Checkpoint 011/115:** `feat(diff-engine): format metadata field diffs for title, category, and summary`  
   *Verification #11/115: Verifies diff viewer renders discrete cards for non-content attribute shifts.*
+- [x] **Checkpoint 012/115:** `feat(diff-engine): format tags difference pills with added and removed chips`  
+  *Verification #12/115: Verifies tag additions show in green and tag removals show in red strikethrough.*
