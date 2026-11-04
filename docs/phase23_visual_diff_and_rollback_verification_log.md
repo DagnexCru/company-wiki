@@ -43,3 +43,5 @@
   *Verification #14/115: Verifies handleSwapRevisions inverts fromRevisionId and toRevisionId seamlessly.*
 - [x] **Checkpoint 015/115:** `feat(diff-engine): export diffUtils helper functions with complete TypeScript typings`  
   *Verification #15/115: Validates SplitDiffRow, UnifiedDiffRow, and WordDiffToken interfaces.*
+- [x] **Checkpoint 016/115:** `feat(diff-ui): style side-by-side split view with high-contrast emerald and rose highlights`  
+  *Verification #16/115: Verifies emerald-50/rose-50 background tints and vibrant borders.*
