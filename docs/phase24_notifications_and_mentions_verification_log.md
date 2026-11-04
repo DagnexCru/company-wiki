@@ -16,3 +16,5 @@
 
 - [x] **Checkpoint 001/185:** `feat(mention-tokenizer): extract unique usernames with word boundary regex`  
   *Verification #1/185: Ensures extract_mentions captures usernames matching alphanumeric, underscores, hyphens.*
+- [x] **Checkpoint 002/185:** `feat(mention-tokenizer): strip trailing punctuation marks from captured handles`  
+  *Verification #2/185: Verifies commas, periods, colons, and quotes are trimmed from @username tokens.*
