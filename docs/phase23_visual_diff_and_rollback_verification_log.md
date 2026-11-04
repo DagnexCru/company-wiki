@@ -83,3 +83,5 @@
   *Verification #34/115: Verifies modal clearly states 'No data will be lost; creates new version'.*
 - [x] **Checkpoint 035/115:** `feat(rollback): enforce RBAC permissions on restore endpoint (author, reviewer, admin)`  
   *Verification #35/115: Verifies readers cannot trigger rollback without editing privileges.*
+- [x] **Checkpoint 036/115:** `feat(rollback): invalidate React Query cache upon successful version rollback`  
+  *Verification #36/115: Verifies article detail and revision list re-fetch immediately on restore.*
