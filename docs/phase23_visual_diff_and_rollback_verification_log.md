@@ -223,3 +223,5 @@
   *Verification #104/115: Verifies Esc key listener safely closes open overlays.*
 - [x] **Checkpoint 105/115:** `feat(ux): preserve user selected diff mode (split vs unified) in localStorage`  
   *Verification #105/115: Verifies user preference is remembered across browsing sessions.*
+- [x] **Checkpoint 106/115:** `test(e2e-diff): verify side-by-side diff matches backend unified diff hunk output`  
+  *Verification #106/115: Verifies parser output matches difflib.unified_diff output.*
