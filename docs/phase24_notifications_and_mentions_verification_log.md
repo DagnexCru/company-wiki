@@ -110,3 +110,5 @@
   *Verification #47/185: Verifies filtering out already read notifications.*
 - [x] **Checkpoint 048/185:** `feat(notification-api): support ?is_read=false boolean query parameter on list`  
   *Verification #48/185: Verifies standard boolean query string parsing.*
+- [x] **Checkpoint 049/185:** `feat(notification-api): limit recent notifications list to top 50 items`  
+  *Verification #49/185: Verifies pagination boundary avoids runaway JSON responses.*
