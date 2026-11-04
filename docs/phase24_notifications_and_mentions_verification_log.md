@@ -340,3 +340,5 @@
   *Verification #162/185: Verifies ARTICLE_UPDATED notification on collaborative edits.*
 - [x] **Checkpoint 163/185:** `feat(review-mentions): enforce independent reviewer permission invariants on review transitions`  
   *Verification #163/185: Verifies authors cannot approve their own submissions.*
+- [x] **Checkpoint 164/185:** `feat(review-mentions): display reviewer name and role badge in decision notification`  
+  *Verification #164/185: Verifies recipient sees who reviewed their documentation.*
