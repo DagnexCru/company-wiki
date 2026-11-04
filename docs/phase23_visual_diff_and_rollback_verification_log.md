@@ -101,3 +101,5 @@
   *Verification #43/115: Verifies full-screen snapshot preview includes prominent restore CTA.*
 - [x] **Checkpoint 044/115:** `feat(rollback): log rollback event in system audit trail table with IP and timestamp`  
   *Verification #44/115: Verifies security compliance logging on document reversion.*
+- [x] **Checkpoint 045/115:** `feat(rollback): verify rollback backend test suite passes in Django test runner`  
+  *Verification #45/115: Validates test_article_revisions rollback test cases execute successfully.*
