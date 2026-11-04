@@ -117,3 +117,5 @@
   *Verification #51/115: Verifies taxonomy state associated with each historical snapshot.*
 - [x] **Checkpoint 052/115:** `feat(revision-history): support back navigation to ArticleDetailPage preserving scroll`  
   *Verification #52/115: Verifies 'Back to Article' breadcrumb link with article slug.*
+- [x] **Checkpoint 053/115:** `feat(revision-history): display loading skeleton while revision list query resolves`  
+  *Verification #53/115: Verifies smooth skeleton animation during API data retrieval.*
