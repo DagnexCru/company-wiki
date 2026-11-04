@@ -87,3 +87,5 @@
   *Verification #36/115: Verifies article detail and revision list re-fetch immediately on restore.*
 - [x] **Checkpoint 037/115:** `feat(rollback): show success toast notification with new version number on rollback`  
   *Verification #37/115: Verifies toast: 'Successfully rolled forward to version #X'.*
+- [x] **Checkpoint 038/115:** `feat(rollback): record user attribution in revision history for rollback author`  
+  *Verification #38/115: Verifies request.user is recorded as created_by on new revision.*
