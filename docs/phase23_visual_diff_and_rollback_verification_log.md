@@ -59,3 +59,5 @@
   *Verification #22/115: Verifies revision_message displays prominently in comparison card.*
 - [x] **Checkpoint 023/115:** `feat(diff-ui): add copy raw diff button for clipboard export`  
   *Verification #23/115: Verifies clipboard integration for developer inspection.*
+- [x] **Checkpoint 024/115:** `feat(diff-ui): render sticky diff comparison bar during long document scrolling`  
+  *Verification #24/115: Verifies version selectors remain visible when scrolling long diffs.*
