@@ -100,3 +100,5 @@
   *Verification #42/185: Verifies users cannot inspect or mark other users' notifications.*
 - [x] **Checkpoint 043/185:** `feat(notification-api): implement GET /unread-count/ returning integer badge counter`  
   *Verification #43/185: Verifies fast lightweight query without serializing full payloads.*
+- [x] **Checkpoint 044/185:** `feat(notification-api): implement POST /{id}/read/ updating single notification`  
+  *Verification #44/185: Verifies 404 returned if ID belongs to another user.*
