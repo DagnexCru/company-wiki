@@ -149,3 +149,5 @@
   *Verification #67/115: Verifies 'X revisions' chip alongside read time and views.*
 - [x] **Checkpoint 068/115:** `feat(review-queue): add visual diff preview popup in ReviewQueuePage article cards`  
   *Verification #68/115: Verifies reviewers can preview changes directly from the queue.*
+- [x] **Checkpoint 069/115:** `feat(review-queue): display diff change badge (+ lines / - lines) on pending review cards`  
+  *Verification #69/115: Verifies reviewers see change magnitude at a glance in queue.*
