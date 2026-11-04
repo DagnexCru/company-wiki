@@ -314,3 +314,5 @@
   *Verification #149/185: Verifies comment target is not obscured by top navigation bar.*
 - [x] **Checkpoint 150/185:** `feat(comments-ui): preserve line breaks and whitespace formatting in comment text`  
   *Verification #150/185: Verifies whitespace-pre-wrap renders paragraphs accurately.*
+- [x] **Checkpoint 151/185:** `feat(comments-ui): display informational tip: 'Mentions automatically notify team members'`  
+  *Verification #151/185: Verifies helpful collaboration guidance in form footer.*
