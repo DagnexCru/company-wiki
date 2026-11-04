@@ -132,3 +132,5 @@
   *Verification #58/185: Verifies 0 updated rows returns cleanly without error.*
 - [x] **Checkpoint 059/185:** `feat(notification-api): ensure serialized created_at uses ISO 8601 formatting`  
   *Verification #59/185: Verifies standard date parsing in frontend JavaScript.*
+- [x] **Checkpoint 060/185:** `feat(notification-api): write automated test cases for all NotificationViewSet actions`  
+  *Verification #60/185: Validates list, unread_count, read, and mark_all_read test coverage.*
