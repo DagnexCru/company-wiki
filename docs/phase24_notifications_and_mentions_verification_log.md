@@ -328,3 +328,5 @@
   *Verification #156/185: Verifies reviewer can tag @author or @admin in rejection feedback.*
 - [x] **Checkpoint 157/185:** `feat(review-mentions): wire MentionTextarea into SubmitReviewModal notes form`  
   *Verification #157/185: Verifies author can tag specific @reviewer in submission notes.*
+- [x] **Checkpoint 158/185:** `feat(review-mentions): automatically notify reviewers when article is submitted for review`  
+  *Verification #158/185: Verifies all active reviewers receive REVIEW_REQUESTED alert.*
