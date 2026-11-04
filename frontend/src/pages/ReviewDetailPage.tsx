@@ -12,6 +12,7 @@ import {
   Loader2,
   AlertTriangle,
   History,
+  GitCompare,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -143,6 +144,15 @@ export const ReviewDetailPage: React.FC = () => {
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center gap-2.5">
+          <Link
+            to={`/articles/${article.slug}/revisions`}
+            title="Inspect line-by-line revision diffs before approving"
+            className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-semibold rounded-xl border border-indigo-200 bg-indigo-50/70 text-indigo-700 hover:bg-indigo-100 dark:border-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 transition"
+          >
+            <GitCompare className="w-4 h-4" />
+            <span>Inspect Changes & Diffs</span>
+          </Link>
+
           {isPendingReview && canReview ? (
             <>
               <button

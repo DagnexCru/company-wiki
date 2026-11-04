@@ -619,9 +619,17 @@ export const ArticleDetailPage: React.FC = () => {
                     Editorial Review History & Audit Trail
                   </h3>
                 </div>
-                <span className="text-xs text-slate-400">
-                  {reviews.length} recorded events
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-slate-400">
+                    {reviews.length} recorded events
+                  </span>
+                  <Link
+                    to={`/articles/${article.slug}/revisions`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 transition"
+                  >
+                    <span>View Revisions & Diffs &rarr;</span>
+                  </Link>
+                </div>
               </div>
               <ReviewTimeline records={reviews} isLoading={loadingReviews} />
             </section>
