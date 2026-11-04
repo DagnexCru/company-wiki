@@ -141,3 +141,5 @@
   *Verification #63/115: Verifies summary metrics (words changed, sections altered) for reviewer.*
 - [x] **Checkpoint 064/115:** `feat(article-detail): add 'View Revisions & Diffs' link in Review History audit card`  
   *Verification #64/115: Verifies ArticleDetailPage links readers and auditors to history page.*
+- [x] **Checkpoint 065/115:** `feat(article-detail): show current revision version counter badge in article header`  
+  *Verification #65/115: Verifies vX badge rendered alongside status pills in hero section.*
