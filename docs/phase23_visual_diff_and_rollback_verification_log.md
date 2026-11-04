@@ -227,3 +227,5 @@
   *Verification #106/115: Verifies parser output matches difflib.unified_diff output.*
 - [x] **Checkpoint 107/115:** `test(e2e-diff): verify rollback creates successive version 3 from version 1 snapshot`  
   *Verification #107/115: Verifies non-destructive version chain: v1 -> v2 -> v3 (restored v1).*
+- [x] **Checkpoint 108/115:** `test(e2e-diff): verify all 11 Django revision and workflow tests execute successfully`  
+  *Verification #108/115: Confirms python manage.py test apps.articles.tests_revisions passes OK.*
