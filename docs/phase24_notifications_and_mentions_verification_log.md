@@ -76,3 +76,5 @@
   *Verification #30/185: Verifies '[MENTION] To: user - Title' string representation.*
 - [x] **Checkpoint 031/185:** `feat(notification-model): enforce max_length 255 on title headline`  
   *Verification #31/185: Verifies schema constraint on notification title.*
+- [x] **Checkpoint 032/185:** `feat(notification-model): enforce max_length 500 on frontend navigation link`  
+  *Verification #32/185: Verifies long deep-link paths fit without truncation.*
