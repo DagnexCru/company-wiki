@@ -165,3 +165,5 @@
   *Verification #75/115: Verifies end-to-end review diff navigation succeeds in automated test.*
 - [x] **Checkpoint 076/115:** `feat(reader-ux): implement sticky top reading progress bar with smooth transition`  
   *Verification #76/115: Verifies 0-100% horizontal gradient bar at top of ArticleDetailPage.*
+- [x] **Checkpoint 077/115:** `feat(reader-ux): calculate reading progress with dual window and article container scroll`  
+  *Verification #77/115: Verifies progress fills accurately regardless of layout container scroll.*
