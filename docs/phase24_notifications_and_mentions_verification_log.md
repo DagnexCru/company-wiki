@@ -264,3 +264,5 @@
   *Verification #124/185: Verifies visual differentiation between read and unread items.*
 - [x] **Checkpoint 125/185:** `feat(notification-bell): format relative creation timestamps (e.g. '5m ago', '2h ago')`  
   *Verification #125/185: Verifies human-readable relative time string formatter.*
+- [x] **Checkpoint 126/185:** `feat(notification-bell): mark notification as read and navigate when item is clicked`  
+  *Verification #126/185: Verifies optimistic unread count decrement and route change.*
