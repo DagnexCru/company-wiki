@@ -80,3 +80,5 @@
   *Verification #32/185: Verifies long deep-link paths fit without truncation.*
 - [x] **Checkpoint 033/185:** `feat(notification-model): order notifications descending by created_at by default`  
   *Verification #33/185: Verifies Meta.ordering = ['-created_at'].*
+- [x] **Checkpoint 034/185:** `feat(notification-model): register Notification in Django Admin with filters`  
+  *Verification #34/185: Verifies admin dashboard can inspect notification volume.*
