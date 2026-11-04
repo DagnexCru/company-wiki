@@ -31,3 +31,5 @@
   *Verification #8/115: Validates line splitting across CRLF and LF newlines.*
 - [x] **Checkpoint 009/115:** `feat(diff-engine): sanitize raw diff content against XSS before rendering`  
   *Verification #9/115: Verifies text tokens are rendered securely without raw HTML injection.*
+- [x] **Checkpoint 010/115:** `feat(diff-engine): benchmark word diff compute time on large articles (< 15ms)`  
+  *Verification #10/115: Ensures LCS execution does not block React UI thread on 10,000-word articles.*
