@@ -115,3 +115,5 @@
   *Verification #50/115: Verifies visual indicators of line change volume on each revision.*
 - [x] **Checkpoint 051/115:** `feat(revision-history): display revision tags snapshot chips in version details`  
   *Verification #51/115: Verifies taxonomy state associated with each historical snapshot.*
+- [x] **Checkpoint 052/115:** `feat(revision-history): support back navigation to ArticleDetailPage preserving scroll`  
+  *Verification #52/115: Verifies 'Back to Article' breadcrumb link with article slug.*
