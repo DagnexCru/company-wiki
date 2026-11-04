@@ -246,3 +246,5 @@
   *Verification #115/185: Validates clean type checking in strict React mode.*
 - [x] **Checkpoint 116/185:** `feat(notification-bell): create NotificationBell component in global navigation header`  
   *Verification #116/185: Verifies bell button mounted next to user profile in Header.tsx.*
+- [x] **Checkpoint 117/185:** `feat(notification-bell): render pulsing unread badge counter for unread alerts`  
+  *Verification #117/185: Verifies rose-500 pill with animate-ping indicator when count > 0.*
