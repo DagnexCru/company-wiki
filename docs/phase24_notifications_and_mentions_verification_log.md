@@ -106,3 +106,5 @@
   *Verification #45/185: Verifies single UPDATE SQL statement marks all unread as read.*
 - [x] **Checkpoint 046/185:** `feat(notification-api): return updated_count and remaining unread_count (0) in bulk response`  
   *Verification #46/185: Verifies frontend immediately updates local state from response.*
+- [x] **Checkpoint 047/185:** `feat(notification-api): support ?filter=unread query parameter on notification list`  
+  *Verification #47/185: Verifies filtering out already read notifications.*
