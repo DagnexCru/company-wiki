@@ -64,3 +64,5 @@
   *Verification #24/185: Verifies MENTION, COMMENT, ARTICLE_UPDATED, REVIEW_REQUESTED, APPROVED, REJECTED.*
 - [x] **Checkpoint 025/185:** `feat(notification-model): set default is_read to False on newly created alerts`  
   *Verification #25/185: Verifies default boolean invariant on database schema.*
+- [x] **Checkpoint 026/185:** `feat(notification-model): record read_at timestamp when notification is marked as read`  
+  *Verification #26/185: Verifies timezone.now() is saved upon mark_as_read method call.*
