@@ -85,3 +85,5 @@
   *Verification #35/115: Verifies readers cannot trigger rollback without editing privileges.*
 - [x] **Checkpoint 036/115:** `feat(rollback): invalidate React Query cache upon successful version rollback`  
   *Verification #36/115: Verifies article detail and revision list re-fetch immediately on restore.*
+- [x] **Checkpoint 037/115:** `feat(rollback): show success toast notification with new version number on rollback`  
+  *Verification #37/115: Verifies toast: 'Successfully rolled forward to version #X'.*
