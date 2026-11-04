@@ -196,3 +196,5 @@
   *Verification #90/185: Verifies backward compatibility across API URL namespaces.*
 - [x] **Checkpoint 091/185:** `feat(mentions-api): benchmark suggestion search query latency (< 5ms)`  
   *Verification #91/185: Verifies indexed search delivers instant keystroke feedback.*
+- [x] **Checkpoint 092/185:** `feat(mentions-api): handle empty search query returning top default colleagues`  
+  *Verification #92/185: Verifies typing bare @ immediately displays suggestion list.*
