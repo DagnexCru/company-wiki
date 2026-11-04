@@ -157,3 +157,5 @@
   *Verification #71/115: Verifies sha256 checksum recorded for diff payloads.*
 - [x] **Checkpoint 072/115:** `feat(reviewer-ux): display diff visualizer in drawer modal on ReviewDetailPage`  
   *Verification #72/115: Verifies reviewer can review diff without navigating away from approval.*
+- [x] **Checkpoint 073/115:** `feat(reviewer-ux): allow approving or requesting changes directly while viewing diff`  
+  *Verification #73/115: Verifies review decision actions accessible inside diff view.*
