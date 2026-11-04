@@ -248,3 +248,5 @@
   *Verification #116/185: Verifies bell button mounted next to user profile in Header.tsx.*
 - [x] **Checkpoint 117/185:** `feat(notification-bell): render pulsing unread badge counter for unread alerts`  
   *Verification #117/185: Verifies rose-500 pill with animate-ping indicator when count > 0.*
+- [x] **Checkpoint 118/185:** `feat(notification-bell): format unread count display with '9+' overflow cap`  
+  *Verification #118/185: Verifies count > 9 renders compact '9+' badge.*
