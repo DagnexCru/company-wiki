@@ -231,3 +231,5 @@
   *Verification #108/115: Confirms python manage.py test apps.articles.tests_revisions passes OK.*
 - [x] **Checkpoint 109/115:** `test(e2e-diff): verify frontend TypeScript compilation with zero errors (npm run build)`  
   *Verification #109/115: Confirms Vite production bundle builds cleanly in < 6 seconds.*
+- [x] **Checkpoint 110/115:** `test(e2e-diff): verify zero regressions in article editing, creation, and taxonomy routes`  
+  *Verification #110/115: Verifies edit forms, tags, categories, and search operate smoothly.*
