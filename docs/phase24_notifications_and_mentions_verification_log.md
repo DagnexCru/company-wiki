@@ -130,3 +130,5 @@
   *Verification #57/185: Verifies indexed COUNT query executes near-instantaneously.*
 - [x] **Checkpoint 058/185:** `feat(notification-api): test mark-all-read endpoint on empty unread queue`  
   *Verification #58/185: Verifies 0 updated rows returns cleanly without error.*
+- [x] **Checkpoint 059/185:** `feat(notification-api): ensure serialized created_at uses ISO 8601 formatting`  
+  *Verification #59/185: Verifies standard date parsing in frontend JavaScript.*
