@@ -44,3 +44,5 @@
   *Verification #14/185: Verifies link format /articles/{slug}#comments resolves correctly.*
 - [x] **Checkpoint 015/185:** `feat(mention-tokenizer): support mention parsing in review decision feedback`  
   *Verification #15/185: Verifies notify_review_action invokes parse_and_notify_mentions.*
+- [x] **Checkpoint 016/185:** `feat(mention-tokenizer): support mention parsing in author submission notes`  
+  *Verification #16/185: Verifies author notes alert mentioned reviewers upon submission.*
