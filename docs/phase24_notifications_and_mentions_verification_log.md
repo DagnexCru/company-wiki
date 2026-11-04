@@ -84,3 +84,5 @@
   *Verification #34/185: Verifies admin dashboard can inspect notification volume.*
 - [x] **Checkpoint 035/185:** `feat(notification-model): optimize query with select_related on sender and article`  
   *Verification #35/185: Verifies 0 redundant queries when serializing notification list.*
+- [x] **Checkpoint 036/185:** `feat(notification-model): verify database migration 0001_initial rollback safety`  
+  *Verification #36/185: Verifies migration can be unapplied and reapplied cleanly.*
