@@ -13,3 +13,5 @@
 
 ## Verification Checkpoints
 
+- [x] **Checkpoint 001/115:** `feat(diff-engine): implement dynamic programming LCS algorithm for word diffs`  
+  *Verification #1/115: Validates computeWordDiff dynamic programming matrix on word tokens.*
