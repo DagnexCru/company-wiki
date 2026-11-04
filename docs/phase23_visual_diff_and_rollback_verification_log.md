@@ -195,3 +195,5 @@
   *Verification #90/115: Validates view count and feedback model tests execute successfully.*
 - [x] **Checkpoint 091/115:** `fix(ai): personalize Ask Wiki AI greeting with logged-in user full name`  
   *Verification #91/115: Verifies 'Welcome {first_name}!' dynamically addresses logged-in user.*
+- [x] **Checkpoint 092/115:** `fix(ai): introduce company knowledge domains when user greets with 'Hey' or 'Hello'`  
+  *Verification #92/115: Verifies AI introduces HR, Engineering, Operations, and Security domains.*
