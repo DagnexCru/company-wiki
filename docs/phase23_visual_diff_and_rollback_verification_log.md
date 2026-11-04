@@ -73,3 +73,5 @@
   *Verification #29/115: Verifies unchanged lines use text-slate-600 / dark:text-slate-400.*
 - [x] **Checkpoint 030/115:** `feat(diff-ui): render visual revision diff viewer unit test passing in React Testing Library`  
   *Verification #30/115: Verifies RevisionDiffViewer renders cleanly with mock props.*
+- [x] **Checkpoint 031/115:** `feat(rollback): implement non-destructive roll-forward architecture in Django backend`  
+  *Verification #31/115: Verifies restoring revision creates version N+1 preserving all history.*
