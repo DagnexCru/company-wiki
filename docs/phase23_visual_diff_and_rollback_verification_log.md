@@ -53,3 +53,5 @@
   *Verification #19/115: Verifies viewMode state persistence and active tab indicator.*
 - [x] **Checkpoint 020/115:** `feat(diff-ui): style hunk header rows with cyan badge and contextual code line count`  
   *Verification #20/115: Verifies hunk banner renders with font-mono cyan styling.*
+- [x] **Checkpoint 021/115:** `feat(diff-ui): display revision author badge and formatted creation timestamp in header`  
+  *Verification #21/115: Verifies author avatar, name, and relative timestamp display in comparison.*
