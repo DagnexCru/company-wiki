@@ -324,3 +324,5 @@
   *Verification #154/185: Verifies robust error boundary on comment stream.*
 - [x] **Checkpoint 155/185:** `feat(comments-ui): verify zero TypeScript compilation warnings in ArticleCommentsSection`  
   *Verification #155/185: Validates strict type checking for comment component.*
+- [x] **Checkpoint 156/185:** `feat(review-mentions): wire MentionTextarea into ReviewModal decision form`  
+  *Verification #156/185: Verifies reviewer can tag @author or @admin in rejection feedback.*
