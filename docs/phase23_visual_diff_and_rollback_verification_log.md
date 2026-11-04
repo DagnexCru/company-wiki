@@ -103,3 +103,5 @@
   *Verification #44/115: Verifies security compliance logging on document reversion.*
 - [x] **Checkpoint 045/115:** `feat(rollback): verify rollback backend test suite passes in Django test runner`  
   *Verification #45/115: Validates test_article_revisions rollback test cases execute successfully.*
+- [x] **Checkpoint 046/115:** `feat(revision-history): parse URL search params (?from=X&to=Y) on initial page mount`  
+  *Verification #46/115: Verifies deep-linking directly into comparison of revisions X and Y.*
