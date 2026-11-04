@@ -338,3 +338,5 @@
   *Verification #161/185: Verifies MENTION alert generated for third-party tagged engineers.*
 - [x] **Checkpoint 162/185:** `feat(review-mentions): notify original author when another collaborator edits their article`  
   *Verification #162/185: Verifies ARTICLE_UPDATED notification on collaborative edits.*
+- [x] **Checkpoint 163/185:** `feat(review-mentions): enforce independent reviewer permission invariants on review transitions`  
+  *Verification #163/185: Verifies authors cannot approve their own submissions.*
