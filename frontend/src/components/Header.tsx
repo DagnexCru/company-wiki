@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Search, Menu } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { NotificationBell } from "./NotificationBell";
 
 interface HeaderProps {
   onToggleSidebar?: () => void;
@@ -94,6 +95,9 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
         >
           <Search className="w-5 h-5" />
         </button>
+        {/* In-App Notifications Bell Center */}
+        {user && <NotificationBell />}
+
         {user ? (
           <Link
             to="/profile"
