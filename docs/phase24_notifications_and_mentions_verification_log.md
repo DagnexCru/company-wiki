@@ -114,3 +114,5 @@
   *Verification #49/185: Verifies pagination boundary avoids runaway JSON responses.*
 - [x] **Checkpoint 050/185:** `feat(notification-api): serialize sender full name, username, and role`  
   *Verification #50/185: Verifies NotificationSenderSerializer returns nested actor details.*
+- [x] **Checkpoint 051/185:** `feat(notification-api): serialize article title, slug, and status`  
+  *Verification #51/185: Verifies NotificationArticleSerializer provides contextual data.*
