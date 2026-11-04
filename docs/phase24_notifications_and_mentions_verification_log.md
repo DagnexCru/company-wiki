@@ -318,3 +318,5 @@
   *Verification #151/185: Verifies helpful collaboration guidance in form footer.*
 - [x] **Checkpoint 152/185:** `feat(comments-ui): ensure comment cards are accessible with semantic HTML markup`  
   *Verification #152/185: Verifies section, header, and form tags for screen readers.*
+- [x] **Checkpoint 153/185:** `feat(comments-ui): test responsive layout on mobile viewports (375px)`  
+  *Verification #153/185: Verifies avatar and comment body stack neatly on phones.*
