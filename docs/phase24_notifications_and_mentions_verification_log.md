@@ -200,3 +200,5 @@
   *Verification #92/185: Verifies typing bare @ immediately displays suggestion list.*
 - [x] **Checkpoint 093/185:** `feat(mentions-api): sanitize search query against SQL injection attacks`  
   *Verification #93/185: Verifies Django ORM parameterized queries protect user search.*
+- [x] **Checkpoint 094/185:** `feat(mentions-api): ensure zero console warnings or serializer errors on suggestion fetch`  
+  *Verification #94/185: Verifies clean JSON response structure.*
