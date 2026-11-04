@@ -122,3 +122,5 @@
   *Verification #53/185: Verifies error handling on invalid UUID parameter.*
 - [x] **Checkpoint 054/185:** `feat(notification-api): include unread_count directly inside list response payload`  
   *Verification #54/185: Verifies response dictionary contains count, unread_count, and results.*
+- [x] **Checkpoint 055/185:** `feat(notification-api): ensure CORS headers allow authorization header for notifications`  
+  *Verification #55/185: Verifies JWT bearer authentication functions across origins.*
