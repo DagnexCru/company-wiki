@@ -229,3 +229,5 @@
   *Verification #107/115: Verifies non-destructive version chain: v1 -> v2 -> v3 (restored v1).*
 - [x] **Checkpoint 108/115:** `test(e2e-diff): verify all 11 Django revision and workflow tests execute successfully`  
   *Verification #108/115: Confirms python manage.py test apps.articles.tests_revisions passes OK.*
+- [x] **Checkpoint 109/115:** `test(e2e-diff): verify frontend TypeScript compilation with zero errors (npm run build)`  
+  *Verification #109/115: Confirms Vite production bundle builds cleanly in < 6 seconds.*
