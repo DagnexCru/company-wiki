@@ -352,3 +352,5 @@
   *Verification #168/185: Verifies compliance audit trail records all review events.*
 - [x] **Checkpoint 169/185:** `feat(review-mentions): test mention parsing with multiple reviewers tagged in feedback`  
   *Verification #169/185: Verifies feedback CCing multiple reviewers notifies all of them.*
+- [x] **Checkpoint 170/185:** `feat(review-mentions): verify zero review workflow regressions across existing tests`  
+  *Verification #170/185: Validates all review queue workflows operate seamlessly.*
