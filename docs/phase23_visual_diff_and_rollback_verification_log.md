@@ -65,3 +65,5 @@
   *Verification #25/115: Verifies table-responsive overflow-x-auto on mobile screens.*
 - [x] **Checkpoint 026/115:** `feat(diff-ui): customize diff gutter icons with plus and minus indicators`  
   *Verification #26/115: Verifies font-mono bold + / - symbols in line gutters.*
+- [x] **Checkpoint 027/115:** `feat(diff-ui): ensure dark mode color tokens match slate-900 / slate-800 theme`  
+  *Verification #27/115: Verifies dark mode classes for diff backgrounds and borders.*
