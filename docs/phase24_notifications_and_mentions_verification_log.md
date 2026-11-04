@@ -320,3 +320,5 @@
   *Verification #152/185: Verifies section, header, and form tags for screen readers.*
 - [x] **Checkpoint 153/185:** `feat(comments-ui): test responsive layout on mobile viewports (375px)`  
   *Verification #153/185: Verifies avatar and comment body stack neatly on phones.*
+- [x] **Checkpoint 154/185:** `feat(comments-ui): handle network retry gracefully if comments fail to load`  
+  *Verification #154/185: Verifies robust error boundary on comment stream.*
