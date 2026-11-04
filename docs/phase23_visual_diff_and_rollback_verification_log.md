@@ -171,3 +171,5 @@
   *Verification #78/115: Verifies '⏱️ X min read' chip calculated dynamically from word count.*
 - [x] **Checkpoint 079/115:** `feat(reader-ux): add animated view count tracker incrementing on unique article reads`  
   *Verification #79/115: Verifies atomic F() expression increment on Article view_count.*
+- [x] **Checkpoint 080/115:** `feat(reader-ux): design interactive ArticleFeedbackWidget with thumbs up / down buttons`  
+  *Verification #80/115: Verifies thumbs up and thumbs down interactive reaction states.*
