@@ -131,3 +131,5 @@
   *Verification #58/115: Verifies accessibility keyboard focus on revision list.*
 - [x] **Checkpoint 059/115:** `feat(revision-history): add export revision history as markdown changelog`  
   *Verification #59/115: Verifies team lead can download revision summary for release notes.*
+- [x] **Checkpoint 060/115:** `feat(revision-history): ensure zero console warnings or React re-render loops`  
+  *Verification #60/115: Verifies clean React component lifecycle on revision page.*
