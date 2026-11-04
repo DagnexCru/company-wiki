@@ -86,3 +86,5 @@
   *Verification #35/185: Verifies 0 redundant queries when serializing notification list.*
 - [x] **Checkpoint 036/185:** `feat(notification-model): verify database migration 0001_initial rollback safety`  
   *Verification #36/185: Verifies migration can be unapplied and reapplied cleanly.*
+- [x] **Checkpoint 037/185:** `feat(notification-model): support system-generated alerts with null sender`  
+  *Verification #37/185: Verifies broadcast or automated alerts function without user actor.*
