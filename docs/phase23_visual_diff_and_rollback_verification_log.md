@@ -203,3 +203,5 @@
   *Verification #94/115: Verifies try-except block returns graceful fallback summary on error.*
 - [x] **Checkpoint 095/115:** `fix(ai-summary): resolve article by UUID or slug safely without ValueError`  
   *Verification #95/115: Verifies safe resolution of both integer IDs, UUIDs, and slugs.*
+- [x] **Checkpoint 096/115:** `feat(security): enforce CSRF protection on revision rollback and feedback mutations`  
+  *Verification #96/115: Verifies CSRF token header present on all POST endpoints.*
