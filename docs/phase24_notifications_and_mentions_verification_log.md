@@ -88,3 +88,5 @@
   *Verification #36/185: Verifies migration can be unapplied and reapplied cleanly.*
 - [x] **Checkpoint 037/185:** `feat(notification-model): support system-generated alerts with null sender`  
   *Verification #37/185: Verifies broadcast or automated alerts function without user actor.*
+- [x] **Checkpoint 038/185:** `feat(notification-model): validate max length constraint on notification_type (30 chars)`  
+  *Verification #38/185: Verifies character limit conforms to longest choice name.*
