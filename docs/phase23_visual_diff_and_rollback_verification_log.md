@@ -175,3 +175,5 @@
   *Verification #80/115: Verifies thumbs up and thumbs down interactive reaction states.*
 - [x] **Checkpoint 081/115:** `feat(reader-ux): provide quick feedback tag pills (Clear, Comprehensive, Outdated, Missing Info)`  
   *Verification #81/115: Verifies reader can select pre-built feedback reasons with one click.*
+- [x] **Checkpoint 082/115:** `feat(reader-ux): allow optional reader note submission in feedback widget`  
+  *Verification #82/115: Verifies text area for reader notes with 500-char max length.*
