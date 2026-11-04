@@ -178,3 +178,5 @@
   *Verification #81/185: Verifies query parameter q filters users by username and full_name.*
 - [x] **Checkpoint 082/185:** `feat(mentions-api): support leading @ symbol stripping in search query parameter`  
   *Verification #82/185: Verifies q=@alice searches for 'alice' cleanly.*
+- [x] **Checkpoint 083/185:** `feat(mentions-api): limit mention suggestion results to top 20 active users`  
+  *Verification #83/185: Verifies autocomplete response stays lightweight.*
