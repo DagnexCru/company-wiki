@@ -61,3 +61,5 @@
   *Verification #23/115: Verifies clipboard integration for developer inspection.*
 - [x] **Checkpoint 024/115:** `feat(diff-ui): render sticky diff comparison bar during long document scrolling`  
   *Verification #24/115: Verifies version selectors remain visible when scrolling long diffs.*
+- [x] **Checkpoint 025/115:** `feat(diff-ui): implement responsive horizontal scrolling on narrow viewports`  
+  *Verification #25/115: Verifies table-responsive overflow-x-auto on mobile screens.*
