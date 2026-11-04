@@ -194,3 +194,5 @@
   *Verification #89/185: Verifies q=sarah matches 'Sarah Chen'.*
 - [x] **Checkpoint 090/185:** `feat(mentions-api): expose alias endpoint at /users/mention-suggestions/`  
   *Verification #90/185: Verifies backward compatibility across API URL namespaces.*
+- [x] **Checkpoint 091/185:** `feat(mentions-api): benchmark suggestion search query latency (< 5ms)`  
+  *Verification #91/185: Verifies indexed search delivers instant keystroke feedback.*
