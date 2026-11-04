@@ -1,168 +1,117 @@
 import React, { useState, useMemo } from "react";
 import type { RevisionDiffResult } from "../types/revision";
 import {
+  parseSplitDiff,
+  parseUnifiedDiff,
+  type SplitDiffRow,
+  type UnifiedDiffRow,
+} from "../utils/diffUtils";
+import {
   Plus,
   Minus,
   ArrowRight,
   Tag as TagIcon,
   Folder,
-  AlertCircle,
   RotateCcw,
   Columns,
   List,
+  ArrowLeftRight,
+  CheckCircle2,
+  FileText,
 } from "lucide-react";
 
 interface RevisionDiffViewerProps {
   diff: RevisionDiffResult;
   canRestore?: boolean;
   onRestore?: (revisionNumber: number) => void;
-}
-
-interface SplitDiffRow {
-  leftLineNum?: number;
-  leftText?: string;
-  leftType?: "removed" | "context" | "empty";
-  rightLineNum?: number;
-  rightText?: string;
-  rightType?: "added" | "context" | "empty";
-  isHeader?: boolean;
-  headerText?: string;
+  onSwapRevisions?: (fromRev: number, toRev: number) => void;
 }
 
 export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
   diff,
   canRestore = false,
   onRestore,
+  onSwapRevisions,
 }) => {
   const [viewMode, setViewMode] = useState<"side-by-side" | "unified">("side-by-side");
 
-  // Parse unified diff into raw lines
-  const rawDiffLines = useMemo(() => {
-    return diff.content_unified_diff ? diff.content_unified_diff.split("\n") : [];
+  // Aligned rows with word-level token diffs for split view
+  const splitRows = useMemo<SplitDiffRow[]>(() => {
+    return parseSplitDiff(diff.content_unified_diff);
   }, [diff.content_unified_diff]);
 
-  // Compute side-by-side paired rows
-  const splitRows = useMemo<SplitDiffRow[]>(() => {
-    if (!rawDiffLines.length) return [];
+  // Aligned rows with accurate old & new line numbers for unified view
+  const unifiedRows = useMemo<UnifiedDiffRow[]>(() => {
+    return parseUnifiedDiff(diff.content_unified_diff);
+  }, [diff.content_unified_diff]);
 
-    const rows: SplitDiffRow[] = [];
-    let leftLine = 0;
-    let rightLine = 0;
-
-    let pendingLeft: { lineNum: number; text: string }[] = [];
-    let pendingRight: { lineNum: number; text: string }[] = [];
-
-    const flushPending = () => {
-      const maxLen = Math.max(pendingLeft.length, pendingRight.length);
-      for (let i = 0; i < maxLen; i++) {
-        const leftItem = pendingLeft[i];
-        const rightItem = pendingRight[i];
-        rows.push({
-          leftLineNum: leftItem ? leftItem.lineNum : undefined,
-          leftText: leftItem ? leftItem.text : undefined,
-          leftType: leftItem ? "removed" : "empty",
-          rightLineNum: rightItem ? rightItem.lineNum : undefined,
-          rightText: rightItem ? rightItem.text : undefined,
-          rightType: rightItem ? "added" : "empty",
-        });
-      }
-      pendingLeft = [];
-      pendingRight = [];
-    };
-
-    for (let i = 0; i < rawDiffLines.length; i++) {
-      const line = rawDiffLines[i];
-
-      // File header lines
-      if (line.startsWith("---") || line.startsWith("+++")) {
-        continue;
-      }
-
-      // Hunk header: @@ -from,count +to,count @@
-      if (line.startsWith("@@")) {
-        flushPending();
-        const match = line.match(/@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
-        if (match) {
-          leftLine = parseInt(match[1], 10) - 1;
-          rightLine = parseInt(match[2], 10) - 1;
-        }
-        rows.push({
-          isHeader: true,
-          headerText: line,
-        });
-        continue;
-      }
-
-      if (line.startsWith("-")) {
-        leftLine++;
-        pendingLeft.push({ lineNum: leftLine, text: line.slice(1) });
-      } else if (line.startsWith("+")) {
-        rightLine++;
-        pendingRight.push({ lineNum: rightLine, text: line.slice(1) });
-      } else {
-        flushPending();
-        leftLine++;
-        rightLine++;
-        const content = line.startsWith(" ") ? line.slice(1) : line;
-        rows.push({
-          leftLineNum: leftLine,
-          leftText: content,
-          leftType: "context",
-          rightLineNum: rightLine,
-          rightText: content,
-          rightType: "context",
-        });
-      }
-    }
-
-    flushPending();
-    return rows;
-  }, [rawDiffLines]);
+  const hasContentDiff = splitRows.length > 0;
 
   return (
-    <div className="space-y-6">
-      {/* Header comparison card with rollback quick-actions */}
-      <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-4">
+    <div className="space-y-6 animate-in fade-in duration-200">
+      {/* Header comparison card with rollback quick-actions and stats */}
+      <div className="p-4 bg-slate-50 dark:bg-slate-800/70 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-3">
-          {/* From Revision */}
+          {/* From Revision (Source / Previous) */}
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 text-xs font-bold rounded-md bg-indigo-100 text-indigo-700 dark:bg-indigo-950/80 dark:text-indigo-300">
+            <span className="px-3 py-1 text-xs font-extrabold rounded-lg bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
               Rev #{diff.from_revision}
             </span>
-            <span className="text-xs text-slate-500">
-              {new Date(diff.from_created_at).toLocaleDateString()}
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              {new Date(diff.from_created_at).toLocaleDateString(undefined, {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
             </span>
+
+            {/* One-Click Restore / Rollback Button */}
             {canRestore && onRestore && (
               <button
                 type="button"
                 onClick={() => onRestore(diff.from_revision)}
-                title={`Restore Revision #${diff.from_revision}`}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/60 border border-amber-200 dark:border-amber-800 transition cursor-pointer"
+                title={`Restore article to Revision #${diff.from_revision} (creates new roll-forward version)`}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500 hover:bg-amber-600 active:scale-[0.98] text-white shadow-xs shadow-amber-500/20 transition cursor-pointer"
               >
-                <RotateCcw className="w-3 h-3" />
+                <RotateCcw className="w-3.5 h-3.5" />
                 <span>Restore #{diff.from_revision}</span>
               </button>
             )}
           </div>
 
-          <ArrowRight className="w-4 h-4 text-slate-400" />
+          {/* Swap Revisions Control */}
+          <button
+            type="button"
+            onClick={() => onSwapRevisions && onSwapRevisions(diff.to_revision, diff.from_revision)}
+            disabled={!onSwapRevisions}
+            title="Swap comparison direction"
+            className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-white dark:hover:bg-slate-700 transition cursor-pointer disabled:opacity-50"
+          >
+            <ArrowLeftRight className="w-4 h-4" />
+          </button>
 
-          {/* To Revision */}
+          {/* To Revision (Target / Newer) */}
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 text-xs font-bold rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300">
+            <span className="px-3 py-1 text-xs font-extrabold rounded-lg bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               Rev #{diff.to_revision}
             </span>
-            <span className="text-xs text-slate-500">
-              {new Date(diff.to_created_at).toLocaleDateString()}
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              {new Date(diff.to_created_at).toLocaleDateString(undefined, {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
             </span>
+
+            {/* One-Click Restore / Rollback Button */}
             {canRestore && onRestore && (
               <button
                 type="button"
                 onClick={() => onRestore(diff.to_revision)}
-                title={`Restore Revision #${diff.to_revision}`}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 transition cursor-pointer"
+                title={`Restore article to Revision #${diff.to_revision} (creates new roll-forward version)`}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white shadow-xs shadow-indigo-600/20 transition cursor-pointer"
               >
-                <RotateCcw className="w-3 h-3" />
+                <RotateCcw className="w-3.5 h-3.5" />
                 <span>Restore #{diff.to_revision}</span>
               </button>
             )}
@@ -171,115 +120,118 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
 
         {/* Change Stats & View Mode Toggle */}
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 text-xs font-semibold">
-            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-md">
+          <div className="flex items-center gap-1.5 text-xs font-bold">
+            <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-lg">
               <Plus className="w-3.5 h-3.5" />
               {diff.stats.additions} added
             </span>
-            <span className="flex items-center gap-1 text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 px-2.5 py-1 rounded-md">
+            <span className="flex items-center gap-1 text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 px-2.5 py-1 rounded-lg">
               <Minus className="w-3.5 h-3.5" />
               {diff.stats.deletions} removed
             </span>
           </div>
 
           {/* Side-by-Side vs Unified Toggle */}
-          <div className="inline-flex p-0.5 bg-slate-200/80 dark:bg-slate-700 rounded-lg text-xs font-semibold">
+          <div className="inline-flex p-1 bg-slate-200/80 dark:bg-slate-700/80 rounded-xl text-xs font-bold">
             <button
               type="button"
               onClick={() => setViewMode("side-by-side")}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition cursor-pointer ${
                 viewMode === "side-by-side"
                   ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
               <Columns className="w-3.5 h-3.5" />
-              <span>Split View</span>
+              <span>Side-by-Side</span>
             </button>
             <button
               type="button"
               onClick={() => setViewMode("unified")}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition cursor-pointer ${
                 viewMode === "unified"
                   ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
               <List className="w-3.5 h-3.5" />
-              <span>Unified View</span>
+              <span>Unified</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Metadata Differences */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Title Diff */}
-        {diff.title_changed && (
-          <div className="p-3.5 rounded-lg border border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-950/20">
-            <div className="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider mb-1.5">
-              Title Modified
-            </div>
-            <div className="space-y-1 text-xs">
-              <div className="flex items-center gap-2 text-rose-700 dark:text-rose-400 line-through">
-                <Minus className="w-3 h-3 shrink-0" />
-                <span>{diff.from_title}</span>
+      {/* Metadata Differences: Title, Category, Tags */}
+      {(diff.title_changed || diff.category_changed || diff.tags_added.length > 0 || diff.tags_removed.length > 0) && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Title Diff */}
+          {diff.title_changed && (
+            <div className="p-4 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20 space-y-2">
+              <div className="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5" />
+                <span>Title Modified</span>
               </div>
-              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-medium">
-                <Plus className="w-3 h-3 shrink-0" />
-                <span>{diff.to_title}</span>
+              <div className="space-y-1.5 text-xs font-mono">
+                <div className="flex items-start gap-2 p-1.5 rounded bg-rose-100/70 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 line-through">
+                  <Minus className="w-3.5 h-3.5 shrink-0 text-rose-600" />
+                  <span>{diff.from_title}</span>
+                </div>
+                <div className="flex items-start gap-2 p-1.5 rounded bg-emerald-100/70 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-semibold">
+                  <Plus className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
+                  <span>{diff.to_title}</span>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Category Diff */}
-        {diff.category_changed && (
-          <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-              <Folder className="w-3.5 h-3.5 text-indigo-500" />
-              Category Changed
+          {/* Category Diff */}
+          {diff.category_changed && (
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                <Folder className="w-3.5 h-3.5 text-indigo-500" />
+                <span>Category Changed</span>
+              </div>
+              <div className="text-xs flex items-center gap-2">
+                <span className="text-slate-400 line-through">{diff.from_category || "(None)"}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                <span className="font-bold text-slate-800 dark:text-slate-200">
+                  {diff.to_category || "(None)"}
+                </span>
+              </div>
             </div>
-            <div className="text-xs flex items-center gap-2">
-              <span className="text-slate-400 line-through">{diff.from_category || "(None)"}</span>
-              <ArrowRight className="w-3 h-3 text-slate-400" />
-              <span className="font-semibold text-slate-800 dark:text-slate-200">
-                {diff.to_category || "(None)"}
-              </span>
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* Tags Added / Removed */}
-        {(diff.tags_added.length > 0 || diff.tags_removed.length > 0) && (
-          <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 md:col-span-2">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
-              <TagIcon className="w-3.5 h-3.5 text-indigo-500" />
-              Tag Changes
+          {/* Tags Added / Removed */}
+          {(diff.tags_added.length > 0 || diff.tags_removed.length > 0) && (
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 md:col-span-2 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                <TagIcon className="w-3.5 h-3.5 text-indigo-500" />
+                <span>Tag Changes</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                {diff.tags_removed.map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-200 dark:border-rose-800 line-through"
+                  >
+                    <Minus className="w-3 h-3 text-rose-500" />
+                    <span>#{t}</span>
+                  </span>
+                ))}
+                {diff.tags_added.map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 font-bold"
+                  >
+                    <Plus className="w-3 h-3 text-emerald-500" />
+                    <span>#{t}</span>
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap items-center gap-2">
-              {diff.tags_removed.map((t) => (
-                <span
-                  key={t}
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs bg-rose-50 text-rose-700 border border-rose-200 line-through"
-                >
-                  <Minus className="w-3 h-3" />
-                  {t}
-                </span>
-              ))}
-              {diff.tags_added.map((t) => (
-                <span
-                  key={t}
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium"
-                >
-                  <Plus className="w-3 h-3" />
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
       {/* Summary Diff if changed */}
       {diff.summary_changed && (
@@ -287,93 +239,102 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
             Summary / Excerpt Difference
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-            <div className="p-3 rounded bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40 text-rose-900 dark:text-rose-200">
-              <p className="font-semibold text-[11px] text-rose-600 dark:text-rose-400 mb-1">
-                Revision #{diff.from_revision}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs leading-relaxed">
+            <div className="p-3 rounded-lg bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 text-rose-900 dark:text-rose-200">
+              <p className="font-bold text-[11px] text-rose-600 dark:text-rose-400 mb-1">
+                Revision #{diff.from_revision} (Previous)
               </p>
-              <p>{diff.from_summary || "Empty summary"}</p>
+              <p>{diff.from_summary || "(Empty summary)"}</p>
             </div>
-            <div className="p-3 rounded bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40 text-emerald-900 dark:text-emerald-200">
-              <p className="font-semibold text-[11px] text-emerald-600 dark:text-emerald-400 mb-1">
-                Revision #{diff.to_revision}
+            <div className="p-3 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-900 dark:text-emerald-200">
+              <p className="font-bold text-[11px] text-emerald-600 dark:text-emerald-400 mb-1">
+                Revision #{diff.to_revision} (Updated)
               </p>
-              <p>{diff.to_summary || "Empty summary"}</p>
+              <p>{diff.to_summary || "(Empty summary)"}</p>
             </div>
           </div>
         </div>
       )}
 
-      {/* Document Content Visual Diff Display */}
-      <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-xs">
+      {/* Line-by-Line Document Content Visual Diff Display */}
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-xs">
         {/* Diff Toolbar Header */}
-        <div className="px-4 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div className="px-4 py-3 bg-slate-50 dark:bg-slate-800/90 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-              Document Content Diff
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200">
+              Content Line Diff
             </span>
-            <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold">
-              {viewMode === "side-by-side" ? "Split View (2 Columns)" : "Unified View (1 Column)"}
+            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold">
+              {viewMode === "side-by-side" ? "Side-by-Side (2 Columns)" : "Unified Line-by-Line (1 Column)"}
             </span>
           </div>
-          <span className="text-xs text-slate-500 font-mono">
-            {rawDiffLines.length} diff lines
-          </span>
+          <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+            <span>+{diff.stats.additions} / -{diff.stats.deletions}</span>
+          </div>
         </div>
 
-        {rawDiffLines.length === 0 ? (
-          <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-sm">
-            <AlertCircle className="w-8 h-8 mx-auto mb-2 opacity-50" />
-            No content differences found between these two revisions.
+        {!hasContentDiff ? (
+          <div className="p-12 text-center text-slate-400 dark:text-slate-500 text-sm space-y-2">
+            <CheckCircle2 className="w-8 h-8 mx-auto text-emerald-500 opacity-80" />
+            <p className="font-semibold text-slate-700 dark:text-slate-300">
+              Identical Document Content
+            </p>
+            <p className="text-xs text-slate-400">
+              No content differences detected between Revision #{diff.from_revision} and Revision #{diff.to_revision}.
+            </p>
           </div>
         ) : viewMode === "side-by-side" ? (
           /* SIDE-BY-SIDE SPLIT VIEW */
-          <div className="overflow-x-auto max-h-[650px] font-mono text-xs leading-relaxed">
+          <div className="overflow-x-auto max-h-[700px] font-mono text-xs leading-relaxed">
             {/* Split Column Headers */}
-            <div className="grid grid-cols-2 bg-slate-100 dark:bg-slate-800/90 border-b border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 sticky top-0 z-10">
-              <div className="px-4 py-1.5 border-r border-slate-200 dark:border-slate-700 flex items-center justify-between">
+            <div className="grid grid-cols-2 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-200 sticky top-0 z-10">
+              <div className="px-4 py-2 border-r border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <span>Revision #{diff.from_revision} (Original)</span>
-                <span className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold">Deletions (-)</span>
+                <span className="text-[10px] text-rose-600 dark:text-rose-400 font-extrabold uppercase">
+                  Deletions (-)
+                </span>
               </div>
-              <div className="px-4 py-1.5 flex items-center justify-between">
+              <div className="px-4 py-2 flex items-center justify-between">
                 <span>Revision #{diff.to_revision} (Target)</span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Additions (+)</span>
+                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase">
+                  Additions (+)
+                </span>
               </div>
             </div>
 
             {/* Split Rows */}
-            <div className="divide-y divide-slate-100/50 dark:divide-slate-800/40">
+            <div className="divide-y divide-slate-100/60 dark:divide-slate-800/60">
               {splitRows.map((row, idx) => {
                 if (row.isHeader) {
                   return (
                     <div
                       key={idx}
-                      className="px-4 py-1 bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 font-semibold text-[11px] border-y border-indigo-100 dark:border-indigo-900/60"
+                      className="px-4 py-1.5 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-400 font-bold text-[11px] border-y border-indigo-100 dark:border-indigo-900/60 select-none"
                     >
                       {row.headerText}
                     </div>
                   );
                 }
 
-                // Left column styles
+                // Left column styles (Deletions)
                 let leftBg = "bg-transparent";
                 if (row.leftType === "removed") {
-                  leftBg = "bg-rose-50/80 dark:bg-rose-950/50 text-rose-800 dark:text-rose-300";
+                  leftBg = "bg-rose-50/90 dark:bg-rose-950/60 text-rose-950 dark:text-rose-200 border-l-2 border-rose-500";
                 } else if (row.leftType === "empty") {
-                  leftBg = "bg-slate-50/40 dark:bg-slate-900/40 opacity-30 select-none";
+                  leftBg = "bg-slate-50/50 dark:bg-slate-900/60 opacity-30 select-none";
                 }
 
-                // Right column styles
+                // Right column styles (Additions)
                 let rightBg = "bg-transparent";
                 if (row.rightType === "added") {
-                  rightBg = "bg-emerald-50/80 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300";
+                  rightBg = "bg-emerald-50/90 dark:bg-emerald-950/60 text-emerald-950 dark:text-emerald-200 border-l-2 border-emerald-500";
                 } else if (row.rightType === "empty") {
-                  rightBg = "bg-slate-50/40 dark:bg-slate-900/40 opacity-30 select-none";
+                  rightBg = "bg-slate-50/50 dark:bg-slate-900/60 opacity-30 select-none";
                 }
 
                 return (
-                  <div key={idx} className="grid grid-cols-2 group hover:bg-slate-50/80 dark:hover:bg-slate-800/30">
-                    {/* Left Pane (From) */}
+                  <div key={idx} className="grid grid-cols-2 group hover:bg-slate-50/90 dark:hover:bg-slate-800/40">
+                    {/* Left Pane (From / Deleted) */}
                     <div className={`flex items-start border-r border-slate-200 dark:border-slate-800 px-2 py-0.5 ${leftBg}`}>
                       <span className="w-8 text-[11px] text-slate-400 select-none text-right shrink-0 pr-2">
                         {row.leftLineNum || ""}
@@ -382,11 +343,26 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
                         {row.leftType === "removed" ? "-" : ""}
                       </span>
                       <span className="whitespace-pre-wrap break-all flex-1 font-mono">
-                        {row.leftText || (row.leftType === "empty" ? "" : " ")}
+                        {row.leftTokens ? (
+                          row.leftTokens.map((token, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className={
+                                token.type === "removed"
+                                  ? "bg-rose-200/90 dark:bg-rose-800/90 text-rose-950 dark:text-white rounded-xs px-0.5 font-bold"
+                                  : undefined
+                              }
+                            >
+                              {token.text}
+                            </span>
+                          ))
+                        ) : (
+                          row.leftText || (row.leftType === "empty" ? "" : " ")
+                        )}
                       </span>
                     </div>
 
-                    {/* Right Pane (To) */}
+                    {/* Right Pane (To / Added) */}
                     <div className={`flex items-start px-2 py-0.5 ${rightBg}`}>
                       <span className="w-8 text-[11px] text-slate-400 select-none text-right shrink-0 pr-2">
                         {row.rightLineNum || ""}
@@ -395,7 +371,22 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
                         {row.rightType === "added" ? "+" : ""}
                       </span>
                       <span className="whitespace-pre-wrap break-all flex-1 font-mono">
-                        {row.rightText || (row.rightType === "empty" ? "" : " ")}
+                        {row.rightTokens ? (
+                          row.rightTokens.map((token, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className={
+                                token.type === "added"
+                                  ? "bg-emerald-200/90 dark:bg-emerald-800/90 text-emerald-950 dark:text-white rounded-xs px-0.5 font-bold"
+                                  : undefined
+                              }
+                            >
+                              {token.text}
+                            </span>
+                          ))
+                        ) : (
+                          row.rightText || (row.rightType === "empty" ? "" : " ")
+                        )}
                       </span>
                     </div>
                   </div>
@@ -404,33 +395,45 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
             </div>
           </div>
         ) : (
-          /* UNIFIED LINE DIFF VIEW */
-          <div className="overflow-x-auto max-h-[650px] font-mono text-xs leading-relaxed p-2">
-            {rawDiffLines.map((line, idx) => {
-              const isAdded = line.startsWith("+") && !line.startsWith("+++");
-              const isRemoved = line.startsWith("-") && !line.startsWith("---");
-              const isHeader = line.startsWith("@@") || line.startsWith("---") || line.startsWith("+++");
+          /* UNIFIED LINE-BY-LINE VIEW */
+          <div className="overflow-x-auto max-h-[700px] font-mono text-xs leading-relaxed divide-y divide-slate-100/50 dark:divide-slate-800/40">
+            {unifiedRows.map((row, idx) => {
+              if (row.type === "header") {
+                return (
+                  <div
+                    key={idx}
+                    className="px-4 py-1.5 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-400 font-bold text-[11px] select-none"
+                  >
+                    {row.text}
+                  </div>
+                );
+              }
 
-              let rowClass = "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/40";
-              let badge = null;
+              let rowClass = "text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/40";
+              let marker = <span className="w-4 select-none">&nbsp;</span>;
 
-              if (isAdded) {
-                rowClass = "bg-emerald-50/70 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300";
-                badge = <span className="w-4 text-emerald-600 font-bold select-none">+</span>;
-              } else if (isRemoved) {
-                rowClass = "bg-rose-50/70 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300";
-                badge = <span className="w-4 text-rose-600 font-bold select-none">-</span>;
-              } else if (isHeader) {
-                rowClass = "bg-indigo-50/60 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400 font-semibold";
+              if (row.type === "added") {
+                rowClass = "bg-emerald-50/90 dark:bg-emerald-950/60 text-emerald-950 dark:text-emerald-100 border-l-2 border-emerald-500";
+                marker = <span className="w-4 text-emerald-600 font-extrabold select-none">+</span>;
+              } else if (row.type === "removed") {
+                rowClass = "bg-rose-50/90 dark:bg-rose-950/60 text-rose-950 dark:text-rose-100 border-l-2 border-rose-500";
+                marker = <span className="w-4 text-rose-600 font-extrabold select-none">-</span>;
               }
 
               return (
-                <div key={idx} className={`flex items-start gap-2 px-2.5 py-0.5 rounded-sm ${rowClass}`}>
-                  <span className="w-8 text-[11px] text-slate-400 select-none text-right shrink-0">
-                    {idx + 1}
+                <div key={idx} className={`flex items-start px-2 py-0.5 ${rowClass}`}>
+                  {/* Old Line # */}
+                  <span className="w-10 text-[11px] text-slate-400 select-none text-right shrink-0 pr-2">
+                    {row.oldLineNum || ""}
                   </span>
-                  {badge || <span className="w-4 select-none">&nbsp;</span>}
-                  <span className="whitespace-pre-wrap break-all flex-1">{line.slice(1) || line}</span>
+                  {/* New Line # */}
+                  <span className="w-10 text-[11px] text-slate-400 select-none text-right shrink-0 pr-2 border-r border-slate-200 dark:border-slate-800">
+                    {row.newLineNum || ""}
+                  </span>
+                  {/* Sign */}
+                  <div className="px-2 text-center shrink-0">{marker}</div>
+                  {/* Content */}
+                  <span className="whitespace-pre-wrap break-all flex-1 font-mono">{row.text}</span>
                 </div>
               );
             })}
@@ -440,3 +443,5 @@ export const RevisionDiffViewer: React.FC<RevisionDiffViewerProps> = ({
     </div>
   );
 };
+
+export default RevisionDiffViewer;
