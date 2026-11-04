@@ -162,3 +162,5 @@
   *Verification #73/185: Verifies multi-line commentary is preserved faithfully.*
 - [x] **Checkpoint 074/185:** `feat(comments-backend): record updated_at timestamp when comments are modified`  
   *Verification #74/185: Verifies auto_now=True records modification timestamps.*
+- [x] **Checkpoint 075/185:** `feat(comments-backend): set comment link anchor to /articles/{slug}#comments`  
+  *Verification #75/185: Verifies clicking notification scrolls directly to discussion section.*
