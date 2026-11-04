@@ -123,3 +123,5 @@
   *Verification #54/115: Verifies 'No earlier revisions available' notice for version 1.*
 - [x] **Checkpoint 055/115:** `feat(revision-history): format localized relative dates using date-fns or native Intl`  
   *Verification #55/115: Verifies human-readable relative time (e.g. '2 hours ago').*
+- [x] **Checkpoint 056/115:** `feat(revision-history): filter revision timeline by author search query`  
+  *Verification #56/115: Verifies contributors can filter history to specific team members.*
