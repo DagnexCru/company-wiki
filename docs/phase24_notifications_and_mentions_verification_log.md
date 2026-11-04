@@ -148,3 +148,5 @@
   *Verification #66/185: Verifies 400 Bad Request returned on blank submission.*
 - [x] **Checkpoint 067/185:** `feat(comments-backend): automatically trigger mention notifications on comment creation`  
   *Verification #67/185: Verifies parse_and_notify_mentions is invoked upon save.*
+- [x] **Checkpoint 068/185:** `feat(comments-backend): automatically notify article author when a new comment is posted`  
+  *Verification #68/185: Verifies author receives COMMENT notification if author != commenter.*
