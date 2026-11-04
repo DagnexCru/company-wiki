@@ -217,3 +217,5 @@
   *Verification #101/115: Verifies aria-label on diff rows and screen reader compatibility.*
 - [x] **Checkpoint 102/115:** `feat(accessibility): ensure WCAG AA contrast ratio for green additions and red deletions`  
   *Verification #102/115: Verifies text contrast >= 4.5:1 across dark and light themes.*
+- [x] **Checkpoint 103/115:** `feat(ux): add keyboard focus trap inside rollback confirmation modal`  
+  *Verification #103/115: Verifies Tab and Shift+Tab remain scoped inside active modal.*
