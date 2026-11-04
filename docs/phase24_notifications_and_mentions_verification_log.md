@@ -158,3 +158,5 @@
   *Verification #71/185: Verifies nested author information is provided in comment JSON.*
 - [x] **Checkpoint 072/185:** `feat(comments-backend): enforce authenticated permission on comments POST action`  
   *Verification #72/185: Verifies unauthenticated users cannot post comments.*
+- [x] **Checkpoint 073/185:** `feat(comments-backend): support markdown formatting and line breaks in comment content`  
+  *Verification #73/185: Verifies multi-line commentary is preserved faithfully.*
