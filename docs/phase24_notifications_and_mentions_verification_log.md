@@ -98,3 +98,5 @@
   *Verification #41/185: Verifies anonymous requests receive 401 Unauthorized.*
 - [x] **Checkpoint 042/185:** `feat(notification-api): scope queryset strictly to request.user recipient`  
   *Verification #42/185: Verifies users cannot inspect or mark other users' notifications.*
+- [x] **Checkpoint 043/185:** `feat(notification-api): implement GET /unread-count/ returning integer badge counter`  
+  *Verification #43/185: Verifies fast lightweight query without serializing full payloads.*
