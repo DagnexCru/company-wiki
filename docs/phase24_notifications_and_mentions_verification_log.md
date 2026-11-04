@@ -336,3 +336,5 @@
   *Verification #160/185: Verifies author receives REVIEW_REJECTED alert with feedback snippet.*
 - [x] **Checkpoint 161/185:** `feat(review-mentions): automatically notify colleagues tagged in review feedback notes`  
   *Verification #161/185: Verifies MENTION alert generated for third-party tagged engineers.*
+- [x] **Checkpoint 162/185:** `feat(review-mentions): notify original author when another collaborator edits their article`  
+  *Verification #162/185: Verifies ARTICLE_UPDATED notification on collaborative edits.*
