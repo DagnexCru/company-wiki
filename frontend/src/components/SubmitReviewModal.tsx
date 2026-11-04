@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Send, AlertCircle, Loader2 } from "lucide-react";
+import { MentionTextarea } from "./MentionTextarea";
 
 interface SubmitReviewModalProps {
   isOpen: boolean;
@@ -76,12 +77,12 @@ export const SubmitReviewModal: React.FC<SubmitReviewModalProps> = ({
                 ? "Describe what revisions were made in response to earlier feedback."
                 : "Provide context for the editorial review team."}
             </p>
-            <textarea
+            <MentionTextarea
               value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="e.g., Updated section 3 with production rollout instructions..."
+              onChange={setNotes}
+              placeholder="e.g., Updated section 3 with production rollout instructions. CC @reviewer or @admin"
               rows={3}
-              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-hidden transition"
+              disabled={isSubmitting}
             />
           </div>
 

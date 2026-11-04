@@ -8,6 +8,7 @@ import {
   Send,
 } from "lucide-react";
 import type { ArticleDetail } from "../types/article";
+import { MentionTextarea } from "./MentionTextarea";
 
 interface ReviewModalProps {
   isOpen: boolean;
@@ -117,21 +118,16 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
                 ? "Explain to the author what needs to be revised or improved before this article can be approved."
                 : "Add an optional review remark to record in the permanent audit trail."}
             </p>
-            <textarea
+            <MentionTextarea
               value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
+              onChange={setFeedback}
               placeholder={
                 isReject
-                  ? "e.g., Please add a section detailing rollback procedures and cite the security policy..."
-                  : "e.g., Verified technical steps and formatted diagrams. Approved for publication."
+                  ? "e.g., Please add a section detailing rollback procedures and cite @admin or @author..."
+                  : "e.g., Verified technical steps and formatted diagrams. Approved for publication. CC @author"
               }
               rows={4}
-              required={isReject}
-              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-slate-50/50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 transition outline-hidden ${
-                isReject && feedback.length > 0 && feedback.trim().length < 5
-                  ? "border-rose-400 focus:ring-2 focus:ring-rose-500/20"
-                  : "border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
-              }`}
+              disabled={isSubmitting}
             />
             {isReject && (
               <div className="flex justify-between items-center text-xs text-slate-400 mt-1">
