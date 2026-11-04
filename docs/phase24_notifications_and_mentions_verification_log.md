@@ -72,3 +72,5 @@
   *Verification #28/185: Verifies alert survives with null sender if author departs.*
 - [x] **Checkpoint 029/185:** `feat(notification-model): set article to SET_NULL if parent article is hard-deleted`  
   *Verification #29/185: Verifies notification record remains intact with dead link safety.*
+- [x] **Checkpoint 030/185:** `feat(notification-model): add human-readable __str__ representation for Django admin`  
+  *Verification #30/185: Verifies '[MENTION] To: user - Title' string representation.*
