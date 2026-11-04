@@ -173,3 +173,5 @@
   *Verification #79/115: Verifies atomic F() expression increment on Article view_count.*
 - [x] **Checkpoint 080/115:** `feat(reader-ux): design interactive ArticleFeedbackWidget with thumbs up / down buttons`  
   *Verification #80/115: Verifies thumbs up and thumbs down interactive reaction states.*
+- [x] **Checkpoint 081/115:** `feat(reader-ux): provide quick feedback tag pills (Clear, Comprehensive, Outdated, Missing Info)`  
+  *Verification #81/115: Verifies reader can select pre-built feedback reasons with one click.*
