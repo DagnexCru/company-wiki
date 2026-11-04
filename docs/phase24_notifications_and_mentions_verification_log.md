@@ -334,3 +334,5 @@
   *Verification #159/185: Verifies author receives REVIEW_APPROVED alert with article link.*
 - [x] **Checkpoint 160/185:** `feat(review-mentions): automatically notify author when changes are requested (rejected)`  
   *Verification #160/185: Verifies author receives REVIEW_REJECTED alert with feedback snippet.*
+- [x] **Checkpoint 161/185:** `feat(review-mentions): automatically notify colleagues tagged in review feedback notes`  
+  *Verification #161/185: Verifies MENTION alert generated for third-party tagged engineers.*
