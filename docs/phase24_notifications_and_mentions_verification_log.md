@@ -48,3 +48,5 @@
   *Verification #16/185: Verifies author notes alert mentioned reviewers upon submission.*
 - [x] **Checkpoint 017/185:** `feat(mention-tokenizer): support multiple distinct recipients in a single sentence`  
   *Verification #17/185: Verifies '@alice and @bob' notifies both Alice and Bob.*
+- [x] **Checkpoint 018/185:** `feat(mention-tokenizer): verify Unicode character handling in full names`  
+  *Verification #18/185: Verifies non-ASCII full names display cleanly in notification headline.*
