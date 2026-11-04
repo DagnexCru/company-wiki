@@ -56,3 +56,5 @@
   *Verification #20/185: Validates 100% test branch coverage for regex parser.*
 - [x] **Checkpoint 021/185:** `feat(notification-model): enforce UUID primary key on notifications table`  
   *Verification #21/185: Verifies uuid.uuid4 default generation on notification rows.*
+- [x] **Checkpoint 022/185:** `feat(notification-model): index recipient and is_read composite fields`  
+  *Verification #22/185: Verifies notif_recip_read_created_idx speeds up unread queries.*
