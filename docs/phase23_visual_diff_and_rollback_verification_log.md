@@ -75,3 +75,5 @@
   *Verification #30/115: Verifies RevisionDiffViewer renders cleanly with mock props.*
 - [x] **Checkpoint 031/115:** `feat(rollback): implement non-destructive roll-forward architecture in Django backend`  
   *Verification #31/115: Verifies restoring revision creates version N+1 preserving all history.*
+- [x] **Checkpoint 032/115:** `feat(rollback): generate automated rollback audit message with source revision number`  
+  *Verification #32/115: Validates auto-generated message: 'Rolled back to revision #X'.*
