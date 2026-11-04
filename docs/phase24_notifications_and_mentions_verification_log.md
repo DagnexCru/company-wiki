@@ -244,3 +244,5 @@
   *Verification #114/185: Verifies user can expand textarea height for long feedback.*
 - [x] **Checkpoint 115/185:** `feat(mention-textarea): verify zero TypeScript compilation errors in MentionTextarea`  
   *Verification #115/185: Validates clean type checking in strict React mode.*
+- [x] **Checkpoint 116/185:** `feat(notification-bell): create NotificationBell component in global navigation header`  
+  *Verification #116/185: Verifies bell button mounted next to user profile in Header.tsx.*
