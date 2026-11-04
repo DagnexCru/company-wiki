@@ -116,3 +116,5 @@
   *Verification #50/185: Verifies NotificationSenderSerializer returns nested actor details.*
 - [x] **Checkpoint 051/185:** `feat(notification-api): serialize article title, slug, and status`  
   *Verification #51/185: Verifies NotificationArticleSerializer provides contextual data.*
+- [x] **Checkpoint 052/185:** `feat(notification-api): return 200 OK on successful mark_as_read mutation`  
+  *Verification #52/185: Verifies status code conformance on detail action.*
