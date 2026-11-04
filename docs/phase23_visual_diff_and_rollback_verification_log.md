@@ -153,3 +153,5 @@
   *Verification #69/115: Verifies reviewers see change magnitude at a glance in queue.*
 - [x] **Checkpoint 070/115:** `feat(audit-log): link audit trail version entries directly to diff visualizer`  
   *Verification #70/115: Verifies compliance logs link to exact revision comparisons.*
+- [x] **Checkpoint 071/115:** `feat(audit-log): record diff hash in audit trail for cryptographic integrity verification`  
+  *Verification #71/115: Verifies sha256 checksum recorded for diff payloads.*
