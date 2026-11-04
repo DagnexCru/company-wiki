@@ -280,3 +280,5 @@
   *Verification #132/185: Verifies toast fires exclusively for genuinely new notifications.*
 - [x] **Checkpoint 133/185:** `feat(notification-bell): style dropdown with backdrop-blur-xl and 2xl shadow`  
   *Verification #133/185: Verifies modern glassmorphism aesthetics matching wiki theme.*
+- [x] **Checkpoint 134/185:** `feat(notification-bell): ensure mobile responsive width (w-80 sm:w-96)`  
+  *Verification #134/185: Verifies dropdown adapts cleanly to mobile smartphone screens.*
