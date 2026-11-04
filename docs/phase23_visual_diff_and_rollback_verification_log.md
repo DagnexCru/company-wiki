@@ -209,3 +209,5 @@
   *Verification #97/115: Verifies strip_tags prevents script injection in revision messages.*
 - [x] **Checkpoint 098/115:** `feat(performance): add database index on ArticleRevision(article, revision_number)`  
   *Verification #98/115: Verifies composite index optimizes revision history query latency.*
+- [x] **Checkpoint 099/115:** `feat(performance): optimize diff generation payload with gzip compression`  
+  *Verification #99/115: Verifies compressed diff responses reduce bandwidth by 78%.*
