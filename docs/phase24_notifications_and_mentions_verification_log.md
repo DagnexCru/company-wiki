@@ -124,3 +124,5 @@
   *Verification #54/185: Verifies response dictionary contains count, unread_count, and results.*
 - [x] **Checkpoint 055/185:** `feat(notification-api): ensure CORS headers allow authorization header for notifications`  
   *Verification #55/185: Verifies JWT bearer authentication functions across origins.*
+- [x] **Checkpoint 056/185:** `feat(notification-api): verify rate limiting on notification polling endpoints`  
+  *Verification #56/185: Verifies server absorbs background polling without degradation.*
