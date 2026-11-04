@@ -177,3 +177,5 @@
   *Verification #81/115: Verifies reader can select pre-built feedback reasons with one click.*
 - [x] **Checkpoint 082/115:** `feat(reader-ux): allow optional reader note submission in feedback widget`  
   *Verification #82/115: Verifies text area for reader notes with 500-char max length.*
+- [x] **Checkpoint 083/115:** `feat(reader-ux): persist feedback in database via POST /api/articles/{id}/feedback/`  
+  *Verification #83/115: Verifies ArticleFeedback model stores helpfulness, tags, and notes.*
