@@ -129,3 +129,5 @@
   *Verification #57/115: Verifies active version node is visually distinct from past snapshots.*
 - [x] **Checkpoint 058/115:** `feat(revision-history): support keyboard navigation (ArrowUp / ArrowDown) across timeline`  
   *Verification #58/115: Verifies accessibility keyboard focus on revision list.*
+- [x] **Checkpoint 059/115:** `feat(revision-history): add export revision history as markdown changelog`  
+  *Verification #59/115: Verifies team lead can download revision summary for release notes.*
