@@ -186,3 +186,5 @@
   *Verification #85/185: Verifies complete user metadata for frontend badge rendering.*
 - [x] **Checkpoint 086/185:** `feat(mentions-api): restrict mention suggestions to authenticated team members`  
   *Verification #86/185: Verifies anonymous access is denied for internal directory privacy.*
+- [x] **Checkpoint 087/185:** `feat(mentions-api): filter out inactive user accounts from autocomplete suggestions`  
+  *Verification #87/185: Verifies deactivated employees cannot be tagged in discussions.*
