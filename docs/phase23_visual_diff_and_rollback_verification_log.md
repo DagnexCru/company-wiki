@@ -41,3 +41,5 @@
   *Verification #13/115: Verifies executive summary diffing between document versions.*
 - [x] **Checkpoint 014/115:** `feat(diff-engine): add revision swap button logic to invert comparison direction`  
   *Verification #14/115: Verifies handleSwapRevisions inverts fromRevisionId and toRevisionId seamlessly.*
+- [x] **Checkpoint 015/115:** `feat(diff-engine): export diffUtils helper functions with complete TypeScript typings`  
+  *Verification #15/115: Validates SplitDiffRow, UnifiedDiffRow, and WordDiffToken interfaces.*
