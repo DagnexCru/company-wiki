@@ -62,3 +62,5 @@
   *Verification #23/185: Verifies notif_recip_created_idx optimizes notification center feed.*
 - [x] **Checkpoint 024/185:** `feat(notification-model): define NotificationType TextChoices with 6 semantic variants`  
   *Verification #24/185: Verifies MENTION, COMMENT, ARTICLE_UPDATED, REVIEW_REQUESTED, APPROVED, REJECTED.*
+- [x] **Checkpoint 025/185:** `feat(notification-model): set default is_read to False on newly created alerts`  
+  *Verification #25/185: Verifies default boolean invariant on database schema.*
