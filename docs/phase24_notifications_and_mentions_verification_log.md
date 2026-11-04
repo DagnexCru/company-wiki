@@ -50,3 +50,5 @@
   *Verification #17/185: Verifies '@alice and @bob' notifies both Alice and Bob.*
 - [x] **Checkpoint 018/185:** `feat(mention-tokenizer): verify Unicode character handling in full names`  
   *Verification #18/185: Verifies non-ASCII full names display cleanly in notification headline.*
+- [x] **Checkpoint 019/185:** `feat(mention-tokenizer): fallback to username when actor has no full name set`  
+  *Verification #19/185: Verifies actor.full_name or actor.username fallback logic.*
