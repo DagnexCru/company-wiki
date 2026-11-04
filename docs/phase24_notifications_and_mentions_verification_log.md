@@ -208,3 +208,5 @@
   *Verification #96/185: Verifies standalone component with value, onChange, and placeholder props.*
 - [x] **Checkpoint 097/185:** `feat(mention-textarea): detect @ trigger character at cursor position in textarea`  
   *Verification #97/185: Verifies textarea.selectionStart calculates query boundary accurately.*
+- [x] **Checkpoint 098/185:** `feat(mention-textarea): open floating suggestions dropdown positioned above textarea`  
+  *Verification #98/185: Verifies bottom-full z-50 dropdown remains visible without page overflow.*
