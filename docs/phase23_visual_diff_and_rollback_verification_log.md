@@ -67,3 +67,5 @@
   *Verification #26/115: Verifies font-mono bold + / - symbols in line gutters.*
 - [x] **Checkpoint 027/115:** `feat(diff-ui): ensure dark mode color tokens match slate-900 / slate-800 theme`  
   *Verification #27/115: Verifies dark mode classes for diff backgrounds and borders.*
+- [x] **Checkpoint 028/115:** `feat(diff-ui): add keyboard shortcut support to cycle between diff hunks`  
+  *Verification #28/115: Verifies n/p key navigation between modified sections.*
