@@ -39,3 +39,5 @@
   *Verification #12/115: Verifies tag additions show in green and tag removals show in red strikethrough.*
 - [x] **Checkpoint 013/115:** `feat(diff-engine): display summary change diff with inline quote block comparison`  
   *Verification #13/115: Verifies executive summary diffing between document versions.*
+- [x] **Checkpoint 014/115:** `feat(diff-engine): add revision swap button logic to invert comparison direction`  
+  *Verification #14/115: Verifies handleSwapRevisions inverts fromRevisionId and toRevisionId seamlessly.*
