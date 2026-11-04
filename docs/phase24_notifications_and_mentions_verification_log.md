@@ -192,3 +192,5 @@
   *Verification #88/185: Verifies q=adm matches 'admin_lead' and 'Admin'.*
 - [x] **Checkpoint 089/185:** `feat(mentions-api): test partial matching on first and last names`  
   *Verification #89/185: Verifies q=sarah matches 'Sarah Chen'.*
+- [x] **Checkpoint 090/185:** `feat(mentions-api): expose alias endpoint at /users/mention-suggestions/`  
+  *Verification #90/185: Verifies backward compatibility across API URL namespaces.*
