@@ -268,3 +268,5 @@
   *Verification #126/185: Verifies optimistic unread count decrement and route change.*
 - [x] **Checkpoint 127/185:** `feat(notification-bell): render 'All caught up!' empty state with friendly icon`  
   *Verification #127/185: Verifies empty state when user has zero pending alerts.*
+- [x] **Checkpoint 128/185:** `feat(notification-bell): poll unread count in background every 25 seconds`  
+  *Verification #128/185: Verifies silent interval refresh keeps count synchronized.*
