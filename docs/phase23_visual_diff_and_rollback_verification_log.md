@@ -125,3 +125,5 @@
   *Verification #55/115: Verifies human-readable relative time (e.g. '2 hours ago').*
 - [x] **Checkpoint 056/115:** `feat(revision-history): filter revision timeline by author search query`  
   *Verification #56/115: Verifies contributors can filter history to specific team members.*
+- [x] **Checkpoint 057/115:** `feat(revision-history): highlight current published revision in timeline with primary pill`  
+  *Verification #57/115: Verifies active version node is visually distinct from past snapshots.*
