@@ -47,3 +47,5 @@
   *Verification #16/115: Verifies emerald-50/rose-50 background tints and vibrant borders.*
 - [x] **Checkpoint 017/115:** `feat(diff-ui): implement intra-line word highlight badges for modified sentences`  
   *Verification #17/115: Verifies bg-emerald-200 and bg-rose-200 inline token span styling.*
+- [x] **Checkpoint 018/115:** `feat(diff-ui): create unified line-by-line diff mode with dual line counter gutter`  
+  *Verification #18/115: Verifies unified view displays oldLineNum and newLineNum columns.*
