@@ -284,3 +284,5 @@
   *Verification #134/185: Verifies dropdown adapts cleanly to mobile smartphone screens.*
 - [x] **Checkpoint 135/185:** `feat(notification-bell): verify zero console warnings in NotificationBell lifecycle`  
   *Verification #135/185: Validates clean React component state updates.*
+- [x] **Checkpoint 136/185:** `feat(comments-ui): create ArticleCommentsSection component for ArticleDetailPage`  
+  *Verification #136/185: Verifies discussion thread mounted below article content.*
