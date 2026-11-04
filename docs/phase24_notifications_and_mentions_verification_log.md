@@ -344,3 +344,5 @@
   *Verification #164/185: Verifies recipient sees who reviewed their documentation.*
 - [x] **Checkpoint 165/185:** `feat(review-mentions): link rejection notification directly to /articles/{slug}/edit`  
   *Verification #165/185: Verifies author can jump directly into revision editor with one click.*
+- [x] **Checkpoint 166/185:** `feat(review-mentions): link approval notification directly to published article page`  
+  *Verification #166/185: Verifies author can inspect published document immediately.*
