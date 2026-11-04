@@ -144,3 +144,5 @@
   *Verification #64/185: Verifies comments are returned in chronological ascending order.*
 - [x] **Checkpoint 065/185:** `feat(comments-backend): implement POST /api/v1/articles/{slug}/comments/ endpoint`  
   *Verification #65/185: Verifies new comment creation with 201 Created status.*
+- [x] **Checkpoint 066/185:** `feat(comments-backend): validate comment content is non-empty after trimming`  
+  *Verification #66/185: Verifies 400 Bad Request returned on blank submission.*
