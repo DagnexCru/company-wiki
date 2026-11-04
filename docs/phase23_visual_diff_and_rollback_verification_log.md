@@ -109,3 +109,5 @@
   *Verification #47/115: Verifies visual timeline spine connecting all historical revisions.*
 - [x] **Checkpoint 048/115:** `feat(revision-history): provide 'Diff vs previous (vN-1)' instant action on revision card`  
   *Verification #48/115: Verifies one-click shortcut to inspect changes from previous version.*
+- [x] **Checkpoint 049/115:** `feat(revision-history): render full Markdown snapshot preview modal with sanitized HTML`  
+  *Verification #49/115: Verifies clicking 'View Snapshot' opens formatted markdown view.*
