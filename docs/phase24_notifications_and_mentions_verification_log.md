@@ -372,3 +372,5 @@
   *Verification #178/185: Validates 375px, 768px, and 1440px screen layout fidelity.*
 - [x] **Checkpoint 179/185:** `perf(notifications): verify database query execution time is under 15ms for notification feed`  
   *Verification #179/185: Validates index optimization on recipient and created_at fields.*
+- [x] **Checkpoint 180/185:** `perf(notifications): verify client-side bundle size increase is under 20kB gzipped`  
+  *Verification #180/185: Validates lightweight footprint of notification and mention code.*
