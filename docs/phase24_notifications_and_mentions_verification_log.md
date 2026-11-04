@@ -90,3 +90,5 @@
   *Verification #37/185: Verifies broadcast or automated alerts function without user actor.*
 - [x] **Checkpoint 038/185:** `feat(notification-model): validate max length constraint on notification_type (30 chars)`  
   *Verification #38/185: Verifies character limit conforms to longest choice name.*
+- [x] **Checkpoint 039/185:** `feat(notification-model): ensure timezone-aware UTC timestamps on created_at`  
+  *Verification #39/185: Verifies timezone.now default matches Django USE_TZ settings.*
