@@ -310,3 +310,5 @@
   *Verification #147/185: Verifies 'Be the first to start the conversation' call-to-action.*
 - [x] **Checkpoint 148/185:** `feat(comments-ui): add scroll anchor id='comments' for deep-link navigation`  
   *Verification #148/185: Verifies clicking notification scrolls directly to comments section.*
+- [x] **Checkpoint 149/185:** `feat(comments-ui): support scroll-mt-20 to account for fixed header offset`  
+  *Verification #149/185: Verifies comment target is not obscured by top navigation bar.*
