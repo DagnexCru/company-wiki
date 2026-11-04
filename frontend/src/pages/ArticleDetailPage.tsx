@@ -34,6 +34,7 @@ import { TableOfContents } from "../components/TableOfContents";
 import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
 import { ArticleAiSummaryCard } from "../components/ArticleAiSummaryCard";
 import { ArticleFeedbackWidget } from "../components/ArticleFeedbackWidget";
+import { ArticleCommentsSection } from "../components/ArticleCommentsSection";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -608,6 +609,9 @@ export const ArticleDetailPage: React.FC = () => {
               }}
             />
           </article>
+
+          {/* Team Collaboration & Discussion Comments with @mentions */}
+          <ArticleCommentsSection articleSlugOrId={article.slug} />
 
           {/* Review History Section (Visible to Author, Reviewers, and Admins) */}
           {(user?.role === "ADMIN" || user?.role === "REVIEWER" || isAuthor) && (
