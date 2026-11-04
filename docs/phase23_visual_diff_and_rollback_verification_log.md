@@ -119,3 +119,5 @@
   *Verification #52/115: Verifies 'Back to Article' breadcrumb link with article slug.*
 - [x] **Checkpoint 053/115:** `feat(revision-history): display loading skeleton while revision list query resolves`  
   *Verification #53/115: Verifies smooth skeleton animation during API data retrieval.*
+- [x] **Checkpoint 054/115:** `feat(revision-history): render empty state banner when article has single revision`  
+  *Verification #54/115: Verifies 'No earlier revisions available' notice for version 1.*
