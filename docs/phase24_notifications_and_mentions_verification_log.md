@@ -304,3 +304,5 @@
   *Verification #144/185: Verifies spinner animation and prevents duplicate posts.*
 - [x] **Checkpoint 145/185:** `feat(comments-ui): clear textarea content automatically after successful submission`  
   *Verification #145/185: Verifies form resets cleanly for subsequent comments.*
+- [x] **Checkpoint 146/185:** `feat(comments-ui): display inline error message if comment submission fails`  
+  *Verification #146/185: Verifies error banner displays backend detail string.*
