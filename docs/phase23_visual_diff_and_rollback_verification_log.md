@@ -133,3 +133,5 @@
   *Verification #59/115: Verifies team lead can download revision summary for release notes.*
 - [x] **Checkpoint 060/115:** `feat(revision-history): ensure zero console warnings or React re-render loops`  
   *Verification #60/115: Verifies clean React component lifecycle on revision page.*
+- [x] **Checkpoint 061/115:** `feat(review-diff): add 'Inspect Changes & Diffs' CTA button to ReviewDetailPage header`  
+  *Verification #61/115: Verifies reviewers can inspect proposed edits with a single click.*
