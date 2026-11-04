@@ -102,3 +102,5 @@
   *Verification #43/185: Verifies fast lightweight query without serializing full payloads.*
 - [x] **Checkpoint 044/185:** `feat(notification-api): implement POST /{id}/read/ updating single notification`  
   *Verification #44/185: Verifies 404 returned if ID belongs to another user.*
+- [x] **Checkpoint 045/185:** `feat(notification-api): implement POST /mark-all-read/ updating bulk records`  
+  *Verification #45/185: Verifies single UPDATE SQL statement marks all unread as read.*
