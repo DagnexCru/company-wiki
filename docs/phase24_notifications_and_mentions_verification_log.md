@@ -70,3 +70,5 @@
   *Verification #27/185: Verifies models.CASCADE cleans up user notification records.*
 - [x] **Checkpoint 028/185:** `feat(notification-model): set sender to SET_NULL if sender user account is purged`  
   *Verification #28/185: Verifies alert survives with null sender if author departs.*
+- [x] **Checkpoint 029/185:** `feat(notification-model): set article to SET_NULL if parent article is hard-deleted`  
+  *Verification #29/185: Verifies notification record remains intact with dead link safety.*
