@@ -91,3 +91,5 @@
   *Verification #38/115: Verifies request.user is recorded as created_by on new revision.*
 - [x] **Checkpoint 039/115:** `feat(rollback): copy tags, category, and content accurately during version roll-forward`  
   *Verification #39/115: Verifies snapshot attributes are faithfully replicated in new version.*
+- [x] **Checkpoint 040/115:** `feat(rollback): emit real-time WebSocket presence event when article is rolled back`  
+  *Verification #40/115: Verifies live collaboration updates viewers when a restore occurs.*
