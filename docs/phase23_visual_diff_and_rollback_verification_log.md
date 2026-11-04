@@ -121,3 +121,5 @@
   *Verification #53/115: Verifies smooth skeleton animation during API data retrieval.*
 - [x] **Checkpoint 054/115:** `feat(revision-history): render empty state banner when article has single revision`  
   *Verification #54/115: Verifies 'No earlier revisions available' notice for version 1.*
+- [x] **Checkpoint 055/115:** `feat(revision-history): format localized relative dates using date-fns or native Intl`  
+  *Verification #55/115: Verifies human-readable relative time (e.g. '2 hours ago').*
