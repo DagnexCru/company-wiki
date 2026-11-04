@@ -93,3 +93,5 @@
   *Verification #39/115: Verifies snapshot attributes are faithfully replicated in new version.*
 - [x] **Checkpoint 040/115:** `feat(rollback): emit real-time WebSocket presence event when article is rolled back`  
   *Verification #40/115: Verifies live collaboration updates viewers when a restore occurs.*
+- [x] **Checkpoint 041/115:** `feat(rollback): prevent concurrent conflict during simultaneous rollbacks`  
+  *Verification #41/115: Verifies database transaction.atomic protects revision version counter.*
