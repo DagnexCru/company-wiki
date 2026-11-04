@@ -214,3 +214,5 @@
   *Verification #99/185: Verifies rapid typing does not flood backend with HTTP requests.*
 - [x] **Checkpoint 100/185:** `feat(mention-textarea): implement ArrowDown and ArrowUp keyboard navigation in suggestions`  
   *Verification #100/185: Verifies selectedIndex cycles smoothly through suggestion list.*
+- [x] **Checkpoint 101/185:** `feat(mention-textarea): implement Enter and Tab keypress to select active suggestion`  
+  *Verification #101/185: Verifies e.preventDefault() prevents unintended form submission.*
