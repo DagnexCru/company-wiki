@@ -220,3 +220,5 @@
   *Verification #102/185: Verifies user can close menu without inserting a mention.*
 - [x] **Checkpoint 103/185:** `feat(mention-textarea): insert @username and trailing space at exact cursor position`  
   *Verification #103/185: Verifies surrounding text is preserved when mention is inserted.*
+- [x] **Checkpoint 104/185:** `feat(mention-textarea): restore textarea focus and advance cursor after mention insertion`  
+  *Verification #104/185: Verifies seamless continuous typing after selecting a colleague.*
