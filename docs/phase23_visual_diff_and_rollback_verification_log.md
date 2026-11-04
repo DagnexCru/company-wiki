@@ -213,3 +213,5 @@
   *Verification #99/115: Verifies compressed diff responses reduce bandwidth by 78%.*
 - [x] **Checkpoint 100/115:** `feat(performance): memoize LCS tokenization in React using useMemo hooks`  
   *Verification #100/115: Verifies diff viewer avoids redundant recomputations on scroll.*
+- [x] **Checkpoint 101/115:** `feat(accessibility): add ARIA attributes and roles to RevisionDiffViewer`  
+  *Verification #101/115: Verifies aria-label on diff rows and screen reader compatibility.*
