@@ -348,3 +348,5 @@
   *Verification #166/185: Verifies author can inspect published document immediately.*
 - [x] **Checkpoint 167/185:** `feat(review-mentions): link review request notification directly to /reviews/{id}`  
   *Verification #167/185: Verifies reviewer jumps directly into approval decision view.*
+- [x] **Checkpoint 168/185:** `feat(review-mentions): preserve review feedback audit logging alongside notifications`  
+  *Verification #168/185: Verifies compliance audit trail records all review events.*
