@@ -95,3 +95,5 @@
   *Verification #40/115: Verifies live collaboration updates viewers when a restore occurs.*
 - [x] **Checkpoint 041/115:** `feat(rollback): prevent concurrent conflict during simultaneous rollbacks`  
   *Verification #41/115: Verifies database transaction.atomic protects revision version counter.*
+- [x] **Checkpoint 042/115:** `feat(rollback): add quick rollback button to ArticleRevisionHistoryPage timeline rows`  
+  *Verification #42/115: Verifies each revision card has direct 'Restore this version' shortcut.*
