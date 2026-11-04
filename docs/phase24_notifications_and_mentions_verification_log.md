@@ -278,3 +278,5 @@
   *Verification #131/185: Verifies toast can be dismissed or followed with one click.*
 - [x] **Checkpoint 132/185:** `feat(notification-bell): track known notification IDs to prevent duplicate toasts`  
   *Verification #132/185: Verifies toast fires exclusively for genuinely new notifications.*
+- [x] **Checkpoint 133/185:** `feat(notification-bell): style dropdown with backdrop-blur-xl and 2xl shadow`  
+  *Verification #133/185: Verifies modern glassmorphism aesthetics matching wiki theme.*
