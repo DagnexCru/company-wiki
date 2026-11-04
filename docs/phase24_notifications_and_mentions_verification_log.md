@@ -300,3 +300,5 @@
   *Verification #142/185: Verifies formatted creation time on comment cards.*
 - [x] **Checkpoint 143/185:** `feat(comments-ui): implement optimistic comment append upon form submission`  
   *Verification #143/185: Verifies immediate UI update without requiring full page refresh.*
+- [x] **Checkpoint 144/185:** `feat(comments-ui): disable submit button while comment is being posted`  
+  *Verification #144/185: Verifies spinner animation and prevents duplicate posts.*
