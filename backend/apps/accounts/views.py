@@ -373,3 +373,36 @@ class UserManagementViewSet(viewsets.ReadOnlyModelViewSet):
             status=status.HTTP_200_OK,
         )
 
+
+
+class MentionSuggestionsView(APIView):
+    """
+    Returns active team member accounts matching a query string
+    for @username autocomplete in comments and review feedback.
+    GET /api/v1/auth/mention-suggestions/?q=alice
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        query = request.query_params.get("q", "").strip().lstrip("@")
+        users = CustomUser.objects.filter(is_active=True)
+        if query:
+            users = users.filter(
+                Q(username__icontains=query)
+                | Q(full_name__icontains=query)
+                | Q(email__icontains=query)
+            )
+
+        users = users.order_by("username")[:20]
+        data = [
+            {
+                "id": str(u.id),
+                "username": u.username,
+                "full_name": u.full_name,
+                "role": u.role,
+                "email": u.email,
+            }
+            for u in users
+        ]
+        return Response(data, status=status.HTTP_200_OK)

@@ -6,6 +6,7 @@ from apps.accounts.views import (
     CustomTokenRefreshView,
     LogoutView,
     CurrentUserProfileView,
+    MentionSuggestionsView,
 )
 
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path("refresh/", CustomTokenRefreshView.as_view(), name="auth-refresh"),
     path("logout/", LogoutView.as_view(), name="auth-logout"),
     path("me/", CurrentUserProfileView.as_view(), name="auth-me"),
+    path("mention-suggestions/", MentionSuggestionsView.as_view(), name="auth-mention-suggestions"),
 ]
