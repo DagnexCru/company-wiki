@@ -36,3 +36,5 @@
   *Verification #10/185: Verifies regex execution is sub-millisecond on 5,000-word payloads.*
 - [x] **Checkpoint 011/185:** `feat(mention-tokenizer): resolve recipient user records using single bulk SQL query`  
   *Verification #11/185: Verifies username__in=usernames prevents N+1 database queries.*
+- [x] **Checkpoint 012/185:** `feat(mention-tokenizer): truncate notification snippet message cleanly at 150 characters`  
+  *Verification #12/185: Verifies ellipsis suffix is appended on lengthy commentary.*
