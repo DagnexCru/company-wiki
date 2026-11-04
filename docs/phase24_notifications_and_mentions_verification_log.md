@@ -326,3 +326,5 @@
   *Verification #155/185: Validates strict type checking for comment component.*
 - [x] **Checkpoint 156/185:** `feat(review-mentions): wire MentionTextarea into ReviewModal decision form`  
   *Verification #156/185: Verifies reviewer can tag @author or @admin in rejection feedback.*
+- [x] **Checkpoint 157/185:** `feat(review-mentions): wire MentionTextarea into SubmitReviewModal notes form`  
+  *Verification #157/185: Verifies author can tag specific @reviewer in submission notes.*
