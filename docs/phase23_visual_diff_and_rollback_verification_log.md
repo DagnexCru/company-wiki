@@ -77,3 +77,5 @@
   *Verification #31/115: Verifies restoring revision creates version N+1 preserving all history.*
 - [x] **Checkpoint 032/115:** `feat(rollback): generate automated rollback audit message with source revision number`  
   *Verification #32/115: Validates auto-generated message: 'Rolled back to revision #X'.*
+- [x] **Checkpoint 033/115:** `feat(rollback): wire one-click restore button on RevisionDiffViewer comparison card`  
+  *Verification #33/115: Verifies clicking restore opens confirmation modal with version details.*
