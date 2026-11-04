@@ -370,3 +370,5 @@
   *Verification #177/185: Validates popover and mention dropdown render cleanly in all browsers.*
 - [x] **Checkpoint 178/185:** `test(e2e-notifications): verify responsive layout on mobile, tablet, and desktop viewports`  
   *Verification #178/185: Validates 375px, 768px, and 1440px screen layout fidelity.*
+- [x] **Checkpoint 179/185:** `perf(notifications): verify database query execution time is under 15ms for notification feed`  
+  *Verification #179/185: Validates index optimization on recipient and created_at fields.*
