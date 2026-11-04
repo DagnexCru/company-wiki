@@ -52,3 +52,5 @@
   *Verification #18/185: Verifies non-ASCII full names display cleanly in notification headline.*
 - [x] **Checkpoint 019/185:** `feat(mention-tokenizer): fallback to username when actor has no full name set`  
   *Verification #19/185: Verifies actor.full_name or actor.username fallback logic.*
+- [x] **Checkpoint 020/185:** `feat(mention-tokenizer): write unit test suite for extract_mentions utility`  
+  *Verification #20/185: Validates 100% test branch coverage for regex parser.*
