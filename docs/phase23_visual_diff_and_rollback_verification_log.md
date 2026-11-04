@@ -81,3 +81,5 @@
   *Verification #33/115: Verifies clicking restore opens confirmation modal with version details.*
 - [x] **Checkpoint 034/115:** `feat(rollback): display rollback confirmation modal with safety explanation`  
   *Verification #34/115: Verifies modal clearly states 'No data will be lost; creates new version'.*
+- [x] **Checkpoint 035/115:** `feat(rollback): enforce RBAC permissions on restore endpoint (author, reviewer, admin)`  
+  *Verification #35/115: Verifies readers cannot trigger rollback without editing privileges.*
