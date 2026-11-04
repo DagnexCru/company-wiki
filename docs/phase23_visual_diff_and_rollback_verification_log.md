@@ -29,3 +29,5 @@
   *Verification #7/115: Verifies zero diff hunk displays 'Revisions are identical' empty state.*
 - [x] **Checkpoint 008/115:** `feat(diff-engine): support multi-paragraph markdown block diffs with line breaks`  
   *Verification #8/115: Validates line splitting across CRLF and LF newlines.*
+- [x] **Checkpoint 009/115:** `feat(diff-engine): sanitize raw diff content against XSS before rendering`  
+  *Verification #9/115: Verifies text tokens are rendered securely without raw HTML injection.*
