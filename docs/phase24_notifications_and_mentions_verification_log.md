@@ -308,3 +308,5 @@
   *Verification #146/185: Verifies error banner displays backend detail string.*
 - [x] **Checkpoint 147/185:** `feat(comments-ui): render empty state placeholder when article has no comments`  
   *Verification #147/185: Verifies 'Be the first to start the conversation' call-to-action.*
+- [x] **Checkpoint 148/185:** `feat(comments-ui): add scroll anchor id='comments' for deep-link navigation`  
+  *Verification #148/185: Verifies clicking notification scrolls directly to comments section.*
