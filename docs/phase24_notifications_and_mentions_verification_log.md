@@ -364,3 +364,5 @@
   *Verification #174/185: Confirms python manage.py test apps.notifications passes cleanly.*
 - [x] **Checkpoint 175/185:** `test(e2e-notifications): verify frontend production bundle builds cleanly (npm run build)`  
   *Verification #175/185: Confirms Vite production build succeeds with 0 errors in 34.7s.*
+- [x] **Checkpoint 176/185:** `test(e2e-notifications): verify seeded demo accounts have pre-populated notifications`  
+  *Verification #176/185: Confirms Admin, Author, Reviewer, and Reader have active demo alerts.*
