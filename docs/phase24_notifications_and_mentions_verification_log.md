@@ -362,3 +362,5 @@
   *Verification #173/185: Validates background polling triggers floating toast alert.*
 - [x] **Checkpoint 174/185:** `test(e2e-notifications): verify all 10 Django notification tests pass with OK status`  
   *Verification #174/185: Confirms python manage.py test apps.notifications passes cleanly.*
+- [x] **Checkpoint 175/185:** `test(e2e-notifications): verify frontend production bundle builds cleanly (npm run build)`  
+  *Verification #175/185: Confirms Vite production build succeeds with 0 errors in 34.7s.*
