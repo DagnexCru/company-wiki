@@ -296,3 +296,5 @@
   *Verification #140/185: Verifies Admin, Author, Reviewer, and Reader visual cues.*
 - [x] **Checkpoint 141/185:** `feat(comments-ui): visually distinguish comments authored by current user (is_own)`  
   *Verification #141/185: Verifies subtle brand border and tint on user's own comments.*
+- [x] **Checkpoint 142/185:** `feat(comments-ui): display relative timestamp (e.g. '15m ago') on each comment`  
+  *Verification #142/185: Verifies formatted creation time on comment cards.*
