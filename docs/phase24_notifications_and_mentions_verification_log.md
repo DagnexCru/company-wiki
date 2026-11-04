@@ -120,3 +120,5 @@
   *Verification #52/185: Verifies status code conformance on detail action.*
 - [x] **Checkpoint 053/185:** `feat(notification-api): return 404 Not Found when marking non-existent notification ID`  
   *Verification #53/185: Verifies error handling on invalid UUID parameter.*
+- [x] **Checkpoint 054/185:** `feat(notification-api): include unread_count directly inside list response payload`  
+  *Verification #54/185: Verifies response dictionary contains count, unread_count, and results.*
