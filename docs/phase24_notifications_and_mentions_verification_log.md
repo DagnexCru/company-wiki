@@ -170,3 +170,5 @@
   *Verification #77/185: Verifies abusive payload sizes are rejected.*
 - [x] **Checkpoint 078/185:** `feat(comments-backend): verify ArticleComment deletion cascades cleanly with article`  
   *Verification #78/185: Verifies deleting draft article purges related comments.*
+- [x] **Checkpoint 079/185:** `feat(comments-backend): write unit test suite for ArticleCommentViewSet`  
+  *Verification #79/185: Validates list, create, and validation error test branches.*
