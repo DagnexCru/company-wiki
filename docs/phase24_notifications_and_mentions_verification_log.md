@@ -262,3 +262,5 @@
   *Verification #123/185: Verifies @ for MENTION, checkmark for APPROVED, clock for REVIEW.*
 - [x] **Checkpoint 124/185:** `feat(notification-bell): highlight unread notifications with brand tint and blue dot`  
   *Verification #124/185: Verifies visual differentiation between read and unread items.*
+- [x] **Checkpoint 125/185:** `feat(notification-bell): format relative creation timestamps (e.g. '5m ago', '2h ago')`  
+  *Verification #125/185: Verifies human-readable relative time string formatter.*
