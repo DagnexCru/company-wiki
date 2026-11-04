@@ -270,3 +270,5 @@
   *Verification #127/185: Verifies empty state when user has zero pending alerts.*
 - [x] **Checkpoint 128/185:** `feat(notification-bell): poll unread count in background every 25 seconds`  
   *Verification #128/185: Verifies silent interval refresh keeps count synchronized.*
+- [x] **Checkpoint 129/185:** `feat(notification-bell): clean up polling interval on component unmount`  
+  *Verification #129/185: Verifies zero memory leaks when navigating between pages.*
