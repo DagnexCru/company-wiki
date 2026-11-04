@@ -172,3 +172,5 @@
   *Verification #78/185: Verifies deleting draft article purges related comments.*
 - [x] **Checkpoint 079/185:** `feat(comments-backend): write unit test suite for ArticleCommentViewSet`  
   *Verification #79/185: Validates list, create, and validation error test branches.*
+- [x] **Checkpoint 080/185:** `feat(comments-backend): verify comments migration 0009_articlecomment applied successfully`  
+  *Verification #80/185: Validates database schema integrity for article comments table.*
