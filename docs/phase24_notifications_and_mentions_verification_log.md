@@ -154,3 +154,5 @@
   *Verification #69/185: Verifies commenter.id == article.author.id does not self-notify.*
 - [x] **Checkpoint 070/185:** `feat(comments-backend): add is_own boolean serializer field based on request.user`  
   *Verification #70/185: Verifies frontend can visually distinguish user's own comments.*
+- [x] **Checkpoint 071/185:** `feat(comments-backend): serialize comment author with id, username, full_name, and role`  
+  *Verification #71/185: Verifies nested author information is provided in comment JSON.*
