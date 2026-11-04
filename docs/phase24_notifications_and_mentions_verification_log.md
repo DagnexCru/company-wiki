@@ -250,3 +250,5 @@
   *Verification #117/185: Verifies rose-500 pill with animate-ping indicator when count > 0.*
 - [x] **Checkpoint 118/185:** `feat(notification-bell): format unread count display with '9+' overflow cap`  
   *Verification #118/185: Verifies count > 9 renders compact '9+' badge.*
+- [x] **Checkpoint 119/185:** `feat(notification-bell): toggle dropdown notification center on bell button click`  
+  *Verification #119/185: Verifies slide-in-from-top-2 smooth entrance animation.*
