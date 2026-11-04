@@ -105,3 +105,5 @@
   *Verification #45/115: Validates test_article_revisions rollback test cases execute successfully.*
 - [x] **Checkpoint 046/115:** `feat(revision-history): parse URL search params (?from=X&to=Y) on initial page mount`  
   *Verification #46/115: Verifies deep-linking directly into comparison of revisions X and Y.*
+- [x] **Checkpoint 047/115:** `feat(revision-history): render interactive vertical timeline with version nodes and avatars`  
+  *Verification #47/115: Verifies visual timeline spine connecting all historical revisions.*
