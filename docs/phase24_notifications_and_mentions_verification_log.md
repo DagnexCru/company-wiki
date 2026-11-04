@@ -180,3 +180,5 @@
   *Verification #82/185: Verifies q=@alice searches for 'alice' cleanly.*
 - [x] **Checkpoint 083/185:** `feat(mentions-api): limit mention suggestion results to top 20 active users`  
   *Verification #83/185: Verifies autocomplete response stays lightweight.*
+- [x] **Checkpoint 084/185:** `feat(mentions-api): order suggestions alphabetically by username`  
+  *Verification #84/185: Verifies predictable ordering in autocomplete dropdown.*
