@@ -232,3 +232,5 @@
   *Verification #108/185: Verifies document mousedown event listener cleans up dropdown.*
 - [x] **Checkpoint 109/185:** `feat(mention-textarea): support onMouseDown preventDefault on suggestion buttons`  
   *Verification #109/185: Verifies clicking a suggestion does not blur textarea prematurely.*
+- [x] **Checkpoint 110/185:** `feat(mention-textarea): style textarea with dark mode slate-900 palette and brand focus ring`  
+  *Verification #110/185: Verifies seamless aesthetic integration with dark wiki theme.*
