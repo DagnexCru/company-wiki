@@ -97,3 +97,5 @@
   *Verification #41/115: Verifies database transaction.atomic protects revision version counter.*
 - [x] **Checkpoint 042/115:** `feat(rollback): add quick rollback button to ArticleRevisionHistoryPage timeline rows`  
   *Verification #42/115: Verifies each revision card has direct 'Restore this version' shortcut.*
+- [x] **Checkpoint 043/115:** `feat(rollback): add rollback action in Revision Snapshot modal preview`  
+  *Verification #43/115: Verifies full-screen snapshot preview includes prominent restore CTA.*
