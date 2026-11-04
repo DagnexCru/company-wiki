@@ -478,3 +478,41 @@ class ArticleFeedback(models.Model):
 
 
 
+
+
+class ArticleComment(models.Model):
+    """
+    Team collaboration comment on an article.
+    Supports @username mentions, discussion, questions, and feedback.
+    """
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        db_index=True,
+        help_text="The article this discussion thread belongs to.",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="article_comments",
+        help_text="User who posted this comment.",
+    )
+    content = models.TextField(help_text="Comment text body with markdown and @mentions.")
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_comments"
+        verbose_name = "Article Comment"
+        verbose_name_plural = "Article Comments"
+        ordering = ["created_at"]
+        indexes = [
+            models.Index(fields=["article", "created_at"], name="art_com_art_created_idx"),
+            models.Index(fields=["author", "-created_at"], name="art_com_author_created_idx"),
+        ]
+
+    def __str__(self):
+        return f"Comment by {self.author.username} on {self.article.title} ({self.created_at.strftime('%Y-%m-%d %H:%M')})"
