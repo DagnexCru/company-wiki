@@ -222,3 +222,5 @@
   *Verification #103/185: Verifies surrounding text is preserved when mention is inserted.*
 - [x] **Checkpoint 104/185:** `feat(mention-textarea): restore textarea focus and advance cursor after mention insertion`  
   *Verification #104/185: Verifies seamless continuous typing after selecting a colleague.*
+- [x] **Checkpoint 105/185:** `feat(mention-textarea): display user avatar initials and role badge in suggestion items`  
+  *Verification #105/185: Verifies Admin, Author, Reviewer, and Reader visual badges.*
