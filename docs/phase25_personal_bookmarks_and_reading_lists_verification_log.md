@@ -1227,3 +1227,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #175)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #176 [Cycle 3]: Ensure composite unique constraint user_id + article_id prevents duplicates
+- **Timestamp**: `2026-11-06 12:19:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: ensure composite unique constraint user_id + article_id prevents duplicates
+- **Result**: `PASSED` (automated verification run #176)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
