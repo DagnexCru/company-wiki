@@ -541,3 +541,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #77)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #78 [Cycle 1]: Verify database query execution plan uses user_id composite index
+- **Timestamp**: `2026-11-06 10:41:00 +03:00`
+- **Scope**: `PERF`
+- **Check**: verify database query execution plan uses user_id composite index
+- **Result**: `PASSED` (automated verification run #78)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
