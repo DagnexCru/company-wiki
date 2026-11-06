@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark
 from apps.notifications.services import notify_review_action, notify_article_updated, parse_and_notify_mentions
 from apps.notifications.models import Notification
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
@@ -20,6 +20,7 @@ from apps.articles.serializers import (
     ArticleRevisionListSerializer,
     ArticleAttachmentSerializer,
     ArticleCommentSerializer,
+    ArticleBookmarkSerializer,
 )
 from apps.workflows.models import ReviewRecord
 from apps.workflows.serializers import ReviewRecordSerializer
@@ -946,6 +947,123 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
             serializer = ArticleCommentSerializer(comment, context={"request": request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated])
+    def bookmark(self, request, slug=None):
+        """
+        Toggle or update bookmark status on an article for the authenticated user.
+        Accepts optional 'action' ('toggle', 'add', 'remove'), 'collection_name', and 'personal_note'.
+        """
+        article = self.get_object()
+        user = request.user
+        action_type = request.data.get("action")
+        collection_name = request.data.get("collection_name", "Favorites")
+        if isinstance(collection_name, str):
+            collection_name = collection_name.strip() or "Favorites"
+        else:
+            collection_name = "Favorites"
+        personal_note = request.data.get("personal_note", "")
+        if isinstance(personal_note, str):
+            personal_note = personal_note.strip()
+        else:
+            personal_note = ""
+
+        bookmark = ArticleBookmark.objects.filter(user=user, article=article).first()
+
+        # If user explicitly requested removal
+        if action_type == "remove":
+            if bookmark:
+                bookmark.delete()
+            return Response({
+                "bookmarked": False,
+                "message": f"Removed '{article.title}' from bookmarks.",
+            }, status=status.HTTP_200_OK)
+
+        # If bookmark exists and no explicit 'add' or property update was requested, treat as toggle-off
+        if bookmark and action_type != "add" and "collection_name" not in request.data and "personal_note" not in request.data:
+            bookmark.delete()
+            return Response({
+                "bookmarked": False,
+                "message": f"Removed '{article.title}' from bookmarks.",
+            }, status=status.HTTP_200_OK)
+
+        # Update existing or create new bookmark
+        if bookmark:
+            if "collection_name" in request.data:
+                bookmark.collection_name = collection_name
+            if "personal_note" in request.data:
+                bookmark.personal_note = personal_note
+            bookmark.save()
+            serializer = ArticleBookmarkSerializer(bookmark, context={"request": request})
+            return Response({
+                "bookmarked": True,
+                "message": "Bookmark updated.",
+                "bookmark": serializer.data,
+            }, status=status.HTTP_200_OK)
+        else:
+            bookmark = ArticleBookmark.objects.create(
+                user=user,
+                article=article,
+                collection_name=collection_name,
+                personal_note=personal_note,
+            )
+            serializer = ArticleBookmarkSerializer(bookmark, context={"request": request})
+            return Response({
+                "bookmarked": True,
+                "message": f"Added '{article.title}' to {collection_name}.",
+                "bookmark": serializer.data,
+            }, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=["get"], url_path="bookmark-status", permission_classes=[permissions.IsAuthenticated])
+    def bookmark_status(self, request, slug=None):
+        """
+        Check if the current authenticated user has bookmarked this article.
+        """
+        article = self.get_object()
+        bookmark = ArticleBookmark.objects.filter(user=request.user, article=article).first()
+        if bookmark:
+            serializer = ArticleBookmarkSerializer(bookmark, context={"request": request})
+            return Response({"bookmarked": True, "bookmark": serializer.data}, status=status.HTTP_200_OK)
+        return Response({"bookmarked": False, "bookmark": None}, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=["get"], permission_classes=[permissions.IsAuthenticated])
+    def bookmarks(self, request):
+        """
+        List all saved bookmarks for the authenticated user with optional collection filtering and search.
+        """
+        collection = request.query_params.get("collection")
+        search = request.query_params.get("search")
+        qs = ArticleBookmark.objects.filter(user=request.user).select_related(
+            "article", "article__author", "article__category"
+        )
+
+        if collection and collection.lower() != "all":
+            qs = qs.filter(collection_name__iexact=collection.strip())
+
+        if search:
+            search_term = search.strip()
+            qs = qs.filter(
+                models.Q(article__title__icontains=search_term) |
+                models.Q(article__summary__icontains=search_term) |
+                models.Q(personal_note__icontains=search_term)
+            )
+
+        bookmarks = qs.order_by("-created_at")
+        serializer = ArticleBookmarkSerializer(bookmarks, many=True, context={"request": request})
+
+        user_collections = list(
+            ArticleBookmark.objects.filter(user=request.user)
+            .values_list("collection_name", flat=True)
+            .distinct()
+        )
+        if "Favorites" not in user_collections:
+            user_collections.insert(0, "Favorites")
+
+        return Response({
+            "count": len(serializer.data),
+            "results": serializer.data,
+            "collections": user_collections,
+        }, status=status.HTTP_200_OK)
 
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
