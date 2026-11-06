@@ -884,3 +884,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #126)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #127 [Cycle 2]: Test bookmarkbutton display of active collection name pill
+- **Timestamp**: `2026-11-06 11:30:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test BookmarkButton display of active collection name pill
+- **Result**: `PASSED` (automated verification run #127)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
