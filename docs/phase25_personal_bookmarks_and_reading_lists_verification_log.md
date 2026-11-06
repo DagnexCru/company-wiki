@@ -709,3 +709,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #101)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #102 [Cycle 2]: Test get /api/v1/articles/{slug}/bookmark-status/ returns bookmarked=true for owner
+- **Timestamp**: `2026-11-06 11:05:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/{slug}/bookmark-status/ returns bookmarked=true for owner
+- **Result**: `PASSED` (automated verification run #102)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
