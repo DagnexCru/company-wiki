@@ -212,3 +212,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #30)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #31 [Cycle 1]: Verify articledetailserializer includes bookmark_info dictionary
+- **Timestamp**: `2026-11-06 09:54:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify ArticleDetailSerializer includes bookmark_info dictionary
+- **Result**: `PASSED` (automated verification run #31)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
