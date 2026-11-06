@@ -62,6 +62,13 @@ export interface ArticleDetail extends ArticleListItem {
   helpfulness_score?: number;
   user_feedback?: UserFeedback | null;
   recent_feedback_notes?: FeedbackNote[];
+  is_bookmarked?: boolean;
+  bookmark_info?: {
+    id: string;
+    collection_name: string;
+    personal_note: string;
+    created_at: string;
+  } | null;
 }
 
 export interface ArticleInput {
