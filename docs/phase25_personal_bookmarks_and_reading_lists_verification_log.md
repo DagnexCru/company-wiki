@@ -37,3 +37,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #5)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #6 [Cycle 1]: Verify composite index on (article_id, -created_at)
+- **Timestamp**: `2026-11-06 09:29:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: verify composite index on (article_id, -created_at)
+- **Result**: `PASSED` (automated verification run #6)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
