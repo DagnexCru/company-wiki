@@ -751,3 +751,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #107)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #108 [Cycle 2]: Test get /api/v1/articles/bookmarks/?search=keyword performs case-insensitive search
+- **Timestamp**: `2026-11-06 11:11:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/bookmarks/?search=keyword performs case-insensitive search
+- **Result**: `PASSED` (automated verification run #108)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
