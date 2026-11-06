@@ -135,3 +135,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #19)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #20 [Cycle 1]: Test get /api/v1/articles/bookmarks/?collection=favorites filters collection accurately
+- **Timestamp**: `2026-11-06 09:43:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/bookmarks/?collection=Favorites filters collection accurately
+- **Result**: `PASSED` (automated verification run #20)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
