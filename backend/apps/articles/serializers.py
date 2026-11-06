@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.utils.text import slugify
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleFeedback
+from apps.articles.models import Article, ArticleFeedback, ArticleBookmark
 from apps.taxonomy.models import Category, Tag
 from apps.taxonomy.serializers import CategorySerializer, TagSerializer
 
@@ -112,6 +112,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     recent_feedback_notes = serializers.SerializerMethodField()
     revision_count = serializers.SerializerMethodField()
     latest_revision_number = serializers.SerializerMethodField()
+    is_bookmarked = serializers.SerializerMethodField()
+    bookmark_info = serializers.SerializerMethodField()
 
     def get_revision_count(self, obj):
         return obj.revisions.count()
@@ -119,6 +121,25 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
     def get_latest_revision_number(self, obj):
         latest = obj.revisions.order_by("-revision_number").first()
         return latest.revision_number if latest else 1
+
+    def get_is_bookmarked(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            return obj.bookmarks.filter(user=request.user).exists()
+        return False
+
+    def get_bookmark_info(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            bm = obj.bookmarks.filter(user=request.user).first()
+            if bm:
+                return {
+                    "id": str(bm.id),
+                    "collection_name": bm.collection_name,
+                    "personal_note": bm.personal_note,
+                    "created_at": bm.created_at.isoformat(),
+                }
+        return None
 
     def get_user_feedback(self, obj):
         request = self.context.get("request")
@@ -165,6 +186,8 @@ class ArticleDetailSerializer(serializers.ModelSerializer):
             "helpfulness_score",
             "user_feedback",
             "recent_feedback_notes",
+            "is_bookmarked",
+            "bookmark_info",
             "revision_count",
             "latest_revision_number",
             "submitted_at",
@@ -464,3 +487,48 @@ class ArticleCommentSerializer(serializers.ModelSerializer):
         if request and request.user.is_authenticated:
             return obj.author_id == request.user.id
         return False
+
+
+class ArticleBookmarkSerializer(serializers.ModelSerializer):
+    """
+    Serializer for ArticleBookmark representing a user's saved reading list entry.
+    """
+    article_id = serializers.UUIDField(source="article.id", read_only=True)
+    article_title = serializers.CharField(source="article.title", read_only=True)
+    article_slug = serializers.CharField(source="article.slug", read_only=True)
+    article_summary = serializers.CharField(source="article.summary", read_only=True)
+    article_status = serializers.CharField(source="article.status", read_only=True)
+    article_author_name = serializers.SerializerMethodField()
+    article_category_name = serializers.SerializerMethodField()
+    article_reading_time = serializers.IntegerField(source="article.estimated_reading_time_minutes", read_only=True)
+
+    class Meta:
+        model = ArticleBookmark
+        fields = [
+            "id",
+            "article",
+            "article_id",
+            "article_title",
+            "article_slug",
+            "article_summary",
+            "article_status",
+            "article_author_name",
+            "article_category_name",
+            "article_reading_time",
+            "collection_name",
+            "personal_note",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ["id", "article", "created_at", "updated_at"]
+
+    def get_article_author_name(self, obj):
+        if obj.article and obj.article.author:
+            return obj.article.author.full_name or obj.article.author.username
+        return "Unknown"
+
+    def get_article_category_name(self, obj):
+        if obj.article and obj.article.category:
+            return obj.article.category.name
+        return "Uncategorized"
+
