@@ -1038,3 +1038,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #148)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #149 [Cycle 2]: Verify csrf protection on bookmark toggle requests
+- **Timestamp**: `2026-11-06 11:52:00 +03:00`
+- **Scope**: `SECURITY`
+- **Check**: verify CSRF protection on bookmark toggle requests
+- **Result**: `PASSED` (automated verification run #149)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
