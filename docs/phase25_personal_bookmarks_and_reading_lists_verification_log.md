@@ -989,3 +989,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #141)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #142 [Cycle 2]: Test dashboardbookmarkswidget inline unbookmark button
+- **Timestamp**: `2026-11-06 11:45:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test DashboardBookmarksWidget inline unbookmark button
+- **Result**: `PASSED` (automated verification run #142)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
