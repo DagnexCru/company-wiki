@@ -128,3 +128,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #18)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #19 [Cycle 1]: Test get /api/v1/articles/bookmarks/ enforces tenant user data isolation
+- **Timestamp**: `2026-11-06 09:42:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/bookmarks/ enforces tenant user data isolation
+- **Result**: `PASSED` (automated verification run #19)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
