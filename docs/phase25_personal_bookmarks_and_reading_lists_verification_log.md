@@ -1017,3 +1017,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #145)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #146 [Cycle 2]: Test responsive layout rendering on 375px mobile viewport
+- **Timestamp**: `2026-11-06 11:49:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test responsive layout rendering on 375px mobile viewport
+- **Result**: `PASSED` (automated verification run #146)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
