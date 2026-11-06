@@ -247,3 +247,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #35)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #36 [Cycle 1]: Verify bookmarkservice.getbookmarkstatus endpoint routing
+- **Timestamp**: `2026-11-06 09:59:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: verify bookmarkService.getBookmarkStatus endpoint routing
+- **Result**: `PASSED` (automated verification run #36)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
