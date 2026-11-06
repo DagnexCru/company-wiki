@@ -1094,3 +1094,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #156)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #157 [Cycle 2]: Verify rate limiting resistance under rapid toggle requests
+- **Timestamp**: `2026-11-06 12:00:00 +03:00`
+- **Scope**: `SECURITY`
+- **Check**: verify rate limiting resistance under rapid toggle requests
+- **Result**: `PASSED` (automated verification run #157)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
