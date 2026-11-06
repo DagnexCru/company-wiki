@@ -1059,3 +1059,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #151)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #152 [Cycle 2]: Verify reviewer bookmarks are isolated from author bookmarks
+- **Timestamp**: `2026-11-06 11:55:00 +03:00`
+- **Scope**: `SECURITY`
+- **Check**: verify reviewer bookmarks are isolated from author bookmarks
+- **Result**: `PASSED` (automated verification run #152)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
