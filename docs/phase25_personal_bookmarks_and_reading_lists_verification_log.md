@@ -450,3 +450,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #64)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #65 [Cycle 1]: Verify reader cannot read another user's personal notes
+- **Timestamp**: `2026-11-06 10:28:00 +03:00`
+- **Scope**: `SECURITY`
+- **Check**: verify reader cannot read another user's personal notes
+- **Result**: `PASSED` (automated verification run #65)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
