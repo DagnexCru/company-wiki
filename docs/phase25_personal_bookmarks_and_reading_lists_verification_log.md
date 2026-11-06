@@ -100,3 +100,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #14)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #15 [Cycle 1]: Test post /api/v1/articles/{slug}/bookmark/ with action='remove' deletes record
+- **Timestamp**: `2026-11-06 09:38:00 +03:00`
+- **Scope**: `API`
+- **Check**: test POST /api/v1/articles/{slug}/bookmark/ with action='remove' deletes record
+- **Result**: `PASSED` (automated verification run #15)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
