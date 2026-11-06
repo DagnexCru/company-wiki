@@ -516,3 +516,55 @@ class ArticleComment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author.username} on {self.article.title} ({self.created_at.strftime('%Y-%m-%d %H:%M')})"
+
+
+class ArticleBookmark(models.Model):
+    """
+    Personal bookmark / reading list item for an article.
+    Allows users to save articles, categorize them into collections,
+    and attach private notes.
+    """
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="bookmarks",
+        db_index=True,
+        help_text="The user who saved this article.",
+    )
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="bookmarks",
+        db_index=True,
+        help_text="The bookmarked article.",
+    )
+    collection_name = models.CharField(
+        max_length=60,
+        default="Favorites",
+        db_index=True,
+        help_text="Custom collection or folder (e.g. 'Favorites', 'Must Read', 'Architecture').",
+    )
+    personal_note = models.TextField(
+        blank=True,
+        default="",
+        help_text="Optional private note or reading reminder for the user.",
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_bookmarks"
+        verbose_name = "Article Bookmark"
+        verbose_name_plural = "Article Bookmarks"
+        ordering = ["-created_at"]
+        unique_together = ("user", "article")
+        indexes = [
+            models.Index(fields=["user", "-created_at"], name="art_bm_usr_created_idx"),
+            models.Index(fields=["user", "collection_name"], name="art_bm_usr_col_idx"),
+            models.Index(fields=["article", "user"], name="art_bm_art_usr_idx"),
+        ]
+
+    def __str__(self):
+        return f"Bookmark: {self.user.username} -> {self.article.title} [{self.collection_name}]"
