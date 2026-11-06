@@ -35,6 +35,7 @@ import { ArticlePresenceViewer } from "../components/ArticlePresenceViewer";
 import { ArticleAiSummaryCard } from "../components/ArticleAiSummaryCard";
 import { ArticleFeedbackWidget } from "../components/ArticleFeedbackWidget";
 import { ArticleCommentsSection } from "../components/ArticleCommentsSection";
+import { BookmarkButton } from "../components/BookmarkButton";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -338,6 +339,14 @@ export const ArticleDetailPage: React.FC = () => {
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center gap-2">
+          {/* Personal Bookmark & Reading List */}
+          <BookmarkButton
+            slug={article.slug}
+            articleTitle={article.title}
+            initialBookmarked={article.is_bookmarked}
+            initialBookmarkInfo={article.bookmark_info}
+          />
+
           {/* Export & Sharing Suite */}
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
             <button
