@@ -793,3 +793,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #113)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #114 [Cycle 2]: Test bookmarking draft articles by author preserves status visibility
+- **Timestamp**: `2026-11-06 11:17:00 +03:00`
+- **Scope**: `API`
+- **Check**: test bookmarking draft articles by author preserves status visibility
+- **Result**: `PASSED` (automated verification run #114)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
