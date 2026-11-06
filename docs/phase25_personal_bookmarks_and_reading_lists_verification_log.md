@@ -674,3 +674,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #96)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #97 [Cycle 2]: Test post /api/v1/articles/{slug}/bookmark/ unauthenticated returns 401 unauthorized
+- **Timestamp**: `2026-11-06 11:00:00 +03:00`
+- **Scope**: `API`
+- **Check**: test POST /api/v1/articles/{slug}/bookmark/ unauthenticated returns 401 Unauthorized
+- **Result**: `PASSED` (automated verification run #97)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
