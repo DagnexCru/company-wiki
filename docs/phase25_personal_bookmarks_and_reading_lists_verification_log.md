@@ -877,3 +877,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #125)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #126 [Cycle 2]: Test bookmarkbutton rollback handling when backend rejects request
+- **Timestamp**: `2026-11-06 11:29:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test BookmarkButton rollback handling when backend rejects request
+- **Result**: `PASSED` (automated verification run #126)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
