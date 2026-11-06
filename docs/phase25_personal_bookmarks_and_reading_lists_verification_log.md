@@ -499,3 +499,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #71)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #72 [Cycle 1]: Benchmark get /api/v1/articles/bookmarks/ response time (< 50ms)
+- **Timestamp**: `2026-11-06 10:35:00 +03:00`
+- **Scope**: `PERF`
+- **Check**: benchmark GET /api/v1/articles/bookmarks/ response time (< 50ms)
+- **Result**: `PASSED` (automated verification run #72)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
