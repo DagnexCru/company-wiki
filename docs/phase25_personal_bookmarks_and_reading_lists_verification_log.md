@@ -184,3 +184,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #26)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #27 [Cycle 1]: Test invalid slug on /bookmark/ returns 404 not found
+- **Timestamp**: `2026-11-06 09:50:00 +03:00`
+- **Scope**: `API`
+- **Check**: test invalid slug on /bookmark/ returns 404 Not Found
+- **Result**: `PASSED` (automated verification run #27)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
