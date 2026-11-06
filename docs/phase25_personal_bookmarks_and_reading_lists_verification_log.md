@@ -401,3 +401,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #57)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #58 [Cycle 1]: Test dashboardbookmarkswidget direct navigation links to articles
+- **Timestamp**: `2026-11-06 10:21:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test DashboardBookmarksWidget direct navigation links to articles
+- **Result**: `PASSED` (automated verification run #58)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
