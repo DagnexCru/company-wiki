@@ -646,3 +646,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #92)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #93 [Cycle 2]: Validate default collection_name fallback to 'favorites'
+- **Timestamp**: `2026-11-06 10:56:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: validate default collection_name fallback to 'Favorites'
+- **Result**: `PASSED` (automated verification run #93)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
