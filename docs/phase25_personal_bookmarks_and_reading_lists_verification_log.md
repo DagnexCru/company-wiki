@@ -856,3 +856,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #122)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #123 [Cycle 2]: Verify bookmarkservice.togglebookmark payload dispatch
+- **Timestamp**: `2026-11-06 11:26:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: verify bookmarkService.toggleBookmark payload dispatch
+- **Result**: `PASSED` (automated verification run #123)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
