@@ -562,3 +562,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #80)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #81 [Cycle 1]: Verify tab index sequence through dashboard bookmarks widget
+- **Timestamp**: `2026-11-06 10:44:00 +03:00`
+- **Scope**: `UX`
+- **Check**: verify tab index sequence through dashboard bookmarks widget
+- **Result**: `PASSED` (automated verification run #81)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
