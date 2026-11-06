@@ -912,3 +912,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #130)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #131 [Cycle 2]: Test bookmarkdialogmodal preset collection selection chips
+- **Timestamp**: `2026-11-06 11:34:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test BookmarkDialogModal preset collection selection chips
+- **Result**: `PASSED` (automated verification run #131)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
