@@ -1290,3 +1290,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #184)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #185 [Cycle 3]: Test post /api/v1/articles/{slug}/bookmark/ toggles off existing bookmark with 200 ok
+- **Timestamp**: `2026-11-06 12:28:00 +03:00`
+- **Scope**: `API`
+- **Check**: test POST /api/v1/articles/{slug}/bookmark/ toggles off existing bookmark with 200 OK
+- **Result**: `PASSED` (automated verification run #185)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
