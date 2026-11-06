@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { dashboardService } from "../services/dashboardService";
 import type { DashboardData } from "../types/dashboard";
+import { DashboardBookmarksWidget } from "../components/DashboardBookmarksWidget";
 import {
   ShieldCheck,
   UserCheck,
@@ -519,6 +520,9 @@ export const DashboardPage = () => {
           </div>
         )}
       </div>
+
+      {/* Personal Knowledge Hub: Saved Bookmarks & Reading Lists */}
+      <DashboardBookmarksWidget />
 
       {/* Admin Section: System Audit Activity Stream */}
       {isAdmin && data?.admin_metrics?.recent_activity && data.admin_metrics.recent_activity.length > 0 && (
