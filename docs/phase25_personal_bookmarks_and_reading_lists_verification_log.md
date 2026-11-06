@@ -1269,3 +1269,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #181)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #182 [Cycle 3]: Verify django migration 0010_articlebookmark backwards rollback capability
+- **Timestamp**: `2026-11-06 12:25:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: verify Django migration 0010_articlebookmark backwards rollback capability
+- **Result**: `PASSED` (automated verification run #182)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
