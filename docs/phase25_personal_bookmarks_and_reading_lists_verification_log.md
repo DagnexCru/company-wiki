@@ -604,3 +604,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #86)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #87 [Cycle 2]: Verify database primary key uuid collision resistance on articlebookmark
+- **Timestamp**: `2026-11-06 10:50:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: verify database primary key UUID collision resistance on ArticleBookmark
+- **Result**: `PASSED` (automated verification run #87)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
