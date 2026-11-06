@@ -961,3 +961,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #137)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #138 [Cycle 2]: Test articledetailpage bookmark button positioning in header bar
+- **Timestamp**: `2026-11-06 11:41:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test ArticleDetailPage bookmark button positioning in header bar
+- **Result**: `PASSED` (automated verification run #138)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
