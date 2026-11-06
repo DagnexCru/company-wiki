@@ -947,3 +947,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #135)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #136 [Cycle 2]: Test bookmarkdialogmodal keyboard accessibility and escape key handling
+- **Timestamp**: `2026-11-06 11:39:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test BookmarkDialogModal keyboard accessibility and escape key handling
+- **Result**: `PASSED` (automated verification run #136)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
