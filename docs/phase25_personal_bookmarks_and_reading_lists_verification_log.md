@@ -611,3 +611,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #87)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #88 [Cycle 2]: Validate foreign key cascade constraint on customuser deletion
+- **Timestamp**: `2026-11-06 10:51:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: validate foreign key CASCADE constraint on CustomUser deletion
+- **Result**: `PASSED` (automated verification run #88)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
