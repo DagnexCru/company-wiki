@@ -1010,3 +1010,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #144)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #145 [Cycle 2]: Test dashboardbookmarkswidget dark mode theme contrast compliance
+- **Timestamp**: `2026-11-06 11:48:00 +03:00`
+- **Scope**: `FRONTEND`
+- **Check**: test DashboardBookmarksWidget dark mode theme contrast compliance
+- **Result**: `PASSED` (automated verification run #145)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
