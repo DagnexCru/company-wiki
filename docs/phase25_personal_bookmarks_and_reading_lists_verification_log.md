@@ -779,3 +779,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #111)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #112 [Cycle 2]: Verify serializer category name resolution with fallback to uncategorized
+- **Timestamp**: `2026-11-06 11:15:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify serializer category name resolution with fallback to Uncategorized
+- **Result**: `PASSED` (automated verification run #112)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
