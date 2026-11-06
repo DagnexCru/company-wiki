@@ -1045,3 +1045,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #149)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #150 [Cycle 2]: Verify jwt bearer token authentication enforcement
+- **Timestamp**: `2026-11-06 11:53:00 +03:00`
+- **Scope**: `SECURITY`
+- **Check**: verify JWT bearer token authentication enforcement
+- **Result**: `PASSED` (automated verification run #150)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
