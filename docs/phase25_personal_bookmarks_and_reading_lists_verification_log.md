@@ -807,3 +807,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #115)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #116 [Cycle 2]: Verify articledetailserializer includes is_bookmarked boolean flag
+- **Timestamp**: `2026-11-06 11:19:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify ArticleDetailSerializer includes is_bookmarked boolean flag
+- **Result**: `PASSED` (automated verification run #116)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
