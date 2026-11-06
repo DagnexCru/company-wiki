@@ -1283,3 +1283,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #183)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #184 [Cycle 3]: Test post /api/v1/articles/{slug}/bookmark/ creates bookmark with 201 created
+- **Timestamp**: `2026-11-06 12:27:00 +03:00`
+- **Scope**: `API`
+- **Check**: test POST /api/v1/articles/{slug}/bookmark/ creates bookmark with 201 Created
+- **Result**: `PASSED` (automated verification run #184)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
