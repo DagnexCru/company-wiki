@@ -800,3 +800,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #114)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #115 [Cycle 2]: Test bookmarking rejected articles for personal reference
+- **Timestamp**: `2026-11-06 11:18:00 +03:00`
+- **Scope**: `API`
+- **Check**: test bookmarking rejected articles for personal reference
+- **Result**: `PASSED` (automated verification run #115)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
