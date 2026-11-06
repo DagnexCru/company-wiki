@@ -660,3 +660,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #94)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #95 [Cycle 2]: Verify sqlite table creation schema and column type mappings
+- **Timestamp**: `2026-11-06 10:58:00 +03:00`
+- **Scope**: `SCHEMA`
+- **Check**: verify SQLite table creation schema and column type mappings
+- **Result**: `PASSED` (automated verification run #95)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
