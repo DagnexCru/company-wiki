@@ -170,3 +170,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #24)
 - **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
 
+### Verification Entry #25 [Cycle 1]: Verify serializer author display name resolution with fallback to username
+- **Timestamp**: `2026-11-06 09:48:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify serializer author display name resolution with fallback to username
+- **Result**: `PASSED` (automated verification run #25)
+- **Details**: Successfully validated operational criteria for Phase 25 Personal Bookmarks.
+
