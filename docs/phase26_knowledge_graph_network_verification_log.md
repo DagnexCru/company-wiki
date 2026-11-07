@@ -317,3 +317,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #45)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #46 [Cycle 1]: Test selected node bottom drawer presents title, category, read time, and view count
+- **Timestamp**: `2026-11-07 10:35:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test selected node bottom drawer presents title, category, read time, and view count
+- **Result**: `PASSED` (automated verification run #46)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
