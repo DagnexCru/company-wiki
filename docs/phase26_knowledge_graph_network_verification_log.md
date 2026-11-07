@@ -856,3 +856,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #122)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #123 [Cycle 3]: Verify direct link regex pattern matching on /articles/{slug} format
+- **Timestamp**: `2026-11-07 11:52:00 +03:00`
+- **Scope**: `ENGINE`
+- **Check**: verify direct link regex pattern matching on /articles/{slug} format
+- **Result**: `PASSED` (automated verification run #123)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
