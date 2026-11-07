@@ -93,3 +93,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #13)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #14 [Cycle 1]: Test get /api/v1/articles/graph/?category=engineering filters category cluster accurately
+- **Timestamp**: `2026-11-07 10:03:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/graph/?category=Engineering filters category cluster accurately
+- **Result**: `PASSED` (automated verification run #14)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
