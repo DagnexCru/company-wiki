@@ -17,6 +17,7 @@ import { AccessDeniedPage } from "./pages/AccessDeniedPage";
 import { ArticleRevisionHistoryPage } from "./pages/ArticleRevisionHistoryPage";
 import { AuditLogPage } from "./pages/AuditLogPage";
 import { ProfilePage } from "./pages/ProfilePage";
+import { KnowledgeGraphPage } from "./pages/KnowledgeGraphPage";
 
 export function App() {
   return (
@@ -59,6 +60,16 @@ export function App() {
           />
 
           {/* Knowledge Article Routes (Phase 3) */}
+          <Route
+            path="/graph"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <KnowledgeGraphPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/articles"
             element={
