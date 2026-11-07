@@ -807,3 +807,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #115)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #116 [Cycle 2]: Verify active state styling on sidebar navigation item when on /graph
+- **Timestamp**: `2026-11-07 11:45:00 +03:00`
+- **Scope**: `NAV`
+- **Check**: verify active state styling on sidebar navigation item when on /graph
+- **Result**: `PASSED` (automated verification run #116)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
