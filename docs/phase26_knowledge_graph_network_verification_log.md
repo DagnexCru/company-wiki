@@ -121,3 +121,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #17)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #18 [Cycle 1]: Verify article title, slug, category, read_time, and view_count in node payload
+- **Timestamp**: `2026-11-07 10:07:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify article title, slug, category, read_time, and view_count in node payload
+- **Result**: `PASSED` (automated verification run #18)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
