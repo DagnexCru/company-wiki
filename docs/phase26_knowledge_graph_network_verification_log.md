@@ -779,3 +779,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #111)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #112 [Cycle 2]: Test refresh graph button triggers reactive state re-fetch with spin animation
+- **Timestamp**: `2026-11-07 11:41:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test refresh graph button triggers reactive state re-fetch with spin animation
+- **Result**: `PASSED` (automated verification run #112)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
