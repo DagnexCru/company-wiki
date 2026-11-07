@@ -730,3 +730,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #104)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #105 [Cycle 2]: Test real-time text search filters nodes by article title and tags
+- **Timestamp**: `2026-11-07 11:34:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test real-time text search filters nodes by article title and tags
+- **Result**: `PASSED` (automated verification run #105)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
