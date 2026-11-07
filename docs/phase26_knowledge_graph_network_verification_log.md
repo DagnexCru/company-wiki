@@ -198,3 +198,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #28)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #29 [Cycle 1]: Verify hit testing algorithm accurately detects node under cursor
+- **Timestamp**: `2026-11-07 10:18:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify hit testing algorithm accurately detects node under cursor
+- **Result**: `PASSED` (automated verification run #29)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
