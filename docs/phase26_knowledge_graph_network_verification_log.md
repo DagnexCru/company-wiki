@@ -884,3 +884,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #126)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #127 [Cycle 3]: Verify bidirectional edge deduplication using sorted tuple keys
+- **Timestamp**: `2026-11-07 11:56:00 +03:00`
+- **Scope**: `ENGINE`
+- **Check**: verify bidirectional edge deduplication using sorted tuple keys
+- **Result**: `PASSED` (automated verification run #127)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
