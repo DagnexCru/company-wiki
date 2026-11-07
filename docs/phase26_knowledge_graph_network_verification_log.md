@@ -191,3 +191,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #27)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #28 [Cycle 1]: Verify mouse coordinate transformation from screen space to world space
+- **Timestamp**: `2026-11-07 10:17:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify mouse coordinate transformation from screen space to world space
+- **Result**: `PASSED` (automated verification run #28)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
