@@ -254,3 +254,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #36)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #37 [Cycle 1]: Verify node radius scaling is proportional to citation degree
+- **Timestamp**: `2026-11-07 10:26:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify node radius scaling is proportional to citation degree
+- **Result**: `PASSED` (automated verification run #37)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
