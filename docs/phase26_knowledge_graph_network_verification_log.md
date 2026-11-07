@@ -555,3 +555,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #79)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #80 [Cycle 2]: Verify author display name fallback resolution in node serializer
+- **Timestamp**: `2026-11-07 11:09:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify author display name fallback resolution in node serializer
+- **Result**: `PASSED` (automated verification run #80)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
