@@ -751,3 +751,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #107)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #108 [Cycle 2]: Test direct 'open article' router link navigates seamlessly to detail page
+- **Timestamp**: `2026-11-07 11:37:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test direct 'Open Article' router link navigates seamlessly to detail page
+- **Result**: `PASSED` (automated verification run #108)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
