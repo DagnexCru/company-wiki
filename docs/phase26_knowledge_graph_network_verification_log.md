@@ -107,3 +107,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #15)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #16 [Cycle 1]: Test get /api/v1/articles/graph/?include_drafts=true enforces author/admin rbac
+- **Timestamp**: `2026-11-07 10:05:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/graph/?include_drafts=true enforces author/admin RBAC
+- **Result**: `PASSED` (automated verification run #16)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
