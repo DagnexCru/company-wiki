@@ -268,3 +268,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #38)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #39 [Cycle 1]: Verify outer glow and border highlight on hovered node
+- **Timestamp**: `2026-11-07 10:28:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify outer glow and border highlight on hovered node
+- **Result**: `PASSED` (automated verification run #39)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
