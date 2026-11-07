@@ -11,6 +11,7 @@ import {
   User,
   LogOut,
   X,
+  Share2,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -55,6 +56,12 @@ export const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
       icon: FileText,
       path: "/articles",
       exact: false,
+    },
+    {
+      label: "Knowledge Graph",
+      icon: Share2,
+      path: "/graph",
+      exact: true,
     },
     {
       label: "Categories & Tags",
