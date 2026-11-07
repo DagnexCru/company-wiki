@@ -100,3 +100,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #14)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #15 [Cycle 1]: Test get /api/v1/articles/graph/?orphans_only=true isolates disconnected nodes
+- **Timestamp**: `2026-11-07 10:04:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/graph/?orphans_only=true isolates disconnected nodes
+- **Result**: `PASSED` (automated verification run #15)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
