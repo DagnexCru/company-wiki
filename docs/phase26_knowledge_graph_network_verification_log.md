@@ -79,3 +79,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #11)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #12 [Cycle 1]: Test get /api/v1/articles/graph/ unauthenticated returns 401 unauthorized
+- **Timestamp**: `2026-11-07 10:01:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /api/v1/articles/graph/ unauthenticated returns 401 Unauthorized
+- **Result**: `PASSED` (automated verification run #12)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
