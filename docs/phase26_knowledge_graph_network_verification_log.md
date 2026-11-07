@@ -737,3 +737,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #105)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #106 [Cycle 2]: Test orphans only toggle button isolates disconnected documentation
+- **Timestamp**: `2026-11-07 11:35:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test orphans only toggle button isolates disconnected documentation
+- **Result**: `PASSED` (automated verification run #106)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
