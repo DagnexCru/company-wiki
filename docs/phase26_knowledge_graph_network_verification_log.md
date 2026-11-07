@@ -660,3 +660,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #94)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #95 [Cycle 2]: Verify zoom in and zoom out control buttons trigger proportional scale steps
+- **Timestamp**: `2026-11-07 11:24:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify zoom in and zoom out control buttons trigger proportional scale steps
+- **Result**: `PASSED` (automated verification run #95)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
