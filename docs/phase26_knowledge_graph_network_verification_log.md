@@ -702,3 +702,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #100)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #101 [Cycle 2]: Verify 1-hop connected neighborhood highlighting dims unrelated nodes
+- **Timestamp**: `2026-11-07 11:30:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify 1-hop connected neighborhood highlighting dims unrelated nodes
+- **Result**: `PASSED` (automated verification run #101)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
