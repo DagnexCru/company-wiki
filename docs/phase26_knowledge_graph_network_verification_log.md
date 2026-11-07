@@ -240,3 +240,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #34)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #35 [Cycle 1]: Verify reset view button centers camera and restores 1.0x default zoom
+- **Timestamp**: `2026-11-07 10:24:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify reset view button centers camera and restores 1.0x default zoom
+- **Result**: `PASSED` (automated verification run #35)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
