@@ -723,3 +723,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #103)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #104 [Cycle 2]: Test category dropdown filter dynamically updates active visible nodes
+- **Timestamp**: `2026-11-07 11:33:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test category dropdown filter dynamically updates active visible nodes
+- **Result**: `PASSED` (automated verification run #104)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
