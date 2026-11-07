@@ -282,3 +282,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #40)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #41 [Cycle 1]: Verify amber edge highlighting along connected citations
+- **Timestamp**: `2026-11-07 10:30:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify amber edge highlighting along connected citations
+- **Result**: `PASSED` (automated verification run #41)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
