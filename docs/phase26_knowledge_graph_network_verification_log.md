@@ -758,3 +758,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #108)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #109 [Cycle 2]: Test drawer close button dismisses selection card cleanly
+- **Timestamp**: `2026-11-07 11:38:00 +03:00`
+- **Scope**: `UI`
+- **Check**: test drawer close button dismisses selection card cleanly
+- **Result**: `PASSED` (automated verification run #109)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
