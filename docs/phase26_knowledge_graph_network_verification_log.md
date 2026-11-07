@@ -170,3 +170,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #24)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #25 [Cycle 1]: Verify global centering gravitational pull towards viewport center
+- **Timestamp**: `2026-11-07 10:14:00 +03:00`
+- **Scope**: `CANVAS`
+- **Check**: verify global centering gravitational pull towards viewport center
+- **Result**: `PASSED` (automated verification run #25)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
