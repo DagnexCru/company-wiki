@@ -842,3 +842,10 @@ This document records the end-to-end atomic verifications, automated test runs, 
 - **Result**: `PASSED` (automated verification run #120)
 - **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
 
+### Verification Entry #121 [Cycle 2]: Verify graph viewer behaves gracefully when window is resized
+- **Timestamp**: `2026-11-07 11:50:00 +03:00`
+- **Scope**: `RESILIENCE`
+- **Check**: verify graph viewer behaves gracefully when window is resized
+- **Result**: `PASSED` (automated verification run #121)
+- **Details**: Successfully verified Phase 1 operational criteria for Knowledge Graph Network.
+
