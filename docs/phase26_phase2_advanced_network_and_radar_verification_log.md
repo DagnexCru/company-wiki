@@ -345,3 +345,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #49)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #50 [Cycle 2]: Verify repulsion slider dynamically scales coulomb force (100 - 800)
+- **Timestamp**: `2026-11-08 10:50:00 +03:00`
+- **Scope**: `PHYSICS`
+- **Check**: verify repulsion slider dynamically scales Coulomb force (100 - 800)
+- **Result**: `PASSED` (automated verification run #50)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
