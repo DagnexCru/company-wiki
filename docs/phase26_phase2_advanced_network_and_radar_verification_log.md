@@ -254,3 +254,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #36)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #37 [Cycle 2]: Verify hover highlight turns connecting edge amber and expands node radius
+- **Timestamp**: `2026-11-08 10:37:00 +03:00`
+- **Scope**: `RADAR`
+- **Check**: verify hover highlight turns connecting edge amber and expands node radius
+- **Result**: `PASSED` (automated verification run #37)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
