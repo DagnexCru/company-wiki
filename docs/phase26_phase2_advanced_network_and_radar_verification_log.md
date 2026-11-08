@@ -499,3 +499,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #71)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #72 [Cycle 3]: Verify direct link to full 2d knowledge graph (/graph) in radar header
+- **Timestamp**: `2026-11-08 11:12:00 +03:00`
+- **Scope**: `RADAR`
+- **Check**: verify direct link to full 2D Knowledge Graph (/graph) in radar header
+- **Result**: `PASSED` (automated verification run #72)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
