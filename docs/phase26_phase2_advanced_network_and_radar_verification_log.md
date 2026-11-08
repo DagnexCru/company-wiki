@@ -429,3 +429,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #61)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #62 [Cycle 2]: Verify unauthenticated requests to neighborhood endpoint receive 401 unauthorized
+- **Timestamp**: `2026-11-08 11:02:00 +03:00`
+- **Scope**: `API`
+- **Check**: verify unauthenticated requests to neighborhood endpoint receive 401 Unauthorized
+- **Result**: `PASSED` (automated verification run #62)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
