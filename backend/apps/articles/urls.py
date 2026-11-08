@@ -16,7 +16,7 @@ from apps.articles.ai_views import (
     ArticleAiSummaryView,
     AskWikiAiView,
 )
-from apps.articles.graph_views import KnowledgeGraphView
+from apps.articles.graph_views import KnowledgeGraphView, ArticleNeighborhoodGraphView
 
 router = DefaultRouter()
 router.register(r"", ArticleViewSet, basename="article")
@@ -34,6 +34,7 @@ urlpatterns = [
     # AI-Powered 'Ask Wiki' & Article Summary Routes
     path("ask-ai/", AskWikiAiView.as_view(), name="article-ask-ai"),
     path("<str:slug_or_id>/ai-summary/", ArticleAiSummaryView.as_view(), name="article-ai-summary"),
+    path("<str:slug_or_id>/graph-neighborhood/", ArticleNeighborhoodGraphView.as_view(), name="article-graph-neighborhood"),
     # Interactive Knowledge Graph Network Route
     path("graph/", KnowledgeGraphView.as_view(), name="article-graph"),
     path("", include(router.urls)),
