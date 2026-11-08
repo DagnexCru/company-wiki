@@ -198,3 +198,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #28)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #29 [Cycle 1]: Test get /articles/<slug>/graph-neighborhood/ with invalid slug returns 404 not found
+- **Timestamp**: `2026-11-08 10:29:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /articles/<slug>/graph-neighborhood/ with invalid slug returns 404 Not Found
+- **Result**: `PASSED` (automated verification run #29)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
