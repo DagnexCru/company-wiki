@@ -114,3 +114,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #16)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #17 [Cycle 1]: Verify clear button resets shortest path and restores standard neighborhood view
+- **Timestamp**: `2026-11-08 10:17:00 +03:00`
+- **Scope**: `PATH`
+- **Check**: verify clear button resets shortest path and restores standard neighborhood view
+- **Result**: `PASSED` (automated verification run #17)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
