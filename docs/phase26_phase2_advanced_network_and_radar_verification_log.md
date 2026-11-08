@@ -100,3 +100,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #14)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #15 [Cycle 1]: Verify disconnected clusters return friendly notification without crashing
+- **Timestamp**: `2026-11-08 10:15:00 +03:00`
+- **Scope**: `PATH`
+- **Check**: verify disconnected clusters return friendly notification without crashing
+- **Result**: `PASSED` (automated verification run #15)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
