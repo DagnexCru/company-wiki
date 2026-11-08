@@ -625,3 +625,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #89)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #90 [Cycle 3]: Test get /articles/<slug>/graph-neighborhood/ with valid slug returns 200 ok
+- **Timestamp**: `2026-11-08 11:30:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /articles/<slug>/graph-neighborhood/ with valid slug returns 200 OK
+- **Result**: `PASSED` (automated verification run #90)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
