@@ -104,3 +104,17 @@ class KnowledgeGraphAPITests(APITestCase):
         nodes = res.data["nodes"]
         self.assertEqual(len(nodes), 1)
         self.assertEqual(nodes[0]["slug"], "hr-vacation-policy")
+
+    def test_article_neighborhood_graph(self):
+        self.client.force_authenticate(user=self.user)
+        res = self.client.get(f"/api/v1/articles/{self.art1.slug}/graph-neighborhood/")
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+
+        data = res.data
+        self.assertEqual(data["center_node"]["slug"], self.art1.slug)
+        self.assertGreaterEqual(data["outbound_count"], 2) # links to docker and k8s
+        self.assertGreaterEqual(data["total_connections"], 2)
+
+        # Test non-existent slug returns 404
+        res404 = self.client.get("/api/v1/articles/non-existent-article-slug/graph-neighborhood/")
+        self.assertEqual(res404.status_code, status.HTTP_404_NOT_FOUND)
