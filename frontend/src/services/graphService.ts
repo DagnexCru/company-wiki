@@ -1,5 +1,5 @@
 import api from "./api";
-import type { GraphDataResponse, GraphFilterParams } from "../types/graph";
+import type { GraphDataResponse, GraphFilterParams, ArticleNeighborhoodResponse } from "../types/graph";
 
 export const graphService = {
   /**
@@ -9,4 +9,13 @@ export const graphService = {
     const response = await api.get<GraphDataResponse>("/articles/graph/", { params });
     return response.data;
   },
+
+  /**
+   * Fetch local 1-hop neighborhood for a specific article.
+   */
+  async getArticleNeighborhood(slugOrId: string): Promise<ArticleNeighborhoodResponse> {
+    const response = await api.get<ArticleNeighborhoodResponse>(`/articles/${slugOrId}/graph-neighborhood/`);
+    return response.data;
+  },
 };
+
