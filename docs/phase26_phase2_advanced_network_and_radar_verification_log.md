@@ -422,3 +422,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #60)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #61 [Cycle 2]: Test get /articles/<uuid>/graph-neighborhood/ resolves uuid parameter correctly
+- **Timestamp**: `2026-11-08 11:01:00 +03:00`
+- **Scope**: `API`
+- **Check**: test GET /articles/<uuid>/graph-neighborhood/ resolves UUID parameter correctly
+- **Result**: `PASSED` (automated verification run #61)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
