@@ -186,3 +186,138 @@ class KnowledgeGraphView(APIView):
                 "top_hub": top_hub,
             }
         }, status=status.HTTP_200_OK)
+
+
+class ArticleNeighborhoodGraphView(APIView):
+    """
+    Computes local 1-hop neighborhood for a specific article:
+    - Inbound citations (articles referencing this article)
+    - Outbound citations (articles referenced by this article)
+    - Shared-tag related articles
+    URL: GET /api/v1/articles/<slug_or_id>/graph-neighborhood/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, slug_or_id, *args, **kwargs):
+        article = Article.objects.filter(slug=slug_or_id).first()
+        if not article:
+            import uuid
+            try:
+                valid_uuid = uuid.UUID(str(slug_or_id))
+                article = Article.objects.filter(id=valid_uuid).first()
+            except (ValueError, TypeError):
+                pass
+
+        if not article:
+            return Response({"error": "Article not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        published_qs = Article.objects.filter(status=Article.Status.PUBLISHED).select_related("category", "author").prefetch_related("tags")
+        all_articles = list(published_qs)
+        slug_to_art = {a.slug: a for a in all_articles}
+
+        link_regex = re.compile(r'(?:/articles/([a-zA-Z0-9_\-]+)|\[\[([a-zA-Z0-9_\-]+)(?:\|[^\]]+)?\]\])')
+
+        # 1. Outbound citations
+        outbound_slugs = set()
+        for m in link_regex.findall(article.content or ""):
+            target_slug = m[0] or m[1]
+            if target_slug and target_slug in slug_to_art and target_slug != article.slug:
+                outbound_slugs.add(target_slug)
+
+        # 2. Inbound citations
+        inbound_slugs = set()
+        for other in all_articles:
+            if other.slug == article.slug:
+                continue
+            for m in link_regex.findall(other.content or ""):
+                target_slug = m[0] or m[1]
+                if target_slug == article.slug:
+                    inbound_slugs.add(other.slug)
+                    break
+
+        # 3. Shared tag neighbors
+        tag_ids = set(article.tags.values_list("id", flat=True))
+        tag_neighbor_slugs = set()
+        if tag_ids:
+            for other in all_articles:
+                if other.slug != article.slug and other.slug not in outbound_slugs and other.slug not in inbound_slugs:
+                    other_tag_ids = set(other.tags.values_list("id", flat=True))
+                    if tag_ids.intersection(other_tag_ids):
+                        tag_neighbor_slugs.add(other.slug)
+
+        cat_name = article.category.name if article.category else "Uncategorized"
+        center_node = {
+            "id": str(article.id),
+            "slug": article.slug,
+            "title": article.title,
+            "category": cat_name,
+            "category_color": get_category_color(cat_name),
+            "reading_time": article.estimated_read_time,
+            "view_count": article.view_count,
+        }
+
+        neighbors = []
+        edges = []
+
+        for slug in outbound_slugs:
+            art = slug_to_art[slug]
+            cname = art.category.name if art.category else "Uncategorized"
+            neighbors.append({
+                "slug": art.slug,
+                "title": art.title,
+                "category": cname,
+                "category_color": get_category_color(cname),
+                "relationship": "outbound",
+            })
+            edges.append({
+                "source": article.slug,
+                "target": art.slug,
+                "type": "outbound",
+                "label": "References",
+            })
+
+        for slug in inbound_slugs:
+            if slug in outbound_slugs:
+                continue
+            art = slug_to_art[slug]
+            cname = art.category.name if art.category else "Uncategorized"
+            neighbors.append({
+                "slug": art.slug,
+                "title": art.title,
+                "category": cname,
+                "category_color": get_category_color(cname),
+                "relationship": "inbound",
+            })
+            edges.append({
+                "source": art.slug,
+                "target": article.slug,
+                "type": "inbound",
+                "label": "Referenced by",
+            })
+
+        for slug in list(tag_neighbor_slugs)[:5]:
+            art = slug_to_art[slug]
+            cname = art.category.name if art.category else "Uncategorized"
+            neighbors.append({
+                "slug": art.slug,
+                "title": art.title,
+                "category": cname,
+                "category_color": get_category_color(cname),
+                "relationship": "shared_tag",
+            })
+            edges.append({
+                "source": article.slug,
+                "target": art.slug,
+                "type": "shared_tag",
+                "label": "Shared topic",
+            })
+
+        return Response({
+            "center_node": center_node,
+            "neighbors": neighbors,
+            "edges": edges,
+            "inbound_count": len(inbound_slugs),
+            "outbound_count": len(outbound_slugs),
+            "shared_tag_count": len(tag_neighbor_slugs),
+            "total_connections": len(neighbors),
+        }, status=status.HTTP_200_OK)
