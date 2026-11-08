@@ -11,6 +11,13 @@ import {
   Clock,
   ArrowRight,
   Info,
+  Download,
+  Sliders,
+  Route,
+  Play,
+  Pause,
+  X,
+  Sparkles,
 } from "lucide-react";
 import type { GraphNode, GraphEdge, GraphDataResponse } from "../types/graph";
 
@@ -35,6 +42,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Search & Filters
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [showOrphansOnly, setShowOrphansOnly] = useState(false);
@@ -42,12 +50,25 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
   const [hoveredNode, setHoveredNode] = useState<SimNode | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  // Physics Simulation Controls
+  const [repulsionForce, setRepulsionForce] = useState(400);
+  const [springLength, setSpringLength] = useState(120);
+  const [centeringStrength, setCenteringStrength] = useState(0.005);
+  const [isPhysicsPaused, setIsPhysicsPaused] = useState(false);
+  const [showPhysicsMenu, setShowPhysicsMenu] = useState(false);
+
+  // Shortest Path Finder State
+  const [showPathFinder, setShowPathFinder] = useState(false);
+  const [sourcePathSlug, setSourcePathSlug] = useState("");
+  const [targetPathSlug, setTargetPathSlug] = useState("");
+  const [computedPath, setComputedPath] = useState<string[] | null>(null);
+  const [pathError, setPathError] = useState<string | null>(null);
+
   // Transform matrix state for pan/zoom
   const transformRef = useRef({ x: 0, y: 0, scale: 1 });
   const isDraggingRef = useRef(false);
   const dragStartRef = useRef({ x: 0, y: 0 });
   const draggedNodeRef = useRef<SimNode | null>(null);
-  const mousePosRef = useRef<{ x: number; y: number } | null>(null);
 
   // Simulation nodes and edges references
   const nodesRef = useRef<SimNode[]>([]);
@@ -108,6 +129,9 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
 
   // Connected neighbors lookup for hover/selection highlighting
   const connectedSlugs = useMemo(() => {
+    if (computedPath && computedPath.length > 0) {
+      return new Set(computedPath);
+    }
     const targetNode = selectedNode || hoveredNode;
     if (!targetNode) return null;
     const set = new Set<string>([targetNode.slug]);
@@ -116,18 +140,85 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       if (e.target === targetNode.slug) set.add(e.source);
     }
     return set;
-  }, [selectedNode, hoveredNode]);
+  }, [selectedNode, hoveredNode, computedPath]);
+
+  // Shortest Path Finder Algorithm (BFS)
+  const handleFindShortestPath = () => {
+    setPathError(null);
+    if (!sourcePathSlug || !targetPathSlug) {
+      setPathError("Please choose both a source and target article.");
+      return;
+    }
+    if (sourcePathSlug === targetPathSlug) {
+      setComputedPath([sourcePathSlug]);
+      return;
+    }
+
+    const adj = new Map<string, string[]>();
+    for (const e of edgesRef.current) {
+      if (!adj.has(e.source)) adj.set(e.source, []);
+      if (!adj.has(e.target)) adj.set(e.target, []);
+      adj.get(e.source)!.push(e.target);
+      adj.get(e.target)!.push(e.source);
+    }
+
+    const queue: string[] = [sourcePathSlug];
+    const visited = new Set<string>([sourcePathSlug]);
+    const parent = new Map<string, string>();
+
+    while (queue.length > 0) {
+      const curr = queue.shift()!;
+      if (curr === targetPathSlug) {
+        const path: string[] = [];
+        let step: string | undefined = targetPathSlug;
+        while (step) {
+          path.unshift(step);
+          step = parent.get(step);
+        }
+        setComputedPath(path);
+        return;
+      }
+      for (const neighbor of adj.get(curr) || []) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          parent.set(neighbor, curr);
+          queue.push(neighbor);
+        }
+      }
+    }
+
+    setComputedPath(null);
+    setPathError("No citation path exists between these two articles (they are in separate clusters).");
+  };
+
+  const handleClearPath = () => {
+    setComputedPath(null);
+    setPathError(null);
+    setSourcePathSlug("");
+    setTargetPathSlug("");
+    setShowPathFinder(false);
+  };
+
+  // Export Canvas Snapshot as PNG
+  const handleExportPNG = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const link = document.createElement("a");
+    link.download = `company-wiki-knowledge-graph-${new Date().toISOString().slice(0, 10)}.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  };
 
   // Physics Simulation Step
   const tickSimulation = useCallback(() => {
+    if (isPhysicsPaused) return;
     const nodes = nodesRef.current;
     const edges = edgesRef.current;
     if (!nodes.length) return;
 
-    const repulsion = 400;
-    const springLength = 120;
+    const repulsion = repulsionForce;
+    const springLen = springLength;
     const springStrength = 0.04;
-    const centerStrength = 0.005;
     const damping = 0.88;
 
     const nodeBySlug = new Map<string, SimNode>();
@@ -166,7 +257,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       const dx = t.x - s.x;
       const dy = t.y - s.y;
       const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-      const delta = dist - springLength;
+      const delta = dist - springLen;
       const force = delta * springStrength * (edge.weight || 1);
 
       const fx = (dx / dist) * force;
@@ -185,8 +276,8 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
 
       const dx = width / 2 - n.x;
       const dy = height / 2 - n.y;
-      n.vx += dx * centerStrength;
-      n.vy += dy * centerStrength;
+      n.vx += dx * centeringStrength;
+      n.vy += dy * centeringStrength;
 
       n.vx *= damping;
       n.vy *= damping;
@@ -194,7 +285,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       n.x += n.vx;
       n.y += n.vy;
     }
-  }, []);
+  }, [isPhysicsPaused, repulsionForce, springLength, centeringStrength]);
 
   // Canvas Render Loop
   const renderCanvas = useCallback(() => {
@@ -226,6 +317,15 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       const t = nodeBySlug.get(edge.target);
       if (!s || !t) continue;
 
+      const isPathEdge =
+        computedPath &&
+        computedPath.some(
+          (slug, idx) =>
+            idx < computedPath.length - 1 &&
+            ((slug === s.slug && computedPath[idx + 1] === t.slug) ||
+              (slug === t.slug && computedPath[idx + 1] === s.slug))
+        );
+
       const isConnected =
         connectedSlugs && (connectedSlugs.has(s.slug) && connectedSlugs.has(t.slug));
 
@@ -233,11 +333,14 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       ctx.moveTo(s.x, s.y);
       ctx.lineTo(t.x, t.y);
 
-      if (isConnected) {
-        ctx.strokeStyle = "#f59e0b"; // Highlighted amber edge
+      if (isPathEdge) {
+        ctx.strokeStyle = "#10b981";
+        ctx.lineWidth = 3.5 / scale;
+      } else if (isConnected) {
+        ctx.strokeStyle = "#f59e0b";
         ctx.lineWidth = 2.5 / scale;
       } else if (connectedSlugs) {
-        ctx.strokeStyle = "rgba(148, 163, 184, 0.08)"; // Dimmed
+        ctx.strokeStyle = "rgba(148, 163, 184, 0.08)";
         ctx.lineWidth = 1 / scale;
       } else {
         ctx.strokeStyle =
@@ -253,6 +356,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     for (const n of activeNodes) {
       const isSelected = selectedNode?.slug === n.slug;
       const isHovered = hoveredNode?.slug === n.slug;
+      const isInPath = computedPath?.includes(n.slug);
       const isConnected = connectedSlugs?.has(n.slug);
       const isDimmed = connectedSlugs && !isConnected;
 
@@ -261,7 +365,9 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
 
       // Node Fill
-      if (isDimmed) {
+      if (isInPath) {
+        ctx.fillStyle = "#10b981";
+      } else if (isDimmed) {
         ctx.fillStyle = "rgba(100, 116, 139, 0.2)";
       } else {
         ctx.fillStyle = n.category_color || "#3b82f6";
@@ -269,14 +375,14 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
       ctx.fill();
 
       // Node Border / Glow
-      if (isSelected || isHovered) {
+      if (isInPath || isSelected || isHovered) {
         ctx.strokeStyle = "#ffffff";
         ctx.lineWidth = 3 / scale;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius + 4 / scale, 0, Math.PI * 2);
-        ctx.strokeStyle = isSelected ? "#f59e0b" : "rgba(255, 255, 255, 0.4)";
+        ctx.strokeStyle = isInPath ? "#10b981" : isSelected ? "#f59e0b" : "rgba(255, 255, 255, 0.4)";
         ctx.lineWidth = 2 / scale;
         ctx.stroke();
       } else if (isConnected && !isDimmed) {
@@ -289,10 +395,14 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
         ctx.stroke();
       }
 
-      // Draw Node Labels for prominent nodes or when zoomed in
-      if (!isDimmed && (scale >= 0.75 || n.degree >= 2 || isSelected || isHovered)) {
+      // Draw Node Labels
+      if (!isDimmed && (scale >= 0.75 || n.degree >= 2 || isSelected || isHovered || isInPath)) {
         ctx.font = `${Math.max(10, Math.min(13, 11 / scale))}px Inter, system-ui, sans-serif`;
-        ctx.fillStyle = isSelected || isHovered ? "#ffffff" : "rgba(241, 245, 249, 0.9)";
+        ctx.fillStyle = isInPath
+          ? "#34d399"
+          : isSelected || isHovered
+          ? "#ffffff"
+          : "rgba(241, 245, 249, 0.9)";
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
         ctx.fillText(n.title, n.x, n.y + n.radius + 4 / scale);
@@ -302,7 +412,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     }
 
     ctx.restore();
-  }, [activeNodes, activeEdges, connectedSlugs, selectedNode, hoveredNode]);
+  }, [activeNodes, activeEdges, connectedSlugs, selectedNode, hoveredNode, computedPath]);
 
   // Main Animation Loop
   useEffect(() => {
@@ -323,7 +433,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     };
   }, [tickSimulation, renderCanvas]);
 
-  // Resize canvas to container with devicePixelRatio
+  // Resize canvas
   useEffect(() => {
     const resize = () => {
       const canvas = canvasRef.current;
@@ -346,7 +456,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  // Coordinate Conversion: Screen to World
+  // Screen to World coordinates
   const screenToWorld = useCallback((clientX: number, clientY: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
@@ -360,7 +470,6 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     };
   }, []);
 
-  // Find node under mouse
   const findNodeAt = useCallback(
     (clientX: number, clientY: number): SimNode | null => {
       const { x: wx, y: wy } = screenToWorld(clientX, clientY);
@@ -377,7 +486,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     [activeNodes, screenToWorld]
   );
 
-  // Mouse Interaction Handlers
+  // Mouse Handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     const node = findNodeAt(e.clientX, e.clientY);
     if (node) {
@@ -390,8 +499,6 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    mousePosRef.current = { x: e.clientX, y: e.clientY };
-
     if (draggedNodeRef.current) {
       const { x: wx, y: wy } = screenToWorld(e.clientX, e.clientY);
       draggedNodeRef.current.x = wx;
@@ -427,7 +534,6 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     const currentScale = transformRef.current.scale;
     const newScale = Math.max(0.2, Math.min(4.0, currentScale * zoomFactor));
 
-    // Zoom towards mouse position
     const wx = (mouseX - transformRef.current.x) / currentScale;
     const wy = (mouseY - transformRef.current.y) / currentScale;
 
@@ -436,7 +542,6 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     transformRef.current.y = mouseY - wy * newScale;
   };
 
-  // Zoom control buttons
   const zoomIn = () => {
     const width = containerRef.current?.clientWidth || 800;
     const height = containerRef.current?.clientHeight || 600;
@@ -473,6 +578,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
     };
     setSelectedNode(null);
     setSearch("");
+    handleClearPath();
   };
 
   const toggleFullscreen = () => {
@@ -513,7 +619,7 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Filter graph nodes..."
-              className="pl-8 pr-2.5 py-1 text-xs rounded-lg bg-slate-800/80 border border-slate-700 text-white placeholder:text-slate-400 focus:outline-hidden focus:ring-1 focus:ring-indigo-500 w-40 sm:w-52"
+              className="pl-8 pr-2.5 py-1 text-xs rounded-lg bg-slate-800/80 border border-slate-700 text-white placeholder:text-slate-400 focus:outline-hidden focus:ring-1 focus:ring-indigo-500 w-36 sm:w-48"
             />
           </div>
 
@@ -539,12 +645,66 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
                 : "bg-slate-800/60 text-slate-300 border-slate-700 hover:border-slate-600"
             }`}
           >
-            Orphans Only
+            Orphans
           </button>
         </div>
 
-        {/* Zoom & Viewport Tools */}
-        <div className="flex items-center gap-1 pointer-events-auto bg-slate-900/80 backdrop-blur-md p-1 rounded-xl border border-slate-800 shadow-xl">
+        {/* Action Suite (Shortest Path, Physics, Export, Zoom) */}
+        <div className="flex items-center gap-1.5 pointer-events-auto bg-slate-900/80 backdrop-blur-md p-1 rounded-xl border border-slate-800 shadow-xl">
+          {/* Find Path Toggle */}
+          <button
+            type="button"
+            onClick={() => setShowPathFinder((p) => !p)}
+            title="Find Shortest Citation Path"
+            className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition ${
+              showPathFinder || computedPath
+                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                : "text-slate-300 hover:text-white hover:bg-slate-800"
+            }`}
+          >
+            <Route className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Path</span>
+          </button>
+
+          {/* Physics Settings Toggle */}
+          <button
+            type="button"
+            onClick={() => setShowPhysicsMenu((p) => !p)}
+            title="Adjust Simulation Physics"
+            className={`p-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition ${
+              showPhysicsMenu ? "bg-slate-800 text-indigo-400" : ""
+            }`}
+          >
+            <Sliders className="w-4 h-4" />
+          </button>
+
+          {/* Pause / Play Physics */}
+          <button
+            type="button"
+            onClick={() => setIsPhysicsPaused((p) => !p)}
+            title={isPhysicsPaused ? "Resume Simulation" : "Freeze Simulation"}
+            className="p-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition"
+          >
+            {isPhysicsPaused ? (
+              <Play className="w-4 h-4 text-emerald-400" />
+            ) : (
+              <Pause className="w-4 h-4 text-amber-400" />
+            )}
+          </button>
+
+          {/* Export PNG */}
+          <button
+            type="button"
+            onClick={handleExportPNG}
+            title="Export High-Res PNG"
+            className="p-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition"
+          >
+            <Download className="w-4 h-4" />
+          </button>
+
+          <div className="w-px h-4 bg-slate-800 mx-0.5" />
+
+          {/* Zoom Controls */}
           <button
             type="button"
             onClick={zoomIn}
@@ -579,6 +739,184 @@ export const KnowledgeGraphViewer: React.FC<KnowledgeGraphViewerProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Physics Settings Dropdown Drawer */}
+      {showPhysicsMenu && (
+        <div className="absolute top-16 right-4 pointer-events-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-4 shadow-2xl w-64 space-y-3 z-30 animate-in fade-in duration-150">
+          <div className="flex items-center justify-between pb-1 border-b border-slate-800">
+            <span className="text-xs font-bold text-white flex items-center gap-1.5">
+              <Sliders className="w-3.5 h-3.5 text-indigo-400" />
+              Physics Engine Tuning
+            </span>
+            <button
+              onClick={() => setShowPhysicsMenu(false)}
+              className="text-slate-400 hover:text-white p-0.5"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          <div>
+            <div className="flex justify-between text-[11px] text-slate-400 mb-1">
+              <span>Node Repulsion</span>
+              <span className="text-white font-mono">{repulsionForce}</span>
+            </div>
+            <input
+              type="range"
+              min="100"
+              max="800"
+              step="20"
+              value={repulsionForce}
+              onChange={(e) => setRepulsionForce(Number(e.target.value))}
+              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+            />
+          </div>
+
+          <div>
+            <div className="flex justify-between text-[11px] text-slate-400 mb-1">
+              <span>Link Spring Distance</span>
+              <span className="text-white font-mono">{springLength}px</span>
+            </div>
+            <input
+              type="range"
+              min="60"
+              max="240"
+              step="10"
+              value={springLength}
+              onChange={(e) => setSpringLength(Number(e.target.value))}
+              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+            />
+          </div>
+
+          <div>
+            <div className="flex justify-between text-[11px] text-slate-400 mb-1">
+              <span>Center Gravity</span>
+              <span className="text-white font-mono">{(centeringStrength * 1000).toFixed(1)}</span>
+            </div>
+            <input
+              type="range"
+              min="0.001"
+              max="0.02"
+              step="0.001"
+              value={centeringStrength}
+              onChange={(e) => setCenteringStrength(Number(e.target.value))}
+              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+            />
+          </div>
+
+          <div className="pt-1 flex items-center justify-between border-t border-slate-800">
+            <button
+              type="button"
+              onClick={() => {
+                setRepulsionForce(400);
+                setSpringLength(120);
+                setCenteringStrength(0.005);
+              }}
+              className="text-[10px] text-slate-400 hover:text-white"
+            >
+              Reset Defaults
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsPhysicsPaused((p) => !p)}
+              className="text-[10px] text-indigo-400 hover:underline font-semibold"
+            >
+              {isPhysicsPaused ? "Resume Force" : "Freeze Movement"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Shortest Path Finder Drawer */}
+      {showPathFinder && (
+        <div className="absolute top-16 left-4 pointer-events-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-4 shadow-2xl w-80 space-y-3 z-30 animate-in fade-in duration-150">
+          <div className="flex items-center justify-between pb-1 border-b border-slate-800">
+            <span className="text-xs font-bold text-white flex items-center gap-1.5">
+              <Route className="w-3.5 h-3.5 text-emerald-400" />
+              Find Shortest Citation Path
+            </span>
+            <button
+              onClick={() => setShowPathFinder(false)}
+              className="text-slate-400 hover:text-white p-0.5"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            <div>
+              <label className="block text-[10px] font-semibold text-slate-400 mb-1">
+                Source Article:
+              </label>
+              <select
+                value={sourcePathSlug}
+                onChange={(e) => setSourcePathSlug(e.target.value)}
+                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-hidden"
+              >
+                <option value="">Select starting article...</option>
+                {data.nodes.map((n) => (
+                  <option key={`src-${n.slug}`} value={n.slug}>
+                    {n.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[10px] font-semibold text-slate-400 mb-1">
+                Target Article:
+              </label>
+              <select
+                value={targetPathSlug}
+                onChange={(e) => setTargetPathSlug(e.target.value)}
+                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-hidden"
+              >
+                <option value="">Select destination article...</option>
+                {data.nodes.map((n) => (
+                  <option key={`dst-${n.slug}`} value={n.slug}>
+                    {n.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex items-center gap-2 pt-1">
+              <button
+                type="button"
+                onClick={handleFindShortestPath}
+                className="flex-1 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition"
+              >
+                Trace Path
+              </button>
+              {computedPath && (
+                <button
+                  type="button"
+                  onClick={handleClearPath}
+                  className="px-2.5 py-1.5 text-xs text-slate-400 hover:text-white bg-slate-800 rounded-lg transition"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+
+            {pathError && (
+              <p className="text-[11px] text-rose-400 pt-1 leading-snug">{pathError}</p>
+            )}
+
+            {computedPath && (
+              <div className="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-900/60 text-[11px] text-emerald-200 space-y-1">
+                <span className="font-bold flex items-center gap-1 text-emerald-400">
+                  <Sparkles className="w-3 h-3" />
+                  Path Found ({computedPath.length - 1} hops)
+                </span>
+                <p className="text-[10px] text-emerald-300 font-mono break-words leading-tight">
+                  {computedPath.join(" → ")}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Selected Node Details Card (Bottom Overlay) */}
       {selectedNode && (
