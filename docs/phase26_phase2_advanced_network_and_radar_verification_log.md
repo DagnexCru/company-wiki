@@ -604,3 +604,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #86)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #87 [Cycle 3]: Verify handleexportpng captures complete canvas state at device pixel ratio
+- **Timestamp**: `2026-11-08 11:27:00 +03:00`
+- **Scope**: `EXPORT`
+- **Check**: verify handleExportPNG captures complete canvas state at device pixel ratio
+- **Result**: `PASSED` (automated verification run #87)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
