@@ -36,6 +36,7 @@ import { ArticleAiSummaryCard } from "../components/ArticleAiSummaryCard";
 import { ArticleFeedbackWidget } from "../components/ArticleFeedbackWidget";
 import { ArticleCommentsSection } from "../components/ArticleCommentsSection";
 import { BookmarkButton } from "../components/BookmarkButton";
+import { ArticleNeighborhoodMiniGraph } from "../components/ArticleNeighborhoodMiniGraph";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -649,16 +650,17 @@ export const ArticleDetailPage: React.FC = () => {
           )}
         </div>
 
-        {/* Table of Contents (handles mobile accordion + sticky desktop sidebar) */}
-        {headings.length > 0 && (
-          <div className="w-full lg:w-64 shrink-0 order-1 lg:order-2">
+        {/* Right Sidebar: Table of Contents & Citation Neighborhood Mini-Graph */}
+        <div className="w-full lg:w-64 shrink-0 order-1 lg:order-2 space-y-4">
+          {headings.length > 0 && (
             <TableOfContents
               headings={headings}
               activeId={activeHeadingId}
               readingProgress={readingProgress}
             />
-          </div>
-        )}
+          )}
+          <ArticleNeighborhoodMiniGraph slug={article.slug} />
+        </div>
       </div>
 
       {/* Submit for Review Modal */}
