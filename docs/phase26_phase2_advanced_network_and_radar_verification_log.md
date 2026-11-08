@@ -359,3 +359,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #51)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #52 [Cycle 2]: Verify center gravity slider updates centripetal pull towards canvas center
+- **Timestamp**: `2026-11-08 10:52:00 +03:00`
+- **Scope**: `PHYSICS`
+- **Check**: verify center gravity slider updates centripetal pull towards canvas center
+- **Result**: `PASSED` (automated verification run #52)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
