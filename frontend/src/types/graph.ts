@@ -53,3 +53,35 @@ export interface GraphFilterParams {
   orphans_only?: boolean;
   include_drafts?: boolean;
 }
+
+export interface ArticleNeighborhoodNeighbor {
+  slug: string;
+  title: string;
+  category: string;
+  category_color: string;
+  relationship: 'inbound' | 'outbound' | 'shared_tag';
+}
+
+export interface ArticleNeighborhoodResponse {
+  center_node: {
+    id: string;
+    slug: string;
+    title: string;
+    category: string;
+    category_color: string;
+    reading_time: number;
+    view_count: number;
+  };
+  neighbors: ArticleNeighborhoodNeighbor[];
+  edges: {
+    source: string;
+    target: string;
+    type: string;
+    label: string;
+  }[];
+  inbound_count: number;
+  outbound_count: number;
+  shared_tag_count: number;
+  total_connections: number;
+}
+
