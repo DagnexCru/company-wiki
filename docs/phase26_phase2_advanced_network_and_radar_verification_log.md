@@ -527,3 +527,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #75)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #76 [Cycle 3]: Verify path node highlighting glows emerald and preserves label visibility
+- **Timestamp**: `2026-11-08 11:16:00 +03:00`
+- **Scope**: `PATH`
+- **Check**: verify path node highlighting glows emerald and preserves label visibility
+- **Result**: `PASSED` (automated verification run #76)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
