@@ -492,3 +492,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #70)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #71 [Cycle 3]: Verify empty state fallback for isolated orphan articles with no citations
+- **Timestamp**: `2026-11-08 11:11:00 +03:00`
+- **Scope**: `RADAR`
+- **Check**: verify empty state fallback for isolated orphan articles with no citations
+- **Result**: `PASSED` (automated verification run #71)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
