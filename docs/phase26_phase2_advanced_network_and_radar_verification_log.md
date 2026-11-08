@@ -541,3 +541,10 @@ This document records the atomic verifications, automated test runs, BFS pathfin
 - **Result**: `PASSED` (automated verification run #77)
 - **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
 
+### Phase 2 Verification Entry #78 [Cycle 3]: Verify identical source and target selection handled gracefully (0 hops)
+- **Timestamp**: `2026-11-08 11:18:00 +03:00`
+- **Scope**: `PATH`
+- **Check**: verify identical source and target selection handled gracefully (0 hops)
+- **Result**: `PASSED` (automated verification run #78)
+- **Details**: Successfully validated Phase 2 operational criteria for Knowledge Graph & Citation Radar.
+
