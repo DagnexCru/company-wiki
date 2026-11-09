@@ -417,3 +417,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Items containing $ or symbols parse without KaTeX delimiter collisions
 
+### Verification Step 084: parser(checklist-md-084): multi-paragraph article with mixed headings and checklists
+- **Timestamp**: `2026-11-09 12:48:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Long articles with interspersed H2/H3 headings preserve checklist index ordering
+
