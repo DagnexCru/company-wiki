@@ -7,3 +7,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: UUID primary key default generator returns valid RFC 4122 v4 UUID
 
+### Verification Step 002: model(checklist-schema-002): verify user foreign key on_delete CASCADE behavior
+- **Timestamp**: `2026-11-09 10:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Deleting test user cleanly cascades deletion to associated checklist progress records
+
