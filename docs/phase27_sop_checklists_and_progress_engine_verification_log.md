@@ -212,3 +212,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: total_items cannot drop below currently checked items count
 
+### Verification Step 043: api(checklist-view-043): test POST /checklist-toggle/ marks is_completed True when all done
+- **Timestamp**: `2026-11-09 11:26:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reaching completed_count == total_items sets is_completed to True
+
