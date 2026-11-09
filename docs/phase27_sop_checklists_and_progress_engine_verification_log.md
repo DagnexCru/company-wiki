@@ -622,3 +622,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checked state displays luminous emerald-500 background in dark mode
 
+### Verification Step 125: ui(checklist-theme-125): subtle hover background highlight on checklist rows
+- **Timestamp**: `2026-11-09 14:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Hovering uncompleted item highlights row with gentle slate-50/dark-slate-800 tint
+
