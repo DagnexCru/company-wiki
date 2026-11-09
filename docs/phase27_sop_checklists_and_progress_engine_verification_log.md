@@ -722,3 +722,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Extensive 35-step release checklist handles scrolling and batch persistence
 
+### Verification Step 145: sop(runbook-e2e-145): rapid uncheck-all recovery test
+- **Timestamp**: `2026-11-09 14:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: User quickly unchecking multiple tasks remains synchronized with backend
+
