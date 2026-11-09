@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Deleting test user cleanly cascades deletion to associated checklist progress records
 
+### Verification Step 003: model(checklist-schema-003): verify article foreign key on_delete CASCADE behavior
+- **Timestamp**: `2026-11-09 10:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Deleting article cleanly cascades deletion to associated checklist progress records
+
