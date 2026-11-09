@@ -457,3 +457,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Dropping below 100% completion cleanly dismisses completion banner
 
+### Verification Step 092: client(checklist-state-092): reset button triggers confirmation modal or direct reset
+- **Timestamp**: `2026-11-09 13:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset button invokes checklistService.resetChecklistProgress
+
