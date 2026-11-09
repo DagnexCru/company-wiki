@@ -112,3 +112,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: article_title accurately mirrors article.title string
 
+### Verification Step 023: serializer(checklist-calc-023): verify JSONField serialization of checked item keys
+- **Timestamp**: `2026-11-09 10:46:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: checked_items serializes to clean native JSON string array
+
