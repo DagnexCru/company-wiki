@@ -482,3 +482,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Unauthenticated visitors view static non-interactive checkboxes with login prompt
 
+### Verification Step 097: client(checklist-state-097): checklistService.getChecklistProgress caching strategy
+- **Timestamp**: `2026-11-09 13:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Service fetches fresh progress on article slug change
+
