@@ -197,3 +197,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Item key is cleanly removed from checked_items and completed_count decrements
 
+### Verification Step 040: api(checklist-view-040): test POST /checklist-toggle/ idempotency when unchecking unchecked item
+- **Timestamp**: `2026-11-09 11:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unchecking an unchecked item safely leaves checked_items unchanged
+
