@@ -737,3 +737,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Management command seeds SOP article and initial admin progress reliably
 
+### Verification Step 148: sop(runbook-e2e-148): database migration rollback safety check
+- **Timestamp**: `2026-11-09 14:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: 0011_articlechecklistprogress migration can be reversed cleanly if needed
+
