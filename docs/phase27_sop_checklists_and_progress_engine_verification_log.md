@@ -317,3 +317,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Querying checklist progress on non-existent article slug returns 404 Not Found
 
+### Verification Step 064: security(checklist-isolation-064): verify JWT bearer token expiration on checklist toggle
+- **Timestamp**: `2026-11-09 12:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Expired token prompts 401 response and token refresh flow
+
