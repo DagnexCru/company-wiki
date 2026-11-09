@@ -712,3 +712,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Conceptual architecture doc with no checklists hides progress tracker cleanly
 
+### Verification Step 143: sop(runbook-e2e-143): single checklist item edge case verification
+- **Timestamp**: `2026-11-09 14:46:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Article with exactly 1 task correctly reports 0% or 100% progress
+
