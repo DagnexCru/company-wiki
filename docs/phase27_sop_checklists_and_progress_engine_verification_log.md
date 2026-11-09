@@ -382,3 +382,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Task descriptions with markdown links render clickable navigation targets
 
+### Verification Step 077: parser(checklist-md-077): handle checklist items with leading whitespace / indentations
+- **Timestamp**: `2026-11-09 12:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Nested checklist lines are parsed with preserved indentation context
+
