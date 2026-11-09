@@ -617,3 +617,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checked state displays vibrant emerald-600 background in light mode
 
+### Verification Step 124: ui(checklist-theme-124): emerald checkbox fill on completed items in dark mode
+- **Timestamp**: `2026-11-09 14:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checked state displays luminous emerald-500 background in dark mode
+
