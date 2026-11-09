@@ -297,3 +297,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checklist toggle endpoints enforce standard 100KB request body threshold
 
+### Verification Step 060: security(checklist-isolation-060): test rate limiting on checklist toggle endpoints
+- **Timestamp**: `2026-11-09 12:00:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Toggle endpoint adheres to DRF user burst throttling configuration
+
