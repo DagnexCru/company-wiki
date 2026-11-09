@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: article_id accurately mirrors article.id UUID
 
+### Verification Step 021: serializer(checklist-calc-021): verify article_slug source mapping
+- **Timestamp**: `2026-11-09 10:42:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: article_slug accurately mirrors article.slug string
+
