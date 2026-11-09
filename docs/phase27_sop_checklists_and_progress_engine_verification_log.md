@@ -232,3 +232,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: completed_at resets to null when runbook completion is revoked
 
+### Verification Step 047: api(checklist-view-047): test POST /checklist-reset/ resets checked items list to empty
+- **Timestamp**: `2026-11-09 11:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset endpoint wipes checked_items array and zeroes completed_count
+
