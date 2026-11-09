@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.utils.text import slugify
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleFeedback, ArticleBookmark
+from apps.articles.models import Article, ArticleFeedback, ArticleBookmark, ArticleChecklistProgress
 from apps.taxonomy.models import Category, Tag
 from apps.taxonomy.serializers import CategorySerializer, TagSerializer
 
@@ -531,4 +531,51 @@ class ArticleBookmarkSerializer(serializers.ModelSerializer):
         if obj.article and obj.article.category:
             return obj.article.category.name
         return "Uncategorized"
+
+
+class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
+    """
+    Serializer for ArticleChecklistProgress tracking a user's task completion state.
+    """
+    article_id = serializers.UUIDField(source="article.id", read_only=True)
+    article_slug = serializers.CharField(source="article.slug", read_only=True)
+    article_title = serializers.CharField(source="article.title", read_only=True)
+    completion_percentage = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ArticleChecklistProgress
+        fields = [
+            "id",
+            "article",
+            "article_id",
+            "article_slug",
+            "article_title",
+            "checked_items",
+            "total_items",
+            "completed_count",
+            "is_completed",
+            "completion_percentage",
+            "completed_at",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = [
+            "id",
+            "article",
+            "article_id",
+            "article_slug",
+            "article_title",
+            "completed_count",
+            "is_completed",
+            "completion_percentage",
+            "completed_at",
+            "created_at",
+            "updated_at",
+        ]
+
+    def get_completion_percentage(self, obj):
+        if obj.total_items > 0:
+            return round((obj.completed_count / obj.total_items) * 100, 1)
+        return 0.0
+
 
