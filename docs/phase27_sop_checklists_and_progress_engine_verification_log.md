@@ -292,3 +292,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: item_key strings exceeding 255 characters are rejected gracefully
 
+### Verification Step 059: security(checklist-isolation-059): test payload size limit on JSON request bodies
+- **Timestamp**: `2026-11-09 11:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checklist toggle endpoints enforce standard 100KB request body threshold
+
