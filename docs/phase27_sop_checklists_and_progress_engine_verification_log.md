@@ -222,3 +222,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: completed_at is populated with current timezone timestamp when finished
 
+### Verification Step 045: api(checklist-view-045): test POST /checklist-toggle/ clears is_completed if item unchecked
+- **Timestamp**: `2026-11-09 11:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unchecking an item from completed runbook sets is_completed False
+
