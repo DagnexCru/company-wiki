@@ -512,3 +512,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: All optional fields in ArticleChecklistProgress have guarded null checks
 
+### Verification Step 103: client(checklist-state-103): local state sync between MarkdownViewer and ArticleChecklistTracker
+- **Timestamp**: `2026-11-09 13:26:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Parent ArticleDetailPage coordinates single source of truth for progress state
+
