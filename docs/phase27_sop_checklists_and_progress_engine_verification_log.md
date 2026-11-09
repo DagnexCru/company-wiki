@@ -762,3 +762,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: End-to-end verification confirms clicking checkbox updates database record
 
+### Verification Step 153: sop(runbook-e2e-153): vertical slicing integration check: reload restores checked UI
+- **Timestamp**: `2026-11-09 15:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: End-to-end verification confirms page reload displays saved checked state
+
