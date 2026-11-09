@@ -237,3 +237,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reset endpoint wipes checked_items array and zeroes completed_count
 
+### Verification Step 048: api(checklist-view-048): test POST /checklist-reset/ resets is_completed to False
+- **Timestamp**: `2026-11-09 11:36:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset endpoint clears is_completed status flag
+
