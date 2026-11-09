@@ -757,3 +757,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Frontend build completes with 0 TypeScript and 0 bundler errors
 
+### Verification Step 152: sop(runbook-e2e-152): vertical slicing integration check: UI clicks reach database
+- **Timestamp**: `2026-11-09 15:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: End-to-end verification confirms clicking checkbox updates database record
+
