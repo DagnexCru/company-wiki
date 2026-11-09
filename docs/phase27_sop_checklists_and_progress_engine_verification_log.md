@@ -57,3 +57,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Index article and user optimizes single article progress lookup queries
 
+### Verification Step 012: model(checklist-schema-012): verify art_chk_usr_cmpl_idx composite index creation
+- **Timestamp**: `2026-11-09 10:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Index user and is_completed optimizes onboarding completion reporting queries
+
