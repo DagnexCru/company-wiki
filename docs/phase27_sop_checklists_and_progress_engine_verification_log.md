@@ -587,3 +587,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Emerald and indigo progress fills maintain compliant contrast against track
 
+### Verification Step 118: a11y(checklist-ui-118): reduced-motion preference support on progress bar transition
+- **Timestamp**: `2026-11-09 13:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Users with prefers-reduced-motion experience instant progress bar updates
+
