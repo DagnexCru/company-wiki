@@ -202,3 +202,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Unchecking an unchecked item safely leaves checked_items unchanged
 
+### Verification Step 041: api(checklist-view-041): test POST /checklist-toggle/ dynamic total_items update
+- **Timestamp**: `2026-11-09 11:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Supplying updated total_items synchronizes progress total count
+
