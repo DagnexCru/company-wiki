@@ -732,3 +732,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: User maintaining progress on 3 different runbooks maintains separate states
 
+### Verification Step 147: sop(runbook-e2e-147): seed_checklists management command execution verification
+- **Timestamp**: `2026-11-09 14:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Management command seeds SOP article and initial admin progress reliably
+
