@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Anonymous GET request receives 401 Unauthorized status
 
+### Verification Step 032: api(checklist-view-032): test POST /checklist-toggle/ requires authentication (401)
+- **Timestamp**: `2026-11-09 11:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Anonymous POST toggle request receives 401 Unauthorized status
+
