@@ -557,3 +557,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Live region announces updated progress percentage to assistive technology
 
+### Verification Step 112: a11y(checklist-ui-112): accessible label association for checkbox inputs
+- **Timestamp**: `2026-11-09 13:44:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checkboxes associate with adjacent task text via DOM hierarchy
+
