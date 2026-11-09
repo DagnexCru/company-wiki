@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: String representation renders username, article title, and completed/total fraction
 
+### Verification Step 014: model(checklist-schema-014): verify auto_now timestamp updates on progress save
+- **Timestamp**: `2026-11-09 10:28:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: updated_at automatically refreshes on every state modification
+
