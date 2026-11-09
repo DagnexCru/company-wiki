@@ -17,3 +17,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Deleting article cleanly cascades deletion to associated checklist progress records
 
+### Verification Step 004: model(checklist-schema-004): verify checked_items JSONField default empty list callable
+- **Timestamp**: `2026-11-09 10:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: New checklist records instantiate checked_items as empty list without mutable default sharing
+
