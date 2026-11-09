@@ -172,3 +172,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: New article returns zeroed progress structure with 200 OK
 
+### Verification Step 035: api(checklist-view-035): test POST /checklist-toggle/ rejects missing item_key with 400
+- **Timestamp**: `2026-11-09 11:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Request without item_key parameter returns 400 Bad Request detail error
+
