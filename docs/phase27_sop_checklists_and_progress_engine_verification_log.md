@@ -632,3 +632,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checkmark icon uses vector SVG paths for crisp high-DPI retina rendering
 
+### Verification Step 127: ui(checklist-theme-127): rounded-xl border radius consistency with design tokens
+- **Timestamp**: `2026-11-09 14:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Card and interactive elements utilize standard rounded-xl and rounded-2xl radii
+
