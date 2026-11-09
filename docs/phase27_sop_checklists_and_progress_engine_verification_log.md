@@ -307,3 +307,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Readers cannot toggle checklists on unpublished draft articles
 
+### Verification Step 062: security(checklist-isolation-062): verify archived article checklist access permission checks
+- **Timestamp**: `2026-11-09 12:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checklist progress queries on archived articles return appropriate status
+
