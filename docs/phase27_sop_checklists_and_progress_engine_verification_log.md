@@ -322,3 +322,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Expired token prompts 401 response and token refresh flow
 
+### Verification Step 065: security(checklist-isolation-065): verify session cookie authentication support
+- **Timestamp**: `2026-11-09 12:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Session-based browser requests authenticate checklist endpoints transparently
+
