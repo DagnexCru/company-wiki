@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Direct API mutation of completed_count, is_completed, and completed_at is rejected
 
+### Verification Step 020: serializer(checklist-calc-020): verify article_id source mapping
+- **Timestamp**: `2026-11-09 10:40:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: article_id accurately mirrors article.id UUID
+
