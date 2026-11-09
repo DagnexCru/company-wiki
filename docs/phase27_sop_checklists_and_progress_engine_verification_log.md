@@ -37,3 +37,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Initial records default is_completed to False
 
+### Verification Step 008: model(checklist-schema-008): verify completed_at DateTimeField null default
+- **Timestamp**: `2026-11-09 10:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: completed_at remains null while checklist has pending unchecked items
+
