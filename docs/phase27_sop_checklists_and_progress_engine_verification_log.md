@@ -192,3 +192,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checking an already checked item does not create duplicate entries
 
+### Verification Step 039: api(checklist-view-039): test POST /checklist-toggle/ unchecks item successfully
+- **Timestamp**: `2026-11-09 11:18:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Item key is cleanly removed from checked_items and completed_count decrements
+
