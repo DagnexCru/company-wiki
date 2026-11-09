@@ -602,3 +602,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Tracker widget uses semantic H3 heading aligned with document outline
 
+### Verification Step 121: ui(checklist-theme-121): light mode background styling for checklist tracker card
+- **Timestamp**: `2026-11-09 14:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Tracker card renders subtle slate-50 to indigo-50 gradient in light mode
+
