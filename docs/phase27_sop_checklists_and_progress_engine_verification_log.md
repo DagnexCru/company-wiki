@@ -502,3 +502,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Rapid consecutive clicks on the same checkbox debounce API dispatches
 
+### Verification Step 101: client(checklist-state-101): ArticleChecklistTracker component unmount cleanup
+- **Timestamp**: `2026-11-09 13:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Pending promises cancel safely on component unmount without memory leaks
+
