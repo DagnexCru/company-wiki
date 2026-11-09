@@ -82,3 +82,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Serializer returns 0.0 percentage when total_items is 0 to prevent division by zero
 
+### Verification Step 017: serializer(checklist-calc-017): verify completion_percentage rounding to 1 decimal place
+- **Timestamp**: `2026-11-09 10:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Calculated percentages format with single-decimal precision e.g. 33.3%
+
