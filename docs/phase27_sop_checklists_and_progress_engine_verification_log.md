@@ -452,3 +452,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reaching 100% completion reveals completion badge and congratulatory message
 
+### Verification Step 091: client(checklist-state-091): unchecking item immediately dismisses completion banner
+- **Timestamp**: `2026-11-09 13:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Dropping below 100% completion cleanly dismisses completion banner
+
