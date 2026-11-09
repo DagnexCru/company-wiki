@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Parser does not misidentify plain unordered lists as checkboxes
 
+### Verification Step 072: parser(checklist-md-072): preserve regular asterisk bullet items (* bullet)
+- **Timestamp**: `2026-11-09 12:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Parser does not misidentify plain asterisk bullets as checkboxes
+
