@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checkbox toggles visual checkmark instantaneously upon user click
 
+### Verification Step 087: client(checklist-state-087): rollback on network failure preserves prior checklist state
+- **Timestamp**: `2026-11-09 12:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Network error reverts optimistic checkbox state and alerts user gracefully
+
