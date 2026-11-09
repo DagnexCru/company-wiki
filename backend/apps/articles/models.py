@@ -568,3 +568,67 @@ class ArticleBookmark(models.Model):
 
     def __str__(self):
         return f"Bookmark: {self.user.username} -> {self.article.title} [{self.collection_name}]"
+
+
+class ArticleChecklistProgress(models.Model):
+    """
+    Tracks personal checklist item completion progress for an article per user.
+    Supports SOP compliance, interactive runbooks, and onboarding task trackers.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="checklist_progresses",
+        db_index=True,
+        help_text="The user completing the checklist.",
+    )
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="checklist_progresses",
+        db_index=True,
+        help_text="The article containing the checklist items.",
+    )
+    checked_items = models.JSONField(
+        default=list,
+        blank=True,
+        help_text="List of item identifier keys that have been checked off by the user.",
+    )
+    total_items = models.PositiveIntegerField(
+        default=0,
+        help_text="Total number of checklist items detected in the article.",
+    )
+    completed_count = models.PositiveIntegerField(
+        default=0,
+        help_text="Number of completed checklist items.",
+    )
+    is_completed = models.BooleanField(
+        default=False,
+        db_index=True,
+        help_text="True if all checklist items in this article are marked complete.",
+    )
+    completed_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        db_index=True,
+        help_text="Timestamp when all checklist items were marked complete.",
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_checklist_progress"
+        verbose_name = "Article Checklist Progress"
+        verbose_name_plural = "Article Checklist Progresses"
+        unique_together = ("user", "article")
+        ordering = ["-updated_at"]
+        indexes = [
+            models.Index(fields=["user", "-updated_at"], name="art_chk_usr_upd_idx"),
+            models.Index(fields=["article", "user"], name="art_chk_art_usr_idx"),
+            models.Index(fields=["user", "is_completed"], name="art_chk_usr_cmpl_idx"),
+        ]
+
+    def __str__(self):
+        return f"Checklist {self.user.username} -> {self.article.title} ({self.completed_count}/{self.total_items})"
+
