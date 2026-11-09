@@ -252,3 +252,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Resetting progress on an article with no prior record succeeds idempotently
 
+### Verification Step 051: security(checklist-isolation-051): verify reader cannot inspect another reader's checklist
+- **Timestamp**: `2026-11-09 11:42:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: User A endpoint only resolves User A progress record
+
