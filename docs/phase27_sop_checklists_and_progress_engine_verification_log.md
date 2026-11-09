@@ -742,3 +742,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: 0011_articlechecklistprogress migration can be reversed cleanly if needed
 
+### Verification Step 149: sop(runbook-e2e-149): database foreign key constraint verification in SQLite & PostgreSQL
+- **Timestamp**: `2026-11-09 14:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Foreign keys prevent orphan progress records on article deletion
+
