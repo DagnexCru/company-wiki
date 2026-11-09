@@ -667,3 +667,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Printing article renders checkboxes as clean static square bullets
 
+### Verification Step 134: ui(checklist-theme-134): typography alignment between checkbox box and text baseline
+- **Timestamp**: `2026-11-09 14:28:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: mt-0.5 offset aligns checkbox box precisely with first text baseline
+
