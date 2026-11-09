@@ -117,3 +117,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: checked_items serializes to clean native JSON string array
 
+### Verification Step 024: serializer(checklist-calc-024): verify ISO 8601 formatting of completed_at timestamp
+- **Timestamp**: `2026-11-09 10:48:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: completed_at outputs standard RFC 3339 / ISO 8601 UTC timestamp string
+
