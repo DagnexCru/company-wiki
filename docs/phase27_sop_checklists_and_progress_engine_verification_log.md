@@ -287,3 +287,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Dangerous HTML tags in item_key are sanitized and encoded
 
+### Verification Step 058: security(checklist-isolation-058): test oversized item_key string truncation and rejection
+- **Timestamp**: `2026-11-09 11:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: item_key strings exceeding 255 characters are rejected gracefully
+
