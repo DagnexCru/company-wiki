@@ -532,3 +532,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Interactive checkbox element carries explicit role='checkbox' for screen readers
 
+### Verification Step 107: a11y(checklist-ui-107): dynamic aria-checked attribute reflection
+- **Timestamp**: `2026-11-09 13:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: aria-checked updates between 'true' and 'false' matching state
+
