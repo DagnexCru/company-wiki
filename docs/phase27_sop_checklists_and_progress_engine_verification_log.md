@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Markdown parser detects checked checklist asterisk pattern
 
+### Verification Step 071: parser(checklist-md-071): preserve regular unordered list bullet items (- bullet)
+- **Timestamp**: `2026-11-09 12:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Parser does not misidentify plain unordered lists as checkboxes
+
