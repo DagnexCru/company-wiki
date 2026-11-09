@@ -522,3 +522,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reloading browser page restores exact previously checked items and progress bar
 
+### Verification Step 105: client(checklist-state-105): navigation between articles switches checklist context cleanly
+- **Timestamp**: `2026-11-09 13:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Navigating from SOP A to SOP B re-initializes checklist progress state
+
