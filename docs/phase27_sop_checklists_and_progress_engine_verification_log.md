@@ -47,3 +47,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Database unique index prevents duplicate progress entries for the same user-article pair
 
+### Verification Step 010: model(checklist-schema-010): verify art_chk_usr_upd_idx composite index creation
+- **Timestamp**: `2026-11-09 10:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Index user and -updated_at optimizes user dashboard recent activity queries
+
