@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Serializing 50 checklist records consumes under 1.2MB memory
 
+### Verification Step 031: api(checklist-view-031): test GET /checklist-progress/ requires authentication (401)
+- **Timestamp**: `2026-11-09 11:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Anonymous GET request receives 401 Unauthorized status
+
