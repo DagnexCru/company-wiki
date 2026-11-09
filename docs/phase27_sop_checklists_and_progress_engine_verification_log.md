@@ -727,3 +727,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: User quickly unchecking multiple tasks remains synchronized with backend
 
+### Verification Step 146: sop(runbook-e2e-146): simultaneous checklist progress across multiple distinct articles
+- **Timestamp**: `2026-11-09 14:52:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: User maintaining progress on 3 different runbooks maintains separate states
+
