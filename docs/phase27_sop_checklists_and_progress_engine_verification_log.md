@@ -672,3 +672,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: mt-0.5 offset aligns checkbox box precisely with first text baseline
 
+### Verification Step 135: ui(checklist-theme-135): border color tokens matching dark/light mode palette
+- **Timestamp**: `2026-11-09 14:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Borders utilize slate-200 and slate-800 tokens for cohesive aesthetics
+
