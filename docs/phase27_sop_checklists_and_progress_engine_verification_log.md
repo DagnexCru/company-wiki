@@ -302,3 +302,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Toggle endpoint adheres to DRF user burst throttling configuration
 
+### Verification Step 061: security(checklist-isolation-061): verify draft article checklist access permission checks
+- **Timestamp**: `2026-11-09 12:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Readers cannot toggle checklists on unpublished draft articles
+
