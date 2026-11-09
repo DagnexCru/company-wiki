@@ -42,3 +42,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: completed_at remains null while checklist has pending unchecked items
 
+### Verification Step 009: model(checklist-schema-009): verify unique_together constraint on user and article
+- **Timestamp**: `2026-11-09 10:18:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Database unique index prevents duplicate progress entries for the same user-article pair
+
