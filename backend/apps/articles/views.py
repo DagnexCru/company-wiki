@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark, ArticleChecklistProgress
 from apps.notifications.services import notify_review_action, notify_article_updated, parse_and_notify_mentions
 from apps.notifications.models import Notification
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
@@ -21,6 +21,7 @@ from apps.articles.serializers import (
     ArticleAttachmentSerializer,
     ArticleCommentSerializer,
     ArticleBookmarkSerializer,
+    ArticleChecklistProgressSerializer,
 )
 from apps.workflows.models import ReviewRecord
 from apps.workflows.serializers import ReviewRecordSerializer
@@ -1064,6 +1065,131 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "results": serializer.data,
             "collections": user_collections,
         }, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=["get"], url_path="checklist-progress", permission_classes=[permissions.IsAuthenticated])
+    def checklist_progress(self, request, slug=None):
+        """
+        Retrieve the current user's checklist progress for this article.
+        GET /api/v1/articles/{slug}/checklist-progress/
+        """
+        article = self.get_object()
+        progress = ArticleChecklistProgress.objects.filter(user=request.user, article=article).first()
+        if progress:
+            serializer = ArticleChecklistProgressSerializer(progress)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(
+            {
+                "id": None,
+                "article": str(article.id),
+                "article_id": str(article.id),
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "checked_items": [],
+                "total_items": 0,
+                "completed_count": 0,
+                "is_completed": False,
+                "completion_percentage": 0.0,
+                "completed_at": None,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=["post"], url_path="checklist-toggle", permission_classes=[permissions.IsAuthenticated])
+    def checklist_toggle(self, request, slug=None):
+        """
+        Toggle completion status of an individual checklist item.
+        POST /api/v1/articles/{slug}/checklist-toggle/
+        Payload: { "item_key": string, "is_checked": boolean, "total_items": int (optional) }
+        """
+        article = self.get_object()
+        item_key = str(request.data.get("item_key", "")).strip()
+        if not item_key:
+            return Response({"detail": "Field 'item_key' is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        raw_checked = request.data.get("is_checked")
+        if raw_checked is None:
+            is_checked = True
+        elif isinstance(raw_checked, bool):
+            is_checked = raw_checked
+        elif isinstance(raw_checked, str):
+            is_checked = raw_checked.strip().lower() in ("true", "1", "yes")
+        else:
+            is_checked = bool(raw_checked)
+
+        total_items_in_request = request.data.get("total_items")
+
+        progress, created = ArticleChecklistProgress.objects.get_or_create(
+            user=request.user,
+            article=article,
+            defaults={
+                "checked_items": [],
+                "total_items": int(total_items_in_request) if total_items_in_request is not None else 0,
+            },
+        )
+
+        checked_items = list(progress.checked_items) if isinstance(progress.checked_items, list) else []
+
+        if is_checked:
+            if item_key not in checked_items:
+                checked_items.append(item_key)
+        else:
+            if item_key in checked_items:
+                checked_items.remove(item_key)
+
+        progress.checked_items = checked_items
+        progress.completed_count = len(checked_items)
+
+        if total_items_in_request is not None:
+            progress.total_items = max(int(total_items_in_request), len(checked_items))
+        elif progress.total_items < len(checked_items):
+            progress.total_items = len(checked_items)
+
+        if progress.total_items > 0 and progress.completed_count >= progress.total_items:
+            progress.is_completed = True
+            if not progress.completed_at:
+                progress.completed_at = timezone.now()
+        else:
+            progress.is_completed = False
+            progress.completed_at = None
+
+        progress.save()
+
+        serializer = ArticleChecklistProgressSerializer(progress)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=["post"], url_path="checklist-reset", permission_classes=[permissions.IsAuthenticated])
+    def checklist_reset(self, request, slug=None):
+        """
+        Reset all checklist progress for this article back to 0.
+        POST /api/v1/articles/{slug}/checklist-reset/
+        """
+        article = self.get_object()
+        progress = ArticleChecklistProgress.objects.filter(user=request.user, article=article).first()
+        if progress:
+            progress.checked_items = []
+            progress.completed_count = 0
+            progress.is_completed = False
+            progress.completed_at = None
+            progress.save()
+            serializer = ArticleChecklistProgressSerializer(progress)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(
+            {
+                "id": None,
+                "article": str(article.id),
+                "article_id": str(article.id),
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "checked_items": [],
+                "total_items": 0,
+                "completed_count": 0,
+                "is_completed": False,
+                "completion_percentage": 0.0,
+                "completed_at": None,
+            },
+            status=status.HTTP_200_OK,
+        )
 
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
