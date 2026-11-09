@@ -217,3 +217,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reaching completed_count == total_items sets is_completed to True
 
+### Verification Step 044: api(checklist-view-044): test POST /checklist-toggle/ sets completed_at timestamp on completion
+- **Timestamp**: `2026-11-09 11:28:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: completed_at is populated with current timezone timestamp when finished
+
