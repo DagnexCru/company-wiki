@@ -312,3 +312,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checklist progress queries on archived articles return appropriate status
 
+### Verification Step 063: security(checklist-isolation-063): verify soft-deleted article checklist access returns 404
+- **Timestamp**: `2026-11-09 12:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Querying checklist progress on non-existent article slug returns 404 Not Found
+
