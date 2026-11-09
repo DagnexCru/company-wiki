@@ -377,3 +377,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Task descriptions with `code` tokens render styled monospace badges
 
+### Verification Step 076: parser(checklist-md-076): handle checklist items with inline hyperlinks
+- **Timestamp**: `2026-11-09 12:32:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Task descriptions with markdown links render clickable navigation targets
+
