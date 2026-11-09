@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Payload matches OpenAPI / Swagger schema specifications for checklist endpoints
 
+### Verification Step 029: serializer(checklist-calc-029): verify nested user context omission for minimal overhead
+- **Timestamp**: `2026-11-09 10:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checklist progress payload avoids heavy nested author serialization overhead
+
