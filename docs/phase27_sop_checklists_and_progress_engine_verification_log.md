@@ -167,3 +167,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Anonymous POST reset request receives 401 Unauthorized status
 
+### Verification Step 034: api(checklist-view-034): test GET /checklist-progress/ returns 200 with default for new article
+- **Timestamp**: `2026-11-09 11:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: New article returns zeroed progress structure with 200 OK
+
