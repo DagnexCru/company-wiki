@@ -122,3 +122,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: completed_at outputs standard RFC 3339 / ISO 8601 UTC timestamp string
 
+### Verification Step 025: serializer(checklist-calc-025): verify ISO 8601 formatting of updated_at timestamp
+- **Timestamp**: `2026-11-09 10:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: updated_at outputs standard RFC 3339 / ISO 8601 UTC timestamp string
+
