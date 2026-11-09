@@ -227,3 +227,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Unchecking an item from completed runbook sets is_completed False
 
+### Verification Step 046: api(checklist-view-046): test POST /checklist-toggle/ clears completed_at timestamp on uncheck
+- **Timestamp**: `2026-11-09 11:32:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: completed_at resets to null when runbook completion is revoked
+
