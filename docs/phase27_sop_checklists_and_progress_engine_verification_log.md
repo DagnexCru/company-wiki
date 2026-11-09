@@ -597,3 +597,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Read-only checkboxes do not trap keyboard focus unnecessarily
 
+### Verification Step 120: a11y(checklist-ui-120): semantic heading hierarchy in ArticleChecklistTracker
+- **Timestamp**: `2026-11-09 14:00:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Tracker widget uses semantic H3 heading aligned with document outline
+
