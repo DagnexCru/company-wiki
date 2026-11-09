@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Request without item_key parameter returns 400 Bad Request detail error
 
+### Verification Step 036: api(checklist-view-036): test POST /checklist-toggle/ with empty string item_key returns 400
+- **Timestamp**: `2026-11-09 11:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Request with whitespace-only item_key returns 400 Bad Request detail error
+
