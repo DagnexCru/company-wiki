@@ -562,3 +562,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checkboxes associate with adjacent task text via DOM hierarchy
 
+### Verification Step 113: a11y(checklist-ui-113): reset button aria-label description
+- **Timestamp**: `2026-11-09 13:46:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset control carries descriptive aria-label 'Reset checklist progress'
+
