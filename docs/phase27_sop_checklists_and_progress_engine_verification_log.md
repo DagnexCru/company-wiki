@@ -387,3 +387,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Nested checklist lines are parsed with preserved indentation context
 
+### Verification Step 078: parser(checklist-md-078): deterministic slugification for item key generation
+- **Timestamp**: `2026-11-09 12:36:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Task text generates consistent, stable alphanumeric key slugs
+
