@@ -37,10 +37,13 @@ import { ArticleFeedbackWidget } from "../components/ArticleFeedbackWidget";
 import { ArticleCommentsSection } from "../components/ArticleCommentsSection";
 import { BookmarkButton } from "../components/BookmarkButton";
 import { ArticleNeighborhoodMiniGraph } from "../components/ArticleNeighborhoodMiniGraph";
+import { ArticleChecklistTracker } from "../components/ArticleChecklistTracker";
+import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
+import type { ArticleChecklistProgress } from "../types/checklist";
 
 export const ArticleDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -71,6 +74,74 @@ export const ArticleDetailPage: React.FC = () => {
   // Workflow Modal States
   const [showSubmitModal, setShowSubmitModal] = useState<boolean>(false);
   const [reviewModalMode, setReviewModalMode] = useState<"approve" | "reject" | null>(null);
+
+  // SOP Checklist State & Live Synchronization
+  const [checklistProgress, setChecklistProgress] = useState<ArticleChecklistProgress | null>(null);
+  const [resettingChecklist, setResettingChecklist] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!slug || !user) return;
+    checklistService
+      .getChecklistProgress(slug)
+      .then((data) => setChecklistProgress(data))
+      .catch((err) => console.debug("Checklist progress fetch skipped:", err));
+  }, [slug, user]);
+
+  const handleToggleChecklistItem = useCallback(
+    async (itemKey: string, isChecked: boolean, totalItems: number) => {
+      if (!slug) return;
+      // Optimistic update
+      setChecklistProgress((prev) => {
+        const currentChecked = prev ? [...prev.checked_items] : [];
+        let nextChecked = currentChecked;
+        if (isChecked && !currentChecked.includes(itemKey)) {
+          nextChecked = [...currentChecked, itemKey];
+        } else if (!isChecked && currentChecked.includes(itemKey)) {
+          nextChecked = currentChecked.filter((k) => k !== itemKey);
+        }
+        const effectiveTotal = Math.max(totalItems, nextChecked.length);
+        const completedCount = nextChecked.length;
+        const isCompleted = effectiveTotal > 0 && completedCount >= effectiveTotal;
+        const completionPercentage =
+          effectiveTotal > 0 ? Math.round((completedCount / effectiveTotal) * 100) : 0;
+
+        return {
+          article: slug,
+          checked_items: nextChecked,
+          total_items: effectiveTotal,
+          completed_count: completedCount,
+          is_completed: isCompleted,
+          completion_percentage: completionPercentage,
+          completed_at: isCompleted ? prev?.completed_at || new Date().toISOString() : null,
+        };
+      });
+
+      try {
+        const updated = await checklistService.toggleChecklistItem(slug, {
+          item_key: itemKey,
+          is_checked: isChecked,
+          total_items: totalItems,
+        });
+        setChecklistProgress(updated);
+      } catch (err) {
+        console.error("Failed to sync checklist item state:", err);
+      }
+    },
+    [slug]
+  );
+
+  const handleResetChecklist = useCallback(async () => {
+    if (!slug) return;
+    setResettingChecklist(true);
+    try {
+      const reset = await checklistService.resetChecklistProgress(slug);
+      setChecklistProgress(reset);
+    } catch (err) {
+      console.error("Failed to reset checklist progress:", err);
+    } finally {
+      setResettingChecklist(false);
+    }
+  }, [slug]);
 
   const fetchArticle = useCallback(async () => {
     if (!slug) return;
@@ -591,9 +662,22 @@ export const ArticleDetailPage: React.FC = () => {
             estimatedReadTime={article.estimated_read_time}
           />
 
+          {/* SOP Checklists & Onboarding Runbook Progress Tracker */}
+          <ArticleChecklistTracker
+            progress={checklistProgress}
+            loading={resettingChecklist}
+            onReset={handleResetChecklist}
+          />
+
           {/* Main Document Content */}
           <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
-            <MarkdownViewer content={article.content} />
+            <MarkdownViewer
+              content={article.content}
+              articleSlug={article.slug}
+              checkedItems={checklistProgress?.checked_items}
+              onToggleChecklistItem={handleToggleChecklistItem}
+              readOnlyChecklists={!user}
+            />
 
             {/* Reader UX: Interactive Helpful Feedback Widget & Quality Metrics */}
             <ArticleFeedbackWidget
