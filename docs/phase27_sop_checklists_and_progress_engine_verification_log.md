@@ -747,3 +747,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Foreign keys prevent orphan progress records on article deletion
 
+### Verification Step 150: sop(runbook-e2e-150): API test execution verification across all 6 test cases
+- **Timestamp**: `2026-11-09 15:00:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: All test cases in apps.articles.tests_checklists pass with 0 errors
+
