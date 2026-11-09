@@ -422,3 +422,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Long articles with interspersed H2/H3 headings preserve checklist index ordering
 
+### Verification Step 085: parser(checklist-md-085): trailing newline normalization in markdown content
+- **Timestamp**: `2026-11-09 12:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Content with multiple trailing newlines parses cleanly without ghost items
+
