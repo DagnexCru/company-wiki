@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Request with whitespace-only item_key returns 400 Bad Request detail error
 
+### Verification Step 037: api(checklist-view-037): test POST /checklist-toggle/ checks item on successfully
+- **Timestamp**: `2026-11-09 11:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Item key is appended to checked_items and completed_count increments
+
