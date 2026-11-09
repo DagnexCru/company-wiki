@@ -187,3 +187,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Item key is appended to checked_items and completed_count increments
 
+### Verification Step 038: api(checklist-view-038): test POST /checklist-toggle/ idempotency when checking already-checked item
+- **Timestamp**: `2026-11-09 11:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checking an already checked item does not create duplicate entries
+
