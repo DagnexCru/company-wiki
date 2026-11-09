@@ -362,3 +362,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Parser does not misidentify plain asterisk bullets as checkboxes
 
+### Verification Step 073: parser(checklist-md-073): ignore checklist patterns inside fenced code blocks
+- **Timestamp**: `2026-11-09 12:26:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Code snippets containing - [ ] are rendered as verbatim code
+
