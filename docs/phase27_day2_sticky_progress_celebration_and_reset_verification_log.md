@@ -377,3 +377,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: All article checklist items revert to unchecked visual state
 
+### Verification Step 076: modal(reset-dialog-076): verify completed badge removal after modal confirm
+- **Timestamp**: `2026-11-10 11:32:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Completed badge and celebration callout disappear cleanly
+
