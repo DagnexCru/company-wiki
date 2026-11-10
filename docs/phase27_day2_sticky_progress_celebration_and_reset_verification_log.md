@@ -347,3 +347,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Modal quotes current article title to confirm exact target document
 
+### Verification Step 070: modal(reset-dialog-070): verify ResetChecklistModal completed fraction display in dialog copy
+- **Timestamp**: `2026-11-10 11:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Modal displays 'X of Y completed steps' in prominent rose styling
+
