@@ -332,3 +332,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Clicking X button in top right cancels reset and dismisses modal
 
+### Verification Step 067: modal(reset-dialog-067): verify Cancel button click dismisses modal without reset
+- **Timestamp**: `2026-11-10 11:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking Cancel button retains existing checklist progress
+
