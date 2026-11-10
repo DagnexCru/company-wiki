@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Admin persona displays pre-seeded 2/10 tasks with 8 steps remaining
 
+### Verification Step 087: e2e(runbook-flow-087): verify unauthenticated reader experience on runbook page
+- **Timestamp**: `2026-11-10 11:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unauthenticated visitors see static checklists and no reset button
+
