@@ -137,3 +137,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: ArticleChecklistProgress interface typed with remaining_items?: number
 
+### Verification Step 028: calc(remaining-028): verify frontend fallback Math.max(0, total - completed) calculation
+- **Timestamp**: `2026-11-10 09:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Client computes remaining locally during optimistic state updates
+
