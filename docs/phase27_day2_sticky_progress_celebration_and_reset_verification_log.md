@@ -382,3 +382,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Completed badge and celebration callout disappear cleanly
 
+### Verification Step 077: modal(reset-dialog-077): verify remaining steps counter resets to total count
+- **Timestamp**: `2026-11-10 11:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Remaining badge updates to show 'total_items steps remaining'
+
