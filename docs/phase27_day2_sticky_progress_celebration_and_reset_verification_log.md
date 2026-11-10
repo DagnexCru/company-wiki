@@ -77,3 +77,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Sticky floating widget is excluded from printed article documents
 
+### Verification Step 016: ui(sticky-bar-016): verify sticky bar shadow-md elevation styling
+- **Timestamp**: `2026-11-10 09:32:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Subtle drop shadow separates sticky bar from underlying scrolling text
+
