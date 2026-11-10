@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Client updates remaining count synchronously on click event
 
+### Verification Step 037: calc(remaining-037): verify unit test assertions on remaining_items across all 6 test cases
+- **Timestamp**: `2026-11-10 10:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: All test cases in tests_checklists validate remaining_items field
+
