@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Modal displays 'X of Y completed steps' in prominent rose styling
 
+### Verification Step 071: modal(reset-dialog-071): verify ResetChecklistModal warning alert icon styling
+- **Timestamp**: `2026-11-10 11:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: AlertTriangle icon in rose rounded box signals destructive action
+
