@@ -112,3 +112,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: remaining_items never drops below zero even if completed exceeds total
 
+### Verification Step 023: calc(remaining-023): verify remaining_items reflection in GET /checklist-progress/ response
+- **Timestamp**: `2026-11-10 09:46:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Progress endpoint payload includes accurate remaining_items integer
+
