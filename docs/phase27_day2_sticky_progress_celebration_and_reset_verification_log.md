@@ -162,3 +162,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Indigo pill provides clear contrast and distinct status signaling
 
+### Verification Step 033: calc(remaining-033): verify remaining badge styling in dark mode (indigo-950 pill)
+- **Timestamp**: `2026-11-10 10:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Dark mode indigo pill maintains readable text without glare
+
