@@ -362,3 +362,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Confirm button displays 'Resetting...' spinner and disables clicks
 
+### Verification Step 073: modal(reset-dialog-073): verify ResetChecklistModal automatic closure after successful reset
+- **Timestamp**: `2026-11-10 11:26:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Modal closes immediately after reset API call resolves
+
