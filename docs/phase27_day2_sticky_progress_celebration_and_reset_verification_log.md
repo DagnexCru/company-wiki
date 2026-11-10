@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Client computes remaining locally during optimistic state updates
 
+### Verification Step 029: calc(remaining-029): verify singular step label when remaining_items equals 1
+- **Timestamp**: `2026-11-10 09:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: UI displays '1 step remaining' with correct singular grammatical form
+
