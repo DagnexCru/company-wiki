@@ -442,3 +442,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Logging in redirects back to article with checklist state loaded
 
+### Verification Step 089: e2e(runbook-flow-089): verify dark mode theme toggle while sticky bar is pinned
+- **Timestamp**: `2026-11-10 11:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Toggling dark mode updates sticky bar background and borders smoothly
+
