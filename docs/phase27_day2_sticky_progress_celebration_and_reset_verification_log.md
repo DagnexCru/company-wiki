@@ -317,3 +317,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Modal displays fixed overlay with backdrop-blur-xs and black/60 scrim
 
+### Verification Step 064: modal(reset-dialog-064): verify ResetChecklistModal escape key dismissal handling
+- **Timestamp**: `2026-11-10 11:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Pressing Escape key closes reset confirmation modal safely
+
