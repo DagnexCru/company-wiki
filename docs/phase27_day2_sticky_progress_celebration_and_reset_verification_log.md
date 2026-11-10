@@ -127,3 +127,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reset endpoint payload restores remaining_items equal to total_items
 
+### Verification Step 026: calc(remaining-026): verify remaining_items fallback response schema default 0
+- **Timestamp**: `2026-11-10 09:52:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Uninitialized article fallback payload includes remaining_items: 0
+
