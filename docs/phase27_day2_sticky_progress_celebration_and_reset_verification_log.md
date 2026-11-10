@@ -252,3 +252,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Sticky bar displays green Check icon with 'Done' label
 
+### Verification Step 051: celebration(milestone-051): verify celebration banner dismissal when unchecking an item
+- **Timestamp**: `2026-11-10 10:42:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unchecking any item immediately reverts card to in-progress theme
+
