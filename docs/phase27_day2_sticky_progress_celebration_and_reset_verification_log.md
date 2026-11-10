@@ -322,3 +322,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Pressing Escape key closes reset confirmation modal safely
 
+### Verification Step 065: modal(reset-dialog-065): verify ResetChecklistModal backdrop click dismissal handling
+- **Timestamp**: `2026-11-10 11:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking outside dialog card closes modal without executing reset
+
