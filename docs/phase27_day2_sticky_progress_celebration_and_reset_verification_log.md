@@ -427,3 +427,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Incident responder scrolls through runbook with sticky bar guidance
 
+### Verification Step 086: e2e(runbook-flow-086): verify partial progress display for newly assigned runbooks
+- **Timestamp**: `2026-11-10 11:52:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Admin persona displays pre-seeded 2/10 tasks with 8 steps remaining
+
