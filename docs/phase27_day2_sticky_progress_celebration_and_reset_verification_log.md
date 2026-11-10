@@ -337,3 +337,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Clicking Cancel button retains existing checklist progress
 
+### Verification Step 068: modal(reset-dialog-068): verify Reset Progress confirmation button triggers API call
+- **Timestamp**: `2026-11-10 11:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking confirm button dispatches POST /checklist-reset/ request
+
