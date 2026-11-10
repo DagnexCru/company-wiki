@@ -342,3 +342,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Clicking confirm button dispatches POST /checklist-reset/ request
 
+### Verification Step 069: modal(reset-dialog-069): verify ResetChecklistModal article title display in dialog copy
+- **Timestamp**: `2026-11-10 11:18:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Modal quotes current article title to confirm exact target document
+
