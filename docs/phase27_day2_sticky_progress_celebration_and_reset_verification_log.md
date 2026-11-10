@@ -72,3 +72,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Dark mode sticky border maintains subtle definition against page body
 
+### Verification Step 015: ui(sticky-bar-015): verify sticky bar print stylesheet suppression
+- **Timestamp**: `2026-11-10 09:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Sticky floating widget is excluded from printed article documents
+
