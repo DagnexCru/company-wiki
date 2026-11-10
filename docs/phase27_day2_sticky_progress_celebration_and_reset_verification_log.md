@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Badge text updates instantaneously upon checkbox click
 
+### Verification Step 032: calc(remaining-032): verify remaining badge styling in light mode (indigo-100 pill)
+- **Timestamp**: `2026-11-10 10:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Indigo pill provides clear contrast and distinct status signaling
+
