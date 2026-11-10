@@ -172,3 +172,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Remaining badge swaps for '100% Completed' badge when count reaches 0
 
+### Verification Step 035: calc(remaining-035): verify remaining badge reappearance when unchecking from 100%
+- **Timestamp**: `2026-11-10 10:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unchecking item restores '1 step remaining' badge immediately
+
