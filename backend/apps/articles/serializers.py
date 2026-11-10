@@ -541,6 +541,7 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
     article_slug = serializers.CharField(source="article.slug", read_only=True)
     article_title = serializers.CharField(source="article.title", read_only=True)
     completion_percentage = serializers.SerializerMethodField()
+    remaining_items = serializers.SerializerMethodField()
 
     class Meta:
         model = ArticleChecklistProgress
@@ -553,6 +554,7 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
             "checked_items",
             "total_items",
             "completed_count",
+            "remaining_items",
             "is_completed",
             "completion_percentage",
             "completed_at",
@@ -566,6 +568,7 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
             "article_slug",
             "article_title",
             "completed_count",
+            "remaining_items",
             "is_completed",
             "completion_percentage",
             "completed_at",
@@ -577,5 +580,8 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
         if obj.total_items > 0:
             return round((obj.completed_count / obj.total_items) * 100, 1)
         return 0.0
+
+    def get_remaining_items(self, obj):
+        return max(0, obj.total_items - obj.completed_count)
 
 
