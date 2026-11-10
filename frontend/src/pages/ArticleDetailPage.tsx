@@ -38,6 +38,7 @@ import { ArticleCommentsSection } from "../components/ArticleCommentsSection";
 import { BookmarkButton } from "../components/BookmarkButton";
 import { ArticleNeighborhoodMiniGraph } from "../components/ArticleNeighborhoodMiniGraph";
 import { ArticleChecklistTracker } from "../components/ArticleChecklistTracker";
+import { ResetChecklistModal } from "../components/ResetChecklistModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
@@ -78,6 +79,7 @@ export const ArticleDetailPage: React.FC = () => {
   // SOP Checklist State & Live Synchronization
   const [checklistProgress, setChecklistProgress] = useState<ArticleChecklistProgress | null>(null);
   const [resettingChecklist, setResettingChecklist] = useState<boolean>(false);
+  const [showResetChecklistModal, setShowResetChecklistModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (!slug || !user) return;
@@ -665,8 +667,9 @@ export const ArticleDetailPage: React.FC = () => {
           {/* SOP Checklists & Onboarding Runbook Progress Tracker */}
           <ArticleChecklistTracker
             progress={checklistProgress}
+            articleTitle={article.title}
             loading={resettingChecklist}
-            onReset={handleResetChecklist}
+            onRequestReset={() => setShowResetChecklistModal(true)}
           />
 
           {/* Main Document Content */}
@@ -802,6 +805,22 @@ export const ArticleDetailPage: React.FC = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Reset Checklist Confirmation Modal */}
+      {showResetChecklistModal && article && (
+        <ResetChecklistModal
+          isOpen={showResetChecklistModal}
+          articleTitle={article.title}
+          completedCount={checklistProgress?.completed_count || 0}
+          totalCount={checklistProgress?.total_items || 0}
+          isLoading={resettingChecklist}
+          onClose={() => setShowResetChecklistModal(false)}
+          onConfirm={async () => {
+            await handleResetChecklist();
+            setShowResetChecklistModal(false);
+          }}
+        />
       )}
     </div>
   );
