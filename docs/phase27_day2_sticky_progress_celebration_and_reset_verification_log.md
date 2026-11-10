@@ -327,3 +327,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Clicking outside dialog card closes modal without executing reset
 
+### Verification Step 066: modal(reset-dialog-066): verify ResetChecklistModal close button (X) icon action
+- **Timestamp**: `2026-11-10 11:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking X button in top right cancels reset and dismisses modal
+
