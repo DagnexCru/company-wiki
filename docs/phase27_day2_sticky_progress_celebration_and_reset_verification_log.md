@@ -197,3 +197,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Single-step runbook reports exactly 1 step remaining
 
+### Verification Step 040: calc(remaining-040): verify remaining calculation with 1 total item and 1 completed
+- **Timestamp**: `2026-11-10 10:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Single-step runbook reports 0 remaining and triggers completion
+
