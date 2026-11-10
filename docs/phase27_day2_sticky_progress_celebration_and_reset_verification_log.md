@@ -422,3 +422,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: New engineer checks 3 onboarding tasks and reaches celebration card
 
+### Verification Step 085: e2e(runbook-flow-085): verify incident triage checklist under high-pressure navigation
+- **Timestamp**: `2026-11-10 11:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Incident responder scrolls through runbook with sticky bar guidance
+
