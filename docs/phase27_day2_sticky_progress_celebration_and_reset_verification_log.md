@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: UI displays 'N steps remaining' with correct plural grammatical form
 
+### Verification Step 031: calc(remaining-031): verify remaining badge visual transition when checking items
+- **Timestamp**: `2026-11-10 10:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Badge text updates instantaneously upon checkbox click
+
