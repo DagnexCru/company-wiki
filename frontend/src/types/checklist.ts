@@ -11,6 +11,7 @@ export interface ArticleChecklistProgress {
   checked_items: string[];
   total_items: number;
   completed_count: number;
+  remaining_items?: number;
   is_completed: boolean;
   completion_percentage: number;
   completed_at: string | null;
