@@ -312,3 +312,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Clicking Reset button in sticky header opens confirmation modal
 
+### Verification Step 063: modal(reset-dialog-063): verify ResetChecklistModal backdrop blur and dark overlay
+- **Timestamp**: `2026-11-10 11:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Modal displays fixed overlay with backdrop-blur-xs and black/60 scrim
+
