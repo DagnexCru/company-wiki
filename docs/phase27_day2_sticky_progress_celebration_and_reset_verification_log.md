@@ -122,3 +122,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Toggle endpoint payload returns updated remaining_items in real time
 
+### Verification Step 025: calc(remaining-025): verify remaining_items reflection in POST /checklist-reset/ response
+- **Timestamp**: `2026-11-10 09:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset endpoint payload restores remaining_items equal to total_items
+
