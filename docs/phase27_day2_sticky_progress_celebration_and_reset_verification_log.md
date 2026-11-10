@@ -437,3 +437,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Unauthenticated visitors see static checklists and no reset button
 
+### Verification Step 088: e2e(runbook-flow-088): verify login redirection preserves checklist view context
+- **Timestamp**: `2026-11-10 11:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Logging in redirects back to article with checklist state loaded
+
