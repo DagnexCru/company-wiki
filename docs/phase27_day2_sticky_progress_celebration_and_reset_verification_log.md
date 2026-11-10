@@ -132,3 +132,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Uninitialized article fallback payload includes remaining_items: 0
 
+### Verification Step 027: calc(remaining-027): verify frontend TypeScript interface remaining_items optional property
+- **Timestamp**: `2026-11-10 09:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: ArticleChecklistProgress interface typed with remaining_items?: number
+
