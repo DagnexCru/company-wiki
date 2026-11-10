@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: AlertTriangle icon in rose rounded box signals destructive action
 
+### Verification Step 072: modal(reset-dialog-072): verify ResetChecklistModal loading state during reset API call
+- **Timestamp**: `2026-11-10 11:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Confirm button displays 'Resetting...' spinner and disables clicks
+
