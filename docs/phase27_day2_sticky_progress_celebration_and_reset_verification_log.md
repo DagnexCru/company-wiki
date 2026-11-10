@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Sticky bar unmounts cleanly when window.scrollY drops below 340px
 
+### Verification Step 003: ui(sticky-bar-003): verify passive scroll event listener registration
+- **Timestamp**: `2026-11-10 09:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Scroll listener utilizes passive: true to prevent main thread layout jank
+
