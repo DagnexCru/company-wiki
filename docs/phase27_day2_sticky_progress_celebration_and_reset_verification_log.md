@@ -17,3 +17,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Scroll listener utilizes passive: true to prevent main thread layout jank
 
+### Verification Step 004: ui(sticky-bar-004): verify scroll event listener cleanup on component unmount
+- **Timestamp**: `2026-11-10 09:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: window.removeEventListener fires on unmount without memory leak
+
