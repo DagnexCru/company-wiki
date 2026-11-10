@@ -55,6 +55,7 @@ class ArticleChecklistAPITests(APITestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data["checked_items"], [])
         self.assertEqual(res.data["completed_count"], 0)
+        self.assertEqual(res.data["remaining_items"], 0)
         self.assertFalse(res.data["is_completed"])
         self.assertEqual(res.data["completion_percentage"], 0.0)
 
@@ -71,6 +72,7 @@ class ArticleChecklistAPITests(APITestCase):
         self.assertEqual(res1.status_code, status.HTTP_200_OK)
         self.assertEqual(res1.data["checked_items"], ["step-1"])
         self.assertEqual(res1.data["completed_count"], 1)
+        self.assertEqual(res1.data["remaining_items"], 3)
         self.assertEqual(res1.data["total_items"], 4)
         self.assertEqual(res1.data["completion_percentage"], 25.0)
         self.assertFalse(res1.data["is_completed"])
@@ -83,6 +85,7 @@ class ArticleChecklistAPITests(APITestCase):
         })
         self.assertEqual(res2.status_code, status.HTTP_200_OK)
         self.assertEqual(res2.data["completed_count"], 2)
+        self.assertEqual(res2.data["remaining_items"], 2)
         self.assertEqual(res2.data["completion_percentage"], 50.0)
 
         # 3. Toggle Item 1 OFF
@@ -94,6 +97,7 @@ class ArticleChecklistAPITests(APITestCase):
         self.assertEqual(res3.status_code, status.HTTP_200_OK)
         self.assertEqual(res3.data["checked_items"], ["step-2"])
         self.assertEqual(res3.data["completed_count"], 1)
+        self.assertEqual(res3.data["remaining_items"], 3)
         self.assertEqual(res3.data["completion_percentage"], 25.0)
 
     def test_completion_detection(self):
@@ -106,6 +110,7 @@ class ArticleChecklistAPITests(APITestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data["completed_count"], 2)
+        self.assertEqual(res.data["remaining_items"], 0)
         self.assertEqual(res.data["total_items"], 2)
         self.assertTrue(res.data["is_completed"])
         self.assertEqual(res.data["completion_percentage"], 100.0)
@@ -121,6 +126,7 @@ class ArticleChecklistAPITests(APITestCase):
         self.assertEqual(res_reset.status_code, status.HTTP_200_OK)
         self.assertEqual(res_reset.data["checked_items"], [])
         self.assertEqual(res_reset.data["completed_count"], 0)
+        self.assertEqual(res_reset.data["remaining_items"], 2)
         self.assertFalse(res_reset.data["is_completed"])
 
     def test_user_isolation(self):
