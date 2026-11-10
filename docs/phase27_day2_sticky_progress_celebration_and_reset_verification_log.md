@@ -187,3 +187,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: All test cases in tests_checklists validate remaining_items field
 
+### Verification Step 038: calc(remaining-038): verify remaining calculation with 10 total items and 3 completed
+- **Timestamp**: `2026-11-10 10:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: 10 total items with 3 completed reports exactly 7 remaining
+
