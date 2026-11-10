@@ -372,3 +372,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Main and sticky progress bars transition smoothly to 0%
 
+### Verification Step 075: modal(reset-dialog-075): verify all checkboxes uncheck after modal confirm
+- **Timestamp**: `2026-11-10 11:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: All article checklist items revert to unchecked visual state
+
