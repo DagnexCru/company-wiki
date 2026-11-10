@@ -302,3 +302,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Mounting celebration callout introduces zero layout jump (CLS = 0)
 
+### Verification Step 061: modal(reset-dialog-061): verify Reset button opens ResetChecklistModal dialog
+- **Timestamp**: `2026-11-10 11:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking Reset button in main card opens confirmation modal
+
