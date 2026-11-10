@@ -27,3 +27,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Top-16 offset aligns sticky progress widget directly beneath application header
 
+### Verification Step 006: ui(sticky-bar-006): verify z-index z-30 layering relative to sidebars and modals
+- **Timestamp**: `2026-11-10 09:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Sticky bar renders above article text and below modal dialog backdrops
+
