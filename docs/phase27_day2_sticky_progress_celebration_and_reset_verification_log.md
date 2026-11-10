@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Header text passes WCAG AA contrast ratio standards
 
+### Verification Step 020: ui(sticky-bar-020): verify sticky bar omission when article contains zero checklist items
+- **Timestamp**: `2026-11-10 09:40:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Articles without checklists never mount the sticky progress widget
+
