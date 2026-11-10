@@ -42,3 +42,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Long article titles truncate with ellipsis without breaking flex layout
 
+### Verification Step 009: ui(sticky-bar-009): verify sticky bar mini progress bar track height and radius
+- **Timestamp**: `2026-11-10 09:18:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Mini progress bar displays compact h-2 height with rounded-full radius
+
