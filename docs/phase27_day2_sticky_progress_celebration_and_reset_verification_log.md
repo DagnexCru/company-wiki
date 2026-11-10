@@ -147,3 +147,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: UI displays '1 step remaining' with correct singular grammatical form
 
+### Verification Step 030: calc(remaining-030): verify plural steps label when remaining_items is greater than 1
+- **Timestamp**: `2026-11-10 10:00:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: UI displays 'N steps remaining' with correct plural grammatical form
+
