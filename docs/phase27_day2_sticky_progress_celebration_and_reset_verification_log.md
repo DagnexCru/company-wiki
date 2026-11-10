@@ -287,3 +287,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: User A completing runbook does not trigger celebration on User B profile
 
+### Verification Step 058: celebration(milestone-058): verify celebration re-trigger when completing after reset
+- **Timestamp**: `2026-11-10 10:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Resetting and re-completing runbook triggers celebration anew
+
