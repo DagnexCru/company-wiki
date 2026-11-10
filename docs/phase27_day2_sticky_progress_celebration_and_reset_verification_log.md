@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Articles without checklists never mount the sticky progress widget
 
+### Verification Step 021: calc(remaining-021): verify remaining_items serialization in ArticleChecklistProgressSerializer
+- **Timestamp**: `2026-11-10 09:42:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Serializer get_remaining_items computes total_items minus completed_count
+
