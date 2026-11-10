@@ -397,3 +397,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Keyboard focus remains constrained within modal dialog bounds
 
+### Verification Step 080: modal(reset-dialog-080): verify modal ARIA dialog attributes and accessible title
+- **Timestamp**: `2026-11-10 11:40:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Dialog element carries role='dialog' and aria-labelledby title
+
