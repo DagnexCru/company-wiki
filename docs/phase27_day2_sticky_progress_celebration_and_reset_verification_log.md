@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Unchecking item restores '1 step remaining' badge immediately
 
+### Verification Step 036: calc(remaining-036): verify optimistic remaining count update before network response
+- **Timestamp**: `2026-11-10 10:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Client updates remaining count synchronously on click event
+
