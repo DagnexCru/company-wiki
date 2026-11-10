@@ -387,3 +387,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Remaining badge updates to show 'total_items steps remaining'
 
+### Verification Step 078: modal(reset-dialog-078): verify Reset button hides when completed_count equals zero
+- **Timestamp**: `2026-11-10 11:36:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reset button is hidden when no items are checked to avoid clutter
+
