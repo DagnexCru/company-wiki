@@ -132,3 +132,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Page detects resume URL search parameter upon mounting
 
+### Verification Step 027: resume(deep-link-027): verify DOM query for first unchecked checklist item row
+- **Timestamp**: `2026-11-11 09:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: querySelector locates .checklist-item-row with data-checked='false'
+
