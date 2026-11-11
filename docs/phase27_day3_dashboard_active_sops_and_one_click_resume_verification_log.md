@@ -327,3 +327,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Progress bar uses h-2 track with 300ms transition easing
 
+### Verification Step 066: widget(dashboard-ui-066): verify card progress bar gradient fill in-progress
+- **Timestamp**: `2026-11-11 11:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Active SOP uses indigo-to-purple linear gradient fill
+
