@@ -417,3 +417,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Widget adheres to DRF API throttling rate limits
 
+### Verification Step 084: security(sops-auth-084): verify database connection pooling on dashboard load
+- **Timestamp**: `2026-11-11 11:48:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Dashboard widget shares existing database connection pool
+
