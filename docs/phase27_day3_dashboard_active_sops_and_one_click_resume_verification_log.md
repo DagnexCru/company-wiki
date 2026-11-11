@@ -127,3 +127,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: All my-checklists unit test assertions pass successfully
 
+### Verification Step 026: resume(deep-link-026): verify ?resume=true query parameter detection in ArticleDetailPage
+- **Timestamp**: `2026-11-11 09:52:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Page detects resume URL search parameter upon mounting
+
