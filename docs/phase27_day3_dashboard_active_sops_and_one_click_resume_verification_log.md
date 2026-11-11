@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Archived articles retain viewable historical checklist state
 
+### Verification Step 087: security(sops-auth-087): verify audit log telemetry on SOP resume actions
+- **Timestamp**: `2026-11-11 11:54:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Resuming runbook records user interaction telemetry
+
