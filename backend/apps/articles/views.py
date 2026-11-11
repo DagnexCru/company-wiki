@@ -1193,6 +1193,33 @@ class ArticleViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK,
         )
 
+    @action(detail=False, methods=["get"], url_path="my-checklists", permission_classes=[permissions.IsAuthenticated])
+    def my_checklists(self, request):
+        """
+        List all checklist progress records for the current authenticated user.
+        GET /api/v1/articles/my-checklists/
+        Optional query parameter: ?filter=all|in_progress|completed
+        """
+        filter_type = str(request.query_params.get("filter", "all")).lower().strip()
+        qs = ArticleChecklistProgress.objects.filter(
+            user=request.user
+        ).select_related("article", "article__category", "article__author")
+
+        if filter_type == "completed":
+            qs = qs.filter(is_completed=True)
+        elif filter_type == "in_progress":
+            qs = qs.filter(is_completed=False, completed_count__gt=0)
+
+        qs = qs.order_by("-updated_at")
+        serializer = ArticleChecklistProgressSerializer(qs, many=True)
+        return Response(
+            {
+                "count": qs.count(),
+                "results": serializer.data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
