@@ -47,3 +47,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: article_summary field provides card snippet preview
 
+### Verification Step 010: api(my-checklists-010): verify article_category_name serialization fallback to Uncategorized
+- **Timestamp**: `2026-11-11 09:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Missing category safely serializes as 'Uncategorized' string
+
