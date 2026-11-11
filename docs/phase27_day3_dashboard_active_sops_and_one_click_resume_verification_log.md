@@ -42,3 +42,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Completed filter isolates runbooks where is_completed is True
 
+### Verification Step 009: api(my-checklists-009): verify article_summary serialization in checklist progress payload
+- **Timestamp**: `2026-11-11 09:18:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: article_summary field provides card snippet preview
+
