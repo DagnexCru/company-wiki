@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { dashboardService } from "../services/dashboardService";
 import type { DashboardData } from "../types/dashboard";
 import { DashboardBookmarksWidget } from "../components/DashboardBookmarksWidget";
+import { DashboardActiveSopsWidget } from "../components/DashboardActiveSopsWidget";
 import {
   ShieldCheck,
   UserCheck,
@@ -520,6 +521,9 @@ export const DashboardPage = () => {
           </div>
         )}
       </div>
+
+      {/* Personal SOP & Runbook Progress Hub */}
+      <DashboardActiveSopsWidget />
 
       {/* Personal Knowledge Hub: Saved Bookmarks & Reading Lists */}
       <DashboardBookmarksWidget />
