@@ -522,3 +522,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Returning to dashboard shows card under Completed tab with 100%
 
+### Verification Step 105: e2e(dashboard-sops-105): new engineer 30-day onboarding playbook resume test
+- **Timestamp**: `2026-11-11 12:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: New hire opens dashboard, clicks Resume on onboarding runbook
+
