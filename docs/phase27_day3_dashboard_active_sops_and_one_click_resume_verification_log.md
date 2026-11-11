@@ -532,3 +532,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Dashboard cleanly displays 3 concurrent active runbook cards
 
+### Verification Step 107: e2e(dashboard-sops-107): reset runbook from article detail and verify dashboard sync
+- **Timestamp**: `2026-11-11 12:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Resetting SOP updates dashboard progress to 0% after refresh
+
