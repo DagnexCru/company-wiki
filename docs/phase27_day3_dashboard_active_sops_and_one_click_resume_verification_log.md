@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Hovering card highlights border with slate-800 to indigo-800 tint
 
+### Verification Step 072: widget(dashboard-ui-072): verify card border hover highlight in light mode
+- **Timestamp**: `2026-11-11 11:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Hovering card highlights border with slate-200 to indigo-300 tint
+
