@@ -382,3 +382,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Requests carry Authorization: Bearer token automatically
 
+### Verification Step 077: security(sops-auth-077): verify token expiration triggers seamless token refresh
+- **Timestamp**: `2026-11-11 11:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: 401 on my-checklists triggers refresh token flow and retries
+
