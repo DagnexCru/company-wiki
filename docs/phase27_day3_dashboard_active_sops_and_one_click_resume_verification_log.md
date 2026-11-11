@@ -387,3 +387,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: 401 on my-checklists triggers refresh token flow and retries
 
+### Verification Step 078: security(sops-auth-078): verify reader user cannot see admin user's active SOPs
+- **Timestamp**: `2026-11-11 11:36:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reader persona queries only return reader checklist records
+
