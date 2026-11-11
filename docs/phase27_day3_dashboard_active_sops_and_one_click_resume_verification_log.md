@@ -422,3 +422,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Dashboard widget shares existing database connection pool
 
+### Verification Step 085: security(sops-auth-085): verify draft article exclusion from my-checklists
+- **Timestamp**: `2026-11-11 11:50:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checklists on deleted or draft articles are suppressed
+
