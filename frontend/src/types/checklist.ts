@@ -8,6 +8,9 @@ export interface ArticleChecklistProgress {
   article_id?: string;
   article_slug?: string;
   article_title?: string;
+  article_summary?: string;
+  article_category_name?: string;
+  article_reading_time?: number;
   checked_items: string[];
   total_items: number;
   completed_count: number;
@@ -17,6 +20,11 @@ export interface ArticleChecklistProgress {
   completed_at: string | null;
   created_at?: string;
   updated_at?: string;
+}
+
+export interface MyChecklistsResponse {
+  count: number;
+  results: ArticleChecklistProgress[];
 }
 
 export interface ChecklistTogglePayload {
