@@ -52,3 +52,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Missing category safely serializes as 'Uncategorized' string
 
+### Verification Step 011: api(my-checklists-011): verify article_reading_time estimated minutes serialization
+- **Timestamp**: `2026-11-11 09:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Reading time integer populates runbook duration badge
+
