@@ -427,3 +427,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checklists on deleted or draft articles are suppressed
 
+### Verification Step 086: security(sops-auth-086): verify archived article checklist progress visibility
+- **Timestamp**: `2026-11-11 11:52:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Archived articles retain viewable historical checklist state
+
