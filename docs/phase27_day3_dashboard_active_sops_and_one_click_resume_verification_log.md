@@ -167,3 +167,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Step 5 is targeted and centered in viewport smoothly
 
+### Verification Step 034: resume(deep-link-034): verify resume scroll timing delay to ensure DOM hydration
+- **Timestamp**: `2026-11-11 10:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: 350ms delay ensures markdown tokens are fully rendered before scroll
+
