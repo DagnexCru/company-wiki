@@ -347,3 +347,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Finished card displays emerald CheckCircle2 with 'Completed'
 
+### Verification Step 070: widget(dashboard-ui-070): verify card reading time estimate with Clock icon
+- **Timestamp**: `2026-11-11 11:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Footer displays runbook estimated duration in minutes
+
