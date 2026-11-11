@@ -37,3 +37,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: In-progress filter requires completed_count > 0 to avoid false positives
 
+### Verification Step 008: api(my-checklists-008): verify ?filter=completed returns strictly 100% completed runbooks
+- **Timestamp**: `2026-11-11 09:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Completed filter isolates runbooks where is_completed is True
+
