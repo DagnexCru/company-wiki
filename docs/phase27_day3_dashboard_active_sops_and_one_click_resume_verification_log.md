@@ -147,3 +147,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Target row receives indigo ring and offset styling on resume
 
+### Verification Step 030: resume(deep-link-030): verify visual highlight ring timeout cleanup after 2.5s
+- **Timestamp**: `2026-11-11 10:00:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Highlight ring dissolves smoothly after 2500ms duration
+
