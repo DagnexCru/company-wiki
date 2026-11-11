@@ -17,3 +17,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Query executes single SQL JOIN to eliminate N+1 database queries
 
+### Verification Step 004: api(my-checklists-004): verify ordering by -updated_at in my-checklists query
+- **Timestamp**: `2026-11-11 09:08:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Most recently interacted SOP runbook appears first in the list
+
