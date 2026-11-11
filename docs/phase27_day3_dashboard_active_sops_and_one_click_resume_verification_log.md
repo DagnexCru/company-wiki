@@ -367,3 +367,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Card renders cleanly without layout gaps if summary is empty
 
+### Verification Step 074: widget(dashboard-ui-074): verify checklistService getMyChecklists API integration
+- **Timestamp**: `2026-11-11 11:28:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Widget fetches data via typed checklistService method
+
