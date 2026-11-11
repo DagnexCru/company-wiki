@@ -472,3 +472,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Horizontal swipes do not trigger accidental filter changes
 
+### Verification Step 095: security(sops-auth-095): verify network retry resilience on temporary 503 error
+- **Timestamp**: `2026-11-11 12:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Network drop displays gentle error state without crash
+
