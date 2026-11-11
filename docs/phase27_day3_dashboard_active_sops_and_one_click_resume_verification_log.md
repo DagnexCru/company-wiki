@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: scrollIntoView executes smooth scrolling with block: 'center'
 
+### Verification Step 029: resume(deep-link-029): verify visual highlight pulsing ring application
+- **Timestamp**: `2026-11-11 09:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Target row receives indigo ring and offset styling on resume
+
