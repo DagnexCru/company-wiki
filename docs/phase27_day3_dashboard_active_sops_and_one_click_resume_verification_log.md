@@ -82,3 +82,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Zero checklists returns count: 0 and results: [] without error
 
+### Verification Step 017: api(my-checklists-017): verify case-insensitivity on filter query parameter
+- **Timestamp**: `2026-11-11 09:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: filter=IN_PROGRESS and filter=In_Progress parse identically
+
