@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Footer displays runbook estimated duration in minutes
 
+### Verification Step 071: widget(dashboard-ui-071): verify card border hover highlight in dark mode
+- **Timestamp**: `2026-11-11 11:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Hovering card highlights border with slate-800 to indigo-800 tint
+
