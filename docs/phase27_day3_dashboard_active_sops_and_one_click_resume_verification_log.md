@@ -507,3 +507,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Admin logs in, sees production release SOP at 20% on dashboard
 
+### Verification Step 102: e2e(dashboard-sops-102): click Resume SOP navigates to article at first unchecked step
+- **Timestamp**: `2026-11-11 12:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking Resume navigates and auto-scrolls to step 3 smoothly
+
