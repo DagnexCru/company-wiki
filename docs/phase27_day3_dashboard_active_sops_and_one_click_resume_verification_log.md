@@ -242,3 +242,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Repeated clicks re-center on current first uncompleted step
 
+### Verification Step 049: resume(deep-link-049): verify resume target update after checking step
+- **Timestamp**: `2026-11-11 10:38:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Checking step and resuming dynamically advances target to next step
+
