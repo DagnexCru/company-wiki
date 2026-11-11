@@ -337,3 +337,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Finished SOP switches progress bar to solid emerald-500
 
+### Verification Step 068: widget(dashboard-ui-068): verify card remaining steps badge formatting
+- **Timestamp**: `2026-11-11 11:16:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Active card displays 'N steps remaining' with pluralization
+
