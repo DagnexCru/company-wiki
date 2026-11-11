@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Fully completed runbook remains at top without error or jump
 
+### Verification Step 032: resume(deep-link-032): verify resume behavior when no items are checked yet
+- **Timestamp**: `2026-11-11 10:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: First task in runbook is targeted and highlighted at step 1
+
