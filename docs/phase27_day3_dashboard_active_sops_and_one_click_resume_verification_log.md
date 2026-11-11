@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Equal timestamps resolve deterministically via primary key fallback
 
+### Verification Step 020: api(my-checklists-020): verify completed_at timestamp presence on completed items
+- **Timestamp**: `2026-11-11 09:40:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Finished runbooks include RFC 3339 UTC completion timestamp
+
