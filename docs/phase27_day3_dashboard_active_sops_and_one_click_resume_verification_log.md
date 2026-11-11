@@ -372,3 +372,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Widget fetches data via typed checklistService method
 
+### Verification Step 075: widget(dashboard-ui-075): verify widget unmount cleanup on route navigation
+- **Timestamp**: `2026-11-11 11:30:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Async fetch resolves safely without memory leaks on unmount
+
