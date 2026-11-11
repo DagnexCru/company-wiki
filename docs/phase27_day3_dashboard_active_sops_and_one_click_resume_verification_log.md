@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Highlight ring dissolves smoothly after 2500ms duration
 
+### Verification Step 031: resume(deep-link-031): verify resume behavior when all checklist items are completed
+- **Timestamp**: `2026-11-11 10:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Fully completed runbook remains at top without error or jump
+
