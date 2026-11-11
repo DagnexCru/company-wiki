@@ -7,3 +7,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Anonymous request to my-checklists endpoint returns 401 Unauthorized
 
+### Verification Step 002: api(my-checklists-002): verify GET /articles/my-checklists/ returns 200 OK for authenticated user
+- **Timestamp**: `2026-11-11 09:04:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Authenticated user receives 200 OK with count and results array
+
