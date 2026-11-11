@@ -267,3 +267,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Header badge displays total active SOPs count dynamically
 
+### Verification Step 054: widget(dashboard-ui-054): verify filter pill toggle between All, In Progress, Completed
+- **Timestamp**: `2026-11-11 10:48:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Clicking filter pills switches active tab styling and query
+
