@@ -477,3 +477,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Network drop displays gentle error state without crash
 
+### Verification Step 096: security(sops-auth-096): verify offline mode caching of recent SOP checklist items
+- **Timestamp**: `2026-11-11 12:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Service worker caches recent runbook metadata for offline viewing
+
