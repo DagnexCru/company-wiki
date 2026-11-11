@@ -197,3 +197,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Pulsing ring maintains high contrast against light mode background
 
+### Verification Step 040: resume(deep-link-040): verify resume navigation preserves browser history state
+- **Timestamp**: `2026-11-11 10:20:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Navigating via Resume button creates valid back-button history entry
+
