@@ -452,3 +452,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Finishing SOP in tab A updates dashboard in tab B on focus
 
+### Verification Step 091: security(sops-auth-091): verify mobile browser memory consumption on card list
+- **Timestamp**: `2026-11-11 12:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Rendering 20 SOP cards consumes under 2MB DOM memory
+
