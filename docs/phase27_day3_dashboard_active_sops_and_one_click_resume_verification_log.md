@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: MarkdownViewer assigns unique item key to data attribute
 
+### Verification Step 037: resume(deep-link-037): verify id attribute checklist-step-{key} on checklist row
+- **Timestamp**: `2026-11-11 10:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: DOM element receives deterministic HTML id for anchor targeting
+
