@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: MarkdownViewer assigns data-checked='true' and 'false' accurately
 
+### Verification Step 036: resume(deep-link-036): verify data-checklist-key attribute on checklist item wrapper
+- **Timestamp**: `2026-11-11 10:12:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: MarkdownViewer assigns unique item key to data attribute
+
