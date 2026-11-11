@@ -141,3 +141,50 @@ class ArticleChecklistAPITests(APITestCase):
         res_user2 = self.client.get(url_progress)
         self.assertEqual(res_user2.data["checked_items"], [])
         self.assertEqual(res_user2.data["completed_count"], 0)
+
+    def test_unauthenticated_my_checklists_fails(self):
+        url = "/api/v1/articles/my-checklists/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_my_checklists_lifecycle_and_filtering(self):
+        self.client.force_authenticate(user=self.user1)
+
+        # 1. Initially user1 has no checklists
+        url = "/api/v1/articles/my-checklists/"
+        res1 = self.client.get(url)
+        self.assertEqual(res1.status_code, status.HTTP_200_OK)
+        self.assertEqual(res1.data["count"], 0)
+
+        # 2. Progress on article 1 (in-progress)
+        url_toggle = f"/api/v1/articles/{self.article.slug}/checklist-toggle/"
+        self.client.post(url_toggle, {"item_key": "step-1", "is_checked": True, "total_items": 4})
+
+        res2 = self.client.get(url)
+        self.assertEqual(res2.data["count"], 1)
+        item = res2.data["results"][0]
+        self.assertEqual(item["article_slug"], self.article.slug)
+        self.assertEqual(item["completed_count"], 1)
+        self.assertEqual(item["total_items"], 4)
+        self.assertEqual(item["remaining_items"], 3)
+        self.assertEqual(item["completion_percentage"], 25.0)
+        self.assertFalse(item["is_completed"])
+
+        # Test filter=in_progress
+        res_in_prog = self.client.get(f"{url}?filter=in_progress")
+        self.assertEqual(res_in_prog.data["count"], 1)
+
+        # Test filter=completed (should be 0)
+        res_comp = self.client.get(f"{url}?filter=completed")
+        self.assertEqual(res_comp.data["count"], 0)
+
+    def test_my_checklists_user_isolation(self):
+        # user1 starts checklist
+        self.client.force_authenticate(user=self.user1)
+        url_toggle = f"/api/v1/articles/{self.article.slug}/checklist-toggle/"
+        self.client.post(url_toggle, {"item_key": "step-1", "is_checked": True, "total_items": 4})
+
+        # user2 checks my-checklists - must be empty
+        self.client.force_authenticate(user=self.user2)
+        res_user2 = self.client.get("/api/v1/articles/my-checklists/")
+        self.assertEqual(res_user2.data["count"], 0)
