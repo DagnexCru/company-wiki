@@ -57,3 +57,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reading time integer populates runbook duration badge
 
+### Verification Step 012: api(my-checklists-012): verify remaining_items computation in my-checklists response
+- **Timestamp**: `2026-11-11 09:24:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: remaining_items accurately returns total_items minus completed_count
+
