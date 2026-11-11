@@ -172,3 +172,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: 350ms delay ensures markdown tokens are fully rendered before scroll
 
+### Verification Step 035: resume(deep-link-035): verify data-checked attribute on checklist item wrapper
+- **Timestamp**: `2026-11-11 10:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: MarkdownViewer assigns data-checked='true' and 'false' accurately
+
