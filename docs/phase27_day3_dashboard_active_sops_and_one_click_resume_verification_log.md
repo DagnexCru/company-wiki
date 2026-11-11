@@ -202,3 +202,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Navigating via Resume button creates valid back-button history entry
 
+### Verification Step 041: resume(deep-link-041): verify resume trigger safety on unauthenticated access
+- **Timestamp**: `2026-11-11 10:22:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Unauthenticated visitors ignore resume parameter safely
+
