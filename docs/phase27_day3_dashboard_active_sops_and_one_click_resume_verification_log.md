@@ -22,3 +22,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Most recently interacted SOP runbook appears first in the list
 
+### Verification Step 005: api(my-checklists-005): verify ?filter=all returns both in-progress and completed SOPs
+- **Timestamp**: `2026-11-11 09:10:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: All filter parameter returns full union of user runbooks
+
