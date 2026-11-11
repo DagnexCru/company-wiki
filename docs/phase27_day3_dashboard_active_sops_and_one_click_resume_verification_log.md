@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Authenticated user receives 200 OK with count and results array
 
+### Verification Step 003: api(my-checklists-003): verify select_related on article, category, and author
+- **Timestamp**: `2026-11-11 09:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Query executes single SQL JOIN to eliminate N+1 database queries
+
