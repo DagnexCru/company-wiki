@@ -179,7 +179,10 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
       elements.push(
         <div
           key={`checklist-item-${index}`}
-          className={`flex items-start gap-3 my-1.5 p-2 rounded-xl transition-all duration-150 ${
+          id={`checklist-step-${itemKey}`}
+          data-checklist-key={itemKey}
+          data-checked={isChecked ? "true" : "false"}
+          className={`checklist-item-row flex items-start gap-3 my-1.5 p-2 rounded-xl transition-all duration-150 ${
             isChecked
               ? "bg-emerald-50/60 dark:bg-emerald-950/20 text-slate-500 dark:text-slate-400"
               : "hover:bg-slate-50 dark:hover:bg-slate-800/40 text-slate-800 dark:text-slate-200"
