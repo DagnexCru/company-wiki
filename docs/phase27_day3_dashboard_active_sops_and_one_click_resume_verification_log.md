@@ -32,3 +32,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: In-progress filter correctly isolates active incomplete checklists
 
+### Verification Step 007: api(my-checklists-007): verify ?filter=in_progress excludes 0% untouched articles
+- **Timestamp**: `2026-11-11 09:14:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: In-progress filter requires completed_count > 0 to avoid false positives
+
