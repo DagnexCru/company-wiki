@@ -137,3 +137,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: querySelector locates .checklist-item-row with data-checked='false'
 
+### Verification Step 028: resume(deep-link-028): verify smooth scroll centering on target checklist row
+- **Timestamp**: `2026-11-11 09:56:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: scrollIntoView executes smooth scrolling with block: 'center'
+
