@@ -412,3 +412,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Malicious script tags in ?resume= parameter are not evaluated
 
+### Verification Step 083: security(sops-auth-083): verify rate limiting compliance on my-checklists endpoint
+- **Timestamp**: `2026-11-11 11:46:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Widget adheres to DRF API throttling rate limits
+
