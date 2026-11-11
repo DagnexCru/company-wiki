@@ -1,7 +1,21 @@
 import api from "./api";
-import type { ArticleChecklistProgress, ChecklistTogglePayload } from "../types/checklist";
+import type {
+  ArticleChecklistProgress,
+  ChecklistTogglePayload,
+  MyChecklistsResponse,
+} from "../types/checklist";
 
 export const checklistService = {
+  /**
+   * Fetch all active and completed SOP checklists for the authenticated user.
+   */
+  async getMyChecklists(filter?: "all" | "in_progress" | "completed"): Promise<MyChecklistsResponse> {
+    const response = await api.get<MyChecklistsResponse>("/articles/my-checklists/", {
+      params: filter && filter !== "all" ? { filter } : undefined,
+    });
+    return response.data;
+  },
+
   /**
    * Fetch current user's checklist progress for a specific article.
    */
