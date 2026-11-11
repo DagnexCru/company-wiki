@@ -442,3 +442,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Mutations require valid CSRF and session credentials
 
+### Verification Step 089: security(sops-auth-089): verify Content-Security-Policy compliance on DOM anchors
+- **Timestamp**: `2026-11-11 11:58:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Inline scroll script complies with strict CSP directives
+
