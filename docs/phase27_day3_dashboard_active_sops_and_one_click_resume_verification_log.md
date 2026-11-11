@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Finished runbooks include RFC 3339 UTC completion timestamp
 
+### Verification Step 021: api(my-checklists-021): verify completed_at null value on in-progress items
+- **Timestamp**: `2026-11-11 09:42:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Incomplete runbooks maintain null completed_at field
+
