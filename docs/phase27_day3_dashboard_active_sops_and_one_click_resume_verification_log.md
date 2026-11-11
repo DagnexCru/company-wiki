@@ -377,3 +377,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Async fetch resolves safely without memory leaks on unmount
 
+### Verification Step 076: security(sops-auth-076): verify JWT authorization header inclusion on my-checklists
+- **Timestamp**: `2026-11-11 11:32:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Requests carry Authorization: Bearer token automatically
+
