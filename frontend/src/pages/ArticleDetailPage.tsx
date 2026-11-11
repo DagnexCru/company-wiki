@@ -89,6 +89,24 @@ export const ArticleDetailPage: React.FC = () => {
       .catch((err) => console.debug("Checklist progress fetch skipped:", err));
   }, [slug, user]);
 
+  // One-Click Resume SOP: Scroll directly to the first uncompleted step
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("resume") === "true" && article && !loading) {
+      const scrollTimer = setTimeout(() => {
+        const uncheckedRow = document.querySelector('.checklist-item-row[data-checked="false"]');
+        if (uncheckedRow) {
+          uncheckedRow.scrollIntoView({ behavior: "smooth", block: "center" });
+          uncheckedRow.classList.add("ring-2", "ring-indigo-500", "ring-offset-2", "dark:ring-offset-slate-900");
+          setTimeout(() => {
+            uncheckedRow.classList.remove("ring-2", "ring-indigo-500", "ring-offset-2", "dark:ring-offset-slate-900");
+          }, 2500);
+        }
+      }, 350);
+      return () => clearTimeout(scrollTimer);
+    }
+  }, [location.search, article, loading, checklistProgress]);
+
   const handleToggleChecklistItem = useCallback(
     async (itemKey: string, isChecked: boolean, totalItems: number) => {
       if (!slug) return;
