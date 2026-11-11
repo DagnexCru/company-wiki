@@ -407,3 +407,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Django ORM filters reject or sanitize malicious filter values
 
+### Verification Step 082: security(sops-auth-082): verify XSS sanitization in resume query parameter
+- **Timestamp**: `2026-11-11 11:44:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Malicious script tags in ?resume= parameter are not evaluated
+
