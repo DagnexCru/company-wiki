@@ -392,3 +392,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Reader persona queries only return reader checklist records
 
+### Verification Step 079: security(sops-auth-079): verify author user cannot see reviewer user's active SOPs
+- **Timestamp**: `2026-11-11 11:38:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Author persona queries only return author checklist records
+
