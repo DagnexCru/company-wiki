@@ -540,6 +540,9 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
     article_id = serializers.UUIDField(source="article.id", read_only=True)
     article_slug = serializers.CharField(source="article.slug", read_only=True)
     article_title = serializers.CharField(source="article.title", read_only=True)
+    article_summary = serializers.CharField(source="article.summary", read_only=True)
+    article_category_name = serializers.SerializerMethodField()
+    article_reading_time = serializers.IntegerField(source="article.estimated_reading_time_minutes", read_only=True)
     completion_percentage = serializers.SerializerMethodField()
     remaining_items = serializers.SerializerMethodField()
 
@@ -551,6 +554,9 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
             "article_id",
             "article_slug",
             "article_title",
+            "article_summary",
+            "article_category_name",
+            "article_reading_time",
             "checked_items",
             "total_items",
             "completed_count",
@@ -567,6 +573,9 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
             "article_id",
             "article_slug",
             "article_title",
+            "article_summary",
+            "article_category_name",
+            "article_reading_time",
             "completed_count",
             "remaining_items",
             "is_completed",
@@ -575,6 +584,11 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
+
+    def get_article_category_name(self, obj):
+        if obj.article and obj.article.category:
+            return obj.article.category.name
+        return "Uncategorized"
 
     def get_completion_percentage(self, obj):
         if obj.total_items > 0:
