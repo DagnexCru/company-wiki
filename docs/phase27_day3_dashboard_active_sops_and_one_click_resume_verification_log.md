@@ -362,3 +362,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Hovering card highlights border with slate-200 to indigo-300 tint
 
+### Verification Step 073: widget(dashboard-ui-073): verify graceful handling when article summary is blank
+- **Timestamp**: `2026-11-11 11:26:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Card renders cleanly without layout gaps if summary is empty
+
