@@ -247,3 +247,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Checking step and resuming dynamically advances target to next step
 
+### Verification Step 050: resume(deep-link-050): verify resume scroll cancellation on user manual scroll
+- **Timestamp**: `2026-11-11 10:40:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: User interaction during smooth scroll smoothly yields control
+
