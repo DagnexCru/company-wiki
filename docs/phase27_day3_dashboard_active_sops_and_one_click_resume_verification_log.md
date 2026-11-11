@@ -302,3 +302,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Cards layout in 2 columns on tablet/desktop and 1 on mobile
 
+### Verification Step 061: widget(dashboard-ui-061): verify card category pill styling and contrast
+- **Timestamp**: `2026-11-11 11:02:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Category pill renders subtle indigo background with crisp label
+
