@@ -232,3 +232,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Tab key focuses Resume SOP button with visible focus indicator
 
+### Verification Step 047: resume(deep-link-047): verify screen reader context for Resume SOP actions
+- **Timestamp**: `2026-11-11 10:34:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Link text conveys article title context to assistive technologies
+
