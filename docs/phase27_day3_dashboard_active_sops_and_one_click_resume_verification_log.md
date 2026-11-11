@@ -312,3 +312,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Excessively long titles truncate neatly with ellipsis
 
+### Verification Step 063: widget(dashboard-ui-063): verify card title hover color transition to indigo
+- **Timestamp**: `2026-11-11 11:06:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: Hovering card title transitions text color smoothly to indigo
+
