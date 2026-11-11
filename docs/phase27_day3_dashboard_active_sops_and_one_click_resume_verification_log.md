@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (`PASS`)
 - **Description**: Percentages round to 1 decimal place matching detail view
 
+### Verification Step 014: api(my-checklists-014): verify user isolation in my-checklists query filter
+- **Timestamp**: `2026-11-11 09:28:00 +0300`
+- **Outcome**: Verified & Validated (`PASS`)
+- **Description**: User A never receives User B checklist records in query results
+
