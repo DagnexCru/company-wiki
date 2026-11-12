@@ -137,3 +137,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify certificate recipient_name matches user full name or username
 
+### Verification Step 028: api(cert-008): verify certificate recipient_email and recipient_role match authenticated user
+- **Timestamp**: 2026-11-12 11:56:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate recipient_email and recipient_role match authenticated user
+
