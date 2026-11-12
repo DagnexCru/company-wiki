@@ -367,3 +367,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal print css hides close button and page backdrop
 
+### Verification Step 074: fe(tracker-001): verify ArticleChecklistTracker receives canViewTeamCompliance prop
+- **Timestamp**: 2026-11-12 13:28:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articlechecklisttracker receives canviewteamcompliance prop
+
