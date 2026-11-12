@@ -47,3 +47,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify summary stats in_progress_count reflects users between 1% and 99%
 
+### Verification Step 010: api(compliance-010): verify summary stats not_started_count reflects 0% progress users
+- **Timestamp**: 2026-11-12 11:20:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary stats not_started_count reflects 0% progress users
+
