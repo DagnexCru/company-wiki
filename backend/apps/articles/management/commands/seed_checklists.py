@@ -64,20 +64,83 @@ Confirm end-to-end functionality across critical paths:
 
         self.stdout.write(self.style.SUCCESS(f"SOP Article configured: {article.title} ({'created' if created else 'updated'})"))
 
-        # Seed initial progress for admin user
+        # Seed multi-persona progress for team compliance and certificate verification
+        from django.utils import timezone
+        from datetime import timedelta
+
+        all_steps = [
+            "confirm-ci-cd-pipeline-on-mai-0",
+            "verify-staging-environment-ma-1",
+            "notify-customer-support-and-o-2",
+            "review-open-sentry-error-budg-3",
+            "take-an-automated-snapshot-ba-4",
+            "apply-non-destructive-migrati-5",
+            "validate-database-connection--6",
+            "deploy-new-docker-image-to-ca-7",
+            "monitor-http-5xx-error-rate-a-8",
+            "promote-release-to-100-of-pro-9",
+        ]
+
+        # 1. Reader: 100% Completed (Verifiable Certificate ready!)
+        reader_user = CustomUser.objects.filter(email="reader@company.com").first()
+        if reader_user:
+            ArticleChecklistProgress.objects.update_or_create(
+                user=reader_user,
+                article=article,
+                defaults={
+                    "checked_items": all_steps,
+                    "total_items": 10,
+                    "completed_count": 10,
+                    "is_completed": True,
+                    "completed_at": timezone.now() - timedelta(days=1),
+                },
+            )
+            self.stdout.write(self.style.SUCCESS("Seeded 100% completion for reader@company.com (Certificate Ready)"))
+
+        # 2. Admin: In-Progress / 80%
         admin_user = CustomUser.objects.filter(email="admin@company.com").first()
         if admin_user:
             ArticleChecklistProgress.objects.update_or_create(
                 user=admin_user,
                 article=article,
                 defaults={
-                    "checked_items": [
-                        "confirm-ci-cd-pipeline-on-mai-0",
-                        "verify-staging-environment-ma-1",
-                    ],
+                    "checked_items": all_steps[:8],
                     "total_items": 10,
-                    "completed_count": 2,
+                    "completed_count": 8,
                     "is_completed": False,
+                    "completed_at": None,
                 },
             )
-            self.stdout.write(self.style.SUCCESS(f"Seeded initial progress for admin@company.com (2/10 tasks)"))
+            self.stdout.write(self.style.SUCCESS("Seeded progress for admin@company.com (8/10 tasks - 80%)"))
+
+        # 3. Author: 60%
+        author_user = CustomUser.objects.filter(email="author@company.com").first()
+        if author_user:
+            ArticleChecklistProgress.objects.update_or_create(
+                user=author_user,
+                article=article,
+                defaults={
+                    "checked_items": all_steps[:6],
+                    "total_items": 10,
+                    "completed_count": 6,
+                    "is_completed": False,
+                    "completed_at": None,
+                },
+            )
+            self.stdout.write(self.style.SUCCESS("Seeded progress for author@company.com (6/10 tasks - 60%)"))
+
+        # 4. Reviewer: 40%
+        reviewer_user = CustomUser.objects.filter(email="reviewer@company.com").first()
+        if reviewer_user:
+            ArticleChecklistProgress.objects.update_or_create(
+                user=reviewer_user,
+                article=article,
+                defaults={
+                    "checked_items": all_steps[:4],
+                    "total_items": 10,
+                    "completed_count": 4,
+                    "is_completed": False,
+                    "completed_at": None,
+                },
+            )
+            self.stdout.write(self.style.SUCCESS("Seeded progress for reviewer@company.com (4/10 tasks - 40%)"))

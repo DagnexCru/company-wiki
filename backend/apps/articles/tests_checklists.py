@@ -188,3 +188,39 @@ class ArticleChecklistAPITests(APITestCase):
         self.client.force_authenticate(user=self.user2)
         res_user2 = self.client.get("/api/v1/articles/my-checklists/")
         self.assertEqual(res_user2.data["count"], 0)
+
+    def test_team_checklist_status_permissions_and_stats(self):
+        url = f"/api/v1/articles/{self.article.slug}/team-checklist-status/"
+
+        # 1. Reader (user2) is forbidden
+        self.client.force_authenticate(user=self.user2)
+        res_forbidden = self.client.get(url)
+        self.assertEqual(res_forbidden.status_code, status.HTTP_403_FORBIDDEN)
+
+        # 2. Author (user1) is allowed
+        self.client.force_authenticate(user=self.user1)
+        res_allowed = self.client.get(url)
+        self.assertEqual(res_allowed.status_code, status.HTTP_200_OK)
+        self.assertIn("stats", res_allowed.data)
+        self.assertIn("members", res_allowed.data)
+        self.assertIn("compliance_rate", res_allowed.data["stats"])
+
+    def test_checklist_certificate_generation(self):
+        url_cert = f"/api/v1/articles/{self.article.slug}/checklist-certificate/"
+        self.client.force_authenticate(user=self.user1)
+
+        # 1. Incomplete runbook cannot generate certificate (400)
+        res_bad = self.client.get(url_cert)
+        self.assertEqual(res_bad.status_code, status.HTTP_400_BAD_REQUEST)
+
+        # 2. Complete all items
+        url_toggle = f"/api/v1/articles/{self.article.slug}/checklist-toggle/"
+        self.client.post(url_toggle, {"item_key": "step-1", "is_checked": True, "total_items": 1})
+
+        # 3. Valid certificate generated
+        res_valid = self.client.get(url_cert)
+        self.assertEqual(res_valid.status_code, status.HTTP_200_OK)
+        self.assertIn("certificate_id", res_valid.data)
+        self.assertIn("verification_code", res_valid.data)
+        self.assertEqual(res_valid.data["status"], "VALID")
+        self.assertEqual(res_valid.data["recipient_name"], self.user1.full_name)
