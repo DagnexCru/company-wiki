@@ -332,3 +332,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal displays recipient email and role credentials
 
+### Verification Step 067: fe(modal-cert-006): verify SopCertificateModal displays verified SOP runbook article title
+- **Timestamp**: 2026-11-12 13:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal displays verified sop runbook article title
+
