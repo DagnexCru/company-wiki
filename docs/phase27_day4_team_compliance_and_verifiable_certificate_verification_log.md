@@ -322,3 +322,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal official compliance seal watermark icon
 
+### Verification Step 065: fe(modal-cert-004): verify SopCertificateModal displays recipient full name underlined
+- **Timestamp**: 2026-11-12 13:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal displays recipient full name underlined
+
