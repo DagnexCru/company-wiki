@@ -77,3 +77,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify member role uppercase formatting (admin, reviewer, author, reader)
 
+### Verification Step 016: api(compliance-016): verify member department and job_title fallback to General Staff
+- **Timestamp**: 2026-11-12 11:32:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify member department and job_title fallback to general staff
+
