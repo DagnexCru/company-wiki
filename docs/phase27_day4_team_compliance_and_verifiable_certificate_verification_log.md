@@ -362,3 +362,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal print / save as pdf button triggers window.print()
 
+### Verification Step 073: fe(modal-cert-012): verify SopCertificateModal print CSS hides close button and page backdrop
+- **Timestamp**: 2026-11-12 13:26:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal print css hides close button and page backdrop
+
