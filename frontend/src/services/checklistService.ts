@@ -3,9 +3,27 @@ import type {
   ArticleChecklistProgress,
   ChecklistTogglePayload,
   MyChecklistsResponse,
+  TeamComplianceResponse,
+  SopCertificateData,
 } from "../types/checklist";
 
 export const checklistService = {
+  /**
+   * Fetch team compliance report for an article (Admins, Reviewers, Author).
+   */
+  async getTeamCompliance(slug: string): Promise<TeamComplianceResponse> {
+    const response = await api.get<TeamComplianceResponse>(`/articles/${slug}/team-checklist-status/`);
+    return response.data;
+  },
+
+  /**
+   * Retrieve verifiable certificate metadata for a 100% completed SOP runbook.
+   */
+  async getCertificate(slug: string): Promise<SopCertificateData> {
+    const response = await api.get<SopCertificateData>(`/articles/${slug}/checklist-certificate/`);
+    return response.data;
+  },
+
   /**
    * Fetch all active and completed SOP checklists for the authenticated user.
    */
