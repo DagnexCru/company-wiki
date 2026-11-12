@@ -7,3 +7,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify get /articles/{slug}/team-checklist-status/ requires authentication (401)
 
+### Verification Step 002: api(compliance-002): verify Reader role gets 403 Forbidden on team checklist status endpoint
+- **Timestamp**: 2026-11-12 11:04:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reader role gets 403 forbidden on team checklist status endpoint
+
