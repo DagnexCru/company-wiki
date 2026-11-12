@@ -39,6 +39,8 @@ import { BookmarkButton } from "../components/BookmarkButton";
 import { ArticleNeighborhoodMiniGraph } from "../components/ArticleNeighborhoodMiniGraph";
 import { ArticleChecklistTracker } from "../components/ArticleChecklistTracker";
 import { ResetChecklistModal } from "../components/ResetChecklistModal";
+import { TeamComplianceModal } from "../components/TeamComplianceModal";
+import { SopCertificateModal } from "../components/SopCertificateModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
@@ -80,6 +82,8 @@ export const ArticleDetailPage: React.FC = () => {
   const [checklistProgress, setChecklistProgress] = useState<ArticleChecklistProgress | null>(null);
   const [resettingChecklist, setResettingChecklist] = useState<boolean>(false);
   const [showResetChecklistModal, setShowResetChecklistModal] = useState<boolean>(false);
+  const [showTeamComplianceModal, setShowTeamComplianceModal] = useState<boolean>(false);
+  const [showCertificateModal, setShowCertificateModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (!slug || !user) return;
@@ -319,6 +323,7 @@ export const ArticleDetailPage: React.FC = () => {
   const isReviewerOrAdmin = user && (user.role === "ADMIN" || user.role === "REVIEWER");
   const canSubmit = isAuthor || user?.role === "ADMIN";
   const canReview = isReviewerOrAdmin && (user?.role === "ADMIN" || !isAuthor);
+  const canManageTeamChecklists = Boolean(isReviewerOrAdmin || isAuthor);
 
   const handleArchive = async () => {
     if (!article) return;
@@ -688,6 +693,9 @@ export const ArticleDetailPage: React.FC = () => {
             articleTitle={article.title}
             loading={resettingChecklist}
             onRequestReset={() => setShowResetChecklistModal(true)}
+            canViewTeamCompliance={canManageTeamChecklists}
+            onOpenTeamCompliance={() => setShowTeamComplianceModal(true)}
+            onOpenCertificate={() => setShowCertificateModal(true)}
           />
 
           {/* Main Document Content */}
@@ -838,6 +846,26 @@ export const ArticleDetailPage: React.FC = () => {
             await handleResetChecklist();
             setShowResetChecklistModal(false);
           }}
+        />
+      )}
+
+      {/* Team Compliance & Execution Audit Modal */}
+      {showTeamComplianceModal && article && (
+        <TeamComplianceModal
+          isOpen={showTeamComplianceModal}
+          articleSlug={article.slug}
+          articleTitle={article.title}
+          onClose={() => setShowTeamComplianceModal(false)}
+        />
+      )}
+
+      {/* Verifiable SOP Completion Certificate Modal */}
+      {showCertificateModal && article && (
+        <SopCertificateModal
+          isOpen={showCertificateModal}
+          articleSlug={article.slug}
+          articleTitle={article.title}
+          onClose={() => setShowCertificateModal(false)}
         />
       )}
     </div>

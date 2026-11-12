@@ -7,6 +7,8 @@ import {
   PartyPopper,
   Clock,
   Check,
+  Award,
+  Users,
 } from "lucide-react";
 import type { ArticleChecklistProgress } from "../types/checklist";
 
@@ -15,6 +17,9 @@ interface ArticleChecklistTrackerProps {
   articleTitle?: string;
   loading?: boolean;
   onRequestReset: () => void;
+  canViewTeamCompliance?: boolean;
+  onOpenTeamCompliance?: () => void;
+  onOpenCertificate?: () => void;
 }
 
 export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = ({
@@ -22,6 +27,9 @@ export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = (
   articleTitle,
   loading = false,
   onRequestReset,
+  canViewTeamCompliance = false,
+  onOpenTeamCompliance,
+  onOpenCertificate,
 }) => {
   const [showSticky, setShowSticky] = useState<boolean>(false);
 
@@ -120,11 +128,33 @@ export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = (
               </div>
             </div>
 
-            {/* Right: Metrics & Reset Action */}
+            {/* Right: Metrics & Actions */}
             <div className="flex items-center gap-2 shrink-0">
               <span className="sm:hidden text-xs font-semibold text-slate-700 dark:text-slate-300">
                 {completed_count}/{total_items} ({completion_percentage}%)
               </span>
+              {canViewTeamCompliance && onOpenTeamCompliance && (
+                <button
+                  type="button"
+                  onClick={onOpenTeamCompliance}
+                  title="View Team Compliance & Execution Audit"
+                  className="hidden md:inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 rounded-lg transition border border-indigo-200 dark:border-indigo-800"
+                >
+                  <Users className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
+                  <span>Team Audit</span>
+                </button>
+              )}
+              {is_completed && onOpenCertificate && (
+                <button
+                  type="button"
+                  onClick={onOpenCertificate}
+                  title="View & Download Completion Certificate"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 rounded-lg transition border border-emerald-300 dark:border-emerald-700 shadow-2xs"
+                >
+                  <Award className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                  <span className="hidden sm:inline">Certificate</span>
+                </button>
+              )}
               {completed_count > 0 && (
                 <button
                   type="button"
@@ -188,7 +218,7 @@ export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = (
             </div>
           </div>
 
-          <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 self-end sm:self-auto shrink-0">
             <div className="text-right">
               <span className="text-sm font-extrabold text-slate-800 dark:text-slate-200 block">
                 {completed_count} / {total_items}
@@ -197,6 +227,19 @@ export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = (
                 {completion_percentage}% Done
               </span>
             </div>
+
+            {canViewTeamCompliance && onOpenTeamCompliance && (
+              <button
+                type="button"
+                onClick={onOpenTeamCompliance}
+                title="Audit team member execution & compliance table"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 rounded-xl transition shadow-2xs"
+              >
+                <Users className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                <span>Team Audit</span>
+              </button>
+            )}
+
             {completed_count > 0 && (
               <button
                 type="button"
@@ -226,19 +269,31 @@ export const ArticleChecklistTracker: React.FC<ArticleChecklistTrackerProps> = (
 
         {/* 3. 100% CELEBRATION CALLOUT BANNER */}
         {is_completed && (
-          <div className="mt-4 pt-3.5 border-t border-emerald-200/60 dark:border-emerald-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+          <div className="mt-4 pt-3.5 border-t border-emerald-200/60 dark:border-emerald-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-medium">
               <Sparkles className="w-4 h-4 text-emerald-500 animate-spin-slow shrink-0" />
               <span>
                 🎉 <strong>Runbook Verified!</strong> Full checklist execution logged to database.
               </span>
             </div>
-            {formattedCompletedAt && (
-              <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-[11px]">
-                <Clock className="w-3 h-3 text-slate-400" />
-                <span>Completed: {formattedCompletedAt}</span>
-              </div>
-            )}
+            <div className="flex items-center gap-3 shrink-0">
+              {formattedCompletedAt && (
+                <div className="hidden md:flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-[11px]">
+                  <Clock className="w-3 h-3 text-slate-400" />
+                  <span>Completed: {formattedCompletedAt}</span>
+                </div>
+              )}
+              {onOpenCertificate && (
+                <button
+                  type="button"
+                  onClick={onOpenCertificate}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-xs hover:shadow-emerald-500/20 transition transform hover:scale-[1.02] cursor-pointer"
+                >
+                  <Award className="w-3.5 h-3.5 text-amber-300" />
+                  <span>View Official Certificate</span>
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>
