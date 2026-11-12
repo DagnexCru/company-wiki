@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify certificate completed_steps equals total_items in runbook
 
+### Verification Step 031: api(cert-011): verify certificate completed_at uses stored ISO timestamp or fallback
+- **Timestamp**: 2026-11-12 12:02:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate completed_at uses stored iso timestamp or fallback
+
