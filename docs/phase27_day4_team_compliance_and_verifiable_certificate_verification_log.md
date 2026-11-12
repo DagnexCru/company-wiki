@@ -107,3 +107,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify get /articles/{slug}/checklist-certificate/ requires authentication (401)
 
+### Verification Step 022: api(cert-002): verify checklist-certificate returns 400 Bad Request when runbook is not 100% completed
+- **Timestamp**: 2026-11-12 11:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify checklist-certificate returns 400 bad request when runbook is not 100% completed
+
