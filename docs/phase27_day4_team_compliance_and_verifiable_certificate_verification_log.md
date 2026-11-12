@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify member status enum strictly evaluates to completed, in_progress, or not_started
 
+### Verification Step 020: api(compliance-020): verify member last_updated_at ISO-8601 formatting or null for not started
+- **Timestamp**: 2026-11-12 11:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify member last_updated_at iso-8601 formatting or null for not started
+
