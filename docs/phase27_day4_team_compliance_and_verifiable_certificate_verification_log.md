@@ -417,3 +417,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articledetailpage manages showteamcompliancemodal state cleanly
 
+### Verification Step 084: fe(page-003): verify ArticleDetailPage manages showCertificateModal state cleanly
+- **Timestamp**: 2026-11-12 13:48:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articledetailpage manages showcertificatemodal state cleanly
+
