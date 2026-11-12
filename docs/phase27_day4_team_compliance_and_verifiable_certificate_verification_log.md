@@ -247,3 +247,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify teamcompliancemodal kpi tile overall compliance rate displays percentage
 
+### Verification Step 050: fe(modal-team-009): verify search input filters team members by full name case-insensitively
+- **Timestamp**: 2026-11-12 12:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify search input filters team members by full name case-insensitively
+
