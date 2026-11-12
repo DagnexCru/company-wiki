@@ -1220,6 +1220,164 @@ class ArticleViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK,
         )
 
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="team-checklist-status",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def team_checklist_status(self, request, slug=None):
+        """
+        Compliance audit report showing checklist progress across all team members for this SOP.
+        GET /api/v1/articles/{slug}/team-checklist-status/
+        Authorized for: Admins, Reviewers, and the article author.
+        """
+        article = self.get_object()
+        user = request.user
+        if not (user.is_admin or getattr(user, "role", None) in ["REVIEWER"] or article.author == user):
+            return Response(
+                {"detail": "You do not have permission to inspect team compliance for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        from apps.accounts.models import CustomUser
+
+        all_users = CustomUser.objects.filter(is_active=True).order_by("role", "full_name")
+        progress_map = {
+            p.user_id: p
+            for p in ArticleChecklistProgress.objects.filter(article=article).select_related("user")
+        }
+
+        total_checklist_items = 0
+        for p in progress_map.values():
+            if p.total_items > 0:
+                total_checklist_items = p.total_items
+                break
+        if total_checklist_items == 0:
+            total_checklist_items = sum(
+                1 for line in article.content.splitlines() if line.strip().startswith(("- [", "* ["))
+            )
+
+        members_data = []
+        completed_count = 0
+        in_progress_count = 0
+        not_started_count = 0
+
+        for u in all_users:
+            p = progress_map.get(u.id)
+            if p:
+                u_completed = p.completed_count
+                u_total = p.total_items or total_checklist_items
+                u_pct = p.completion_percentage
+                u_is_completed = p.is_completed
+                u_completed_at = p.completed_at.isoformat() if p.completed_at else None
+                u_updated_at = p.updated_at.isoformat() if p.updated_at else None
+            else:
+                u_completed = 0
+                u_total = total_checklist_items
+                u_pct = 0.0
+                u_is_completed = False
+                u_completed_at = None
+                u_updated_at = None
+
+            if u_is_completed:
+                completed_count += 1
+                status_label = "completed"
+            elif u_completed > 0:
+                in_progress_count += 1
+                status_label = "in_progress"
+            else:
+                not_started_count += 1
+                status_label = "not_started"
+
+            members_data.append(
+                {
+                    "user_id": str(u.id),
+                    "username": u.username,
+                    "full_name": u.full_name or u.username,
+                    "email": u.email,
+                    "role": u.role,
+                    "status": status_label,
+                    "completed_count": u_completed,
+                    "total_items": u_total,
+                    "completion_percentage": u_pct,
+                    "is_completed": u_is_completed,
+                    "completed_at": u_completed_at,
+                    "updated_at": u_updated_at,
+                }
+            )
+
+        total_assigned = len(members_data)
+        compliance_rate = (
+            round((completed_count / total_assigned * 100), 1) if total_assigned > 0 else 0.0
+        )
+
+        return Response(
+            {
+                "article_id": str(article.id),
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "total_items": total_checklist_items,
+                "stats": {
+                    "total_assigned": total_assigned,
+                    "completed_count": completed_count,
+                    "in_progress_count": in_progress_count,
+                    "not_started_count": not_started_count,
+                    "compliance_rate": compliance_rate,
+                },
+                "members": members_data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="checklist-certificate",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def checklist_certificate(self, request, slug=None):
+        """
+        Retrieve verified compliance certificate metadata for an authenticated user who completed an SOP runbook.
+        GET /api/v1/articles/{slug}/checklist-certificate/
+        """
+        article = self.get_object()
+        progress = ArticleChecklistProgress.objects.filter(user=request.user, article=article).first()
+        if not progress or not progress.is_completed:
+            return Response(
+                {"detail": "Verification certificate is only available once all SOP steps are 100% completed."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        import hashlib
+
+        hash_input = f"{request.user.id}:{article.id}:{progress.completed_at}"
+        verification_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:16].upper()
+        cert_id = f"CW-SOP-{verification_hash[:8]}"
+        formatted_code = f"{verification_hash[:4]}-{verification_hash[4:8]}-{verification_hash[8:12]}-{verification_hash[12:16]}"
+
+        return Response(
+            {
+                "certificate_id": cert_id,
+                "verification_code": formatted_code,
+                "recipient_name": request.user.full_name or request.user.username,
+                "recipient_email": request.user.email,
+                "recipient_role": request.user.role,
+                "article_id": str(article.id),
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "completed_steps": progress.completed_count,
+                "total_steps": progress.total_items,
+                "completed_at": progress.completed_at.isoformat()
+                if progress.completed_at
+                else timezone.now().isoformat(),
+                "issuer": "Company Wiki Enterprise Compliance Bureau",
+                "issuer_seal": "VERIFIED & AUDIT SIGNED",
+                "status": "VALID",
+            },
+            status=status.HTTP_200_OK,
+        )
+
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
