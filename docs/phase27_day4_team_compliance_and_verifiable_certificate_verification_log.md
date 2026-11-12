@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify checklistservice.getteamcompliance method dispatches to correct endpoint
 
+### Verification Step 037: fe(client-002): verify checklistService.getCertificate method dispatches to correct endpoint
+- **Timestamp**: 2026-11-12 12:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify checklistservice.getcertificate method dispatches to correct endpoint
+
