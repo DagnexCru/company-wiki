@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify member last_updated_at iso-8601 formatting or null for not started
 
+### Verification Step 021: api(cert-001): verify GET /articles/{slug}/checklist-certificate/ requires authentication (401)
+- **Timestamp**: 2026-11-12 11:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify get /articles/{slug}/checklist-certificate/ requires authentication (401)
+
