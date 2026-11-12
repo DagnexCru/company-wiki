@@ -427,3 +427,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify teamcompliancemodal opens when team audit button is clicked
 
+### Verification Step 086: fe(page-005): verify SopCertificateModal opens when View Official Certificate button is clicked
+- **Timestamp**: 2026-11-12 13:52:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal opens when view official certificate button is clicked
+
