@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal opens when view official certificate button is clicked
 
+### Verification Step 087: fe(persona-001): verify reader@company.com logs in and views completed runbook at 100%
+- **Timestamp**: 2026-11-12 13:54:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reader@company.com logs in and views completed runbook at 100%
+
