@@ -147,3 +147,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify certificate article_title and article_slug match target runbook
 
+### Verification Step 030: api(cert-010): verify certificate completed_steps equals total_items in runbook
+- **Timestamp**: 2026-11-12 12:00:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate completed_steps equals total_items in runbook
+
