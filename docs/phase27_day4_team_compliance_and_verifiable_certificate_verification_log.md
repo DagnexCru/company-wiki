@@ -342,3 +342,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal displays completed steps count and 100% compliance badge
 
+### Verification Step 069: fe(modal-cert-008): verify SopCertificateModal displays cryptographic Certificate ID and Verification Code
+- **Timestamp**: 2026-11-12 13:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal displays cryptographic certificate id and verification code
+
