@@ -22,3 +22,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reviewer role gets 200 ok on team checklist status endpoint
 
+### Verification Step 005: api(compliance-005): verify Article Author gets 200 OK on their own article team status
+- **Timestamp**: 2026-11-12 11:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article author gets 200 ok on their own article team status
+
