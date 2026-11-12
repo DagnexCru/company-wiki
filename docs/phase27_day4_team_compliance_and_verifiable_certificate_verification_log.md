@@ -257,3 +257,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify search input filters team members by email address case-insensitively
 
+### Verification Step 052: fe(modal-team-011): verify search input filters team members by role badge
+- **Timestamp**: 2026-11-12 12:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify search input filters team members by role badge
+
