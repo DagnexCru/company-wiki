@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify certificate completed_at uses stored iso timestamp or fallback
 
+### Verification Step 032: api(cert-012): verify certificate issuer metadata specifies Enterprise Compliance Bureau
+- **Timestamp**: 2026-11-12 12:04:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate issuer metadata specifies enterprise compliance bureau
+
