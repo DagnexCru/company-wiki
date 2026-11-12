@@ -412,3 +412,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articledetailpage canmanageteamchecklists logic grants access to admin/reviewer/author
 
+### Verification Step 083: fe(page-002): verify ArticleDetailPage manages showTeamComplianceModal state cleanly
+- **Timestamp**: 2026-11-12 13:46:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articledetailpage manages showteamcompliancemodal state cleanly
+
