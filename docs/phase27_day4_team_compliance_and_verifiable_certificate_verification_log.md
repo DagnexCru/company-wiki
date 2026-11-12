@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify member user_id and email serialization integrity
 
+### Verification Step 014: api(compliance-014): verify member full_name serialization with username fallback
+- **Timestamp**: 2026-11-12 11:28:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify member full_name serialization with username fallback
+
