@@ -122,3 +122,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify checklist-certificate returns 200 ok when runbook is 100% completed
 
+### Verification Step 025: api(cert-005): verify certificate_id format matches CERT-YEAR-SLUG-USER-CRC32 standard
+- **Timestamp**: 2026-11-12 11:50:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate_id format matches cert-year-slug-user-crc32 standard
+
