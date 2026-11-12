@@ -467,3 +467,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify admin@company.com filters by completed and sees reader@company.com at 100%
 
+### Verification Step 094: fe(persona-008): verify admin@company.com filters by In Progress and sees admin, author, and reviewer
+- **Timestamp**: 2026-11-12 14:08:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify admin@company.com filters by in progress and sees admin, author, and reviewer
+
