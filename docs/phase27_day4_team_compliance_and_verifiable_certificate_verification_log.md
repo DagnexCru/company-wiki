@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sopcertificatemodal displays authorized signature line and seal block
 
+### Verification Step 072: fe(modal-cert-011): verify SopCertificateModal Print / Save as PDF button triggers window.print()
+- **Timestamp**: 2026-11-12 13:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sopcertificatemodal print / save as pdf button triggers window.print()
+
