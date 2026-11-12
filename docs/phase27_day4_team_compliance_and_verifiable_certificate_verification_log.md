@@ -402,3 +402,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articlechecklisttracker celebration banner hides certificate button when below 100%
 
+### Verification Step 081: fe(tracker-008): verify ArticleChecklistTracker sticky bar displays Certificate shortcut when completed
+- **Timestamp**: 2026-11-12 13:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articlechecklisttracker sticky bar displays certificate shortcut when completed
+
