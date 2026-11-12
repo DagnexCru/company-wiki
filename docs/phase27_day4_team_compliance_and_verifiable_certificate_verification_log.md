@@ -407,3 +407,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articlechecklisttracker sticky bar displays certificate shortcut when completed
 
+### Verification Step 082: fe(page-001): verify ArticleDetailPage canManageTeamChecklists logic grants access to admin/reviewer/author
+- **Timestamp**: 2026-11-12 13:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articledetailpage canmanageteamchecklists logic grants access to admin/reviewer/author
+
