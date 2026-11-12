@@ -32,3 +32,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify non-existent slug returns 404 not found on team status endpoint
 
+### Verification Step 007: api(compliance-007): verify summary stats total_assigned matches active team members count
+- **Timestamp**: 2026-11-12 11:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary stats total_assigned matches active team members count
+
