@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 27 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify certificate recipient_email and recipient_role match authenticated user
 
+### Verification Step 029: api(cert-009): verify certificate article_title and article_slug match target runbook
+- **Timestamp**: 2026-11-12 11:58:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify certificate article_title and article_slug match target runbook
+
