@@ -667,3 +667,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify table view share column renders inline progress bar representing period percentage
 
+### Verification Step 134: fe(table-004): verify Table view hover highlights each row with subtle background tint
+- **Timestamp**: 2026-11-13 14:28:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify table view hover highlights each row with subtle background tint
+
