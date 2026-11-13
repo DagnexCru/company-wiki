@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify record-view audit trail integrity across multiple distinct sessions
 
+### Verification Step 031: api(timeline-001): verify GET /articles/{slug}/analytics/views-timeline/ requires authentication (401)
+- **Timestamp**: 2026-11-13 11:02:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify get /articles/{slug}/analytics/views-timeline/ requires authentication (401)
+
