@@ -222,3 +222,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify previous_period_start computation for comparative growth analysis
 
+### Verification Step 045: api(timeline-015): verify views timeline query filters strictly by article foreign key
+- **Timestamp**: 2026-11-13 11:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify views timeline query filters strictly by article foreign key
+
