@@ -167,3 +167,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify author persona gets 200 ok on views timeline for their own article
 
+### Verification Step 034: api(timeline-004): verify Author persona gets 403 Forbidden on another authors article timeline
+- **Timestamp**: 2026-11-13 11:08:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author persona gets 403 forbidden on another authors article timeline
+
