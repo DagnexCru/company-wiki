@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify record-view populates session_key from request session or x-session-id header
 
+### Verification Step 021: api(record-006): verify record-view extracts client IP from HTTP_X_FORWARDED_FOR when behind proxy
+- **Timestamp**: 2026-11-13 10:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify record-view extracts client ip from http_x_forwarded_for when behind proxy
+
