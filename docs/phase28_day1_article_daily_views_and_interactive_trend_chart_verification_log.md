@@ -577,3 +577,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify 4 kpi tiles form responsive 2-column grid on mobile and 4-column on desktop
 
+### Verification Step 116: fe(chart-001): verify Chart/Table view toggle buttons allow switching between visual and tabular modes
+- **Timestamp**: 2026-11-13 13:52:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify chart/table view toggle buttons allow switching between visual and tabular modes
+
