@@ -647,3 +647,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify chart footer displays start date on left and end date on right
 
+### Verification Step 130: fe(chart-015): verify chart footer displays center guidance text for bar hover interaction
+- **Timestamp**: 2026-11-13 14:20:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify chart footer displays center guidance text for bar hover interaction
+
