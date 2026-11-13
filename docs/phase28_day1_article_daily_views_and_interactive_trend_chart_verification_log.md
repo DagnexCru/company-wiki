@@ -232,3 +232,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify views timeline query filters viewed_at between start_date and now
 
+### Verification Step 047: api(timeline-017): verify response payload contains article_slug matching requested article
+- **Timestamp**: 2026-11-13 11:34:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify response payload contains article_slug matching requested article
+
