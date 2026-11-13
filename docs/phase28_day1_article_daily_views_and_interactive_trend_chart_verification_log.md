@@ -642,3 +642,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify x-axis downsamples labels on 30d and 90d views to avoid text collision
 
+### Verification Step 129: fe(chart-014): verify chart footer displays start date on left and end date on right
+- **Timestamp**: 2026-11-13 14:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify chart footer displays start date on left and end date on right
+
