@@ -607,3 +607,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify bar height percentage is clamped with a minimum 6% for zero-view days
 
+### Verification Step 122: fe(chart-007): verify default bar gradient uses indigo-500 to indigo-400 theme
+- **Timestamp**: 2026-11-13 14:04:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify default bar gradient uses indigo-500 to indigo-400 theme
+
