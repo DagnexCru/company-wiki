@@ -372,3 +372,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleviewstimelinedatapoint interface enforces date, label, day_name types
 
+### Verification Step 075: fe(client-005): verify ArticleViewsTimelineDataPoint enforces total_views and unique_readers as numbers
+- **Timestamp**: 2026-11-13 12:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleviewstimelinedatapoint enforces total_views and unique_readers as numbers
+
