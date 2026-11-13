@@ -192,3 +192,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify default range parameter without query string defaults to 7d
 
+### Verification Step 039: api(timeline-009): verify invalid range parameter (e.g. 15d) safely defaults to 7d
+- **Timestamp**: 2026-11-13 11:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify invalid range parameter (e.g. 15d) safely defaults to 7d
+
