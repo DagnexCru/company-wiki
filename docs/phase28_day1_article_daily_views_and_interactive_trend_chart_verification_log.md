@@ -257,3 +257,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify summary.period_total_views accurately sums total view logs in date range
 
+### Verification Step 052: api(summary-002): verify summary.all_time_views matches article.view_count integer
+- **Timestamp**: 2026-11-13 11:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary.all_time_views matches article.view_count integer
+
