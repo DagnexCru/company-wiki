@@ -422,3 +422,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response caching avoidance for live real-time analytics parity
 
+### Verification Step 085: fe(client-015): verify error recovery allows instant retry via refresh button
+- **Timestamp**: 2026-11-13 12:50:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify error recovery allows instant retry via refresh button
+
