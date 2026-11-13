@@ -632,3 +632,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify active hover point banner displays day name, formatted date, and metrics
 
+### Verification Step 127: fe(chart-012): verify x-axis displays day names for 7d view (Mon, Tue, etc.)
+- **Timestamp**: 2026-11-13 14:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify x-axis displays day names for 7d view (mon, tue, etc.)
+
