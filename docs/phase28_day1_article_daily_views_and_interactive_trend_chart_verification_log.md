@@ -482,3 +482,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify refresh button triggers fetchanalytics with spinning icon during load
 
+### Verification Step 097: fe(modal-012): verify Close X button invokes onClose callback cleanly
+- **Timestamp**: 2026-11-13 13:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify close x button invokes onclose callback cleanly
+
