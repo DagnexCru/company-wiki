@@ -287,3 +287,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify summary.peak_day_views identifies maximum total_views across all timeline days
 
+### Verification Step 058: api(summary-008): verify summary.peak_day_date returns ISO date corresponding to peak day
+- **Timestamp**: 2026-11-13 11:56:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary.peak_day_date returns iso date corresponding to peak day
+
