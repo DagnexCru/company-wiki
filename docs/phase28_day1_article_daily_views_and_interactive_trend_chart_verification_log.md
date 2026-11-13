@@ -82,3 +82,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify post /articles/{slug}/record-view/ requires authentication
 
+### Verification Step 017: api(record-002): verify POST /articles/{slug}/record-view/ increments article.view_count atomically via F expression
+- **Timestamp**: 2026-11-13 10:34:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify post /articles/{slug}/record-view/ increments article.view_count atomically via f expression
+
