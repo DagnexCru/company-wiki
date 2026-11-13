@@ -487,3 +487,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify close x button invokes onclose callback cleanly
 
+### Verification Step 098: fe(modal-013): verify modal body is scrollable on small mobile viewports
+- **Timestamp**: 2026-11-13 13:16:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify modal body is scrollable on small mobile viewports
+
