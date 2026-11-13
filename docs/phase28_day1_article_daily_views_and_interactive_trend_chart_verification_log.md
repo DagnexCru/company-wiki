@@ -637,3 +637,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify x-axis displays day names for 7d view (mon, tue, etc.)
 
+### Verification Step 128: fe(chart-013): verify x-axis downsamples labels on 30d and 90d views to avoid text collision
+- **Timestamp**: 2026-11-13 14:16:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify x-axis downsamples labels on 30d and 90d views to avoid text collision
+
