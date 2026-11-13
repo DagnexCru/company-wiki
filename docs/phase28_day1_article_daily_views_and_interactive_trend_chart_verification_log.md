@@ -472,3 +472,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify range selector renders 90 days button and triggers api re-fetch on click
 
+### Verification Step 095: fe(modal-010): verify active range button has white background, shadow, and indigo text
+- **Timestamp**: 2026-11-13 13:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify active range button has white background, shadow, and indigo text
+
