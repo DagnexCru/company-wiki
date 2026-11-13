@@ -122,3 +122,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify record-view captures http_referer url truncated to 500 characters
 
+### Verification Step 025: api(record-010): verify record-view response payload contains updated view_count and article slug
+- **Timestamp**: 2026-11-13 10:50:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify record-view response payload contains updated view_count and article slug
+
