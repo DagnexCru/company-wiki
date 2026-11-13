@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify analyticsservice.getviewstimeline calls get /api/v1/articles/{slug}/analytics/views-timeline/
 
+### Verification Step 072: fe(client-002): verify analyticsService.getViewsTimeline passes range parameter in query params
+- **Timestamp**: 2026-11-13 12:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify analyticsservice.getviewstimeline passes range parameter in query params
+
