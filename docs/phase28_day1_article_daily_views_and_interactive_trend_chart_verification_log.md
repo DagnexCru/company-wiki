@@ -582,3 +582,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify chart/table view toggle buttons allow switching between visual and tabular modes
 
+### Verification Step 117: fe(chart-002): verify active view mode button shows elevated white tab with indigo highlight
+- **Timestamp**: 2026-11-13 13:54:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify active view mode button shows elevated white tab with indigo highlight
+
