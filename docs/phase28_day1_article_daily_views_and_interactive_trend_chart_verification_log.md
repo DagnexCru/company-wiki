@@ -467,3 +467,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify range selector renders 30 days button and triggers api re-fetch on click
 
+### Verification Step 094: fe(modal-009): verify Range Selector renders 90 Days button and triggers API re-fetch on click
+- **Timestamp**: 2026-11-13 13:08:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify range selector renders 90 days button and triggers api re-fetch on click
+
