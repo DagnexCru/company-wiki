@@ -207,3 +207,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify range=30d parameter sets days_count to 30
 
+### Verification Step 042: api(timeline-012): verify range=90d parameter sets days_count to 90
+- **Timestamp**: 2026-11-13 11:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify range=90d parameter sets days_count to 90
+
