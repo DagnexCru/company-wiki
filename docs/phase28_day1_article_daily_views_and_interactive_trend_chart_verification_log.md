@@ -522,3 +522,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify unique readers card displays teal themed background and users icon
 
+### Verification Step 105: fe(kpi-005): verify Unique Readers card renders unique_readers integer with locale formatting
+- **Timestamp**: 2026-11-13 13:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unique readers card renders unique_readers integer with locale formatting
+
