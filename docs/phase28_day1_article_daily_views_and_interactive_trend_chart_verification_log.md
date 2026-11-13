@@ -527,3 +527,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify unique readers card renders unique_readers integer with locale formatting
 
+### Verification Step 106: fe(kpi-006): verify Unique Readers card displays average daily views in footer caption
+- **Timestamp**: 2026-11-13 13:32:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unique readers card displays average daily views in footer caption
+
