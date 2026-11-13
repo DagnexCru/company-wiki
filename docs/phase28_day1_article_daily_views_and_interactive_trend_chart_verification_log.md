@@ -627,3 +627,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hover tooltip pops up with total views and unique readers count
 
+### Verification Step 126: fe(chart-011): verify Active Hover Point banner displays day name, formatted date, and metrics
+- **Timestamp**: 2026-11-13 14:12:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify active hover point banner displays day name, formatted date, and metrics
+
