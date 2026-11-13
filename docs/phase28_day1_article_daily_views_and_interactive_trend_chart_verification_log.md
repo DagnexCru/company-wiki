@@ -62,3 +62,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleviewlog default ordering by descending viewed_at
 
+### Verification Step 013: model(views-013): verify composite database index art_view_art_dt_idx on article and viewed_at
+- **Timestamp**: 2026-11-13 10:26:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify composite database index art_view_art_dt_idx on article and viewed_at
+
