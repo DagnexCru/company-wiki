@@ -602,3 +602,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify maxviews computation prevents division by zero when views are 0
 
+### Verification Step 121: fe(chart-006): verify bar height percentage is clamped with a minimum 6% for zero-view days
+- **Timestamp**: 2026-11-13 14:02:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify bar height percentage is clamped with a minimum 6% for zero-view days
+
