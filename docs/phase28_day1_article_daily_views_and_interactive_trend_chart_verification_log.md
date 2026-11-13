@@ -87,3 +87,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify post /articles/{slug}/record-view/ increments article.view_count atomically via f expression
 
+### Verification Step 018: api(record-003): verify record-view creates an ArticleViewLog entry linked to article
+- **Timestamp**: 2026-11-13 10:36:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify record-view creates an articleviewlog entry linked to article
+
