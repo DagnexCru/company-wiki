@@ -657,3 +657,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify table view displays date, total views, unique readers, and share columns
 
+### Verification Step 132: fe(table-002): verify Table view rows are reverse chronological (newest day first)
+- **Timestamp**: 2026-11-13 14:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify table view rows are reverse chronological (newest day first)
+
