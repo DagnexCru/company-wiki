@@ -162,3 +162,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reader role gets 403 forbidden on views timeline endpoint
 
+### Verification Step 033: api(timeline-003): verify Author persona gets 200 OK on views timeline for their own article
+- **Timestamp**: 2026-11-13 11:06:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author persona gets 200 ok on views timeline for their own article
+
