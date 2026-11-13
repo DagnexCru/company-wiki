@@ -237,3 +237,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response payload contains article_slug matching requested article
 
+### Verification Step 048: api(timeline-018): verify response payload contains article_title matching requested article
+- **Timestamp**: 2026-11-13 11:36:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify response payload contains article_title matching requested article
+
