@@ -227,3 +227,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify views timeline query filters strictly by article foreign key
 
+### Verification Step 046: api(timeline-016): verify views timeline query filters viewed_at between start_date and now
+- **Timestamp**: 2026-11-13 11:32:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify views timeline query filters viewed_at between start_date and now
+
