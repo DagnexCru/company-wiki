@@ -542,3 +542,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify peak day traffic card renders peak_day_views with views label
 
+### Verification Step 109: fe(kpi-009): verify Peak Day Traffic card displays peak_day_date in footer caption
+- **Timestamp**: 2026-11-13 13:38:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify peak day traffic card displays peak_day_date in footer caption
+
