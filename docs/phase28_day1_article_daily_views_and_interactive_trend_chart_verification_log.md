@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify admin role gets 200 ok on views timeline for any article
 
+### Verification Step 036: api(timeline-006): verify Reviewer role gets 200 OK on views timeline for any article
+- **Timestamp**: 2026-11-13 11:12:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reviewer role gets 200 ok on views timeline for any article
+
