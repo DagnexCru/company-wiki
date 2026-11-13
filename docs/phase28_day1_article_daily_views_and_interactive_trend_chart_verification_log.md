@@ -57,3 +57,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleviewlog db_table explicitly configured to article_view_logs
 
+### Verification Step 012: model(views-012): verify ArticleViewLog default ordering by descending viewed_at
+- **Timestamp**: 2026-11-13 10:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleviewlog default ordering by descending viewed_at
+
