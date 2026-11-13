@@ -622,3 +622,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify mouse hover over a bar updates hoveredpointindex state
 
+### Verification Step 125: fe(chart-010): verify hover tooltip pops up with total views and unique readers count
+- **Timestamp**: 2026-11-13 14:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hover tooltip pops up with total views and unique readers count
+
