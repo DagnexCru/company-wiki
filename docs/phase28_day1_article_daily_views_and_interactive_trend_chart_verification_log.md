@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify record-view associates request.user when authenticated
 
+### Verification Step 020: api(record-005): verify record-view populates session_key from request session or X-Session-ID header
+- **Timestamp**: 2026-11-13 10:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify record-view populates session_key from request session or x-session-id header
+
