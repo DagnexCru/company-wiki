@@ -17,3 +17,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleviewlog article foreign key related_name is view_logs
 
+### Verification Step 004: model(views-004): verify ArticleViewLog user foreign key uses SET_NULL on delete
+- **Timestamp**: 2026-11-13 10:08:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleviewlog user foreign key uses set_null on delete
+
