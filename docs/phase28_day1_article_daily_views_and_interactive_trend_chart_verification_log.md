@@ -402,3 +402,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify 403 forbidden surfaces readable permission error in ui
 
+### Verification Step 081: fe(client-011): verify analyticsService handles network error without unhandled exception
+- **Timestamp**: 2026-11-13 12:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify analyticsservice handles network error without unhandled exception
+
