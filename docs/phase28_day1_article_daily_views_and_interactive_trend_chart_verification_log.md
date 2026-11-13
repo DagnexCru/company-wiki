@@ -672,3 +672,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify table view hover highlights each row with subtle background tint
 
+### Verification Step 135: fe(table-005): verify Table view container has scrollable overflow for 30d and 90d ranges
+- **Timestamp**: 2026-11-13 14:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify table view container has scrollable overflow for 30d and 90d ranges
+
