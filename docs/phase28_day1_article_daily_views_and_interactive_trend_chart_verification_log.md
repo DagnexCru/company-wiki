@@ -107,3 +107,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify record-view extracts client ip from http_x_forwarded_for when behind proxy
 
+### Verification Step 022: api(record-007): verify record-view falls back to REMOTE_ADDR when X_FORWARDED_FOR is absent
+- **Timestamp**: 2026-11-13 10:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify record-view falls back to remote_addr when x_forwarded_for is absent
+
