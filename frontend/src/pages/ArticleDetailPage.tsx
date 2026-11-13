@@ -20,6 +20,7 @@ import {
   Check,
   Eye,
   ThumbsUp,
+  BarChart2,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -41,6 +42,7 @@ import { ArticleChecklistTracker } from "../components/ArticleChecklistTracker";
 import { ResetChecklistModal } from "../components/ResetChecklistModal";
 import { TeamComplianceModal } from "../components/TeamComplianceModal";
 import { SopCertificateModal } from "../components/SopCertificateModal";
+import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { extractHeadings } from "../utils/headingUtils";
@@ -84,6 +86,7 @@ export const ArticleDetailPage: React.FC = () => {
   const [showResetChecklistModal, setShowResetChecklistModal] = useState<boolean>(false);
   const [showTeamComplianceModal, setShowTeamComplianceModal] = useState<boolean>(false);
   const [showCertificateModal, setShowCertificateModal] = useState<boolean>(false);
+  const [showAnalyticsModal, setShowAnalyticsModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (!slug || !user) return;
@@ -523,6 +526,19 @@ export const ArticleDetailPage: React.FC = () => {
             </Link>
           )}
 
+          {/* Deep Article Analytics (Authors, Reviewers, Admins) */}
+          {(user?.role === "ADMIN" || user?.role === "REVIEWER" || article.author.id === user?.id) && (
+            <button
+              type="button"
+              onClick={() => setShowAnalyticsModal(true)}
+              title="View deep time-series traffic and reader engagement analytics"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-xs font-semibold transition shadow-2xs"
+            >
+              <BarChart2 className="w-3.5 h-3.5 text-indigo-500" />
+              <span>Analytics</span>
+            </button>
+          )}
+
           {/* Author/Admin Edit */}
           {canModify && (
             <Link
@@ -866,6 +882,16 @@ export const ArticleDetailPage: React.FC = () => {
           articleSlug={article.slug}
           articleTitle={article.title}
           onClose={() => setShowCertificateModal(false)}
+        />
+      )}
+
+      {/* Deep Article Performance & Views Analytics Modal */}
+      {showAnalyticsModal && article && (
+        <ArticleAnalyticsModal
+          isOpen={showAnalyticsModal}
+          articleSlug={article.slug}
+          articleTitle={article.title}
+          onClose={() => setShowAnalyticsModal(false)}
         />
       )}
     </div>
