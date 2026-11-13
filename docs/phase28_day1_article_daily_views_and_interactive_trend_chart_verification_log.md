@@ -317,3 +317,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify summary.growth_rate_percentage negative delta formatting when views decline
 
+### Verification Step 064: api(summary-014): verify summary.previous_period_views integer accurately counts prior window logs
+- **Timestamp**: 2026-11-13 12:08:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary.previous_period_views integer accurately counts prior window logs
+
