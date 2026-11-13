@@ -397,3 +397,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify 401 unauthorized redirects to login page smoothly
 
+### Verification Step 080: fe(client-010): verify 403 Forbidden surfaces readable permission error in UI
+- **Timestamp**: 2026-11-13 12:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify 403 forbidden surfaces readable permission error in ui
+
