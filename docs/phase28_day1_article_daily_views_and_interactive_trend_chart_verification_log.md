@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify composite database index art_view_art_dt_idx on article and viewed_at
 
+### Verification Step 014: model(views-014): verify composite database index art_view_art_usr_dt_idx on article, user and viewed_at
+- **Timestamp**: 2026-11-13 10:28:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify composite database index art_view_art_usr_dt_idx on article, user and viewed_at
+
