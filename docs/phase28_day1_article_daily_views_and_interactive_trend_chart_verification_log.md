@@ -77,3 +77,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify single database index art_view_dt_idx on viewed_at
 
+### Verification Step 016: api(record-001): verify POST /articles/{slug}/record-view/ requires authentication
+- **Timestamp**: 2026-11-13 10:32:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify post /articles/{slug}/record-view/ requires authentication
+
