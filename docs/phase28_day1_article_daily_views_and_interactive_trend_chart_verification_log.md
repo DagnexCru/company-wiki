@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify timeline day unique_readers defaults to 0 when no logs exist
 
+### Verification Step 071: fe(client-001): verify analyticsService.getViewsTimeline calls GET /api/v1/articles/{slug}/analytics/views-timeline/
+- **Timestamp**: 2026-11-13 12:22:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify analyticsservice.getviewstimeline calls get /api/v1/articles/{slug}/analytics/views-timeline/
+
