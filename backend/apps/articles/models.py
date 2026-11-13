@@ -632,3 +632,70 @@ class ArticleChecklistProgress(models.Model):
     def __str__(self):
         return f"Checklist {self.user.username} -> {self.article.title} ({self.completed_count}/{self.total_items})"
 
+
+class ArticleViewLog(models.Model):
+    """
+    Granular audit log of article views for time-series analytics,
+    reader engagement, and cohort reporting.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="view_logs",
+        db_index=True,
+        help_text="The article that was viewed.",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="article_view_logs",
+        db_index=True,
+        help_text="The authenticated user who viewed the article (if logged in).",
+    )
+    session_key = models.CharField(
+        max_length=64,
+        blank=True,
+        null=True,
+        db_index=True,
+        help_text="Browser session key or anonymous reader identifier.",
+    )
+    ip_address = models.GenericIPAddressField(
+        null=True,
+        blank=True,
+        help_text="Client IP address for unique viewer estimation.",
+    )
+    user_agent = models.TextField(
+        blank=True,
+        default="",
+        help_text="Client User-Agent string.",
+    )
+    referrer = models.CharField(
+        max_length=512,
+        blank=True,
+        default="",
+        help_text="HTTP Referrer URL or source tag.",
+    )
+    viewed_at = models.DateTimeField(
+        default=timezone.now,
+        db_index=True,
+        help_text="Timestamp when the article view occurred.",
+    )
+
+    class Meta:
+        db_table = "article_view_logs"
+        verbose_name = "Article View Log"
+        verbose_name_plural = "Article View Logs"
+        ordering = ["-viewed_at"]
+        indexes = [
+            models.Index(fields=["article", "-viewed_at"], name="art_view_art_dt_idx"),
+            models.Index(fields=["article", "user", "-viewed_at"], name="art_view_art_usr_dt_idx"),
+            models.Index(fields=["-viewed_at"], name="art_view_dt_idx"),
+        ]
+
+    def __str__(self):
+        reader = self.user.username if self.user else (self.session_key or "Anonymous")
+        return f"View: {reader} on '{self.article.title}' at {self.viewed_at.strftime('%Y-%m-%d %H:%M')}"
+
