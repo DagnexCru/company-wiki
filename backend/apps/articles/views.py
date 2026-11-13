@@ -1,4 +1,5 @@
 import difflib
+import datetime
 from django.db import models
 from django.utils import timezone
 from rest_framework import viewsets, permissions, status
@@ -8,7 +9,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark, ArticleChecklistProgress
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark, ArticleChecklistProgress, ArticleViewLog
 from apps.notifications.services import notify_review_action, notify_article_updated, parse_and_notify_mentions
 from apps.notifications.models import Notification
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
@@ -859,6 +860,32 @@ class ArticleViewSet(viewsets.ModelViewSet):
         Article.objects.filter(id=article.id).update(view_count=F("view_count") + 1)
         article.refresh_from_db(fields=["view_count"])
 
+        try:
+            viewer_user = request.user if request.user and request.user.is_authenticated else None
+            session_key = getattr(request.session, "session_key", None)
+            if not session_key:
+                session_key = request.headers.get("X-Session-ID") or None
+
+            x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+            if x_forwarded_for:
+                ip_addr = x_forwarded_for.split(",")[0].strip()
+            else:
+                ip_addr = request.META.get("REMOTE_ADDR")
+
+            user_agent = request.META.get("HTTP_USER_AGENT", "")[:500]
+            referrer = request.META.get("HTTP_REFERER", "")[:500]
+
+            ArticleViewLog.objects.create(
+                article=article,
+                user=viewer_user,
+                session_key=session_key,
+                ip_address=ip_addr,
+                user_agent=user_agent,
+                referrer=referrer,
+            )
+        except Exception:
+            pass
+
         return Response(
             {
                 "view_count": article.view_count,
@@ -1374,6 +1401,150 @@ class ArticleViewSet(viewsets.ModelViewSet):
                 "issuer": "Company Wiki Enterprise Compliance Bureau",
                 "issuer_seal": "VERIFIED & AUDIT SIGNED",
                 "status": "VALID",
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="analytics/views-timeline",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def views_timeline(self, request, slug=None):
+        """
+        Deep Article Analytics: Time-series views and reader engagement metrics.
+        GET /api/v1/articles/{slug}/analytics/views-timeline/?range=7d|30d|90d
+        Permission: Author of the article, Admins, or Reviewers.
+        """
+        article = self.get_object()
+
+        # Permission verification: Author or Admin/Reviewer
+        is_author = article.author_id == request.user.id
+        is_admin_or_reviewer = request.user.role in ["ADMIN", "REVIEWER"]
+        if not (is_author or is_admin_or_reviewer):
+            return Response(
+                {"detail": "You do not have permission to view analytics for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        range_param = request.query_params.get("range", "7d").lower()
+        if range_param == "90d":
+            days = 90
+        elif range_param == "30d":
+            days = 30
+        else:
+            range_param = "7d"
+            days = 7
+
+        now = timezone.now()
+        start_date = (now - datetime.timedelta(days=days - 1)).replace(hour=0, minute=0, second=0, microsecond=0)
+        previous_period_start = start_date - datetime.timedelta(days=days)
+
+        # 1. Query logs in current period
+        view_logs = ArticleViewLog.objects.filter(
+            article=article,
+            viewed_at__gte=start_date,
+            viewed_at__lte=now,
+        )
+
+        # 2. Query logs in previous period for growth rate calculation
+        previous_view_logs = ArticleViewLog.objects.filter(
+            article=article,
+            viewed_at__gte=previous_period_start,
+            viewed_at__lt=start_date,
+        )
+        previous_total_views = previous_view_logs.count()
+
+        # Build continuous daily timeline
+        timeline_map = {}
+        for i in range(days):
+            current_day = (start_date + datetime.timedelta(days=i)).date()
+            day_str = current_day.isoformat()
+            timeline_map[day_str] = {
+                "date": day_str,
+                "label": current_day.strftime("%b %d"),
+                "day_name": current_day.strftime("%a"),
+                "total_views": 0,
+                "unique_users": set(),
+                "unique_sessions": set(),
+                "unique_ips": set(),
+            }
+
+        for log in view_logs:
+            day_str = log.viewed_at.date().isoformat()
+            if day_str in timeline_map:
+                timeline_map[day_str]["total_views"] += 1
+                if log.user_id:
+                    timeline_map[day_str]["unique_users"].add(log.user_id)
+                elif log.session_key:
+                    timeline_map[day_str]["unique_sessions"].add(log.session_key)
+                elif log.ip_address:
+                    timeline_map[day_str]["unique_ips"].add(log.ip_address)
+
+        timeline_data = []
+        period_total_views = 0
+        peak_views = 0
+        peak_date = None
+        period_all_users = set()
+        period_all_sessions = set()
+        period_all_ips = set()
+
+        for day_str in sorted(timeline_map.keys()):
+            info = timeline_map[day_str]
+            day_views = info["total_views"]
+            day_uniques = len(info["unique_users"]) + len(info["unique_sessions"]) + (len(info["unique_ips"]) if not info["unique_sessions"] else 0)
+            if day_uniques == 0 and day_views > 0:
+                day_uniques = day_views
+
+            period_total_views += day_views
+            period_all_users.update(info["unique_users"])
+            period_all_sessions.update(info["unique_sessions"])
+            period_all_ips.update(info["unique_ips"])
+
+            if day_views > peak_views:
+                peak_views = day_views
+                peak_date = day_str
+
+            timeline_data.append({
+                "date": day_str,
+                "label": info["label"],
+                "day_name": info["day_name"],
+                "total_views": day_views,
+                "unique_readers": day_uniques,
+            })
+
+        period_unique_readers = len(period_all_users) + len(period_all_sessions) + (len(period_all_ips) if not period_all_sessions else 0)
+        if period_unique_readers == 0 and period_total_views > 0:
+            period_unique_readers = min(period_total_views, max(1, period_total_views // 2))
+
+        # Growth rate %: ((current - previous) / previous) * 100
+        if previous_total_views > 0:
+            growth_rate = round(((period_total_views - previous_total_views) / previous_total_views) * 100, 1)
+        elif period_total_views > 0:
+            growth_rate = 100.0
+        else:
+            growth_rate = 0.0
+
+        avg_daily = round(period_total_views / days, 1) if days > 0 else 0.0
+
+        return Response(
+            {
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "range": range_param,
+                "days_count": days,
+                "summary": {
+                    "period_total_views": period_total_views,
+                    "all_time_views": article.view_count,
+                    "unique_readers": period_unique_readers,
+                    "peak_day_views": peak_views,
+                    "peak_day_date": peak_date or (timeline_data[-1]["date"] if timeline_data else None),
+                    "average_daily_views": avg_daily,
+                    "growth_rate_percentage": growth_rate,
+                    "previous_period_views": previous_total_views,
+                },
+                "timeline": timeline_data,
             },
             status=status.HTTP_200_OK,
         )
