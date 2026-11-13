@@ -392,3 +392,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify axios client token header is attached to analytics api requests
 
+### Verification Step 079: fe(client-009): verify 401 Unauthorized redirects to login page smoothly
+- **Timestamp**: 2026-11-13 12:38:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify 401 unauthorized redirects to login page smoothly
+
