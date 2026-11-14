@@ -567,3 +567,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify cancellation of pending sentiment requests on modal close
 
+### Verification Step 114: fe(client-016): verify error recovery allows instant re-fetch via Try Again button
+- **Timestamp**: 2026-11-14 13:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify error recovery allows instant re-fetch via try again button
+
