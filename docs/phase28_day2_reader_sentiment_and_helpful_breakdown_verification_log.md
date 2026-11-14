@@ -132,3 +132,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpfulness_score evaluates to 100 when all feedbacks are helpful
 
+### Verification Step 027: api(metrics-009): verify helpfulness_score evaluates to 0 when all feedbacks are unhelpful
+- **Timestamp**: 2026-11-14 10:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify helpfulness_score evaluates to 0 when all feedbacks are unhelpful
+
