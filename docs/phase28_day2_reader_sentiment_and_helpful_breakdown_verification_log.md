@@ -472,3 +472,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify unicode emojis in reader feedback notes serialize cleanly
 
+### Verification Step 095: api(feed-017): verify long feedback notes (>1000 characters) serialize without truncation in feed
+- **Timestamp**: 2026-11-14 12:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify long feedback notes (>1000 characters) serialize without truncation in feed
+
