@@ -312,3 +312,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify category tag general positive is assigned when no specific keyword matched on helpful
 
+### Verification Step 063: api(classify-008): verify keyword matching classifies unhelpful feedbacks containing outdated, old, version
+- **Timestamp**: 2026-11-14 11:36:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify keyword matching classifies unhelpful feedbacks containing outdated, old, version
+
