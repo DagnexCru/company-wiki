@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reader role receives 403 forbidden on sentiment endpoint
 
+### Verification Step 003: api(sentiment-auth-003): verify Author persona receives 200 OK on sentiment endpoint for their own article
+- **Timestamp**: 2026-11-14 09:36:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author persona receives 200 ok on sentiment endpoint for their own article
+
