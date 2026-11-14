@@ -247,3 +247,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify health_label is needs review & revision when needs_review
 
+### Verification Step 050: api(health-012): verify health_description flags outdated instructions or reported issues when NEEDS_REVIEW
+- **Timestamp**: 2026-11-14 11:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify health_description flags outdated instructions or reported issues when needs_review
+
