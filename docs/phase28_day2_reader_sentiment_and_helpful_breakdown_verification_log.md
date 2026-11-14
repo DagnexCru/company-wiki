@@ -522,3 +522,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articlesentimentresponse interface aggregates summary, breakdown, recent_feedbacks
 
+### Verification Step 105: fe(client-007): verify analyticsService.getSentimentAnalytics dispatches GET request to correct URL
+- **Timestamp**: 2026-11-14 13:00:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify analyticsservice.getsentimentanalytics dispatches get request to correct url
+
