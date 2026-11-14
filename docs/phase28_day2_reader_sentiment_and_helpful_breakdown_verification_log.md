@@ -172,3 +172,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify feedback_rate_percentage rounded to one decimal place
 
+### Verification Step 035: api(metrics-017): verify feedback_rate_percentage reflects reader conversion to active rating
+- **Timestamp**: 2026-11-14 10:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify feedback_rate_percentage reflects reader conversion to active rating
+
