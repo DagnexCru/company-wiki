@@ -1,5 +1,5 @@
 import api from "./api";
-import type { ArticleViewsTimelineResponse } from "../types/analytics";
+import type { ArticleViewsTimelineResponse, ArticleSentimentResponse } from "../types/analytics";
 
 export const analyticsService = {
   /**
@@ -15,6 +15,17 @@ export const analyticsService = {
       {
         params: { range },
       }
+    );
+    return response.data;
+  },
+
+  /**
+   * Fetch reader sentiment, helpful vs unhelpful breakdown, and feedback feed.
+   * GET /api/v1/articles/{slug}/analytics/sentiment/
+   */
+  async getSentimentAnalytics(slug: string): Promise<ArticleSentimentResponse> {
+    const response = await api.get<ArticleSentimentResponse>(
+      `/articles/${slug}/analytics/sentiment/`
     );
     return response.data;
   },

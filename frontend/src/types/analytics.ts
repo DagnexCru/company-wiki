@@ -26,3 +26,41 @@ export interface ArticleViewsTimelineResponse {
   timeline: ArticleViewsTimelineDataPoint[];
 }
 
+export interface ReaderFeedbackItem {
+  id: string;
+  is_helpful: boolean;
+  note: string;
+  sentiment_tag: string;
+  user_name: string;
+  user_email: string;
+  user_role: string;
+  user_initial: string;
+  created_at: string;
+}
+
+export interface SentimentCategoryBreakdown {
+  category: string;
+  sentiment: "positive" | "negative";
+  count: number;
+  percentage: number;
+}
+
+export interface ArticleSentimentSummary {
+  total_feedback_count: number;
+  helpful_count: number;
+  unhelpful_count: number;
+  helpfulness_score: number;
+  health_status: "HEALTHY" | "MODERATE" | "NEEDS_REVIEW" | "NO_DATA";
+  health_label: string;
+  health_description: string;
+  feedback_rate_percentage: number;
+}
+
+export interface ArticleSentimentResponse {
+  article_slug: string;
+  article_title: string;
+  summary: ArticleSentimentSummary;
+  categories_breakdown: SentimentCategoryBreakdown[];
+  recent_feedbacks: ReaderFeedbackItem[];
+}
+
