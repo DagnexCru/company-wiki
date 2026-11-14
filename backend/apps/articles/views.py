@@ -1549,6 +1549,156 @@ class ArticleViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK,
         )
 
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="analytics/sentiment",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def sentiment(self, request, slug=None):
+        """
+        Deep Article Analytics: Reader Sentiment & Helpful vs Unhelpful breakdown.
+        GET /api/v1/articles/{slug}/analytics/sentiment/
+        Permission: Author of the article, Admins, or Reviewers.
+        """
+        article = self.get_object()
+
+        # Permission verification: Author or Admin/Reviewer
+        is_author = article.author_id == request.user.id
+        is_admin_or_reviewer = request.user.role in ["ADMIN", "REVIEWER"]
+        if not (is_author or is_admin_or_reviewer):
+            return Response(
+                {"detail": "You do not have permission to view sentiment analytics for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        feedbacks = ArticleFeedback.objects.filter(article=article).select_related("user").order_by("-created_at")
+        total_feedback = feedbacks.count()
+        helpful_count = feedbacks.filter(is_helpful=True).count()
+        unhelpful_count = feedbacks.filter(is_helpful=False).count()
+
+        if total_feedback > 0:
+            helpfulness_score = round((helpful_count / total_feedback) * 100)
+        else:
+            helpfulness_score = article.helpfulness_score if article.helpfulness_score is not None else 100
+
+        # Quality Health Indicator
+        if total_feedback == 0:
+            health_status = "NO_DATA"
+            health_label = "No Reader Ratings Yet"
+            health_description = "Share this article with team members to begin collecting quality and helpfulness feedback."
+        elif helpfulness_score >= 80:
+            health_status = "HEALTHY"
+            health_label = "High Quality Guide"
+            health_description = "Readers find this documentation clear, actionable, and accurate with high satisfaction."
+        elif helpfulness_score >= 70:
+            health_status = "MODERATE"
+            health_label = "Adequate Quality"
+            health_description = "The majority of readers found it helpful, though minor clarifications or updates may be needed."
+        else:
+            health_status = "NEEDS_REVIEW"
+            health_label = "Needs Review & Revision"
+            health_description = "Multiple team members reported issues, outdated commands, or unclear instructions."
+
+        # Feedback rate: % of total article views that left ratings
+        total_views = max(1, article.view_count)
+        feedback_rate = round((total_feedback / total_views) * 100, 1)
+
+        # Keyword-based / sentiment tag classification
+        category_counts = {
+            "Clear & Actionable": 0,
+            "Accurate & Complete": 0,
+            "Well Structured": 0,
+            "General Positive": 0,
+            "Needs Improvement": 0,
+            "Outdated Information": 0,
+            "Missing Prerequisite": 0,
+            "Confusing Explanation": 0,
+            "General Critical": 0,
+        }
+
+        recent_feedbacks_data = []
+        for fb in feedbacks:
+            note_lower = (fb.note or "").lower()
+            tag = ""
+            if fb.is_helpful:
+                if any(k in note_lower for k in ["clear", "easy", "action", "step", "smooth", "great"]):
+                    tag = "Clear & Actionable"
+                elif any(k in note_lower for k in ["accurate", "complete", "correct", "perfect", "worked"]):
+                    tag = "Accurate & Complete"
+                elif any(k in note_lower for k in ["structure", "format", "diagram", "organized"]):
+                    tag = "Well Structured"
+                else:
+                    tag = "General Positive"
+            else:
+                if any(k in note_lower for k in ["outdated", "old", "deprecate", "version", "syntax"]):
+                    tag = "Outdated Information"
+                elif any(k in note_lower for k in ["miss", "prereq", "depend", "require", "lack"]):
+                    tag = "Missing Prerequisite"
+                elif any(k in note_lower for k in ["confus", "unclear", "hard", "what", "complex"]):
+                    tag = "Confusing Explanation"
+                elif any(k in note_lower for k in ["improve", "better", "fix", "update"]):
+                    tag = "Needs Improvement"
+                else:
+                    tag = "General Critical"
+
+            category_counts[tag] += 1
+
+            user_name = "Anonymous Reader"
+            user_email = ""
+            user_role = "READER"
+            user_initial = "R"
+            if fb.user:
+                user_name = getattr(fb.user, "full_name", "") or fb.user.username
+                user_email = fb.user.email
+                user_role = getattr(fb.user, "role", "READER")
+                user_initial = user_name[0].upper() if user_name else "U"
+
+            recent_feedbacks_data.append({
+                "id": str(fb.id),
+                "is_helpful": fb.is_helpful,
+                "note": fb.note or ("Rated as helpful." if fb.is_helpful else "Rated as unhelpful."),
+                "sentiment_tag": tag,
+                "user_name": user_name,
+                "user_email": user_email,
+                "user_role": user_role,
+                "user_initial": user_initial,
+                "created_at": fb.created_at.isoformat(),
+            })
+
+        categories_breakdown = []
+        for cat_name, count in category_counts.items():
+            if count > 0:
+                is_positive = cat_name in ["Clear & Actionable", "Accurate & Complete", "Well Structured", "General Positive"]
+                categories_breakdown.append({
+                    "category": cat_name,
+                    "sentiment": "positive" if is_positive else "negative",
+                    "count": count,
+                    "percentage": round((count / total_feedback) * 100) if total_feedback > 0 else 0,
+                })
+
+        categories_breakdown.sort(key=lambda x: x["count"], reverse=True)
+
+        return Response(
+            {
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "summary": {
+                    "total_feedback_count": total_feedback,
+                    "helpful_count": helpful_count,
+                    "unhelpful_count": unhelpful_count,
+                    "helpfulness_score": helpfulness_score,
+                    "health_status": health_status,
+                    "health_label": health_label,
+                    "health_description": health_description,
+                    "feedback_rate_percentage": feedback_rate,
+                },
+                "categories_breakdown": categories_breakdown,
+                "recent_feedbacks": recent_feedbacks_data[:50],
+            },
+            status=status.HTTP_200_OK,
+        )
+
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
 
