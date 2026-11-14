@@ -622,3 +622,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify range selector is hidden when sentiment tab is active
 
+### Verification Step 125: fe(modal-tab-010): verify Refresh button triggers fetchSentiment when on Sentiment tab
+- **Timestamp**: 2026-11-14 13:40:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify refresh button triggers fetchsentiment when on sentiment tab
+
