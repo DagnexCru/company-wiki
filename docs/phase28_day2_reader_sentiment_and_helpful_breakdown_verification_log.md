@@ -397,3 +397,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify recent_feedbacks items contain string uuid id
 
+### Verification Step 080: api(feed-002): verify recent_feedbacks items contain is_helpful boolean
+- **Timestamp**: 2026-11-14 12:10:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify recent_feedbacks items contain is_helpful boolean
+
