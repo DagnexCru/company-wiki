@@ -417,3 +417,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify recent_feedbacks items contain user_name from user full_name or username
 
+### Verification Step 084: api(feed-006): verify recent_feedbacks items contain user_email address
+- **Timestamp**: 2026-11-14 12:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify recent_feedbacks items contain user_email address
+
