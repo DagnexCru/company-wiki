@@ -37,3 +37,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify non-existent slug returns 404 not found on sentiment endpoint
 
+### Verification Step 008: api(sentiment-auth-008): verify response payload contains article_slug matching requested article
+- **Timestamp**: 2026-11-14 09:46:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify response payload contains article_slug matching requested article
+
