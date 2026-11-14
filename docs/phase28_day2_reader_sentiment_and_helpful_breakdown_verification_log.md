@@ -612,3 +612,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify clicking views tab updates activetab state to views
 
+### Verification Step 123: fe(modal-tab-008): verify 7d/30d/90d range selector is visible only when Views tab is active
+- **Timestamp**: 2026-11-14 13:36:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify 7d/30d/90d range selector is visible only when views tab is active
+
