@@ -112,3 +112,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_feedback_count equals helpful_count plus unhelpful_count
 
+### Verification Step 023: api(metrics-005): verify helpfulness_score calculation formula (helpful / total) * 100
+- **Timestamp**: 2026-11-14 10:16:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify helpfulness_score calculation formula (helpful / total) * 100
+
