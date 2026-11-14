@@ -597,3 +597,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify active views tab styles with indigo background and white text
 
+### Verification Step 120: fe(modal-tab-005): verify active Sentiment tab styles with rose background and white text
+- **Timestamp**: 2026-11-14 13:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify active sentiment tab styles with rose background and white text
+
