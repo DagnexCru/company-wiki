@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.utils import timezone
 from rest_framework.test import APIClient
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleViewLog
+from apps.articles.models import Article, ArticleViewLog, ArticleFeedback
 from apps.taxonomy.models import Category
 
 
@@ -120,4 +120,80 @@ class ArticleAnalyticsViewsTimelineTests(TestCase):
         self.assertEqual(new_log_count, initial_log_count + 1)
         latest_log = ArticleViewLog.objects.filter(article=self.article).latest("viewed_at")
         self.assertEqual(latest_log.user, self.reader)
+
+    def test_analytics_sentiment_requires_authentication(self):
+        url = f"/api/v1/articles/{self.article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 401)
+
+    def test_analytics_sentiment_reader_forbidden(self):
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 403)
+        self.assertIn("detail", res.data)
+
+    def test_analytics_sentiment_author_allowed_with_data(self):
+        # Create sample feedbacks
+        ArticleFeedback.objects.create(
+            article=self.article,
+            user=self.reader,
+            is_helpful=True,
+            note="Clear & Actionable guide! Easy to follow.",
+        )
+        ArticleFeedback.objects.create(
+            article=self.article,
+            user=self.admin,
+            is_helpful=False,
+            note="Outdated syntax in step 2.",
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.data["article_slug"], self.article.slug)
+        self.assertIn("summary", res.data)
+        summary = res.data["summary"]
+        self.assertEqual(summary["total_feedback_count"], 2)
+        self.assertEqual(summary["helpful_count"], 1)
+        self.assertEqual(summary["unhelpful_count"], 1)
+        self.assertEqual(summary["helpfulness_score"], 50)
+        self.assertEqual(summary["health_status"], "NEEDS_REVIEW")
+        self.assertIn("categories_breakdown", res.data)
+        self.assertIn("recent_feedbacks", res.data)
+        self.assertEqual(len(res.data["recent_feedbacks"]), 2)
+
+    def test_analytics_sentiment_admin_allowed(self):
+        self.client.force_authenticate(user=self.admin)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("summary", res.data)
+
+    def test_analytics_sentiment_reviewer_allowed(self):
+        self.client.force_authenticate(user=self.reviewer)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("summary", res.data)
+
+    def test_analytics_sentiment_empty_state(self):
+        # Fresh article with no feedbacks
+        empty_article = Article.objects.create(
+            title="Fresh Article",
+            slug="fresh-article",
+            content="Empty",
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+        )
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{empty_article.slug}/analytics/sentiment/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.data["summary"]["health_status"], "NO_DATA")
+        self.assertEqual(res.data["summary"]["total_feedback_count"], 0)
+        self.assertEqual(len(res.data["categories_breakdown"]), 0)
+
 

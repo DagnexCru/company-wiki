@@ -3,7 +3,7 @@ import datetime
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleViewLog
+from apps.articles.models import Article, ArticleViewLog, ArticleFeedback
 
 
 class Command(BaseCommand):
@@ -47,56 +47,78 @@ class Command(BaseCommand):
         for article in target_articles:
             # Check existing view logs count
             existing = ArticleViewLog.objects.filter(article=article).count()
-            if existing >= 50:
-                self.stdout.write(f"Article '{article.title}' already has {existing} view logs. Skipping duplicate.")
-                continue
+            if existing < 50:
+                logs_to_create = []
+                for day_offset in range(90, -1, -1):
+                    target_date = now - datetime.timedelta(days=day_offset)
+                    is_weekend = target_date.weekday() >= 5
+                    base_views = random.randint(3, 8) if is_weekend else random.randint(14, 38)
+                    if day_offset in [2, 3, 7, 14, 28]:
+                        base_views += random.randint(20, 45)
 
-            logs_to_create = []
-            # Generate views over the past 90 days with weekday patterns and realistic spikes
-            for day_offset in range(90, -1, -1):
-                target_date = now - datetime.timedelta(days=day_offset)
-                is_weekend = target_date.weekday() >= 5
-                
-                # Weekday traffic is 12-35 views; Weekend is 3-10 views
-                base_views = random.randint(3, 8) if is_weekend else random.randint(14, 38)
-                
-                # Add spikes in recent weeks (e.g. Days 3, 10, 24)
-                if day_offset in [2, 3, 7, 14, 28]:
-                    base_views += random.randint(20, 45)
-
-                for _ in range(base_views):
-                    view_time = target_date.replace(
-                        hour=random.randint(8, 20),
-                        minute=random.randint(0, 59),
-                        second=random.randint(0, 59),
-                        microsecond=0,
-                    )
-                    
-                    # 70% logged-in user, 30% anonymous session
-                    has_user = random.random() < 0.70 and bool(users)
-                    assigned_user = random.choice(users) if has_user else None
-                    session_key = f"sess_{random.randint(100000, 999999)}" if not assigned_user else None
-                    ip_addr = f"10.0.{random.randint(1, 5)}.{random.randint(10, 250)}"
-
-                    logs_to_create.append(
-                        ArticleViewLog(
-                            article=article,
-                            user=assigned_user,
-                            session_key=session_key,
-                            ip_address=ip_addr,
-                            user_agent=random.choice(user_agents),
-                            referrer=random.choice(referrers),
-                            viewed_at=view_time,
+                    for _ in range(base_views):
+                        view_time = target_date.replace(
+                            hour=random.randint(8, 20),
+                            minute=random.randint(0, 59),
+                            second=random.randint(0, 59),
+                            microsecond=0,
                         )
+                        has_user = random.random() < 0.70 and bool(users)
+                        assigned_user = random.choice(users) if has_user else None
+                        session_key = f"sess_{random.randint(100000, 999999)}" if not assigned_user else None
+                        ip_addr = f"10.0.{random.randint(1, 5)}.{random.randint(10, 250)}"
+
+                        logs_to_create.append(
+                            ArticleViewLog(
+                                article=article,
+                                user=assigned_user,
+                                session_key=session_key,
+                                ip_address=ip_addr,
+                                user_agent=random.choice(user_agents),
+                                referrer=random.choice(referrers),
+                                viewed_at=view_time,
+                            )
+                        )
+
+                ArticleViewLog.objects.bulk_create(logs_to_create)
+                total_logs = len(logs_to_create)
+                seeded_count += total_logs
+                article.view_count = max(article.view_count, total_logs)
+                article.save(update_fields=["view_count"])
+                self.stdout.write(f"Seeded {total_logs} view logs for '{article.title}'")
+            else:
+                self.stdout.write(f"Article '{article.title}' already has {existing} view logs.")
+
+            # Seed realistic reader feedback entries if fewer than 5 exist
+            existing_fb = ArticleFeedback.objects.filter(article=article).count()
+            if existing_fb < 5 and users:
+                sample_feedbacks = [
+                    (True, "Clear & Actionable runbook! The zero-downtime deployment steps were smooth and easy to follow during our release."),
+                    (True, "Accurate & complete checklist. The rollback criteria section saved our team from an outage."),
+                    (True, "Well structured format, makes Canary traffic monitoring straightforward for on-call engineers."),
+                    (True, "Worked perfectly for our production deploy yesterday! Excellent guide."),
+                    (False, "Needs improvement: Step 3 needs an updated docker compose syntax for v2 compatibility."),
+                    (False, "Outdated command in database migration step, please update to the latest CLI flags."),
+                ]
+                for idx, (is_hlp, note_text) in enumerate(sample_feedbacks):
+                    u = users[idx % len(users)]
+                    # Create or update feedback
+                    fb, created = ArticleFeedback.objects.get_or_create(
+                        article=article,
+                        user=u,
+                        defaults={
+                            "is_helpful": is_hlp,
+                            "note": note_text,
+                            "created_at": now - datetime.timedelta(days=random.randint(1, 20)),
+                        },
                     )
+                    if not created:
+                        fb.is_helpful = is_hlp
+                        fb.note = note_text
+                        fb.save()
 
-            ArticleViewLog.objects.bulk_create(logs_to_create)
-            total_logs = len(logs_to_create)
-            seeded_count += total_logs
-            # Update article.view_count to reflect active views
-            article.view_count = max(article.view_count, total_logs)
-            article.save(update_fields=["view_count"])
-            self.stdout.write(f"Seeded {total_logs} view logs for '{article.title}'")
+                # Article metrics are dynamic properties calculated from feedback_entries
+                self.stdout.write(f"Seeded {len(sample_feedbacks)} reader feedback entries ({article.helpfulness_score}% score) for '{article.title}'")
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully populated {seeded_count} total article view logs!"))
+        self.stdout.write(self.style.SUCCESS(f"Successfully populated {seeded_count} total article view logs and sentiment feedback!"))
 
