@@ -377,3 +377,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify categories_breakdown is sorted by descending count frequency
 
+### Verification Step 076: api(classify-021): verify case-insensitive matching in sentiment keyword parsing
+- **Timestamp**: 2026-11-14 12:02:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify case-insensitive matching in sentiment keyword parsing
+
