@@ -412,3 +412,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify recent_feedbacks items contain sentiment_tag string
 
+### Verification Step 083: api(feed-005): verify recent_feedbacks items contain user_name from user full_name or username
+- **Timestamp**: 2026-11-14 12:16:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify recent_feedbacks items contain user_name from user full_name or username
+
