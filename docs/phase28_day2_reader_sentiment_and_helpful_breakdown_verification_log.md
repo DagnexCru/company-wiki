@@ -402,3 +402,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify recent_feedbacks items contain is_helpful boolean
 
+### Verification Step 081: api(feed-003): verify recent_feedbacks items contain note text
+- **Timestamp**: 2026-11-14 12:12:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify recent_feedbacks items contain note text
+
