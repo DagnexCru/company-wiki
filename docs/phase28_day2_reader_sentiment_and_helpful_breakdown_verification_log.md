@@ -617,3 +617,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify 7d/30d/90d range selector is visible only when views tab is active
 
+### Verification Step 124: fe(modal-tab-009): verify range selector is hidden when Sentiment tab is active
+- **Timestamp**: 2026-11-14 13:38:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify range selector is hidden when sentiment tab is active
+
