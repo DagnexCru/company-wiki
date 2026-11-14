@@ -477,3 +477,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify long feedback notes (>1000 characters) serialize without truncation in feed
 
+### Verification Step 096: api(feed-018): verify created_at timestamp preserves timezone offset information
+- **Timestamp**: 2026-11-14 12:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify created_at timestamp preserves timezone offset information
+
