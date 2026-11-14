@@ -107,3 +107,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify summary.unhelpful_count counts feedbacks where is_helpful is false
 
+### Verification Step 022: api(metrics-004): verify total_feedback_count equals helpful_count plus unhelpful_count
+- **Timestamp**: 2026-11-14 10:14:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_feedback_count equals helpful_count plus unhelpful_count
+
