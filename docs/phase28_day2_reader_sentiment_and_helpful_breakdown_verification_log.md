@@ -147,3 +147,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify article model dynamic property helpful_count matches summary helpful_count
 
+### Verification Step 030: api(metrics-012): verify Article model dynamic property unhelpful_count matches summary unhelpful_count
+- **Timestamp**: 2026-11-14 10:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article model dynamic property unhelpful_count matches summary unhelpful_count
+
