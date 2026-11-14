@@ -47,3 +47,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response payload contains article_title matching requested article
 
+### Verification Step 010: api(sentiment-auth-010): verify summary dictionary is present in top-level response
+- **Timestamp**: 2026-11-14 09:50:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify summary dictionary is present in top-level response
+
