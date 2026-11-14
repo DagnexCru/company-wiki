@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify feedback_rate_percentage reflects reader conversion to active rating
 
+### Verification Step 036: api(metrics-018): verify multiple feedback ratings from same user are updated rather than duplicated
+- **Timestamp**: 2026-11-14 10:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify multiple feedback ratings from same user are updated rather than duplicated
+
