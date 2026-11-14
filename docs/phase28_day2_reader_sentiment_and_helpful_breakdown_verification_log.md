@@ -752,3 +752,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify svg donut center text displays helpfulness_score percentage and helpful label
 
+### Verification Step 151: fe(donut-ui-011): verify Donut legend displays emerald dot with helpful count
+- **Timestamp**: 2026-11-14 14:32:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify donut legend displays emerald dot with helpful count
+
