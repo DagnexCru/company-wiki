@@ -637,3 +637,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify modal title article performance & engagement hub displays cleanly
 
+### Verification Step 128: fe(modal-tab-013): verify close button resets modal visibility smoothly
+- **Timestamp**: 2026-11-14 13:46:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify close button resets modal visibility smoothly
+
