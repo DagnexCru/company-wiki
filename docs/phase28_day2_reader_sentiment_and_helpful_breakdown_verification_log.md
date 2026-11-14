@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpfulness_score clamped strictly between 0 and 100 inclusive
 
+### Verification Step 029: api(metrics-011): verify Article model dynamic property helpful_count matches summary helpful_count
+- **Timestamp**: 2026-11-14 10:28:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article model dynamic property helpful_count matches summary helpful_count
+
