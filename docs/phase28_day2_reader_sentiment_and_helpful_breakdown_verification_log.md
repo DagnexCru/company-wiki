@@ -627,3 +627,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify refresh button triggers fetchsentiment when on sentiment tab
 
+### Verification Step 126: fe(modal-tab-011): verify Refresh icon displays animate-spin class during sentiment loading
+- **Timestamp**: 2026-11-14 13:42:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify refresh icon displays animate-spin class during sentiment loading
+
