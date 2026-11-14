@@ -757,3 +757,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify donut legend displays emerald dot with helpful count
 
+### Verification Step 152: fe(donut-ui-012): verify Donut legend displays rose dot with unhelpful count
+- **Timestamp**: 2026-11-14 14:34:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify donut legend displays rose dot with unhelpful count
+
