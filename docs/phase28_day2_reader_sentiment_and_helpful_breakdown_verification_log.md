@@ -712,3 +712,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpfulness score metric card displays score percentage and smile icon
 
+### Verification Step 143: fe(donut-ui-003): verify Helpfulness Score card displays helpful of total ratings caption
+- **Timestamp**: 2026-11-14 14:16:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify helpfulness score card displays helpful of total ratings caption
+
