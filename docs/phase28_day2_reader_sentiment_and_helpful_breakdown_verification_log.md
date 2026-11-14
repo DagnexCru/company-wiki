@@ -747,3 +747,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify svg donut strokedashoffset calculates 2*pi*r*(1 - score/100) accurately
 
+### Verification Step 150: fe(donut-ui-010): verify SVG donut center text displays helpfulness_score percentage and HELPFUL label
+- **Timestamp**: 2026-11-14 14:30:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify svg donut center text displays helpfulness_score percentage and helpful label
+
