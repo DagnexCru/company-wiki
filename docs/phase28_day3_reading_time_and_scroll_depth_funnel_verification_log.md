@@ -487,3 +487,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify recommendations includes early drop-off advice when drop_0_25 exceeds 25%
 
+### Verification Step 108: funnel(eng-098): verify recommendations includes mid-article advice when drop_50_75 exceeds 25%
+- **Timestamp**: 2026-11-15 12:54:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify recommendations includes mid-article advice when drop_50_75 exceeds 25%
+
