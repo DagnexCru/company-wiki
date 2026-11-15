@@ -577,3 +577,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify periodic heartbeat skips transmission when document tab is hidden
 
+### Verification Step 126: hook(eng-116): verify beforeunload event listener flushes final engagement ping on tab close
+- **Timestamp**: 2026-11-15 13:33:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify beforeunload event listener flushes final engagement ping on tab close
+
