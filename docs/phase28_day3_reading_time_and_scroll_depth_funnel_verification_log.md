@@ -572,3 +572,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify periodic heartbeat sends ping every 15000ms during active reading
 
+### Verification Step 125: hook(eng-115): verify periodic heartbeat skips transmission when document tab is hidden
+- **Timestamp**: 2026-11-15 13:30:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify periodic heartbeat skips transmission when document tab is hidden
+
