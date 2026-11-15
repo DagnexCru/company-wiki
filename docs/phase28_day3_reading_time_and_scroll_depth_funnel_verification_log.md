@@ -82,3 +82,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reached_25 flag is set to true when scroll depth reaches 25%
 
+### Verification Step 027: ingestion(eng-017): verify reached_50 flag is set to True when scroll depth reaches 50%
+- **Timestamp**: 2026-11-15 09:58:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reached_50 flag is set to true when scroll depth reaches 50%
+
