@@ -622,3 +622,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hook returns activeseconds and maxscrolldepth state variables
 
+### Verification Step 135: hook(eng-125): verify ArticleDetailPage wires useReaderEngagement with active article slug
+- **Timestamp**: 2026-11-15 13:52:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articledetailpage wires usereaderengagement with active article slug
+
