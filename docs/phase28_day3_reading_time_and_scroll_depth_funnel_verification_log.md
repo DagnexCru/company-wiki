@@ -317,3 +317,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify retention_score assigns strong level when score is between 55 and 74
 
+### Verification Step 074: metrics(eng-064): verify retention_score assigns Moderate level when score is between 35 and 54
+- **Timestamp**: 2026-11-15 11:40:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify retention_score assigns moderate level when score is between 35 and 54
+
