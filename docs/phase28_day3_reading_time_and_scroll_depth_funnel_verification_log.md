@@ -647,3 +647,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify loading spinner is displayed while engagement metrics are loading
 
+### Verification Step 140: modal(eng-130): verify error banner with retry button is displayed when engagement fetch fails
+- **Timestamp**: 2026-11-15 14:03:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify error banner with retry button is displayed when engagement fetch fails
+
