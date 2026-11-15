@@ -132,3 +132,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify get /articles/{slug}/analytics/engagement/ requires authentication (401)
 
+### Verification Step 037: permissions(eng-027): verify Reader role receives 403 Forbidden on engagement metrics endpoint
+- **Timestamp**: 2026-11-15 10:20:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reader role receives 403 forbidden on engagement metrics endpoint
+
