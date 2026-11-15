@@ -617,3 +617,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hook respects enabled flag when passed false
 
+### Verification Step 134: hook(eng-124): verify hook returns activeSeconds and maxScrollDepth state variables
+- **Timestamp**: 2026-11-15 13:50:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hook returns activeseconds and maxscrolldepth state variables
+
