@@ -602,3 +602,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hook cleanup removes beforeunload and pagehide event listeners
 
+### Verification Step 131: hook(eng-121): verify hook catches network errors silently without throwing uncaught exceptions
+- **Timestamp**: 2026-11-15 13:43:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hook catches network errors silently without throwing uncaught exceptions
+
