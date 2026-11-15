@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.utils import timezone
 from rest_framework.test import APIClient
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleViewLog, ArticleFeedback
+from apps.articles.models import Article, ArticleViewLog, ArticleFeedback, ArticleEngagementSession
 from apps.taxonomy.models import Category
 
 
@@ -195,5 +195,178 @@ class ArticleAnalyticsViewsTimelineTests(TestCase):
         self.assertEqual(res.data["summary"]["health_status"], "NO_DATA")
         self.assertEqual(res.data["summary"]["total_feedback_count"], 0)
         self.assertEqual(len(res.data["categories_breakdown"]), 0)
+
+    def test_ping_engagement_unauthenticated_and_authenticated(self):
+        url = f"/api/v1/articles/{self.article.slug}/analytics/ping-engagement/"
+        session_id = "sess_reader_test_123"
+
+        # Ping 1: 30 active seconds, 35% depth (unauthenticated)
+        res1 = self.client.post(
+            url,
+            {"session_id": session_id, "active_seconds": 30, "scroll_percentage": 35},
+            format="json",
+        )
+        self.assertEqual(res1.status_code, 200)
+        self.assertEqual(res1.data["status"], "success")
+        self.assertEqual(res1.data["active_seconds"], 30)
+        self.assertEqual(res1.data["scroll_depth_percent"], 35)
+        self.assertFalse(res1.data["reached_100"])
+
+        eng = ArticleEngagementSession.objects.get(article=self.article, session_id=session_id)
+        self.assertEqual(eng.active_seconds, 30)
+        self.assertEqual(eng.scroll_depth_percent, 35)
+        self.assertTrue(eng.reached_25)
+        self.assertFalse(eng.reached_50)
+        self.assertIsNone(eng.user)
+
+        # Ping 2: user logs in and continues to 95% depth (authenticated)
+        self.client.force_authenticate(user=self.reader)
+        res2 = self.client.post(
+            url,
+            {"session_id": session_id, "active_seconds": 150, "scroll_percentage": 95},
+            format="json",
+        )
+        self.assertEqual(res2.status_code, 200)
+        self.assertEqual(res2.data["active_seconds"], 150)
+        self.assertEqual(res2.data["scroll_depth_percent"], 95)
+        self.assertTrue(res2.data["reached_100"])
+
+        eng.refresh_from_db()
+        self.assertEqual(eng.active_seconds, 150)
+        self.assertEqual(eng.scroll_depth_percent, 95)
+        self.assertTrue(eng.reached_25)
+        self.assertTrue(eng.reached_50)
+        self.assertTrue(eng.reached_75)
+        self.assertTrue(eng.reached_100)
+        self.assertEqual(eng.user, self.reader)
+
+    def test_ping_engagement_validation(self):
+        url = f"/api/v1/articles/{self.article.slug}/analytics/ping-engagement/"
+        res = self.client.post(url, {}, format="json")
+        self.assertEqual(res.status_code, 400)
+        self.assertIn("detail", res.data)
+
+    def test_engagement_metrics_permissions(self):
+        url = f"/api/v1/articles/{self.article.slug}/analytics/engagement/"
+
+        # Unauthenticated -> 401
+        res_unauth = self.client.get(url)
+        self.assertEqual(res_unauth.status_code, 401)
+
+        # Reader -> 403
+        self.client.force_authenticate(user=self.reader)
+        res_reader = self.client.get(url)
+        self.assertEqual(res_reader.status_code, 403)
+
+        # Author -> 200
+        self.client.force_authenticate(user=self.author)
+        res_author = self.client.get(url)
+        self.assertEqual(res_author.status_code, 200)
+
+        # Reviewer -> 200
+        self.client.force_authenticate(user=self.reviewer)
+        res_reviewer = self.client.get(url)
+        self.assertEqual(res_reviewer.status_code, 200)
+
+        # Admin -> 200
+        self.client.force_authenticate(user=self.admin)
+        res_admin = self.client.get(url)
+        self.assertEqual(res_admin.status_code, 200)
+
+    def test_engagement_metrics_calculations(self):
+        # Create 4 specific engagement sessions
+        ArticleEngagementSession.objects.create(
+            article=self.article,
+            session_id="s1",
+            active_seconds=20,
+            scroll_depth_percent=20,
+            reached_25=False,
+            reached_50=False,
+            reached_75=False,
+            reached_100=False,
+        )
+        ArticleEngagementSession.objects.create(
+            article=self.article,
+            session_id="s2",
+            active_seconds=60,
+            scroll_depth_percent=40,
+            reached_25=True,
+            reached_50=False,
+            reached_75=False,
+            reached_100=False,
+        )
+        ArticleEngagementSession.objects.create(
+            article=self.article,
+            session_id="s3",
+            active_seconds=180,
+            scroll_depth_percent=80,
+            reached_25=True,
+            reached_50=True,
+            reached_75=True,
+            reached_100=False,
+        )
+        ArticleEngagementSession.objects.create(
+            article=self.article,
+            session_id="s4",
+            active_seconds=360,
+            scroll_depth_percent=100,
+            reached_25=True,
+            reached_50=True,
+            reached_75=True,
+            reached_100=True,
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/engagement/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        data = res.data
+
+        self.assertIn("summary", data)
+        self.assertEqual(data["summary"]["total_readers"], 4)
+        # Average: (20 + 60 + 180 + 360) / 4 = 620 / 4 = 155s
+        self.assertEqual(data["summary"]["avg_read_seconds"], 155)
+        self.assertEqual(data["summary"]["avg_read_formatted"], "2m 35s")
+        self.assertEqual(data["summary"]["completion_rate_percentage"], 25.0)
+
+        # Funnel stages verification
+        self.assertEqual(len(data["funnel"]), 5)
+        # Started: 4
+        self.assertEqual(data["funnel"][0]["readers"], 4)
+        self.assertEqual(data["funnel"][0]["percentage"], 100.0)
+        # 25%: s2, s3, s4 = 3
+        self.assertEqual(data["funnel"][1]["readers"], 3)
+        self.assertEqual(data["funnel"][1]["percentage"], 75.0)
+        # 50%: s3, s4 = 2
+        self.assertEqual(data["funnel"][2]["readers"], 2)
+        self.assertEqual(data["funnel"][2]["percentage"], 50.0)
+        # 75%: s3, s4 = 2
+        self.assertEqual(data["funnel"][3]["readers"], 2)
+        self.assertEqual(data["funnel"][3]["percentage"], 50.0)
+        # 100%: s4 = 1
+        self.assertEqual(data["funnel"][4]["readers"], 1)
+        self.assertEqual(data["funnel"][4]["percentage"], 25.0)
+
+        # Distribution verification
+        self.assertEqual(len(data["distribution"]), 4)
+        self.assertIn("recommendations", data)
+
+    def test_engagement_metrics_empty_article(self):
+        empty_article = Article.objects.create(
+            title="Empty Article",
+            slug="empty-article-eng",
+            content="Just a summary paragraph.",
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+        )
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{empty_article.slug}/analytics/engagement/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.data["summary"]["total_readers"], 0)
+        self.assertEqual(res.data["summary"]["avg_read_seconds"], 0)
+        self.assertEqual(res.data["summary"]["engagement_level"], "No Data Yet")
+
 
 
