@@ -292,3 +292,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify retention_score assigns 15% weight to reached_25 milestone
 
+### Verification Step 069: metrics(eng-059): verify retention_score assigns 25% weight to reached_50 milestone
+- **Timestamp**: 2026-11-15 11:29:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify retention_score assigns 25% weight to reached_50 milestone
+
