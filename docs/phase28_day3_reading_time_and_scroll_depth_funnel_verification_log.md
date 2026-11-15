@@ -712,3 +712,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reading time distribution section renders 4 duration bucket meters
 
+### Verification Step 153: modal(eng-143): verify each distribution row displays bucket label, range, reader count, and percentage
+- **Timestamp**: 2026-11-15 14:31:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify each distribution row displays bucket label, range, reader count, and percentage
+
