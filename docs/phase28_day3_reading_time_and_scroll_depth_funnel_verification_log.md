@@ -412,3 +412,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify each stage object includes stage name, milestone integer, readers, and percentage
 
+### Verification Step 093: funnel(eng-083): verify each stage object includes drop_off_percentage from prior milestone
+- **Timestamp**: 2026-11-15 12:21:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify each stage object includes drop_off_percentage from prior milestone
+
