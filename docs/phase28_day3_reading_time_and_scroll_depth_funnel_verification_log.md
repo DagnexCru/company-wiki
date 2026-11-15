@@ -702,3 +702,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify funnel rows with positive drop-off display -x% drop badge in rose badge style
 
+### Verification Step 151: modal(eng-141): verify funnel header displays total sessions count badge
+- **Timestamp**: 2026-11-15 14:27:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify funnel header displays total sessions count badge
+
