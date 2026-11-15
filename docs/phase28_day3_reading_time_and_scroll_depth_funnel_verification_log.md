@@ -527,3 +527,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify activeseconds timer pauses when document tab is hidden or minimized
 
+### Verification Step 116: hook(eng-106): verify activeSeconds timer resumes immediately when reader returns to tab
+- **Timestamp**: 2026-11-15 13:11:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify activeseconds timer resumes immediately when reader returns to tab
+
