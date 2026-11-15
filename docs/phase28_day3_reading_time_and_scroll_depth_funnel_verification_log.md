@@ -567,3 +567,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify initial ping is sent after 3 seconds of initial reading to record early arrival
 
+### Verification Step 124: hook(eng-114): verify periodic heartbeat sends ping every 15000ms during active reading
+- **Timestamp**: 2026-11-15 13:28:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify periodic heartbeat sends ping every 15000ms during active reading
+
