@@ -167,3 +167,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify unpublished draft article engagement is restricted to author and admin
 
+### Verification Step 044: permissions(eng-034): verify in_review article engagement is visible to reviewer, author, and admin
+- **Timestamp**: 2026-11-15 10:35:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify in_review article engagement is visible to reviewer, author, and admin
+
