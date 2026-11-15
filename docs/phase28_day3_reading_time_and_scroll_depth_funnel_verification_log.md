@@ -137,3 +137,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reader role receives 403 forbidden on engagement metrics endpoint
 
+### Verification Step 038: permissions(eng-028): verify Author persona receives 200 OK on engagement endpoint for their own article
+- **Timestamp**: 2026-11-15 10:22:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author persona receives 200 ok on engagement endpoint for their own article
+
