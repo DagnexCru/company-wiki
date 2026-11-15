@@ -3,7 +3,7 @@ import datetime
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleViewLog, ArticleFeedback
+from apps.articles.models import Article, ArticleViewLog, ArticleFeedback, ArticleEngagementSession
 
 
 class Command(BaseCommand):
@@ -119,6 +119,50 @@ class Command(BaseCommand):
 
                 # Article metrics are dynamic properties calculated from feedback_entries
                 self.stdout.write(f"Seeded {len(sample_feedbacks)} reader feedback entries ({article.helpfulness_score}% score) for '{article.title}'")
+
+            # Seed realistic reader engagement sessions and scroll depth funnel
+            existing_eng = ArticleEngagementSession.objects.filter(article=article).count()
+            if existing_eng < 15:
+                sessions_to_create = []
+                # Generate 68 realistic reading sessions
+                for i in range(68):
+                    roll = random.random()
+                    if roll < 0.12:  # Drops off before 25%
+                        depth = random.randint(5, 24)
+                        active_secs = random.randint(10, 35)
+                    elif roll < 0.28:  # Drops off between 25% and 50%
+                        depth = random.randint(25, 49)
+                        active_secs = random.randint(30, 95)
+                    elif roll < 0.45:  # Drops off between 50% and 75%
+                        depth = random.randint(50, 74)
+                        active_secs = random.randint(90, 190)
+                    else:  # Reads deep or completes (75% - 100%)
+                        depth = random.randint(75, 100)
+                        active_secs = random.randint(180, 480)
+
+                    has_u = random.random() < 0.65 and bool(users)
+                    assigned_u = random.choice(users) if has_u else None
+                    sess_id = f"eng_seed_{article.id.hex[:6]}_{i:03d}_{random.randint(1000, 9999)}"
+
+                    sessions_to_create.append(
+                        ArticleEngagementSession(
+                            article=article,
+                            user=assigned_u,
+                            session_id=sess_id,
+                            active_seconds=active_secs,
+                            scroll_depth_percent=depth,
+                            reached_25=depth >= 25,
+                            reached_50=depth >= 50,
+                            reached_75=depth >= 75,
+                            reached_100=depth >= 90,
+                            created_at=now - datetime.timedelta(days=random.randint(0, 30)),
+                        )
+                    )
+
+                ArticleEngagementSession.objects.bulk_create(sessions_to_create)
+                self.stdout.write(f"Seeded {len(sessions_to_create)} reader engagement sessions for '{article.title}'")
+            else:
+                self.stdout.write(f"Article '{article.title}' already has {existing_eng} engagement sessions.")
 
         self.stdout.write(self.style.SUCCESS(f"Successfully populated {seeded_count} total article view logs and sentiment feedback!"))
 
