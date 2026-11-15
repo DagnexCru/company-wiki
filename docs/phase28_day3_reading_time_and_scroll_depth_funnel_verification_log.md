@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify archived article engagement remains accessible to author and admin
 
+### Verification Step 046: permissions(eng-036): verify soft-deleted article engagement returns 404 Not Found
+- **Timestamp**: 2026-11-15 10:39:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify soft-deleted article engagement returns 404 not found
+
