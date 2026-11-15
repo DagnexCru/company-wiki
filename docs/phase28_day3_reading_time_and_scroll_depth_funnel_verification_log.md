@@ -637,3 +637,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify tab navigation renders reading time & scroll funnel button with clock icon
 
+### Verification Step 138: modal(eng-128): verify clicking Reading Time tab activates engagement view and initiates data fetch
+- **Timestamp**: 2026-11-15 13:59:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify clicking reading time tab activates engagement view and initiates data fetch
+
