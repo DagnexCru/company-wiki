@@ -232,3 +232,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_readers accurately reflects count of distinct engagement sessions
 
+### Verification Step 057: metrics(eng-047): verify avg_read_seconds calculates mean active seconds across all sessions
+- **Timestamp**: 2026-11-15 11:03:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify avg_read_seconds calculates mean active seconds across all sessions
+
