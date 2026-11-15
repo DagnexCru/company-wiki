@@ -699,3 +699,62 @@ class ArticleViewLog(models.Model):
         reader = self.user.username if self.user else (self.session_key or "Anonymous")
         return f"View: {reader} on '{self.article.title}' at {self.viewed_at.strftime('%Y-%m-%d %H:%M')}"
 
+
+class ArticleEngagementSession(models.Model):
+    """
+    Tracks reader reading duration, active engagement seconds, and scroll depth milestones
+    for drop-off funnel analysis and reading time verification.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="engagement_sessions",
+        db_index=True,
+        help_text="The article being read.",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="article_engagements",
+        db_index=True,
+        help_text="The authenticated user who engaged with the article (if logged in).",
+    )
+    session_id = models.CharField(
+        max_length=64,
+        db_index=True,
+        help_text="Client-generated unique reading session identifier.",
+    )
+    active_seconds = models.PositiveIntegerField(
+        default=0,
+        help_text="Cumulative active seconds spent reading (tab visible and focused).",
+    )
+    scroll_depth_percent = models.PositiveSmallIntegerField(
+        default=0,
+        help_text="Maximum scroll depth percentage reached (0-100).",
+    )
+    reached_25 = models.BooleanField(default=False, db_index=True)
+    reached_50 = models.BooleanField(default=False, db_index=True)
+    reached_75 = models.BooleanField(default=False, db_index=True)
+    reached_100 = models.BooleanField(default=False, db_index=True)
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_engagement_sessions"
+        verbose_name = "Article Engagement Session"
+        verbose_name_plural = "Article Engagement Sessions"
+        ordering = ["-updated_at"]
+        unique_together = ("article", "session_id")
+        indexes = [
+            models.Index(fields=["article", "-updated_at"], name="art_eng_art_upd_idx"),
+            models.Index(fields=["article", "scroll_depth_percent"], name="art_eng_art_depth_idx"),
+        ]
+
+    def __str__(self):
+        user_label = self.user.username if self.user else self.session_id[:8]
+        return f"Engagement: {user_label} on '{self.article.title}' ({self.active_seconds}s, {self.scroll_depth_percent}%)"
+
+
