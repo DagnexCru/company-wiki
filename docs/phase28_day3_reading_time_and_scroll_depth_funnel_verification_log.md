@@ -682,3 +682,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify each funnel row displays numbered milestone badge from 1 to 5
 
+### Verification Step 147: modal(eng-137): verify each funnel row displays stage name and reader count
+- **Timestamp**: 2026-11-15 14:18:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify each funnel row displays stage name and reader count
+
