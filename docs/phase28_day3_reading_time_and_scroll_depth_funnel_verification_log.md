@@ -817,3 +817,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleengagementsession db_table article_engagement_sessions exists in postgresql/sqlite
 
+### Verification Step 174: qa(eng-164): verify ArticleEngagementSession unique_together constraint on article and session_id
+- **Timestamp**: 2026-11-15 15:17:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleengagementsession unique_together constraint on article and session_id
+
