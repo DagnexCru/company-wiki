@@ -672,3 +672,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify kpi card 4 renders primary drop-off stage with trendingdown icon
 
+### Verification Step 145: modal(eng-135): verify Scroll-Depth Funnel container renders 5 distinct milestone rows
+- **Timestamp**: 2026-11-15 14:14:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify scroll-depth funnel container renders 5 distinct milestone rows
+
