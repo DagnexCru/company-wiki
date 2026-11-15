@@ -367,3 +367,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify empty article with 0 sessions returns avg_read_seconds 0
 
+### Verification Step 084: metrics(eng-074): verify empty article with 0 sessions returns completion_rate_percentage 0
+- **Timestamp**: 2026-11-15 12:02:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify empty article with 0 sessions returns completion_rate_percentage 0
+
