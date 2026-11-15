@@ -7,3 +7,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify post /articles/{slug}/analytics/ping-engagement/ allows anonymous readers without auth header
 
+### Verification Step 012: ingestion(eng-002): verify ping-engagement returns 400 when session_id is omitted from payload
+- **Timestamp**: 2026-11-15 09:26:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement returns 400 when session_id is omitted from payload
+
