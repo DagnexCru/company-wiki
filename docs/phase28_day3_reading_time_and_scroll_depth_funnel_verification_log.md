@@ -172,3 +172,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify in_review article engagement is visible to reviewer, author, and admin
 
+### Verification Step 045: permissions(eng-035): verify archived article engagement remains accessible to author and admin
+- **Timestamp**: 2026-11-15 10:37:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify archived article engagement remains accessible to author and admin
+
