@@ -612,3 +612,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hook handles undefined or empty slug gracefully without initiating timers
 
+### Verification Step 133: hook(eng-123): verify hook respects enabled flag when passed false
+- **Timestamp**: 2026-11-15 13:48:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hook respects enabled flag when passed false
+
