@@ -192,3 +192,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify authenticated user ping does not require author permissions
 
+### Verification Step 049: permissions(eng-039): verify reviewer ping on article they review does not overwrite author metrics
+- **Timestamp**: 2026-11-15 10:46:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reviewer ping on article they review does not overwrite author metrics
+
