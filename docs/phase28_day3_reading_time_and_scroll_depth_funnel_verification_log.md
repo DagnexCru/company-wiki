@@ -787,3 +787,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify test_ping_engagement_validation passes with 400 bad request verification
 
+### Verification Step 168: qa(eng-158): verify test_engagement_metrics_permissions validates 401, 403, and 200 responses
+- **Timestamp**: 2026-11-15 15:04:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify test_engagement_metrics_permissions validates 401, 403, and 200 responses
+
