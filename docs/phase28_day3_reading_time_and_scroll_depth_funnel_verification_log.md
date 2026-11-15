@@ -582,3 +582,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify beforeunload event listener flushes final engagement ping on tab close
 
+### Verification Step 127: hook(eng-117): verify pagehide event listener flushes final engagement ping on mobile navigation
+- **Timestamp**: 2026-11-15 13:35:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify pagehide event listener flushes final engagement ping on mobile navigation
+
