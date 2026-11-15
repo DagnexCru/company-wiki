@@ -22,3 +22,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement accepts scroll_percentage field
 
+### Verification Step 015: ingestion(eng-005): verify ping-engagement accepts scroll_depth_percent alternative field name
+- **Timestamp**: 2026-11-15 09:32:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement accepts scroll_depth_percent alternative field name
+
