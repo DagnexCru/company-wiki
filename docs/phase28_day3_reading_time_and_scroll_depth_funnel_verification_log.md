@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement updates user foreign key if reader logs in mid-session
 
+### Verification Step 024: ingestion(eng-014): verify ping-engagement updates active_seconds only when new value exceeds current
+- **Timestamp**: 2026-11-15 09:52:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement updates active_seconds only when new value exceeds current
+
