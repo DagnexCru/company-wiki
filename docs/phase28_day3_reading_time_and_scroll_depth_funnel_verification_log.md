@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify primary_drop_off_stage flags 75-100% drop when conclusion reader drop is largest
 
+### Verification Step 081: metrics(eng-071): verify primary_drop_off_stage defaults to Even Retention when all drop-offs are below 5%
+- **Timestamp**: 2026-11-15 11:55:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify primary_drop_off_stage defaults to even retention when all drop-offs are below 5%
+
