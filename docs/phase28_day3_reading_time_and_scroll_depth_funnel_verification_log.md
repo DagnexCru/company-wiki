@@ -142,3 +142,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify author persona receives 200 ok on engagement endpoint for their own article
 
+### Verification Step 039: permissions(eng-029): verify Author persona receives 403 Forbidden on other authors articles engagement
+- **Timestamp**: 2026-11-15 10:24:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author persona receives 403 forbidden on other authors articles engagement
+
