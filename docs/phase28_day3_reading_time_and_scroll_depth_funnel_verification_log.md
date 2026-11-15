@@ -737,3 +737,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify modal refresh button refreshes active engagement tab metrics
 
+### Verification Step 158: modal(eng-148): verify range selector buttons (7d/30d/90d) are hidden on engagement tab
+- **Timestamp**: 2026-11-15 14:42:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify range selector buttons (7d/30d/90d) are hidden on engagement tab
+
