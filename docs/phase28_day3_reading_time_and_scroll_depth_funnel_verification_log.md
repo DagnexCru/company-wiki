@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify primary_drop_off_stage defaults to even retention when all drop-offs are below 5%
 
+### Verification Step 082: metrics(eng-072): verify empty article with 0 sessions returns summary with total_readers 0
+- **Timestamp**: 2026-11-15 11:57:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify empty article with 0 sessions returns summary with total_readers 0
+
