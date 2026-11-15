@@ -822,3 +822,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleengagementsession unique_together constraint on article and session_id
 
+### Verification Step 175: qa(eng-165): verify ArticleEngagementSession indexes on article, updated_at, and scroll_depth_percent
+- **Timestamp**: 2026-11-15 15:19:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleengagementsession indexes on article, updated_at, and scroll_depth_percent
+
