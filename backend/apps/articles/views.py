@@ -9,7 +9,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark, ArticleChecklistProgress, ArticleViewLog
+from apps.articles.models import Article, ArticleRevision, ArticleAttachment, ArticleFeedback, ArticleComment, ArticleBookmark, ArticleChecklistProgress, ArticleViewLog, ArticleEngagementSession
 from apps.notifications.services import notify_review_action, notify_article_updated, parse_and_notify_mentions
 from apps.notifications.models import Notification
 from apps.articles.permissions import CanCreateArticle, IsAuthorOrAdmin
@@ -94,6 +94,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated, IsReviewerOrAdmin]
         elif self.action in ["reviews", "revisions", "revision_detail", "revision_diff", "restore_revision"]:
             permission_classes = [permissions.IsAuthenticated]
+        elif self.action == "ping_engagement":
+            permission_classes = [permissions.AllowAny]
         else:
             permission_classes = [permissions.IsAuthenticated]
 
@@ -122,6 +124,10 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "feedback",
             "feedbacks",
             "record_view",
+            "ping_engagement",
+            "views_timeline",
+            "sentiment",
+            "engagement",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -1695,6 +1701,256 @@ class ArticleViewSet(viewsets.ModelViewSet):
                 },
                 "categories_breakdown": categories_breakdown,
                 "recent_feedbacks": recent_feedbacks_data[:50],
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["post"],
+        url_path="analytics/ping-engagement",
+        permission_classes=[permissions.AllowAny],
+    )
+    def ping_engagement(self, request, slug=None):
+        """
+        Record real-time reader engagement ping (active reading seconds and scroll depth).
+        POST /api/v1/articles/{slug}/analytics/ping-engagement/
+        Payload: { session_id: str, active_seconds: int, scroll_percentage: int }
+        """
+        article = self.get_object()
+        session_id = request.data.get("session_id")
+        if not session_id:
+            return Response(
+                {"detail": "Field 'session_id' is required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            active_seconds = int(request.data.get("active_seconds", 0) or 0)
+        except (ValueError, TypeError):
+            active_seconds = 0
+
+        try:
+            scroll_percent = int(request.data.get("scroll_percentage", request.data.get("scroll_depth_percent", 0)) or 0)
+        except (ValueError, TypeError):
+            scroll_percent = 0
+
+        scroll_percent = max(0, min(100, scroll_percent))
+        active_seconds = max(0, min(86400, active_seconds))
+
+        user = request.user if request.user and request.user.is_authenticated else None
+
+        session_obj, created = ArticleEngagementSession.objects.get_or_create(
+            article=article,
+            session_id=str(session_id)[:64],
+            defaults={
+                "user": user,
+                "active_seconds": active_seconds,
+                "scroll_depth_percent": scroll_percent,
+                "reached_25": scroll_percent >= 25,
+                "reached_50": scroll_percent >= 50,
+                "reached_75": scroll_percent >= 75,
+                "reached_100": scroll_percent >= 90,
+            },
+        )
+
+        if not created:
+            updated_fields = ["updated_at"]
+            if user and not session_obj.user:
+                session_obj.user = user
+                updated_fields.append("user")
+            if active_seconds > session_obj.active_seconds:
+                session_obj.active_seconds = active_seconds
+                updated_fields.append("active_seconds")
+            if scroll_percent > session_obj.scroll_depth_percent:
+                session_obj.scroll_depth_percent = scroll_percent
+                updated_fields.append("scroll_depth_percent")
+
+            if session_obj.scroll_depth_percent >= 25 and not session_obj.reached_25:
+                session_obj.reached_25 = True
+                updated_fields.append("reached_25")
+            if session_obj.scroll_depth_percent >= 50 and not session_obj.reached_50:
+                session_obj.reached_50 = True
+                updated_fields.append("reached_50")
+            if session_obj.scroll_depth_percent >= 75 and not session_obj.reached_75:
+                session_obj.reached_75 = True
+                updated_fields.append("reached_75")
+            if session_obj.scroll_depth_percent >= 90 and not session_obj.reached_100:
+                session_obj.reached_100 = True
+                updated_fields.append("reached_100")
+
+            session_obj.save(update_fields=updated_fields)
+
+        return Response(
+            {
+                "status": "success",
+                "session_id": session_obj.session_id,
+                "active_seconds": session_obj.active_seconds,
+                "scroll_depth_percent": session_obj.scroll_depth_percent,
+                "reached_100": session_obj.reached_100,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="analytics/engagement",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def engagement(self, request, slug=None):
+        """
+        Deep Article Analytics: Reading time and scroll depth drop-off funnel.
+        GET /api/v1/articles/{slug}/analytics/engagement/
+        Permission: Author of the article, Admins, or Reviewers.
+        """
+        article = self.get_object()
+
+        is_author = article.author_id == request.user.id
+        is_admin_or_reviewer = getattr(request.user, "role", "") in ["ADMIN", "REVIEWER"] or getattr(request.user, "is_admin", False)
+        if not (is_author or is_admin_or_reviewer):
+            return Response(
+                {"detail": "You do not have permission to view engagement metrics for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        sessions_qs = ArticleEngagementSession.objects.filter(article=article)
+        total_sessions = sessions_qs.count()
+
+        # Word count and estimated reading time (approx 200 words per minute)
+        raw_text = f"{article.title} {article.summary or ''} {article.content or ''}"
+        word_count = len(raw_text.split())
+        estimated_read_seconds = max(30, round((word_count / 200) * 60))
+
+        def format_duration(seconds):
+            if seconds < 60:
+                return f"{int(seconds)}s"
+            m = int(seconds // 60)
+            s = int(seconds % 60)
+            return f"{m}m {s}s" if s > 0 else f"{m}m"
+
+        if total_sessions == 0:
+            return Response(
+                {
+                    "article_slug": article.slug,
+                    "article_title": article.title,
+                    "estimated_read_seconds": estimated_read_seconds,
+                    "estimated_read_formatted": format_duration(estimated_read_seconds),
+                    "summary": {
+                        "total_readers": 0,
+                        "avg_read_seconds": 0,
+                        "avg_read_formatted": "0s",
+                        "completion_rate_percentage": 0,
+                        "retention_score": 0,
+                        "engagement_level": "No Data Yet",
+                        "primary_drop_off_stage": "N/A",
+                    },
+                    "funnel": [
+                        {"stage": "Started (0%)", "milestone": 0, "readers": 0, "percentage": 0, "drop_off_percentage": 0},
+                        {"stage": "Quarter Read (25%)", "milestone": 25, "readers": 0, "percentage": 0, "drop_off_percentage": 0},
+                        {"stage": "Halfway (50%)", "milestone": 50, "readers": 0, "percentage": 0, "drop_off_percentage": 0},
+                        {"stage": "Deep Read (75%)", "milestone": 75, "readers": 0, "percentage": 0, "drop_off_percentage": 0},
+                        {"stage": "Completed (100%)", "milestone": 100, "readers": 0, "percentage": 0, "drop_off_percentage": 0},
+                    ],
+                    "distribution": [
+                        {"bucket": "< 30s", "label": "Quick Skimmers", "count": 0, "percentage": 0},
+                        {"bucket": "30s - 2m", "label": "Casual Readers", "count": 0, "percentage": 0},
+                        {"bucket": "2m - 5m", "label": "Engaged Readers", "count": 0, "percentage": 0},
+                        {"bucket": "> 5m", "label": "Deep Focus", "count": 0, "percentage": 0},
+                    ],
+                    "recommendations": [
+                        "Share this article with teammates or post in relevant channels to start collecting engagement data."
+                    ],
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        avg_sec = sessions_qs.aggregate(avg=models.Avg("active_seconds"))["avg"] or 0
+        avg_active_seconds = round(avg_sec)
+
+        r25 = sessions_qs.filter(reached_25=True).count()
+        r50 = sessions_qs.filter(reached_50=True).count()
+        r75 = sessions_qs.filter(reached_75=True).count()
+        r100 = sessions_qs.filter(reached_100=True).count()
+
+        p0 = 100.0
+        p25 = round((r25 / total_sessions) * 100, 1)
+        p50 = round((r50 / total_sessions) * 100, 1)
+        p75 = round((r75 / total_sessions) * 100, 1)
+        p100 = round((r100 / total_sessions) * 100, 1)
+
+        drop_0_25 = round(p0 - p25, 1)
+        drop_25_50 = round(p25 - p50, 1)
+        drop_50_75 = round(p50 - p75, 1)
+        drop_75_100 = round(p75 - p100, 1)
+
+        funnel = [
+            {"stage": "Started (0%)", "milestone": 0, "readers": total_sessions, "percentage": p0, "drop_off_percentage": 0.0},
+            {"stage": "Quarter Read (25%)", "milestone": 25, "readers": r25, "percentage": p25, "drop_off_percentage": drop_0_25},
+            {"stage": "Halfway (50%)", "milestone": 50, "readers": r50, "percentage": p50, "drop_off_percentage": drop_25_50},
+            {"stage": "Deep Read (75%)", "milestone": 75, "readers": r75, "percentage": p75, "drop_off_percentage": drop_50_75},
+            {"stage": "Completed (100%)", "milestone": 100, "readers": r100, "percentage": p100, "drop_off_percentage": drop_75_100},
+        ]
+
+        drops = [
+            ("0% - 25% (Introduction)", drop_0_25),
+            ("25% - 50% (First Half)", drop_25_50),
+            ("50% - 75% (Core Sections)", drop_50_75),
+            ("75% - 100% (Conclusion / Runbook)", drop_75_100),
+        ]
+        drops.sort(key=lambda x: x[1], reverse=True)
+        primary_drop = drops[0][0] if drops[0][1] > 5 else "Even Retention"
+
+        c_under_30 = sessions_qs.filter(active_seconds__lt=30).count()
+        c_30_120 = sessions_qs.filter(active_seconds__gte=30, active_seconds__lt=120).count()
+        c_120_300 = sessions_qs.filter(active_seconds__gte=120, active_seconds__lt=300).count()
+        c_over_300 = sessions_qs.filter(active_seconds__gte=300).count()
+
+        distribution = [
+            {"bucket": "< 30s", "label": "Quick Skimmers", "count": c_under_30, "percentage": round((c_under_30 / total_sessions) * 100)},
+            {"bucket": "30s - 2m", "label": "Casual Readers", "count": c_30_120, "percentage": round((c_30_120 / total_sessions) * 100)},
+            {"bucket": "2m - 5m", "label": "Engaged Readers", "count": c_120_300, "percentage": round((c_120_300 / total_sessions) * 100)},
+            {"bucket": "> 5m", "label": "Deep Focus", "count": c_over_300, "percentage": round((c_over_300 / total_sessions) * 100)},
+        ]
+
+        retention_score = round((p25 * 0.15) + (p50 * 0.25) + (p75 * 0.3) + (p100 * 0.3))
+        if retention_score >= 75:
+            engagement_level = "Exceptional"
+        elif retention_score >= 55:
+            engagement_level = "Strong"
+        elif retention_score >= 35:
+            engagement_level = "Moderate"
+        else:
+            engagement_level = "Needs Improvement"
+
+        recommendations = []
+        if drop_0_25 > 25:
+            recommendations.append("High early drop-off: Consider sharpening the summary and placing key takeaways or a TL;DR right at the top.")
+        if drop_50_75 > 25:
+            recommendations.append("Mid-article drop-off: Add code blocks, visual tables, or subheadings to break up dense paragraphs in the middle.")
+        if p100 >= 60:
+            recommendations.append("Outstanding completion rate! Over 60% of readers reach the end of this guide.")
+        if not recommendations:
+            recommendations.append("Engagement is well-balanced across all sections. Keep updating content to maintain high reader retention.")
+
+        return Response(
+            {
+                "article_slug": article.slug,
+                "article_title": article.title,
+                "estimated_read_seconds": estimated_read_seconds,
+                "estimated_read_formatted": format_duration(estimated_read_seconds),
+                "summary": {
+                    "total_readers": total_sessions,
+                    "avg_read_seconds": avg_active_seconds,
+                    "avg_read_formatted": format_duration(avg_active_seconds),
+                    "completion_rate_percentage": p100,
+                    "retention_score": retention_score,
+                    "engagement_level": engagement_level,
+                    "primary_drop_off_stage": primary_drop,
+                },
+                "funnel": funnel,
+                "distribution": distribution,
+                "recommendations": recommendations,
             },
             status=status.HTTP_200_OK,
         )
