@@ -472,3 +472,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify each bucket object contains bucket range, label, reader count, and percentage
 
+### Verification Step 105: funnel(eng-095): verify sum of reader counts across 4 distribution buckets equals total_readers
+- **Timestamp**: 2026-11-15 12:47:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sum of reader counts across 4 distribution buckets equals total_readers
+
