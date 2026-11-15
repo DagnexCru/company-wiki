@@ -532,3 +532,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify activeseconds timer resumes immediately when reader returns to tab
 
+### Verification Step 117: hook(eng-107): verify scroll listener calculates scroll depth using documentElement scroll height
+- **Timestamp**: 2026-11-15 13:13:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify scroll listener calculates scroll depth using documentelement scroll height
+
