@@ -697,3 +697,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify each funnel row renders animated gradient progress bar proportional to percentage
 
+### Verification Step 150: modal(eng-140): verify funnel rows with positive drop-off display -X% drop badge in rose badge style
+- **Timestamp**: 2026-11-15 14:25:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify funnel rows with positive drop-off display -x% drop badge in rose badge style
+
