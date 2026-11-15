@@ -337,3 +337,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify primary_drop_off_stage flags 0-25% drop when early reader drop exceeds 5%
 
+### Verification Step 078: metrics(eng-068): verify primary_drop_off_stage flags 25-50% drop when first half reader drop is largest
+- **Timestamp**: 2026-11-15 11:49:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify primary_drop_off_stage flags 25-50% drop when first half reader drop is largest
+
