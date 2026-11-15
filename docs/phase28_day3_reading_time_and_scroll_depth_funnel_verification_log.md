@@ -632,3 +632,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify activetab state supports views, sentiment, and engagement options
 
+### Verification Step 137: modal(eng-127): verify tab navigation renders Reading Time & Scroll Funnel button with Clock icon
+- **Timestamp**: 2026-11-15 13:56:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify tab navigation renders reading time & scroll funnel button with clock icon
+
