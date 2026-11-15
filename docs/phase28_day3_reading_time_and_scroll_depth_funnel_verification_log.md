@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement returns 400 when session_id is omitted from payload
 
+### Verification Step 013: ingestion(eng-003): verify ping-engagement accepts integer active_seconds field
+- **Timestamp**: 2026-11-15 09:28:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement accepts integer active_seconds field
+
