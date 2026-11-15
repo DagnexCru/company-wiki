@@ -32,3 +32,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement caps active_seconds at 24 hours sanity limit
 
+### Verification Step 017: ingestion(eng-007): verify ping-engagement clamps scroll_percentage to minimum 0
+- **Timestamp**: 2026-11-15 09:36:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement clamps scroll_percentage to minimum 0
+
