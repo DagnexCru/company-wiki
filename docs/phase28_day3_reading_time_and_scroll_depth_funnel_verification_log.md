@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reviewer role receives 200 ok on engagement endpoint across all articles
 
+### Verification Step 042: permissions(eng-032): verify non-existent slug returns 404 Not Found on engagement endpoint
+- **Timestamp**: 2026-11-15 10:31:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify non-existent slug returns 404 not found on engagement endpoint
+
