@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify soft-deleted article engagement returns 404 not found
 
+### Verification Step 047: permissions(eng-037): verify anonymous user ping is accepted even when article is restricted to internal readers
+- **Timestamp**: 2026-11-15 10:41:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify anonymous user ping is accepted even when article is restricted to internal readers
+
