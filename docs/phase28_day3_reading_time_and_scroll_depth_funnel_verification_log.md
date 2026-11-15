@@ -52,3 +52,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement updates existing session when session_id matches
 
+### Verification Step 021: ingestion(eng-011): verify ping-engagement records user foreign key when reader is authenticated
+- **Timestamp**: 2026-11-15 09:45:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement records user foreign key when reader is authenticated
+
