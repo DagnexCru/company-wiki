@@ -20,11 +20,18 @@ import {
   HelpCircle,
   MessageSquare,
   Smile,
+  Clock,
+  Layers,
+  Award,
+  Zap,
+  BookOpen,
+  CheckCircle,
 } from "lucide-react";
 import { analyticsService } from "../services/analyticsService";
 import type {
   ArticleViewsTimelineResponse,
   ArticleSentimentResponse,
+  ArticleEngagementResponse,
 } from "../types/analytics";
 
 interface ArticleAnalyticsModalProps {
@@ -40,7 +47,7 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
   articleTitle,
   onClose,
 }) => {
-  const [activeTab, setActiveTab] = useState<"views" | "sentiment">("views");
+  const [activeTab, setActiveTab] = useState<"views" | "sentiment" | "engagement">("views");
 
   // Views Timeline State
   const [data, setData] = useState<ArticleViewsTimelineResponse | null>(null);
@@ -55,6 +62,11 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
   const [loadingSentiment, setLoadingSentiment] = useState<boolean>(false);
   const [sentimentError, setSentimentError] = useState<string | null>(null);
   const [feedbackFilter, setFeedbackFilter] = useState<"all" | "helpful" | "unhelpful">("all");
+
+  // Engagement State
+  const [engagementData, setEngagementData] = useState<ArticleEngagementResponse | null>(null);
+  const [loadingEngagement, setLoadingEngagement] = useState<boolean>(false);
+  const [engagementError, setEngagementError] = useState<string | null>(null);
 
   const fetchViews = useCallback(async () => {
     try {
@@ -82,15 +94,30 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
     }
   }, [articleSlug]);
 
+  const fetchEngagement = useCallback(async () => {
+    try {
+      setLoadingEngagement(true);
+      setEngagementError(null);
+      const res = await analyticsService.getEngagementAnalytics(articleSlug);
+      setEngagementData(res);
+    } catch {
+      setEngagementError("Unable to load engagement metrics. Please check your network and permissions.");
+    } finally {
+      setLoadingEngagement(false);
+    }
+  }, [articleSlug]);
+
   useEffect(() => {
     if (isOpen) {
       if (activeTab === "views") {
         fetchViews();
-      } else {
+      } else if (activeTab === "sentiment") {
         fetchSentiment();
+      } else if (activeTab === "engagement") {
+        fetchEngagement();
       }
     }
-  }, [isOpen, activeTab, fetchViews, fetchSentiment]);
+  }, [isOpen, activeTab, fetchViews, fetchSentiment, fetchEngagement]);
 
   const maxViews = useMemo(() => {
     if (!data || data.timeline.length === 0) return 1;
@@ -146,13 +173,17 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
           <div className="flex items-center gap-2 self-end sm:self-auto">
             <button
               type="button"
-              onClick={activeTab === "views" ? fetchViews : fetchSentiment}
-              disabled={loadingViews || loadingSentiment}
+              onClick={() => {
+                if (activeTab === "views") fetchViews();
+                else if (activeTab === "sentiment") fetchSentiment();
+                else if (activeTab === "engagement") fetchEngagement();
+              }}
+              disabled={loadingViews || loadingSentiment || loadingEngagement}
               title="Refresh metrics"
               className="p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition"
             >
               <RefreshCw
-                className={`w-4 h-4 ${loadingViews || loadingSentiment ? "animate-spin" : ""}`}
+                className={`w-4 h-4 ${loadingViews || loadingSentiment || loadingEngagement ? "animate-spin" : ""}`}
               />
             </button>
 
@@ -167,31 +198,43 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
         </div>
 
         {/* Primary Tab Navigation */}
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => setActiveTab("views")}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
                 activeTab === "views"
                   ? "bg-indigo-600 text-white shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
               <BarChart2 className="w-3.5 h-3.5" />
-              <span>Traffic & Views Timeline</span>
+              <span>Traffic & Views</span>
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("sentiment")}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
                 activeTab === "sentiment"
                   ? "bg-rose-600 text-white shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
               <Heart className="w-3.5 h-3.5" />
-              <span>Reader Sentiment & Feedback</span>
+              <span>Reader Sentiment</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("engagement")}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                activeTab === "engagement"
+                  ? "bg-amber-600 text-white shadow-xs"
+                  : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+              }`}
+            >
+              <Clock className="w-3.5 h-3.5" />
+              <span>Reading Time & Scroll Funnel</span>
             </button>
           </div>
 
@@ -791,6 +834,210 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
                       ))}
                     </div>
                   )}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* TAB 3: READING TIME & SCROLL DEPTH FUNNEL */}
+        {activeTab === "engagement" && (
+          <div className="space-y-6">
+            {loadingEngagement ? (
+              <div className="py-20 text-center space-y-3">
+                <div className="w-9 h-9 border-3 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto" />
+                <p className="text-xs text-slate-500">Analyzing reading sessions and scroll depth telemetry...</p>
+              </div>
+            ) : engagementError || !engagementData ? (
+              <div className="py-12 text-center space-y-3">
+                <p className="text-sm font-semibold text-rose-600">{engagementError || "No engagement data available."}</p>
+                <button
+                  type="button"
+                  onClick={fetchEngagement}
+                  className="px-4 py-2 rounded-xl bg-amber-600 text-white text-xs font-semibold"
+                >
+                  Try Again
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* 4 Summary KPI Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/40 space-y-1">
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                      <span>Avg Reading Time</span>
+                      <Clock className="w-3.5 h-3.5 text-amber-500" />
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                      {engagementData.summary.avg_read_formatted}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Target: ~<strong className="text-slate-700 dark:text-slate-300">{engagementData.estimated_read_formatted}</strong>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40 space-y-1">
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                      <span>Completion Rate</span>
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                      {engagementData.summary.completion_rate_percentage}%
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                      {engagementData.funnel[4]?.readers || 0} completed readers
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 space-y-1">
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                      <span>Retention Score</span>
+                      <Award className="w-3.5 h-3.5 text-indigo-500" />
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                      {engagementData.summary.retention_score}<span className="text-xs font-semibold text-slate-500">/100</span>
+                    </div>
+                    <div className="text-[11px] text-indigo-600 dark:text-indigo-400 font-semibold truncate">
+                      {engagementData.summary.engagement_level}
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-100 dark:border-purple-900/40 space-y-1">
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                      <span>Main Drop-off Stage</span>
+                      <TrendingDown className="w-3.5 h-3.5 text-purple-500" />
+                    </div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white truncate">
+                      {engagementData.summary.primary_drop_off_stage}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Funnel Drop Analysis
+                    </div>
+                  </div>
+                </div>
+
+                {/* SCROLL-DEPTH DROP-OFF FUNNEL */}
+                <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                        <Layers className="w-3.5 h-3.5 text-amber-500" />
+                        Reader Scroll-Depth Funnel
+                      </h4>
+                      <p className="text-[11px] text-slate-500 mt-0.5">
+                        Track how far readers scroll through the article before navigating away
+                      </p>
+                    </div>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
+                      {engagementData.summary.total_readers} Total Sessions
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 pt-2">
+                    {engagementData.funnel.map((stage, idx) => {
+                      const colorVariants = [
+                        "from-blue-500 to-indigo-600",
+                        "from-indigo-500 to-purple-600",
+                        "from-purple-500 to-pink-600",
+                        "from-amber-500 to-orange-600",
+                        "from-emerald-500 to-teal-600",
+                      ];
+                      const gradient = colorVariants[idx % colorVariants.length];
+
+                      return (
+                        <div key={stage.stage} className="space-y-1.5">
+                          <div className="flex items-center justify-between text-xs">
+                            <div className="flex items-center gap-2">
+                              <span className="w-5 h-5 rounded-md bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-black text-[10px] flex items-center justify-center">
+                                {idx + 1}
+                              </span>
+                              <span className="font-semibold text-slate-800 dark:text-slate-200">
+                                {stage.stage}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2.5">
+                              {stage.drop_off_percentage > 0 && (
+                                <span className="text-[10px] font-bold text-rose-500 bg-rose-50 dark:bg-rose-950/40 px-1.5 py-0.5 rounded">
+                                  -{stage.drop_off_percentage}% drop
+                                </span>
+                              )}
+                              <span className="text-slate-500 font-medium">
+                                {stage.readers} readers
+                              </span>
+                              <span className="font-bold text-slate-900 dark:text-white w-12 text-right">
+                                {stage.percentage}%
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
+                            <div
+                              className={`h-full rounded-full bg-gradient-to-r ${gradient} transition-all duration-700 ease-out`}
+                              style={{ width: `${Math.max(stage.percentage, 2)}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* READING TIME DISTRIBUTION & OPTIMIZATION RECOMMENDATIONS */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Reading Time Distribution */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 space-y-3">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                      <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                      Active Reading Time Distribution
+                    </h4>
+                    <p className="text-[11px] text-slate-500">
+                      Breakdown of active focus time spent reading
+                    </p>
+
+                    <div className="space-y-2.5 pt-1">
+                      {engagementData.distribution.map((bucket) => (
+                        <div key={bucket.bucket} className="space-y-1">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="font-semibold text-slate-700 dark:text-slate-300">
+                              {bucket.label} <span className="text-slate-400 text-[11px]">({bucket.bucket})</span>
+                            </span>
+                            <span className="font-bold text-slate-900 dark:text-white">
+                              {bucket.count} ({bucket.percentage}%)
+                            </span>
+                          </div>
+                          <div className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-indigo-500 dark:bg-indigo-400 rounded-full transition-all duration-500"
+                              style={{ width: `${bucket.percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Recommendations */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-indigo-50/40 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 space-y-3">
+                    <h4 className="text-xs font-bold text-indigo-900 dark:text-indigo-300 uppercase tracking-wider flex items-center gap-2">
+                      <Zap className="w-3.5 h-3.5 text-amber-500" />
+                      Author Recommendations & Insights
+                    </h4>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Data-driven tips to optimize reader retention and clarity
+                    </p>
+
+                    <div className="space-y-2 pt-1">
+                      {engagementData.recommendations.map((rec, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/70 dark:bg-slate-900/60 border border-indigo-100 dark:border-indigo-900/30 text-xs text-slate-700 dark:text-slate-300"
+                        >
+                          <span className="text-amber-500 font-bold shrink-0 mt-0.5">💡</span>
+                          <span className="leading-relaxed">{rec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </>
             )}
