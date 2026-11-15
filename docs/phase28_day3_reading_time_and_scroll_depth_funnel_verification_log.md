@@ -72,3 +72,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement updates active_seconds only when new value exceeds current
 
+### Verification Step 025: ingestion(eng-015): verify ping-engagement updates scroll_depth_percent only when new depth exceeds current
+- **Timestamp**: 2026-11-15 09:54:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement updates scroll_depth_percent only when new depth exceeds current
+
