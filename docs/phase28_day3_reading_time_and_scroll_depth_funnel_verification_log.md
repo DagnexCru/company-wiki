@@ -667,3 +667,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify kpi card 3 renders retention score out of 100 with award icon
 
+### Verification Step 144: modal(eng-134): verify KPI card 4 renders Primary Drop-off Stage with TrendingDown icon
+- **Timestamp**: 2026-11-15 14:12:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify kpi card 4 renders primary drop-off stage with trendingdown icon
+
