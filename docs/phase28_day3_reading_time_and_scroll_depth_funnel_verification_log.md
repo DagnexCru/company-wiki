@@ -187,3 +187,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify anonymous user ping is accepted even when article is restricted to internal readers
 
+### Verification Step 048: permissions(eng-038): verify authenticated user ping does not require author permissions
+- **Timestamp**: 2026-11-15 10:44:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify authenticated user ping does not require author permissions
+
