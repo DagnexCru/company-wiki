@@ -77,3 +77,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement updates scroll_depth_percent only when new depth exceeds current
 
+### Verification Step 026: ingestion(eng-016): verify reached_25 flag is set to True when scroll depth reaches 25%
+- **Timestamp**: 2026-11-15 09:56:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reached_25 flag is set to true when scroll depth reaches 25%
+
