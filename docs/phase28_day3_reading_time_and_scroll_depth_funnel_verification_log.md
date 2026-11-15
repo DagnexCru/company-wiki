@@ -127,3 +127,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement response payload contains reached_100 boolean status
 
+### Verification Step 036: permissions(eng-026): verify GET /articles/{slug}/analytics/engagement/ requires authentication (401)
+- **Timestamp**: 2026-11-15 10:18:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify get /articles/{slug}/analytics/engagement/ requires authentication (401)
+
