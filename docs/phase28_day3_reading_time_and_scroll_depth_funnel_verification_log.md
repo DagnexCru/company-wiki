@@ -252,3 +252,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify avg_read_formatted renders format 45s for durations under 60 seconds
 
+### Verification Step 061: metrics(eng-051): verify avg_read_formatted renders format 3m for exact 180 seconds without remainder
+- **Timestamp**: 2026-11-15 11:12:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify avg_read_formatted renders format 3m for exact 180 seconds without remainder
+
