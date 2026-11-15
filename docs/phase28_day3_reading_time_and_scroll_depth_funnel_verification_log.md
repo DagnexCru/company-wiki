@@ -777,3 +777,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify manage.py test apps.articles.tests_analytics runs all 17 tests with ok outcome
 
+### Verification Step 166: qa(eng-156): verify test_ping_engagement_unauthenticated_and_authenticated passes cleanly
+- **Timestamp**: 2026-11-15 14:59:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify test_ping_engagement_unauthenticated_and_authenticated passes cleanly
+
