@@ -47,3 +47,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement creates articleengagementsession with unique article and session_id
 
+### Verification Step 020: ingestion(eng-010): verify ping-engagement updates existing session when session_id matches
+- **Timestamp**: 2026-11-15 09:43:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement updates existing session when session_id matches
+
