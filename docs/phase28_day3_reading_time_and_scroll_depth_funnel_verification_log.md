@@ -97,3 +97,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reached_100 flag is set to true when scroll depth reaches 90%
 
+### Verification Step 030: ingestion(eng-020): verify reached flags remain True even if reader scrolls back to top
+- **Timestamp**: 2026-11-15 10:05:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify reached flags remain true even if reader scrolls back to top
+
