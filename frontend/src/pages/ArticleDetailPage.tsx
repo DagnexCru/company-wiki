@@ -45,6 +45,7 @@ import { SopCertificateModal } from "../components/SopCertificateModal";
 import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
+import { useReaderEngagement } from "../hooks/useReaderEngagement";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
@@ -59,6 +60,12 @@ export const ArticleDetailPage: React.FC = () => {
   const { viewers, activeCount, editLock } = useArticlePresence({
     slugOrId: slug,
     mode: "viewing",
+  });
+
+  // Real-Time Reader Reading Time & Scroll-Depth Telemetry
+  useReaderEngagement({
+    slug,
+    enabled: Boolean(slug),
   });
 
   const [article, setArticle] = useState<ArticleDetail | null>(null);
