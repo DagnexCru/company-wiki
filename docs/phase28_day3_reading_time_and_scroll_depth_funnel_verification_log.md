@@ -597,3 +597,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify hook cleanup cancels pending requestanimationframe callback
 
+### Verification Step 130: hook(eng-120): verify hook cleanup removes beforeunload and pagehide event listeners
+- **Timestamp**: 2026-11-15 13:41:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hook cleanup removes beforeunload and pagehide event listeners
+
