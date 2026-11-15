@@ -827,3 +827,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleengagementsession indexes on article, updated_at, and scroll_depth_percent
 
+### Verification Step 176: qa(eng-166): verify backend migration 0013 applies cleanly on clean database
+- **Timestamp**: 2026-11-15 15:21:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify backend migration 0013 applies cleanly on clean database
+
