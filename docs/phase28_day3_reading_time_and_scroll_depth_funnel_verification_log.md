@@ -557,3 +557,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sendping transmits current session_id, active_seconds, and scroll_percentage
 
+### Verification Step 122: hook(eng-112): verify sendPing skips transmission if active seconds and scroll depth have not changed
+- **Timestamp**: 2026-11-15 13:24:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sendping skips transmission if active seconds and scroll depth have not changed
+
