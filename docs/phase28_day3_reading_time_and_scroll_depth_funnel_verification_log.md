@@ -547,3 +547,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify scroll listener uses requestanimationframe to throttle scroll recalculations
 
+### Verification Step 120: hook(eng-110): verify maxScrollDepth monotonically increases and never decreases on upward scroll
+- **Timestamp**: 2026-11-15 13:20:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify maxscrolldepth monotonically increases and never decreases on upward scroll
+
