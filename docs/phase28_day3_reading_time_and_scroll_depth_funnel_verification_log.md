@@ -792,3 +792,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify test_engagement_metrics_permissions validates 401, 403, and 200 responses
 
+### Verification Step 169: qa(eng-159): verify test_engagement_metrics_calculations validates funnel percentages and retention score
+- **Timestamp**: 2026-11-15 15:06:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify test_engagement_metrics_calculations validates funnel percentages and retention score
+
