@@ -552,3 +552,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify maxscrolldepth monotonically increases and never decreases on upward scroll
 
+### Verification Step 121: hook(eng-111): verify sendPing transmits current session_id, active_seconds, and scroll_percentage
+- **Timestamp**: 2026-11-15 13:22:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sendping transmits current session_id, active_seconds, and scroll_percentage
+
