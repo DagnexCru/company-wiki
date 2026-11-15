@@ -747,3 +747,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify responsive grid layouts collapse gracefully on mobile screens
 
+### Verification Step 160: modal(eng-150): verify modal close button dismisses analytics modal and unmounts telemetry
+- **Timestamp**: 2026-11-15 14:46:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify modal close button dismisses analytics modal and unmounts telemetry
+
