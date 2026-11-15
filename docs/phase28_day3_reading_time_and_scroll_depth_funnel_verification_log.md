@@ -452,3 +452,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify bucket 1 represents quick skimmers (< 30s)
 
+### Verification Step 101: funnel(eng-091): verify bucket 2 represents Casual Readers (30s - 2m)
+- **Timestamp**: 2026-11-15 12:38:50 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify bucket 2 represents casual readers (30s - 2m)
+
