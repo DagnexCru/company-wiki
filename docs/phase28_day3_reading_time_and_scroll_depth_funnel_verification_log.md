@@ -57,3 +57,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement records user foreign key when reader is authenticated
 
+### Verification Step 022: ingestion(eng-012): verify ping-engagement leaves user null when reader is anonymous
+- **Timestamp**: 2026-11-15 09:47:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement leaves user null when reader is anonymous
+
