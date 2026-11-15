@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify stage 3 drop_off_percentage equals stage 2 percentage minus stage 3 percentage
 
+### Verification Step 097: funnel(eng-087): verify stage 4 drop_off_percentage equals stage 3 percentage minus stage 4 percentage
+- **Timestamp**: 2026-11-15 12:30:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify stage 4 drop_off_percentage equals stage 3 percentage minus stage 4 percentage
+
