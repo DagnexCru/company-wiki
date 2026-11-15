@@ -27,3 +27,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement accepts scroll_depth_percent alternative field name
 
+### Verification Step 016: ingestion(eng-006): verify ping-engagement caps active_seconds at 24 hours sanity limit
+- **Timestamp**: 2026-11-15 09:34:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement caps active_seconds at 24 hours sanity limit
+
