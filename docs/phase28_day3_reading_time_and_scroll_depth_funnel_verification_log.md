@@ -562,3 +562,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sendping skips transmission if active seconds and scroll depth have not changed
 
+### Verification Step 123: hook(eng-113): verify initial ping is sent after 3 seconds of initial reading to record early arrival
+- **Timestamp**: 2026-11-15 13:26:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify initial ping is sent after 3 seconds of initial reading to record early arrival
+
