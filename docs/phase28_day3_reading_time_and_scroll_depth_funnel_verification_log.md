@@ -642,3 +642,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify clicking reading time tab activates engagement view and initiates data fetch
 
+### Verification Step 139: modal(eng-129): verify loading spinner is displayed while engagement metrics are loading
+- **Timestamp**: 2026-11-15 14:01:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify loading spinner is displayed while engagement metrics are loading
+
