@@ -162,3 +162,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify non-existent slug returns 404 not found on engagement endpoint
 
+### Verification Step 043: permissions(eng-033): verify unpublished draft article engagement is restricted to author and admin
+- **Timestamp**: 2026-11-15 10:33:10 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unpublished draft article engagement is restricted to author and admin
+
