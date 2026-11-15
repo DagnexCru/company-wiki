@@ -64,3 +64,54 @@ export interface ArticleSentimentResponse {
   recent_feedbacks: ReaderFeedbackItem[];
 }
 
+export interface EngagementFunnelStage {
+  stage: string;
+  milestone: number;
+  readers: number;
+  percentage: number;
+  drop_off_percentage: number;
+}
+
+export interface EngagementDistributionBucket {
+  bucket: string;
+  label: string;
+  count: number;
+  percentage: number;
+}
+
+export interface ArticleEngagementSummary {
+  total_readers: number;
+  avg_read_seconds: number;
+  avg_read_formatted: string;
+  completion_rate_percentage: number;
+  retention_score: number;
+  engagement_level: string;
+  primary_drop_off_stage: string;
+}
+
+export interface ArticleEngagementResponse {
+  article_slug: string;
+  article_title: string;
+  estimated_read_seconds: number;
+  estimated_read_formatted: string;
+  summary: ArticleEngagementSummary;
+  funnel: EngagementFunnelStage[];
+  distribution: EngagementDistributionBucket[];
+  recommendations: string[];
+}
+
+export interface PingEngagementPayload {
+  session_id: string;
+  active_seconds: number;
+  scroll_percentage: number;
+}
+
+export interface PingEngagementResponse {
+  status: string;
+  session_id: string;
+  active_seconds: number;
+  scroll_depth_percent: number;
+  reached_100: boolean;
+}
+
+
