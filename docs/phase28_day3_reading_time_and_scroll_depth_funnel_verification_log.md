@@ -587,3 +587,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify pagehide event listener flushes final engagement ping on mobile navigation
 
+### Verification Step 128: hook(eng-118): verify hook cleanup on unmount flushes final ping and clears intervals
+- **Timestamp**: 2026-11-15 13:37:20 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify hook cleanup on unmount flushes final ping and clears intervals
+
