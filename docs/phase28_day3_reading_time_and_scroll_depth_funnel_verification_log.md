@@ -117,3 +117,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify ping-engagement response payload contains updated active_seconds
 
+### Verification Step 034: ingestion(eng-024): verify ping-engagement response payload contains updated scroll_depth_percent
+- **Timestamp**: 2026-11-15 10:13:40 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify ping-engagement response payload contains updated scroll_depth_percent
+
