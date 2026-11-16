@@ -114,4 +114,59 @@ export interface PingEngagementResponse {
   reached_100: boolean;
 }
 
+export interface AuthorArticleLeaderboardItem {
+  id: string;
+  title: string;
+  slug: string;
+  status: string;
+  category_name: string;
+  category_slug: string;
+  view_count: number;
+  helpful_count: number;
+  unhelpful_count: number;
+  helpfulness_score: number;
+  total_reading_seconds: number;
+  avg_reading_seconds: number;
+  avg_reading_formatted: string;
+  reading_sessions_count: number;
+  completion_rate_percentage: number;
+  created_at: string;
+  updated_at: string;
+  published_at: string | null;
+  rank: number;
+}
+
+export interface AuthorPortfolioSummary {
+  total_articles: number;
+  published_articles: number;
+  draft_articles: number;
+  in_review_articles: number;
+  total_portfolio_views: number;
+  total_unique_readers: number;
+  views_last_7_days: number;
+  average_helpfulness_score: number;
+  total_helpful_votes: number;
+  total_unhelpful_votes: number;
+  total_reading_hours: number;
+  total_reading_seconds: number;
+  avg_reading_formatted: string;
+  top_performing_category: string;
+}
+
+export interface AuthorPortfolioAuthorInfo {
+  id: string;
+  username: string;
+  full_name: string;
+  email: string;
+  role: string;
+}
+
+export interface AuthorAnalyticsOverviewResponse {
+  author: AuthorPortfolioAuthorInfo;
+  summary: AuthorPortfolioSummary;
+  sort_by: string;
+  top_articles: AuthorArticleLeaderboardItem[];
+}
+
+
 
