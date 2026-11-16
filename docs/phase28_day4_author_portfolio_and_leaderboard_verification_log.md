@@ -422,3 +422,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify rank column displays bronze medal for rank 3
 
+### Verification Step 095: table(author-hub-085): verify Rank column displays #N badge for rank 4 and higher
+- **Timestamp**: 2026-11-16 12:19:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify rank column displays #n badge for rank 4 and higher
+
