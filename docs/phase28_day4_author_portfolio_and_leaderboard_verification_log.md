@@ -502,3 +502,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify clicking deep analytics button opens articleanalyticsmodal for that article
 
+### Verification Step 111: table(author-hub-101): verify ArticleAnalyticsModal receives correct articleSlug and articleTitle
+- **Timestamp**: 2026-11-16 12:53:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleanalyticsmodal receives correct articleslug and articletitle
+
