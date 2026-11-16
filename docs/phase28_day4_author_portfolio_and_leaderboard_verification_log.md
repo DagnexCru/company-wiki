@@ -82,3 +82,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_unique_readers aggregates distinct users and sessions from articleviewlog
 
+### Verification Step 027: api(author-hub-017): verify views_last_7_days filters view logs recorded within the last seven days
+- **Timestamp**: 2026-11-16 09:56:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify views_last_7_days filters view logs recorded within the last seven days
+
