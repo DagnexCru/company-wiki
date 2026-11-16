@@ -382,3 +382,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify empty author state displays create new article button linking to /articles/new
 
+### Verification Step 087: hub(author-hub-077): verify loading spinner is centered during initial API fetch
+- **Timestamp**: 2026-11-16 12:02:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify loading spinner is centered during initial api fetch
+
