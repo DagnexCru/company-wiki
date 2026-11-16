@@ -222,3 +222,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify completion_rate_percentage is 0.0 when article has no engagement sessions
 
+### Verification Step 055: leaderboard(author-hub-045): verify published_at is null for draft articles in leaderboard
+- **Timestamp**: 2026-11-16 10:55:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify published_at is null for draft articles in leaderboard
+
