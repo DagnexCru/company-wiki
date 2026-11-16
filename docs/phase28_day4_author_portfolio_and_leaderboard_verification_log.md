@@ -102,3 +102,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_unhelpful_votes sums all negative reader feedbacks across author guides
 
+### Verification Step 031: api(author-hub-021): verify total_reading_seconds sums active seconds from ArticleEngagementSession
+- **Timestamp**: 2026-11-16 10:05:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_reading_seconds sums active seconds from articleengagementsession
+
