@@ -77,3 +77,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_portfolio_views sums view_count across all authored articles
 
+### Verification Step 026: api(author-hub-016): verify total_unique_readers aggregates distinct users and sessions from ArticleViewLog
+- **Timestamp**: 2026-11-16 09:54:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_unique_readers aggregates distinct users and sessions from articleviewlog
+
