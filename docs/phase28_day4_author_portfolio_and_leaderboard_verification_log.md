@@ -37,3 +37,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response payload contains author object with id, username, email, and role
 
+### Verification Step 018: api(author-hub-008): verify response payload contains summary object with portfolio aggregates
+- **Timestamp**: 2026-11-16 09:37:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify response payload contains summary object with portfolio aggregates
+
