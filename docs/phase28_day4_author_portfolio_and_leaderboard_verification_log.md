@@ -657,3 +657,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify get /api/v1/analytics/author-overview/ returns 200 on running django server
 
+### Verification Step 142: qa(author-hub-132): verify GET /api/v1/articles/analytics/author-overview/ returns 200 on running Django server
+- **Timestamp**: 2026-11-16 13:58:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify get /api/v1/articles/analytics/author-overview/ returns 200 on running django server
+
