@@ -22,3 +22,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify reviewer can inspect other authors portfolio via author_id query parameter
 
+### Verification Step 015: api(author-hub-005): verify invalid author_id returns 404 Not Found error response
+- **Timestamp**: 2026-11-16 09:31:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify invalid author_id returns 404 not found error response
+
