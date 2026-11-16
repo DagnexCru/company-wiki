@@ -5,6 +5,7 @@ import type {
   ArticleEngagementResponse,
   PingEngagementPayload,
   PingEngagementResponse,
+  AuthorAnalyticsOverviewResponse,
 } from "../types/analytics";
 
 export const analyticsService = {
@@ -58,6 +59,25 @@ export const analyticsService = {
   async getEngagementAnalytics(slug: string): Promise<ArticleEngagementResponse> {
     const response = await api.get<ArticleEngagementResponse>(
       `/articles/${slug}/analytics/engagement/`
+    );
+    return response.data;
+  },
+
+  /**
+   * Fetch author portfolio overview, cumulative impact metrics, and ranked leaderboard.
+   * GET /api/v1/analytics/author-overview/?sort_by=views|rating|reading_time|recent&author_id=...
+   */
+  async getAuthorOverview(
+    sortBy: "views" | "rating" | "reading_time" | "recent" = "views",
+    authorId?: string
+  ): Promise<AuthorAnalyticsOverviewResponse> {
+    const params: Record<string, string> = { sort_by: sortBy };
+    if (authorId) {
+      params.author_id = authorId;
+    }
+    const response = await api.get<AuthorAnalyticsOverviewResponse>(
+      `/analytics/author-overview/`,
+      { params }
     );
     return response.data;
   },
