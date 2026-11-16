@@ -572,3 +572,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify unauthenticated user attempting /analytics is redirected to /login
 
+### Verification Step 125: nav(author-hub-115): verify /analytics page is wrapped inside MainLayout
+- **Timestamp**: 2026-11-16 13:22:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify /analytics page is wrapped inside mainlayout
+
