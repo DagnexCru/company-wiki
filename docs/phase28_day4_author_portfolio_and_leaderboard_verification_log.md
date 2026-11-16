@@ -397,3 +397,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify retry button in error callout triggers fresh overview fetch
 
+### Verification Step 090: hub(author-hub-080): verify leaderboard header displays count of filtered vs total articles
+- **Timestamp**: 2026-11-16 12:09:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify leaderboard header displays count of filtered vs total articles
+
