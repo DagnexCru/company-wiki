@@ -582,3 +582,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify mainlayout header and sidebar render correctly on /analytics
 
+### Verification Step 127: nav(author-hub-117): verify AskWiki AI drawer remains accessible from /analytics
+- **Timestamp**: 2026-11-16 13:26:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify askwiki ai drawer remains accessible from /analytics
+
