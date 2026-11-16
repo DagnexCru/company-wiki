@@ -507,3 +507,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleanalyticsmodal receives correct articleslug and articletitle
 
+### Verification Step 112: table(author-hub-102): verify ArticleAnalyticsModal closes cleanly when dismissed
+- **Timestamp**: 2026-11-16 12:55:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify articleanalyticsmodal closes cleanly when dismissed
+
