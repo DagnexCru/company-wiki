@@ -347,3 +347,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sorting tab recently updated sets sortby to recent
 
+### Verification Step 080: hub(author-hub-070): verify active sorting tab is highlighted with indigo background and white text
+- **Timestamp**: 2026-11-16 11:48:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify active sorting tab is highlighted with indigo background and white text
+
