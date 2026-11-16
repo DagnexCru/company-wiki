@@ -197,3 +197,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify rank 1 article receives highest placement across leaderboard
 
+### Verification Step 050: leaderboard(author-hub-040): verify unpublished draft articles appear in author leaderboard with draft badge
+- **Timestamp**: 2026-11-16 10:45:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unpublished draft articles appear in author leaderboard with draft badge
+
