@@ -482,3 +482,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpful column renders slate text when score is below 60%
 
+### Verification Step 107: table(author-hub-097): verify Read Time column displays avg_reading_formatted and session count
+- **Timestamp**: 2026-11-16 12:44:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify read time column displays avg_reading_formatted and session count
+
