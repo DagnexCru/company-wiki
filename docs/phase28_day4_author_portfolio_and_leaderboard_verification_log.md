@@ -227,3 +227,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify published_at is null for draft articles in leaderboard
 
+### Verification Step 056: leaderboard(author-hub-046): verify total_reading_seconds reflects cumulative engagement across all readers
+- **Timestamp**: 2026-11-16 10:57:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_reading_seconds reflects cumulative engagement across all readers
+
