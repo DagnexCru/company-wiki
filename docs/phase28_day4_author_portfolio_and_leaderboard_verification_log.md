@@ -522,3 +522,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify table row displays hover background styling
 
+### Verification Step 115: table(author-hub-105): verify table scrolls horizontally on small mobile viewports
+- **Timestamp**: 2026-11-16 13:01:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify table scrolls horizontally on small mobile viewports
+
