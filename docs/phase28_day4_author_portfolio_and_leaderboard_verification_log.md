@@ -497,3 +497,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify deep analytics button renders with barchart2 icon
 
+### Verification Step 110: table(author-hub-100): verify clicking Deep Analytics button opens ArticleAnalyticsModal for that article
+- **Timestamp**: 2026-11-16 12:51:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify clicking deep analytics button opens articleanalyticsmodal for that article
+
