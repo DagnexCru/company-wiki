@@ -137,3 +137,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify top_articles items contain view_count, helpful_count, unhelpful_count, and helpfulness_score
 
+### Verification Step 038: leaderboard(author-hub-028): verify top_articles items contain total_reading_seconds, avg_reading_seconds, and avg_reading_formatted
+- **Timestamp**: 2026-11-16 10:19:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify top_articles items contain total_reading_seconds, avg_reading_seconds, and avg_reading_formatted
+
