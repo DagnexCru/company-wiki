@@ -18,6 +18,7 @@ import { ArticleRevisionHistoryPage } from "./pages/ArticleRevisionHistoryPage";
 import { AuditLogPage } from "./pages/AuditLogPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { KnowledgeGraphPage } from "./pages/KnowledgeGraphPage";
+import { AuthorAnalyticsPage } from "./pages/AuthorAnalyticsPage";
 
 export function App() {
   return (
@@ -54,6 +55,16 @@ export function App() {
               <ProtectedRoute>
                 <MainLayout>
                   <ProfilePage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/analytics"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <AuthorAnalyticsPage />
                 </MainLayout>
               </ProtectedRoute>
             }
