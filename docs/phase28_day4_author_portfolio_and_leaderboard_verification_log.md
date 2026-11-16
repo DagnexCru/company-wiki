@@ -812,3 +812,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify leaderboard tiebreaking logic for view counts and ratings
 
+### Verification Step 173: docs(author-hub-163): verify security model restricting author_id filtering to Admins and Reviewers
+- **Timestamp**: 2026-11-16 15:03:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify security model restricting author_id filtering to admins and reviewers
+
