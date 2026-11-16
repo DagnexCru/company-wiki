@@ -567,3 +567,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify app router maps /analytics under protectedroute guard
 
+### Verification Step 124: nav(author-hub-114): verify unauthenticated user attempting /analytics is redirected to /login
+- **Timestamp**: 2026-11-16 13:20:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unauthenticated user attempting /analytics is redirected to /login
+
