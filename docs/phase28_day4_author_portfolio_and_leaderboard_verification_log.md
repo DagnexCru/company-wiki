@@ -27,3 +27,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify invalid author_id returns 404 not found error response
 
+### Verification Step 016: api(author-hub-006): verify non-admin user passing author_id is scoped to their own account
+- **Timestamp**: 2026-11-16 09:33:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify non-admin user passing author_id is scoped to their own account
+
