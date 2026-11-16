@@ -177,3 +177,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sort_by rating breaks ties with view_count
 
+### Verification Step 046: leaderboard(author-hub-036): verify sort_by reading_time orders articles by total_reading_seconds descending
+- **Timestamp**: 2026-11-16 10:36:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sort_by reading_time orders articles by total_reading_seconds descending
+
