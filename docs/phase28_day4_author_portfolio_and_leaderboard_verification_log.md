@@ -67,3 +67,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify draft_articles accurately counts articles with draft status
 
+### Verification Step 024: api(author-hub-014): verify in_review_articles accurately counts articles with IN_REVIEW status
+- **Timestamp**: 2026-11-16 09:50:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify in_review_articles accurately counts articles with in_review status
+
