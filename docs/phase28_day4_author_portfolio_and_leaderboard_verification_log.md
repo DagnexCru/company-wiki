@@ -392,3 +392,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify error callout is displayed when overview api call fails
 
+### Verification Step 089: hub(author-hub-079): verify retry button in error callout triggers fresh overview fetch
+- **Timestamp**: 2026-11-16 12:06:54 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify retry button in error callout triggers fresh overview fetch
+
