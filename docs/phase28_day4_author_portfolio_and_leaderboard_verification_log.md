@@ -842,3 +842,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify database indexing on article author and status fields
 
+### Verification Step 179: docs(author-hub-169): verify database indexing on ArticleViewLog viewed_at field for 7-day trend
+- **Timestamp**: 2026-11-16 15:15:54 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify database indexing on articleviewlog viewed_at field for 7-day trend
+
