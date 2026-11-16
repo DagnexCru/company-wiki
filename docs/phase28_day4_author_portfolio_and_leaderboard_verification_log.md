@@ -617,3 +617,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify deep analytics modal launched from leaderboard displays reading time tab
 
+### Verification Step 134: nav(author-hub-124): verify closing deep analytics modal returns focus to leaderboard row
+- **Timestamp**: 2026-11-16 13:41:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify closing deep analytics modal returns focus to leaderboard row
+
