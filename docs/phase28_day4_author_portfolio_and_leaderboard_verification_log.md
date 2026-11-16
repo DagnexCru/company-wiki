@@ -237,3 +237,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpfulness_score reflects percentage of positive votes
 
+### Verification Step 058: leaderboard(author-hub-048): verify unhelpful_count correctly increments when negative vote is recorded
+- **Timestamp**: 2026-11-16 11:01:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify unhelpful_count correctly increments when negative vote is recorded
+
