@@ -432,3 +432,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify article title column renders clickable link navigating to /articles/{slug}
 
+### Verification Step 097: table(author-hub-087): verify Article Title column displays category badge
+- **Timestamp**: 2026-11-16 12:23:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article title column displays category badge
+
