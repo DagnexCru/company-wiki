@@ -837,3 +837,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify performance benchmarking of author overview aggregation queries
 
+### Verification Step 178: docs(author-hub-168): verify database indexing on article author and status fields
+- **Timestamp**: 2026-11-16 15:13:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify database indexing on article author and status fields
+
