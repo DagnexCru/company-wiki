@@ -517,3 +517,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify external link icon appears on article hover
 
+### Verification Step 114: table(author-hub-104): verify table row displays hover background styling
+- **Timestamp**: 2026-11-16 12:59:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify table row displays hover background styling
+
