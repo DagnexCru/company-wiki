@@ -127,3 +127,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify empty author with zero articles receives graceful summary with zeroes
 
+### Verification Step 036: leaderboard(author-hub-026): verify top_articles items contain id, title, slug, status, category_name, and category_slug
+- **Timestamp**: 2026-11-16 10:15:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify top_articles items contain id, title, slug, status, category_name, and category_slug
+
