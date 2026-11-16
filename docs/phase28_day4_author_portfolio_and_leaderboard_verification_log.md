@@ -12,3 +12,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify author receives 200 ok with their own portfolio summary
 
+### Verification Step 013: api(author-hub-003): verify admin can inspect other authors portfolio via author_id query parameter
+- **Timestamp**: 2026-11-16 09:27:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify admin can inspect other authors portfolio via author_id query parameter
+
