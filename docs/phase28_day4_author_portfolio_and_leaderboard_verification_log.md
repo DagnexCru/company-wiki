@@ -107,3 +107,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify total_reading_seconds sums active seconds from articleengagementsession
 
+### Verification Step 032: api(author-hub-022): verify total_reading_hours converts active seconds to decimal hours rounded to 1 place
+- **Timestamp**: 2026-11-16 10:07:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_reading_hours converts active seconds to decimal hours rounded to 1 place
+
