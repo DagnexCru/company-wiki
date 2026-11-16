@@ -277,3 +277,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify kpi card 1 renders total portfolio views with eye icon
 
+### Verification Step 066: hub(author-hub-056): verify KPI card 1 displays 7-day view growth badge when views_last_7_days > 0
+- **Timestamp**: 2026-11-16 11:18:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify kpi card 1 displays 7-day view growth badge when views_last_7_days > 0
+
