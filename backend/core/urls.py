@@ -4,12 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from core.views import HealthCheckView
 from apps.articles.dashboard_views import DashboardView
+from apps.articles.analytics_views import AuthorAnalyticsOverviewView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     # Versioned API routes under /api/v1/
     path("api/v1/health/", HealthCheckView.as_view(), name="api-health-check"),
     path("api/v1/dashboard/", DashboardView.as_view(), name="api-dashboard"),
+    path("api/v1/analytics/author-overview/", AuthorAnalyticsOverviewView.as_view(), name="api-author-analytics-overview"),
     path("api/v1/auth/", include("apps.accounts.urls")),
     path("api/v1/users/", include("apps.accounts.user_urls")),
     path("api/v1/articles/", include("apps.articles.urls")),
