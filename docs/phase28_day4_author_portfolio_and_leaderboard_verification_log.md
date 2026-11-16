@@ -512,3 +512,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify articleanalyticsmodal closes cleanly when dismissed
 
+### Verification Step 113: table(author-hub-103): verify external link icon appears on article hover
+- **Timestamp**: 2026-11-16 12:57:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify external link icon appears on article hover
+
