@@ -207,3 +207,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify in_review articles appear in author leaderboard with in_review badge
 
+### Verification Step 052: leaderboard(author-hub-042): verify category_name defaults to General when article has no category
+- **Timestamp**: 2026-11-16 10:49:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify category_name defaults to general when article has no category
+
