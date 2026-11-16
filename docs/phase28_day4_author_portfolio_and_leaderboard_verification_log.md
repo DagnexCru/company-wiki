@@ -667,3 +667,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify all 22 tests in apps.articles.tests_analytics pass with ok result
 
+### Verification Step 144: qa(author-hub-134): verify test_author_analytics_overview_unauthenticated_returns_401 passes cleanly
+- **Timestamp**: 2026-11-16 14:02:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify test_author_analytics_overview_unauthenticated_returns_401 passes cleanly
+
