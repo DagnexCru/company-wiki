@@ -372,3 +372,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify search input displays search icon on left side
 
+### Verification Step 085: hub(author-hub-075): verify empty search state displays No matching articles found notice
+- **Timestamp**: 2026-11-16 11:58:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify empty search state displays no matching articles found notice
+
