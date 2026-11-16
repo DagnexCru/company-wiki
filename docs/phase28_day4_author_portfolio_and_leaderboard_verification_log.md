@@ -632,3 +632,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify browser back button from /articles/{slug} returns cleanly to /analytics
 
+### Verification Step 137: nav(author-hub-127): verify logout from /analytics redirects cleanly to /login
+- **Timestamp**: 2026-11-16 13:47:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify logout from /analytics redirects cleanly to /login
+
