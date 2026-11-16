@@ -212,3 +212,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify category_name defaults to general when article has no category
 
+### Verification Step 053: leaderboard(author-hub-043): verify avg_reading_seconds is 0 when article has no engagement sessions
+- **Timestamp**: 2026-11-16 10:51:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify avg_reading_seconds is 0 when article has no engagement sessions
+
