@@ -152,3 +152,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify top_articles items contain created_at, updated_at, and published_at timestamps
 
+### Verification Step 041: leaderboard(author-hub-031): verify rank field is sequentially assigned from 1 to N
+- **Timestamp**: 2026-11-16 10:26:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify rank field is sequentially assigned from 1 to n
+
