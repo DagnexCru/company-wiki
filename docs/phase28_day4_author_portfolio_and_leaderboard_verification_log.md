@@ -577,3 +577,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify /analytics page is wrapped inside mainlayout
 
+### Verification Step 126: nav(author-hub-116): verify MainLayout header and sidebar render correctly on /analytics
+- **Timestamp**: 2026-11-16 13:24:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify mainlayout header and sidebar render correctly on /analytics
+
