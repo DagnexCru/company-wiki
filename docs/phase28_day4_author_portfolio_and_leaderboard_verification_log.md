@@ -72,3 +72,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify in_review_articles accurately counts articles with in_review status
 
+### Verification Step 025: api(author-hub-015): verify total_portfolio_views sums view_count across all authored articles
+- **Timestamp**: 2026-11-16 09:52:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_portfolio_views sums view_count across all authored articles
+
