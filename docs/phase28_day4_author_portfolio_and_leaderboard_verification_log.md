@@ -587,3 +587,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify askwiki ai drawer remains accessible from /analytics
 
+### Verification Step 128: nav(author-hub-118): verify CommandPalette remains accessible via Ctrl+K on /analytics
+- **Timestamp**: 2026-11-16 13:28:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify commandpalette remains accessible via ctrl+k on /analytics
+
