@@ -147,3 +147,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify top_articles items contain reading_sessions_count and completion_rate_percentage
 
+### Verification Step 040: leaderboard(author-hub-030): verify top_articles items contain created_at, updated_at, and published_at timestamps
+- **Timestamp**: 2026-11-16 10:24:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify top_articles items contain created_at, updated_at, and published_at timestamps
+
