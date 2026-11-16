@@ -32,3 +32,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify non-admin user passing author_id is scoped to their own account
 
+### Verification Step 017: api(author-hub-007): verify response payload contains author object with id, username, email, and role
+- **Timestamp**: 2026-11-16 09:35:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify response payload contains author object with id, username, email, and role
+
