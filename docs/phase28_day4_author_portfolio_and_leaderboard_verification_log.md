@@ -782,3 +782,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify architecture documentation for author portfolio analytics
 
+### Verification Step 167: docs(author-hub-157): verify REST API specification for GET /api/v1/analytics/author-overview/
+- **Timestamp**: 2026-11-16 14:50:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify rest api specification for get /api/v1/analytics/author-overview/
+
