@@ -52,3 +52,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response payload contains sort_by field reflecting active sorting criteria
 
+### Verification Step 021: api(author-hub-011): verify total_articles accurately counts all articles authored by target user
+- **Timestamp**: 2026-11-16 09:44:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total_articles accurately counts all articles authored by target user
+
