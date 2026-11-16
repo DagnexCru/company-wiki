@@ -562,3 +562,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify author analytics item is highlighted when active route is /analytics
 
+### Verification Step 123: nav(author-hub-113): verify App router maps /analytics under ProtectedRoute guard
+- **Timestamp**: 2026-11-16 13:18:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify app router maps /analytics under protectedroute guard
+
