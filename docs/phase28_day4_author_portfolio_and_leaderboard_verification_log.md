@@ -707,3 +707,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify chunksizewarninglimit 600 suppresses 500kb warning on production build
 
+### Verification Step 152: qa(author-hub-142): verify total bundle gzip size remains lightweight under 105kB for main index chunk
+- **Timestamp**: 2026-11-16 14:19:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify total bundle gzip size remains lightweight under 105kb for main index chunk
+
