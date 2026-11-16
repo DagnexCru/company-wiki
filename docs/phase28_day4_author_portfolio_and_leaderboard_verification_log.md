@@ -182,3 +182,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sort_by reading_time orders articles by total_reading_seconds descending
 
+### Verification Step 047: leaderboard(author-hub-037): verify sort_by recent orders articles by updated_at descending
+- **Timestamp**: 2026-11-16 10:38:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sort_by recent orders articles by updated_at descending
+
