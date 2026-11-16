@@ -627,3 +627,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify navigating between articles from leaderboard retains active sorting
 
+### Verification Step 136: nav(author-hub-126): verify browser back button from /articles/{slug} returns cleanly to /analytics
+- **Timestamp**: 2026-11-16 13:45:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify browser back button from /articles/{slug} returns cleanly to /analytics
+
