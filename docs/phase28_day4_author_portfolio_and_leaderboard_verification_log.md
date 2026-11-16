@@ -792,3 +792,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify query parameter schema for sort_by views, rating, reading_time, and recent
 
+### Verification Step 169: docs(author-hub-159): verify query parameter schema for author_id administrative override
+- **Timestamp**: 2026-11-16 14:54:54 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify query parameter schema for author_id administrative override
+
