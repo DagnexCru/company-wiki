@@ -87,3 +87,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify views_last_7_days filters view logs recorded within the last seven days
 
+### Verification Step 028: api(author-hub-018): verify average_helpfulness_score calculates mean percentage across published articles
+- **Timestamp**: 2026-11-16 09:58:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify average_helpfulness_score calculates mean percentage across published articles
+
