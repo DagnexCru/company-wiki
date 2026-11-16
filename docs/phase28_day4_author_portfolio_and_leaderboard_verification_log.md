@@ -402,3 +402,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify leaderboard header displays count of filtered vs total articles
 
+### Verification Step 091: table(author-hub-081): verify leaderboard table renders 7 columns: Rank, Title, Views, Helpful, Read Time, Completion, Actions
+- **Timestamp**: 2026-11-16 12:11:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify leaderboard table renders 7 columns: rank, title, views, helpful, read time, completion, actions
+
