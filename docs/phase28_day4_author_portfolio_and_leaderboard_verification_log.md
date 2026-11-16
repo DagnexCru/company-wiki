@@ -807,3 +807,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify portfolio summary calculation algorithms for reading hours and helpfulness
 
+### Verification Step 172: docs(author-hub-162): verify leaderboard tiebreaking logic for view counts and ratings
+- **Timestamp**: 2026-11-16 15:01:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify leaderboard tiebreaking logic for view counts and ratings
+
