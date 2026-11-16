@@ -547,3 +547,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sidebar hides author analytics navigation item for reader role
 
+### Verification Step 120: nav(author-hub-110): verify Author Analytics navigation item links to /analytics path
+- **Timestamp**: 2026-11-16 13:12:00 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify author analytics navigation item links to /analytics path
+
