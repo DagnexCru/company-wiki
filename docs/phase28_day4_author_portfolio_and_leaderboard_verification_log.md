@@ -167,3 +167,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sort_by views breaks ties with helpfulness_score
 
+### Verification Step 044: leaderboard(author-hub-034): verify sort_by rating orders articles by helpfulness_score descending
+- **Timestamp**: 2026-11-16 10:32:24 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sort_by rating orders articles by helpfulness_score descending
+
