@@ -427,3 +427,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify rank column displays #n badge for rank 4 and higher
 
+### Verification Step 096: table(author-hub-086): verify Article Title column renders clickable Link navigating to /articles/{slug}
+- **Timestamp**: 2026-11-16 12:21:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article title column renders clickable link navigating to /articles/{slug}
+
