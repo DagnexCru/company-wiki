@@ -17,12 +17,14 @@ from apps.articles.ai_views import (
     AskWikiAiView,
 )
 from apps.articles.graph_views import KnowledgeGraphView, ArticleNeighborhoodGraphView
+from apps.articles.analytics_views import AuthorAnalyticsOverviewView
 
 router = DefaultRouter()
 router.register(r"", ArticleViewSet, basename="article")
 
 urlpatterns = [
     path("dashboard/", DashboardView.as_view(), name="article-dashboard"),
+    path("analytics/author-overview/", AuthorAnalyticsOverviewView.as_view(), name="article-author-analytics-overview"),
     path("upload/", ArticleMediaUploadView.as_view(), name="article-media-upload"),
     path("<uuid:article_id>/attachments/", ArticleAttachmentsListView.as_view(), name="article-attachments-list"),
     # Real-Time Collaborative Presence & Edit Lock Routes
