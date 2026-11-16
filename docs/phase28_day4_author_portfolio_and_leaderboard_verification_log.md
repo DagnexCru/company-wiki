@@ -472,3 +472,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify helpful column renders green text when score is 80% or higher
 
+### Verification Step 105: table(author-hub-095): verify Helpful column renders amber text when score is between 60% and 79%
+- **Timestamp**: 2026-11-16 12:40:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify helpful column renders amber text when score is between 60% and 79%
+
