@@ -802,3 +802,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify response payload schema for authoranalyticsoverviewresponse
 
+### Verification Step 171: docs(author-hub-161): verify portfolio summary calculation algorithms for reading hours and helpfulness
+- **Timestamp**: 2026-11-16 14:59:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify portfolio summary calculation algorithms for reading hours and helpfulness
+
