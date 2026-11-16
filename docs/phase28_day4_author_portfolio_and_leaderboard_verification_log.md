@@ -442,3 +442,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify article title column displays status badge with emerald style for published
 
+### Verification Step 099: table(author-hub-089): verify Article Title column displays status badge with amber style for in_review
+- **Timestamp**: 2026-11-16 12:27:54 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify article title column displays status badge with amber style for in_review
+
