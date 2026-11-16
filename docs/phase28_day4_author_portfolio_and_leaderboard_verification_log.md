@@ -352,3 +352,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify active sorting tab is highlighted with indigo background and white text
 
+### Verification Step 081: hub(author-hub-071): verify search input filters leaderboard articles by title in real-time
+- **Timestamp**: 2026-11-16 11:50:06 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify search input filters leaderboard articles by title in real-time
+
