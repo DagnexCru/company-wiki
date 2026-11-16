@@ -368,5 +368,109 @@ class ArticleAnalyticsViewsTimelineTests(TestCase):
         self.assertEqual(res.data["summary"]["avg_read_seconds"], 0)
         self.assertEqual(res.data["summary"]["engagement_level"], "No Data Yet")
 
+    def test_author_analytics_overview_unauthenticated_returns_401(self):
+        url = "/api/v1/analytics/author-overview/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 401)
+
+    def test_author_analytics_overview_author_success(self):
+        # Create second article for author to test leaderboard
+        art2 = Article.objects.create(
+            title="Advanced Microservices Observability",
+            slug="microservices-observability",
+            content="Tracing and telemetry runbook.",
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+            view_count=120,
+        )
+        ArticleFeedback.objects.create(
+            article=art2,
+            user=self.reader,
+            is_helpful=True,
+            note="Great observability guide!",
+        )
+        ArticleEngagementSession.objects.create(
+            article=art2,
+            session_id="obs_sess_1",
+            active_seconds=300,
+            scroll_depth_percent=100,
+            reached_25=True,
+            reached_50=True,
+            reached_75=True,
+            reached_100=True,
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = "/api/v1/analytics/author-overview/"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        data = res.data
+
+        self.assertIn("author", data)
+        self.assertEqual(data["author"]["username"], self.author.username)
+        self.assertIn("summary", data)
+        self.assertEqual(data["summary"]["total_articles"], 2)
+        self.assertEqual(data["summary"]["published_articles"], 2)
+        # 50 views on art1 + 120 on art2 = 170
+        self.assertEqual(data["summary"]["total_portfolio_views"], 170)
+        self.assertGreater(data["summary"]["total_reading_seconds"], 0)
+
+        # Leaderboard
+        self.assertIn("top_articles", data)
+        self.assertEqual(len(data["top_articles"]), 2)
+        # Default sort by views -> art2 (120 views) should be rank 1
+        self.assertEqual(data["top_articles"][0]["slug"], art2.slug)
+        self.assertEqual(data["top_articles"][0]["rank"], 1)
+
+    def test_author_analytics_overview_sorting(self):
+        # Give self.article unhelpful feedback so score drops to 0%
+        ArticleFeedback.objects.create(article=self.article, user=self.reader, is_helpful=False)
+
+        art2 = Article.objects.create(
+            title="Cloud Architecture",
+            slug="cloud-architecture",
+            content="AWS architecture.",
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+            view_count=5,
+        )
+        # Give art2 100% helpfulness score
+        ArticleFeedback.objects.create(article=art2, user=self.reader, is_helpful=True)
+
+        self.client.force_authenticate(user=self.author)
+        # Sort by views
+        res_views = self.client.get("/api/v1/analytics/author-overview/?sort_by=views")
+        self.assertEqual(res_views.status_code, 200)
+        self.assertEqual(res_views.data["top_articles"][0]["slug"], self.article.slug)
+
+        # Sort by rating
+        res_rating = self.client.get("/api/v1/analytics/author-overview/?sort_by=rating")
+        self.assertEqual(res_rating.status_code, 200)
+        self.assertEqual(res_rating.data["top_articles"][0]["slug"], art2.slug)
+
+    def test_author_analytics_overview_admin_filter(self):
+        self.client.force_authenticate(user=self.admin)
+        url = f"/api/v1/analytics/author-overview/?author_id={self.author.id}"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.data["author"]["id"], str(self.author.id))
+
+    def test_author_analytics_overview_empty_author(self):
+        new_author = CustomUser.objects.create_user(
+            username="new_author_zero",
+            email="new_author_zero@company.com",
+            password="Password123!",
+            role=CustomUser.Role.AUTHOR,
+        )
+        self.client.force_authenticate(user=new_author)
+        res = self.client.get("/api/v1/analytics/author-overview/")
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.data["summary"]["total_articles"], 0)
+        self.assertEqual(res.data["summary"]["total_portfolio_views"], 0)
+        self.assertEqual(len(res.data["top_articles"]), 0)
+
+
 
 
