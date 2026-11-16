@@ -862,3 +862,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify mobile accessibility standards wcag aa compliance on leaderboard table
 
+### Verification Step 183: docs(author-hub-173): verify keyboard navigation support on leaderboard sorting and filter controls
+- **Timestamp**: 2026-11-16 15:24:18 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify keyboard navigation support on leaderboard sorting and filter controls
+
