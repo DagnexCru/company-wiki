@@ -377,3 +377,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify empty search state displays no matching articles found notice
 
+### Verification Step 086: hub(author-hub-076): verify empty author state displays Create New Article button linking to /articles/new
+- **Timestamp**: 2026-11-16 12:00:36 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify empty author state displays create new article button linking to /articles/new
+
