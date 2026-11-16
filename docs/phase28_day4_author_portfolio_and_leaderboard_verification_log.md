@@ -157,3 +157,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify rank field is sequentially assigned from 1 to n
 
+### Verification Step 042: leaderboard(author-hub-032): verify default sort orders articles by view_count descending
+- **Timestamp**: 2026-11-16 10:28:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify default sort orders articles by view_count descending
+
