@@ -342,3 +342,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify sorting tab reading time sets sortby to reading_time
 
+### Verification Step 079: hub(author-hub-069): verify sorting tab Recently Updated sets sortBy to recent
+- **Timestamp**: 2026-11-16 11:45:54 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify sorting tab recently updated sets sortby to recent
+
