@@ -357,3 +357,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify search input filters leaderboard articles by title in real-time
 
+### Verification Step 082: hub(author-hub-072): verify search input filters leaderboard articles by category in real-time
+- **Timestamp**: 2026-11-16 11:52:12 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify search input filters leaderboard articles by category in real-time
+
