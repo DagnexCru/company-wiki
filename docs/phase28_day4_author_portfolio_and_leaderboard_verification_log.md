@@ -282,3 +282,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify kpi card 1 displays 7-day view growth badge when views_last_7_days > 0
 
+### Verification Step 067: hub(author-hub-057): verify KPI card 1 displays unique reader count sub-stat
+- **Timestamp**: 2026-11-16 11:20:42 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify kpi card 1 displays unique reader count sub-stat
+
