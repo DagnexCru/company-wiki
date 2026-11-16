@@ -787,3 +787,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify rest api specification for get /api/v1/analytics/author-overview/
 
+### Verification Step 168: docs(author-hub-158): verify query parameter schema for sort_by views, rating, reading_time, and recent
+- **Timestamp**: 2026-11-16 14:52:48 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify query parameter schema for sort_by views, rating, reading_time, and recent
+
