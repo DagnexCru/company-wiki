@@ -12,6 +12,7 @@ import {
   LogOut,
   X,
   Share2,
+  BarChart2,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
@@ -57,6 +58,16 @@ export const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
       path: "/articles",
       exact: false,
     },
+    ...(user?.role === "AUTHOR" || user?.role === "ADMIN" || user?.role === "REVIEWER"
+      ? [
+          {
+            label: "Author Analytics",
+            icon: BarChart2,
+            path: "/analytics",
+            exact: true,
+          },
+        ]
+      : []),
     {
       label: "Knowledge Graph",
       icon: Share2,
