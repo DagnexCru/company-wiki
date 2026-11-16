@@ -622,3 +622,8 @@ Systematic architectural verification and integration test log for Phase 28 Day 
 - **Outcome**: Verified & Validated (PASS)
 - **Description**: Verify closing deep analytics modal returns focus to leaderboard row
 
+### Verification Step 135: nav(author-hub-125): verify navigating between articles from leaderboard retains active sorting
+- **Timestamp**: 2026-11-16 13:43:30 +0300
+- **Outcome**: Verified & Validated (PASS)
+- **Description**: Verify navigating between articles from leaderboard retains active sorting
+
