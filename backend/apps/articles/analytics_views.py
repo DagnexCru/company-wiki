@@ -1,5 +1,9 @@
 import datetime
+import csv
+import io
+import json
 from django.db import models
+from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -138,6 +142,60 @@ class AuthorAnalyticsOverviewView(APIView):
             category_view_counts[cat] = category_view_counts.get(cat, 0) + art["view_count"]
 
         top_category = max(category_view_counts.items(), key=lambda x: x[1])[0] if category_view_counts else "None"
+
+        # Check if CSV export format requested
+        export_fmt = request.query_params.get("format", "").lower()
+        if export_fmt == "csv":
+            output = io.StringIO()
+            writer = csv.writer(output)
+            output.write("\ufeff")  # UTF-8 BOM
+
+            writer.writerow(["=== AUTHOR PORTFOLIO ANALYTICS LEADERBOARD REPORT ==="])
+            writer.writerow(["Author Name", getattr(target_author, "full_name", "") or target_author.username])
+            writer.writerow(["Author Username", target_author.username])
+            writer.writerow(["Email", target_author.email])
+            writer.writerow(["Role", getattr(target_author, "role", "AUTHOR")])
+            writer.writerow(["Exported At", now.strftime("%Y-%m-%d %H:%M:%S UTC")])
+            writer.writerow([])
+
+            writer.writerow(["=== PORTFOLIO EXECUTIVE SUMMARY ==="])
+            writer.writerow(["Metric", "Value"])
+            writer.writerow(["Total Articles", total_articles])
+            writer.writerow(["Published Articles", published_count])
+            writer.writerow(["In-Review Articles", in_review_count])
+            writer.writerow(["Draft Articles", draft_count])
+            writer.writerow(["Total Portfolio Views", total_views])
+            writer.writerow(["Total Unique Readers", total_unique_readers])
+            writer.writerow(["Views Last 7 Days", views_last_7_days])
+            writer.writerow(["Average Helpfulness Score", f"{avg_helpfulness_score}%"])
+            writer.writerow(["Total Helpful Votes", total_helpful])
+            writer.writerow(["Total Unhelpful Votes", total_unhelpful])
+            writer.writerow(["Total Reading Hours", f"{total_reading_hours} hrs"])
+            writer.writerow(["Top Performing Domain", top_category])
+            writer.writerow([])
+
+            writer.writerow(["=== TOP PERFORMING ARTICLES LEADERBOARD ==="])
+            writer.writerow(["Rank", "Article Title", "Slug", "Status", "Category", "Views", "Helpfulness Score", "Helpful Votes", "Unhelpful Votes", "Avg Reading Time", "Reading Sessions", "Completion Rate"])
+            for a in articles_data:
+                writer.writerow([
+                    a["rank"],
+                    a["title"],
+                    a["slug"],
+                    a["status"],
+                    a["category_name"],
+                    a["view_count"],
+                    f"{a['helpfulness_score']}%",
+                    a["helpful_count"],
+                    a["unhelpful_count"],
+                    a["avg_reading_formatted"],
+                    a["reading_sessions_count"],
+                    f"{a['completion_rate_percentage']}%",
+                ])
+
+            filename = f"author_portfolio_{target_author.username}_{now.strftime('%Y%m%d_%H%M%S')}.csv"
+            response = HttpResponse(output.getvalue(), content_type="text/csv; charset=utf-8")
+            response["Content-Disposition"] = f'attachment; filename="{filename}"'
+            return response
 
         return Response(
             {
