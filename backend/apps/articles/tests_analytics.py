@@ -471,6 +471,77 @@ class ArticleAnalyticsViewsTimelineTests(TestCase):
         self.assertEqual(res.data["summary"]["total_portfolio_views"], 0)
         self.assertEqual(len(res.data["top_articles"]), 0)
 
+    def test_export_analytics_permissions(self):
+        url = f"/api/v1/articles/{self.article.slug}/analytics/export/?format=json"
+
+        # Unauthenticated -> 401
+        res_unauth = self.client.get(url)
+        self.assertEqual(res_unauth.status_code, 401)
+
+        # Reader -> 403
+        self.client.force_authenticate(user=self.reader)
+        res_reader = self.client.get(url)
+        self.assertEqual(res_reader.status_code, 403)
+
+        # Author -> 200
+        self.client.force_authenticate(user=self.author)
+        res_author = self.client.get(url)
+        self.assertEqual(res_author.status_code, 200)
+
+        # Admin -> 200
+        self.client.force_authenticate(user=self.admin)
+        res_admin = self.client.get(url)
+        self.assertEqual(res_admin.status_code, 200)
+
+    def test_export_analytics_json_payload(self):
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/export/?format=json"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/json", res["Content-Type"])
+        self.assertIn(f"analytics_{self.article.slug}_", res["Content-Disposition"])
+        self.assertIn(".json", res["Content-Disposition"])
+
+        import json
+        data = json.loads(res.content.decode("utf-8"))
+        self.assertIn("metadata", data)
+        self.assertEqual(data["metadata"]["article_slug"], self.article.slug)
+        self.assertIn("executive_kpis", data)
+        self.assertIn("scroll_depth_funnel", data)
+        self.assertIn("daily_views_timeline_30d", data)
+        self.assertIn("reader_feedback_notes", data)
+        self.assertIn("optimization_recommendations", data)
+
+    def test_export_analytics_csv_payload(self):
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.article.slug}/analytics/export/?format=csv"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("text/csv", res["Content-Type"])
+        self.assertIn(f"analytics_{self.article.slug}_", res["Content-Disposition"])
+        self.assertIn(".csv", res["Content-Disposition"])
+
+        csv_text = res.content.decode("utf-8")
+        self.assertIn("=== COMPANY WIKI ARTICLE ANALYTICS EXECUTIVE REPORT ===", csv_text)
+        self.assertIn("=== KEY PERFORMANCE INDICATORS (KPIs) ===", csv_text)
+        self.assertIn("=== READER SCROLL-DEPTH RETENTION FUNNEL ===", csv_text)
+        self.assertIn("=== DAILY VIEWS TIMELINE (LAST 30 DAYS) ===", csv_text)
+        self.assertIn(self.article.title, csv_text)
+
+    def test_author_portfolio_csv_export(self):
+        self.client.force_authenticate(user=self.author)
+        url = "/api/v1/analytics/author-overview/?format=csv"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("text/csv", res["Content-Type"])
+        self.assertIn("author_portfolio_", res["Content-Disposition"])
+        self.assertIn(".csv", res["Content-Disposition"])
+
+        csv_text = res.content.decode("utf-8")
+        self.assertIn("=== AUTHOR PORTFOLIO ANALYTICS LEADERBOARD REPORT ===", csv_text)
+        self.assertIn("=== TOP PERFORMING ARTICLES LEADERBOARD ===", csv_text)
+
+
 
 
 
