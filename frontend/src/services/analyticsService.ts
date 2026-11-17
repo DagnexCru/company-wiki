@@ -81,5 +81,57 @@ export const analyticsService = {
     );
     return response.data;
   },
+
+  /**
+   * One-Click Export Suite: Download unified analytics report in CSV or JSON format.
+   * GET /api/v1/articles/{slug}/analytics/export/?format=csv|json
+   */
+  async exportArticleAnalytics(
+    slug: string,
+    format: "csv" | "json" = "json"
+  ): Promise<void> {
+    const response = await api.get(`/articles/${slug}/analytics/export/`, {
+      params: { format },
+      responseType: "blob",
+    });
+
+    const blob = new Blob([response.data], {
+      type: format === "csv" ? "text/csv;charset=utf-8;" : "application/json;charset=utf-8;",
+    });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    const dateStr = new Date().toISOString().slice(0, 10);
+    link.setAttribute("download", `analytics_${slug}_${dateStr}.${format}`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
+
+  /**
+   * One-Click Export Suite: Download author portfolio leaderboard in CSV format.
+   * GET /api/v1/analytics/author-overview/?format=csv
+   */
+  async exportAuthorPortfolio(authorId?: string): Promise<void> {
+    const params: Record<string, string> = { format: "csv" };
+    if (authorId) params.author_id = authorId;
+
+    const response = await api.get(`/analytics/author-overview/`, {
+      params,
+      responseType: "blob",
+    });
+
+    const blob = new Blob([response.data], { type: "text/csv;charset=utf-8;" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    const dateStr = new Date().toISOString().slice(0, 10);
+    link.setAttribute("download", `author_portfolio_leaderboard_${dateStr}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
 };
 
