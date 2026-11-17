@@ -1,6 +1,10 @@
 import difflib
 import datetime
+import csv
+import io
+import json
 from django.db import models
+from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import viewsets, permissions, status
 from rest_framework.views import APIView
@@ -128,6 +132,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "views_timeline",
             "sentiment",
             "engagement",
+            "export_analytics",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -1954,6 +1959,309 @@ class ArticleViewSet(viewsets.ModelViewSet):
             },
             status=status.HTTP_200_OK,
         )
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="analytics/export",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def export_analytics(self, request, slug=None):
+        """
+        One-Click Export Suite: Export unified article analytics report in CSV or JSON format.
+        GET /api/v1/articles/{slug}/analytics/export/?format=csv|json
+        Permission: Author of the article, Admins, or Reviewers.
+        """
+        article = self.get_object()
+
+        # Permission verification: Author or Admin/Reviewer
+        is_author = article.author_id == request.user.id
+        is_admin_or_reviewer = getattr(request.user, "role", "") in ["ADMIN", "REVIEWER"] or getattr(request.user, "is_admin", False)
+        if not (is_author or is_admin_or_reviewer):
+            return Response(
+                {"detail": "You do not have permission to export analytics for this article."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        export_format = request.query_params.get("format", "json").lower()
+        if export_format not in ["csv", "json"]:
+            export_format = "json"
+
+        now = timezone.now()
+        timestamp_str = now.strftime("%Y%m%d_%H%M%S")
+
+        # 1. Gather View Logs & 30-Day Timeline
+        thirty_days_ago = (now - datetime.timedelta(days=29)).replace(hour=0, minute=0, second=0, microsecond=0)
+        logs_qs = ArticleViewLog.objects.filter(article=article)
+        total_views = article.view_count
+        recent_logs = logs_qs.filter(viewed_at__gte=thirty_days_ago)
+
+        unique_users_count = logs_qs.exclude(user__isnull=True).values("user").distinct().count()
+        unique_sessions_count = logs_qs.filter(user__isnull=True).exclude(session_key__isnull=True).values("session_key").distinct().count()
+        total_unique_readers = unique_users_count + unique_sessions_count
+        if total_unique_readers == 0 and total_views > 0:
+            total_unique_readers = max(1, round(total_views * 0.65))
+
+        daily_timeline = []
+        for i in range(30):
+            day_date = thirty_days_ago + datetime.timedelta(days=i)
+            day_str = day_date.strftime("%Y-%m-%d")
+            day_name = day_date.strftime("%A")
+            day_logs = recent_logs.filter(viewed_at__date=day_date.date())
+            v_count = day_logs.count()
+            u_count = day_logs.values("user").distinct().count() + day_logs.filter(user__isnull=True).values("session_key").distinct().count()
+            daily_timeline.append({
+                "date": day_str,
+                "day_name": day_name,
+                "total_views": v_count,
+                "unique_readers": u_count,
+            })
+
+        # 2. Gather Sentiment & Feedbacks
+        helpful_count = article.helpful_count
+        unhelpful_count = article.unhelpful_count
+        total_feedback = helpful_count + unhelpful_count
+        helpfulness_score = article.helpfulness_score
+
+        if total_feedback == 0:
+            health_status = "NO_DATA"
+            health_label = "Awaiting Feedback"
+            health_desc = "No reader feedback collected yet."
+        elif helpfulness_score >= 80:
+            health_status = "HEALTHY"
+            health_label = "High Quality Guide"
+            health_desc = "Over 80% of readers rated this guide as clear and actionable."
+        elif helpfulness_score >= 65:
+            health_status = "MODERATE"
+            health_label = "Moderate Quality"
+            health_desc = "Satisfactory rating; review constructive notes to improve clarity."
+        else:
+            health_status = "NEEDS_REVIEW"
+            health_label = "Needs Review"
+            health_desc = "Higher unhelpful ratio; content may be outdated or incomplete."
+
+        feedbacks_qs = article.feedback_entries.select_related("user").order_by("-created_at")
+        feedback_items = []
+        for fb in feedbacks_qs[:100]:
+            u_name = getattr(fb.user, "full_name", "") or (fb.user.username if fb.user else "Anonymous Reader")
+            u_role = getattr(fb.user, "role", "READER") if fb.user else "READER"
+
+            note_lower = (fb.note or "").lower()
+            if "clear" in note_lower or "easy" in note_lower or "smooth" in note_lower:
+                tag = "Clear & Actionable"
+            elif "accurate" in note_lower or "complete" in note_lower or "correct" in note_lower:
+                tag = "Accurate & Complete"
+            elif "outdated" in note_lower or "old" in note_lower or "update" in note_lower:
+                tag = "Outdated Info"
+            elif "incomplete" in note_lower or "missing" in note_lower:
+                tag = "Needs Detail"
+            else:
+                tag = "General Positive" if fb.is_helpful else "Needs Improvement"
+
+            feedback_items.append({
+                "id": str(fb.id),
+                "user_name": u_name,
+                "user_role": u_role,
+                "is_helpful": fb.is_helpful,
+                "rating": "Helpful" if fb.is_helpful else "Unhelpful",
+                "sentiment_tag": tag,
+                "note": fb.note or ("Rated as helpful." if fb.is_helpful else "Rated as unhelpful."),
+                "created_at": fb.created_at.strftime("%Y-%m-%d %H:%M"),
+            })
+
+        # 3. Gather Engagement & Funnel
+        sessions_qs = ArticleEngagementSession.objects.filter(article=article)
+        total_sessions = sessions_qs.count()
+
+        raw_text = f"{article.title} {article.summary or ''} {article.content or ''}"
+        word_count = len(raw_text.split())
+        estimated_read_seconds = max(30, round((word_count / 200) * 60))
+
+        def format_duration(seconds):
+            if seconds < 60:
+                return f"{int(seconds)}s"
+            m = int(seconds // 60)
+            s = int(seconds % 60)
+            return f"{m}m {s}s" if s > 0 else f"{m}m"
+
+        avg_sec = sessions_qs.aggregate(avg=models.Avg("active_seconds"))["avg"] or 0
+        avg_active_seconds = round(avg_sec)
+
+        r25 = sessions_qs.filter(reached_25=True).count()
+        r50 = sessions_qs.filter(reached_50=True).count()
+        r75 = sessions_qs.filter(reached_75=True).count()
+        r100 = sessions_qs.filter(reached_100=True).count()
+
+        if total_sessions > 0:
+            p25 = round((r25 / total_sessions) * 100, 1)
+            p50 = round((r50 / total_sessions) * 100, 1)
+            p75 = round((r75 / total_sessions) * 100, 1)
+            p100 = round((r100 / total_sessions) * 100, 1)
+            drop_0_25 = round(100.0 - p25, 1)
+            drop_25_50 = round(p25 - p50, 1)
+            drop_50_75 = round(p50 - p75, 1)
+            drop_75_100 = round(p75 - p100, 1)
+        else:
+            p25 = p50 = p75 = p100 = 0.0
+            drop_0_25 = drop_25_50 = drop_50_75 = drop_75_100 = 0.0
+
+        funnel = [
+            {"milestone": 0, "stage": "Started (0%)", "readers": total_sessions, "percentage": 100.0 if total_sessions > 0 else 0.0, "drop_off_percentage": 0.0},
+            {"milestone": 25, "stage": "Quarter Read (25%)", "readers": r25, "percentage": p25, "drop_off_percentage": drop_0_25},
+            {"milestone": 50, "stage": "Halfway (50%)", "readers": r50, "percentage": p50, "drop_off_percentage": drop_25_50},
+            {"milestone": 75, "stage": "Deep Read (75%)", "readers": r75, "percentage": p75, "drop_off_percentage": drop_50_75},
+            {"milestone": 100, "stage": "Completed (100%)", "readers": r100, "percentage": p100, "drop_off_percentage": drop_75_100},
+        ]
+
+        drops = [
+            ("0% - 25% (Introduction)", drop_0_25),
+            ("25% - 50% (First Half)", drop_25_50),
+            ("50% - 75% (Core Sections)", drop_50_75),
+            ("75% - 100% (Conclusion / Runbook)", drop_75_100),
+        ]
+        drops.sort(key=lambda x: x[1], reverse=True)
+        primary_drop = drops[0][0] if drops[0][1] > 5 else "Even Retention"
+
+        c_under_30 = sessions_qs.filter(active_seconds__lt=30).count()
+        c_30_120 = sessions_qs.filter(active_seconds__gte=30, active_seconds__lt=120).count()
+        c_120_300 = sessions_qs.filter(active_seconds__gte=120, active_seconds__lt=300).count()
+        c_over_300 = sessions_qs.filter(active_seconds__gte=300).count()
+
+        distribution = [
+            {"bucket": "< 30s", "label": "Quick Skimmers", "count": c_under_30, "percentage": round((c_under_30 / total_sessions) * 100) if total_sessions > 0 else 0},
+            {"bucket": "30s - 2m", "label": "Casual Readers", "count": c_30_120, "percentage": round((c_30_120 / total_sessions) * 100) if total_sessions > 0 else 0},
+            {"bucket": "2m - 5m", "label": "Engaged Readers", "count": c_120_300, "percentage": round((c_120_300 / total_sessions) * 100) if total_sessions > 0 else 0},
+            {"bucket": "> 5m", "label": "Deep Focus", "count": c_over_300, "percentage": round((c_over_300 / total_sessions) * 100) if total_sessions > 0 else 0},
+        ]
+
+        retention_score = round((p25 * 0.15) + (p50 * 0.25) + (p75 * 0.3) + (p100 * 0.3))
+        if retention_score >= 75:
+            engagement_level = "Exceptional"
+        elif retention_score >= 55:
+            engagement_level = "Strong"
+        elif retention_score >= 35:
+            engagement_level = "Moderate"
+        else:
+            engagement_level = "Needs Improvement"
+
+        recommendations = []
+        if drop_0_25 > 25:
+            recommendations.append("High early drop-off: Consider sharpening the summary and placing a TL;DR at the top.")
+        if drop_50_75 > 25:
+            recommendations.append("Mid-article drop-off: Add code blocks, visual tables, or subheadings in the core sections.")
+        if p100 >= 60:
+            recommendations.append("Outstanding completion rate! Over 60% of readers reach the end of this guide.")
+        if not recommendations:
+            recommendations.append("Engagement is well-balanced across all sections. Keep updating content to maintain retention.")
+
+        # 4. Return CSV Format
+        if export_format == "csv":
+            output = io.StringIO()
+            writer = csv.writer(output)
+
+            # UTF-8 BOM for Excel
+            output.write("\ufeff")
+
+            # Section 1: Executive Metadata
+            writer.writerow(["=== COMPANY WIKI ARTICLE ANALYTICS EXECUTIVE REPORT ==="])
+            writer.writerow(["Article Title", article.title])
+            writer.writerow(["Article Slug", article.slug])
+            writer.writerow(["Category", article.category.name if article.category else "General"])
+            writer.writerow(["Author", article.author.username if article.author else "Unknown"])
+            writer.writerow(["Exported At (UTC)", now.strftime("%Y-%m-%d %H:%M:%S")])
+            writer.writerow(["Exported By", request.user.username])
+            writer.writerow([])
+
+            # Section 2: Core KPI Summary
+            writer.writerow(["=== KEY PERFORMANCE INDICATORS (KPIs) ==="])
+            writer.writerow(["Metric", "Value", "Notes"])
+            writer.writerow(["Total All-Time Views", article.view_count, "Cumulative page views"])
+            writer.writerow(["Unique Readers", total_unique_readers, "Distinct reader identities & sessions"])
+            writer.writerow(["Helpfulness Score", f"{helpfulness_score}%", f"{helpful_count} Helpful vs {unhelpful_count} Unhelpful"])
+            writer.writerow(["Quality Health Status", health_label, health_desc])
+            writer.writerow(["Average Reading Time", format_duration(avg_active_seconds), f"Estimated read time: {format_duration(estimated_read_seconds)}"])
+            writer.writerow(["Completion Rate", f"{p100}%", "Readers who reached 90%+ scroll depth"])
+            writer.writerow(["Retention Health Score", f"{retention_score}/100", engagement_level])
+            writer.writerow(["Primary Drop-off Stage", primary_drop, "Stage with largest reader drop"])
+            writer.writerow([])
+
+            # Section 3: Scroll Depth Funnel
+            writer.writerow(["=== READER SCROLL-DEPTH RETENTION FUNNEL ==="])
+            writer.writerow(["Milestone", "Stage Name", "Readers Count", "Retention Rate", "Drop-Off From Prior Stage"])
+            for st in funnel:
+                writer.writerow([f"{st['milestone']}%", st["stage"], st["readers"], f"{st['percentage']}%", f"{st['drop_off_percentage']}%"])
+            writer.writerow([])
+
+            # Section 4: Daily Views (30 Days)
+            writer.writerow(["=== DAILY VIEWS TIMELINE (LAST 30 DAYS) ==="])
+            writer.writerow(["Date", "Day of Week", "Total Views", "Unique Readers"])
+            for pt in daily_timeline:
+                writer.writerow([pt["date"], pt["day_name"], pt["total_views"], pt["unique_readers"]])
+            writer.writerow([])
+
+            # Section 5: Reading Time Distribution
+            writer.writerow(["=== READING TIME ATTENTION DISTRIBUTION ==="])
+            writer.writerow(["Time Bucket", "Audience Segment", "Reader Count", "Percentage of Readers"])
+            for b in distribution:
+                writer.writerow([b["bucket"], b["label"], b["count"], f"{b['percentage']}%"])
+            writer.writerow([])
+
+            # Section 6: Reader Feedback Notes
+            writer.writerow(["=== READER FEEDBACK & SENTIMENT NOTES ==="])
+            writer.writerow(["Feedback ID", "Date", "Reader Name", "Role", "Rating", "Sentiment Category", "Constructive Note"])
+            for fb in feedback_items:
+                writer.writerow([fb["id"], fb["created_at"], fb["user_name"], fb["user_role"], fb["rating"], fb["sentiment_tag"], fb["note"]])
+
+            csv_data = output.getvalue()
+            filename = f"analytics_{article.slug}_{timestamp_str}.csv"
+            response = HttpResponse(csv_data, content_type="text/csv; charset=utf-8")
+            response["Content-Disposition"] = f'attachment; filename="{filename}"'
+            return response
+
+        # 5. Return JSON Format
+        payload = {
+            "metadata": {
+                "article_title": article.title,
+                "article_slug": article.slug,
+                "category": article.category.name if article.category else "General",
+                "author": article.author.username if article.author else "Unknown",
+                "exported_at": now.isoformat(),
+                "exported_by": request.user.username,
+                "report_version": "1.0",
+            },
+            "executive_kpis": {
+                "all_time_views": article.view_count,
+                "unique_readers": total_unique_readers,
+                "helpfulness_score_percentage": helpfulness_score,
+                "helpful_votes": helpful_count,
+                "unhelpful_votes": unhelpful_count,
+                "health_status": health_status,
+                "health_label": health_label,
+                "health_description": health_desc,
+                "total_reading_sessions": total_sessions,
+                "avg_reading_seconds": avg_active_seconds,
+                "avg_reading_formatted": format_duration(avg_active_seconds),
+                "estimated_read_seconds": estimated_read_seconds,
+                "estimated_read_formatted": format_duration(estimated_read_seconds),
+                "completion_rate_percentage": p100,
+                "retention_score": retention_score,
+                "engagement_level": engagement_level,
+                "primary_drop_off_stage": primary_drop,
+            },
+            "scroll_depth_funnel": funnel,
+            "daily_views_timeline_30d": daily_timeline,
+            "reading_time_distribution": distribution,
+            "reader_feedback_notes": feedback_items,
+            "optimization_recommendations": recommendations,
+        }
+
+        filename = f"analytics_{article.slug}_{timestamp_str}.json"
+        response = HttpResponse(
+            json.dumps(payload, indent=2, ensure_ascii=False),
+            content_type="application/json; charset=utf-8",
+        )
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
+        return response
 
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
