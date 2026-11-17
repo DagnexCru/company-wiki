@@ -26,6 +26,10 @@ import {
   Zap,
   BookOpen,
   CheckCircle,
+  Download,
+  ChevronDown,
+  FileSpreadsheet,
+  FileCode,
 } from "lucide-react";
 import { analyticsService } from "../services/analyticsService";
 import type {
@@ -67,6 +71,10 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
   const [engagementData, setEngagementData] = useState<ArticleEngagementResponse | null>(null);
   const [loadingEngagement, setLoadingEngagement] = useState<boolean>(false);
   const [engagementError, setEngagementError] = useState<string | null>(null);
+
+  // One-Click Export Suite State
+  const [exportDropdownOpen, setExportDropdownOpen] = useState<boolean>(false);
+  const [isExporting, setIsExporting] = useState<boolean>(false);
 
   const fetchViews = useCallback(async () => {
     try {
@@ -144,6 +152,18 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
     return sentimentData.recent_feedbacks;
   }, [sentimentData, feedbackFilter]);
 
+  const handleExport = async (format: "csv" | "json") => {
+    try {
+      setIsExporting(true);
+      setExportDropdownOpen(false);
+      await analyticsService.exportArticleAnalytics(articleSlug, format);
+    } catch (err) {
+      console.error("Export analytics failed:", err);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -171,6 +191,69 @@ export const ArticleAnalyticsModal: React.FC<ArticleAnalyticsModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2 self-end sm:self-auto">
+            {/* Export Suite Dropdown */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setExportDropdownOpen((prev) => !prev)}
+                disabled={isExporting}
+                title="Export Analytics Data"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition shadow-2xs"
+              >
+                <Download className={`w-3.5 h-3.5 ${isExporting ? "animate-bounce text-indigo-500" : "text-slate-500"}`} />
+                <span className="hidden sm:inline">Export</span>
+                <ChevronDown className="w-3 h-3 text-slate-400" />
+              </button>
+
+              {exportDropdownOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setExportDropdownOpen(false)}
+                  />
+                  <div className="absolute right-0 mt-1.5 w-60 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-20 py-1.5 text-xs">
+                    <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                      Export Analytics Report
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleExport("csv")}
+                      className="w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 transition group"
+                    >
+                      <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                        <FileSpreadsheet className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                          Export as CSV
+                        </div>
+                        <div className="text-[10px] text-slate-400">
+                          Excel / Google Sheets spreadsheet
+                        </div>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleExport("json")}
+                      className="w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-200 transition group"
+                    >
+                      <div className="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                        <FileCode className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                          Export as JSON
+                        </div>
+                        <div className="text-[10px] text-slate-400">
+                          Raw structured report for analysts & devs
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+
             <button
               type="button"
               onClick={() => {
