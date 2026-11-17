@@ -832,3 +832,9 @@ Verify the end-to-end design, backend CSV/JSON serialization, UTF-8 BOM encoding
 - **Timestamp:** `2026-11-17T14:34:22+03:00`
 - **System State:** Clean build, 26/26 backend test suite passing, Vite production bundle optimized at 529.60 kB with 0 warnings.
 - **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 28 Day 5 specification.
+
+### Step 137 (Cycle 09): [PORTFOLIO-EXPORT] - Step 137 Audit
+- **Verification Focus:** Verify author overview csv export including total articles, published counts, reading hours, and leaderboard table (Audit Cycle 9).
+- **Timestamp:** `2026-11-17T14:36:36+03:00`
+- **System State:** Clean build, 26/26 backend test suite passing, Vite production bundle optimized at 529.60 kB with 0 warnings.
+- **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 28 Day 5 specification.
