@@ -15,6 +15,7 @@ import {
   Star,
   FileText,
   AlertCircle,
+  Download,
 } from "lucide-react";
 import { analyticsService } from "../services/analyticsService";
 import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
@@ -26,6 +27,18 @@ export const AuthorAnalyticsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<"views" | "rating" | "reading_time" | "recent">("views");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isExporting, setIsExporting] = useState<boolean>(false);
+
+  const handleExportPortfolio = async () => {
+    try {
+      setIsExporting(true);
+      await analyticsService.exportAuthorPortfolio(data?.author?.id);
+    } catch (err) {
+      console.error("Export portfolio failed:", err);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   // Modal inspection state for a specific article
   const [selectedArticle, setSelectedArticle] = useState<{
@@ -108,6 +121,17 @@ export const AuthorAnalyticsPage: React.FC = () => {
 
           <button
             type="button"
+            onClick={handleExportPortfolio}
+            disabled={isExporting || !data || data.top_articles.length === 0}
+            title="Export Author Portfolio as CSV (Excel)"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold shadow-2xs transition cursor-pointer"
+          >
+            <Download className={`w-3.5 h-3.5 ${isExporting ? "animate-bounce text-emerald-500" : "text-emerald-600 dark:text-emerald-400"}`} />
+            <span className="hidden sm:inline">Export CSV</span>
+          </button>
+
+          <button
+            type="button"
             onClick={fetchOverview}
             disabled={loading}
             title="Refresh analytics"
@@ -131,6 +155,17 @@ export const AuthorAnalyticsPage: React.FC = () => {
           <h3 className="text-sm font-bold text-rose-800 dark:text-rose-300">
             {error || "Unable to display analytics."}
           </h3>
+          <button
+            type="button"
+            onClick={handleExportPortfolio}
+            disabled={isExporting || !data || data.top_articles.length === 0}
+            title="Export Author Portfolio as CSV (Excel)"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold shadow-2xs transition cursor-pointer"
+          >
+            <Download className={`w-3.5 h-3.5 ${isExporting ? "animate-bounce text-emerald-500" : "text-emerald-600 dark:text-emerald-400"}`} />
+            <span className="hidden sm:inline">Export CSV</span>
+          </button>
+
           <button
             type="button"
             onClick={fetchOverview}
