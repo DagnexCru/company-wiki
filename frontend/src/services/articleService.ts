@@ -139,6 +139,48 @@ export const articleService = {
     const response = await api.get(`/articles/${slugOrId}/feedbacks/`);
     return response.data;
   },
+
+  /**
+   * Multi-Format Export Suite: Download article in PDF, HTML, ZIP, or Markdown format.
+   * GET /api/v1/articles/{slug}/export/?format=pdf|html|zip|markdown
+   */
+  async exportArticleDocument(
+    slug: string,
+    format: "pdf" | "html" | "zip" | "markdown" = "markdown"
+  ): Promise<void> {
+    const response = await api.get(`/articles/${slug}/export/`, {
+      params: { format },
+      responseType: "blob",
+    });
+
+    const mimeTypes: Record<string, string> = {
+      pdf: "application/pdf",
+      html: "text/html;charset=utf-8;",
+      zip: "application/zip",
+      markdown: "text/markdown;charset=utf-8;",
+    };
+
+    const extensions: Record<string, string> = {
+      pdf: "pdf",
+      html: "html",
+      zip: "zip",
+      markdown: "md",
+    };
+
+    const blob = new Blob([response.data], {
+      type: mimeTypes[format] || "text/plain;charset=utf-8;",
+    });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    const ext = extensions[format] || format;
+    const downloadFilename = format === "zip" ? `${slug}_bundle.zip` : `${slug}.${ext}`;
+    link.setAttribute("download", downloadFilename);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
 };
 
 // API Service Layer: All requests include SimpleJWT bearer headers automatically via Axios interceptor.
