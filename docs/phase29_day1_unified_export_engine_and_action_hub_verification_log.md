@@ -652,3 +652,9 @@ Verify the end-to-end implementation of Phase 29 Day 1: Unified Multi-Format Exp
 - **Timestamp:** `2026-11-18T13:29:54+03:00`
 - **System State:** Clean build, 32/32 backend test suite passing, Vite production bundle optimized at 534.31 kB in 4.80s with 0 warnings.
 - **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 1 specification.
+
+### Step 107 (Cycle 08): [UI-DROPDOWN] - Step 107 Audit
+- **Verification Focus:** Audit articledetailpage export & share dropdown menu layout, styling, and backdrop dismissal (Audit Cycle 8).
+- **Timestamp:** `2026-11-18T13:32:12+03:00`
+- **System State:** Clean build, 32/32 backend test suite passing, Vite production bundle optimized at 534.31 kB in 4.80s with 0 warnings.
+- **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 1 specification.
