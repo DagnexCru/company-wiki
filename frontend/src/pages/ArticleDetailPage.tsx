@@ -21,6 +21,11 @@ import {
   Eye,
   ThumbsUp,
   BarChart2,
+  FileText,
+  FileCode,
+  FileArchive,
+  Globe,
+  ChevronDown,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { articleService } from "../services/articleService";
@@ -94,6 +99,32 @@ export const ArticleDetailPage: React.FC = () => {
   const [showTeamComplianceModal, setShowTeamComplianceModal] = useState<boolean>(false);
   const [showCertificateModal, setShowCertificateModal] = useState<boolean>(false);
   const [showAnalyticsModal, setShowAnalyticsModal] = useState<boolean>(false);
+
+  // Multi-Format Export Suite State
+  const [exportDropdownOpen, setExportDropdownOpen] = useState<boolean>(false);
+  const [exportingFormat, setExportingFormat] = useState<string | null>(null);
+  const [exportSuccessMsg, setExportSuccessMsg] = useState<string | null>(null);
+
+  const handleExportDocument = async (format: "pdf" | "html" | "zip" | "markdown") => {
+    if (!slug) return;
+    try {
+      setExportingFormat(format);
+      setExportDropdownOpen(false);
+      await articleService.exportArticleDocument(slug, format);
+      const labels: Record<string, string> = {
+        pdf: "Branded PDF",
+        html: "Standalone HTML",
+        zip: "ZIP Bundle",
+        markdown: "Clean Markdown",
+      };
+      setExportSuccessMsg(`${labels[format] || format} downloaded successfully!`);
+      setTimeout(() => setExportSuccessMsg(null), 3500);
+    } catch (err: any) {
+      console.error("Export document failed:", err);
+    } finally {
+      setExportingFormat(null);
+    }
+  };
 
   useEffect(() => {
     if (!slug || !user) return;
@@ -281,41 +312,6 @@ export const ArticleDetailPage: React.FC = () => {
     };
   }, [headings]);
 
-  const handleDownloadMarkdown = () => {
-    if (!article) return;
-    const frontmatter = [
-      "---",
-      `title: "${article.title}"`,
-      `slug: "${article.slug}"`,
-      `author: "${article.author.full_name || article.author.username}"`,
-      `status: "${article.status}"`,
-      `estimated_read_time: ${article.estimated_read_time}`,
-      article.category ? `category: "${article.category.name}"` : null,
-      article.tags && article.tags.length > 0
-        ? `tags: [${article.tags.map((t) => `"${t.name}"`).join(", ")}]`
-        : null,
-      `last_updated: "${article.updated_at}"`,
-      "---",
-      "",
-      `# ${article.title}`,
-      "",
-      article.summary ? `> ${article.summary}\n` : "",
-      article.content,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const blob = new Blob([frontmatter], { type: "text/markdown;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${article.slug}.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
   const handlePrint = () => {
     window.print();
   };
@@ -454,46 +450,165 @@ export const ArticleDetailPage: React.FC = () => {
             initialBookmarkInfo={article.bookmark_info}
           />
 
-          {/* Export & Sharing Suite */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
+          {/* Multi-Format Export & Sharing Action Hub */}
+          <div className="relative">
             <button
               type="button"
-              onClick={handleCopyShareLink}
-              title="Copy direct shareable link"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
+              onClick={() => setExportDropdownOpen((prev) => !prev)}
+              disabled={Boolean(exportingFormat)}
+              title="Export Document in Multiple Formats"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition shadow-2xs cursor-pointer"
             >
-              {copiedLink ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-500 animate-in zoom-in duration-200" />
-                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Share2 className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-                  <span>Share</span>
-                </>
-              )}
+              <Download className={`w-3.5 h-3.5 ${exportingFormat ? "animate-bounce text-indigo-500" : "text-slate-500 dark:text-slate-400"}`} />
+              <span>{exportingFormat ? "Exporting..." : "Export & Share"}</span>
+              <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
 
-            <button
-              type="button"
-              onClick={handleDownloadMarkdown}
-              title="Download clean Markdown with metadata frontmatter"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
-            >
-              <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              <span>.MD</span>
-            </button>
+            {exportDropdownOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-20"
+                  onClick={() => setExportDropdownOpen(false)}
+                />
+                <div className="absolute right-0 mt-1.5 w-64 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-30 py-2 text-xs">
+                  <div className="px-3 py-1 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    Export Document
+                  </div>
 
-            <button
-              type="button"
-              onClick={handlePrint}
-              title="Print or export as clean PDF"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition shadow-2xs"
-            >
-              <Printer className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              <span>Print / PDF</span>
-            </button>
+                  {/* 1. Branded PDF */}
+                  <button
+                    type="button"
+                    onClick={() => handleExportDocument("pdf")}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0">
+                      <FileText className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400">
+                        Branded PDF (.pdf)
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Executive layout, logo & styling
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* 2. Standalone HTML */}
+                  <button
+                    type="button"
+                    onClick={() => handleExportDocument("html")}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-sky-50 dark:hover:bg-sky-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400">
+                        Standalone HTML (.html)
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Self-contained offline document
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* 3. ZIP Archive Bundle */}
+                  <button
+                    type="button"
+                    onClick={() => handleExportDocument("zip")}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-amber-50 dark:hover:bg-amber-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                      <FileArchive className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400">
+                        ZIP Archive Bundle (.zip)
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Markdown, manifest & attachments
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* 4. Clean Markdown */}
+                  <button
+                    type="button"
+                    onClick={() => handleExportDocument("markdown")}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <FileCode className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                        Clean Markdown (.md)
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Standard YAML frontmatter format
+                      </div>
+                    </div>
+                  </button>
+
+                  <div className="my-1.5 border-t border-slate-100 dark:border-slate-800" />
+                  <div className="px-3 py-1 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    Collaboration & Print
+                  </div>
+
+                  {/* 5. Share Link */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setExportDropdownOpen(false);
+                      handleCopyShareLink();
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
+                      {copiedLink ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4" />}
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-800 dark:text-slate-200">
+                        {copiedLink ? "Link Copied!" : "Copy Share Link"}
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Direct URL to clipboard
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* 6. Quick Print */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setExportDropdownOpen(false);
+                      handlePrint();
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
+                      <Printer className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-800 dark:text-slate-200">
+                        Browser Print
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        System print dialog & PDF
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </>
+            )}
+
+            {exportSuccessMsg && (
+              <div className="absolute right-0 top-full mt-2 px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-[11px] font-semibold shadow-lg whitespace-nowrap animate-in fade-in slide-in-from-top-1 duration-200 z-40 flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5" />
+                <span>{exportSuccessMsg}</span>
+              </div>
+            )}
           </div>
 
           {/* Submit for Review Button (Draft or Rejected by author) */}
