@@ -940,3 +940,9 @@ Verify the end-to-end implementation of Phase 29 Day 1: Unified Multi-Format Exp
 - **Timestamp:** `2026-11-18T15:20:18+03:00`
 - **System State:** Clean build, 32/32 backend test suite passing, Vite production bundle optimized at 534.31 kB in 4.80s with 0 warnings.
 - **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 1 specification.
+
+### Step 155 (Cycle 12): [API-CONTRACT] - Step 155 Audit
+- **Verification Focus:** Verify format parameter negotiation across pdf, html, zip, and markdown (Audit Cycle 12).
+- **Timestamp:** `2026-11-18T15:22:36+03:00`
+- **System State:** Clean build, 32/32 backend test suite passing, Vite production bundle optimized at 534.31 kB in 4.80s with 0 warnings.
+- **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 1 specification.
