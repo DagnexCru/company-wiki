@@ -133,6 +133,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "sentiment",
             "engagement",
             "export_analytics",
+            "export_document",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -2262,6 +2263,39 @@ class ArticleViewSet(viewsets.ModelViewSet):
         )
         response["Content-Disposition"] = f'attachment; filename="{filename}"'
         return response
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="export",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def export_document(self, request, slug=None):
+        """
+        Multi-Format Export Suite: Export article as Branded PDF, Standalone HTML, ZIP, or Markdown.
+        GET /api/v1/articles/{slug}/export/?format=pdf|html|zip|markdown
+        """
+        article = self.get_object()
+
+        # Enforce visibility rules:
+        # If not published, only author, reviewer, or admin can export
+        if article.status != Article.Status.PUBLISHED:
+            is_author = article.author_id == request.user.id
+            is_staff = (
+                getattr(request.user, "role", "") in ["ADMIN", "REVIEWER"]
+                or getattr(request.user, "is_admin", False)
+            )
+            if not (is_author or is_staff):
+                return Response(
+                    {"detail": "You do not have permission to export this non-published article."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
+        from apps.articles.export_service import ArticleExportService
+
+        fmt = request.query_params.get("format", "markdown")
+        return ArticleExportService.export(article, fmt, request)
+
 
 
 # Architecture Note: ArticleViewSet enforces RESTful URL patterns with slug lookup.
