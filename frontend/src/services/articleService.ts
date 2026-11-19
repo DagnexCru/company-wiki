@@ -8,6 +8,14 @@ import type {
   PaginatedResponse,
 } from "../types/article";
 
+export interface PdfExportOptions {
+  includeCover?: boolean;
+  watermark?: boolean;
+  watermarkText?: string;
+  classification?: "INTERNAL" | "CONFIDENTIAL" | "RESTRICTED" | "PUBLIC";
+  includeToc?: boolean;
+}
+
 export const articleService = {
   /**
    * Fetch paginated list of articles filtered by user role and optional criteria.
@@ -146,10 +154,20 @@ export const articleService = {
    */
   async exportArticleDocument(
     slug: string,
-    format: "pdf" | "html" | "zip" | "markdown" = "markdown"
+    format: "pdf" | "html" | "zip" | "markdown" = "markdown",
+    options?: PdfExportOptions
   ): Promise<void> {
+    const params: Record<string, any> = { format };
+    if (format === "pdf" && options) {
+      if (options.includeCover !== undefined) params.include_cover = options.includeCover;
+      if (options.watermark !== undefined) params.watermark = options.watermark;
+      if (options.watermarkText) params.watermark_text = options.watermarkText;
+      if (options.classification) params.classification = options.classification;
+      if (options.includeToc !== undefined) params.include_toc = options.includeToc;
+    }
+
     const response = await api.get(`/articles/${slug}/export/`, {
-      params: { format },
+      params,
       responseType: "blob",
     });
 
