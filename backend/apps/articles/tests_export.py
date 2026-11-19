@@ -143,6 +143,26 @@ class MultiFormatExportSuiteTests(TestCase):
         self.assertIsNotNone(log)
         self.assertEqual(log.user, self.reader)
 
+    def test_export_pdf_with_watermark_and_confidential(self):
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/export/?format=pdf&watermark=true&watermark_text=CONFIDENTIAL+RUNBOOK&classification=CONFIDENTIAL"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/pdf", res["Content-Type"])
+        self.assertTrue(res.content.startswith(b"%PDF-"))
+        # PDF with watermark & cover sheet is larger
+        self.assertGreater(len(res.content), 2500)
+
+    def test_export_pdf_minimal_no_cover(self):
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/export/?format=pdf&include_cover=false&include_toc=false&classification=PUBLIC"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/pdf", res["Content-Type"])
+        self.assertTrue(res.content.startswith(b"%PDF-"))
+
     def test_draft_export_permissions(self):
         url = f"/api/v1/articles/{self.draft_article.slug}/export/?format=markdown"
 
