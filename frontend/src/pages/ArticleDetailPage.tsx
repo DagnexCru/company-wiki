@@ -28,7 +28,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-import { articleService } from "../services/articleService";
+import { articleService, type PdfExportOptions } from "../services/articleService";
 import { workflowService } from "../services/workflowService";
 import { MarkdownViewer } from "../components/MarkdownViewer";
 import { CategoryBadge } from "../components/CategoryBadge";
@@ -48,6 +48,7 @@ import { ResetChecklistModal } from "../components/ResetChecklistModal";
 import { TeamComplianceModal } from "../components/TeamComplianceModal";
 import { SopCertificateModal } from "../components/SopCertificateModal";
 import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
+import { PdfExportOptionsModal } from "../components/PdfExportOptionsModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { useReaderEngagement } from "../hooks/useReaderEngagement";
@@ -104,6 +105,22 @@ export const ArticleDetailPage: React.FC = () => {
   const [exportDropdownOpen, setExportDropdownOpen] = useState<boolean>(false);
   const [exportingFormat, setExportingFormat] = useState<string | null>(null);
   const [exportSuccessMsg, setExportSuccessMsg] = useState<string | null>(null);
+  const [showPdfOptionsModal, setShowPdfOptionsModal] = useState<boolean>(false);
+
+  const handleExportPdfWithOptions = async (options: PdfExportOptions) => {
+    if (!slug) return;
+    try {
+      setExportingFormat("pdf");
+      await articleService.exportArticleDocument(slug, "pdf", options);
+      setShowPdfOptionsModal(false);
+      setExportSuccessMsg("Branded PDF generated & downloaded successfully!");
+      setTimeout(() => setExportSuccessMsg(null), 3500);
+    } catch (err: any) {
+      console.error("Export PDF failed:", err);
+    } finally {
+      setExportingFormat(null);
+    }
+  };
 
   const handleExportDocument = async (format: "pdf" | "html" | "zip" | "markdown") => {
     if (!slug) return;
@@ -478,7 +495,10 @@ export const ArticleDetailPage: React.FC = () => {
                   {/* 1. Branded PDF */}
                   <button
                     type="button"
-                    onClick={() => handleExportDocument("pdf")}
+                    onClick={() => {
+                      setExportDropdownOpen(false);
+                      setShowPdfOptionsModal(true);
+                    }}
                     className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
                   >
                     <div className="w-7 h-7 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0">
@@ -1014,6 +1034,18 @@ export const ArticleDetailPage: React.FC = () => {
           articleSlug={article.slug}
           articleTitle={article.title}
           onClose={() => setShowAnalyticsModal(false)}
+        />
+      )}
+
+      {/* Enterprise Branded PDF Export Options Modal */}
+      {article && (
+        <PdfExportOptionsModal
+          isOpen={showPdfOptionsModal}
+          onClose={() => setShowPdfOptionsModal(false)}
+          articleTitle={article.title}
+          articleSlug={article.slug}
+          onExport={handleExportPdfWithOptions}
+          isExporting={exportingFormat === "pdf"}
         />
       )}
     </div>
