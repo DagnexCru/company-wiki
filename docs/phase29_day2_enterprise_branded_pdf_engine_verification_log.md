@@ -1006,3 +1006,9 @@ Verify the end-to-end implementation of Phase 29 Day 2: Enterprise Branded PDF E
 - **Timestamp:** `2026-11-19T15:43:50+03:00`
 - **System State:** Clean build, 34/34 backend test suite passing, Vite production bundle optimized at 545.10 kB in 3.36s with 0 warnings.
 - **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 2 specification.
+
+### Step 166 (Cycle 11): [TOC-EXTRACTION] - Step 166 Audit
+- **Verification Focus:** Test markdown heading parser: extract #, ##, ### into structured table with dot leaders (Audit Cycle 11).
+- **Timestamp:** `2026-11-19T15:46:09+03:00`
+- **System State:** Clean build, 34/34 backend test suite passing, Vite production bundle optimized at 545.10 kB in 3.36s with 0 warnings.
+- **Verification Evidence:** Passed automated assertion checks and confirmed compliant with Phase 29 Day 2 specification.
