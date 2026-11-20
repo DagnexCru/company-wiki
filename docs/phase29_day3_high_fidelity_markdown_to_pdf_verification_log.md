@@ -55,3 +55,5 @@
   - Verification status: PASSED | Checkpoint: step_028 | Module: export_service
 - `2026-11-20T10:22:00+03:00` - **[Theme]** audit step 29 - verify important callout background tint HexColor('#f5f3ff')
   - Verification status: PASSED | Checkpoint: step_029 | Module: export_service
+- `2026-11-20T10:24:30+03:00` - **[Callout]** audit step 30 - test GitHub-style [!CAUTION] alert callout rose palette HexColor('#dc2626')
+  - Verification status: PASSED | Checkpoint: step_030 | Module: export_service
