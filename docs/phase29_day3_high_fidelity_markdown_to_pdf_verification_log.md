@@ -59,3 +59,5 @@
   - Verification status: PASSED | Checkpoint: step_030 | Module: export_service
 - `2026-11-20T10:27:00+03:00` - **[Theme]** audit step 31 - verify caution callout background tint HexColor('#fef2f2')
   - Verification status: PASSED | Checkpoint: step_031 | Module: export_service
+- `2026-11-20T10:29:30+03:00` - **[Typography]** audit step 32 - audit callout body text line wrap and markdown bold/code tags formatting
+  - Verification status: PASSED | Checkpoint: step_032 | Module: export_service
