@@ -85,3 +85,5 @@
   - Verification status: PASSED | Checkpoint: step_043 | Module: export_service
 - `2026-11-20T10:59:30+03:00` - **[Typography]** audit step 44 - test markdown bold and inline code tags conversion in table cells
   - Verification status: PASSED | Checkpoint: step_044 | Module: export_service
+- `2026-11-20T11:02:00+03:00` - **[Alignment]** audit step 45 - audit vertical alignment TOP configuration for multiline table cells
+  - Verification status: PASSED | Checkpoint: step_045 | Module: export_service
