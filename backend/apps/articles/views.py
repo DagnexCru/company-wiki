@@ -134,6 +134,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "engagement",
             "export_analytics",
             "export_document",
+            "export_preview",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -2295,6 +2296,38 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
         fmt = request.query_params.get("format", "markdown")
         return ArticleExportService.export(article, fmt, request)
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="export/preview",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def export_preview(self, request, slug=None):
+        """
+        Interactive PDF Print Previewer: Returns structured document page layout
+        and element statistics before triggering a full binary PDF download.
+        GET /api/v1/articles/{slug}/export/preview/
+        """
+        article = self.get_object()
+
+        # Enforce visibility rules
+        if article.status != Article.Status.PUBLISHED:
+            is_author = article.author_id == request.user.id
+            is_staff = (
+                getattr(request.user, "role", "") in ["ADMIN", "REVIEWER"]
+                or getattr(request.user, "is_admin", False)
+            )
+            if not (is_author or is_staff):
+                return Response(
+                    {"detail": "You do not have permission to preview this non-published article."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
+        from apps.articles.export_service import ArticleExportService
+
+        preview_data = ArticleExportService.get_pdf_preview_metadata(article, request)
+        return Response(preview_data, status=status.HTTP_200_OK)
 
 
 
