@@ -159,3 +159,5 @@
   - Verification status: PASSED | Checkpoint: step_080 | Module: export_service
 - `2026-11-20T12:32:00+03:00` - **[TocPreview]** audit step 81 - verify Page 2 Table of Contents running header and divider rule
   - Verification status: PASSED | Checkpoint: step_081 | Module: export_service
+- `2026-11-20T12:34:30+03:00` - **[TocPreview]** audit step 82 - test TOC simulated dot-leader rows and section tags layout
+  - Verification status: PASSED | Checkpoint: step_082 | Module: export_service
