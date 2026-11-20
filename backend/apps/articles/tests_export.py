@@ -180,3 +180,81 @@ class MultiFormatExportSuiteTests(TestCase):
         self.client.force_authenticate(user=self.admin)
         res_admin = self.client.get(url)
         self.assertEqual(res_admin.status_code, 200)
+
+    def test_export_pdf_high_fidelity_elements(self):
+        """
+        Verify that high-fidelity elements (syntax-highlighted code, callouts, tables, images)
+        are compiled without errors into a valid enterprise branded PDF.
+        """
+        hf_content = (
+            "# Production Cluster Runbook\n\n"
+            "This document outlines rollout procedures.\n\n"
+            "> [!NOTE]\n"
+            "> Ensure node draining finishes completely before performing OS updates.\n\n"
+            "> [!WARNING]\n"
+            "> Forcing pod evictions without pdb check may cause service disruption.\n\n"
+            "## 1. Workload Specifications\n\n"
+            "| Deployment | Replicas | CPU Limit | Memory Limit |\n"
+            "| --- | --- | --- | --- |\n"
+            "| `api-server` | 5 | 1000m | 2Gi |\n"
+            "| `worker-daemon` | 3 | 500m | 1Gi |\n\n"
+            "## 2. Rolling Update Snippet\n\n"
+            "```bash\n"
+            "kubectl set image deployment/api-server api=registry.internal/api:v2.4.0\n"
+            "kubectl rollout status deployment/api-server\n"
+            "```\n\n"
+            "![Architecture Diagram](/media/diagrams/k8s_architecture.png)\n\n"
+            "- Step 1: Verify health metrics\n"
+            "- Step 2: Validate ingress traffic routing\n"
+        )
+        hf_article = Article.objects.create(
+            title="High-Fidelity Enterprise Infrastructure Runbook",
+            slug="hf-enterprise-infrastructure-runbook",
+            summary="Mission-critical runbook featuring code blocks, callouts, and data tables.",
+            content=hf_content,
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+        )
+
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{hf_article.slug}/export/?format=pdf&classification=RESTRICTED&watermark=true"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/pdf", res["Content-Type"])
+        self.assertTrue(res.content.startswith(b"%PDF-"))
+        self.assertGreater(len(res.content), 3000)
+
+    def test_export_pdf_preview_endpoint(self):
+        """
+        Verify that the PDF preview metadata endpoint returns document outline,
+        estimated page counts, and high-fidelity element statistics.
+        """
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/export/preview/?classification=CONFIDENTIAL&watermark=true"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["slug"], self.published_article.slug)
+        self.assertEqual(data["classification"], "CONFIDENTIAL")
+        self.assertTrue(data["watermark_enabled"])
+        self.assertGreaterEqual(data["total_estimated_pages"], 2)
+        self.assertIn("element_counts", data)
+        self.assertIn("code_blocks", data["element_counts"])
+        self.assertIn("pages", data)
+        self.assertGreaterEqual(len(data["pages"]), 2)
+
+    def test_export_preview_via_format_param(self):
+        """
+        Verify that passing format=preview to the unified export endpoint returns preview JSON.
+        """
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/export/?format=preview"
+        res = self.client.get(url)
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/json", res["Content-Type"])
+        data = res.json()
+        self.assertEqual(data["title"], self.published_article.title)
+        self.assertIn("total_estimated_pages", data)
