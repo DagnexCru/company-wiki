@@ -69,3 +69,5 @@
   - Verification status: PASSED | Checkpoint: step_035 | Module: export_service
 - `2026-11-20T10:39:30+03:00` - **[Table]** audit step 36 - test table row cell normalization across varying column counts
   - Verification status: PASSED | Checkpoint: step_036 | Module: export_service
+- `2026-11-20T10:42:00+03:00` - **[AutoWrap]** audit step 37 - verify ReportLab Paragraph wrapping inside all table cells
+  - Verification status: PASSED | Checkpoint: step_037 | Module: export_service
