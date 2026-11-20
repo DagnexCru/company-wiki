@@ -67,3 +67,5 @@
   - Verification status: PASSED | Checkpoint: step_034 | Module: export_service
 - `2026-11-20T10:37:00+03:00` - **[Table]** audit step 35 - audit markdown pipe table delimiter row detection and filtering
   - Verification status: PASSED | Checkpoint: step_035 | Module: export_service
+- `2026-11-20T10:39:30+03:00` - **[Table]** audit step 36 - test table row cell normalization across varying column counts
+  - Verification status: PASSED | Checkpoint: step_036 | Module: export_service
