@@ -105,3 +105,5 @@
   - Verification status: PASSED | Checkpoint: step_053 | Module: export_service
 - `2026-11-20T11:24:30+03:00` - **[Placeholder]** audit step 54 - verify placeholder box styling with camera badge and path citation
   - Verification status: PASSED | Checkpoint: step_054 | Module: export_service
+- `2026-11-20T11:27:00+03:00` - **[List]** audit step 55 - audit markdown bullet list parsing with &bull; and leftIndent=14
+  - Verification status: PASSED | Checkpoint: step_055 | Module: export_service
