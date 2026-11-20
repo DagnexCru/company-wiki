@@ -119,3 +119,5 @@
   - Verification status: PASSED | Checkpoint: step_060 | Module: export_service
 - `2026-11-20T11:42:00+03:00` - **[DRF]** audit step 61 - verify PreviewRenderer class media_type and format='preview' registration
   - Verification status: PASSED | Checkpoint: step_061 | Module: export_service
+- `2026-11-20T11:44:30+03:00` - **[Settings]** audit step 62 - test REST_FRAMEWORK settings DEFAULT_RENDERER_CLASSES tuple inclusion
+  - Verification status: PASSED | Checkpoint: step_062 | Module: export_service
