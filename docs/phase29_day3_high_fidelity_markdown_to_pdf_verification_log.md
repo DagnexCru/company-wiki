@@ -53,3 +53,5 @@
   - Verification status: PASSED | Checkpoint: step_027 | Module: export_service
 - `2026-11-20T10:19:30+03:00` - **[Callout]** audit step 28 - test GitHub-style [!IMPORTANT] alert callout purple palette HexColor('#7c3aed')
   - Verification status: PASSED | Checkpoint: step_028 | Module: export_service
+- `2026-11-20T10:22:00+03:00` - **[Theme]** audit step 29 - verify important callout background tint HexColor('#f5f3ff')
+  - Verification status: PASSED | Checkpoint: step_029 | Module: export_service
