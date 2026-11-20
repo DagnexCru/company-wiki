@@ -173,3 +173,5 @@
   - Verification status: PASSED | Checkpoint: step_087 | Module: export_service
 - `2026-11-20T12:49:30+03:00` - **[Footer]** audit step 88 - verify Page 3 running footer with dynamic page numbering (Page 3 of N)
   - Verification status: PASSED | Checkpoint: step_088 | Module: export_service
+- `2026-11-20T12:52:00+03:00` - **[DarkMode]** audit step 89 - test dark mode styling across all modal preview components
+  - Verification status: PASSED | Checkpoint: step_089 | Module: export_service
