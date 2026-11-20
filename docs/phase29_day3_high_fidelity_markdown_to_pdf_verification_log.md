@@ -87,3 +87,5 @@
   - Verification status: PASSED | Checkpoint: step_044 | Module: export_service
 - `2026-11-20T11:02:00+03:00` - **[Alignment]** audit step 45 - audit vertical alignment TOP configuration for multiline table cells
   - Verification status: PASSED | Checkpoint: step_045 | Module: export_service
+- `2026-11-20T11:04:30+03:00` - **[Layout]** audit step 46 - test large data tables with 5+ columns preventing right margin overflow
+  - Verification status: PASSED | Checkpoint: step_046 | Module: export_service
