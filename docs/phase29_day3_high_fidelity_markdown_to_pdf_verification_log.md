@@ -43,3 +43,5 @@
   - Verification status: PASSED | Checkpoint: step_022 | Module: export_service
 - `2026-11-20T10:07:00+03:00` - **[Border]** audit step 23 - verify 3.5pt left border stripe line drawing for note callouts
   - Verification status: PASSED | Checkpoint: step_023 | Module: export_service
+- `2026-11-20T10:09:30+03:00` - **[Callout]** audit step 24 - test GitHub-style [!WARNING] alert callout amber palette HexColor('#d97706')
+  - Verification status: PASSED | Checkpoint: step_024 | Module: export_service
