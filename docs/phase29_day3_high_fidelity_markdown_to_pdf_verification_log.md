@@ -21,3 +21,5 @@
   - Verification status: PASSED | Checkpoint: step_011 | Module: export_service
 - `2026-11-20T09:39:30+03:00` - **[Syntax]** audit step 12 - verify typescript keyword tokenization in high-fidelity code flowables
   - Verification status: PASSED | Checkpoint: step_012 | Module: export_service
+- `2026-11-20T09:42:00+03:00` - **[Syntax]** audit step 13 - test bash CLI command syntax highlighting with command pills
+  - Verification status: PASSED | Checkpoint: step_013 | Module: export_service
