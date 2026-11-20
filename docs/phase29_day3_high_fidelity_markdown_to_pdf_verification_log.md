@@ -41,3 +41,5 @@
   - Verification status: PASSED | Checkpoint: step_021 | Module: export_service
 - `2026-11-20T10:04:30+03:00` - **[Theme]** audit step 22 - test [!NOTE] blue theme with HexColor('#2563eb') and tint HexColor('#eff6ff')
   - Verification status: PASSED | Checkpoint: step_022 | Module: export_service
+- `2026-11-20T10:07:00+03:00` - **[Border]** audit step 23 - verify 3.5pt left border stripe line drawing for note callouts
+  - Verification status: PASSED | Checkpoint: step_023 | Module: export_service
