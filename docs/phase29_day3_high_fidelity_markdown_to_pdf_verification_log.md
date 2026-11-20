@@ -165,3 +165,5 @@
   - Verification status: PASSED | Checkpoint: step_083 | Module: export_service
 - `2026-11-20T12:39:30+03:00` - **[ContentPreview]** audit step 84 - verify Page 3 Body Content running header and classification badge
   - Verification status: PASSED | Checkpoint: step_084 | Module: export_service
+- `2026-11-20T12:42:00+03:00` - **[CalloutPreview]** audit step 85 - test Page 3 rendered GitHub-style callout alert card
+  - Verification status: PASSED | Checkpoint: step_085 | Module: export_service
