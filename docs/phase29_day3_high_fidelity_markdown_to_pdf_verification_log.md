@@ -163,3 +163,5 @@
   - Verification status: PASSED | Checkpoint: step_082 | Module: export_service
 - `2026-11-20T12:37:00+03:00` - **[Footer]** audit step 83 - verify TOC running footer with dynamic page numbering (Page 2 of N)
   - Verification status: PASSED | Checkpoint: step_083 | Module: export_service
+- `2026-11-20T12:39:30+03:00` - **[ContentPreview]** audit step 84 - verify Page 3 Body Content running header and classification badge
+  - Verification status: PASSED | Checkpoint: step_084 | Module: export_service
