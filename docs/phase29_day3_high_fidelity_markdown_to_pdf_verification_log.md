@@ -181,3 +181,5 @@
   - Verification status: PASSED | Checkpoint: step_091 | Module: export_service
 - `2026-11-20T12:59:30+03:00` - **[TestCase]** audit step 92 - audit test_export_preview_via_format_param unit test assertions
   - Verification status: PASSED | Checkpoint: step_092 | Module: export_service
+- `2026-11-20T13:02:00+03:00` - **[TestSuite]** audit step 93 - run full 11-test suite in apps.articles.tests_export verifying 100% pass
+  - Verification status: PASSED | Checkpoint: step_093 | Module: export_service
