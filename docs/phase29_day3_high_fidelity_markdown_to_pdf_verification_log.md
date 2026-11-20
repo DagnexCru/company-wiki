@@ -45,3 +45,5 @@
   - Verification status: PASSED | Checkpoint: step_023 | Module: export_service
 - `2026-11-20T10:09:30+03:00` - **[Callout]** audit step 24 - test GitHub-style [!WARNING] alert callout amber palette HexColor('#d97706')
   - Verification status: PASSED | Checkpoint: step_024 | Module: export_service
+- `2026-11-20T10:12:00+03:00` - **[Theme]** audit step 25 - verify warning callout background tint HexColor('#fffbeb')
+  - Verification status: PASSED | Checkpoint: step_025 | Module: export_service
