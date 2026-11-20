@@ -189,3 +189,5 @@
   - Verification status: PASSED | Checkpoint: step_095 | Module: export_service
 - `2026-11-20T13:09:30+03:00` - **[BundleMetrics]** audit step 96 - verify bundle asset sizes (index.css 176kB, index.js 554kB)
   - Verification status: PASSED | Checkpoint: step_096 | Module: export_service
+- `2026-11-20T13:12:00+03:00` - **[E2E]** audit step 97 - test PDF export with confidential classification and custom watermark
+  - Verification status: PASSED | Checkpoint: step_097 | Module: export_service
