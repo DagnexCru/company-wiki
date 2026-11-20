@@ -177,3 +177,5 @@
   - Verification status: PASSED | Checkpoint: step_089 | Module: export_service
 - `2026-11-20T12:54:30+03:00` - **[TestCase]** audit step 90 - audit test_export_pdf_high_fidelity_elements unit test assertions
   - Verification status: PASSED | Checkpoint: step_090 | Module: export_service
+- `2026-11-20T12:57:00+03:00` - **[TestCase]** audit step 91 - audit test_export_pdf_preview_endpoint unit test assertions
+  - Verification status: PASSED | Checkpoint: step_091 | Module: export_service
