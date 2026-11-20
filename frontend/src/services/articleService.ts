@@ -16,6 +16,34 @@ export interface PdfExportOptions {
   includeToc?: boolean;
 }
 
+export interface PdfPreviewMetadata {
+  slug: string;
+  title: string;
+  author: string;
+  category: string;
+  classification: "INTERNAL" | "CONFIDENTIAL" | "RESTRICTED" | "PUBLIC";
+  watermark_enabled: boolean;
+  watermark_text: string;
+  include_cover: boolean;
+  include_toc: boolean;
+  total_estimated_pages: number;
+  headings: Array<{ level: number; title: string }>;
+  element_counts: {
+    code_blocks: number;
+    callouts: number;
+    tables: number;
+    images: number;
+    headings: number;
+  };
+  pages: Array<{
+    page_number: number;
+    type: "cover" | "toc" | "content";
+    title: string;
+    badge: string;
+    preview_description: string;
+  }>;
+}
+
 export const articleService = {
   /**
    * Fetch paginated list of articles filtered by user role and optional criteria.
@@ -198,6 +226,26 @@ export const articleService = {
     link.click();
     link.remove();
     window.URL.revokeObjectURL(url);
+  },
+
+  /**
+   * Fetch interactive PDF page preview metadata and document metrics.
+   * GET /api/v1/articles/{slug}/export/preview/
+   */
+  async getPdfPreviewMetadata(
+    slug: string,
+    options?: PdfExportOptions
+  ): Promise<PdfPreviewMetadata> {
+    const params: Record<string, any> = {};
+    if (options) {
+      if (options.includeCover !== undefined) params.include_cover = options.includeCover;
+      if (options.watermark !== undefined) params.watermark = options.watermark;
+      if (options.watermarkText) params.watermark_text = options.watermarkText;
+      if (options.classification) params.classification = options.classification;
+      if (options.includeToc !== undefined) params.include_toc = options.includeToc;
+    }
+    const response = await api.get<PdfPreviewMetadata>(`/articles/${slug}/export/preview/`, { params });
+    return response.data;
   },
 };
 
