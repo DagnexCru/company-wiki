@@ -153,3 +153,5 @@
   - Verification status: PASSED | Checkpoint: step_077 | Module: export_service
 - `2026-11-20T12:24:30+03:00` - **[Matrix]** audit step 78 - verify Cover Sheet metadata matrix grid rendering (ID, Security, Version)
   - Verification status: PASSED | Checkpoint: step_078 | Module: export_service
+- `2026-11-20T12:27:00+03:00` - **[Compliance]** audit step 79 - test Cover Sheet compliance governance disclaimer box
+  - Verification status: PASSED | Checkpoint: step_079 | Module: export_service
