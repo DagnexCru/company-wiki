@@ -167,3 +167,5 @@
   - Verification status: PASSED | Checkpoint: step_084 | Module: export_service
 - `2026-11-20T12:42:00+03:00` - **[CalloutPreview]** audit step 85 - test Page 3 rendered GitHub-style callout alert card
   - Verification status: PASSED | Checkpoint: step_085 | Module: export_service
+- `2026-11-20T12:44:30+03:00` - **[CodePreview]** audit step 86 - test Page 3 syntax-highlighted code block with language pill
+  - Verification status: PASSED | Checkpoint: step_086 | Module: export_service
