@@ -139,3 +139,5 @@
   - Verification status: PASSED | Checkpoint: step_070 | Module: export_service
 - `2026-11-20T12:07:00+03:00` - **[ReactState]** audit step 71 - audit PdfExportOptionsModal activeTab state initialization ('cover')
   - Verification status: PASSED | Checkpoint: step_071 | Module: export_service
+- `2026-11-20T12:09:30+03:00` - **[Tabs]** audit step 72 - verify availableTabs array generation based on cover and toc toggles
+  - Verification status: PASSED | Checkpoint: step_072 | Module: export_service
