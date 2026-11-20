@@ -65,3 +65,5 @@
   - Verification status: PASSED | Checkpoint: step_033 | Module: export_service
 - `2026-11-20T10:34:30+03:00` - **[Flowable]** audit step 34 - test callout isolation with KeepTogether and bottom Spacers
   - Verification status: PASSED | Checkpoint: step_034 | Module: export_service
+- `2026-11-20T10:37:00+03:00` - **[Table]** audit step 35 - audit markdown pipe table delimiter row detection and filtering
+  - Verification status: PASSED | Checkpoint: step_035 | Module: export_service
