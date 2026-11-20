@@ -135,3 +135,5 @@
   - Verification status: PASSED | Checkpoint: step_068 | Module: export_service
 - `2026-11-20T12:02:00+03:00` - **[TypeScript]** audit step 69 - audit PdfPreviewMetadata typescript interface completeness
   - Verification status: PASSED | Checkpoint: step_069 | Module: export_service
+- `2026-11-20T12:04:30+03:00` - **[Service]** audit step 70 - test getPdfPreviewMetadata axios service invocation with query params
+  - Verification status: PASSED | Checkpoint: step_070 | Module: export_service
