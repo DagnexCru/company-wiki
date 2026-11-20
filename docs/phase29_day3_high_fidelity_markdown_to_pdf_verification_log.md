@@ -83,3 +83,5 @@
   - Verification status: PASSED | Checkpoint: step_042 | Module: export_service
 - `2026-11-20T10:57:00+03:00` - **[Padding]** audit step 43 - verify cell padding metrics (top=5, bottom=5, left=6, right=6)
   - Verification status: PASSED | Checkpoint: step_043 | Module: export_service
+- `2026-11-20T10:59:30+03:00` - **[Typography]** audit step 44 - test markdown bold and inline code tags conversion in table cells
+  - Verification status: PASSED | Checkpoint: step_044 | Module: export_service
