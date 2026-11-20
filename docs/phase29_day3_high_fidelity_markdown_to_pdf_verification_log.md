@@ -91,3 +91,5 @@
   - Verification status: PASSED | Checkpoint: step_046 | Module: export_service
 - `2026-11-20T11:07:00+03:00` - **[Image]** audit step 47 - verify markdown image regex pattern matching ![alt](src)
   - Verification status: PASSED | Checkpoint: step_047 | Module: export_service
+- `2026-11-20T11:09:30+03:00` - **[Media]** audit step 48 - test image path resolution against settings.MEDIA_ROOT
+  - Verification status: PASSED | Checkpoint: step_048 | Module: export_service
