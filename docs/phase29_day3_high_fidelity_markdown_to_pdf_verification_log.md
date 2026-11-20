@@ -125,3 +125,5 @@
   - Verification status: PASSED | Checkpoint: step_063 | Module: export_service
 - `2026-11-20T11:49:30+03:00` - **[Security]** audit step 64 - test preview action permission enforcement rejecting unauthorized users
   - Verification status: PASSED | Checkpoint: step_064 | Module: export_service
+- `2026-11-20T11:52:00+03:00` - **[Metadata]** audit step 65 - verify get_pdf_preview_metadata calculates element counts accurately
+  - Verification status: PASSED | Checkpoint: step_065 | Module: export_service
