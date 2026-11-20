@@ -31,3 +31,5 @@
   - Verification status: PASSED | Checkpoint: step_016 | Module: export_service
 - `2026-11-20T09:52:00+03:00` - **[Typography]** audit step 17 - audit line-height and leading=11 in code paragraph styles
   - Verification status: PASSED | Checkpoint: step_017 | Module: export_service
+- `2026-11-20T09:54:30+03:00` - **[Table]** audit step 18 - verify two-row code block table layout with language header badge
+  - Verification status: PASSED | Checkpoint: step_018 | Module: export_service
