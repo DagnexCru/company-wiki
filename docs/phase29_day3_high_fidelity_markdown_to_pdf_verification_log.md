@@ -97,3 +97,5 @@
   - Verification status: PASSED | Checkpoint: step_049 | Module: export_service
 - `2026-11-20T11:14:30+03:00` - **[Scaling]** audit step 50 - verify proportional image downscaling to max printable width 6.5 inches
   - Verification status: PASSED | Checkpoint: step_050 | Module: export_service
+- `2026-11-20T11:17:00+03:00` - **[Geometry]** audit step 51 - audit image aspect ratio calculation (drawWidth / drawHeight)
+  - Verification status: PASSED | Checkpoint: step_051 | Module: export_service
