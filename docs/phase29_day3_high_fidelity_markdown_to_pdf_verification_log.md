@@ -191,3 +191,5 @@
   - Verification status: PASSED | Checkpoint: step_096 | Module: export_service
 - `2026-11-20T13:12:00+03:00` - **[E2E]** audit step 97 - test PDF export with confidential classification and custom watermark
   - Verification status: PASSED | Checkpoint: step_097 | Module: export_service
+- `2026-11-20T13:14:30+03:00` - **[TwoPass]** audit step 98 - verify two-pass canvas total page count calculation on 10+ page PDFs
+  - Verification status: PASSED | Checkpoint: step_098 | Module: export_service
