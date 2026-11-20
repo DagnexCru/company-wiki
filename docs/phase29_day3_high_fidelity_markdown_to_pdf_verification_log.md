@@ -143,3 +143,5 @@
   - Verification status: PASSED | Checkpoint: step_072 | Module: export_service
 - `2026-11-20T12:12:00+03:00` - **[Fallback]** audit step 73 - test automatic tab fallback to 'content' when cover/toc disabled
   - Verification status: PASSED | Checkpoint: step_073 | Module: export_service
+- `2026-11-20T12:14:30+03:00` - **[Navigation]** audit step 74 - audit pagination switcher Prev/Next button disabled state logic
+  - Verification status: PASSED | Checkpoint: step_074 | Module: export_service
