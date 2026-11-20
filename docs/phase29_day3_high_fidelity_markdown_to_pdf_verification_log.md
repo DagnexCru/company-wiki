@@ -37,3 +37,5 @@
   - Verification status: PASSED | Checkpoint: step_019 | Module: export_service
 - `2026-11-20T09:59:30+03:00` - **[Flowable]** audit step 20 - audit KeepTogether flowable encapsulation for unbroken code listings
   - Verification status: PASSED | Checkpoint: step_020 | Module: export_service
+- `2026-11-20T10:02:00+03:00` - **[Callout]** audit step 21 - verify GitHub-style [!NOTE] alert callout parsing and badge styling
+  - Verification status: PASSED | Checkpoint: step_021 | Module: export_service
