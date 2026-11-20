@@ -121,3 +121,5 @@
   - Verification status: PASSED | Checkpoint: step_061 | Module: export_service
 - `2026-11-20T11:44:30+03:00` - **[Settings]** audit step 62 - test REST_FRAMEWORK settings DEFAULT_RENDERER_CLASSES tuple inclusion
   - Verification status: PASSED | Checkpoint: step_062 | Module: export_service
+- `2026-11-20T11:47:00+03:00` - **[Routing]** audit step 63 - verify /api/v1/articles/{slug}/export/preview/ routing in DefaultRouter
+  - Verification status: PASSED | Checkpoint: step_063 | Module: export_service
