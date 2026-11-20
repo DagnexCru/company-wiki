@@ -101,3 +101,5 @@
   - Verification status: PASSED | Checkpoint: step_051 | Module: export_service
 - `2026-11-20T11:19:30+03:00` - **[Caption]** audit step 52 - test centered figure caption paragraph placement below embedded image
   - Verification status: PASSED | Checkpoint: step_052 | Module: export_service
+- `2026-11-20T11:22:00+03:00` - **[Fallback]** audit step 53 - test graceful fallback placeholder card for non-existent local media
+  - Verification status: PASSED | Checkpoint: step_053 | Module: export_service
