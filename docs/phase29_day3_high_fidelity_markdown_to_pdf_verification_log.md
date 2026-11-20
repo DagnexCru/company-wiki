@@ -89,3 +89,5 @@
   - Verification status: PASSED | Checkpoint: step_045 | Module: export_service
 - `2026-11-20T11:04:30+03:00` - **[Layout]** audit step 46 - test large data tables with 5+ columns preventing right margin overflow
   - Verification status: PASSED | Checkpoint: step_046 | Module: export_service
+- `2026-11-20T11:07:00+03:00` - **[Image]** audit step 47 - verify markdown image regex pattern matching ![alt](src)
+  - Verification status: PASSED | Checkpoint: step_047 | Module: export_service
