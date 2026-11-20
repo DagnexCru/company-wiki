@@ -13,3 +13,5 @@
 - Interactive Multi-Page Print Previewer thumbnail tabs in `PdfExportOptionsModal.tsx`
 
 ## Audit Timeline
+- `2026-11-20T09:32:00+03:00` - **[CodeBlock]** audit step 9 - verify ReportLab Courier monospace font declaration and size metrics
+  - Verification status: PASSED | Checkpoint: step_009 | Module: export_service
