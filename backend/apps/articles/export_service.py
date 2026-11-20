@@ -1,5 +1,6 @@
 import os
 import io
+import re
 import json
 import zipfile
 import datetime
@@ -31,6 +32,7 @@ try:
         PageBreak,
         HRFlowable,
         KeepTogether,
+        Image,
     )
     from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
     from reportlab.lib.units import inch
@@ -141,6 +143,12 @@ class ArticleExportService:
             file_bytes, filename, content_type = cls.build_zip_bundle(article, request)
         elif export_format == "pdf":
             file_bytes, filename, content_type = cls.build_branded_pdf(article, request)
+        elif export_format == "preview":
+            preview_meta = cls.get_pdf_preview_metadata(article, request)
+            file_bytes = json.dumps(preview_meta, indent=2).encode("utf-8")
+            response = HttpResponse(file_bytes, content_type="application/json")
+            response["X-Export-Format"] = "preview"
+            return response
         else:
             # Fallback to markdown
             export_format = "markdown"
@@ -477,6 +485,414 @@ class ArticleExportService:
         return zip_bytes, filename, "application/zip"
 
     @classmethod
+    def segment_markdown_blocks(cls, raw_text: str) -> list[tuple[str, str]]:
+        """
+        Segment markdown content into typed AST blocks preserving multiline code blocks,
+        callouts, tables, images, and lists.
+        """
+        lines = raw_text.split("\n")
+        blocks = []
+        current_block = []
+        in_code = False
+
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("```"):
+                if in_code:
+                    current_block.append(line)
+                    blocks.append(("code", "\n".join(current_block)))
+                    current_block = []
+                    in_code = False
+                    continue
+                else:
+                    if current_block:
+                        blocks.append(("text", "\n".join(current_block)))
+                        current_block = []
+                    in_code = True
+                    current_block.append(line)
+                    continue
+
+            if in_code:
+                current_block.append(line)
+                continue
+
+            if not stripped:
+                if current_block:
+                    blocks.append(("text", "\n".join(current_block)))
+                    current_block = []
+                continue
+
+            current_block.append(line)
+
+        if current_block:
+            blocks.append(("code" if in_code else "text", "\n".join(current_block)))
+
+        classified = []
+        for b_type, content in blocks:
+            s = content.strip()
+            if b_type == "code":
+                classified.append(("code", content))
+            elif s.startswith("# ") or s.startswith("## ") or s.startswith("### ") or s.startswith("#### "):
+                classified.append(("heading", content))
+            elif any(f"[!{alert}]" in s.upper() for alert in ["NOTE", "TIP", "IMPORTANT", "WARNING", "CAUTION"]):
+                classified.append(("callout", content))
+            elif s.startswith("> "):
+                classified.append(("blockquote", content))
+            elif s.startswith("|") and "|" in s[1:]:
+                classified.append(("table", content))
+            elif re.match(r"^!\[(.*?)\]\((.*?)\)$", s):
+                classified.append(("image", content))
+            elif s in ["---", "***", "___"]:
+                classified.append(("hr", content))
+            elif s.startswith("- ") or s.startswith("* ") or re.match(r"^\d+\.\s", s):
+                classified.append(("list", content))
+            else:
+                classified.append(("paragraph", content))
+
+        return classified
+
+    @classmethod
+    def highlight_code_syntax(cls, code_text: str, lang: str = "CODE") -> str:
+        """
+        Token-level syntax highlighting for monospace code blocks in ReportLab.
+        """
+        escaped = code_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        lines = escaped.split("\n")
+        keywords = {
+            "def", "class", "import", "from", "return", "if", "else", "elif", "for",
+            "in", "while", "try", "except", "finally", "with", "as", "pass", "yield",
+            "function", "const", "let", "var", "async", "await", "export", "default",
+            "interface", "type", "enum", "implements", "extends", "kubectl", "docker",
+            "SELECT", "FROM", "WHERE", "INSERT", "UPDATE", "DELETE", "JOIN", "TABLE"
+        }
+        literals = {"true", "false", "null", "undefined", "True", "False", "None", "self", "this"}
+        formatted_lines = []
+
+        for line in lines:
+            stripped = line.strip()
+            indent_len = len(line) - len(line.lstrip(" "))
+            indent = "&nbsp;" * indent_len
+            line_content = line.lstrip(" ")
+
+            if stripped.startswith("#") or stripped.startswith("//") or stripped.startswith("--"):
+                formatted_lines.append(f"{indent}<font color='#94a3b8'><i>{line_content}</i></font>")
+                continue
+
+            words = line_content.split(" ")
+            highlighted = []
+            for word in words:
+                clean_word = word.strip("(),:;{}[]'\"")
+                if clean_word in keywords:
+                    highlighted.append(word.replace(clean_word, f"<font color='#60a5fa'><b>{clean_word}</b></font>"))
+                elif clean_word in literals:
+                    highlighted.append(word.replace(clean_word, f"<font color='#f59e0b'>{clean_word}</font>"))
+                else:
+                    highlighted.append(word)
+            formatted_lines.append(indent + " ".join(highlighted))
+
+        return "<br/>".join(formatted_lines)
+
+    @classmethod
+    def render_high_fidelity_code_block(cls, raw_text: str, styles) -> KeepTogether:
+        """
+        Render syntax-highlighted code block in dark monospace container with language header badge.
+        """
+        lines = raw_text.strip().split("\n")
+        first_line = lines[0].strip("`").strip()
+        lang = first_line.upper() if first_line else "CODE"
+        code_lines = lines[1:-1] if lines[-1].strip().startswith("```") else lines[1:]
+        code_body = "\n".join(code_lines)
+        hl_body = cls.highlight_code_syntax(code_body, lang)
+
+        hdr_cell = Paragraph(
+            f"<b><font face='Courier' size='7' color='#94a3b8'>SOURCE CODE // {lang}</font></b>",
+            styles["Normal"]
+        )
+        body_cell = Paragraph(
+            f"<font face='Courier' size='8' color='#f8fafc'>{hl_body}</font>",
+            ParagraphStyle("CodeBodyInner", parent=styles["Normal"], leading=11)
+        )
+
+        t = Table([[hdr_cell], [body_cell]], colWidths=[7.0 * inch])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1e293b")),
+            ("BACKGROUND", (0, 1), (-1, -1), colors.HexColor("#0b0f19")),
+            ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#334155")),
+            ("TOPPADDING", (0, 0), (-1, 0), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, 0), 4),
+            ("TOPPADDING", (0, 1), (-1, -1), 8),
+            ("BOTTOMPADDING", (0, 1), (-1, -1), 8),
+            ("LEFTPADDING", (0, 0), (-1, -1), 10),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ]))
+        return KeepTogether([t, Spacer(1, 10)])
+
+    @classmethod
+    def render_high_fidelity_callout(cls, raw_text: str, styles) -> KeepTogether:
+        """
+        Render GitHub-style alert callouts with tinted backgrounds, bold headers & colored left-stripe.
+        """
+        clean = raw_text.strip()
+        callout_type = "NOTE"
+        for ct in ["CAUTION", "WARNING", "IMPORTANT", "TIP", "NOTE"]:
+            if f"[!{ct}]" in clean.upper():
+                callout_type = ct
+                break
+
+        themes = {
+            "NOTE": {"color": "#2563eb", "bg": "#eff6ff", "border": "#3b82f6", "icon": "[NOTE]"},
+            "TIP": {"color": "#059669", "bg": "#ecfdf5", "border": "#10b981", "icon": "[TIP]"},
+            "IMPORTANT": {"color": "#7c3aed", "bg": "#f5f3ff", "border": "#8b5cf6", "icon": "[IMPORTANT]"},
+            "WARNING": {"color": "#d97706", "bg": "#fffbeb", "border": "#f59e0b", "icon": "[WARNING]"},
+            "CAUTION": {"color": "#dc2626", "bg": "#fef2f2", "border": "#ef4444", "icon": "[CAUTION]"},
+        }
+        th = themes[callout_type]
+        lines = clean.split("\n")
+        body_lines = []
+        for l in lines:
+            s = l.strip()
+            if s.startswith(">"):
+                s = s[1:].strip()
+            if f"[!{callout_type}]" in s.upper():
+                s = re.sub(rf"\[!{callout_type}\]", "", s, flags=re.IGNORECASE).strip()
+            if s:
+                fmt_s = s.replace("**", "<b>").replace("__", "<b>")
+                fmt_s = re.sub(r"`(.*?)`", r"<font face='Courier' color='#4f46e5'><b>\1</b></font>", fmt_s)
+                body_lines.append(fmt_s)
+
+        body_text = "<br/>".join(body_lines)
+        cell_html = f"<b><font color='{th['color']}' size='9'>{th['icon']} {callout_type}</font></b><br/><font color='#1e293b' size='8.5'>{body_text}</font>"
+        p = Paragraph(cell_html, ParagraphStyle("CalloutPara", parent=styles["Normal"], leading=13))
+
+        t = Table([[p]], colWidths=[7.0 * inch])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor(th["bg"])),
+            ("LINEBEFORE", (0, 0), (0, 0), 3.5, colors.HexColor(th["border"])),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("TOPPADDING", (0, 0), (-1, -1), 8),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
+            ("LEFTPADDING", (0, 0), (-1, -1), 12),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ]))
+        return KeepTogether([t, Spacer(1, 10)])
+
+    @classmethod
+    def render_high_fidelity_table(cls, raw_text: str, styles) -> KeepTogether:
+        """
+        Render responsive data table with auto-wrapping Paragraph cells and alternating stripes.
+        """
+        lines = [l.strip() for l in raw_text.strip().split("\n") if l.strip()]
+        rows = []
+        for line in lines:
+            if not line.startswith("|"):
+                continue
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if all(re.match(r"^:?-+:?$", c) for c in cells):
+                continue
+            rows.append(cells)
+
+        if not rows:
+            return Paragraph(raw_text, styles["Normal"])
+
+        max_cols = max(len(r) for r in rows)
+        for r in rows:
+            while len(r) < max_cols:
+                r.append("")
+
+        table_data = []
+        for row_idx, r in enumerate(rows):
+            row_cells = []
+            is_header = (row_idx == 0)
+            for c in r:
+                fmt_c = c.replace("**", "<b>").replace("__", "<b>")
+                fmt_c = re.sub(r"`(.*?)`", r"<font face='Courier' color='#4f46e5'><b>\1</b></font>", fmt_c)
+                if is_header:
+                    p = Paragraph(f"<b><font color='#0f172a' size='8'>{fmt_c}</font></b>", styles["Normal"])
+                else:
+                    p = Paragraph(f"<font color='#334155' size='7.5'>{fmt_c}</font>", ParagraphStyle("TCellInner", parent=styles["Normal"], leading=11))
+                row_cells.append(p)
+            table_data.append(row_cells)
+
+        col_width = (7.0 * inch) / max_cols
+        col_widths = [col_width] * max_cols
+
+        t = Table(table_data, colWidths=col_widths)
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f1f5f9")),
+            ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#cbd5e1")),
+            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING", (0, 0), (-1, -1), 5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+        ]))
+        return KeepTogether([t, Spacer(1, 10)])
+
+    @classmethod
+    def render_high_fidelity_image(cls, raw_text: str, styles) -> KeepTogether:
+        """
+        Render embedded images with aspect-ratio scaling or elegant visual placeholder card.
+        """
+        match = re.search(r'!\[(.*?)\]\((.*?)\)', raw_text.strip())
+        if not match:
+            return Paragraph(raw_text, styles["Normal"])
+
+        alt_text, src = match.group(1), match.group(2)
+        resolved_path = None
+        candidates = []
+
+        if src.startswith("/media/") and hasattr(settings, "MEDIA_ROOT"):
+            candidates.append(os.path.join(settings.MEDIA_ROOT, src.replace("/media/", "").lstrip("/\\")))
+        if os.path.isabs(src):
+            candidates.append(src)
+        if hasattr(settings, "BASE_DIR"):
+            candidates.append(os.path.join(settings.BASE_DIR, src.lstrip("/\\")))
+        candidates.append(src)
+
+        for c in candidates:
+            if os.path.exists(c) and os.path.isfile(c):
+                resolved_path = c
+                break
+
+        if resolved_path:
+            try:
+                img = Image(resolved_path)
+                max_w = 6.5 * inch
+                if img.imageWidth > max_w:
+                    ratio = max_w / float(img.imageWidth)
+                    img.drawWidth = max_w
+                    img.drawHeight = float(img.imageHeight) * ratio
+                caption = Paragraph(
+                    f"<i><font color='#64748b' size='8'>Figure: {alt_text or os.path.basename(src)}</font></i>",
+                    ParagraphStyle("ImgCaption", parent=styles["Normal"], alignment=1, spaceBefore=4)
+                )
+                return KeepTogether([img, caption, Spacer(1, 10)])
+            except Exception:
+                pass
+
+        # Graceful placeholder card
+        holder_p = Paragraph(
+            f"<b><font color='#475569'>[Embedded Asset: {alt_text or 'Visual Illustration'}]</font></b><br/>"
+            f"<font color='#94a3b8' size='7.5'>Path reference: {src}</font>",
+            ParagraphStyle("ImgHolderP", parent=styles["Normal"], alignment=1)
+        )
+        t = Table([[holder_p]], colWidths=[7.0 * inch])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+            ("BOX", (0, 0), (-1, -1), 0.75, colors.HexColor("#cbd5e1")),
+            ("TOPPADDING", (0, 0), (-1, -1), 10),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 10),
+            ("LEFTPADDING", (0, 0), (-1, -1), 10),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ]))
+        return KeepTogether([t, Spacer(1, 10)])
+
+    @classmethod
+    def get_pdf_preview_metadata(cls, article: Article, request=None) -> dict:
+        """
+        Analyze article content and export parameters to generate rich preview metadata
+        for the frontend Interactive PDF Print Previewer.
+        """
+        raw_content = article.content or ""
+        blocks = cls.segment_markdown_blocks(raw_content)
+
+        code_count = sum(1 for b_type, _ in blocks if b_type == "code")
+        callout_count = sum(1 for b_type, _ in blocks if b_type == "callout")
+        table_count = sum(1 for b_type, _ in blocks if b_type == "table")
+        image_count = sum(1 for b_type, _ in blocks if b_type == "image")
+
+        headings = []
+        for line in raw_content.split("\n"):
+            s = line.strip()
+            if s.startswith("# "):
+                headings.append({"level": 1, "title": s[2:].strip()})
+            elif s.startswith("## "):
+                headings.append({"level": 2, "title": s[3:].strip()})
+            elif s.startswith("### "):
+                headings.append({"level": 3, "title": s[4:].strip()})
+
+        include_cover = True
+        include_toc = True
+        classification = "INTERNAL"
+        watermark = False
+        watermark_text = "CONFIDENTIAL - INTERNAL"
+
+        if request and hasattr(request, "query_params"):
+            qp = request.query_params
+            include_cover = qp.get("include_cover", "true").lower() in ["true", "1", "yes"]
+            include_toc = qp.get("include_toc", "true").lower() in ["true", "1", "yes"]
+            cls_val = qp.get("classification", "INTERNAL").upper().strip()
+            if cls_val in ["CONFIDENTIAL", "INTERNAL", "RESTRICTED", "PUBLIC"]:
+                classification = cls_val
+            watermark = qp.get("watermark", "false").lower() in ["true", "1", "yes"]
+            wm_text = qp.get("watermark_text", "").strip()
+            if wm_text:
+                watermark_text = wm_text
+
+        estimated_content_pages = max(1, (len(blocks) + 3) // 4)
+        total_pages = estimated_content_pages
+        if include_cover:
+            total_pages += 1
+        if include_toc and headings:
+            total_pages += 1
+
+        author_name = getattr(article.author, "full_name", "") or (article.author.username if article.author else "Unknown")
+        category_name = article.category.name if article.category else "General"
+
+        pages = []
+        page_num = 1
+        if include_cover:
+            pages.append({
+                "page_number": page_num,
+                "type": "cover",
+                "title": "Executive Cover Sheet",
+                "badge": classification,
+                "preview_description": "Corporate header, document identification SOP, author metadata matrix, and compliance notice.",
+            })
+            page_num += 1
+
+        if include_toc and headings:
+            pages.append({
+                "page_number": page_num,
+                "type": "toc",
+                "title": "Table of Contents",
+                "badge": f"{len(headings)} Sections",
+                "preview_description": "Automated document hierarchy with dot-leader guides and section level indicators.",
+            })
+            page_num += 1
+
+        pages.append({
+            "page_number": page_num,
+            "type": "content",
+            "title": "Executive Content & Elements",
+            "badge": f"{code_count} Code | {table_count} Tables | {callout_count} Alerts",
+            "preview_description": "Formatted typography with dark syntax highlighting, GitHub-style alert callouts, and responsive data tables.",
+        })
+
+        return {
+            "slug": article.slug,
+            "title": article.title,
+            "author": author_name,
+            "category": category_name,
+            "classification": classification,
+            "watermark_enabled": watermark,
+            "watermark_text": watermark_text,
+            "include_cover": include_cover,
+            "include_toc": include_toc,
+            "total_estimated_pages": total_pages,
+            "headings": headings,
+            "element_counts": {
+                "code_blocks": code_count,
+                "callouts": callout_count,
+                "tables": table_count,
+                "images": image_count,
+                "headings": len(headings),
+            },
+            "pages": pages,
+        }
+
+    @classmethod
     def build_branded_pdf(cls, article: Article, request) -> tuple[bytes, str, str]:
         """
         Enterprise Branded PDF Engine:
@@ -735,30 +1151,55 @@ class ArticleExportService:
                 if article.summary:
                     elements.append(Paragraph(f"<b>Summary:</b> {article.summary}", summary_style))
 
-            paragraphs = raw_content.split("\n\n")
-            for p in paragraphs:
-                clean_p = p.strip()
-                if not clean_p:
-                    continue
-                if clean_p.startswith("# "):
-                    elements.append(Paragraph(clean_p[2:], ParagraphStyle("H1_body", fontSize=16, leading=20, textColor=colors.HexColor("#0f172a"), fontName="Helvetica-Bold", spaceBefore=16, spaceAfter=8)))
-                elif clean_p.startswith("## "):
-                    elements.append(Paragraph(clean_p[3:], ParagraphStyle("H2_body", fontSize=13, leading=17, textColor=colors.HexColor("#1e293b"), fontName="Helvetica-Bold", spaceBefore=12, spaceAfter=6)))
-                elif clean_p.startswith("### "):
-                    elements.append(Paragraph(clean_p[4:], ParagraphStyle("H3_body", fontSize=11, leading=15, textColor=colors.HexColor("#334155"), fontName="Helvetica-Bold", spaceBefore=8, spaceAfter=4)))
-                elif clean_p.startswith("> "):
-                    # Blockquote / Callout
-                    quote_text = clean_p[2:].replace("\n", " ")
+            blocks = cls.segment_markdown_blocks(raw_content)
+            for b_type, b_content in blocks:
+                if b_type == "heading":
+                    s = b_content.strip()
+                    if s.startswith("# "):
+                        elements.append(Paragraph(s[2:], ParagraphStyle("H1_body", fontSize=16, leading=20, textColor=colors.HexColor("#0f172a"), fontName="Helvetica-Bold", spaceBefore=16, spaceAfter=8)))
+                    elif s.startswith("## "):
+                        elements.append(Paragraph(s[3:], ParagraphStyle("H2_body", fontSize=13, leading=17, textColor=colors.HexColor("#1e293b"), fontName="Helvetica-Bold", spaceBefore=12, spaceAfter=6)))
+                    elif s.startswith("### "):
+                        elements.append(Paragraph(s[4:], ParagraphStyle("H3_body", fontSize=11, leading=15, textColor=colors.HexColor("#334155"), fontName="Helvetica-Bold", spaceBefore=8, spaceAfter=4)))
+                    else:
+                        elements.append(Paragraph(s.lstrip("#").strip(), ParagraphStyle("H4_body", fontSize=10, leading=14, textColor=colors.HexColor("#475569"), fontName="Helvetica-Bold", spaceBefore=6, spaceAfter=3)))
+                elif b_type == "code":
+                    elements.append(cls.render_high_fidelity_code_block(b_content, styles))
+                elif b_type == "callout":
+                    elements.append(cls.render_high_fidelity_callout(b_content, styles))
+                elif b_type == "table":
+                    elements.append(cls.render_high_fidelity_table(b_content, styles))
+                elif b_type == "image":
+                    elements.append(cls.render_high_fidelity_image(b_content, styles))
+                elif b_type == "hr":
+                    elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#e2e8f0"), spaceBefore=12, spaceAfter=12))
+                elif b_type == "blockquote":
+                    quote_text = b_content.lstrip("> ").replace("\n", " ")
                     elements.append(Paragraph(f"<b>Note:</b> {quote_text}", ParagraphStyle("Quote", fontSize=9.5, leading=14, textColor=colors.HexColor("#1e293b"), backColor=colors.HexColor("#f8fafc"), borderPadding=8, spaceBefore=8, spaceAfter=8)))
-                elif clean_p.startswith("```"):
-                    # Monospace Code Block
-                    lines = clean_p.split("\n")
-                    code_body = "<br/>".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
-                    elements.append(Paragraph(f"<font face='Courier' color='#f8fafc'>{code_body}</font>", ParagraphStyle("CodeBlock", fontSize=8.5, leading=12, backColor=colors.HexColor("#0f172a"), borderPadding=10, spaceBefore=8, spaceAfter=8)))
+                elif b_type == "list":
+                    list_lines = b_content.strip().split("\n")
+                    for ll in list_lines:
+                        clean_ll = ll.strip()
+                        if clean_ll.startswith("- ") or clean_ll.startswith("* "):
+                            item_text = clean_ll[2:].strip()
+                            item_fmt = item_text.replace("**", "<b>").replace("__", "<b>")
+                            item_fmt = re.sub(r"`(.*?)`", r"<font face='Courier' color='#4f46e5'><b>\1</b></font>", item_fmt)
+                            elements.append(Paragraph(f"&bull;&nbsp;&nbsp;{item_fmt}", ParagraphStyle("BulletItem", fontSize=9.5, leading=14, textColor=colors.HexColor("#334155"), leftIndent=14, spaceAfter=4)))
+                        elif re.match(r"^\d+\.\s", clean_ll):
+                            num_match = re.match(r"^(\d+\.)\s*(.*)$", clean_ll)
+                            num_prefix, num_body = num_match.group(1), num_match.group(2)
+                            num_fmt = num_body.replace("**", "<b>").replace("__", "<b>")
+                            num_fmt = re.sub(r"`(.*?)`", r"<font face='Courier' color='#4f46e5'><b>\1</b></font>", num_fmt)
+                            elements.append(Paragraph(f"<b>{num_prefix}</b>&nbsp;&nbsp;{num_fmt}", ParagraphStyle("NumItem", fontSize=9.5, leading=14, textColor=colors.HexColor("#334155"), leftIndent=14, spaceAfter=4)))
+                        else:
+                            elements.append(Paragraph(clean_ll, body_style))
                 else:
-                    formatted_p = clean_p.replace("**", "<b>").replace("__", "<b>")
-                    formatted_p = formatted_p.replace("\n", "<br/>")
-                    elements.append(Paragraph(formatted_p, body_style))
+                    clean_p = b_content.strip()
+                    if clean_p:
+                        formatted_p = clean_p.replace("**", "<b>").replace("__", "<b>")
+                        formatted_p = re.sub(r"`(.*?)`", r"<font face='Courier' color='#4f46e5'><b>\1</b></font>", formatted_p)
+                        formatted_p = formatted_p.replace("\n", "<br/>")
+                        elements.append(Paragraph(formatted_p, body_style))
 
             elements.append(Spacer(1, 24))
             elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#e2e8f0"), spaceBefore=15, spaceAfter=8))
