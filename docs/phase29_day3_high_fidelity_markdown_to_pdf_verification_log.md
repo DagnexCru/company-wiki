@@ -133,3 +133,5 @@
   - Verification status: PASSED | Checkpoint: step_067 | Module: export_service
 - `2026-11-20T11:59:30+03:00` - **[ContentNeg]** audit step 68 - test export with ?format=preview returns application/json response
   - Verification status: PASSED | Checkpoint: step_068 | Module: export_service
+- `2026-11-20T12:02:00+03:00` - **[TypeScript]** audit step 69 - audit PdfPreviewMetadata typescript interface completeness
+  - Verification status: PASSED | Checkpoint: step_069 | Module: export_service
