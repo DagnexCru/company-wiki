@@ -99,3 +99,5 @@
   - Verification status: PASSED | Checkpoint: step_050 | Module: export_service
 - `2026-11-20T11:17:00+03:00` - **[Geometry]** audit step 51 - audit image aspect ratio calculation (drawWidth / drawHeight)
   - Verification status: PASSED | Checkpoint: step_051 | Module: export_service
+- `2026-11-20T11:19:30+03:00` - **[Caption]** audit step 52 - test centered figure caption paragraph placement below embedded image
+  - Verification status: PASSED | Checkpoint: step_052 | Module: export_service
