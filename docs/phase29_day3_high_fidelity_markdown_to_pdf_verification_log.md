@@ -29,3 +29,5 @@
   - Verification status: PASSED | Checkpoint: step_015 | Module: export_service
 - `2026-11-20T09:49:30+03:00` - **[Typography]** audit step 16 - test preserve code indentation with non-breaking spaces &nbsp;
   - Verification status: PASSED | Checkpoint: step_016 | Module: export_service
+- `2026-11-20T09:52:00+03:00` - **[Typography]** audit step 17 - audit line-height and leading=11 in code paragraph styles
+  - Verification status: PASSED | Checkpoint: step_017 | Module: export_service
