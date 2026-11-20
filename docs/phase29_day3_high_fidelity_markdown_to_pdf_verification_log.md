@@ -145,3 +145,5 @@
   - Verification status: PASSED | Checkpoint: step_073 | Module: export_service
 - `2026-11-20T12:14:30+03:00` - **[Navigation]** audit step 74 - audit pagination switcher Prev/Next button disabled state logic
   - Verification status: PASSED | Checkpoint: step_074 | Module: export_service
+- `2026-11-20T12:17:00+03:00` - **[Interaction]** audit step 75 - test tab button click handler transitions active preview canvas
+  - Verification status: PASSED | Checkpoint: step_075 | Module: export_service
