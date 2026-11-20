@@ -157,3 +157,5 @@
   - Verification status: PASSED | Checkpoint: step_079 | Module: export_service
 - `2026-11-20T12:29:30+03:00` - **[Watermark]** audit step 80 - audit Cover Sheet watermark overlay simulation with 45-degree angle
   - Verification status: PASSED | Checkpoint: step_080 | Module: export_service
+- `2026-11-20T12:32:00+03:00` - **[TocPreview]** audit step 81 - verify Page 2 Table of Contents running header and divider rule
+  - Verification status: PASSED | Checkpoint: step_081 | Module: export_service
