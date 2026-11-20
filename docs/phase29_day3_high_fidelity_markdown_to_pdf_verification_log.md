@@ -63,3 +63,5 @@
   - Verification status: PASSED | Checkpoint: step_032 | Module: export_service
 - `2026-11-20T10:32:00+03:00` - **[Padding]** audit step 33 - verify single-cell callout table padding metrics (top=8, bottom=8, left=12)
   - Verification status: PASSED | Checkpoint: step_033 | Module: export_service
+- `2026-11-20T10:34:30+03:00` - **[Flowable]** audit step 34 - test callout isolation with KeepTogether and bottom Spacers
+  - Verification status: PASSED | Checkpoint: step_034 | Module: export_service
