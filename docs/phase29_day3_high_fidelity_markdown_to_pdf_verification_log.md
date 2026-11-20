@@ -141,3 +141,5 @@
   - Verification status: PASSED | Checkpoint: step_071 | Module: export_service
 - `2026-11-20T12:09:30+03:00` - **[Tabs]** audit step 72 - verify availableTabs array generation based on cover and toc toggles
   - Verification status: PASSED | Checkpoint: step_072 | Module: export_service
+- `2026-11-20T12:12:00+03:00` - **[Fallback]** audit step 73 - test automatic tab fallback to 'content' when cover/toc disabled
+  - Verification status: PASSED | Checkpoint: step_073 | Module: export_service
