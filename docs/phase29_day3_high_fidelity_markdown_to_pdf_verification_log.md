@@ -79,3 +79,5 @@
   - Verification status: PASSED | Checkpoint: step_040 | Module: export_service
 - `2026-11-20T10:52:00+03:00` - **[Grid]** audit step 41 - test inner grid stroke 0.5pt HexColor('#e2e8f0') across data cells
   - Verification status: PASSED | Checkpoint: step_041 | Module: export_service
+- `2026-11-20T10:54:30+03:00` - **[Border]** audit step 42 - audit outer box stroke 1.0pt HexColor('#cbd5e1') around data tables
+  - Verification status: PASSED | Checkpoint: step_042 | Module: export_service
