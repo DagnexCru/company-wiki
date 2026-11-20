@@ -113,3 +113,5 @@
   - Verification status: PASSED | Checkpoint: step_057 | Module: export_service
 - `2026-11-20T11:34:30+03:00` - **[Quote]** audit step 58 - verify blockquote parsing without callout syntax formatted as styled note
   - Verification status: PASSED | Checkpoint: step_058 | Module: export_service
+- `2026-11-20T11:37:00+03:00` - **[AST]** audit step 59 - test segment_markdown_blocks preserves code blocks with internal blank lines
+  - Verification status: PASSED | Checkpoint: step_059 | Module: export_service
