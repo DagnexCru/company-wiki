@@ -127,3 +127,5 @@
   - Verification status: PASSED | Checkpoint: step_064 | Module: export_service
 - `2026-11-20T11:52:00+03:00` - **[Metadata]** audit step 65 - verify get_pdf_preview_metadata calculates element counts accurately
   - Verification status: PASSED | Checkpoint: step_065 | Module: export_service
+- `2026-11-20T11:54:30+03:00` - **[Paging]** audit step 66 - test total estimated page calculation with cover and toc additions
+  - Verification status: PASSED | Checkpoint: step_066 | Module: export_service
