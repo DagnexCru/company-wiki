@@ -93,3 +93,5 @@
   - Verification status: PASSED | Checkpoint: step_047 | Module: export_service
 - `2026-11-20T11:09:30+03:00` - **[Media]** audit step 48 - test image path resolution against settings.MEDIA_ROOT
   - Verification status: PASSED | Checkpoint: step_048 | Module: export_service
+- `2026-11-20T11:12:00+03:00` - **[FileSystem]** audit step 49 - test image path resolution against settings.BASE_DIR
+  - Verification status: PASSED | Checkpoint: step_049 | Module: export_service
