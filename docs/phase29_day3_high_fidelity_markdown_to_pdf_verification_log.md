@@ -77,3 +77,5 @@
   - Verification status: PASSED | Checkpoint: step_039 | Module: export_service
 - `2026-11-20T10:49:30+03:00` - **[Stripes]** audit step 40 - verify alternating row shading with white and HexColor('#f8fafc')
   - Verification status: PASSED | Checkpoint: step_040 | Module: export_service
+- `2026-11-20T10:52:00+03:00` - **[Grid]** audit step 41 - test inner grid stroke 0.5pt HexColor('#e2e8f0') across data cells
+  - Verification status: PASSED | Checkpoint: step_041 | Module: export_service
