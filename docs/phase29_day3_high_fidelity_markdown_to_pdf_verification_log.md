@@ -39,3 +39,5 @@
   - Verification status: PASSED | Checkpoint: step_020 | Module: export_service
 - `2026-11-20T10:02:00+03:00` - **[Callout]** audit step 21 - verify GitHub-style [!NOTE] alert callout parsing and badge styling
   - Verification status: PASSED | Checkpoint: step_021 | Module: export_service
+- `2026-11-20T10:04:30+03:00` - **[Theme]** audit step 22 - test [!NOTE] blue theme with HexColor('#2563eb') and tint HexColor('#eff6ff')
+  - Verification status: PASSED | Checkpoint: step_022 | Module: export_service
