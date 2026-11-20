@@ -237,3 +237,5 @@
   - Verification status: PASSED | Checkpoint: step_119 | Module: export_service
 - `2026-11-20T14:09:30+03:00` - **[QualityAssurance]** audit step 120 - verify high-fidelity PDF rendering and interactive previewer stability (cycle 10)
   - Verification status: PASSED | Checkpoint: step_120 | Module: export_service
+- `2026-11-20T14:12:00+03:00` - **[QualityAssurance]** audit step 121 - verify high-fidelity PDF rendering and interactive previewer stability (cycle 1)
+  - Verification status: PASSED | Checkpoint: step_121 | Module: export_service
