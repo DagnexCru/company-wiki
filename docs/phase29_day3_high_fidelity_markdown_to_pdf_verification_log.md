@@ -131,3 +131,5 @@
   - Verification status: PASSED | Checkpoint: step_066 | Module: export_service
 - `2026-11-20T11:57:00+03:00` - **[Schema]** audit step 67 - verify preview JSON schema contains slug, title, classification, pages
   - Verification status: PASSED | Checkpoint: step_067 | Module: export_service
+- `2026-11-20T11:59:30+03:00` - **[ContentNeg]** audit step 68 - test export with ?format=preview returns application/json response
+  - Verification status: PASSED | Checkpoint: step_068 | Module: export_service
