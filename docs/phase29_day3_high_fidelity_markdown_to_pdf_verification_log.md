@@ -149,3 +149,5 @@
   - Verification status: PASSED | Checkpoint: step_075 | Module: export_service
 - `2026-11-20T12:19:30+03:00` - **[CoverPreview]** audit step 76 - verify Page 1 Cover Sheet corporate header badge and classification tag
   - Verification status: PASSED | Checkpoint: step_076 | Module: export_service
+- `2026-11-20T12:22:00+03:00` - **[CoverPreview]** audit step 77 - test Cover Sheet executive summary callout simulation
+  - Verification status: PASSED | Checkpoint: step_077 | Module: export_service
