@@ -107,3 +107,5 @@
   - Verification status: PASSED | Checkpoint: step_054 | Module: export_service
 - `2026-11-20T11:27:00+03:00` - **[List]** audit step 55 - audit markdown bullet list parsing with &bull; and leftIndent=14
   - Verification status: PASSED | Checkpoint: step_055 | Module: export_service
+- `2026-11-20T11:29:30+03:00` - **[List]** audit step 56 - test markdown numbered list parsing with bold prefix and indentation
+  - Verification status: PASSED | Checkpoint: step_056 | Module: export_service
