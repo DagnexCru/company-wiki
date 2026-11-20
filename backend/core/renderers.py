@@ -84,3 +84,21 @@ class ZIPRenderer(BaseRenderer):
         if isinstance(data, str):
             return data.encode("utf-8")
         return bytes(data)
+
+
+class PreviewRenderer(BaseRenderer):
+    """
+    Renderer for Interactive PDF Preview metadata JSON.
+    Allows DRF content negotiation to gracefully accept ?format=preview.
+    """
+    media_type = "application/json"
+    format = "preview"
+    charset = "utf-8"
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        if isinstance(data, (bytes, bytearray)):
+            return data
+        if isinstance(data, str):
+            return data.encode(self.charset)
+        import json
+        return json.dumps(data, indent=2).encode(self.charset)

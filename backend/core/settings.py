@@ -131,6 +131,7 @@ REST_FRAMEWORK = {
         "core.renderers.HTMLRenderer",
         "core.renderers.PDFRenderer",
         "core.renderers.ZIPRenderer",
+        "core.renderers.PreviewRenderer",
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
