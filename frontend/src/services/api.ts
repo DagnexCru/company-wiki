@@ -1,4 +1,5 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
+import { API_BASE_URL } from "../config/api";
 
 export interface HealthResponse {
   status: "healthy" | "degraded";
@@ -11,8 +12,6 @@ export interface HealthResponse {
     database_message?: string;
   };
 }
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
