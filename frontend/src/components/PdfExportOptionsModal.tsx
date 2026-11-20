@@ -9,6 +9,10 @@ import {
   Layers,
   Sparkles,
   Eye,
+  ChevronLeft,
+  ChevronRight,
+  Code2,
+  AlertCircle,
 } from "lucide-react";
 import type { PdfExportOptions } from "../services/articleService";
 
@@ -36,6 +40,7 @@ export const PdfExportOptionsModal: React.FC<PdfExportOptionsModalProps> = ({
   const [watermark, setWatermark] = useState<boolean>(false);
   const [watermarkText, setWatermarkText] = useState<string>("CONFIDENTIAL - INTERNAL");
   const [includeToc, setIncludeToc] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState<"cover" | "toc" | "content">("cover");
 
   if (!isOpen) return null;
 
@@ -131,60 +136,292 @@ export const PdfExportOptionsModal: React.FC<PdfExportOptionsModalProps> = ({
           </button>
         </div>
 
-        {/* Live Mini Preview Card */}
-        <div className="relative rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 p-4 overflow-hidden">
-          <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-            <Eye className="w-3 h-3 text-slate-400" />
-            <span>Document Preview Outline</span>
-          </div>
+        {/* Interactive Multi-Page Print Previewer */}
+        {(() => {
+          const availableTabs: Array<{ id: "cover" | "toc" | "content"; label: string; pageNum: number; icon: React.ComponentType<{ className?: string }> }> = [];
+          if (includeCover) {
+            availableTabs.push({ id: "cover", label: "Cover Sheet", pageNum: 1, icon: FileText });
+          }
+          if (includeToc) {
+            availableTabs.push({ id: "toc", label: "TOC", pageNum: includeCover ? 2 : 1, icon: Layers });
+          }
+          availableTabs.push({
+            id: "content",
+            label: "Content & Code",
+            pageNum: (includeCover ? 1 : 0) + (includeToc ? 1 : 0) + 1,
+            icon: Code2,
+          });
 
-          <div className="bg-white dark:bg-slate-900 rounded-xl p-3.5 border border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden">
-            {/* Watermark preview overlay */}
-            {watermark && (
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-10 opacity-15 rotate-[-25deg]">
-                <span className="text-xl sm:text-2xl font-black uppercase text-slate-900 dark:text-white tracking-widest text-center px-4 border-2 border-slate-900 dark:border-white">
-                  {watermarkText || "WATERMARK"}
-                </span>
-              </div>
-            )}
+          const currentTab =
+            (!includeCover && activeTab === "cover") || (!includeToc && activeTab === "toc")
+              ? "content"
+              : activeTab;
+          const currentTabObj = availableTabs.find((t) => t.id === currentTab) || availableTabs[0];
+          const totalPages = availableTabs.length;
 
-            {/* Top Bar Preview */}
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2 mb-2 text-[10px]">
-              <div className="font-extrabold text-indigo-600 dark:text-indigo-400">
-                COMPANY WIKI
+          const handlePrevPage = () => {
+            const curIdx = availableTabs.findIndex((t) => t.id === currentTab);
+            if (curIdx > 0) setActiveTab(availableTabs[curIdx - 1].id);
+          };
+
+          const handleNextPage = () => {
+            const curIdx = availableTabs.findIndex((t) => t.id === currentTab);
+            if (curIdx < availableTabs.length - 1) setActiveTab(availableTabs[curIdx + 1].id);
+          };
+
+          return (
+            <div className="relative rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 p-4 space-y-3 overflow-hidden">
+              {/* Previewer Header & Page Switcher */}
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-slate-800/80 pb-2.5">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                  <Eye className="w-3.5 h-3.5 text-rose-500" />
+                  <span>Interactive Print Previewer</span>
+                  <span className="text-[10px] font-normal text-slate-400">
+                    (Page {currentTabObj.pageNum} of {totalPages})
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  {/* Prev / Next controls */}
+                  <button
+                    type="button"
+                    onClick={handlePrevPage}
+                    disabled={currentTab === availableTabs[0].id}
+                    className="p-1 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 disabled:opacity-30 disabled:pointer-events-none transition cursor-pointer"
+                    title="Previous page preview"
+                  >
+                    <ChevronLeft className="w-3 h-3" />
+                  </button>
+
+                  {/* Thumbnail / Tab Switchers */}
+                  <div className="flex items-center gap-1 bg-white dark:bg-slate-900 p-0.5 rounded-lg border border-slate-200 dark:border-slate-800">
+                    {availableTabs.map((tab) => {
+                      const Icon = tab.icon;
+                      const isSelected = currentTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          type="button"
+                          onClick={() => setActiveTab(tab.id)}
+                          className={`flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold transition cursor-pointer ${
+                            isSelected
+                              ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-2xs"
+                              : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                          }`}
+                        >
+                          <Icon className="w-2.5 h-2.5" />
+                          <span>{tab.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleNextPage}
+                    disabled={currentTab === availableTabs[availableTabs.length - 1].id}
+                    className="p-1 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 disabled:opacity-30 disabled:pointer-events-none transition cursor-pointer"
+                    title="Next page preview"
+                  >
+                    <ChevronRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
-              <span className={`px-2 py-0.5 rounded font-bold text-[9px] ${classificationConfig.badgeBg}`}>
-                • {classification}
-              </span>
+
+              {/* Rendered Live Page Canvas */}
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-xs relative overflow-hidden min-h-[200px] flex flex-col justify-between select-none">
+                {/* Diagonal watermark simulation */}
+                {watermark && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-10 rotate-[-25deg]">
+                    <span className="text-xl sm:text-2xl font-black uppercase text-slate-900 dark:text-white tracking-widest text-center px-4 border-2 border-slate-900 dark:border-white">
+                      {watermarkText || "WATERMARK"}
+                    </span>
+                  </div>
+                )}
+
+                {/* --- PAGE 1: COVER SHEET --- */}
+                {currentTab === "cover" && (
+                  <div className="space-y-3 text-left">
+                    {/* Top Running Banner */}
+                    <div className="flex items-center justify-between border-b border-indigo-100 dark:border-indigo-950/60 pb-2">
+                      <div>
+                        <div className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 tracking-wider">
+                          COMPANY WIKI
+                        </div>
+                        <div className="text-[8px] text-slate-400 uppercase tracking-tight">
+                          Enterprise Standard Operating Procedure
+                        </div>
+                      </div>
+                      <span className={`px-2 py-0.5 rounded font-bold text-[9px] ${classificationConfig.badgeBg}`}>
+                        • {classification}
+                      </span>
+                    </div>
+
+                    {/* Document Title */}
+                    <div className="pt-1">
+                      <h4 className="text-sm font-extrabold text-slate-900 dark:text-white leading-tight line-clamp-2">
+                        {articleTitle}
+                      </h4>
+                    </div>
+
+                    {/* Executive Summary Box */}
+                    <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-[9px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                      <span className="font-bold text-slate-800 dark:text-slate-200">
+                        Executive Scope:{" "}
+                      </span>
+                      Mission-critical documentation with full corporate governance and compliance matrices.
+                    </div>
+
+                    {/* Metadata Matrix Grid */}
+                    <div className="grid grid-cols-2 gap-1.5 text-[8.5px] bg-slate-50/80 dark:bg-slate-800/30 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+                      <div>
+                        <span className="text-slate-400">ID: </span>
+                        <span className="font-bold text-slate-700 dark:text-slate-200">
+                          SOP-{articleSlug.slice(0, 10).toUpperCase()}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400">Security: </span>
+                        <span className={`font-bold ${classificationConfig.color}`}>{classification}</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400">Release: </span>
+                        <span className="font-semibold text-slate-700 dark:text-slate-200">v1.0 (Prod)</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400">Effective: </span>
+                        <span className="font-semibold text-slate-700 dark:text-slate-200">2026-11-20</span>
+                      </div>
+                    </div>
+
+                    {/* Compliance disclaimer */}
+                    <div className="text-[7.5px] text-slate-400 dark:text-slate-500 bg-slate-100/60 dark:bg-slate-800/60 p-1.5 rounded leading-tight">
+                      <b>GOVERNANCE:</b> Authorized for verified enterprise users. Distribution requires security clearance.
+                    </div>
+                  </div>
+                )}
+
+                {/* --- PAGE 2: TABLE OF CONTENTS --- */}
+                {currentTab === "toc" && (
+                  <div className="space-y-3 text-left">
+                    {/* Running Header */}
+                    <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5 text-[9px]">
+                      <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                        COMPANY WIKI <span className="text-slate-400 font-normal">| Table of Contents</span>
+                      </span>
+                      <span className={`px-1.5 py-0.2 rounded text-[8px] font-bold ${classificationConfig.badgeBg}`}>
+                        • {classification}
+                      </span>
+                    </div>
+
+                    <div className="pt-1">
+                      <div className="text-xs font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1">
+                        Table of Contents
+                      </div>
+                    </div>
+
+                    {/* Simulated dot-leader TOC rows */}
+                    <div className="space-y-1.5 text-[9px] pt-1">
+                      {[
+                        { title: "1. System Overview & Architecture", sec: "Section 1" },
+                        { title: "2. High-Fidelity Markdown Specifications", sec: "Section 1" },
+                        { title: "3. Rolling Deployment Procedures", sec: "Section 2" },
+                        { title: "4. Health Verification & Telemetry", sec: "Section 2" },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center justify-between gap-1 text-slate-600 dark:text-slate-300">
+                          <span className="font-medium truncate">{item.title}</span>
+                          <span className="text-slate-300 dark:text-slate-600 tracking-widest text-[8px] overflow-hidden whitespace-nowrap">
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                          </span>
+                          <span className="text-slate-400 text-[8px] shrink-0">{item.sec}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Running Footer */}
+                    <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[8px] text-slate-400">
+                      <span>CompanyWiki Enterprise Edition</span>
+                      <span>Page {currentTabObj.pageNum} of {totalPages}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* --- PAGE 3: HIGH-FIDELITY CONTENT & ELEMENTS --- */}
+                {currentTab === "content" && (
+                  <div className="space-y-2.5 text-left">
+                    {/* Running Header */}
+                    <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5 text-[9px]">
+                      <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                        COMPANY WIKI <span className="text-slate-400 font-normal">| Knowledge Base</span>
+                      </span>
+                      <span className={`px-1.5 py-0.2 rounded text-[8px] font-bold ${classificationConfig.badgeBg}`}>
+                        • {classification}
+                      </span>
+                    </div>
+
+                    {/* 1. High-Fidelity GitHub-style Callout */}
+                    <div className="p-2 rounded-lg bg-blue-50/80 dark:bg-blue-950/40 border-l-4 border-blue-500 border-r border-t border-b border-blue-100 dark:border-blue-900/40">
+                      <div className="flex items-center gap-1.5 text-[9px] font-bold text-blue-700 dark:text-blue-400">
+                        <AlertCircle className="w-3 h-3 text-blue-600" />
+                        <span>[!NOTE] DEPLOYMENT POLICY</span>
+                      </div>
+                      <p className="text-[8.5px] text-slate-700 dark:text-slate-300 mt-0.5 leading-tight">
+                        Ensure all container pods are drain-safe before rolling cluster upgrades.
+                      </p>
+                    </div>
+
+                    {/* 2. High-Fidelity Syntax Highlighted Code Container */}
+                    <div className="rounded-lg overflow-hidden border border-slate-800 bg-[#0b0f19] text-[8px]">
+                      <div className="bg-[#1e293b] px-2 py-0.5 text-[7px] font-bold font-mono text-slate-400 flex items-center justify-between">
+                        <span>SOURCE CODE // TYPESCRIPT</span>
+                        <Code2 className="w-2.5 h-2.5 text-slate-500" />
+                      </div>
+                      <pre className="p-2 font-mono text-[8px] leading-relaxed text-slate-100 overflow-x-auto">
+                        <span className="text-sky-400">const</span> deploy = <span className="text-sky-400">async</span> () =&gt; &#123;<br/>
+                        &nbsp;&nbsp;<span className="text-purple-400">return</span> <span className="text-sky-400">await</span> k8s.<span className="text-amber-400">rollout</span>(&#123; <span className="text-emerald-400">replicas</span>: <span className="text-purple-400">3</span> &#125;);<br/>
+                        &#125;;
+                      </pre>
+                    </div>
+
+                    {/* 3. High-Fidelity Data Table */}
+                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden text-[8px]">
+                      <table className="w-full text-left">
+                        <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                          <tr>
+                            <th className="px-2 py-1">Service</th>
+                            <th className="px-2 py-1">Replicas</th>
+                            <th className="px-2 py-1">Memory</th>
+                            <th className="px-2 py-1">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+                          <tr className="bg-white dark:bg-slate-900">
+                            <td className="px-2 py-0.5 font-mono text-indigo-600 dark:text-indigo-400">api-core</td>
+                            <td className="px-2 py-0.5">5</td>
+                            <td className="px-2 py-0.5">2Gi</td>
+                            <td className="px-2 py-0.5 text-emerald-600 font-semibold">Active</td>
+                          </tr>
+                          <tr className="bg-slate-50 dark:bg-slate-850">
+                            <td className="px-2 py-0.5 font-mono text-indigo-600 dark:text-indigo-400">worker-daemon</td>
+                            <td className="px-2 py-0.5">3</td>
+                            <td className="px-2 py-0.5">1Gi</td>
+                            <td className="px-2 py-0.5 text-emerald-600 font-semibold">Healthy</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* Running Footer */}
+                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[8px] text-slate-400">
+                      <span>CompanyWiki Enterprise Edition</span>
+                      <span>Page {currentTabObj.pageNum} of {totalPages}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-
-            {/* Title & Cover simulation */}
-            {includeCover ? (
-              <div className="space-y-1.5 text-left">
-                <div className="font-bold text-xs text-slate-800 dark:text-slate-100 line-clamp-1">
-                  {articleTitle}
-                </div>
-                <div className="grid grid-cols-2 gap-1.5 text-[9px] text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-1.5 rounded-lg border border-slate-100 dark:border-slate-800">
-                  <div>ID: SOP-{articleSlug.slice(0, 10).toUpperCase()}</div>
-                  <div>Security: {classification}</div>
-                  <div>Format: Two-Pass Numbered (Page X of Y)</div>
-                  <div>Cover Page: Included</div>
-                </div>
-              </div>
-            ) : (
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 italic">
-                Direct content rendering without executive cover page
-              </div>
-            )}
-
-            {includeToc && (
-              <div className="mt-2 pt-2 border-t border-dashed border-slate-100 dark:border-slate-800 text-[9px] text-slate-400 flex items-center gap-1">
-                <Layers className="w-3 h-3 text-indigo-500" />
-                <span>Automated Table of Contents enabled</span>
-              </div>
-            )}
-          </div>
-        </div>
+          );
+        })()}
 
         {/* Configuration Options */}
         <div className="space-y-4 text-xs">
