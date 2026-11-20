@@ -161,3 +161,5 @@
   - Verification status: PASSED | Checkpoint: step_081 | Module: export_service
 - `2026-11-20T12:34:30+03:00` - **[TocPreview]** audit step 82 - test TOC simulated dot-leader rows and section tags layout
   - Verification status: PASSED | Checkpoint: step_082 | Module: export_service
+- `2026-11-20T12:37:00+03:00` - **[Footer]** audit step 83 - verify TOC running footer with dynamic page numbering (Page 2 of N)
+  - Verification status: PASSED | Checkpoint: step_083 | Module: export_service
