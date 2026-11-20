@@ -111,3 +111,5 @@
   - Verification status: PASSED | Checkpoint: step_056 | Module: export_service
 - `2026-11-20T11:32:00+03:00` - **[Rule]** audit step 57 - audit horizontal rule HRFlowable thickness=1 and color HexColor('#e2e8f0')
   - Verification status: PASSED | Checkpoint: step_057 | Module: export_service
+- `2026-11-20T11:34:30+03:00` - **[Quote]** audit step 58 - verify blockquote parsing without callout syntax formatted as styled note
+  - Verification status: PASSED | Checkpoint: step_058 | Module: export_service
