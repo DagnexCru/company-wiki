@@ -71,3 +71,5 @@
   - Verification status: PASSED | Checkpoint: step_036 | Module: export_service
 - `2026-11-20T10:42:00+03:00` - **[AutoWrap]** audit step 37 - verify ReportLab Paragraph wrapping inside all table cells
   - Verification status: PASSED | Checkpoint: step_037 | Module: export_service
+- `2026-11-20T10:44:30+03:00` - **[Responsive]** audit step 38 - test table column width calculation dividing available 7.0 inch width
+  - Verification status: PASSED | Checkpoint: step_038 | Module: export_service
