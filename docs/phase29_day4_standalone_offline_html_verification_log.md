@@ -73,3 +73,5 @@
   - Verification status: PASSED | Checkpoint: step_028 | Module: standalone_html_engine
 - `2026-11-21T10:20:56+03:00` - **[Callout]** map alert callouts to high-contrast icons and colored left accent stripes
   - Verification status: PASSED | Checkpoint: step_029 | Module: standalone_html_engine
+- `2026-11-21T10:23:28+03:00` - **[Callout]** ensure markdown formatting within callout body converts cleanly to HTML
+  - Verification status: PASSED | Checkpoint: step_030 | Module: standalone_html_engine
