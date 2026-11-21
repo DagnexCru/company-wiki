@@ -353,3 +353,5 @@
   - Verification status: PASSED | Checkpoint: step_168 | Module: standalone_html_engine
 - `2026-11-21T16:15:36+03:00` - **[Compliance]** audit step 169 (iteration 4) - audit ISO/IEC 27001 document governance standards compliance
   - Verification status: PASSED | Checkpoint: step_169 | Module: standalone_html_engine
+- `2026-11-21T16:18:08+03:00` - **[Regression]** audit step 170 (iteration 4) - verify zero regressions in existing PDF, Markdown, and ZIP exporters
+  - Verification status: PASSED | Checkpoint: step_170 | Module: standalone_html_engine
