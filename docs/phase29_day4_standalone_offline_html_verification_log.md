@@ -75,3 +75,5 @@
   - Verification status: PASSED | Checkpoint: step_029 | Module: standalone_html_engine
 - `2026-11-21T10:23:28+03:00` - **[Callout]** ensure markdown formatting within callout body converts cleanly to HTML
   - Verification status: PASSED | Checkpoint: step_030 | Module: standalone_html_engine
+- `2026-11-21T10:26:00+03:00` - **[CodeBlock]** design code block wrapper with title bar and copy-to-clipboard action
+  - Verification status: PASSED | Checkpoint: step_031 | Module: standalone_html_engine
