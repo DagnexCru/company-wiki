@@ -51,3 +51,5 @@
   - Verification status: PASSED | Checkpoint: step_017 | Module: standalone_html_engine
 - `2026-11-21T09:53:04+03:00` - **[Security]** apply rose-500 red palette and borders for CONFIDENTIAL documents
   - Verification status: PASSED | Checkpoint: step_018 | Module: standalone_html_engine
+- `2026-11-21T09:55:36+03:00` - **[Security]** apply amber-500 orange palette and borders for RESTRICTED documents
+  - Verification status: PASSED | Checkpoint: step_019 | Module: standalone_html_engine
