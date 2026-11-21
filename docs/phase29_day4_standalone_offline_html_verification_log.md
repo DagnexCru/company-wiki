@@ -107,3 +107,5 @@
   - Verification status: PASSED | Checkpoint: step_045 | Module: standalone_html_engine
 - `2026-11-21T11:04:00+03:00` - **[Testing]** validate @media print CSS rules embedding in export test suite
   - Verification status: PASSED | Checkpoint: step_046 | Module: standalone_html_engine
+- `2026-11-21T11:06:32+03:00` - **[Frontend]** define previewStandaloneHtml API method in articleService.ts
+  - Verification status: PASSED | Checkpoint: step_047 | Module: standalone_html_engine
