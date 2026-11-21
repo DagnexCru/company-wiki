@@ -47,3 +47,5 @@
   - Verification status: PASSED | Checkpoint: step_015 | Module: standalone_html_engine
 - `2026-11-21T09:48:00+03:00` - **[Matrix]** add revision version badge and formatted ISO last-updated timestamp
   - Verification status: PASSED | Checkpoint: step_016 | Module: standalone_html_engine
+- `2026-11-21T09:50:32+03:00` - **[Security]** implement security classification badge with dynamic palette styling
+  - Verification status: PASSED | Checkpoint: step_017 | Module: standalone_html_engine
