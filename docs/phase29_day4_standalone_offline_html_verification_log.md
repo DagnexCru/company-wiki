@@ -25,3 +25,5 @@
   - Verification status: PASSED | Checkpoint: step_004 | Module: standalone_html_engine
 - `2026-11-21T09:20:08+03:00` - **[Theme]** define CSS variables for light theme body background and high-contrast text
   - Verification status: PASSED | Checkpoint: step_005 | Module: standalone_html_engine
+- `2026-11-21T09:22:40+03:00` - **[Theme]** define CSS variables for card container elevation and ambient box shadows
+  - Verification status: PASSED | Checkpoint: step_006 | Module: standalone_html_engine

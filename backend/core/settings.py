@@ -1,7 +1,8 @@
 import os
-from pathlib import Path
+from pathlib import Path 
 from datetime import timedelta
-from dotenv import load_dotenv
+from dotenv import load_dotenv # yhe ke computerachn lay yetekemtutun env variables anbbo wede RAM yasgebachewal keza ke RAM degmo os.getenv yanebachewa
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
