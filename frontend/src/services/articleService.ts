@@ -247,6 +247,20 @@ export const articleService = {
     const response = await api.get<PdfPreviewMetadata>(`/articles/${slug}/export/preview/`, { params });
     return response.data;
   },
+
+  /**
+   * Preview the Standalone Self-Contained Offline HTML document in a new browser tab.
+   * Fetches the rendered HTML blob and opens it via window.URL.createObjectURL.
+   */
+  async previewStandaloneHtml(slug: string): Promise<void> {
+    const response = await api.get(`/articles/${slug}/export/`, {
+      params: { format: "html" },
+      responseType: "blob",
+    });
+    const blob = new Blob([response.data], { type: "text/html;charset=utf-8;" });
+    const blobUrl = window.URL.createObjectURL(blob);
+    window.open(blobUrl, "_blank");
+  },
 };
 
 // API Service Layer: All requests include SimpleJWT bearer headers automatically via Axios interceptor.

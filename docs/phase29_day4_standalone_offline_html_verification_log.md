@@ -85,3 +85,5 @@
   - Verification status: PASSED | Checkpoint: step_034 | Module: standalone_html_engine
 - `2026-11-21T10:36:08+03:00` - **[Print]** configure @media print layout removing action buttons and interactive controls
   - Verification status: PASSED | Checkpoint: step_035 | Module: standalone_html_engine
+- `2026-11-21T10:38:40+03:00` - **[Print]** configure @media print page-break-inside avoid rules for tables and code blocks
+  - Verification status: PASSED | Checkpoint: step_036 | Module: standalone_html_engine
