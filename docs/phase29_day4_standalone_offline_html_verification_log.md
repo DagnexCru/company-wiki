@@ -67,3 +67,5 @@
   - Verification status: PASSED | Checkpoint: step_025 | Module: standalone_html_engine
 - `2026-11-21T10:13:20+03:00` - **[Callout]** implement regex tokenizer for GitHub-style [!TIP] alert callouts
   - Verification status: PASSED | Checkpoint: step_026 | Module: standalone_html_engine
+- `2026-11-21T10:15:52+03:00` - **[Callout]** implement regex tokenizer for GitHub-style [!IMPORTANT] alert callouts
+  - Verification status: PASSED | Checkpoint: step_027 | Module: standalone_html_engine
