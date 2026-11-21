@@ -83,3 +83,5 @@
   - Verification status: PASSED | Checkpoint: step_033 | Module: standalone_html_engine
 - `2026-11-21T10:33:36+03:00` - **[Clipboard]** add 2-second visual checkmark confirmation animation on successful copy
   - Verification status: PASSED | Checkpoint: step_034 | Module: standalone_html_engine
+- `2026-11-21T10:36:08+03:00` - **[Print]** configure @media print layout removing action buttons and interactive controls
+  - Verification status: PASSED | Checkpoint: step_035 | Module: standalone_html_engine
