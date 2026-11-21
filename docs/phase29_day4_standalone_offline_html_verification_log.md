@@ -311,3 +311,5 @@
   - Verification status: PASSED | Checkpoint: step_147 | Module: standalone_html_engine
 - `2026-11-21T15:22:24+03:00` - **[CalloutAudit]** audit step 148 (iteration 4) - verify nested markdown lists inside GitHub-style callout bodies
   - Verification status: PASSED | Checkpoint: step_148 | Module: standalone_html_engine
+- `2026-11-21T15:24:56+03:00` - **[CalloutAudit]** audit step 149 (iteration 4) - verify multiline quotes inside GitHub-style warning callouts
+  - Verification status: PASSED | Checkpoint: step_149 | Module: standalone_html_engine
