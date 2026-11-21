@@ -227,3 +227,5 @@
   - Verification status: PASSED | Checkpoint: step_105 | Module: standalone_html_engine
 - `2026-11-21T13:36:00+03:00` - **[UIIntegration]** audit step 106 (iteration 2) - verify New Tab preview trigger does not disrupt current reading state
   - Verification status: PASSED | Checkpoint: step_106 | Module: standalone_html_engine
+- `2026-11-21T13:38:32+03:00` - **[EndToEnd]** audit step 107 (iteration 2) - execute end-to-end user export workflow from detail page to disk save
+  - Verification status: PASSED | Checkpoint: step_107 | Module: standalone_html_engine
