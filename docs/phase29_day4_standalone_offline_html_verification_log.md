@@ -17,3 +17,5 @@
 ## Audit Timeline
 - `2026-11-21T09:10:00+03:00` - **[Core]** initialize Phase 29 Day 4 standalone offline HTML architecture & specifications
   - Verification status: PASSED | Checkpoint: step_001 | Module: standalone_html_engine
+- `2026-11-21T09:12:32+03:00` - **[Offline]** define air-gapped zero-CDN asset policy for self-contained document portability
+  - Verification status: PASSED | Checkpoint: step_002 | Module: standalone_html_engine
