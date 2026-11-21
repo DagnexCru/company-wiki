@@ -19,3 +19,5 @@
   - Verification status: PASSED | Checkpoint: step_001 | Module: standalone_html_engine
 - `2026-11-21T09:12:32+03:00` - **[Offline]** define air-gapped zero-CDN asset policy for self-contained document portability
   - Verification status: PASSED | Checkpoint: step_002 | Module: standalone_html_engine
+- `2026-11-21T09:15:04+03:00` - **[Typography]** configure system sans-serif font stack with apple-system, Segoe UI, Roboto
+  - Verification status: PASSED | Checkpoint: step_003 | Module: standalone_html_engine
