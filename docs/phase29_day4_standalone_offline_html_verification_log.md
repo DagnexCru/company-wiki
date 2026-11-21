@@ -145,3 +145,5 @@
   - Verification status: PASSED | Checkpoint: step_064 | Module: standalone_html_engine
 - `2026-11-21T11:52:08+03:00` - **[BrowserCompat]** audit step 65 (iteration 1) - test standalone HTML rendering in Chrome/Chromium 120+
   - Verification status: PASSED | Checkpoint: step_065 | Module: standalone_html_engine
+- `2026-11-21T11:54:40+03:00` - **[BrowserCompat]** audit step 66 (iteration 1) - test standalone HTML rendering in Mozilla Firefox 122+
+  - Verification status: PASSED | Checkpoint: step_066 | Module: standalone_html_engine
