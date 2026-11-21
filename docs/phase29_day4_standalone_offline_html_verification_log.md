@@ -39,3 +39,5 @@
   - Verification status: PASSED | Checkpoint: step_011 | Module: standalone_html_engine
 - `2026-11-21T09:37:52+03:00` - **[Header]** add interactive theme switcher button with Unicode sun/moon glyph toggling
   - Verification status: PASSED | Checkpoint: step_012 | Module: standalone_html_engine
+- `2026-11-21T09:40:24+03:00` - **[Header]** add print document trigger button calling window.print with styling isolation
+  - Verification status: PASSED | Checkpoint: step_013 | Module: standalone_html_engine
