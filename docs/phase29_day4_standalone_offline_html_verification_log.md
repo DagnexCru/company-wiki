@@ -93,3 +93,5 @@
   - Verification status: PASSED | Checkpoint: step_038 | Module: standalone_html_engine
 - `2026-11-21T10:46:16+03:00` - **[Backend]** finalize build_standalone_html implementation in export_service.py
   - Verification status: PASSED | Checkpoint: step_039 | Module: standalone_html_engine
+- `2026-11-21T10:48:48+03:00` - **[Testing]** create test_export_standalone_html_interactive_features test method
+  - Verification status: PASSED | Checkpoint: step_040 | Module: standalone_html_engine
