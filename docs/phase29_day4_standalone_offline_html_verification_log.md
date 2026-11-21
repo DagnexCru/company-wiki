@@ -109,3 +109,5 @@
   - Verification status: PASSED | Checkpoint: step_046 | Module: standalone_html_engine
 - `2026-11-21T11:06:32+03:00` - **[Frontend]** define previewStandaloneHtml API method in articleService.ts
   - Verification status: PASSED | Checkpoint: step_047 | Module: standalone_html_engine
+- `2026-11-21T11:09:04+03:00` - **[Frontend]** implement Blob URL creation and new tab window.open launch in articleService
+  - Verification status: PASSED | Checkpoint: step_048 | Module: standalone_html_engine
