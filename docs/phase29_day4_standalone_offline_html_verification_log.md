@@ -267,3 +267,5 @@
   - Verification status: PASSED | Checkpoint: step_125 | Module: standalone_html_engine
 - `2026-11-21T14:26:40+03:00` - **[BrowserCompat]** audit step 126 (iteration 3) - test standalone HTML rendering in Mozilla Firefox 122+
   - Verification status: PASSED | Checkpoint: step_126 | Module: standalone_html_engine
+- `2026-11-21T14:29:12+03:00` - **[BrowserCompat]** audit step 127 (iteration 3) - test standalone HTML rendering in Apple Safari / WebKit 17+
+  - Verification status: PASSED | Checkpoint: step_127 | Module: standalone_html_engine
