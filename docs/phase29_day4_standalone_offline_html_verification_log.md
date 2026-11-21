@@ -183,3 +183,5 @@
   - Verification status: PASSED | Checkpoint: step_083 | Module: standalone_html_engine
 - `2026-11-21T12:40:16+03:00` - **[ThemeEngine]** audit step 84 (iteration 2) - audit smooth 0.2s CSS transition on theme toggle event
   - Verification status: PASSED | Checkpoint: step_084 | Module: standalone_html_engine
+- `2026-11-21T12:42:48+03:00` - **[ThemeEngine]** audit step 85 (iteration 2) - test local storage permission fallback when third-party cookies disabled
+  - Verification status: PASSED | Checkpoint: step_085 | Module: standalone_html_engine
