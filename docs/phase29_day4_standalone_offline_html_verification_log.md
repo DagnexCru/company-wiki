@@ -61,3 +61,5 @@
   - Verification status: PASSED | Checkpoint: step_022 | Module: standalone_html_engine
 - `2026-11-21T10:05:44+03:00` - **[Footer]** construct document footer with enterprise edition signature and generation time
   - Verification status: PASSED | Checkpoint: step_023 | Module: standalone_html_engine
+- `2026-11-21T10:08:16+03:00` - **[Callout]** implement regex tokenizer for GitHub-style [!NOTE] alert callouts
+  - Verification status: PASSED | Checkpoint: step_024 | Module: standalone_html_engine
