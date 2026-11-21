@@ -315,3 +315,5 @@
   - Verification status: PASSED | Checkpoint: step_149 | Module: standalone_html_engine
 - `2026-11-21T15:27:28+03:00` - **[GovernanceAudit]** audit step 150 (iteration 4) - audit document metadata accuracy against database article record
   - Verification status: PASSED | Checkpoint: step_150 | Module: standalone_html_engine
+- `2026-11-21T15:30:00+03:00` - **[GovernanceAudit]** audit step 151 (iteration 4) - audit classification badge color consistency across light and dark modes
+  - Verification status: PASSED | Checkpoint: step_151 | Module: standalone_html_engine
