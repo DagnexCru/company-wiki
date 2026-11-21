@@ -341,3 +341,5 @@
   - Verification status: PASSED | Checkpoint: step_162 | Module: standalone_html_engine
 - `2026-11-21T16:00:24+03:00` - **[Performance]** audit step 163 (iteration 4) - benchmark standalone HTML generation latency under 15ms per article
   - Verification status: PASSED | Checkpoint: step_163 | Module: standalone_html_engine
+- `2026-11-21T16:02:56+03:00` - **[Performance]** audit step 164 (iteration 4) - verify gzipped HTML document payload size is under 25KB
+  - Verification status: PASSED | Checkpoint: step_164 | Module: standalone_html_engine
