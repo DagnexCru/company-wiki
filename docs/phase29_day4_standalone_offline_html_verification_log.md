@@ -53,3 +53,5 @@
   - Verification status: PASSED | Checkpoint: step_018 | Module: standalone_html_engine
 - `2026-11-21T09:55:36+03:00` - **[Security]** apply amber-500 orange palette and borders for RESTRICTED documents
   - Verification status: PASSED | Checkpoint: step_019 | Module: standalone_html_engine
+- `2026-11-21T09:58:08+03:00` - **[Security]** apply indigo-500 blue palette and borders for INTERNAL documents
+  - Verification status: PASSED | Checkpoint: step_020 | Module: standalone_html_engine
