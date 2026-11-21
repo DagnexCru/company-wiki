@@ -103,3 +103,5 @@
   - Verification status: PASSED | Checkpoint: step_043 | Module: standalone_html_engine
 - `2026-11-21T10:58:56+03:00` - **[Testing]** validate GitHub-style callouts AST conversion in test suite
   - Verification status: PASSED | Checkpoint: step_044 | Module: standalone_html_engine
+- `2026-11-21T11:01:28+03:00` - **[Testing]** validate code block copy-to-clipboard button markup in test suite
+  - Verification status: PASSED | Checkpoint: step_045 | Module: standalone_html_engine
