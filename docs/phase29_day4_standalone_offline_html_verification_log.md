@@ -21,3 +21,5 @@
   - Verification status: PASSED | Checkpoint: step_002 | Module: standalone_html_engine
 - `2026-11-21T09:15:04+03:00` - **[Typography]** configure system sans-serif font stack with apple-system, Segoe UI, Roboto
   - Verification status: PASSED | Checkpoint: step_003 | Module: standalone_html_engine
+- `2026-11-21T09:17:36+03:00` - **[Typography]** configure monospace code font stack with SFMono, Menlo, Consolas, Monaco
+  - Verification status: PASSED | Checkpoint: step_004 | Module: standalone_html_engine
