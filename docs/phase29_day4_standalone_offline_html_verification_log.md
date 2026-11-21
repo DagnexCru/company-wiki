@@ -259,3 +259,5 @@
   - Verification status: PASSED | Checkpoint: step_121 | Module: standalone_html_engine
 - `2026-11-21T14:16:32+03:00` - **[PrintAudit]** audit step 122 (iteration 3) - audit page break behavior for large markdown data tables on print
   - Verification status: PASSED | Checkpoint: step_122 | Module: standalone_html_engine
+- `2026-11-21T14:19:04+03:00` - **[PrintAudit]** audit step 123 (iteration 3) - audit removal of shadow elevation and theme button in print preview
+  - Verification status: PASSED | Checkpoint: step_123 | Module: standalone_html_engine
