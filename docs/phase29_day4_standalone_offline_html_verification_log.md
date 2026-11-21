@@ -231,3 +231,5 @@
   - Verification status: PASSED | Checkpoint: step_107 | Module: standalone_html_engine
 - `2026-11-21T13:41:04+03:00` - **[EndToEnd]** audit step 108 (iteration 2) - verify exported file can be opened directly from local filesystem (file://)
   - Verification status: PASSED | Checkpoint: step_108 | Module: standalone_html_engine
+- `2026-11-21T13:43:36+03:00` - **[Compliance]** audit step 109 (iteration 2) - audit ISO/IEC 27001 document governance standards compliance
+  - Verification status: PASSED | Checkpoint: step_109 | Module: standalone_html_engine
