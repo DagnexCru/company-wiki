@@ -337,3 +337,5 @@
   - Verification status: PASSED | Checkpoint: step_160 | Module: standalone_html_engine
 - `2026-11-21T15:55:20+03:00` - **[BlobAudit]** audit step 161 (iteration 4) - verify object URL revocation handling to prevent client memory leaks
   - Verification status: PASSED | Checkpoint: step_161 | Module: standalone_html_engine
+- `2026-11-21T15:57:52+03:00` - **[BlobAudit]** audit step 162 (iteration 4) - test large document (500KB+) blob streaming and browser memory footprint
+  - Verification status: PASSED | Checkpoint: step_162 | Module: standalone_html_engine
