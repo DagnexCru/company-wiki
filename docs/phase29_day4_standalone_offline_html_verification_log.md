@@ -115,3 +115,5 @@
   - Verification status: PASSED | Checkpoint: step_049 | Module: standalone_html_engine
 - `2026-11-21T11:14:08+03:00` - **[Frontend]** implement handlePreviewHtml handler in ArticleDetailPage component
   - Verification status: PASSED | Checkpoint: step_050 | Module: standalone_html_engine
+- `2026-11-21T11:16:40+03:00` - **[Frontend]** integrate Preview Offline HTML in New Tab action in export dropdown
+  - Verification status: PASSED | Checkpoint: step_051 | Module: standalone_html_engine
