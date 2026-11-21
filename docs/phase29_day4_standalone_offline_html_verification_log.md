@@ -87,3 +87,5 @@
   - Verification status: PASSED | Checkpoint: step_035 | Module: standalone_html_engine
 - `2026-11-21T10:38:40+03:00` - **[Print]** configure @media print page-break-inside avoid rules for tables and code blocks
   - Verification status: PASSED | Checkpoint: step_036 | Module: standalone_html_engine
+- `2026-11-21T10:41:12+03:00` - **[Print]** configure @media print contrast boost for sharp thermal and laser paper prints
+  - Verification status: PASSED | Checkpoint: step_037 | Module: standalone_html_engine
