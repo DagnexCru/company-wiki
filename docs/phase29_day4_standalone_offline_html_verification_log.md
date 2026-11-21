@@ -95,3 +95,5 @@
   - Verification status: PASSED | Checkpoint: step_039 | Module: standalone_html_engine
 - `2026-11-21T10:48:48+03:00` - **[Testing]** create test_export_standalone_html_interactive_features test method
   - Verification status: PASSED | Checkpoint: step_040 | Module: standalone_html_engine
+- `2026-11-21T10:51:20+03:00` - **[Testing]** validate DOCTYPE and air-gapped zero-CDN constraints in HTML tests
+  - Verification status: PASSED | Checkpoint: step_041 | Module: standalone_html_engine
