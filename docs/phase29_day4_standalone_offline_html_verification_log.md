@@ -35,3 +35,5 @@
   - Verification status: PASSED | Checkpoint: step_009 | Module: standalone_html_engine
 - `2026-11-21T09:32:48+03:00` - **[Theme]** configure localStorage persistence key for client theme selection state
   - Verification status: PASSED | Checkpoint: step_010 | Module: standalone_html_engine
+- `2026-11-21T09:35:20+03:00` - **[Header]** build top action bar layout with brand pill and governance metadata
+  - Verification status: PASSED | Checkpoint: step_011 | Module: standalone_html_engine
