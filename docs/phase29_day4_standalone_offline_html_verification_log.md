@@ -101,3 +101,5 @@
   - Verification status: PASSED | Checkpoint: step_042 | Module: standalone_html_engine
 - `2026-11-21T10:56:24+03:00` - **[Testing]** validate client-side theme switcher script embedding in test suite
   - Verification status: PASSED | Checkpoint: step_043 | Module: standalone_html_engine
+- `2026-11-21T10:58:56+03:00` - **[Testing]** validate GitHub-style callouts AST conversion in test suite
+  - Verification status: PASSED | Checkpoint: step_044 | Module: standalone_html_engine
