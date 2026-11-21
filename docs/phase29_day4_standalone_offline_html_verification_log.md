@@ -91,3 +91,5 @@
   - Verification status: PASSED | Checkpoint: step_037 | Module: standalone_html_engine
 - `2026-11-21T10:43:44+03:00` - **[Summary]** integrate executive summary and document scope card into HTML body
   - Verification status: PASSED | Checkpoint: step_038 | Module: standalone_html_engine
+- `2026-11-21T10:46:16+03:00` - **[Backend]** finalize build_standalone_html implementation in export_service.py
+  - Verification status: PASSED | Checkpoint: step_039 | Module: standalone_html_engine
