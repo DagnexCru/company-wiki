@@ -169,3 +169,5 @@
   - Verification status: PASSED | Checkpoint: step_076 | Module: standalone_html_engine
 - `2026-11-21T12:22:32+03:00` - **[EndToEnd]** audit step 77 (iteration 1) - execute end-to-end user export workflow from detail page to disk save
   - Verification status: PASSED | Checkpoint: step_077 | Module: standalone_html_engine
+- `2026-11-21T12:25:04+03:00` - **[EndToEnd]** audit step 78 (iteration 1) - verify exported file can be opened directly from local filesystem (file://)
+  - Verification status: PASSED | Checkpoint: step_078 | Module: standalone_html_engine
