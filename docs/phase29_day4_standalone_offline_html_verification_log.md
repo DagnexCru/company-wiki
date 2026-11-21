@@ -345,3 +345,5 @@
   - Verification status: PASSED | Checkpoint: step_164 | Module: standalone_html_engine
 - `2026-11-21T16:05:28+03:00` - **[UIIntegration]** audit step 165 (iteration 4) - verify export dropdown item alignment and active state indicators
   - Verification status: PASSED | Checkpoint: step_165 | Module: standalone_html_engine
+- `2026-11-21T16:08:00+03:00` - **[UIIntegration]** audit step 166 (iteration 4) - verify New Tab preview trigger does not disrupt current reading state
+  - Verification status: PASSED | Checkpoint: step_166 | Module: standalone_html_engine
