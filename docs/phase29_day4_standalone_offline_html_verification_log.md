@@ -163,3 +163,5 @@
   - Verification status: PASSED | Checkpoint: step_073 | Module: standalone_html_engine
 - `2026-11-21T12:14:56+03:00` - **[Performance]** audit step 74 (iteration 1) - verify gzipped HTML document payload size is under 25KB
   - Verification status: PASSED | Checkpoint: step_074 | Module: standalone_html_engine
+- `2026-11-21T12:17:28+03:00` - **[UIIntegration]** audit step 75 (iteration 1) - verify export dropdown item alignment and active state indicators
+  - Verification status: PASSED | Checkpoint: step_075 | Module: standalone_html_engine
