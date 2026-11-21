@@ -37,3 +37,5 @@
   - Verification status: PASSED | Checkpoint: step_010 | Module: standalone_html_engine
 - `2026-11-21T09:35:20+03:00` - **[Header]** build top action bar layout with brand pill and governance metadata
   - Verification status: PASSED | Checkpoint: step_011 | Module: standalone_html_engine
+- `2026-11-21T09:37:52+03:00` - **[Header]** add interactive theme switcher button with Unicode sun/moon glyph toggling
+  - Verification status: PASSED | Checkpoint: step_012 | Module: standalone_html_engine
