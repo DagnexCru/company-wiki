@@ -29,3 +29,5 @@
   - Verification status: PASSED | Checkpoint: step_006 | Module: standalone_html_engine
 - `2026-11-21T09:25:12+03:00` - **[Theme]** define CSS variables for subtle border hierarchy and brand color accents
   - Verification status: PASSED | Checkpoint: step_007 | Module: standalone_html_engine
+- `2026-11-21T09:27:44+03:00` - **[Theme]** define data-theme dark CSS variables for high-contrast slate-900 background
+  - Verification status: PASSED | Checkpoint: step_008 | Module: standalone_html_engine
