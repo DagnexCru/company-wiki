@@ -317,3 +317,5 @@
   - Verification status: PASSED | Checkpoint: step_150 | Module: standalone_html_engine
 - `2026-11-21T15:30:00+03:00` - **[GovernanceAudit]** audit step 151 (iteration 4) - audit classification badge color consistency across light and dark modes
   - Verification status: PASSED | Checkpoint: step_151 | Module: standalone_html_engine
+- `2026-11-21T15:32:32+03:00` - **[PrintAudit]** audit step 152 (iteration 4) - audit page break behavior for large markdown data tables on print
+  - Verification status: PASSED | Checkpoint: step_152 | Module: standalone_html_engine
