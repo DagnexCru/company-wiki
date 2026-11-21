@@ -155,3 +155,5 @@
   - Verification status: PASSED | Checkpoint: step_069 | Module: standalone_html_engine
 - `2026-11-21T12:04:48+03:00` - **[SecurityAudit]** audit step 70 (iteration 1) - ensure XSS prevention by escaping user input in governance attributes
   - Verification status: PASSED | Checkpoint: step_070 | Module: standalone_html_engine
+- `2026-11-21T12:07:20+03:00` - **[BlobAudit]** audit step 71 (iteration 1) - verify object URL revocation handling to prevent client memory leaks
+  - Verification status: PASSED | Checkpoint: step_071 | Module: standalone_html_engine
