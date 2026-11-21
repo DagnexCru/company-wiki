@@ -181,3 +181,5 @@
   - Verification status: PASSED | Checkpoint: step_082 | Module: standalone_html_engine
 - `2026-11-21T12:37:44+03:00` - **[ThemeEngine]** audit step 83 (iteration 2) - audit dark mode contrast ratios for WCAG AA compliance (4.5:1 text)
   - Verification status: PASSED | Checkpoint: step_083 | Module: standalone_html_engine
+- `2026-11-21T12:40:16+03:00` - **[ThemeEngine]** audit step 84 (iteration 2) - audit smooth 0.2s CSS transition on theme toggle event
+  - Verification status: PASSED | Checkpoint: step_084 | Module: standalone_html_engine
