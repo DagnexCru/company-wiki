@@ -258,3 +258,64 @@ class MultiFormatExportSuiteTests(TestCase):
         data = res.json()
         self.assertEqual(data["title"], self.published_article.title)
         self.assertIn("total_estimated_pages", data)
+
+    def test_export_standalone_html_interactive_features(self):
+        """
+        Verify that standalone HTML contains offline assets: theme switcher,
+        governance matrix, callout cards, copy buttons, and print-to-paper CSS.
+        """
+        hf_content = (
+            "# Standalone Offline Architecture\n\n"
+            "> [!NOTE]\n"
+            "> Offline standalone HTML works 100% air-gapped without CDN.\n\n"
+            "> [!WARNING]\n"
+            "> Ensure sensitive exports are not distributed outside technical boundaries.\n\n"
+            "```python\n"
+            "def offline_deploy():\n"
+            "    return True\n"
+            "```\n"
+        )
+        article = Article.objects.create(
+            title="Air-Gapped Standalone HTML Architecture",
+            slug="air-gapped-standalone-html-architecture",
+            summary="Technical specifications for self-contained zero-dependency documents.",
+            content=hf_content,
+            author=self.author,
+            category=self.category,
+            status=Article.Status.PUBLISHED,
+        )
+
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{article.slug}/export/?format=html&classification=CONFIDENTIAL"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("text/html", res["Content-Type"])
+        html_str = res.content.decode("utf-8")
+
+        # 1. Zero external dependencies & DOCTYPE
+        self.assertIn("<!DOCTYPE html>", html_str)
+        self.assertNotIn("https://cdn.", html_str)
+        self.assertNotIn("http://cdn.", html_str)
+
+        # 2. Document Governance Matrix & Classification
+        self.assertIn('meta name="classification" content="CONFIDENTIAL"', html_str)
+        self.assertIn("matrix-table", html_str)
+        self.assertIn("CONFIDENTIAL", html_str)
+        self.assertIn("SECURITY & COMPLIANCE GOVERNANCE NOTICE", html_str)
+
+        # 3. Interactive Theme Switcher
+        self.assertIn("toggleTheme()", html_str)
+        self.assertIn("company_wiki_html_theme", html_str)
+        self.assertIn("prefers-color-scheme", html_str)
+
+        # 4. GitHub-style Callouts
+        self.assertIn("callout-card callout-note", html_str)
+        self.assertIn("callout-card callout-warning", html_str)
+
+        # 5. Code block copy-to-clipboard enhancements
+        self.assertIn("code-block-wrapper", html_str)
+        self.assertIn("copy-btn", html_str)
+
+        # 6. Print-to-paper @media print styles
+        self.assertIn("@media print", html_str)
