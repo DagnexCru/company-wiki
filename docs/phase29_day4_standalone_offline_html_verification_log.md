@@ -43,3 +43,5 @@
   - Verification status: PASSED | Checkpoint: step_013 | Module: standalone_html_engine
 - `2026-11-21T09:42:56+03:00` - **[Matrix]** implement document governance matrix table layout with four-column grid
   - Verification status: PASSED | Checkpoint: step_014 | Module: standalone_html_engine
+- `2026-11-21T09:45:28+03:00` - **[Matrix]** add document ID, author contact, and department classification cells
+  - Verification status: PASSED | Checkpoint: step_015 | Module: standalone_html_engine
