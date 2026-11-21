@@ -41,3 +41,5 @@
   - Verification status: PASSED | Checkpoint: step_012 | Module: standalone_html_engine
 - `2026-11-21T09:40:24+03:00` - **[Header]** add print document trigger button calling window.print with styling isolation
   - Verification status: PASSED | Checkpoint: step_013 | Module: standalone_html_engine
+- `2026-11-21T09:42:56+03:00` - **[Matrix]** implement document governance matrix table layout with four-column grid
+  - Verification status: PASSED | Checkpoint: step_014 | Module: standalone_html_engine
