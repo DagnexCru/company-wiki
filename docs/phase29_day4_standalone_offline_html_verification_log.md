@@ -263,3 +263,5 @@
   - Verification status: PASSED | Checkpoint: step_123 | Module: standalone_html_engine
 - `2026-11-21T14:21:36+03:00` - **[PrintAudit]** audit step 124 (iteration 3) - audit laser printer contrast for syntax highlighted code snippets
   - Verification status: PASSED | Checkpoint: step_124 | Module: standalone_html_engine
+- `2026-11-21T14:24:08+03:00` - **[BrowserCompat]** audit step 125 (iteration 3) - test standalone HTML rendering in Chrome/Chromium 120+
+  - Verification status: PASSED | Checkpoint: step_125 | Module: standalone_html_engine
