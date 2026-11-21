@@ -212,155 +212,443 @@ class ArticleExportService:
     @classmethod
     def build_standalone_html(cls, article: Article, request) -> tuple[str, str, str]:
         """
-        Export article as a self-contained offline HTML document with inline typography.
+        Export article as an Enterprise Standalone Self-Contained Offline HTML Document:
+        - 100% air-gapped offline operation without external CDN dependencies
+        - Interactive client-side Dark/Light theme switcher with localStorage persistence
+        - High-Fidelity GitHub-style callouts ([!NOTE], [!WARNING], [!TIP], [!IMPORTANT], [!CAUTION])
+        - Code block syntax styling with 1-click copy-to-clipboard functionality
+        - Print-to-Paper (@media print) optimization for browser-to-PDF output
+        - Document governance matrix with security classification badges
         """
         author_name = getattr(article.author, "full_name", "") or (article.author.username if article.author else "Unknown")
+        author_email = getattr(article.author, "email", "N/A") if article.author else "N/A"
         category_name = article.category.name if article.category else "General"
         now = timezone.now().strftime("%B %d, %Y at %H:%M UTC")
+        updated_str = article.updated_at.strftime("%Y-%m-%d") if article.updated_at else "N/A"
+        version_str = f"v{getattr(article, 'current_version', 1)}.0"
 
-        # Convert markdown content to HTML
+        # 1. Parse Security Classification
+        classification = "INTERNAL"
+        if request and hasattr(request, "query_params"):
+            cls_val = request.query_params.get("classification", "INTERNAL").upper().strip()
+            if cls_val in ["CONFIDENTIAL", "INTERNAL", "RESTRICTED", "PUBLIC"]:
+                classification = cls_val
+
+        cls_theme = {
+            "CONFIDENTIAL": {"color": "#dc2626", "bg": "#fef2f2", "border": "#fca5a5"},
+            "RESTRICTED": {"color": "#d97706", "bg": "#fffbeb", "border": "#fcd34d"},
+            "INTERNAL": {"color": "#4f46e5", "bg": "#eef2ff", "border": "#c7d2fe"},
+            "PUBLIC": {"color": "#059669", "bg": "#ecfdf5", "border": "#a7f3d0"},
+        }.get(classification, {"color": "#4f46e5", "bg": "#eef2ff", "border": "#c7d2fe"})
+
+        # 2. Pre-process GitHub-style Callouts & Markdown
         raw_content = article.content or ""
+
+        callout_pattern = re.compile(
+            r"^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*\n((?:>.*(?:\n|$))*)",
+            re.MULTILINE | re.IGNORECASE,
+        )
+
+        def replace_callout(match):
+            ctype = match.group(1).upper()
+            body_raw = match.group(2)
+            clean_lines = [l.lstrip("> ").strip() for l in body_raw.strip().split("\n") if l.strip()]
+            body_text = "<br/>".join(clean_lines)
+            icons = {
+                "NOTE": "ℹ️",
+                "TIP": "💡",
+                "IMPORTANT": "⚡",
+                "WARNING": "⚠️",
+                "CAUTION": "🚨",
+            }
+            return (
+                f'<div class="callout-card callout-{ctype.lower()}">\n'
+                f'  <div class="callout-header"><span class="callout-icon">{icons.get(ctype, "ℹ️")}</span> <strong>{ctype}</strong></div>\n'
+                f'  <div class="callout-body">{body_text}</div>\n'
+                f'</div>\n\n'
+            )
+
+        processed_content = callout_pattern.sub(replace_callout, raw_content)
+
         if markdown:
             rendered_body = markdown.markdown(
-                raw_content,
+                processed_content,
                 extensions=["extra", "codehilite", "toc", "tables"],
             )
         else:
-            # Basic fallback HTML escape
-            rendered_body = f"<pre style='white-space: pre-wrap;'>{raw_content}</pre>"
+            rendered_body = f"<pre style='white-space: pre-wrap;'>{processed_content}</pre>"
 
         html_template = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{article.title} - CompanyWiki</title>
+  <title>{article.title} - CompanyWiki Offline Document</title>
+  <meta name="generator" content="CompanyWiki Enterprise Export Engine"/>
+  <meta name="classification" content="{classification}"/>
+  <meta name="author" content="{author_name}"/>
   <style>
     :root {{
-      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", Courier, monospace;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
       --text-main: #0f172a;
+      --text-secondary: #475569;
       --text-muted: #64748b;
       --border-color: #e2e8f0;
-      --brand-color: #4f46e5;
+      --border-subtle: #f1f5f9;
+      --brand-primary: #4f46e5;
       --brand-light: #eef2ff;
+      --code-bg: #0f172a;
+      --code-text: #f8fafc;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
     }}
-    @media (prefers-color-scheme: dark) {{
-      :root {{
-        --bg-color: #0b0f19;
-        --card-bg: #111827;
-        --text-main: #f3f4f6;
-        --text-muted: #9ca3af;
-        --border-color: #1f2937;
-        --brand-color: #6366f1;
-        --brand-light: #1e1b4b;
-      }}
+
+    [data-theme="dark"] {{
+      --bg-body: #0b0f19;
+      --bg-card: #111827;
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: #1f2937;
+      --border-subtle: #1e293b;
+      --brand-primary: #6366f1;
+      --brand-light: #1e1b4b;
+      --code-bg: #030712;
+      --code-text: #f9fafb;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
     }}
+
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+
     body {{
-      font-family: var(--font-family);
-      background-color: var(--bg-color);
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
       color: var(--text-main);
-      margin: 0;
-      padding: 24px;
-      line-height: 1.6;
+      padding: 32px 16px;
+      line-height: 1.65;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      min-height: 100vh;
     }}
+
     .document-container {{
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
-      background: var(--card-bg);
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border-radius: 24px;
+      padding: 44px;
+      box-shadow: var(--card-shadow);
+      position: relative;
     }}
-    .header-bar {{
+
+    /* Top Action Bar (Theme toggle, print, status) */
+    .top-action-bar {{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 20px;
       margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 12px;
     }}
+
     .brand-pill {{
       display: inline-flex;
       align-items: center;
       gap: 6px;
       background: var(--brand-light);
-      color: var(--brand-color);
-      padding: 4px 12px;
+      color: var(--brand-primary);
+      padding: 5px 12px;
       border-radius: 9999px;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }}
-    .doc-meta {{
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 12px;
-      flex-wrap: wrap;
+
+    .action-group {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }}
-    .doc-title {{
-      font-size: 2rem;
+
+    .btn-action {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-body);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }}
+    .btn-action:hover {{
+      background: var(--border-color);
+      color: var(--text-main);
+    }}
+
+    .badge-classification {{
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 11px;
       font-weight: 800;
-      margin: 16px 0 8px 0;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: {cls_theme['bg']};
+      color: {cls_theme['color']};
+      border: 1px solid {cls_theme['border']};
     }}
+
+    /* Title & Typography */
+    .doc-title {{
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }}
+
+    /* Document Governance Matrix */
+    .matrix-table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 12px;
+    }}
+    .matrix-table td {{
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      vertical-align: middle;
+    }}
+    .matrix-label {{
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 18%;
+      background: rgba(148, 163, 184, 0.08);
+    }}
+    .matrix-val {{
+      font-weight: 600;
+      color: var(--text-main);
+      width: 32%;
+    }}
+
+    /* Executive Summary Box */
     .doc-summary {{
       background: var(--brand-light);
-      border-left: 4px solid var(--brand-color);
-      padding: 14px 18px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text-main);
-      margin: 20px 0;
-    }}
-    .content-body {{
-      margin-top: 32px;
-    }}
-    .content-body h1, .content-body h2, .content-body h3 {{
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-top: 28px;
-      margin-bottom: 12px;
-    }}
-    .content-body pre {{
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 16px;
+      border-left: 4px solid var(--brand-primary);
+      padding: 16px 20px;
       border-radius: 12px;
-      overflow-x: auto;
+      font-size: 13.5px;
+      color: var(--text-main);
+      margin: 24px 0;
+      line-height: 1.6;
+    }}
+
+    /* Content Body */
+    .content-body {{
+      margin-top: 28px;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+    }}
+    .content-body h1, .content-body h2, .content-body h3, .content-body h4 {{
+      color: var(--text-main);
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }}
+    .content-body h1 {{ font-size: 1.6rem; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }}
+    .content-body h2 {{ font-size: 1.35rem; }}
+    .content-body h3 {{ font-size: 1.15rem; }}
+    .content-body p {{ margin-bottom: 16px; }}
+    .content-body ul, .content-body ol {{ margin: 12px 0 20px 24px; }}
+    .content-body li {{ margin-bottom: 6px; }}
+
+    /* High-Fidelity GitHub-style Callouts */
+    .callout-card {{
+      margin: 20px 0;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      border-left-width: 4px;
+    }}
+    .callout-card .callout-header {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }}
+    .callout-card .callout-body {{
       font-size: 13px;
+      line-height: 1.55;
+    }}
+
+    .callout-note {{
+      background: #eff6ff;
+      border-color: #dbeafe;
+      border-left-color: #3b82f6;
+      color: #1e3a8a;
+    }}
+    [data-theme="dark"] .callout-note {{
+      background: rgba(30, 58, 138, 0.25);
+      border-color: #1e3a8a;
+      border-left-color: #60a5fa;
+      color: #bfdbfe;
+    }}
+
+    .callout-tip {{
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: #10b981;
+      color: #064e3b;
+    }}
+    [data-theme="dark"] .callout-tip {{
+      background: rgba(6, 78, 59, 0.25);
+      border-color: #064e3b;
+      border-left-color: #34d399;
+      color: #a7f3d0;
+    }}
+
+    .callout-warning {{
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }}
+    [data-theme="dark"] .callout-warning {{
+      background: rgba(120, 53, 15, 0.25);
+      border-color: #78350f;
+      border-left-color: #fbbf24;
+      color: #fde68a;
+    }}
+
+    .callout-important {{
+      background: #f5f3ff;
+      border-color: #ddd6fe;
+      border-left-color: #8b5cf6;
+      color: #4c1d95;
+    }}
+    [data-theme="dark"] .callout-important {{
+      background: rgba(76, 29, 149, 0.25);
+      border-color: #4c1d95;
+      border-left-color: #a78bfa;
+      color: #ddd6fe;
+    }}
+
+    .callout-caution {{
+      background: #fef2f2;
+      border-color: #fecaca;
+      border-left-color: #ef4444;
+      color: #7f1d1d;
+    }}
+    [data-theme="dark"] .callout-caution {{
+      background: rgba(127, 29, 29, 0.25);
+      border-color: #7f1d1d;
+      border-left-color: #f87171;
+      color: #fecaca;
+    }}
+
+    /* High-Fidelity Code Blocks with Copy Button */
+    .code-block-wrapper {{
+      position: relative;
+      margin: 20px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--code-bg);
+    }}
+    .code-block-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: #94a3b8;
+    }}
+    .copy-btn {{
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f8fafc;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }}
+    .copy-btn:hover {{ background: rgba(255, 255, 255, 0.2); }}
+
+    .content-body pre {{
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 16px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      line-height: 1.55;
     }}
     .content-body code {{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-mono);
       font-size: 0.9em;
-      background: rgba(148, 163, 184, 0.2);
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--brand-primary);
       padding: 2px 6px;
-      border-radius: 4px;
+      border-radius: 6px;
     }}
     .content-body pre code {{
       background: transparent;
+      color: inherit;
       padding: 0;
     }}
+
+    /* Responsive Data Tables */
     .content-body table {{
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 24px 0;
+      font-size: 13px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
     }}
     .content-body th, .content-body td {{
-      border: 1px solid var(--border-color);
       padding: 10px 14px;
+      border: 1px solid var(--border-color);
       text-align: left;
     }}
     .content-body th {{
-      background: rgba(148, 163, 184, 0.1);
-      font-weight: 600;
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-main);
+      font-weight: 700;
     }}
+    .content-body tr:nth-child(even) {{
+      background: rgba(148, 163, 184, 0.04);
+    }}
+
+    /* Footer & Compliance Notice */
     .footer-bar {{
       margin-top: 48px;
       padding-top: 20px;
@@ -370,40 +658,207 @@ class ArticleExportService:
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }}
+    .governance-disclaimer {{
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }}
+
+    /* Print Optimization Rules */
+    @media print {{
+      body {{
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        font-size: 10.5pt !important;
+      }}
+      .document-container {{
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }}
+      .no-print, .top-action-bar, .copy-btn {{
+        display: none !important;
+      }}
+      .content-body pre, .content-body table, .callout-card {{
+        page-break-inside: avoid;
+      }}
+      .content-body h1, .content-body h2, .content-body h3 {{
+        page-break-after: avoid;
+      }}
+      a {{
+        text-decoration: underline;
+        color: #000000 !important;
+      }}
     }}
   </style>
 </head>
 <body>
   <div class="document-container">
-    <div class="header-bar">
-      <div class="brand-pill">
-        <span>CompanyWiki Knowledge Base</span>
+    <!-- Top Action & Governance Toolbar (Hidden in Print) -->
+    <div class="top-action-bar no-print">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="brand-pill">
+          <span>CompanyWiki Knowledge Base</span>
+        </div>
+        <div class="badge-classification">
+          &bull; {classification}
+        </div>
       </div>
-      <div style="font-size: 11px; color: var(--text-muted);">
-        Classification: <strong>INTERNAL DOCUMENT</strong>
+
+      <div class="action-group">
+        <button type="button" class="btn-action" id="theme-btn" onclick="toggleTheme()" title="Switch Light/Dark appearance">
+          <span id="theme-btn-text">&#9788; Appearance</span>
+        </button>
+        <button type="button" class="btn-action" onclick="window.print()" title="Print to Paper or Save as PDF">
+          <span>&#128438; Print / PDF</span>
+        </button>
       </div>
     </div>
 
+    <!-- Document Header & Title -->
     <h1 class="doc-title">{article.title}</h1>
 
-    <div class="doc-meta">
-      <span><strong>Category:</strong> {category_name}</span>
-      <span><strong>Author:</strong> {author_name}</span>
-      <span><strong>Status:</strong> {article.status.upper()}</span>
-      <span><strong>Exported:</strong> {now}</span>
-    </div>
+    <!-- Document Governance Matrix -->
+    <table class="matrix-table">
+      <tr>
+        <td class="matrix-label">Document ID:</td>
+        <td class="matrix-val">SOP-{article.slug.upper()[:16]}</td>
+        <td class="matrix-label">Security:</td>
+        <td class="matrix-val"><span style="color: {cls_theme['color']}; font-weight: 800;">{classification}</span></td>
+      </tr>
+      <tr>
+        <td class="matrix-label">Primary Author:</td>
+        <td class="matrix-val">{author_name}</td>
+        <td class="matrix-label">Author Contact:</td>
+        <td class="matrix-val">{author_email}</td>
+      </tr>
+      <tr>
+        <td class="matrix-label">Department:</td>
+        <td class="matrix-val">{category_name}</td>
+        <td class="matrix-label">Document State:</td>
+        <td class="matrix-val">{article.status.upper()}</td>
+      </tr>
+      <tr>
+        <td class="matrix-label">Release Version:</td>
+        <td class="matrix-val" style="color: var(--brand-primary);">{version_str}</td>
+        <td class="matrix-label">Last Updated:</td>
+        <td class="matrix-val">{updated_str}</td>
+      </tr>
+    </table>
 
-    {f'<div class="doc-summary"><strong>Summary:</strong> {article.summary}</div>' if article.summary else ''}
+    {f'<div class="doc-summary"><strong>Executive Summary & Scope:</strong><br/>{article.summary}</div>' if article.summary else ''}
 
+    <!-- Content Body -->
     <div class="content-body">
       {rendered_body}
     </div>
 
+    <!-- Governance Disclaimer -->
+    <div class="governance-disclaimer">
+      <strong>SECURITY & COMPLIANCE GOVERNANCE NOTICE:</strong><br/>
+      This offline HTML document contains proprietary operational knowledge and trade secrets of CompanyWiki Enterprise.
+      Authorized access is restricted to verified enterprise personnel. Unsanctioned distribution without technical clearance is prohibited.
+    </div>
+
+    <!-- Footer Bar -->
     <div class="footer-bar">
-      <span>CompanyWiki Enterprise Edition &bull; Confidential & Internal Use Only</span>
-      <span>Generated offline &bull; {now}</span>
+      <span>CompanyWiki Enterprise Edition &bull; Standalone Offline Asset</span>
+      <span>Exported &bull; {now}</span>
     </div>
   </div>
+
+  <!-- Interactive Client-side Script (Zero External Dependencies) -->
+  <script>
+    // 1. Theme Toggle with LocalStorage & OS Preference
+    function toggleTheme() {{
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try {{ localStorage.setItem('company_wiki_html_theme', next); }} catch (e) {{}}
+      updateThemeButton(next);
+    }}
+
+    function updateThemeButton(theme) {{
+      const btn = document.getElementById('theme-btn-text');
+      if (btn) {{
+        btn.innerHTML = theme === 'dark' ? '&#9788; Light Mode' : '&#9790; Dark Mode';
+      }}
+    }}
+
+    (function initTheme() {{
+      try {{
+        const saved = localStorage.getItem('company_wiki_html_theme');
+        if (saved) {{
+          document.documentElement.setAttribute('data-theme', saved);
+          updateThemeButton(saved);
+          return;
+        }}
+      }} catch (e) {{}}
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {{
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeButton('dark');
+      }} else {{
+        updateThemeButton('light');
+      }}
+    }})();
+
+    // 2. Enhance Pre Code Blocks with Header & Copy Button
+    document.addEventListener('DOMContentLoaded', function() {{
+      document.querySelectorAll('.content-body pre').forEach(function(pre) {{
+        if (pre.parentElement && pre.parentElement.classList.contains('code-block-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+        header.innerHTML = '<span>SOURCE CODE</span><button type="button" class="copy-btn">&#128203; Copy</button>';
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+
+        const btn = header.querySelector('.copy-btn');
+        btn.addEventListener('click', function() {{
+          const codeText = pre.innerText;
+          if (navigator.clipboard && navigator.clipboard.writeText) {{
+            navigator.clipboard.writeText(codeText).then(function() {{
+              btn.textContent = '✓ Copied!';
+              setTimeout(function() {{ btn.innerHTML = '&#128203; Copy'; }}, 2000);
+            }}).catch(function() {{
+              fallbackCopy(codeText, btn);
+            }});
+          }} else {{
+            fallbackCopy(codeText, btn);
+          }}
+        }});
+      }});
+    }});
+
+    function fallbackCopy(text, btn) {{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try {{
+        document.execCommand('copy');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() {{ btn.innerHTML = '&#128203; Copy'; }}, 2000);
+      }} catch (err) {{}}
+      document.body.removeChild(ta);
+    }}
+  </script>
 </body>
 </html>"""
 

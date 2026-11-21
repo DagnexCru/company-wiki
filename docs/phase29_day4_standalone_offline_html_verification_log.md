@@ -45,3 +45,5 @@
   - Verification status: PASSED | Checkpoint: step_014 | Module: standalone_html_engine
 - `2026-11-21T09:45:28+03:00` - **[Matrix]** add document ID, author contact, and department classification cells
   - Verification status: PASSED | Checkpoint: step_015 | Module: standalone_html_engine
+- `2026-11-21T09:48:00+03:00` - **[Matrix]** add revision version badge and formatted ISO last-updated timestamp
+  - Verification status: PASSED | Checkpoint: step_016 | Module: standalone_html_engine
