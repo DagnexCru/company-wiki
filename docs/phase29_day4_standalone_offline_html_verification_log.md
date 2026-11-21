@@ -55,3 +55,5 @@
   - Verification status: PASSED | Checkpoint: step_019 | Module: standalone_html_engine
 - `2026-11-21T09:58:08+03:00` - **[Security]** apply indigo-500 blue palette and borders for INTERNAL documents
   - Verification status: PASSED | Checkpoint: step_020 | Module: standalone_html_engine
+- `2026-11-21T10:00:40+03:00` - **[Security]** apply emerald-500 green palette and borders for PUBLIC documents
+  - Verification status: PASSED | Checkpoint: step_021 | Module: standalone_html_engine
