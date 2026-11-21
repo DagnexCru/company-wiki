@@ -49,3 +49,5 @@
   - Verification status: PASSED | Checkpoint: step_016 | Module: standalone_html_engine
 - `2026-11-21T09:50:32+03:00` - **[Security]** implement security classification badge with dynamic palette styling
   - Verification status: PASSED | Checkpoint: step_017 | Module: standalone_html_engine
+- `2026-11-21T09:53:04+03:00` - **[Security]** apply rose-500 red palette and borders for CONFIDENTIAL documents
+  - Verification status: PASSED | Checkpoint: step_018 | Module: standalone_html_engine
