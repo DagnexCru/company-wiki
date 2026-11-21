@@ -27,3 +27,5 @@
   - Verification status: PASSED | Checkpoint: step_005 | Module: standalone_html_engine
 - `2026-11-21T09:22:40+03:00` - **[Theme]** define CSS variables for card container elevation and ambient box shadows
   - Verification status: PASSED | Checkpoint: step_006 | Module: standalone_html_engine
+- `2026-11-21T09:25:12+03:00` - **[Theme]** define CSS variables for subtle border hierarchy and brand color accents
+  - Verification status: PASSED | Checkpoint: step_007 | Module: standalone_html_engine
