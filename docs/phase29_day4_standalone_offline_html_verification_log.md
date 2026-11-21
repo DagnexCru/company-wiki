@@ -309,3 +309,5 @@
   - Verification status: PASSED | Checkpoint: step_146 | Module: standalone_html_engine
 - `2026-11-21T15:19:52+03:00` - **[ClipboardAudit]** audit step 147 (iteration 4) - audit copy feedback timeout reset after consecutive user clicks
   - Verification status: PASSED | Checkpoint: step_147 | Module: standalone_html_engine
+- `2026-11-21T15:22:24+03:00` - **[CalloutAudit]** audit step 148 (iteration 4) - verify nested markdown lists inside GitHub-style callout bodies
+  - Verification status: PASSED | Checkpoint: step_148 | Module: standalone_html_engine
