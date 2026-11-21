@@ -105,3 +105,5 @@
   - Verification status: PASSED | Checkpoint: step_044 | Module: standalone_html_engine
 - `2026-11-21T11:01:28+03:00` - **[Testing]** validate code block copy-to-clipboard button markup in test suite
   - Verification status: PASSED | Checkpoint: step_045 | Module: standalone_html_engine
+- `2026-11-21T11:04:00+03:00` - **[Testing]** validate @media print CSS rules embedding in export test suite
+  - Verification status: PASSED | Checkpoint: step_046 | Module: standalone_html_engine

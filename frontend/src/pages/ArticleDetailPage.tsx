@@ -25,6 +25,7 @@ import {
   FileCode,
   FileArchive,
   Globe,
+  ExternalLink,
   ChevronDown,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -138,6 +139,19 @@ export const ArticleDetailPage: React.FC = () => {
       setTimeout(() => setExportSuccessMsg(null), 3500);
     } catch (err: any) {
       console.error("Export document failed:", err);
+    } finally {
+      setExportingFormat(null);
+    }
+  };
+
+  const handlePreviewHtml = async () => {
+    if (!slug) return;
+    try {
+      setExportingFormat("html-preview");
+      setExportDropdownOpen(false);
+      await articleService.previewStandaloneHtml(slug);
+    } catch (err: any) {
+      console.error("Preview HTML failed:", err);
     } finally {
       setExportingFormat(null);
     }
@@ -515,23 +529,33 @@ export const ArticleDetailPage: React.FC = () => {
                   </button>
 
                   {/* 2. Standalone HTML */}
-                  <button
-                    type="button"
-                    onClick={() => handleExportDocument("html")}
-                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-sky-50 dark:hover:bg-sky-950/40 text-slate-700 dark:text-slate-200 transition group cursor-pointer"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-                      <Globe className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400">
-                        Standalone HTML (.html)
+                  <div className="flex items-stretch hover:bg-sky-50 dark:hover:bg-sky-950/40 transition group">
+                    <button
+                      type="button"
+                      onClick={() => handleExportDocument("html")}
+                      className="flex-1 flex items-center gap-3 px-3 py-2 text-left text-slate-700 dark:text-slate-200 cursor-pointer"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                        <Globe className="w-4 h-4" />
                       </div>
-                      <div className="text-[10px] text-slate-400">
-                        Self-contained offline document
+                      <div>
+                        <div className="font-semibold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400">
+                          Standalone HTML (.html)
+                        </div>
+                        <div className="text-[10px] text-slate-400">
+                          Self-contained offline document
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handlePreviewHtml}
+                      title="Preview Offline HTML in New Tab"
+                      className="px-2.5 flex items-center justify-center text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-100/60 dark:hover:bg-sky-900/40 rounded-r transition cursor-pointer"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
 
                   {/* 3. ZIP Archive Bundle */}
                   <button
