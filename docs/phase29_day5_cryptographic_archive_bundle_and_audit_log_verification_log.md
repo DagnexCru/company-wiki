@@ -46,3 +46,5 @@
   - Verification status: PASSED | Checkpoint: step_014 | Module: archive_and_audit_hub
 - `2026-11-22T09:55:36+03:00` - **[Testing]** create test_export_cryptographic_zip_bundle_integrity in tests_export.py
   - Verification status: PASSED | Checkpoint: step_015 | Module: archive_and_audit_hub
+- `2026-11-22T09:58:30+03:00` - **[Testing]** verify standalone.html and governance files presence in ZIP test assertion
+  - Verification status: PASSED | Checkpoint: step_016 | Module: archive_and_audit_hub
