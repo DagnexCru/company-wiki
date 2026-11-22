@@ -266,3 +266,5 @@
   - Verification status: PASSED | Checkpoint: step_124 | Module: archive_and_audit_hub
 - `2026-11-22T15:14:36+03:00` - **[BundleCompat]** audit step 125 (iteration 5) - test archive extraction in macOS Archive Utility and Linux unzip
   - Verification status: PASSED | Checkpoint: step_125 | Module: archive_and_audit_hub
+- `2026-11-22T15:17:30+03:00` - **[EndToEnd]** audit step 126 (iteration 5) - execute end-to-end user export workflow from dropdown to disk archive save
+  - Verification status: PASSED | Checkpoint: step_126 | Module: archive_and_audit_hub
