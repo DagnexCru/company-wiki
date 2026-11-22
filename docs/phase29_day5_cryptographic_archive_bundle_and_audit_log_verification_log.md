@@ -30,3 +30,5 @@
   - Verification status: PASSED | Checkpoint: step_006 | Module: archive_and_audit_hub
 - `2026-11-22T09:32:24+03:00` - **[Media]** extract article media attachments and diagrams into attachments subfolder
   - Verification status: PASSED | Checkpoint: step_007 | Module: archive_and_audit_hub
+- `2026-11-22T09:35:18+03:00` - **[Crypto]** compute SHA-256 checksums for all individual enclosed files in the archive
+  - Verification status: PASSED | Checkpoint: step_008 | Module: archive_and_audit_hub
