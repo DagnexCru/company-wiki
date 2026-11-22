@@ -36,3 +36,5 @@
   - Verification status: PASSED | Checkpoint: step_009 | Module: archive_and_audit_hub
 - `2026-11-22T09:41:06+03:00` - **[Manifest]** serialize metadata.json with cryptographic_verification payload and root hash
   - Verification status: PASSED | Checkpoint: step_010 | Module: archive_and_audit_hub
+- `2026-11-22T09:44:00+03:00` - **[Backend]** finalize build_zip_bundle implementation in export_service.py
+  - Verification status: PASSED | Checkpoint: step_011 | Module: archive_and_audit_hub
