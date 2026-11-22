@@ -62,3 +62,5 @@
   - Verification status: PASSED | Checkpoint: step_022 | Module: archive_and_audit_hub
 - `2026-11-22T10:18:48+03:00` - **[FrontendUI]** build export governance summary metrics strip with cryptographic seal
   - Verification status: PASSED | Checkpoint: step_023 | Module: archive_and_audit_hub
+- `2026-11-22T10:21:42+03:00` - **[FrontendUI]** build responsive immutable audit ledger table with verified status badges
+  - Verification status: PASSED | Checkpoint: step_024 | Module: archive_and_audit_hub
