@@ -319,3 +319,70 @@ class MultiFormatExportSuiteTests(TestCase):
 
         # 6. Print-to-paper @media print styles
         self.assertIn("@media print", html_str)
+
+    def test_export_cryptographic_zip_bundle_integrity(self):
+        """
+        Verify that ZIP bundle contains standalone.html, README, AUDIT_TRAIL,
+        GOVERNANCE_NOTICE, and a cryptographic manifest.json with SHA-256 verification.
+        """
+        import hashlib
+        import json
+
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/export/?format=zip"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("application/zip", res["Content-Type"])
+
+        zip_buf = io.BytesIO(res.content)
+        with zipfile.ZipFile(zip_buf, "r") as zf:
+            file_names = zf.namelist()
+            slug = self.published_article.slug
+
+            # Check expected files in ZIP
+            self.assertIn(f"{slug}/content.md", file_names)
+            self.assertIn(f"{slug}/standalone.html", file_names)
+            self.assertIn(f"{slug}/README.txt", file_names)
+            self.assertIn(f"{slug}/AUDIT_TRAIL.txt", file_names)
+            self.assertIn(f"{slug}/GOVERNANCE_NOTICE.txt", file_names)
+            self.assertIn(f"{slug}/metadata.json", file_names)
+
+            # Check metadata.json cryptographic verification
+            meta_bytes = zf.read(f"{slug}/metadata.json")
+            manifest = json.loads(meta_bytes.decode("utf-8"))
+
+            self.assertIn("cryptographic_verification", manifest)
+            crypto = manifest["cryptographic_verification"]
+            self.assertEqual(crypto["algorithm"], "SHA-256")
+            self.assertTrue(len(crypto["bundle_root_hash"]) > 0)
+            self.assertIn("content.md", crypto["file_checksums"])
+            self.assertIn("standalone.html", crypto["file_checksums"])
+
+            # Verify that SHA-256 matches actual file bytes
+            md_bytes = zf.read(f"{slug}/content.md")
+            actual_md_hash = hashlib.sha256(md_bytes).hexdigest()
+            self.assertEqual(crypto["file_checksums"]["content.md"]["sha256"], actual_md_hash)
+
+    def test_export_history_endpoint(self):
+        """
+        Verify that GET /api/v1/articles/{slug}/export/history/ returns chronological
+        audit logs for document exports.
+        """
+        self.client.force_authenticate(user=self.reader)
+
+        # Trigger 2 exports
+        self.client.get(f"/api/v1/articles/{self.published_article.slug}/export/?format=markdown")
+        self.client.get(f"/api/v1/articles/{self.published_article.slug}/export/?format=html")
+
+        # Query history
+        hist_url = f"/api/v1/articles/{self.published_article.slug}/export/history/"
+        res = self.client.get(hist_url)
+
+        self.assertEqual(res.status_code, 200)
+        logs = res.json()
+        self.assertGreaterEqual(len(logs), 2)
+        self.assertIn("export_format", logs[0])
+        self.assertIn("file_size_bytes", logs[0])
+        self.assertIn("user", logs[0])
+        self.assertEqual(logs[0]["user"]["username"], self.reader.username)

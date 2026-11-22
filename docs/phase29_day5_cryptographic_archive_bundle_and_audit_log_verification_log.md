@@ -50,3 +50,5 @@
   - Verification status: PASSED | Checkpoint: step_016 | Module: archive_and_audit_hub
 - `2026-11-22T10:01:24+03:00` - **[Testing]** validate SHA-256 cryptographic checksum matching against raw markdown bytes
   - Verification status: PASSED | Checkpoint: step_017 | Module: archive_and_audit_hub
+- `2026-11-22T10:04:18+03:00` - **[Testing]** create test_export_history_endpoint asserting chronological audit logging
+  - Verification status: PASSED | Checkpoint: step_018 | Module: archive_and_audit_hub
