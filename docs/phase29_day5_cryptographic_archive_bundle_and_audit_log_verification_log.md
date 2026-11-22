@@ -258,3 +258,5 @@
   - Verification status: PASSED | Checkpoint: step_120 | Module: archive_and_audit_hub
 - `2026-11-22T15:03:00+03:00` - **[UIModalAudit]** audit step 121 (iteration 5) - test dark mode contrast on audit ledger table headers and badges
   - Verification status: PASSED | Checkpoint: step_121 | Module: archive_and_audit_hub
+- `2026-11-22T15:05:54+03:00` - **[Performance]** audit step 122 (iteration 5) - benchmark ZIP generation latency under 200ms for large multi-asset articles
+  - Verification status: PASSED | Checkpoint: step_122 | Module: archive_and_audit_hub
