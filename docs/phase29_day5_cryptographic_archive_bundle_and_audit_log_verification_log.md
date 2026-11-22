@@ -248,3 +248,5 @@
   - Verification status: PASSED | Checkpoint: step_115 | Module: archive_and_audit_hub
 - `2026-11-22T14:48:30+03:00` - **[LedgerAudit]** audit step 116 (iteration 5) - audit ArticleExportLog persistence on every export format execution
   - Verification status: PASSED | Checkpoint: step_116 | Module: archive_and_audit_hub
+- `2026-11-22T14:51:24+03:00` - **[LedgerAudit]** audit step 117 (iteration 5) - audit byte count accuracy recorded in database against generated file size
+  - Verification status: PASSED | Checkpoint: step_117 | Module: archive_and_audit_hub
