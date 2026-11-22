@@ -68,3 +68,5 @@
   - Verification status: PASSED | Checkpoint: step_025 | Module: archive_and_audit_hub
 - `2026-11-22T10:27:30+03:00` - **[PageIntegration]** import ExportHistoryModal in ArticleDetailPage.tsx
   - Verification status: PASSED | Checkpoint: step_026 | Module: archive_and_audit_hub
+- `2026-11-22T10:30:24+03:00` - **[PageIntegration]** add showExportHistoryModal state in ArticleDetailPage component
+  - Verification status: PASSED | Checkpoint: step_027 | Module: archive_and_audit_hub
