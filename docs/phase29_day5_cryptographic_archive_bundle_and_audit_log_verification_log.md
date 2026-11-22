@@ -292,3 +292,5 @@
   - Verification status: PASSED | Checkpoint: step_137 | Module: archive_and_audit_hub
 - `2026-11-22T15:52:18+03:00` - **[SecurityAudit]** audit step 138 (iteration 6) - verify unauthenticated requests are blocked from export history endpoint
   - Verification status: PASSED | Checkpoint: step_138 | Module: archive_and_audit_hub
+- `2026-11-22T15:55:12+03:00` - **[SecurityAudit]** audit step 139 (iteration 6) - verify reader role cannot access draft export history (403 Forbidden)
+  - Verification status: PASSED | Checkpoint: step_139 | Module: archive_and_audit_hub
