@@ -48,3 +48,5 @@
   - Verification status: PASSED | Checkpoint: step_015 | Module: archive_and_audit_hub
 - `2026-11-22T09:58:30+03:00` - **[Testing]** verify standalone.html and governance files presence in ZIP test assertion
   - Verification status: PASSED | Checkpoint: step_016 | Module: archive_and_audit_hub
+- `2026-11-22T10:01:24+03:00` - **[Testing]** validate SHA-256 cryptographic checksum matching against raw markdown bytes
+  - Verification status: PASSED | Checkpoint: step_017 | Module: archive_and_audit_hub
