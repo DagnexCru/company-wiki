@@ -64,3 +64,5 @@
   - Verification status: PASSED | Checkpoint: step_023 | Module: archive_and_audit_hub
 - `2026-11-22T10:21:42+03:00` - **[FrontendUI]** build responsive immutable audit ledger table with verified status badges
   - Verification status: PASSED | Checkpoint: step_024 | Module: archive_and_audit_hub
+- `2026-11-22T10:24:36+03:00` - **[FrontendUI]** add refresh trigger and empty state handling in ExportHistoryModal
+  - Verification status: PASSED | Checkpoint: step_025 | Module: archive_and_audit_hub
