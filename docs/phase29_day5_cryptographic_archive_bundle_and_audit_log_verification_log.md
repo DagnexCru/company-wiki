@@ -52,3 +52,5 @@
   - Verification status: PASSED | Checkpoint: step_017 | Module: archive_and_audit_hub
 - `2026-11-22T10:04:18+03:00` - **[Testing]** create test_export_history_endpoint asserting chronological audit logging
   - Verification status: PASSED | Checkpoint: step_018 | Module: archive_and_audit_hub
+- `2026-11-22T10:07:12+03:00` - **[FrontendService]** define ArticleExportHistoryItem interface in articleService.ts
+  - Verification status: PASSED | Checkpoint: step_019 | Module: archive_and_audit_hub
