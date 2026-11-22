@@ -268,3 +268,5 @@
   - Verification status: PASSED | Checkpoint: step_125 | Module: archive_and_audit_hub
 - `2026-11-22T15:17:30+03:00` - **[EndToEnd]** audit step 126 (iteration 5) - execute end-to-end user export workflow from dropdown to disk archive save
   - Verification status: PASSED | Checkpoint: step_126 | Module: archive_and_audit_hub
+- `2026-11-22T15:20:24+03:00` - **[Regression]** audit step 127 (iteration 5) - verify zero regressions in existing PDF, HTML, and Markdown exporters
+  - Verification status: PASSED | Checkpoint: step_127 | Module: archive_and_audit_hub
