@@ -58,3 +58,5 @@
   - Verification status: PASSED | Checkpoint: step_020 | Module: archive_and_audit_hub
 - `2026-11-22T10:13:00+03:00` - **[FrontendUI]** create ExportHistoryModal component with Lucide icons and dark mode
   - Verification status: PASSED | Checkpoint: step_021 | Module: archive_and_audit_hub
+- `2026-11-22T10:15:54+03:00` - **[FrontendUI]** implement formatted file size helper and format badge color coding
+  - Verification status: PASSED | Checkpoint: step_022 | Module: archive_and_audit_hub
