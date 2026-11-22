@@ -44,3 +44,5 @@
   - Verification status: PASSED | Checkpoint: step_013 | Module: archive_and_audit_hub
 - `2026-11-22T09:52:42+03:00` - **[Permissions]** enforce draft permission gating on export history view for non-author readers
   - Verification status: PASSED | Checkpoint: step_014 | Module: archive_and_audit_hub
+- `2026-11-22T09:55:36+03:00` - **[Testing]** create test_export_cryptographic_zip_bundle_integrity in tests_export.py
+  - Verification status: PASSED | Checkpoint: step_015 | Module: archive_and_audit_hub
