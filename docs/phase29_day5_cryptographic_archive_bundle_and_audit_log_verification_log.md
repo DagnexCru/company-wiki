@@ -84,3 +84,5 @@
   - Verification status: PASSED | Checkpoint: step_033 | Module: archive_and_audit_hub
 - `2026-11-22T10:50:42+03:00` - **[MediaAudit]** audit step 34 (iteration 1) - audit binary attachment extraction and mime-type preservation in ZIP
   - Verification status: PASSED | Checkpoint: step_034 | Module: archive_and_audit_hub
+- `2026-11-22T10:53:36+03:00` - **[MediaAudit]** audit step 35 (iteration 1) - test handling of articles with zero attachments without error
+  - Verification status: PASSED | Checkpoint: step_035 | Module: archive_and_audit_hub
