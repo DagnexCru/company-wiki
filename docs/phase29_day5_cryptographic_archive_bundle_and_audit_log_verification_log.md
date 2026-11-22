@@ -270,3 +270,5 @@
   - Verification status: PASSED | Checkpoint: step_126 | Module: archive_and_audit_hub
 - `2026-11-22T15:20:24+03:00` - **[Regression]** audit step 127 (iteration 5) - verify zero regressions in existing PDF, HTML, and Markdown exporters
   - Verification status: PASSED | Checkpoint: step_127 | Module: archive_and_audit_hub
+- `2026-11-22T15:23:18+03:00` - **[Compliance]** audit step 128 (iteration 5) - audit ISO/IEC 27001 Annex A cryptographic controls and audit trails
+  - Verification status: PASSED | Checkpoint: step_128 | Module: archive_and_audit_hub
