@@ -24,3 +24,5 @@
   - Verification status: PASSED | Checkpoint: step_003 | Module: archive_and_audit_hub
 - `2026-11-22T09:23:42+03:00` - **[Packager]** generate compliance README.txt with document metadata and offline instructions
   - Verification status: PASSED | Checkpoint: step_004 | Module: archive_and_audit_hub
+- `2026-11-22T09:26:36+03:00` - **[Audit]** generate AUDIT_TRAIL.txt with immutable UUID, author signature, and export timestamps
+  - Verification status: PASSED | Checkpoint: step_005 | Module: archive_and_audit_hub
