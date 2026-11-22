@@ -72,3 +72,5 @@
   - Verification status: PASSED | Checkpoint: step_027 | Module: archive_and_audit_hub
 - `2026-11-22T10:33:18+03:00` - **[PageIntegration]** add Export Audit History action item to Export & Share dropdown menu
   - Verification status: PASSED | Checkpoint: step_028 | Module: archive_and_audit_hub
+- `2026-11-22T10:36:12+03:00` - **[PageIntegration]** render ExportHistoryModal with articleTitle and articleSlug props
+  - Verification status: PASSED | Checkpoint: step_029 | Module: archive_and_audit_hub

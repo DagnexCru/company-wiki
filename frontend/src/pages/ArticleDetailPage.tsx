@@ -50,6 +50,7 @@ import { TeamComplianceModal } from "../components/TeamComplianceModal";
 import { SopCertificateModal } from "../components/SopCertificateModal";
 import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
 import { PdfExportOptionsModal } from "../components/PdfExportOptionsModal";
+import { ExportHistoryModal } from "../components/ExportHistoryModal";
 import { checklistService } from "../services/checklistService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { useReaderEngagement } from "../hooks/useReaderEngagement";
@@ -107,6 +108,7 @@ export const ArticleDetailPage: React.FC = () => {
   const [exportingFormat, setExportingFormat] = useState<string | null>(null);
   const [exportSuccessMsg, setExportSuccessMsg] = useState<string | null>(null);
   const [showPdfOptionsModal, setShowPdfOptionsModal] = useState<boolean>(false);
+  const [showExportHistoryModal, setShowExportHistoryModal] = useState<boolean>(false);
 
   const handleExportPdfWithOptions = async (options: PdfExportOptions) => {
     if (!slug) return;
@@ -643,6 +645,30 @@ export const ArticleDetailPage: React.FC = () => {
                       </div>
                     </div>
                   </button>
+
+                  <div className="my-1.5 border-t border-slate-100 dark:border-slate-800" />
+
+                  {/* 7. Export Audit History */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setExportDropdownOpen(false);
+                      setShowExportHistoryModal(true);
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-200 transition cursor-pointer group"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                      <History className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                        Export Audit History
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        Compliance logs & ledger
+                      </div>
+                    </div>
+                  </button>
                 </div>
               </>
             )}
@@ -1070,6 +1096,16 @@ export const ArticleDetailPage: React.FC = () => {
           articleSlug={article.slug}
           onExport={handleExportPdfWithOptions}
           isExporting={exportingFormat === "pdf"}
+        />
+      )}
+
+      {/* Export Governance & Audit Trail Ledger Modal */}
+      {article && (
+        <ExportHistoryModal
+          isOpen={showExportHistoryModal}
+          onClose={() => setShowExportHistoryModal(false)}
+          articleTitle={article.title}
+          articleSlug={article.slug}
         />
       )}
     </div>
