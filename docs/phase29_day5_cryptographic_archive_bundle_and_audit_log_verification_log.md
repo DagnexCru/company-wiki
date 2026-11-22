@@ -94,3 +94,5 @@
   - Verification status: PASSED | Checkpoint: step_038 | Module: archive_and_audit_hub
 - `2026-11-22T11:05:12+03:00` - **[SecurityAudit]** audit step 39 (iteration 1) - verify reader role cannot access draft export history (403 Forbidden)
   - Verification status: PASSED | Checkpoint: step_039 | Module: archive_and_audit_hub
+- `2026-11-22T11:08:06+03:00` - **[UIModalAudit]** audit step 40 (iteration 1) - test ExportHistoryModal backdrop click and escape key dismiss handlers
+  - Verification status: PASSED | Checkpoint: step_040 | Module: archive_and_audit_hub
