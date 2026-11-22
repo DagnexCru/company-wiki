@@ -32,3 +32,5 @@
   - Verification status: PASSED | Checkpoint: step_007 | Module: archive_and_audit_hub
 - `2026-11-22T09:35:18+03:00` - **[Crypto]** compute SHA-256 checksums for all individual enclosed files in the archive
   - Verification status: PASSED | Checkpoint: step_008 | Module: archive_and_audit_hub
+- `2026-11-22T09:38:12+03:00` - **[Crypto]** compute composite root hash for cryptographic bundle tamper-proofing
+  - Verification status: PASSED | Checkpoint: step_009 | Module: archive_and_audit_hub
