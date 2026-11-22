@@ -182,3 +182,5 @@
   - Verification status: PASSED | Checkpoint: step_082 | Module: archive_and_audit_hub
 - `2026-11-22T13:12:48+03:00` - **[Performance]** audit step 83 (iteration 3) - verify memory safety with io.BytesIO streaming buffer garbage collection
   - Verification status: PASSED | Checkpoint: step_083 | Module: archive_and_audit_hub
+- `2026-11-22T13:15:42+03:00` - **[BundleCompat]** audit step 84 (iteration 3) - test archive extraction in Windows Explorer native zip extractor
+  - Verification status: PASSED | Checkpoint: step_084 | Module: archive_and_audit_hub
