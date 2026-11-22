@@ -38,3 +38,5 @@
   - Verification status: PASSED | Checkpoint: step_010 | Module: archive_and_audit_hub
 - `2026-11-22T09:44:00+03:00` - **[Backend]** finalize build_zip_bundle implementation in export_service.py
   - Verification status: PASSED | Checkpoint: step_011 | Module: archive_and_audit_hub
+- `2026-11-22T09:46:54+03:00` - **[API]** add export_history to ArticleViewSet allowed prefetch action list
+  - Verification status: PASSED | Checkpoint: step_012 | Module: archive_and_audit_hub
