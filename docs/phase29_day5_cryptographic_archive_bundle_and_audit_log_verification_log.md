@@ -202,3 +202,5 @@
   - Verification status: PASSED | Checkpoint: step_092 | Module: archive_and_audit_hub
 - `2026-11-22T13:41:48+03:00` - **[AirGapAudit]** audit step 93 (iteration 4) - verify offline navigation of extracted ZIP archive on local filesystem
   - Verification status: PASSED | Checkpoint: step_093 | Module: archive_and_audit_hub
+- `2026-11-22T13:44:42+03:00` - **[MediaAudit]** audit step 94 (iteration 4) - audit binary attachment extraction and mime-type preservation in ZIP
+  - Verification status: PASSED | Checkpoint: step_094 | Module: archive_and_audit_hub
