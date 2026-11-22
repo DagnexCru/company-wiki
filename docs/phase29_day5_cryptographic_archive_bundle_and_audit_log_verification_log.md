@@ -156,3 +156,5 @@
   - Verification status: PASSED | Checkpoint: step_069 | Module: archive_and_audit_hub
 - `2026-11-22T12:35:06+03:00` - **[CryptoAudit]** audit step 70 (iteration 3) - verify SHA-256 hash collision resistance and 64-character hex length
   - Verification status: PASSED | Checkpoint: step_070 | Module: archive_and_audit_hub
+- `2026-11-22T12:38:00+03:00` - **[CryptoAudit]** audit step 71 (iteration 3) - verify bundle root hash composition from sorted file hashes
+  - Verification status: PASSED | Checkpoint: step_071 | Module: archive_and_audit_hub
