@@ -96,3 +96,5 @@
   - Verification status: PASSED | Checkpoint: step_039 | Module: archive_and_audit_hub
 - `2026-11-22T11:08:06+03:00` - **[UIModalAudit]** audit step 40 (iteration 1) - test ExportHistoryModal backdrop click and escape key dismiss handlers
   - Verification status: PASSED | Checkpoint: step_040 | Module: archive_and_audit_hub
+- `2026-11-22T11:11:00+03:00` - **[UIModalAudit]** audit step 41 (iteration 1) - test dark mode contrast on audit ledger table headers and badges
+  - Verification status: PASSED | Checkpoint: step_041 | Module: archive_and_audit_hub
