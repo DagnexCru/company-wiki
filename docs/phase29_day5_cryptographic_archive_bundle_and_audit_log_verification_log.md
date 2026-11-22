@@ -54,3 +54,5 @@
   - Verification status: PASSED | Checkpoint: step_018 | Module: archive_and_audit_hub
 - `2026-11-22T10:07:12+03:00` - **[FrontendService]** define ArticleExportHistoryItem interface in articleService.ts
   - Verification status: PASSED | Checkpoint: step_019 | Module: archive_and_audit_hub
+- `2026-11-22T10:10:06+03:00` - **[FrontendService]** implement getArticleExportHistory API client method in articleService
+  - Verification status: PASSED | Checkpoint: step_020 | Module: archive_and_audit_hub
