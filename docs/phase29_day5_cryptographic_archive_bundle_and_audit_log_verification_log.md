@@ -34,3 +34,5 @@
   - Verification status: PASSED | Checkpoint: step_008 | Module: archive_and_audit_hub
 - `2026-11-22T09:38:12+03:00` - **[Crypto]** compute composite root hash for cryptographic bundle tamper-proofing
   - Verification status: PASSED | Checkpoint: step_009 | Module: archive_and_audit_hub
+- `2026-11-22T09:41:06+03:00` - **[Manifest]** serialize metadata.json with cryptographic_verification payload and root hash
+  - Verification status: PASSED | Checkpoint: step_010 | Module: archive_and_audit_hub
