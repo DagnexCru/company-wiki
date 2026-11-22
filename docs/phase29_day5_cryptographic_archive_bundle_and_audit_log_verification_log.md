@@ -22,3 +22,5 @@
   - Verification status: PASSED | Checkpoint: step_002 | Module: archive_and_audit_hub
 - `2026-11-22T09:20:48+03:00` - **[Packager]** implement multi-asset ZIP bundle packaging with standalone HTML inclusion
   - Verification status: PASSED | Checkpoint: step_003 | Module: archive_and_audit_hub
+- `2026-11-22T09:23:42+03:00` - **[Packager]** generate compliance README.txt with document metadata and offline instructions
+  - Verification status: PASSED | Checkpoint: step_004 | Module: archive_and_audit_hub
