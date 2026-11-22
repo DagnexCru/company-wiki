@@ -44,6 +44,17 @@ export interface PdfPreviewMetadata {
   }>;
 }
 
+export interface ArticleExportHistoryItem {
+  id: string;
+  export_format: string;
+  file_size_bytes: number;
+  created_at: string;
+  user: {
+    username: string;
+    full_name: string;
+  };
+}
+
 export const articleService = {
   /**
    * Fetch paginated list of articles filtered by user role and optional criteria.
@@ -260,6 +271,15 @@ export const articleService = {
     const blob = new Blob([response.data], { type: "text/html;charset=utf-8;" });
     const blobUrl = window.URL.createObjectURL(blob);
     window.open(blobUrl, "_blank");
+  },
+
+  /**
+   * Fetch audit log history of document exports for an article.
+   * GET /api/v1/articles/{slug}/export/history/
+   */
+  async getArticleExportHistory(slug: string): Promise<ArticleExportHistoryItem[]> {
+    const response = await api.get<ArticleExportHistoryItem[]>(`/articles/${slug}/export/history/`);
+    return response.data;
   },
 };
 

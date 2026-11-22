@@ -56,3 +56,5 @@
   - Verification status: PASSED | Checkpoint: step_019 | Module: archive_and_audit_hub
 - `2026-11-22T10:10:06+03:00` - **[FrontendService]** implement getArticleExportHistory API client method in articleService
   - Verification status: PASSED | Checkpoint: step_020 | Module: archive_and_audit_hub
+- `2026-11-22T10:13:00+03:00` - **[FrontendUI]** create ExportHistoryModal component with Lucide icons and dark mode
+  - Verification status: PASSED | Checkpoint: step_021 | Module: archive_and_audit_hub
