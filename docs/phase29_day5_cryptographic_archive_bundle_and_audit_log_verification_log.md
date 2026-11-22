@@ -144,3 +144,5 @@
   - Verification status: PASSED | Checkpoint: step_063 | Module: archive_and_audit_hub
 - `2026-11-22T12:17:42+03:00` - **[BundleCompat]** audit step 64 (iteration 2) - test archive extraction in Windows Explorer native zip extractor
   - Verification status: PASSED | Checkpoint: step_064 | Module: archive_and_audit_hub
+- `2026-11-22T12:20:36+03:00` - **[BundleCompat]** audit step 65 (iteration 2) - test archive extraction in macOS Archive Utility and Linux unzip
+  - Verification status: PASSED | Checkpoint: step_065 | Module: archive_and_audit_hub
