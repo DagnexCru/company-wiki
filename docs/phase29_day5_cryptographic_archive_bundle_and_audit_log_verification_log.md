@@ -28,3 +28,5 @@
   - Verification status: PASSED | Checkpoint: step_005 | Module: archive_and_audit_hub
 - `2026-11-22T09:29:30+03:00` - **[Governance]** generate GOVERNANCE_NOTICE.txt enterprise compliance and trade secret notice
   - Verification status: PASSED | Checkpoint: step_006 | Module: archive_and_audit_hub
+- `2026-11-22T09:32:24+03:00` - **[Media]** extract article media attachments and diagrams into attachments subfolder
+  - Verification status: PASSED | Checkpoint: step_007 | Module: archive_and_audit_hub
