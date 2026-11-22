@@ -206,3 +206,5 @@
   - Verification status: PASSED | Checkpoint: step_094 | Module: archive_and_audit_hub
 - `2026-11-22T13:47:36+03:00` - **[MediaAudit]** audit step 95 (iteration 4) - test handling of articles with zero attachments without error
   - Verification status: PASSED | Checkpoint: step_095 | Module: archive_and_audit_hub
+- `2026-11-22T13:50:30+03:00` - **[LedgerAudit]** audit step 96 (iteration 4) - audit ArticleExportLog persistence on every export format execution
+  - Verification status: PASSED | Checkpoint: step_096 | Module: archive_and_audit_hub
