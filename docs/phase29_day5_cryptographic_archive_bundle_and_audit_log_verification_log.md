@@ -290,3 +290,5 @@
   - Verification status: PASSED | Checkpoint: step_136 | Module: archive_and_audit_hub
 - `2026-11-22T15:49:24+03:00` - **[LedgerAudit]** audit step 137 (iteration 6) - audit byte count accuracy recorded in database against generated file size
   - Verification status: PASSED | Checkpoint: step_137 | Module: archive_and_audit_hub
+- `2026-11-22T15:52:18+03:00` - **[SecurityAudit]** audit step 138 (iteration 6) - verify unauthenticated requests are blocked from export history endpoint
+  - Verification status: PASSED | Checkpoint: step_138 | Module: archive_and_audit_hub
