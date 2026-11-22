@@ -42,3 +42,5 @@
   - Verification status: PASSED | Checkpoint: step_012 | Module: archive_and_audit_hub
 - `2026-11-22T09:49:48+03:00` - **[API]** implement export_history endpoint returning chronological ArticleExportLog records
   - Verification status: PASSED | Checkpoint: step_013 | Module: archive_and_audit_hub
+- `2026-11-22T09:52:42+03:00` - **[Permissions]** enforce draft permission gating on export history view for non-author readers
+  - Verification status: PASSED | Checkpoint: step_014 | Module: archive_and_audit_hub
