@@ -40,3 +40,5 @@
   - Verification status: PASSED | Checkpoint: step_011 | Module: archive_and_audit_hub
 - `2026-11-22T09:46:54+03:00` - **[API]** add export_history to ArticleViewSet allowed prefetch action list
   - Verification status: PASSED | Checkpoint: step_012 | Module: archive_and_audit_hub
+- `2026-11-22T09:49:48+03:00` - **[API]** implement export_history endpoint returning chronological ArticleExportLog records
+  - Verification status: PASSED | Checkpoint: step_013 | Module: archive_and_audit_hub

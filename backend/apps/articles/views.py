@@ -135,6 +135,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             "export_analytics",
             "export_document",
             "export_preview",
+            "export_history",
         ]:
             return Article.objects.all().select_related("author", "category").prefetch_related("tags")
 
@@ -2328,6 +2329,54 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
         preview_data = ArticleExportService.get_pdf_preview_metadata(article, request)
         return Response(preview_data, status=status.HTTP_200_OK)
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="export/history",
+        permission_classes=[permissions.IsAuthenticated],
+    )
+    def export_history(self, request, slug=None):
+        """
+        Export Governance: Return audit log history of multi-format document exports.
+        GET /api/v1/articles/{slug}/export/history/
+        """
+        article = self.get_object()
+
+        # Enforce visibility rules
+        if article.status != Article.Status.PUBLISHED:
+            is_author = article.author_id == request.user.id
+            is_staff = (
+                getattr(request.user, "role", "") in ["ADMIN", "REVIEWER"]
+                or getattr(request.user, "is_admin", False)
+            )
+            if not (is_author or is_staff):
+                return Response(
+                    {"detail": "You do not have permission to view export history for this non-published article."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
+        from apps.articles.models import ArticleExportLog
+
+        logs = (
+            ArticleExportLog.objects.filter(article=article)
+            .select_related("user")
+            .order_by("-created_at")[:50]
+        )
+        data = [
+            {
+                "id": str(log.id),
+                "export_format": log.export_format,
+                "file_size_bytes": log.file_size_bytes,
+                "created_at": log.created_at.isoformat(),
+                "user": {
+                    "username": log.user.username if log.user else "Anonymous",
+                    "full_name": getattr(log.user, "full_name", "") if log.user else "",
+                },
+            }
+            for log in logs
+        ]
+        return Response(data, status=status.HTTP_200_OK)
 
 
 
