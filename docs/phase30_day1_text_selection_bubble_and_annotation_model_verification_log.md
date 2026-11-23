@@ -35,3 +35,5 @@
   - Verification status: PASSED | Checkpoint: step_007 | Module: inline_annotations
 - `2026-11-23T09:37:24+03:00` - **[Model]** configure db_table article_inline_annotations with article and author indexes
   - Verification status: PASSED | Checkpoint: step_008 | Module: inline_annotations
+- `2026-11-23T09:40:36+03:00` - **[Migration]** generate Django schema migration 0015_articleinlineannotation
+  - Verification status: PASSED | Checkpoint: step_009 | Module: inline_annotations
