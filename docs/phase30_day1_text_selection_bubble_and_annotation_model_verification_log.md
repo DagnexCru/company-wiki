@@ -55,3 +55,5 @@
   - Verification status: PASSED | Checkpoint: step_017 | Module: inline_annotations
 - `2026-11-23T10:09:24+03:00` - **[Routing]** register /articles/<slug_or_id>/annotations/ URL endpoints in articles urls.py
   - Verification status: PASSED | Checkpoint: step_018 | Module: inline_annotations
+- `2026-11-23T10:12:36+03:00` - **[Testing]** create ArticleInlineAnnotationTests test suite in tests_annotations.py
+  - Verification status: PASSED | Checkpoint: step_019 | Module: inline_annotations
