@@ -57,3 +57,5 @@
   - Verification status: PASSED | Checkpoint: step_018 | Module: inline_annotations
 - `2026-11-23T10:12:36+03:00` - **[Testing]** create ArticleInlineAnnotationTests test suite in tests_annotations.py
   - Verification status: PASSED | Checkpoint: step_019 | Module: inline_annotations
+- `2026-11-23T10:15:48+03:00` - **[Testing]** test unauthenticated 401 rejection on annotation list endpoint
+  - Verification status: PASSED | Checkpoint: step_020 | Module: inline_annotations
