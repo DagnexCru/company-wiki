@@ -259,3 +259,5 @@
   - Verification status: PASSED | Checkpoint: step_119 | Module: inline_annotations
 - `2026-11-23T15:35:48+03:00` - **[DbAudit]** audit step 120 (iteration 4) - audit PostgreSQL query execution plan on article_inline_annotations indexes
   - Verification status: PASSED | Checkpoint: step_120 | Module: inline_annotations
+- `2026-11-23T15:39:00+03:00` - **[DbAudit]** audit step 121 (iteration 4) - verify cascade delete cleans up inline annotations when article is deleted
+  - Verification status: PASSED | Checkpoint: step_121 | Module: inline_annotations
