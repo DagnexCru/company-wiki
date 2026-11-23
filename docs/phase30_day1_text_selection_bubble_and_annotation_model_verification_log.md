@@ -31,3 +31,5 @@
   - Verification status: PASSED | Checkpoint: step_005 | Module: inline_annotations
 - `2026-11-23T09:31:00+03:00` - **[Model]** add content and Status TextChoices (open, resolved) to inline annotation
   - Verification status: PASSED | Checkpoint: step_006 | Module: inline_annotations
+- `2026-11-23T09:34:12+03:00` - **[Model]** implement resolve and reopen lifecycle transition helper methods on model
+  - Verification status: PASSED | Checkpoint: step_007 | Module: inline_annotations
