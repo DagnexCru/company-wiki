@@ -79,3 +79,5 @@
   - Verification status: PASSED | Checkpoint: step_029 | Module: inline_annotations
 - `2026-11-23T10:47:48+03:00` - **[FrontendService]** implement deleteAnnotation and lifecycle methods in annotationService
   - Verification status: PASSED | Checkpoint: step_030 | Module: inline_annotations
+- `2026-11-23T10:51:00+03:00` - **[FrontendHook]** implement useTextSelection hook capturing mouseup and selectionchange
+  - Verification status: PASSED | Checkpoint: step_031 | Module: inline_annotations
