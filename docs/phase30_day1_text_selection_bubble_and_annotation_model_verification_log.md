@@ -73,3 +73,5 @@
   - Verification status: PASSED | Checkpoint: step_026 | Module: inline_annotations
 - `2026-11-23T10:38:12+03:00` - **[FrontendTypes]** define CreateAnnotationPayload interface in types annotation.ts
   - Verification status: PASSED | Checkpoint: step_027 | Module: inline_annotations
+- `2026-11-23T10:41:24+03:00` - **[FrontendService]** implement getAnnotations API client method in annotationService.ts
+  - Verification status: PASSED | Checkpoint: step_028 | Module: inline_annotations
