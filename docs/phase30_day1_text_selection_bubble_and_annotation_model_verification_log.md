@@ -197,3 +197,5 @@
   - Verification status: PASSED | Checkpoint: step_088 | Module: inline_annotations
 - `2026-11-23T13:56:36+03:00` - **[BubbleAudit]** audit step 89 (iteration 3) - test floating bubble viewport clipping and boundary edge prevention
   - Verification status: PASSED | Checkpoint: step_089 | Module: inline_annotations
+- `2026-11-23T13:59:48+03:00` - **[BubbleAudit]** audit step 90 (iteration 3) - audit auto-focus on textarea when expanding annotation authoring box
+  - Verification status: PASSED | Checkpoint: step_090 | Module: inline_annotations
