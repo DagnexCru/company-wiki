@@ -45,3 +45,5 @@
   - Verification status: PASSED | Checkpoint: step_012 | Module: inline_annotations
 - `2026-11-23T09:53:24+03:00` - **[Serializer]** implement auto-assignment of author from request context in create method
   - Verification status: PASSED | Checkpoint: step_013 | Module: inline_annotations
+- `2026-11-23T09:56:36+03:00` - **[Views]** create ArticleInlineAnnotationListView supporting status query filtering
+  - Verification status: PASSED | Checkpoint: step_014 | Module: inline_annotations
