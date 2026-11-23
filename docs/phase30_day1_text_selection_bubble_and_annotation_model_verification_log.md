@@ -67,3 +67,5 @@
   - Verification status: PASSED | Checkpoint: step_023 | Module: inline_annotations
 - `2026-11-23T10:28:36+03:00` - **[Testing]** test edit and delete permission gates for peer reviewers and readers
   - Verification status: PASSED | Checkpoint: step_024 | Module: inline_annotations
+- `2026-11-23T10:31:48+03:00` - **[Testing]** test draft article annotation permission boundaries
+  - Verification status: PASSED | Checkpoint: step_025 | Module: inline_annotations
