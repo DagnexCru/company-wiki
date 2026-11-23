@@ -113,3 +113,5 @@
   - Verification status: PASSED | Checkpoint: step_046 | Module: inline_annotations
 - `2026-11-23T11:42:12+03:00` - **[ApiAudit]** audit step 47 (iteration 1) - verify 201 Created response structure on POST /articles/{slug}/annotations/
   - Verification status: PASSED | Checkpoint: step_047 | Module: inline_annotations
+- `2026-11-23T11:45:24+03:00` - **[ApiAudit]** audit step 48 (iteration 1) - audit error handling when attempting to annotate with empty content
+  - Verification status: PASSED | Checkpoint: step_048 | Module: inline_annotations
