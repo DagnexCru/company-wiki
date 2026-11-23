@@ -41,3 +41,5 @@
   - Verification status: PASSED | Checkpoint: step_010 | Module: inline_annotations
 - `2026-11-23T09:47:00+03:00` - **[Serializer]** create ArticleInlineAnnotationAuthorSerializer with safe user fields
   - Verification status: PASSED | Checkpoint: step_011 | Module: inline_annotations
+- `2026-11-23T09:50:12+03:00` - **[Serializer]** create ArticleInlineAnnotationSerializer with is_own computation
+  - Verification status: PASSED | Checkpoint: step_012 | Module: inline_annotations
