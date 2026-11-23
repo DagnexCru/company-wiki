@@ -59,3 +59,5 @@
   - Verification status: PASSED | Checkpoint: step_019 | Module: inline_annotations
 - `2026-11-23T10:15:48+03:00` - **[Testing]** test unauthenticated 401 rejection on annotation list endpoint
   - Verification status: PASSED | Checkpoint: step_020 | Module: inline_annotations
+- `2026-11-23T10:19:00+03:00` - **[Testing]** test creating and listing inline annotations with text offsets
+  - Verification status: PASSED | Checkpoint: step_021 | Module: inline_annotations
