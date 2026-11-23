@@ -211,3 +211,5 @@
   - Verification status: PASSED | Checkpoint: step_095 | Module: inline_annotations
 - `2026-11-23T14:19:00+03:00` - **[StatusAudit]** audit step 96 (iteration 3) - verify resolved_at timestamp and resolved_by attribution persistence
   - Verification status: PASSED | Checkpoint: step_096 | Module: inline_annotations
+- `2026-11-23T14:22:12+03:00` - **[ReopenAudit]** audit step 97 (iteration 3) - test reopening clears resolved_at and returns discussion to open status
+  - Verification status: PASSED | Checkpoint: step_097 | Module: inline_annotations
