@@ -51,9 +51,12 @@ import { SopCertificateModal } from "../components/SopCertificateModal";
 import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
 import { PdfExportOptionsModal } from "../components/PdfExportOptionsModal";
 import { ExportHistoryModal } from "../components/ExportHistoryModal";
+import { FloatingAnnotationBubble } from "../components/FloatingAnnotationBubble";
 import { checklistService } from "../services/checklistService";
+import { annotationService } from "../services/annotationService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { useReaderEngagement } from "../hooks/useReaderEngagement";
+import { useTextSelection, type TextSelectionData } from "../hooks/useTextSelection";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
@@ -109,6 +112,28 @@ export const ArticleDetailPage: React.FC = () => {
   const [exportSuccessMsg, setExportSuccessMsg] = useState<string | null>(null);
   const [showPdfOptionsModal, setShowPdfOptionsModal] = useState<boolean>(false);
   const [showExportHistoryModal, setShowExportHistoryModal] = useState<boolean>(false);
+
+  // In-line Text Annotations Selection Engine (Phase 30)
+  const articleContainerRef = useRef<HTMLElement>(null);
+  const { selectionData, clearSelection } = useTextSelection(articleContainerRef);
+
+  const handleCreateAnnotation = async (content: string, selection: TextSelectionData) => {
+    if (!slug) return;
+    try {
+      await annotationService.createAnnotation(slug, {
+        highlighted_text: selection.selectedText,
+        start_offset: selection.startOffset,
+        end_offset: selection.endOffset,
+        anchor_context_before: selection.contextBefore,
+        anchor_context_after: selection.contextAfter,
+        content,
+      });
+      setExportSuccessMsg("💬 Inline discussion opened!");
+      setTimeout(() => setExportSuccessMsg(null), 3000);
+    } catch (err: any) {
+      console.error("Failed to create inline annotation:", err);
+    }
+  };
 
   const handleExportPdfWithOptions = async (options: PdfExportOptions) => {
     if (!slug) return;
@@ -907,7 +932,15 @@ export const ArticleDetailPage: React.FC = () => {
           />
 
           {/* Main Document Content */}
-          <article className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs">
+          <article
+            ref={articleContainerRef}
+            className="relative bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs"
+          >
+            <FloatingAnnotationBubble
+              selection={selectionData}
+              onClose={clearSelection}
+              onSubmit={handleCreateAnnotation}
+            />
             <MarkdownViewer
               content={article.content}
               articleSlug={article.slug}

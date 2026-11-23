@@ -99,3 +99,5 @@
   - Verification status: PASSED | Checkpoint: step_039 | Module: inline_annotations
 - `2026-11-23T11:19:48+03:00` - **[PageIntegration]** wire handleCreateAnnotation action with optimistic feedback toast
   - Verification status: PASSED | Checkpoint: step_040 | Module: inline_annotations
+- `2026-11-23T11:23:00+03:00` - **[SelectionAudit]** audit step 41 (iteration 1) - verify selection bounding box calculation across multi-line text spans
+  - Verification status: PASSED | Checkpoint: step_041 | Module: inline_annotations
