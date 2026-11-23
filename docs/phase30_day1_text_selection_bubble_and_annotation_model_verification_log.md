@@ -149,3 +149,5 @@
   - Verification status: PASSED | Checkpoint: step_064 | Module: inline_annotations
 - `2026-11-23T12:39:48+03:00` - **[OffsetAudit]** audit step 65 (iteration 2) - verify start_offset and end_offset accuracy on formatted markdown text
   - Verification status: PASSED | Checkpoint: step_065 | Module: inline_annotations
+- `2026-11-23T12:43:00+03:00` - **[OffsetAudit]** audit step 66 (iteration 2) - audit context string extraction length constraints (max 60 characters)
+  - Verification status: PASSED | Checkpoint: step_066 | Module: inline_annotations
