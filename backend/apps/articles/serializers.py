@@ -599,3 +599,60 @@ class ArticleChecklistProgressSerializer(serializers.ModelSerializer):
         return max(0, obj.total_items - obj.completed_count)
 
 
+class ArticleInlineAnnotationAuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        from apps.accounts.models import CustomUser
+        model = CustomUser
+        fields = ["id", "username", "full_name", "role"]
+
+
+class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
+    author = ArticleInlineAnnotationAuthorSerializer(read_only=True)
+    resolved_by = ArticleInlineAnnotationAuthorSerializer(read_only=True)
+    is_own = serializers.SerializerMethodField()
+
+    class Meta:
+        from apps.articles.models import ArticleInlineAnnotation
+        model = ArticleInlineAnnotation
+        fields = [
+            "id",
+            "article",
+            "author",
+            "highlighted_text",
+            "start_offset",
+            "end_offset",
+            "anchor_context_before",
+            "anchor_context_after",
+            "content",
+            "status",
+            "is_own",
+            "created_at",
+            "updated_at",
+            "resolved_at",
+            "resolved_by",
+        ]
+        read_only_fields = [
+            "id",
+            "article",
+            "author",
+            "is_own",
+            "created_at",
+            "updated_at",
+            "resolved_at",
+            "resolved_by",
+        ]
+
+    def get_is_own(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            return obj.author_id == request.user.id
+        return False
+
+    def create(self, validated_data):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            validated_data["author"] = request.user
+        return super().create(validated_data)
+
+
+
