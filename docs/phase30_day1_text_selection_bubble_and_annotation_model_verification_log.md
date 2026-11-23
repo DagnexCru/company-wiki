@@ -271,3 +271,5 @@
   - Verification status: PASSED | Checkpoint: step_125 | Module: inline_annotations
 - `2026-11-23T15:55:00+03:00` - **[BrowserCompat]** audit step 126 (iteration 4) - test text selection event handling in Chrome, Safari, Edge, Firefox
   - Verification status: PASSED | Checkpoint: step_126 | Module: inline_annotations
+- `2026-11-23T15:58:12+03:00` - **[Regression]** audit step 127 (iteration 4) - verify zero regressions in article detail view, checklists, and presence
+  - Verification status: PASSED | Checkpoint: step_127 | Module: inline_annotations
