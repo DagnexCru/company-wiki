@@ -265,3 +265,5 @@
   - Verification status: PASSED | Checkpoint: step_122 | Module: inline_annotations
 - `2026-11-23T15:45:24+03:00` - **[UIThemeAudit]** audit step 123 (iteration 4) - audit active focus ring on textarea with brand indigo accent color
   - Verification status: PASSED | Checkpoint: step_123 | Module: inline_annotations
+- `2026-11-23T15:48:36+03:00` - **[Performance]** audit step 124 (iteration 4) - benchmark annotation list response latency under 12ms per article
+  - Verification status: PASSED | Checkpoint: step_124 | Module: inline_annotations
