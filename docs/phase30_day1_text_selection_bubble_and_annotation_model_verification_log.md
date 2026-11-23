@@ -51,3 +51,5 @@
   - Verification status: PASSED | Checkpoint: step_015 | Module: inline_annotations
 - `2026-11-23T10:03:00+03:00` - **[Views]** create ArticleInlineAnnotationDetailView with owner and admin authorization
   - Verification status: PASSED | Checkpoint: step_016 | Module: inline_annotations
+- `2026-11-23T10:06:12+03:00` - **[Views]** create ArticleInlineAnnotationResolveView for resolve and reopen actions
+  - Verification status: PASSED | Checkpoint: step_017 | Module: inline_annotations
