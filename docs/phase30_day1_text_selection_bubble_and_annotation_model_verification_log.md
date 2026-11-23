@@ -97,3 +97,5 @@
   - Verification status: PASSED | Checkpoint: step_038 | Module: inline_annotations
 - `2026-11-23T11:16:36+03:00` - **[PageIntegration]** attach articleContainerRef to main document article element
   - Verification status: PASSED | Checkpoint: step_039 | Module: inline_annotations
+- `2026-11-23T11:19:48+03:00` - **[PageIntegration]** wire handleCreateAnnotation action with optimistic feedback toast
+  - Verification status: PASSED | Checkpoint: step_040 | Module: inline_annotations
