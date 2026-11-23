@@ -101,3 +101,5 @@
   - Verification status: PASSED | Checkpoint: step_040 | Module: inline_annotations
 - `2026-11-23T11:23:00+03:00` - **[SelectionAudit]** audit step 41 (iteration 1) - verify selection bounding box calculation across multi-line text spans
   - Verification status: PASSED | Checkpoint: step_041 | Module: inline_annotations
+- `2026-11-23T11:26:12+03:00` - **[SelectionAudit]** audit step 42 (iteration 1) - audit selection clearing when clicking outside the container boundary
+  - Verification status: PASSED | Checkpoint: step_042 | Module: inline_annotations
