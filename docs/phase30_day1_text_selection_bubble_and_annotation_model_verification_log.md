@@ -27,3 +27,5 @@
   - Verification status: PASSED | Checkpoint: step_003 | Module: inline_annotations
 - `2026-11-23T09:24:36+03:00` - **[Model]** add character start_offset and end_offset coordinates to annotation schema
   - Verification status: PASSED | Checkpoint: step_004 | Module: inline_annotations
+- `2026-11-23T09:27:48+03:00` - **[Model]** add anchor_context_before and anchor_context_after fields for anchor resilience
+  - Verification status: PASSED | Checkpoint: step_005 | Module: inline_annotations
