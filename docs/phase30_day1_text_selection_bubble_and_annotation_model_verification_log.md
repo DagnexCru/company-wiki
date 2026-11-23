@@ -115,3 +115,5 @@
   - Verification status: PASSED | Checkpoint: step_047 | Module: inline_annotations
 - `2026-11-23T11:45:24+03:00` - **[ApiAudit]** audit step 48 (iteration 1) - audit error handling when attempting to annotate with empty content
   - Verification status: PASSED | Checkpoint: step_048 | Module: inline_annotations
+- `2026-11-23T11:48:36+03:00` - **[SecurityAudit]** audit step 49 (iteration 1) - verify reader role cannot edit annotations authored by other users
+  - Verification status: PASSED | Checkpoint: step_049 | Module: inline_annotations
