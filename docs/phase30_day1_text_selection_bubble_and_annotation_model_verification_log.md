@@ -111,3 +111,5 @@
   - Verification status: PASSED | Checkpoint: step_045 | Module: inline_annotations
 - `2026-11-23T11:39:00+03:00` - **[BubbleAudit]** audit step 46 (iteration 1) - audit auto-focus on textarea when expanding annotation authoring box
   - Verification status: PASSED | Checkpoint: step_046 | Module: inline_annotations
+- `2026-11-23T11:42:12+03:00` - **[ApiAudit]** audit step 47 (iteration 1) - verify 201 Created response structure on POST /articles/{slug}/annotations/
+  - Verification status: PASSED | Checkpoint: step_047 | Module: inline_annotations
