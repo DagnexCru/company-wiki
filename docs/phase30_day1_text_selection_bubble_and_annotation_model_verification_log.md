@@ -165,3 +165,5 @@
   - Verification status: PASSED | Checkpoint: step_072 | Module: inline_annotations
 - `2026-11-23T13:05:24+03:00` - **[StatusAudit]** audit step 73 (iteration 2) - audit status filter query negotiation (open vs resolved vs all)
   - Verification status: PASSED | Checkpoint: step_073 | Module: inline_annotations
+- `2026-11-23T13:08:36+03:00` - **[StatusAudit]** audit step 74 (iteration 2) - verify resolved_at timestamp and resolved_by attribution persistence
+  - Verification status: PASSED | Checkpoint: step_074 | Module: inline_annotations
