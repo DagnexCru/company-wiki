@@ -161,3 +161,5 @@
   - Verification status: PASSED | Checkpoint: step_070 | Module: inline_annotations
 - `2026-11-23T12:59:00+03:00` - **[SecurityAudit]** audit step 71 (iteration 2) - verify reader role cannot edit annotations authored by other users
   - Verification status: PASSED | Checkpoint: step_071 | Module: inline_annotations
+- `2026-11-23T13:02:12+03:00` - **[SecurityAudit]** audit step 72 (iteration 2) - verify article author and system admins can resolve any open discussion
+  - Verification status: PASSED | Checkpoint: step_072 | Module: inline_annotations
