@@ -217,3 +217,5 @@
   - Verification status: PASSED | Checkpoint: step_098 | Module: inline_annotations
 - `2026-11-23T14:28:36+03:00` - **[DbAudit]** audit step 99 (iteration 3) - verify cascade delete cleans up inline annotations when article is deleted
   - Verification status: PASSED | Checkpoint: step_099 | Module: inline_annotations
+- `2026-11-23T14:31:48+03:00` - **[UIThemeAudit]** audit step 100 (iteration 3) - audit floating bubble contrast and shadow elevation in dark mode
+  - Verification status: PASSED | Checkpoint: step_100 | Module: inline_annotations
