@@ -23,3 +23,5 @@
   - Verification status: PASSED | Checkpoint: step_001 | Module: inline_annotations
 - `2026-11-23T09:18:12+03:00` - **[Model]** define ArticleInlineAnnotation database model with UUID and article foreign key
   - Verification status: PASSED | Checkpoint: step_002 | Module: inline_annotations
+- `2026-11-23T09:21:24+03:00` - **[Model]** add author reference and highlighted_text field in ArticleInlineAnnotation
+  - Verification status: PASSED | Checkpoint: step_003 | Module: inline_annotations
