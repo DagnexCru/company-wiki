@@ -191,3 +191,5 @@
   - Verification status: PASSED | Checkpoint: step_085 | Module: inline_annotations
 - `2026-11-23T13:47:00+03:00` - **[SelectionAudit]** audit step 86 (iteration 3) - audit selection clearing when clicking outside the container boundary
   - Verification status: PASSED | Checkpoint: step_086 | Module: inline_annotations
+- `2026-11-23T13:50:12+03:00` - **[OffsetAudit]** audit step 87 (iteration 3) - verify start_offset and end_offset accuracy on formatted markdown text
+  - Verification status: PASSED | Checkpoint: step_087 | Module: inline_annotations
