@@ -37,3 +37,5 @@
   - Verification status: PASSED | Checkpoint: step_008 | Module: inline_annotations
 - `2026-11-23T09:40:36+03:00` - **[Migration]** generate Django schema migration 0015_articleinlineannotation
   - Verification status: PASSED | Checkpoint: step_009 | Module: inline_annotations
+- `2026-11-23T09:43:48+03:00` - **[Migration]** apply migration 0015 to default PostgreSQL database
+  - Verification status: PASSED | Checkpoint: step_010 | Module: inline_annotations
