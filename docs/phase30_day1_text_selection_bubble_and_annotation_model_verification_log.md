@@ -93,3 +93,5 @@
   - Verification status: PASSED | Checkpoint: step_036 | Module: inline_annotations
 - `2026-11-23T11:10:12+03:00` - **[FrontendUI]** integrate submit and cancel actions with Lucide icons and loading spinner
   - Verification status: PASSED | Checkpoint: step_037 | Module: inline_annotations
+- `2026-11-23T11:13:24+03:00` - **[PageIntegration]** import FloatingAnnotationBubble and useTextSelection in ArticleDetailPage
+  - Verification status: PASSED | Checkpoint: step_038 | Module: inline_annotations
