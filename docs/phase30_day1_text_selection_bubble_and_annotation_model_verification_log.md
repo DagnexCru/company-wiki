@@ -83,3 +83,5 @@
   - Verification status: PASSED | Checkpoint: step_031 | Module: inline_annotations
 - `2026-11-23T10:54:12+03:00` - **[FrontendHook]** compute bounding client rect coords relative to viewer container
   - Verification status: PASSED | Checkpoint: step_032 | Module: inline_annotations
+- `2026-11-23T10:57:24+03:00` - **[FrontendHook]** extract clean selected text and surrounding prefix/suffix context strings
+  - Verification status: PASSED | Checkpoint: step_033 | Module: inline_annotations
