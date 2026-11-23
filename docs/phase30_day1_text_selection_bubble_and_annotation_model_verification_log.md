@@ -163,3 +163,5 @@
   - Verification status: PASSED | Checkpoint: step_071 | Module: inline_annotations
 - `2026-11-23T13:02:12+03:00` - **[SecurityAudit]** audit step 72 (iteration 2) - verify article author and system admins can resolve any open discussion
   - Verification status: PASSED | Checkpoint: step_072 | Module: inline_annotations
+- `2026-11-23T13:05:24+03:00` - **[StatusAudit]** audit step 73 (iteration 2) - audit status filter query negotiation (open vs resolved vs all)
+  - Verification status: PASSED | Checkpoint: step_073 | Module: inline_annotations
