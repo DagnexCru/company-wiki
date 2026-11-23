@@ -95,3 +95,5 @@
   - Verification status: PASSED | Checkpoint: step_037 | Module: inline_annotations
 - `2026-11-23T11:13:24+03:00` - **[PageIntegration]** import FloatingAnnotationBubble and useTextSelection in ArticleDetailPage
   - Verification status: PASSED | Checkpoint: step_038 | Module: inline_annotations
+- `2026-11-23T11:16:36+03:00` - **[PageIntegration]** attach articleContainerRef to main document article element
+  - Verification status: PASSED | Checkpoint: step_039 | Module: inline_annotations
