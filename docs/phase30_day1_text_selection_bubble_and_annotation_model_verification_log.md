@@ -223,3 +223,5 @@
   - Verification status: PASSED | Checkpoint: step_101 | Module: inline_annotations
 - `2026-11-23T14:38:12+03:00` - **[Performance]** audit step 102 (iteration 3) - benchmark annotation list response latency under 12ms per article
   - Verification status: PASSED | Checkpoint: step_102 | Module: inline_annotations
+- `2026-11-23T14:41:24+03:00` - **[Performance]** audit step 103 (iteration 3) - verify zero re-renders on unaffected components during text selection
+  - Verification status: PASSED | Checkpoint: step_103 | Module: inline_annotations
