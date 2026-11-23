@@ -169,3 +169,5 @@
   - Verification status: PASSED | Checkpoint: step_074 | Module: inline_annotations
 - `2026-11-23T13:11:48+03:00` - **[ReopenAudit]** audit step 75 (iteration 2) - test reopening clears resolved_at and returns discussion to open status
   - Verification status: PASSED | Checkpoint: step_075 | Module: inline_annotations
+- `2026-11-23T13:15:00+03:00` - **[DbAudit]** audit step 76 (iteration 2) - audit PostgreSQL query execution plan on article_inline_annotations indexes
+  - Verification status: PASSED | Checkpoint: step_076 | Module: inline_annotations
