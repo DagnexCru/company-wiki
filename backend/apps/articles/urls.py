@@ -18,6 +18,11 @@ from apps.articles.ai_views import (
 )
 from apps.articles.graph_views import KnowledgeGraphView, ArticleNeighborhoodGraphView
 from apps.articles.analytics_views import AuthorAnalyticsOverviewView
+from apps.articles.annotation_views import (
+    ArticleInlineAnnotationListView,
+    ArticleInlineAnnotationDetailView,
+    ArticleInlineAnnotationResolveView,
+)
 
 router = DefaultRouter()
 router.register(r"", ArticleViewSet, basename="article")
@@ -39,6 +44,10 @@ urlpatterns = [
     path("<str:slug_or_id>/graph-neighborhood/", ArticleNeighborhoodGraphView.as_view(), name="article-graph-neighborhood"),
     # Interactive Knowledge Graph Network Route
     path("graph/", KnowledgeGraphView.as_view(), name="article-graph"),
+    # In-Line Text Annotations & Collaborative Discussions (Phase 30)
+    path("<str:slug_or_id>/annotations/", ArticleInlineAnnotationListView.as_view(), name="article-annotations-list"),
+    path("<str:slug_or_id>/annotations/<uuid:annotation_id>/", ArticleInlineAnnotationDetailView.as_view(), name="article-annotation-detail"),
+    path("<str:slug_or_id>/annotations/<uuid:annotation_id>/<str:action>/", ArticleInlineAnnotationResolveView.as_view(), name="article-annotation-action"),
     path("", include(router.urls)),
 ]
 
