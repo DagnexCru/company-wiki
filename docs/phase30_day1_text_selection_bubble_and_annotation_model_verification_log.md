@@ -91,3 +91,5 @@
   - Verification status: PASSED | Checkpoint: step_035 | Module: inline_annotations
 - `2026-11-23T11:07:00+03:00` - **[FrontendUI]** build expandable inline comment authoring popover with textarea
   - Verification status: PASSED | Checkpoint: step_036 | Module: inline_annotations
+- `2026-11-23T11:10:12+03:00` - **[FrontendUI]** integrate submit and cancel actions with Lucide icons and loading spinner
+  - Verification status: PASSED | Checkpoint: step_037 | Module: inline_annotations
