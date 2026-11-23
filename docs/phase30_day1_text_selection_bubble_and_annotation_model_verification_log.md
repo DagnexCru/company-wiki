@@ -49,3 +49,5 @@
   - Verification status: PASSED | Checkpoint: step_014 | Module: inline_annotations
 - `2026-11-23T09:59:48+03:00` - **[Views]** implement draft access security gating in annotation list and create views
   - Verification status: PASSED | Checkpoint: step_015 | Module: inline_annotations
+- `2026-11-23T10:03:00+03:00` - **[Views]** create ArticleInlineAnnotationDetailView with owner and admin authorization
+  - Verification status: PASSED | Checkpoint: step_016 | Module: inline_annotations
