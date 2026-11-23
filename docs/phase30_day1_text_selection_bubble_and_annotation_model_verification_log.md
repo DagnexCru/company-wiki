@@ -137,3 +137,5 @@
   - Verification status: PASSED | Checkpoint: step_058 | Module: inline_annotations
 - `2026-11-23T12:20:36+03:00` - **[Performance]** audit step 59 (iteration 1) - verify zero re-renders on unaffected components during text selection
   - Verification status: PASSED | Checkpoint: step_059 | Module: inline_annotations
+- `2026-11-23T12:23:48+03:00` - **[BrowserCompat]** audit step 60 (iteration 1) - test text selection event handling in Chrome, Safari, Edge, Firefox
+  - Verification status: PASSED | Checkpoint: step_060 | Module: inline_annotations
