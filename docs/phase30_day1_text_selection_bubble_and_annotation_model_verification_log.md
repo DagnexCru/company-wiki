@@ -231,3 +231,5 @@
   - Verification status: PASSED | Checkpoint: step_105 | Module: inline_annotations
 - `2026-11-23T14:51:00+03:00` - **[MilestoneSignoff]** audit step 106 (iteration 3) - complete Phase 30 Day 1 verification audit and sign off milestone
   - Verification status: PASSED | Checkpoint: step_106 | Module: inline_annotations
+- `2026-11-23T14:54:12+03:00` - **[SelectionAudit]** audit step 107 (iteration 4) - verify selection bounding box calculation across multi-line text spans
+  - Verification status: PASSED | Checkpoint: step_107 | Module: inline_annotations
