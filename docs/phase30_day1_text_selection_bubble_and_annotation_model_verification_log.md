@@ -33,3 +33,5 @@
   - Verification status: PASSED | Checkpoint: step_006 | Module: inline_annotations
 - `2026-11-23T09:34:12+03:00` - **[Model]** implement resolve and reopen lifecycle transition helper methods on model
   - Verification status: PASSED | Checkpoint: step_007 | Module: inline_annotations
+- `2026-11-23T09:37:24+03:00` - **[Model]** configure db_table article_inline_annotations with article and author indexes
+  - Verification status: PASSED | Checkpoint: step_008 | Module: inline_annotations
