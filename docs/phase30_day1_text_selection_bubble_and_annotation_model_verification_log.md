@@ -131,3 +131,5 @@
   - Verification status: PASSED | Checkpoint: step_055 | Module: inline_annotations
 - `2026-11-23T12:11:00+03:00` - **[UIThemeAudit]** audit step 56 (iteration 1) - audit floating bubble contrast and shadow elevation in dark mode
   - Verification status: PASSED | Checkpoint: step_056 | Module: inline_annotations
+- `2026-11-23T12:14:12+03:00` - **[UIThemeAudit]** audit step 57 (iteration 1) - audit active focus ring on textarea with brand indigo accent color
+  - Verification status: PASSED | Checkpoint: step_057 | Module: inline_annotations
