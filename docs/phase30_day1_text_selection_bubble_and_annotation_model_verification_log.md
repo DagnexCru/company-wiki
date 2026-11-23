@@ -47,3 +47,5 @@
   - Verification status: PASSED | Checkpoint: step_013 | Module: inline_annotations
 - `2026-11-23T09:56:36+03:00` - **[Views]** create ArticleInlineAnnotationListView supporting status query filtering
   - Verification status: PASSED | Checkpoint: step_014 | Module: inline_annotations
+- `2026-11-23T09:59:48+03:00` - **[Views]** implement draft access security gating in annotation list and create views
+  - Verification status: PASSED | Checkpoint: step_015 | Module: inline_annotations
