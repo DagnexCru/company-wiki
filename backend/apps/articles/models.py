@@ -811,4 +811,94 @@ class ArticleExportLog(models.Model):
         return f"Export ({self.export_format.upper()}): '{self.article.title}' by {u_label} at {self.created_at}"
 
 
+class ArticleInlineAnnotation(models.Model):
+    """
+    In-line text annotation and discussion thread attached to specific highlighted
+    spans of an article's content (Google Docs / Medium style collaborative review).
+    """
+    class Status(models.TextChoices):
+        OPEN = "open", "Open"
+        RESOLVED = "resolved", "Resolved"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name="inline_annotations",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="inline_annotations",
+    )
+    highlighted_text = models.TextField(
+        help_text="The exact text snippet selected by the user.",
+    )
+    start_offset = models.PositiveIntegerField(
+        default=0,
+        help_text="Character start index within clean document text.",
+    )
+    end_offset = models.PositiveIntegerField(
+        default=0,
+        help_text="Character end index within clean document text.",
+    )
+    anchor_context_before = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        help_text="Leading contextual text for anchor resilience.",
+    )
+    anchor_context_after = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        help_text="Trailing contextual text for anchor resilience.",
+    )
+    content = models.TextField(
+        help_text="Initial comment or discussion prompt.",
+    )
+    status = models.CharField(
+        max_length=16,
+        choices=Status.choices,
+        default=Status.OPEN,
+        db_index=True,
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    resolved_at = models.DateTimeField(null=True, blank=True)
+    resolved_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="resolved_inline_annotations",
+    )
+
+    class Meta:
+        db_table = "article_inline_annotations"
+        verbose_name = "Article Inline Annotation"
+        verbose_name_plural = "Article Inline Annotations"
+        ordering = ["created_at"]
+        indexes = [
+            models.Index(fields=["article", "status", "created_at"], name="art_ann_art_stat_idx"),
+            models.Index(fields=["author", "-created_at"], name="art_ann_author_idx"),
+        ]
+
+    def __str__(self):
+        return f"Annotation by {self.author.username} on '{self.article.title}' ({self.status}): '{self.highlighted_text[:30]}...'"
+
+    def resolve(self, user):
+        self.status = self.Status.RESOLVED
+        self.resolved_at = timezone.now()
+        self.resolved_by = user
+        self.save(update_fields=["status", "resolved_at", "resolved_by", "updated_at"])
+
+    def reopen(self):
+        self.status = self.Status.OPEN
+        self.resolved_at = None
+        self.resolved_by = None
+        self.save(update_fields=["status", "resolved_at", "resolved_by", "updated_at"])
+
+
+
 

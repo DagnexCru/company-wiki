@@ -29,3 +29,5 @@
   - Verification status: PASSED | Checkpoint: step_004 | Module: inline_annotations
 - `2026-11-23T09:27:48+03:00` - **[Model]** add anchor_context_before and anchor_context_after fields for anchor resilience
   - Verification status: PASSED | Checkpoint: step_005 | Module: inline_annotations
+- `2026-11-23T09:31:00+03:00` - **[Model]** add content and Status TextChoices (open, resolved) to inline annotation
+  - Verification status: PASSED | Checkpoint: step_006 | Module: inline_annotations
