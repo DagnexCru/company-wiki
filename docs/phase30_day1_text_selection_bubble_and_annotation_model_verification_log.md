@@ -21,3 +21,5 @@
 ## Audit Timeline
 - `2026-11-23T09:15:00+03:00` - **[Core]** initialize Phase 30 Day 1 in-line text annotation & discussion architecture
   - Verification status: PASSED | Checkpoint: step_001 | Module: inline_annotations
+- `2026-11-23T09:18:12+03:00` - **[Model]** define ArticleInlineAnnotation database model with UUID and article foreign key
+  - Verification status: PASSED | Checkpoint: step_002 | Module: inline_annotations
