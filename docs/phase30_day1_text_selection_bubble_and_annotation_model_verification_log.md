@@ -69,3 +69,5 @@
   - Verification status: PASSED | Checkpoint: step_024 | Module: inline_annotations
 - `2026-11-23T10:31:48+03:00` - **[Testing]** test draft article annotation permission boundaries
   - Verification status: PASSED | Checkpoint: step_025 | Module: inline_annotations
+- `2026-11-23T10:35:00+03:00` - **[FrontendTypes]** define AnnotationStatus, AnnotationAuthor and ArticleInlineAnnotation interfaces
+  - Verification status: PASSED | Checkpoint: step_026 | Module: inline_annotations
