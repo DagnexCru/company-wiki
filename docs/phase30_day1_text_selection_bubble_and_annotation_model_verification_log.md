@@ -61,3 +61,5 @@
   - Verification status: PASSED | Checkpoint: step_020 | Module: inline_annotations
 - `2026-11-23T10:19:00+03:00` - **[Testing]** test creating and listing inline annotations with text offsets
   - Verification status: PASSED | Checkpoint: step_021 | Module: inline_annotations
+- `2026-11-23T10:22:12+03:00` - **[Testing]** test filtering annotations by open and resolved status query params
+  - Verification status: PASSED | Checkpoint: step_022 | Module: inline_annotations
