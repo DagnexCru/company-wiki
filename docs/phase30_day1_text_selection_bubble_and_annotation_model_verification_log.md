@@ -71,3 +71,5 @@
   - Verification status: PASSED | Checkpoint: step_025 | Module: inline_annotations
 - `2026-11-23T10:35:00+03:00` - **[FrontendTypes]** define AnnotationStatus, AnnotationAuthor and ArticleInlineAnnotation interfaces
   - Verification status: PASSED | Checkpoint: step_026 | Module: inline_annotations
+- `2026-11-23T10:38:12+03:00` - **[FrontendTypes]** define CreateAnnotationPayload interface in types annotation.ts
+  - Verification status: PASSED | Checkpoint: step_027 | Module: inline_annotations
