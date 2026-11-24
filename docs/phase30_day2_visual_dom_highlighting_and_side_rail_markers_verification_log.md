@@ -186,3 +186,4 @@
 - Commit #159 [2026-11-24T15:26:30+03:00]: test(annotations): audit step 159 (iteration 6) - benchmark AnchorResilienceService throughput across 1,000 synthetic shifts
 - Commit #160 [2026-11-24T15:28:51+03:00]: test(annotations): audit step 160 (iteration 6) - validate POST /api/v1/articles/<slug>/annotations/realign/ authentication check
 - Commit #161 [2026-11-24T15:31:12+03:00]: test(annotations): audit step 161 (iteration 6) - validate permissions check on annotation realignment for non-author users
+- Commit #162 [2026-11-24T15:33:34+03:00]: test(annotations): audit step 162 (iteration 6) - verify serializer payload structure including match_confidence float representation
