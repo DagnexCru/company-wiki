@@ -125,3 +125,4 @@
 - Commit #098 [2026-11-24T13:03:04+03:00]: test(annotations): audit step 98 (iteration 4) - test single substring relocation when text shifts backward due to preamble deletion
 - Commit #099 [2026-11-24T13:05:25+03:00]: test(annotations): audit step 99 (iteration 4) - evaluate context-scoring weight when surrounding sentences are unchanged
 - Commit #100 [2026-11-24T13:07:47+03:00]: test(annotations): audit step 100 (iteration 4) - evaluate context-scoring disambiguation with repetitive corporate keywords
+- Commit #101 [2026-11-24T13:10:08+03:00]: test(annotations): audit step 101 (iteration 4) - test SequenceMatcher similarity thresholding at 0.75 boundary
