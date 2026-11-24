@@ -191,3 +191,4 @@
 - Commit #164 [2026-11-24T15:38:16+03:00]: test(annotations): audit step 164 (iteration 6) - audit MarkdownViewer mark rendering with multiple concurrent highlights
 - Commit #165 [2026-11-24T15:40:37+03:00]: test(annotations): audit step 165 (iteration 6) - audit text splitting logic when highlighted phrase spans across paragraph bounds
 - Commit #166 [2026-11-24T15:42:58+03:00]: test(annotations): audit step 166 (iteration 6) - verify CSS ring-2 ring-indigo-500 highlighting on active annotation selection
+- Commit #167 [2026-11-24T15:45:19+03:00]: test(annotations): audit step 167 (iteration 6) - verify CSS amber highlight background and transition latency on mouse hover
