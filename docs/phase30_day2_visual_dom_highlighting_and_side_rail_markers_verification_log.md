@@ -196,3 +196,4 @@
 - Commit #169 [2026-11-24T15:50:01+03:00]: test(annotations): audit step 169 (iteration 6) - test AnnotationSideRail vertical scroll containment on documents with 50+ cards
 - Commit #170 [2026-11-24T15:52:22+03:00]: test(annotations): audit step 170 (iteration 6) - audit author avatar and username truncation in compact gutter cards
 - Commit #171 [2026-11-24T15:54:43+03:00]: test(annotations): audit step 171 (iteration 6) - verify resolved status badge styling with emerald background and icon
+- Commit #172 [2026-11-24T15:57:04+03:00]: test(annotations): audit step 172 (iteration 6) - test end-to-end synchronization from selection bubble creation to side-rail insertion
