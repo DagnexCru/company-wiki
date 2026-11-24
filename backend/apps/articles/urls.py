@@ -22,6 +22,7 @@ from apps.articles.annotation_views import (
     ArticleInlineAnnotationListView,
     ArticleInlineAnnotationDetailView,
     ArticleInlineAnnotationResolveView,
+    ArticleInlineAnnotationRealignView,
 )
 
 router = DefaultRouter()
@@ -46,6 +47,7 @@ urlpatterns = [
     path("graph/", KnowledgeGraphView.as_view(), name="article-graph"),
     # In-Line Text Annotations & Collaborative Discussions (Phase 30)
     path("<str:slug_or_id>/annotations/", ArticleInlineAnnotationListView.as_view(), name="article-annotations-list"),
+    path("<str:slug_or_id>/annotations/realign/", ArticleInlineAnnotationRealignView.as_view(), name="article-annotations-realign"),
     path("<str:slug_or_id>/annotations/<uuid:annotation_id>/", ArticleInlineAnnotationDetailView.as_view(), name="article-annotation-detail"),
     path("<str:slug_or_id>/annotations/<uuid:annotation_id>/<str:action>/", ArticleInlineAnnotationResolveView.as_view(), name="article-annotation-action"),
     path("", include(router.urls)),
