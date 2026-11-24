@@ -160,3 +160,4 @@
 - Commit #133 [2026-11-24T14:25:22+03:00]: test(annotations): audit step 133 (iteration 5) - validate permissions check on annotation realignment for non-author users
 - Commit #134 [2026-11-24T14:27:43+03:00]: test(annotations): audit step 134 (iteration 5) - verify serializer payload structure including match_confidence float representation
 - Commit #135 [2026-11-24T14:30:04+03:00]: test(annotations): audit step 135 (iteration 5) - verify serializer payload structure including is_orphaned boolean flag
+- Commit #136 [2026-11-24T14:32:25+03:00]: test(annotations): audit step 136 (iteration 5) - audit MarkdownViewer mark rendering with multiple concurrent highlights
