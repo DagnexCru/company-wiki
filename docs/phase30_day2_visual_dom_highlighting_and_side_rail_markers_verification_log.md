@@ -193,3 +193,4 @@
 - Commit #166 [2026-11-24T15:42:58+03:00]: test(annotations): audit step 166 (iteration 6) - verify CSS ring-2 ring-indigo-500 highlighting on active annotation selection
 - Commit #167 [2026-11-24T15:45:19+03:00]: test(annotations): audit step 167 (iteration 6) - verify CSS amber highlight background and transition latency on mouse hover
 - Commit #168 [2026-11-24T15:47:40+03:00]: test(annotations): audit step 168 (iteration 6) - verify AnnotationSideRail responsive collapse on viewport widths below 1280px
+- Commit #169 [2026-11-24T15:50:01+03:00]: test(annotations): audit step 169 (iteration 6) - test AnnotationSideRail vertical scroll containment on documents with 50+ cards
