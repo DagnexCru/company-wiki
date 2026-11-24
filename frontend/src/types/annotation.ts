@@ -19,6 +19,8 @@ export interface ArticleInlineAnnotation {
   content: string;
   status: AnnotationStatus;
   is_own: boolean;
+  match_confidence?: number;
+  is_orphaned?: boolean;
   created_at: string;
   updated_at: string;
   resolved_at: string | null;
