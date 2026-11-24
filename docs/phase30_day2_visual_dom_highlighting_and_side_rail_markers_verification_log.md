@@ -85,3 +85,4 @@
 - Commit #058 [2026-11-24T11:29:01+03:00]: test(annotations): audit step 58 (iteration 2) - audit author avatar and username truncation in compact gutter cards
 - Commit #059 [2026-11-24T11:31:22+03:00]: test(annotations): audit step 59 (iteration 2) - verify resolved status badge styling with emerald background and icon
 - Commit #060 [2026-11-24T11:33:43+03:00]: test(annotations): audit step 60 (iteration 2) - test end-to-end synchronization from selection bubble creation to side-rail insertion
+- Commit #061 [2026-11-24T11:36:04+03:00]: test(annotations): audit step 61 (iteration 2) - verify optimistic local state update when new discussion is created
