@@ -189,3 +189,4 @@
 - Commit #162 [2026-11-24T15:33:34+03:00]: test(annotations): audit step 162 (iteration 6) - verify serializer payload structure including match_confidence float representation
 - Commit #163 [2026-11-24T15:35:55+03:00]: test(annotations): audit step 163 (iteration 6) - verify serializer payload structure including is_orphaned boolean flag
 - Commit #164 [2026-11-24T15:38:16+03:00]: test(annotations): audit step 164 (iteration 6) - audit MarkdownViewer mark rendering with multiple concurrent highlights
+- Commit #165 [2026-11-24T15:40:37+03:00]: test(annotations): audit step 165 (iteration 6) - audit text splitting logic when highlighted phrase spans across paragraph bounds
