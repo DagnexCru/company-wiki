@@ -200,3 +200,4 @@
 - Commit #173 [2026-11-24T15:59:25+03:00]: test(annotations): audit step 173 (iteration 6) - verify optimistic local state update when new discussion is created
 - Commit #174 [2026-11-24T16:01:47+03:00]: test(annotations): audit step 174 (iteration 6) - test bi-directional focus shift when side-rail card is clicked
 - Commit #175 [2026-11-24T16:04:08+03:00]: test(annotations): audit step 175 (iteration 6) - verify hovering over side-rail card triggers DOM mark highlight illumination
+- Commit #176 [2026-11-24T16:06:29+03:00]: test(annotations): audit step 176 (iteration 6) - profile DOM repaint times during continuous side-rail card hover scrubbing
