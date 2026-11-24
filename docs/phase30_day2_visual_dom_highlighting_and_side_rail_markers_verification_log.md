@@ -207,3 +207,4 @@
 - Commit #180 [2026-11-24T16:15:53+03:00]: test(annotations): audit step 180 (iteration 7) - verify exact offset validation when document content remains identical
 - Commit #181 [2026-11-24T16:18:14+03:00]: test(annotations): audit step 181 (iteration 7) - test single substring relocation when text shifts forward by 50 characters
 - Commit #182 [2026-11-24T16:20:35+03:00]: test(annotations): audit step 182 (iteration 7) - test single substring relocation when text shifts backward due to preamble deletion
+- Commit #183 [2026-11-24T16:22:56+03:00]: test(annotations): audit step 183 (iteration 7) - evaluate context-scoring weight when surrounding sentences are unchanged
