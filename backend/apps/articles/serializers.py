@@ -610,6 +610,8 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
     author = ArticleInlineAnnotationAuthorSerializer(read_only=True)
     resolved_by = ArticleInlineAnnotationAuthorSerializer(read_only=True)
     is_own = serializers.SerializerMethodField()
+    match_confidence = serializers.SerializerMethodField()
+    is_orphaned = serializers.SerializerMethodField()
 
     class Meta:
         from apps.articles.models import ArticleInlineAnnotation
@@ -626,6 +628,8 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
             "content",
             "status",
             "is_own",
+            "match_confidence",
+            "is_orphaned",
             "created_at",
             "updated_at",
             "resolved_at",
@@ -636,6 +640,8 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
             "article",
             "author",
             "is_own",
+            "match_confidence",
+            "is_orphaned",
             "created_at",
             "updated_at",
             "resolved_at",
@@ -647,6 +653,22 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
         if request and request.user.is_authenticated:
             return obj.author_id == request.user.id
         return False
+
+    def get_match_confidence(self, obj):
+        if hasattr(obj, "match_confidence"):
+            return obj.match_confidence
+        from apps.articles.anchor_service import AnchorResilienceService
+        content = getattr(obj.article, "content", "") or ""
+        res = AnchorResilienceService.resolve_anchor(content, obj)
+        return res["match_confidence"]
+
+    def get_is_orphaned(self, obj):
+        if hasattr(obj, "is_orphaned"):
+            return obj.is_orphaned
+        from apps.articles.anchor_service import AnchorResilienceService
+        content = getattr(obj.article, "content", "") or ""
+        res = AnchorResilienceService.resolve_anchor(content, obj)
+        return res["is_orphaned"]
 
     def create(self, validated_data):
         request = self.context.get("request")
