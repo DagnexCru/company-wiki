@@ -121,3 +121,4 @@
 - Commit #094 [2026-11-24T12:53:40+03:00]: test(annotations): audit step 94 (iteration 3) - verify zero TypeScript compilation errors in frontend production build
 - Commit #095 [2026-11-24T12:56:01+03:00]: test(annotations): audit step 95 (iteration 3) - verify zero regressions across entire Django articles test suite
 - Commit #096 [2026-11-24T12:58:22+03:00]: test(annotations): audit step 96 (iteration 4) - verify exact offset validation when document content remains identical
+- Commit #097 [2026-11-24T13:00:43+03:00]: test(annotations): audit step 97 (iteration 4) - test single substring relocation when text shifts forward by 50 characters
