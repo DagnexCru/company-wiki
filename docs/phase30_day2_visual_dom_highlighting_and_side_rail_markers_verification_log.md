@@ -96,3 +96,4 @@
 - Commit #069 [2026-11-24T11:54:53+03:00]: test(annotations): audit step 69 (iteration 3) - test single substring relocation when text shifts forward by 50 characters
 - Commit #070 [2026-11-24T11:57:14+03:00]: test(annotations): audit step 70 (iteration 3) - test single substring relocation when text shifts backward due to preamble deletion
 - Commit #071 [2026-11-24T11:59:35+03:00]: test(annotations): audit step 71 (iteration 3) - evaluate context-scoring weight when surrounding sentences are unchanged
+- Commit #072 [2026-11-24T12:01:56+03:00]: test(annotations): audit step 72 (iteration 3) - evaluate context-scoring disambiguation with repetitive corporate keywords
