@@ -78,3 +78,4 @@
 - Commit #051 [2026-11-24T11:12:34+03:00]: test(annotations): audit step 51 (iteration 2) - verify serializer payload structure including is_orphaned boolean flag
 - Commit #052 [2026-11-24T11:14:55+03:00]: test(annotations): audit step 52 (iteration 2) - audit MarkdownViewer mark rendering with multiple concurrent highlights
 - Commit #053 [2026-11-24T11:17:16+03:00]: test(annotations): audit step 53 (iteration 2) - audit text splitting logic when highlighted phrase spans across paragraph bounds
+- Commit #054 [2026-11-24T11:19:37+03:00]: test(annotations): audit step 54 (iteration 2) - verify CSS ring-2 ring-indigo-500 highlighting on active annotation selection
