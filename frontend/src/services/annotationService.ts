@@ -87,4 +87,24 @@ export const annotationService = {
     );
     return response.data;
   },
+
+  /**
+   * Realign all inline annotations for an article using Fuzzy Anchor Matching.
+   * POST /api/v1/articles/{slug}/annotations/realign/
+   */
+  async realignAnnotations(slug: string): Promise<{
+    article_slug: string;
+    realigned_count: number;
+    annotations: Array<{
+      annotation_id: string;
+      highlighted_text: string;
+      start_offset: number;
+      end_offset: number;
+      match_confidence: number;
+      is_orphaned: boolean;
+    }>;
+  }> {
+    const response = await api.post(`/articles/${slug}/annotations/realign/`);
+    return response.data;
+  },
 };
