@@ -37,3 +37,4 @@
   - Zero TypeScript compilation errors.
   - Zero Vite bundling warnings.
 - Commit #012 [2026-11-24T09:40:51+03:00]: test(annotations): audit step 12 (iteration 1) - verify exact offset validation when document content remains identical
+- Commit #013 [2026-11-24T09:43:12+03:00]: test(annotations): audit step 13 (iteration 1) - test single substring relocation when text shifts forward by 50 characters
