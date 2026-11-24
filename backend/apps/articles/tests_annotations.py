@@ -205,3 +205,94 @@ class ArticleInlineAnnotationTests(TestCase):
         self.client.force_authenticate(user=self.author)
         res_author = self.client.get(url)
         self.assertEqual(res_author.status_code, 200)
+
+    def test_anchor_resilience_shifted_content(self):
+        """
+        Verify that AnchorResilienceService correctly relocates an annotation
+        when content is prepended to the article.
+        """
+        from apps.articles.anchor_service import AnchorResilienceService
+
+        target_str = "psychological safety"
+        orig_start = self.published_article.content.find(target_str)
+
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text=target_str,
+            start_offset=orig_start,
+            end_offset=orig_start + len(target_str),
+            anchor_context_before="postmortems foster high ",
+            anchor_context_after=" across teams.",
+            content="Contextual note.",
+        )
+
+        # Prepend 52 characters to the article content
+        prepended_content = "ENTERPRISE INCIDENT RESPONSE FRAMEWORK REVISION 2.\n\n" + self.published_article.content
+        res = AnchorResilienceService.resolve_anchor(prepended_content, ann)
+
+        self.assertFalse(res["is_orphaned"])
+        self.assertGreater(res["match_confidence"], 0.85)
+        # New offset should be shifted by len of prepended text
+        expected_shift = len("ENTERPRISE INCIDENT RESPONSE FRAMEWORK REVISION 2.\n\n")
+        self.assertEqual(res["start_offset"], orig_start + expected_shift)
+
+    def test_realign_annotations_endpoint(self):
+        """
+        Verify that POST /api/v1/articles/{slug}/annotations/realign/ updates persisted offsets.
+        """
+        target_str = "psychological safety"
+        orig_start = self.published_article.content.find(target_str)
+
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text=target_str,
+            start_offset=orig_start,
+            end_offset=orig_start + len(target_str),
+            anchor_context_before="postmortems foster high ",
+            anchor_context_after=" across teams.",
+            content="Contextual note.",
+        )
+
+        # Prepend text to the article
+        prepended = "URGENT OPERATIONAL ANNOUNCEMENT: ALL TEAMS STAND DOWN.\n\n"
+        self.published_article.content = prepended + self.published_article.content
+        self.published_article.save(update_fields=["content"])
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/realign/"
+        res = self.client.post(url)
+
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertGreaterEqual(data["realigned_count"], 1)
+
+        # Refresh annotation from DB
+        ann.refresh_from_db()
+        self.assertEqual(ann.start_offset, orig_start + len(prepended))
+
+    def test_serializer_includes_match_confidence_and_is_orphaned(self):
+        """
+        Verify that GET /api/v1/articles/{slug}/annotations/ includes match_confidence and is_orphaned.
+        """
+        ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="strict deadlines",
+            start_offset=100,
+            end_offset=116,
+            content="Verify deadline precision.",
+        )
+
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        items = res.json()
+        self.assertGreaterEqual(len(items), 1)
+        self.assertIn("match_confidence", items[0])
+        self.assertIn("is_orphaned", items[0])
+        self.assertFalse(items[0]["is_orphaned"])
+        self.assertGreater(items[0]["match_confidence"], 0.7)
