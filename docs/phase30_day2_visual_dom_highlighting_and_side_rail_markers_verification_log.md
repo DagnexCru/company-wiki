@@ -159,3 +159,4 @@
 - Commit #132 [2026-11-24T14:23:01+03:00]: test(annotations): audit step 132 (iteration 5) - validate POST /api/v1/articles/<slug>/annotations/realign/ authentication check
 - Commit #133 [2026-11-24T14:25:22+03:00]: test(annotations): audit step 133 (iteration 5) - validate permissions check on annotation realignment for non-author users
 - Commit #134 [2026-11-24T14:27:43+03:00]: test(annotations): audit step 134 (iteration 5) - verify serializer payload structure including match_confidence float representation
+- Commit #135 [2026-11-24T14:30:04+03:00]: test(annotations): audit step 135 (iteration 5) - verify serializer payload structure including is_orphaned boolean flag
