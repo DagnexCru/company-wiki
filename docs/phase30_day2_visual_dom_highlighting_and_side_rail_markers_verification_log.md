@@ -45,3 +45,4 @@
 - Commit #018 [2026-11-24T09:54:58+03:00]: test(annotations): audit step 18 (iteration 1) - verify orphaned highlight detection when selected paragraph is completely removed
 - Commit #019 [2026-11-24T09:57:19+03:00]: test(annotations): audit step 19 (iteration 1) - benchmark AnchorResilienceService throughput across 1,000 synthetic shifts
 - Commit #020 [2026-11-24T09:59:40+03:00]: test(annotations): audit step 20 (iteration 1) - validate POST /api/v1/articles/<slug>/annotations/realign/ authentication check
+- Commit #021 [2026-11-24T10:02:01+03:00]: test(annotations): audit step 21 (iteration 1) - validate permissions check on annotation realignment for non-author users
