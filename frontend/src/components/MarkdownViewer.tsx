@@ -1,5 +1,6 @@
 import React from "react";
 import { slugifyHeading } from "../utils/headingUtils";
+import type { ArticleInlineAnnotation } from "../types/annotation";
 
 interface MarkdownViewerProps {
   content: string;
@@ -8,6 +9,11 @@ interface MarkdownViewerProps {
   checkedItems?: string[];
   onToggleChecklistItem?: (itemKey: string, isChecked: boolean, totalItems: number) => void;
   readOnlyChecklists?: boolean;
+  annotations?: ArticleInlineAnnotation[];
+  activeAnnotationId?: string | null;
+  hoveredAnnotationId?: string | null;
+  onSelectAnnotation?: (id: string) => void;
+  onHoverAnnotation?: (id: string | null) => void;
 }
 
 export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
@@ -16,6 +22,11 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
   checkedItems,
   onToggleChecklistItem,
   readOnlyChecklists = false,
+  annotations,
+  activeAnnotationId,
+  hoveredAnnotationId,
+  onSelectAnnotation,
+  onHoverAnnotation,
 }) => {
   // Count total checklist items in content
   const totalChecklistItems = React.useMemo(() => {
@@ -35,6 +46,58 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
   let inCodeBlock = false;
   let codeBuffer: string[] = [];
   let checklistItemCounter = 0;
+
+  const renderWithAnnotations = (rawText: string): React.ReactNode => {
+    if (!annotations || annotations.length === 0 || !rawText) return rawText;
+
+    // Check if any annotation's highlighted_text matches in this string
+    const matchingAnns = annotations.filter(
+      (a) => a.highlighted_text && rawText.includes(a.highlighted_text)
+    );
+    if (matchingAnns.length === 0) return rawText;
+
+    const ann = matchingAnns[0];
+    const target = ann.highlighted_text;
+    const subParts = rawText.split(target);
+
+    const resultNodes: React.ReactNode[] = [];
+    subParts.forEach((sp, spIdx) => {
+      if (sp) {
+        resultNodes.push(sp);
+      }
+      if (spIdx < subParts.length - 1) {
+        const isActive = activeAnnotationId === ann.id;
+        const isHovered = hoveredAnnotationId === ann.id;
+        const isResolved = ann.status === "resolved";
+
+        resultNodes.push(
+          <mark
+            key={`mark-${ann.id}-${spIdx}`}
+            data-annotation-id={ann.id}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectAnnotation?.(ann.id);
+            }}
+            onMouseEnter={() => onHoverAnnotation?.(ann.id)}
+            onMouseLeave={() => onHoverAnnotation?.(null)}
+            className={`annotation-highlight rounded px-1 py-0.5 cursor-pointer transition-all duration-150 ${
+              isActive
+                ? "bg-amber-300 dark:bg-amber-700/80 ring-2 ring-indigo-500 font-medium"
+                : isHovered
+                ? "bg-amber-200 dark:bg-amber-800/60 ring-1 ring-amber-400"
+                : isResolved
+                ? "bg-emerald-50 dark:bg-emerald-950/40 text-slate-600 dark:text-slate-400 border-b border-dashed border-emerald-400"
+                : "bg-amber-100 dark:bg-amber-950/60 text-slate-900 dark:text-slate-100 border-b-2 border-amber-400 dark:border-amber-500 hover:bg-amber-200 dark:hover:bg-amber-900/50"
+            }`}
+            title={`Comment by ${ann.author?.full_name || ann.author?.username || "Colleague"}: "${ann.content}"`}
+          >
+            {target}
+          </mark>
+        );
+      }
+    });
+    return resultNodes;
+  };
 
   const renderInline = (text: string): React.ReactNode => {
     // Process inline bold, code, and links
@@ -67,7 +130,7 @@ export const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
           </a>
         );
       }
-      return part;
+      return renderWithAnnotations(part);
     });
   };
 
