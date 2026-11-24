@@ -139,3 +139,4 @@
 - Commit #112 [2026-11-24T13:36:00+03:00]: test(annotations): audit step 112 (iteration 4) - verify AnnotationSideRail responsive collapse on viewport widths below 1280px
 - Commit #113 [2026-11-24T13:38:21+03:00]: test(annotations): audit step 113 (iteration 4) - test AnnotationSideRail vertical scroll containment on documents with 50+ cards
 - Commit #114 [2026-11-24T13:40:42+03:00]: test(annotations): audit step 114 (iteration 4) - audit author avatar and username truncation in compact gutter cards
+- Commit #115 [2026-11-24T13:43:03+03:00]: test(annotations): audit step 115 (iteration 4) - verify resolved status badge styling with emerald background and icon
