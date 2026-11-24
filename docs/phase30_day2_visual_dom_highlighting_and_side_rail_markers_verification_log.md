@@ -142,3 +142,4 @@
 - Commit #115 [2026-11-24T13:43:03+03:00]: test(annotations): audit step 115 (iteration 4) - verify resolved status badge styling with emerald background and icon
 - Commit #116 [2026-11-24T13:45:24+03:00]: test(annotations): audit step 116 (iteration 4) - test end-to-end synchronization from selection bubble creation to side-rail insertion
 - Commit #117 [2026-11-24T13:47:45+03:00]: test(annotations): audit step 117 (iteration 4) - verify optimistic local state update when new discussion is created
+- Commit #118 [2026-11-24T13:50:06+03:00]: test(annotations): audit step 118 (iteration 4) - test bi-directional focus shift when side-rail card is clicked
