@@ -100,3 +100,4 @@
 - Commit #073 [2026-11-24T12:04:17+03:00]: test(annotations): audit step 73 (iteration 3) - test SequenceMatcher similarity thresholding at 0.75 boundary
 - Commit #074 [2026-11-24T12:06:38+03:00]: test(annotations): audit step 74 (iteration 3) - verify orphaned highlight detection when selected paragraph is completely removed
 - Commit #075 [2026-11-24T12:09:00+03:00]: test(annotations): audit step 75 (iteration 3) - benchmark AnchorResilienceService throughput across 1,000 synthetic shifts
+- Commit #076 [2026-11-24T12:11:21+03:00]: test(annotations): audit step 76 (iteration 3) - validate POST /api/v1/articles/<slug>/annotations/realign/ authentication check
