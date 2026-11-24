@@ -36,3 +36,4 @@
 - **Frontend Production Build:** `npm --prefix frontend run build`
   - Zero TypeScript compilation errors.
   - Zero Vite bundling warnings.
+- Commit #012 [2026-11-24T09:40:51+03:00]: test(annotations): audit step 12 (iteration 1) - verify exact offset validation when document content remains identical
