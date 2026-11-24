@@ -175,3 +175,4 @@
 - Commit #148 [2026-11-24T15:00:38+03:00]: test(annotations): audit step 148 (iteration 5) - profile DOM repaint times during continuous side-rail card hover scrubbing
 - Commit #149 [2026-11-24T15:03:00+03:00]: test(annotations): audit step 149 (iteration 5) - verify memory cleanup of text selection event listeners on page unmount
 - Commit #150 [2026-11-24T15:05:21+03:00]: test(annotations): audit step 150 (iteration 5) - verify zero TypeScript compilation errors in frontend production build
+- Commit #151 [2026-11-24T15:07:42+03:00]: test(annotations): audit step 151 (iteration 5) - verify zero regressions across entire Django articles test suite
