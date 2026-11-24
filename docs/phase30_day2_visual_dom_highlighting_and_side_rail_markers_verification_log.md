@@ -202,3 +202,4 @@
 - Commit #175 [2026-11-24T16:04:08+03:00]: test(annotations): audit step 175 (iteration 6) - verify hovering over side-rail card triggers DOM mark highlight illumination
 - Commit #176 [2026-11-24T16:06:29+03:00]: test(annotations): audit step 176 (iteration 6) - profile DOM repaint times during continuous side-rail card hover scrubbing
 - Commit #177 [2026-11-24T16:08:50+03:00]: test(annotations): audit step 177 (iteration 6) - verify memory cleanup of text selection event listeners on page unmount
+- Commit #178 [2026-11-24T16:11:11+03:00]: test(annotations): audit step 178 (iteration 6) - verify zero TypeScript compilation errors in frontend production build
