@@ -143,3 +143,4 @@
 - Commit #116 [2026-11-24T13:45:24+03:00]: test(annotations): audit step 116 (iteration 4) - test end-to-end synchronization from selection bubble creation to side-rail insertion
 - Commit #117 [2026-11-24T13:47:45+03:00]: test(annotations): audit step 117 (iteration 4) - verify optimistic local state update when new discussion is created
 - Commit #118 [2026-11-24T13:50:06+03:00]: test(annotations): audit step 118 (iteration 4) - test bi-directional focus shift when side-rail card is clicked
+- Commit #119 [2026-11-24T13:52:27+03:00]: test(annotations): audit step 119 (iteration 4) - verify hovering over side-rail card triggers DOM mark highlight illumination
