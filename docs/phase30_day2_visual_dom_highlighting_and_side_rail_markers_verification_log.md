@@ -182,3 +182,4 @@
 - Commit #155 [2026-11-24T15:17:06+03:00]: test(annotations): audit step 155 (iteration 6) - evaluate context-scoring weight when surrounding sentences are unchanged
 - Commit #156 [2026-11-24T15:19:27+03:00]: test(annotations): audit step 156 (iteration 6) - evaluate context-scoring disambiguation with repetitive corporate keywords
 - Commit #157 [2026-11-24T15:21:48+03:00]: test(annotations): audit step 157 (iteration 6) - test SequenceMatcher similarity thresholding at 0.75 boundary
+- Commit #158 [2026-11-24T15:24:09+03:00]: test(annotations): audit step 158 (iteration 6) - verify orphaned highlight detection when selected paragraph is completely removed
