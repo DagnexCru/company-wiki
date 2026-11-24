@@ -157,3 +157,24 @@ class ArticleInlineAnnotationResolveView(APIView):
             ArticleInlineAnnotationSerializer(annotation, context={"request": request}).data,
             status=status.HTTP_200_OK,
         )
+
+
+class ArticleInlineAnnotationRealignView(APIView):
+    """
+    Realign all inline annotations for an article using the Fuzzy Anchor Matching Engine.
+    URL: /api/v1/articles/<slug_or_id>/annotations/realign/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, slug_or_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+        from apps.articles.anchor_service import AnchorResilienceService
+
+        realigned_data = AnchorResilienceService.realign_article_annotations(article)
+        return Response({
+            "article_slug": article.slug,
+            "realigned_count": len(realigned_data),
+            "annotations": realigned_data,
+        }, status=status.HTTP_200_OK)
+
+
