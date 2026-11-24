@@ -201,3 +201,4 @@
 - Commit #174 [2026-11-24T16:01:47+03:00]: test(annotations): audit step 174 (iteration 6) - test bi-directional focus shift when side-rail card is clicked
 - Commit #175 [2026-11-24T16:04:08+03:00]: test(annotations): audit step 175 (iteration 6) - verify hovering over side-rail card triggers DOM mark highlight illumination
 - Commit #176 [2026-11-24T16:06:29+03:00]: test(annotations): audit step 176 (iteration 6) - profile DOM repaint times during continuous side-rail card hover scrubbing
+- Commit #177 [2026-11-24T16:08:50+03:00]: test(annotations): audit step 177 (iteration 6) - verify memory cleanup of text selection event listeners on page unmount
