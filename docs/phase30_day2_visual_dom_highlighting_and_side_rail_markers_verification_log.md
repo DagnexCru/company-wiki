@@ -164,3 +164,4 @@
 - Commit #137 [2026-11-24T14:34:47+03:00]: test(annotations): audit step 137 (iteration 5) - audit text splitting logic when highlighted phrase spans across paragraph bounds
 - Commit #138 [2026-11-24T14:37:08+03:00]: test(annotations): audit step 138 (iteration 5) - verify CSS ring-2 ring-indigo-500 highlighting on active annotation selection
 - Commit #139 [2026-11-24T14:39:29+03:00]: test(annotations): audit step 139 (iteration 5) - verify CSS amber highlight background and transition latency on mouse hover
+- Commit #140 [2026-11-24T14:41:50+03:00]: test(annotations): audit step 140 (iteration 5) - verify AnnotationSideRail responsive collapse on viewport widths below 1280px
