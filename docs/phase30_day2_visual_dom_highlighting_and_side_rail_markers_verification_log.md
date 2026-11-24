@@ -66,3 +66,4 @@
 - Commit #039 [2026-11-24T10:44:21+03:00]: test(annotations): audit step 39 (iteration 1) - verify zero regressions across entire Django articles test suite
 - Commit #040 [2026-11-24T10:46:42+03:00]: test(annotations): audit step 40 (iteration 2) - verify exact offset validation when document content remains identical
 - Commit #041 [2026-11-24T10:49:03+03:00]: test(annotations): audit step 41 (iteration 2) - test single substring relocation when text shifts forward by 50 characters
+- Commit #042 [2026-11-24T10:51:24+03:00]: test(annotations): audit step 42 (iteration 2) - test single substring relocation when text shifts backward due to preamble deletion
