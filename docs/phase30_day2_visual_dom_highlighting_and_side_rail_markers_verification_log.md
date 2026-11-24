@@ -166,3 +166,4 @@
 - Commit #139 [2026-11-24T14:39:29+03:00]: test(annotations): audit step 139 (iteration 5) - verify CSS amber highlight background and transition latency on mouse hover
 - Commit #140 [2026-11-24T14:41:50+03:00]: test(annotations): audit step 140 (iteration 5) - verify AnnotationSideRail responsive collapse on viewport widths below 1280px
 - Commit #141 [2026-11-24T14:44:11+03:00]: test(annotations): audit step 141 (iteration 5) - test AnnotationSideRail vertical scroll containment on documents with 50+ cards
+- Commit #142 [2026-11-24T14:46:32+03:00]: test(annotations): audit step 142 (iteration 5) - audit author avatar and username truncation in compact gutter cards
