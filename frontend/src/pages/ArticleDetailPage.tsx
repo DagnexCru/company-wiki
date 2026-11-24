@@ -52,6 +52,7 @@ import { ArticleAnalyticsModal } from "../components/ArticleAnalyticsModal";
 import { PdfExportOptionsModal } from "../components/PdfExportOptionsModal";
 import { ExportHistoryModal } from "../components/ExportHistoryModal";
 import { FloatingAnnotationBubble } from "../components/FloatingAnnotationBubble";
+import { AnnotationSideRail } from "../components/AnnotationSideRail";
 import { checklistService } from "../services/checklistService";
 import { annotationService } from "../services/annotationService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
@@ -61,6 +62,7 @@ import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
 import type { ReviewRecord } from "../types/workflow";
 import type { ArticleChecklistProgress } from "../types/checklist";
+import type { ArticleInlineAnnotation } from "../types/annotation";
 
 export const ArticleDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -116,11 +118,28 @@ export const ArticleDetailPage: React.FC = () => {
   // In-line Text Annotations Selection Engine (Phase 30)
   const articleContainerRef = useRef<HTMLElement>(null);
   const { selectionData, clearSelection } = useTextSelection(articleContainerRef);
+  const [annotations, setAnnotations] = useState<ArticleInlineAnnotation[]>([]);
+  const [activeAnnotationId, setActiveAnnotationId] = useState<string | null>(null);
+  const [hoveredAnnotationId, setHoveredAnnotationId] = useState<string | null>(null);
+
+  const fetchAnnotations = useCallback(async () => {
+    if (!slug) return;
+    try {
+      const data = await annotationService.getAnnotations(slug);
+      setAnnotations(data);
+    } catch (err) {
+      console.debug("Failed to fetch annotations:", err);
+    }
+  }, [slug]);
+
+  useEffect(() => {
+    fetchAnnotations();
+  }, [fetchAnnotations]);
 
   const handleCreateAnnotation = async (content: string, selection: TextSelectionData) => {
     if (!slug) return;
     try {
-      await annotationService.createAnnotation(slug, {
+      const created = await annotationService.createAnnotation(slug, {
         highlighted_text: selection.selectedText,
         start_offset: selection.startOffset,
         end_offset: selection.endOffset,
@@ -128,6 +147,8 @@ export const ArticleDetailPage: React.FC = () => {
         anchor_context_after: selection.contextAfter,
         content,
       });
+      setAnnotations((prev) => [created, ...prev]);
+      setActiveAnnotationId(created.id);
       setExportSuccessMsg("💬 Inline discussion opened!");
       setTimeout(() => setExportSuccessMsg(null), 3000);
     } catch (err: any) {
@@ -931,48 +952,64 @@ export const ArticleDetailPage: React.FC = () => {
             onOpenCertificate={() => setShowCertificateModal(true)}
           />
 
-          {/* Main Document Content */}
-          <article
-            ref={articleContainerRef}
-            className="relative bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs"
-          >
-            <FloatingAnnotationBubble
-              selection={selectionData}
-              onClose={clearSelection}
-              onSubmit={handleCreateAnnotation}
-            />
-            <MarkdownViewer
-              content={article.content}
-              articleSlug={article.slug}
-              checkedItems={checklistProgress?.checked_items}
-              onToggleChecklistItem={handleToggleChecklistItem}
-              readOnlyChecklists={!user}
-            />
+          {/* Main Document Content with Side-Rail Annotations Gutter */}
+          <div className="flex items-start gap-4">
+            <article
+              ref={articleContainerRef}
+              className="relative flex-1 min-w-0 bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xs"
+            >
+              <FloatingAnnotationBubble
+                selection={selectionData}
+                onClose={clearSelection}
+                onSubmit={handleCreateAnnotation}
+              />
+              <MarkdownViewer
+                content={article.content}
+                articleSlug={article.slug}
+                checkedItems={checklistProgress?.checked_items}
+                onToggleChecklistItem={handleToggleChecklistItem}
+                readOnlyChecklists={!user}
+                annotations={annotations}
+                activeAnnotationId={activeAnnotationId}
+                hoveredAnnotationId={hoveredAnnotationId}
+                onSelectAnnotation={(id) => setActiveAnnotationId(id)}
+                onHoverAnnotation={(id) => setHoveredAnnotationId(id)}
+              />
 
-            {/* Reader UX: Interactive Helpful Feedback Widget & Quality Metrics */}
-            <ArticleFeedbackWidget
-              articleSlug={article.slug}
-              initialHelpfulCount={article.helpful_count}
-              initialUnhelpfulCount={article.unhelpful_count}
-              initialHelpfulnessScore={article.helpfulness_score}
-              initialUserFeedback={article.user_feedback}
-              canManageArticle={Boolean(isAuthor || isReviewerOrAdmin)}
-              initialFeedbackNotes={article.recent_feedback_notes}
-              onFeedbackUpdated={(updated) => {
-                setArticle((prev) =>
-                  prev
-                    ? {
-                        ...prev,
-                        helpful_count: updated.helpful_count,
-                        unhelpful_count: updated.unhelpful_count,
-                        helpfulness_score: updated.helpfulness_score,
-                        user_feedback: updated.user_feedback,
-                      }
-                    : null
-                );
-              }}
+              {/* Reader UX: Interactive Helpful Feedback Widget & Quality Metrics */}
+              <ArticleFeedbackWidget
+                articleSlug={article.slug}
+                initialHelpfulCount={article.helpful_count}
+                initialUnhelpfulCount={article.unhelpful_count}
+                initialHelpfulnessScore={article.helpfulness_score}
+                initialUserFeedback={article.user_feedback}
+                canManageArticle={Boolean(isAuthor || isReviewerOrAdmin)}
+                initialFeedbackNotes={article.recent_feedback_notes}
+                onFeedbackUpdated={(updated) => {
+                  setArticle((prev) =>
+                    prev
+                      ? {
+                          ...prev,
+                          helpful_count: updated.helpful_count,
+                          unhelpful_count: updated.unhelpful_count,
+                          helpfulness_score: updated.helpfulness_score,
+                          user_feedback: updated.user_feedback,
+                        }
+                      : null
+                  );
+                }}
+              />
+            </article>
+
+            {/* Side-Rail Anchor Markers & Discussions Gutter */}
+            <AnnotationSideRail
+              annotations={annotations}
+              activeAnnotationId={activeAnnotationId}
+              hoveredAnnotationId={hoveredAnnotationId}
+              onSelectAnnotation={(id) => setActiveAnnotationId(id)}
+              onHoverAnnotation={(id) => setHoveredAnnotationId(id)}
             />
-          </article>
+          </div>
 
           {/* Team Collaboration & Discussion Comments with @mentions */}
           <ArticleCommentsSection articleSlugOrId={article.slug} />
