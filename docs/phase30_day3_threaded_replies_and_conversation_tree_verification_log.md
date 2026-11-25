@@ -169,3 +169,4 @@
 - Commit #131 [2026-11-25T14:41:52+03:00]: test(annotations): audit step 131 (iteration 5) - verify Reopen Thread action clears resolved_at timestamp and restores open state
 - Commit #132 [2026-11-25T14:44:23+03:00]: test(annotations): audit step 132 (iteration 5) - test bi-directional DOM mark highlight illumination while browsing discussion replies
 - Commit #133 [2026-11-25T14:46:54+03:00]: test(annotations): audit step 133 (iteration 5) - profile React render cycle during optimistic reply insertion in local annotations state
+- Commit #134 [2026-11-25T14:49:25+03:00]: test(annotations): audit step 134 (iteration 5) - audit memory cleanup of side-rail reply textarea listeners on component unmount
