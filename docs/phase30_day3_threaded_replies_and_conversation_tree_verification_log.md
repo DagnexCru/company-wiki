@@ -112,3 +112,4 @@
 - Commit #074 [2026-11-25T12:18:33+03:00]: test(annotations): audit step 74 (iteration 3) - verify system administrator can delete any inappropriate reply in discussion thread
 - Commit #075 [2026-11-25T12:21:04+03:00]: test(annotations): audit step 75 (iteration 3) - test GET /articles/{slug}/annotations/{id}/replies/ endpoint payload structure
 - Commit #076 [2026-11-25T12:23:35+03:00]: test(annotations): audit step 76 (iteration 3) - audit Markdown styling and @mention pill rendering inside nested reply cards
+- Commit #077 [2026-11-25T12:26:05+03:00]: test(annotations): audit step 77 (iteration 3) - verify AnnotationSideRail expanded conversation tree vertical scrolling container
