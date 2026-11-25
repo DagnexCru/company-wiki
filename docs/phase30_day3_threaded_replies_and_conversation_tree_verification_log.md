@@ -72,3 +72,4 @@
 - Commit #034 [2026-11-25T10:37:58+03:00]: test(annotations): audit step 34 (iteration 1) - audit memory cleanup of side-rail reply textarea listeners on component unmount
 - Commit #035 [2026-11-25T10:40:29+03:00]: test(annotations): audit step 35 (iteration 1) - verify zero TypeScript compilation errors in frontend production build
 - Commit #036 [2026-11-25T10:43:00+03:00]: test(annotations): audit step 36 (iteration 1) - verify zero regressions across complete Django articles test suite
+- Commit #037 [2026-11-25T10:45:31+03:00]: test(annotations): audit step 37 (iteration 2) - verify ArticleInlineAnnotationReply model foreign key constraints on annotation and author
