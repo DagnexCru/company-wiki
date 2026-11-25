@@ -141,3 +141,4 @@
 - Commit #103 [2026-11-25T13:31:28+03:00]: test(annotations): audit step 103 (iteration 4) - test AnnotationSideRail replying-to indicator tag clear action and state reset
 - Commit #104 [2026-11-25T13:33:59+03:00]: test(annotations): audit step 104 (iteration 4) - test keyboard shortcut Ctrl+Enter to submit threaded reply in active discussion
 - Commit #105 [2026-11-25T13:36:30+03:00]: test(annotations): audit step 105 (iteration 4) - verify Resolve Thread action updates annotation status and resolved_by attribution
+- Commit #106 [2026-11-25T13:39:01+03:00]: test(annotations): audit step 106 (iteration 4) - verify Reopen Thread action clears resolved_at timestamp and restores open state
