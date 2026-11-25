@@ -105,3 +105,4 @@
 - Commit #067 [2026-11-25T12:00:57+03:00]: test(annotations): audit step 67 (iteration 3) - verify @username mention extraction regex boundary parsing on reply content
 - Commit #068 [2026-11-25T12:03:28+03:00]: test(annotations): audit step 68 (iteration 3) - test MENTION notification generation when teammate is mentioned in reply body
 - Commit #069 [2026-11-25T12:05:58+03:00]: test(annotations): audit step 69 (iteration 3) - verify COMMENT notification dispatched to original annotation author on new reply
+- Commit #070 [2026-11-25T12:08:29+03:00]: test(annotations): audit step 70 (iteration 3) - verify parent reply author notification on nested conversation tree follow-ups
