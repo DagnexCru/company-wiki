@@ -161,3 +161,4 @@
 - Commit #123 [2026-11-25T14:21:45+03:00]: test(annotations): audit step 123 (iteration 5) - verify 204 No Content response when reply author deletes own comment
 - Commit #124 [2026-11-25T14:24:16+03:00]: test(annotations): audit step 124 (iteration 5) - verify system administrator can delete any inappropriate reply in discussion thread
 - Commit #125 [2026-11-25T14:26:47+03:00]: test(annotations): audit step 125 (iteration 5) - test GET /articles/{slug}/annotations/{id}/replies/ endpoint payload structure
+- Commit #126 [2026-11-25T14:29:18+03:00]: test(annotations): audit step 126 (iteration 5) - audit Markdown styling and @mention pill rendering inside nested reply cards
