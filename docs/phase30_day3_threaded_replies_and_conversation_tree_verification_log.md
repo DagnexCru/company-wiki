@@ -131,3 +131,4 @@
 - Commit #093 [2026-11-25T13:06:19+03:00]: test(annotations): audit step 93 (iteration 4) - test MENTION notification generation when teammate is mentioned in reply body
 - Commit #094 [2026-11-25T13:08:50+03:00]: test(annotations): audit step 94 (iteration 4) - verify COMMENT notification dispatched to original annotation author on new reply
 - Commit #095 [2026-11-25T13:11:21+03:00]: test(annotations): audit step 95 (iteration 4) - verify parent reply author notification on nested conversation tree follow-ups
+- Commit #096 [2026-11-25T13:13:52+03:00]: test(annotations): audit step 96 (iteration 4) - test self-mention prevention logic when user tags own username in reply
