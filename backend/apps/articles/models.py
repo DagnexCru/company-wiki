@@ -900,5 +900,54 @@ class ArticleInlineAnnotation(models.Model):
         self.save(update_fields=["status", "resolved_at", "resolved_by", "updated_at"])
 
 
+class ArticleInlineAnnotationReply(models.Model):
+    """
+    Threaded reply to an inline annotation discussion.
+    Supports nested conversation trees (via parent self-reference)
+    and @username mentions.
+    """
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    annotation = models.ForeignKey(
+        ArticleInlineAnnotation,
+        on_delete=models.CASCADE,
+        related_name="replies",
+        help_text="The parent annotation thread.",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="annotation_replies",
+        help_text="Author of the reply.",
+    )
+    parent = models.ForeignKey(
+        "self",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="children",
+        help_text="Optional parent reply for nested discussion trees.",
+    )
+    content = models.TextField(
+        help_text="Reply text content with markdown and @mentions.",
+    )
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "article_inline_annotation_replies"
+        verbose_name = "Article Inline Annotation Reply"
+        verbose_name_plural = "Article Inline Annotation Replies"
+        ordering = ["created_at"]
+        indexes = [
+            models.Index(fields=["annotation", "created_at"], name="art_ann_rep_ann_idx"),
+            models.Index(fields=["parent", "created_at"], name="art_ann_rep_parent_idx"),
+            models.Index(fields=["author", "-created_at"], name="art_ann_rep_author_idx"),
+        ]
+
+    def __str__(self):
+        return f"Reply by {self.author.username} on Annotation {self.annotation_id} at {self.created_at}"
+
+
+
 
 
