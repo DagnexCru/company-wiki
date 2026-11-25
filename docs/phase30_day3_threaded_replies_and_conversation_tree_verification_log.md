@@ -157,3 +157,4 @@
 - Commit #119 [2026-11-25T14:11:42+03:00]: test(annotations): audit step 119 (iteration 5) - verify COMMENT notification dispatched to original annotation author on new reply
 - Commit #120 [2026-11-25T14:14:13+03:00]: test(annotations): audit step 120 (iteration 5) - verify parent reply author notification on nested conversation tree follow-ups
 - Commit #121 [2026-11-25T14:16:44+03:00]: test(annotations): audit step 121 (iteration 5) - test self-mention prevention logic when user tags own username in reply
+- Commit #122 [2026-11-25T14:19:14+03:00]: test(annotations): audit step 122 (iteration 5) - verify 403 Forbidden response when reader attempts to delete another user reply
