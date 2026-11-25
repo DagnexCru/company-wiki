@@ -156,6 +156,59 @@ export const ArticleDetailPage: React.FC = () => {
     }
   };
 
+  const handleReplyToAnnotation = async (
+    annotationId: string,
+    content: string,
+    parentId?: string | null
+  ) => {
+    if (!slug) return;
+    try {
+      await annotationService.createReply(slug, annotationId, {
+        content,
+        parent: parentId,
+      });
+      const updated = await annotationService.getAnnotations(slug);
+      setAnnotations(updated);
+    } catch (err: any) {
+      console.error("Failed to post reply:", err);
+    }
+  };
+
+  const handleResolveAnnotation = async (annotationId: string) => {
+    if (!slug) return;
+    try {
+      const updated = await annotationService.resolveAnnotation(slug, annotationId);
+      setAnnotations((prev) =>
+        prev.map((a) => (a.id === annotationId ? updated : a))
+      );
+    } catch (err: any) {
+      console.error("Failed to resolve annotation:", err);
+    }
+  };
+
+  const handleReopenAnnotation = async (annotationId: string) => {
+    if (!slug) return;
+    try {
+      const updated = await annotationService.reopenAnnotation(slug, annotationId);
+      setAnnotations((prev) =>
+        prev.map((a) => (a.id === annotationId ? updated : a))
+      );
+    } catch (err: any) {
+      console.error("Failed to reopen annotation:", err);
+    }
+  };
+
+  const handleDeleteReply = async (annotationId: string, replyId: string) => {
+    if (!slug) return;
+    try {
+      await annotationService.deleteReply(slug, annotationId, replyId);
+      const updated = await annotationService.getAnnotations(slug);
+      setAnnotations(updated);
+    } catch (err: any) {
+      console.error("Failed to delete reply:", err);
+    }
+  };
+
   const handleExportPdfWithOptions = async (options: PdfExportOptions) => {
     if (!slug) return;
     try {
@@ -1008,6 +1061,10 @@ export const ArticleDetailPage: React.FC = () => {
               hoveredAnnotationId={hoveredAnnotationId}
               onSelectAnnotation={(id) => setActiveAnnotationId(id)}
               onHoverAnnotation={(id) => setHoveredAnnotationId(id)}
+              onReplyToAnnotation={handleReplyToAnnotation}
+              onResolveAnnotation={handleResolveAnnotation}
+              onReopenAnnotation={handleReopenAnnotation}
+              onDeleteReply={handleDeleteReply}
             />
           </div>
 
