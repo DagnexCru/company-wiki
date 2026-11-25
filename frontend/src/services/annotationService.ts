@@ -1,7 +1,9 @@
 import api from "./api";
 import type {
   ArticleInlineAnnotation,
+  ArticleInlineAnnotationReply,
   CreateAnnotationPayload,
+  CreateAnnotationReplyPayload,
   AnnotationStatus,
 } from "../types/annotation";
 
@@ -106,5 +108,49 @@ export const annotationService = {
   }> {
     const response = await api.post(`/articles/${slug}/annotations/realign/`);
     return response.data;
+  },
+
+  /**
+   * Fetch threaded replies for an inline annotation.
+   * GET /api/v1/articles/{slug}/annotations/{annotationId}/replies/
+   */
+  async getReplies(
+    slug: string,
+    annotationId: string
+  ): Promise<ArticleInlineAnnotationReply[]> {
+    const response = await api.get<ArticleInlineAnnotationReply[]>(
+      `/articles/${slug}/annotations/${annotationId}/replies/`
+    );
+    return response.data;
+  },
+
+  /**
+   * Post a threaded reply to an inline annotation.
+   * POST /api/v1/articles/{slug}/annotations/{annotationId}/replies/
+   */
+  async createReply(
+    slug: string,
+    annotationId: string,
+    payload: CreateAnnotationReplyPayload
+  ): Promise<ArticleInlineAnnotationReply> {
+    const response = await api.post<ArticleInlineAnnotationReply>(
+      `/articles/${slug}/annotations/${annotationId}/replies/`,
+      payload
+    );
+    return response.data;
+  },
+
+  /**
+   * Delete a reply to an inline annotation.
+   * DELETE /api/v1/articles/{slug}/annotations/{annotationId}/replies/{replyId}/
+   */
+  async deleteReply(
+    slug: string,
+    annotationId: string,
+    replyId: string
+  ): Promise<void> {
+    await api.delete(
+      `/articles/${slug}/annotations/${annotationId}/replies/${replyId}/`
+    );
   },
 };
