@@ -2,7 +2,8 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status
 from apps.accounts.models import CustomUser
-from apps.articles.models import Article, ArticleInlineAnnotation
+from apps.articles.models import Article, ArticleInlineAnnotation, ArticleInlineAnnotationReply
+from apps.notifications.models import Notification
 from apps.taxonomy.models import Category
 
 
@@ -296,3 +297,129 @@ class ArticleInlineAnnotationTests(TestCase):
         self.assertIn("is_orphaned", items[0])
         self.assertFalse(items[0]["is_orphaned"])
         self.assertGreater(items[0]["match_confidence"], 0.7)
+
+    def test_create_threaded_reply_and_author_notification(self):
+        """
+        Verify that a teammate can post a threaded reply to an inline annotation,
+        and the annotation author receives a notification.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="psychological safety",
+            start_offset=50,
+            end_offset=70,
+            content="Can we add more details on team rituals?",
+        )
+
+        self.client.force_authenticate(user=self.peer_reviewer)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/{ann.id}/replies/"
+        res = self.client.post(url, {"content": "Agreed, I will draft a subsection on weekly retrospectives."})
+
+        self.assertEqual(res.status_code, 201)
+        data = res.json()
+        self.assertEqual(data["content"], "Agreed, I will draft a subsection on weekly retrospectives.")
+        self.assertEqual(data["author"]["username"], self.peer_reviewer.username)
+        self.assertIsNone(data["parent"])
+
+        # Check notification for author
+        notif = Notification.objects.filter(
+            recipient=self.author,
+            notification_type=Notification.NotificationType.COMMENT,
+        ).first()
+        self.assertIsNotNone(notif)
+        self.assertIn("replied to your inline annotation", notif.title)
+
+    def test_nested_conversation_tree_replies(self):
+        """
+        Verify that replies can be nested with parent_id, forming a structured discussion tree.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="root topic",
+            start_offset=0,
+            end_offset=10,
+            content="Initial discussion root.",
+        )
+        reply1 = ArticleInlineAnnotationReply.objects.create(
+            annotation=ann,
+            author=self.peer_reviewer,
+            content="First response from reviewer.",
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/{ann.id}/replies/"
+        res = self.client.post(url, {
+            "content": "Follow-up response nested under reply1.",
+            "parent_id": str(reply1.id),
+        })
+
+        self.assertEqual(res.status_code, 201)
+        data = res.json()
+        self.assertEqual(str(data["parent"]), str(reply1.id))
+
+        # Test listing returns conversation tree with children
+        list_res = self.client.get(url)
+        self.assertEqual(list_res.status_code, 200)
+        tree = list_res.json()
+        self.assertEqual(len(tree), 1)
+        self.assertEqual(len(tree[0]["children"]), 1)
+        self.assertEqual(tree[0]["children"][0]["content"], "Follow-up response nested under reply1.")
+
+    def test_mention_notifications_in_reply(self):
+        """
+        Verify that @username mentions in a reply generate MENTION notifications.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="compliance checklist",
+            start_offset=20,
+            end_offset=40,
+            content="Review needed.",
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/{ann.id}/replies/"
+        res = self.client.post(url, {
+            "content": f"Hey @{self.reader.username}, can you check this item?",
+        })
+
+        self.assertEqual(res.status_code, 201)
+        mention_notif = Notification.objects.filter(
+            recipient=self.reader,
+            notification_type=Notification.NotificationType.MENTION,
+        ).first()
+        self.assertIsNotNone(mention_notif)
+        self.assertIn("mentioned you", mention_notif.title)
+
+    def test_delete_reply_permissions(self):
+        """
+        Verify that only the reply owner or admin can delete a reply.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="test text",
+            start_offset=0,
+            end_offset=9,
+            content="Test content",
+        )
+        reply = ArticleInlineAnnotationReply.objects.create(
+            annotation=ann,
+            author=self.peer_reviewer,
+            content="Reviewer's reply.",
+        )
+
+        # Reader tries to delete reviewer's reply -> 403
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/{ann.id}/replies/{reply.id}/"
+        res_fail = self.client.delete(url)
+        self.assertEqual(res_fail.status_code, 403)
+
+        # Reviewer deletes own reply -> 204
+        self.client.force_authenticate(user=self.peer_reviewer)
+        res_ok = self.client.delete(url)
+        self.assertEqual(res_ok.status_code, 204)
+        self.assertFalse(ArticleInlineAnnotationReply.objects.filter(id=reply.id).exists())
