@@ -59,3 +59,4 @@
 - Commit #021 [2026-11-25T10:05:17+03:00]: test(annotations): audit step 21 (iteration 1) - test self-mention prevention logic when user tags own username in reply
 - Commit #022 [2026-11-25T10:07:48+03:00]: test(annotations): audit step 22 (iteration 1) - verify 403 Forbidden response when reader attempts to delete another user reply
 - Commit #023 [2026-11-25T10:10:19+03:00]: test(annotations): audit step 23 (iteration 1) - verify 204 No Content response when reply author deletes own comment
+- Commit #024 [2026-11-25T10:12:49+03:00]: test(annotations): audit step 24 (iteration 1) - verify system administrator can delete any inappropriate reply in discussion thread
