@@ -163,3 +163,4 @@
 - Commit #125 [2026-11-25T14:26:47+03:00]: test(annotations): audit step 125 (iteration 5) - test GET /articles/{slug}/annotations/{id}/replies/ endpoint payload structure
 - Commit #126 [2026-11-25T14:29:18+03:00]: test(annotations): audit step 126 (iteration 5) - audit Markdown styling and @mention pill rendering inside nested reply cards
 - Commit #127 [2026-11-25T14:31:49+03:00]: test(annotations): audit step 127 (iteration 5) - verify AnnotationSideRail expanded conversation tree vertical scrolling container
+- Commit #128 [2026-11-25T14:34:20+03:00]: test(annotations): audit step 128 (iteration 5) - test AnnotationSideRail replying-to indicator tag clear action and state reset
