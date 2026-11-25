@@ -54,3 +54,4 @@
 - Commit #016 [2026-11-25T09:52:43+03:00]: test(annotations): audit step 16 (iteration 1) - test replies_count calculation accuracy across open and resolved annotations
 - Commit #017 [2026-11-25T09:55:13+03:00]: test(annotations): audit step 17 (iteration 1) - verify @username mention extraction regex boundary parsing on reply content
 - Commit #018 [2026-11-25T09:57:44+03:00]: test(annotations): audit step 18 (iteration 1) - test MENTION notification generation when teammate is mentioned in reply body
+- Commit #019 [2026-11-25T10:00:15+03:00]: test(annotations): audit step 19 (iteration 1) - verify COMMENT notification dispatched to original annotation author on new reply
