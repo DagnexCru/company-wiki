@@ -177,3 +177,4 @@
 - Commit #139 [2026-11-25T15:01:59+03:00]: test(annotations): audit step 139 (iteration 6) - verify database indexing on (annotation, created_at) and (parent, created_at)
 - Commit #140 [2026-11-25T15:04:30+03:00]: test(annotations): audit step 140 (iteration 6) - benchmark ArticleInlineAnnotationReplySerializer recursion performance with 4-level nesting
 - Commit #141 [2026-11-25T15:07:01+03:00]: test(annotations): audit step 141 (iteration 6) - test replies_count calculation accuracy across open and resolved annotations
+- Commit #142 [2026-11-25T15:09:32+03:00]: test(annotations): audit step 142 (iteration 6) - verify @username mention extraction regex boundary parsing on reply content
