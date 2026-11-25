@@ -5,8 +5,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 
-from apps.articles.models import Article, ArticleInlineAnnotation
-from apps.articles.serializers import ArticleInlineAnnotationSerializer
+from apps.articles.models import Article, ArticleInlineAnnotation, ArticleInlineAnnotationReply
+from apps.articles.serializers import (
+    ArticleInlineAnnotationSerializer,
+    ArticleInlineAnnotationReplySerializer,
+)
 
 
 def get_article_by_slug_or_id(slug_or_id):
@@ -80,6 +83,21 @@ class ArticleInlineAnnotationListView(APIView):
         serializer = ArticleInlineAnnotationSerializer(data=data, context={"request": request})
         if serializer.is_valid():
             annotation = serializer.save(article=article, author=request.user)
+
+            # Trigger @username mentions notifications if any
+            try:
+                from apps.notifications.services import parse_and_notify_mentions
+                actor_name = request.user.full_name or request.user.username
+                parse_and_notify_mentions(
+                    text=annotation.content,
+                    actor=request.user,
+                    link=f"/articles/{article.slug}?annotation={annotation.id}",
+                    article=article,
+                    custom_title=f"{actor_name} mentioned you in an inline annotation on '{article.title}'",
+                )
+            except Exception:
+                pass
+
             return Response(
                 ArticleInlineAnnotationSerializer(annotation, context={"request": request}).data,
                 status=status.HTTP_201_CREATED,
@@ -176,5 +194,121 @@ class ArticleInlineAnnotationRealignView(APIView):
             "realigned_count": len(realigned_data),
             "annotations": realigned_data,
         }, status=status.HTTP_200_OK)
+
+
+class ArticleInlineAnnotationReplyListView(APIView):
+    """
+    List or create threaded replies attached to an inline annotation.
+    URL: /api/v1/articles/<slug_or_id>/annotations/<annotation_id>/replies/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, slug_or_id, annotation_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+        annotation = get_object_or_404(ArticleInlineAnnotation, id=annotation_id, article=article)
+
+        # Retrieve top-level replies (parent=None) with nested children pre-fetched
+        replies = (
+            ArticleInlineAnnotationReply.objects.filter(annotation=annotation, parent=None)
+            .select_related("author")
+            .prefetch_related("children__author")
+            .order_by("created_at")
+        )
+        serializer = ArticleInlineAnnotationReplySerializer(replies, many=True, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, slug_or_id, annotation_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+        annotation = get_object_or_404(ArticleInlineAnnotation, id=annotation_id, article=article)
+
+        content = request.data.get("content", "").strip()
+        if not content:
+            return Response({"detail": "Reply content cannot be empty."}, status=status.HTTP_400_BAD_REQUEST)
+
+        parent_id = request.data.get("parent") or request.data.get("parent_id")
+        parent = None
+        if parent_id:
+            parent = get_object_or_404(ArticleInlineAnnotationReply, id=parent_id, annotation=annotation)
+
+        reply = ArticleInlineAnnotationReply.objects.create(
+            annotation=annotation,
+            author=request.user,
+            parent=parent,
+            content=content,
+        )
+
+        # Trigger @username mentions notifications & thread participant notifications
+        try:
+            from apps.notifications.services import parse_and_notify_mentions
+            from apps.notifications.models import Notification
+
+            actor_name = request.user.full_name or request.user.username
+            link = f"/articles/{article.slug}?annotation={annotation.id}"
+
+            # 1. Notify mentioned teammates
+            mentioned_notifs = parse_and_notify_mentions(
+                text=content,
+                actor=request.user,
+                link=link,
+                article=article,
+                custom_title=f"{actor_name} mentioned you in an inline discussion on '{article.title}'",
+            )
+            already_notified_user_ids = {n.recipient_id for n in mentioned_notifs}
+
+            # 2. Notify annotation author if different from replier and not already notified
+            if annotation.author_id != request.user.id and annotation.author_id not in already_notified_user_ids:
+                Notification.objects.create(
+                    recipient=annotation.author,
+                    sender=request.user,
+                    notification_type=Notification.NotificationType.COMMENT,
+                    title=f"{actor_name} replied to your inline annotation",
+                    message=content[:150] + ("..." if len(content) > 150 else ""),
+                    link=link,
+                    article=article,
+                )
+                already_notified_user_ids.add(annotation.author_id)
+
+            # 3. If nested reply, notify parent reply author if different
+            if parent and parent.author_id != request.user.id and parent.author_id not in already_notified_user_ids:
+                Notification.objects.create(
+                    recipient=parent.author,
+                    sender=request.user,
+                    notification_type=Notification.NotificationType.COMMENT,
+                    title=f"{actor_name} replied to your comment in the discussion tree",
+                    message=content[:150] + ("..." if len(content) > 150 else ""),
+                    link=link,
+                    article=article,
+                )
+        except Exception:
+            pass
+
+        serializer = ArticleInlineAnnotationReplySerializer(reply, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class ArticleInlineAnnotationReplyDetailView(APIView):
+    """
+    Delete an inline annotation reply.
+    URL: /api/v1/articles/<slug_or_id>/annotations/<annotation_id>/replies/<reply_id>/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, slug_or_id, annotation_id, reply_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+        annotation = get_object_or_404(ArticleInlineAnnotation, id=annotation_id, article=article)
+        reply = get_object_or_404(ArticleInlineAnnotationReply, id=reply_id, annotation=annotation)
+
+        is_owner = reply.author_id == request.user.id
+        is_article_owner = article.author_id == request.user.id
+        is_admin = getattr(request.user, "role", "") == "ADMIN" or getattr(request.user, "is_admin", False)
+
+        if not (is_owner or is_article_owner or is_admin):
+            return Response(
+                {"detail": "You do not have permission to delete this reply."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        reply.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
