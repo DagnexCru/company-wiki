@@ -167,3 +167,4 @@
 - Commit #129 [2026-11-25T14:36:50+03:00]: test(annotations): audit step 129 (iteration 5) - test keyboard shortcut Ctrl+Enter to submit threaded reply in active discussion
 - Commit #130 [2026-11-25T14:39:21+03:00]: test(annotations): audit step 130 (iteration 5) - verify Resolve Thread action updates annotation status and resolved_by attribution
 - Commit #131 [2026-11-25T14:41:52+03:00]: test(annotations): audit step 131 (iteration 5) - verify Reopen Thread action clears resolved_at timestamp and restores open state
+- Commit #132 [2026-11-25T14:44:23+03:00]: test(annotations): audit step 132 (iteration 5) - test bi-directional DOM mark highlight illumination while browsing discussion replies
