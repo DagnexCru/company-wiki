@@ -203,3 +203,4 @@
 - Commit #165 [2026-11-25T16:07:22+03:00]: test(annotations): audit step 165 (iteration 7) - benchmark ArticleInlineAnnotationReplySerializer recursion performance with 4-level nesting
 - Commit #166 [2026-11-25T16:09:53+03:00]: test(annotations): audit step 166 (iteration 7) - test replies_count calculation accuracy across open and resolved annotations
 - Commit #167 [2026-11-25T16:12:23+03:00]: test(annotations): audit step 167 (iteration 7) - verify @username mention extraction regex boundary parsing on reply content
+- Commit #168 [2026-11-25T16:14:54+03:00]: test(annotations): audit step 168 (iteration 7) - test MENTION notification generation when teammate is mentioned in reply body
