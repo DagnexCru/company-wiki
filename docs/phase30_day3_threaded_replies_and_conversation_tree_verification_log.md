@@ -171,3 +171,4 @@
 - Commit #133 [2026-11-25T14:46:54+03:00]: test(annotations): audit step 133 (iteration 5) - profile React render cycle during optimistic reply insertion in local annotations state
 - Commit #134 [2026-11-25T14:49:25+03:00]: test(annotations): audit step 134 (iteration 5) - audit memory cleanup of side-rail reply textarea listeners on component unmount
 - Commit #135 [2026-11-25T14:51:56+03:00]: test(annotations): audit step 135 (iteration 5) - verify zero TypeScript compilation errors in frontend production build
+- Commit #136 [2026-11-25T14:54:27+03:00]: test(annotations): audit step 136 (iteration 5) - verify zero regressions across complete Django articles test suite
