@@ -7,6 +7,18 @@ export interface AnnotationAuthor {
   role: string;
 }
 
+export interface ArticleInlineAnnotationReply {
+  id: string;
+  annotation: string;
+  author: AnnotationAuthor;
+  parent?: string | null;
+  content: string;
+  is_own?: boolean;
+  children?: ArticleInlineAnnotationReply[];
+  created_at: string;
+  updated_at?: string;
+}
+
 export interface ArticleInlineAnnotation {
   id: string;
   article: string;
@@ -21,6 +33,8 @@ export interface ArticleInlineAnnotation {
   is_own: boolean;
   match_confidence?: number;
   is_orphaned?: boolean;
+  replies_count?: number;
+  replies?: ArticleInlineAnnotationReply[];
   created_at: string;
   updated_at: string;
   resolved_at: string | null;
@@ -34,4 +48,10 @@ export interface CreateAnnotationPayload {
   anchor_context_before?: string;
   anchor_context_after?: string;
   content: string;
+}
+
+export interface CreateAnnotationReplyPayload {
+  content: string;
+  parent?: string | null;
+  parent_id?: string | null;
 }
