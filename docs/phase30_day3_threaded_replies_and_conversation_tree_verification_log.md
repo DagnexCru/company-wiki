@@ -93,3 +93,4 @@
 - Commit #055 [2026-11-25T11:30:46+03:00]: test(annotations): audit step 55 (iteration 2) - verify Resolve Thread action updates annotation status and resolved_by attribution
 - Commit #056 [2026-11-25T11:33:17+03:00]: test(annotations): audit step 56 (iteration 2) - verify Reopen Thread action clears resolved_at timestamp and restores open state
 - Commit #057 [2026-11-25T11:35:48+03:00]: test(annotations): audit step 57 (iteration 2) - test bi-directional DOM mark highlight illumination while browsing discussion replies
+- Commit #058 [2026-11-25T11:38:19+03:00]: test(annotations): audit step 58 (iteration 2) - profile React render cycle during optimistic reply insertion in local annotations state
