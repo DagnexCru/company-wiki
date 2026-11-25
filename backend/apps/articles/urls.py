@@ -23,6 +23,8 @@ from apps.articles.annotation_views import (
     ArticleInlineAnnotationDetailView,
     ArticleInlineAnnotationResolveView,
     ArticleInlineAnnotationRealignView,
+    ArticleInlineAnnotationReplyListView,
+    ArticleInlineAnnotationReplyDetailView,
 )
 
 router = DefaultRouter()
@@ -49,6 +51,8 @@ urlpatterns = [
     path("<str:slug_or_id>/annotations/", ArticleInlineAnnotationListView.as_view(), name="article-annotations-list"),
     path("<str:slug_or_id>/annotations/realign/", ArticleInlineAnnotationRealignView.as_view(), name="article-annotations-realign"),
     path("<str:slug_or_id>/annotations/<uuid:annotation_id>/", ArticleInlineAnnotationDetailView.as_view(), name="article-annotation-detail"),
+    path("<str:slug_or_id>/annotations/<uuid:annotation_id>/replies/", ArticleInlineAnnotationReplyListView.as_view(), name="article-annotation-replies-list"),
+    path("<str:slug_or_id>/annotations/<uuid:annotation_id>/replies/<uuid:reply_id>/", ArticleInlineAnnotationReplyDetailView.as_view(), name="article-annotation-reply-detail"),
     path("<str:slug_or_id>/annotations/<uuid:annotation_id>/<str:action>/", ArticleInlineAnnotationResolveView.as_view(), name="article-annotation-action"),
     path("", include(router.urls)),
 ]
