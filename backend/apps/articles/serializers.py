@@ -606,12 +606,56 @@ class ArticleInlineAnnotationAuthorSerializer(serializers.ModelSerializer):
         fields = ["id", "username", "full_name", "role"]
 
 
+class ArticleInlineAnnotationReplySerializer(serializers.ModelSerializer):
+    author = ArticleInlineAnnotationAuthorSerializer(read_only=True)
+    is_own = serializers.SerializerMethodField()
+    children = serializers.SerializerMethodField()
+
+    class Meta:
+        from apps.articles.models import ArticleInlineAnnotationReply
+        model = ArticleInlineAnnotationReply
+        fields = [
+            "id",
+            "annotation",
+            "author",
+            "parent",
+            "content",
+            "is_own",
+            "children",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = [
+            "id",
+            "annotation",
+            "author",
+            "is_own",
+            "children",
+            "created_at",
+            "updated_at",
+        ]
+
+    def get_is_own(self, obj):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            return obj.author_id == request.user.id
+        return False
+
+    def get_children(self, obj):
+        children = obj.children.all().order_by("created_at")
+        return ArticleInlineAnnotationReplySerializer(
+            children, many=True, context=self.context
+        ).data
+
+
 class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
     author = ArticleInlineAnnotationAuthorSerializer(read_only=True)
     resolved_by = ArticleInlineAnnotationAuthorSerializer(read_only=True)
     is_own = serializers.SerializerMethodField()
     match_confidence = serializers.SerializerMethodField()
     is_orphaned = serializers.SerializerMethodField()
+    replies_count = serializers.SerializerMethodField()
+    replies = serializers.SerializerMethodField()
 
     class Meta:
         from apps.articles.models import ArticleInlineAnnotation
@@ -630,6 +674,8 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
             "is_own",
             "match_confidence",
             "is_orphaned",
+            "replies_count",
+            "replies",
             "created_at",
             "updated_at",
             "resolved_at",
@@ -642,11 +688,24 @@ class ArticleInlineAnnotationSerializer(serializers.ModelSerializer):
             "is_own",
             "match_confidence",
             "is_orphaned",
+            "replies_count",
+            "replies",
             "created_at",
             "updated_at",
             "resolved_at",
             "resolved_by",
         ]
+
+    def get_replies_count(self, obj):
+        return getattr(obj, "replies", None).count() if hasattr(obj, "replies") else 0
+
+    def get_replies(self, obj):
+        if not hasattr(obj, "replies"):
+            return []
+        top_replies = obj.replies.filter(parent=None).order_by("created_at")
+        return ArticleInlineAnnotationReplySerializer(
+            top_replies, many=True, context=self.context
+        ).data
 
     def get_is_own(self, obj):
         request = self.context.get("request")
