@@ -49,3 +49,4 @@
   - 0 TypeScript errors, 0 bundling warnings.
 - Commit #012 [2026-11-25T09:42:39+03:00]: test(annotations): audit step 12 (iteration 1) - verify ArticleInlineAnnotationReply model foreign key constraints on annotation and author
 - Commit #013 [2026-11-25T09:45:10+03:00]: test(annotations): audit step 13 (iteration 1) - test self-referential parent foreign key cascading on nested discussion tree replies
+- Commit #014 [2026-11-25T09:47:41+03:00]: test(annotations): audit step 14 (iteration 1) - verify database indexing on (annotation, created_at) and (parent, created_at)
