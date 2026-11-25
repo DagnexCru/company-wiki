@@ -126,3 +126,4 @@
 - Commit #088 [2026-11-25T12:53:45+03:00]: test(annotations): audit step 88 (iteration 4) - test self-referential parent foreign key cascading on nested discussion tree replies
 - Commit #089 [2026-11-25T12:56:16+03:00]: test(annotations): audit step 89 (iteration 4) - verify database indexing on (annotation, created_at) and (parent, created_at)
 - Commit #090 [2026-11-25T12:58:47+03:00]: test(annotations): audit step 90 (iteration 4) - benchmark ArticleInlineAnnotationReplySerializer recursion performance with 4-level nesting
+- Commit #091 [2026-11-25T13:01:18+03:00]: test(annotations): audit step 91 (iteration 4) - test replies_count calculation accuracy across open and resolved annotations
