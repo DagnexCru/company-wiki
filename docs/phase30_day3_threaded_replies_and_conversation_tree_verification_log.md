@@ -64,3 +64,4 @@
 - Commit #026 [2026-11-25T10:17:51+03:00]: test(annotations): audit step 26 (iteration 1) - audit Markdown styling and @mention pill rendering inside nested reply cards
 - Commit #027 [2026-11-25T10:20:22+03:00]: test(annotations): audit step 27 (iteration 1) - verify AnnotationSideRail expanded conversation tree vertical scrolling container
 - Commit #028 [2026-11-25T10:22:53+03:00]: test(annotations): audit step 28 (iteration 1) - test AnnotationSideRail replying-to indicator tag clear action and state reset
+- Commit #029 [2026-11-25T10:25:24+03:00]: test(annotations): audit step 29 (iteration 1) - test keyboard shortcut Ctrl+Enter to submit threaded reply in active discussion
