@@ -90,3 +90,4 @@
 - Commit #052 [2026-11-25T11:23:14+03:00]: test(annotations): audit step 52 (iteration 2) - verify AnnotationSideRail expanded conversation tree vertical scrolling container
 - Commit #053 [2026-11-25T11:25:45+03:00]: test(annotations): audit step 53 (iteration 2) - test AnnotationSideRail replying-to indicator tag clear action and state reset
 - Commit #054 [2026-11-25T11:28:15+03:00]: test(annotations): audit step 54 (iteration 2) - test keyboard shortcut Ctrl+Enter to submit threaded reply in active discussion
+- Commit #055 [2026-11-25T11:30:46+03:00]: test(annotations): audit step 55 (iteration 2) - verify Resolve Thread action updates annotation status and resolved_by attribution
