@@ -174,3 +174,4 @@
 - Commit #136 [2026-11-25T14:54:27+03:00]: test(annotations): audit step 136 (iteration 5) - verify zero regressions across complete Django articles test suite
 - Commit #137 [2026-11-25T14:56:57+03:00]: test(annotations): audit step 137 (iteration 6) - verify ArticleInlineAnnotationReply model foreign key constraints on annotation and author
 - Commit #138 [2026-11-25T14:59:28+03:00]: test(annotations): audit step 138 (iteration 6) - test self-referential parent foreign key cascading on nested discussion tree replies
+- Commit #139 [2026-11-25T15:01:59+03:00]: test(annotations): audit step 139 (iteration 6) - verify database indexing on (annotation, created_at) and (parent, created_at)
