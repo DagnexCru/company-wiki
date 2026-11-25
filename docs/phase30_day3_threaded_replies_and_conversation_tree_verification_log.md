@@ -185,3 +185,4 @@
 - Commit #147 [2026-11-25T15:22:06+03:00]: test(annotations): audit step 147 (iteration 6) - verify 403 Forbidden response when reader attempts to delete another user reply
 - Commit #148 [2026-11-25T15:24:37+03:00]: test(annotations): audit step 148 (iteration 6) - verify 204 No Content response when reply author deletes own comment
 - Commit #149 [2026-11-25T15:27:08+03:00]: test(annotations): audit step 149 (iteration 6) - verify system administrator can delete any inappropriate reply in discussion thread
+- Commit #150 [2026-11-25T15:29:39+03:00]: test(annotations): audit step 150 (iteration 6) - test GET /articles/{slug}/annotations/{id}/replies/ endpoint payload structure
