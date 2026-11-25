@@ -123,3 +123,4 @@
 - Commit #085 [2026-11-25T12:46:12+03:00]: test(annotations): audit step 85 (iteration 3) - verify zero TypeScript compilation errors in frontend production build
 - Commit #086 [2026-11-25T12:48:43+03:00]: test(annotations): audit step 86 (iteration 3) - verify zero regressions across complete Django articles test suite
 - Commit #087 [2026-11-25T12:51:14+03:00]: test(annotations): audit step 87 (iteration 4) - verify ArticleInlineAnnotationReply model foreign key constraints on annotation and author
+- Commit #088 [2026-11-25T12:53:45+03:00]: test(annotations): audit step 88 (iteration 4) - test self-referential parent foreign key cascading on nested discussion tree replies
