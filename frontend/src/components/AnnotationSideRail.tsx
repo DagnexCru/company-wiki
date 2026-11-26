@@ -20,6 +20,7 @@ interface AnnotationSideRailProps {
   annotations: ArticleInlineAnnotation[];
   activeAnnotationId: string | null;
   hoveredAnnotationId: string | null;
+  typistsByAnnotation?: { [annotationId: string]: string[] };
   onSelectAnnotation: (id: string) => void;
   onHoverAnnotation: (id: string | null) => void;
   onReplyToAnnotation?: (
@@ -30,24 +31,28 @@ interface AnnotationSideRailProps {
   onResolveAnnotation?: (annotationId: string) => Promise<void>;
   onReopenAnnotation?: (annotationId: string) => Promise<void>;
   onDeleteReply?: (annotationId: string, replyId: string) => Promise<void>;
+  onTyping?: (annotationId: string, isTyping: boolean) => void;
 }
 
 export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
   annotations,
   activeAnnotationId,
   hoveredAnnotationId,
+  typistsByAnnotation,
   onSelectAnnotation,
   onHoverAnnotation,
   onReplyToAnnotation,
   onResolveAnnotation,
   onReopenAnnotation,
   onDeleteReply,
+  onTyping,
 }) => {
   const [replyText, setReplyText] = useState<{ [annId: string]: string }>({});
   const [replyingTo, setReplyingTo] = useState<{
     [annId: string]: { parentId: string; username: string } | null;
   }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const typingTimerRef = React.useRef<{ [annId: string]: any }>({});
 
   if (!annotations || annotations.length === 0) return null;
 
@@ -57,6 +62,7 @@ export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
 
     try {
       setIsSubmitting(true);
+      if (onTyping) onTyping(annId, false);
       const parentId = replyingTo[annId]?.parentId || null;
       await onReplyToAnnotation(annId, text, parentId);
       setReplyText((prev) => ({ ...prev, [annId]: "" }));
@@ -65,6 +71,20 @@ export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
       console.error("Failed to post reply:", err);
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleTextChange = (annId: string, val: string) => {
+    setReplyText((prev) => ({ ...prev, [annId]: val }));
+
+    if (onTyping) {
+      onTyping(annId, true);
+      if (typingTimerRef.current[annId]) {
+        clearTimeout(typingTimerRef.current[annId]);
+      }
+      typingTimerRef.current[annId] = setTimeout(() => {
+        onTyping(annId, false);
+      }, 2500);
     }
   };
 
@@ -313,18 +333,31 @@ export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
                     </div>
                   )}
 
+                  {/* Live Typing Presence Indicator */}
+                  {typistsByAnnotation && typistsByAnnotation[ann.id] && typistsByAnnotation[ann.id].length > 0 && (
+                    <div className="flex items-center gap-1.5 text-[10px] text-indigo-600 dark:text-indigo-400 font-medium py-0.5 animate-pulse">
+                      <span className="flex gap-0.5 items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-bounce" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-bounce [animation-delay:0.2s]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-bounce [animation-delay:0.4s]" />
+                      </span>
+                      <span>
+                        {typistsByAnnotation[ann.id].map((u) => `@${u}`).join(", ")}{" "}
+                        {typistsByAnnotation[ann.id].length > 1 ? "are typing..." : "is typing..."}
+                      </span>
+                    </div>
+                  )}
+
                   {/* Reply Input Box */}
                   <div className="space-y-1.5 pt-1">
                     <div className="relative">
                       <textarea
                         rows={2}
                         value={replyText[ann.id] || ""}
-                        onChange={(e) =>
-                          setReplyText((prev) => ({
-                            ...prev,
-                            [ann.id]: e.target.value,
-                          }))
-                        }
+                        onChange={(e) => handleTextChange(ann.id, e.target.value)}
+                        onBlur={() => {
+                          if (onTyping) onTyping(ann.id, false);
+                        }}
                         placeholder={
                           currentReplyingTo
                             ? `Reply to @${currentReplyingTo.username}...`
