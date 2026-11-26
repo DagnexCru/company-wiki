@@ -423,3 +423,85 @@ class ArticleInlineAnnotationTests(TestCase):
         res_ok = self.client.delete(url)
         self.assertEqual(res_ok.status_code, 204)
         self.assertFalse(ArticleInlineAnnotationReply.objects.filter(id=reply.id).exists())
+
+    def test_typing_beacon_broadcast_and_clear(self):
+        """
+        Verify that POST /annotations/typing/ updates active typists and clears properly.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="test text",
+            start_offset=0,
+            end_offset=9,
+            content="Test content",
+        )
+
+        self.client.force_authenticate(user=self.peer_reviewer)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/typing/"
+
+        # Send typing: True
+        res = self.client.post(url, {"annotation_id": str(ann.id), "is_typing": True}, format="json")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["status"], "ok")
+        typists = data["active_typists"]
+        self.assertTrue(any(t["username"] == self.peer_reviewer.username for t in typists))
+
+        # Send typing: False (cleared)
+        res_clear = self.client.post(url, {"annotation_id": str(ann.id), "is_typing": False}, format="json")
+        self.assertEqual(res_clear.status_code, 200)
+        clear_data = res_clear.json()
+        self.assertFalse(any(t["username"] == self.peer_reviewer.username for t in clear_data["active_typists"]))
+
+    def test_live_sync_endpoint(self):
+        """
+        Verify that GET /annotations/sync/ returns delta updates and server time.
+        """
+        self.client.force_authenticate(user=self.reader)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/sync/"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertIn("server_time", data)
+        self.assertIn("active_typists", data)
+        self.assertIn("annotations", data)
+
+    def test_asgi_websocket_consumer_lifecycle(self):
+        """
+        Verify that annotation_websocket_consumer correctly handles connect, typing, ping, and disconnect.
+        """
+        import asyncio
+        import json
+        from apps.articles.websocket_consumer import annotation_websocket_consumer
+
+        scope = {
+            "type": "websocket",
+            "path": f"/ws/articles/{self.published_article.slug}/annotations/",
+        }
+
+        sent_messages = []
+
+        async def fake_send(msg):
+            sent_messages.append(msg)
+
+        incoming = [
+            {"type": "websocket.connect"},
+            {"type": "websocket.receive", "text": json.dumps({"type": "ping"})},
+            {"type": "websocket.receive", "text": json.dumps({"type": "typing", "annotation_id": "test-id", "username": "alice", "is_typing": True})},
+            {"type": "websocket.disconnect"},
+        ]
+
+        async def fake_receive():
+            if incoming:
+                return incoming.pop(0)
+            return {"type": "websocket.disconnect"}
+
+        asyncio.run(annotation_websocket_consumer(scope, fake_receive, fake_send))
+
+        # Check that connect was accepted and ping received pong
+        types_sent = [m.get("type") for m in sent_messages]
+        self.assertIn("websocket.accept", types_sent)
+        raw_texts = [m.get("text", "") for m in sent_messages if m.get("type") == "websocket.send"]
+        self.assertTrue(any("pong" in t for t in raw_texts))
