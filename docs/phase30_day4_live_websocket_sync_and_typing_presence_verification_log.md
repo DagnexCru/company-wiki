@@ -152,3 +152,4 @@
 - Commit #119 [2026-11-26T13:32:56+03:00]: test(annotations): audit step 119 (iteration 5) - test live update propagation when teammate adds an annotation in background
 - Commit #120 [2026-11-26T13:35:07+03:00]: test(annotations): audit step 120 (iteration 5) - test live update propagation when teammate posts a reply in discussion thread
 - Commit #121 [2026-11-26T13:37:18+03:00]: test(annotations): audit step 121 (iteration 5) - test live update propagation when teammate resolves or reopens thread
+- Commit #122 [2026-11-26T13:39:29+03:00]: test(annotations): audit step 122 (iteration 5) - profile React memory allocation during continuous delta sync polling cycles
