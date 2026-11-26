@@ -154,3 +154,4 @@
 - Commit #121 [2026-11-26T13:37:18+03:00]: test(annotations): audit step 121 (iteration 5) - test live update propagation when teammate resolves or reopens thread
 - Commit #122 [2026-11-26T13:39:29+03:00]: test(annotations): audit step 122 (iteration 5) - profile React memory allocation during continuous delta sync polling cycles
 - Commit #123 [2026-11-26T13:41:41+03:00]: test(annotations): audit step 123 (iteration 5) - verify clean socket teardown and listener removal on ArticleDetailPage unmount
+- Commit #124 [2026-11-26T13:43:52+03:00]: test(annotations): audit step 124 (iteration 5) - audit zero TypeScript compilation warnings in frontend production build
