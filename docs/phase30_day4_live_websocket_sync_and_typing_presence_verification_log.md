@@ -107,3 +107,4 @@
 - Commit #074 [2026-11-26T11:54:34+03:00]: test(annotations): audit step 74 (iteration 3) - test live update propagation when teammate posts a reply in discussion thread
 - Commit #075 [2026-11-26T11:56:45+03:00]: test(annotations): audit step 75 (iteration 3) - test live update propagation when teammate resolves or reopens thread
 - Commit #076 [2026-11-26T11:58:56+03:00]: test(annotations): audit step 76 (iteration 3) - profile React memory allocation during continuous delta sync polling cycles
+- Commit #077 [2026-11-26T12:01:07+03:00]: test(annotations): audit step 77 (iteration 3) - verify clean socket teardown and listener removal on ArticleDetailPage unmount
