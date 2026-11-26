@@ -186,3 +186,4 @@
 - Commit #153 [2026-11-26T14:47:15+03:00]: test(annotations): audit step 153 (iteration 7) - test typing beacon clearing when is_typing is explicitly passed as false
 - Commit #154 [2026-11-26T14:49:26+03:00]: test(annotations): audit step 154 (iteration 7) - verify GET /annotations/sync/ delta query filtering by ISO since timestamp
 - Commit #155 [2026-11-26T14:51:37+03:00]: test(annotations): audit step 155 (iteration 7) - test live sync payload structure containing active typists and server_time
+- Commit #156 [2026-11-26T14:53:49+03:00]: test(annotations): audit step 156 (iteration 7) - benchmark ASGI WebSocket ping-pong response latency under 5 milliseconds
