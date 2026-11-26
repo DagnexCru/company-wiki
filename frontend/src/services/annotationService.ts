@@ -153,4 +153,49 @@ export const annotationService = {
       `/articles/${slug}/annotations/${annotationId}/replies/${replyId}/`
     );
   },
+
+  /**
+   * Broadcast or clear typing presence on a specific inline discussion thread.
+   * POST /api/v1/articles/{slug}/annotations/typing/
+   */
+  async sendTypingBeacon(
+    slug: string,
+    annotationId: string,
+    isTyping: boolean
+  ): Promise<{
+    status: string;
+    active_typists: Array<{
+      annotation_id: string;
+      username: string;
+      full_name?: string;
+    }>;
+  }> {
+    const response = await api.post(`/articles/${slug}/annotations/typing/`, {
+      annotation_id: annotationId,
+      is_typing: isTyping,
+    });
+    return response.data;
+  },
+
+  /**
+   * Delta synchronization endpoint returning updated annotations and active typing presence.
+   * GET /api/v1/articles/{slug}/annotations/sync/?since=...
+   */
+  async syncAnnotations(
+    slug: string,
+    since?: string
+  ): Promise<{
+    server_time: string;
+    active_typists: Array<{
+      annotation_id: string;
+      username: string;
+      full_name?: string;
+    }>;
+    annotations: ArticleInlineAnnotation[];
+  }> {
+    const response = await api.get(`/articles/${slug}/annotations/sync/`, {
+      params: since ? { since } : {},
+    });
+    return response.data;
+  },
 };
