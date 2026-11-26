@@ -229,3 +229,4 @@
 - Commit #196 [2026-11-26T16:21:15+03:00]: test(annotations): audit step 196 (iteration 9) - test broadcast_to_room message fan-out across multiple concurrent WebSocket peers
 - Commit #197 [2026-11-26T16:23:26+03:00]: test(annotations): audit step 197 (iteration 9) - audit in-memory connection registry dead connection cleanup on unexpected drop
 - Commit #198 [2026-11-26T16:25:37+03:00]: test(annotations): audit step 198 (iteration 9) - verify typing beacon endpoint registers keystrokes and applies 4-second TTL
+- Commit #199 [2026-11-26T16:27:48+03:00]: test(annotations): audit step 199 (iteration 9) - test typing beacon clearing when is_typing is explicitly passed as false
