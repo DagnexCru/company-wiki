@@ -81,3 +81,4 @@
 - Commit #048 [2026-11-26T10:57:44+03:00]: test(annotations): audit step 48 (iteration 2) - test textarea onBlur event immediately transmitting typing false beacon
 - Commit #049 [2026-11-26T10:59:55+03:00]: test(annotations): audit step 49 (iteration 2) - verify handleSendReply immediately dispatches typing false upon message submission
 - Commit #050 [2026-11-26T11:02:06+03:00]: test(annotations): audit step 50 (iteration 2) - test live update propagation when teammate adds an annotation in background
+- Commit #051 [2026-11-26T11:04:17+03:00]: test(annotations): audit step 51 (iteration 2) - test live update propagation when teammate posts a reply in discussion thread
