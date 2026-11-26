@@ -57,6 +57,7 @@ import { checklistService } from "../services/checklistService";
 import { annotationService } from "../services/annotationService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
 import { useReaderEngagement } from "../hooks/useReaderEngagement";
+import { useAnnotationLiveSync } from "../hooks/useAnnotationLiveSync";
 import { useTextSelection, type TextSelectionData } from "../hooks/useTextSelection";
 import { extractHeadings } from "../utils/headingUtils";
 import type { ArticleDetail } from "../types/article";
@@ -135,6 +136,28 @@ export const ArticleDetailPage: React.FC = () => {
   useEffect(() => {
     fetchAnnotations();
   }, [fetchAnnotations]);
+
+  // Real-Time WebSocket Synchronization & Typing Presence (Phase 30 Day 4)
+  const { typistsByAnnotation, sendTypingSignal } = useAnnotationLiveSync({
+    slug,
+    onNewAnnotation: (newAnn) => {
+      setAnnotations((prev) => {
+        if (prev.some((a) => a.id === newAnn.id)) return prev;
+        return [newAnn, ...prev];
+      });
+    },
+    onNewReply: async () => {
+      if (slug) {
+        const updated = await annotationService.getAnnotations(slug);
+        setAnnotations(updated);
+      }
+    },
+    onStatusChange: (annId, nextStatus) => {
+      setAnnotations((prev) =>
+        prev.map((a) => (a.id === annId ? { ...a, status: nextStatus } : a))
+      );
+    },
+  });
 
   const handleCreateAnnotation = async (content: string, selection: TextSelectionData) => {
     if (!slug) return;
@@ -1059,12 +1082,16 @@ export const ArticleDetailPage: React.FC = () => {
               annotations={annotations}
               activeAnnotationId={activeAnnotationId}
               hoveredAnnotationId={hoveredAnnotationId}
+              typistsByAnnotation={typistsByAnnotation}
               onSelectAnnotation={(id) => setActiveAnnotationId(id)}
               onHoverAnnotation={(id) => setHoveredAnnotationId(id)}
               onReplyToAnnotation={handleReplyToAnnotation}
               onResolveAnnotation={handleResolveAnnotation}
               onReopenAnnotation={handleReopenAnnotation}
               onDeleteReply={handleDeleteReply}
+              onTyping={(annId, isTyping) =>
+                sendTypingSignal(annId, isTyping, user?.username)
+              }
             />
           </div>
 
