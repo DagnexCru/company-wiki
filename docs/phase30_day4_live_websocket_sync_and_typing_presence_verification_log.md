@@ -148,3 +148,4 @@
 - Commit #115 [2026-11-26T13:24:11+03:00]: test(annotations): audit step 115 (iteration 5) - audit animated jumping dots CSS keyframe animation and bounce delays
 - Commit #116 [2026-11-26T13:26:22+03:00]: test(annotations): audit step 116 (iteration 5) - test keystroke debounce timer clearing typing presence after 2.5s inactivity
 - Commit #117 [2026-11-26T13:28:34+03:00]: test(annotations): audit step 117 (iteration 5) - test textarea onBlur event immediately transmitting typing false beacon
+- Commit #118 [2026-11-26T13:30:45+03:00]: test(annotations): audit step 118 (iteration 5) - verify handleSendReply immediately dispatches typing false upon message submission
