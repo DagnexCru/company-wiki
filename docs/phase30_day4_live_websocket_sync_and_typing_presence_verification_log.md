@@ -134,3 +134,4 @@
 - Commit #101 [2026-11-26T12:53:35+03:00]: test(annotations): audit step 101 (iteration 4) - audit zero TypeScript compilation warnings in frontend production build
 - Commit #102 [2026-11-26T12:55:46+03:00]: test(annotations): audit step 102 (iteration 4) - verify zero test regressions across complete Django articles test suite
 - Commit #103 [2026-11-26T12:57:57+03:00]: test(annotations): audit step 103 (iteration 5) - verify ASGI WebSocket connection handshake and room partitioning by article slug
+- Commit #104 [2026-11-26T13:00:09+03:00]: test(annotations): audit step 104 (iteration 5) - test broadcast_to_room message fan-out across multiple concurrent WebSocket peers
