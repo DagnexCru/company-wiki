@@ -93,3 +93,4 @@
 - Commit #060 [2026-11-26T11:23:58+03:00]: test(annotations): audit step 60 (iteration 3) - verify typing beacon endpoint registers keystrokes and applies 4-second TTL
 - Commit #061 [2026-11-26T11:26:09+03:00]: test(annotations): audit step 61 (iteration 3) - test typing beacon clearing when is_typing is explicitly passed as false
 - Commit #062 [2026-11-26T11:28:20+03:00]: test(annotations): audit step 62 (iteration 3) - verify GET /annotations/sync/ delta query filtering by ISO since timestamp
+- Commit #063 [2026-11-26T11:30:31+03:00]: test(annotations): audit step 63 (iteration 3) - test live sync payload structure containing active typists and server_time
