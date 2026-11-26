@@ -49,3 +49,4 @@
 - Commit #016 [2026-11-26T09:47:47+03:00]: test(annotations): audit step 16 (iteration 1) - verify GET /annotations/sync/ delta query filtering by ISO since timestamp
 - Commit #017 [2026-11-26T09:49:58+03:00]: test(annotations): audit step 17 (iteration 1) - test live sync payload structure containing active typists and server_time
 - Commit #018 [2026-11-26T09:52:09+03:00]: test(annotations): audit step 18 (iteration 1) - benchmark ASGI WebSocket ping-pong response latency under 5 milliseconds
+- Commit #019 [2026-11-26T09:54:20+03:00]: test(annotations): audit step 19 (iteration 1) - audit useAnnotationLiveSync automatic WebSocket reconnect on network interruption
