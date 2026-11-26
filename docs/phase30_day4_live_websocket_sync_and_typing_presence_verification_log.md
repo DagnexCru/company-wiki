@@ -105,3 +105,4 @@
 - Commit #072 [2026-11-26T11:50:12+03:00]: test(annotations): audit step 72 (iteration 3) - verify handleSendReply immediately dispatches typing false upon message submission
 - Commit #073 [2026-11-26T11:52:23+03:00]: test(annotations): audit step 73 (iteration 3) - test live update propagation when teammate adds an annotation in background
 - Commit #074 [2026-11-26T11:54:34+03:00]: test(annotations): audit step 74 (iteration 3) - test live update propagation when teammate posts a reply in discussion thread
+- Commit #075 [2026-11-26T11:56:45+03:00]: test(annotations): audit step 75 (iteration 3) - test live update propagation when teammate resolves or reopens thread
