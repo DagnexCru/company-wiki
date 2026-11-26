@@ -103,3 +103,4 @@
 - Commit #070 [2026-11-26T11:45:49+03:00]: test(annotations): audit step 70 (iteration 3) - test keystroke debounce timer clearing typing presence after 2.5s inactivity
 - Commit #071 [2026-11-26T11:48:00+03:00]: test(annotations): audit step 71 (iteration 3) - test textarea onBlur event immediately transmitting typing false beacon
 - Commit #072 [2026-11-26T11:50:12+03:00]: test(annotations): audit step 72 (iteration 3) - verify handleSendReply immediately dispatches typing false upon message submission
+- Commit #073 [2026-11-26T11:52:23+03:00]: test(annotations): audit step 73 (iteration 3) - test live update propagation when teammate adds an annotation in background
