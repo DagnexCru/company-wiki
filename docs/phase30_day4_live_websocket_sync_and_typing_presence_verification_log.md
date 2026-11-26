@@ -41,3 +41,4 @@
   - 16/16 tests passed successfully (including ASGI WebSocket lifecycle, typing beacon, and delta sync endpoints).
 - **Frontend Production Build:** `npm --prefix frontend run build`
   - 0 TypeScript compilation errors, 0 bundling warnings.
+- Commit #011 [2026-11-26T09:36:51+03:00]: test(annotations): audit step 11 (iteration 1) - verify ASGI WebSocket connection handshake and room partitioning by article slug
