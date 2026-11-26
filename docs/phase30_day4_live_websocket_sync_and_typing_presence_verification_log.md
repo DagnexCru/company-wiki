@@ -184,3 +184,4 @@
 - Commit #151 [2026-11-26T14:42:53+03:00]: test(annotations): audit step 151 (iteration 7) - audit in-memory connection registry dead connection cleanup on unexpected drop
 - Commit #152 [2026-11-26T14:45:04+03:00]: test(annotations): audit step 152 (iteration 7) - verify typing beacon endpoint registers keystrokes and applies 4-second TTL
 - Commit #153 [2026-11-26T14:47:15+03:00]: test(annotations): audit step 153 (iteration 7) - test typing beacon clearing when is_typing is explicitly passed as false
+- Commit #154 [2026-11-26T14:49:26+03:00]: test(annotations): audit step 154 (iteration 7) - verify GET /annotations/sync/ delta query filtering by ISO since timestamp
