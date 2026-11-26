@@ -124,3 +124,4 @@
 - Commit #091 [2026-11-26T12:31:44+03:00]: test(annotations): audit step 91 (iteration 4) - verify multiple typists formatting: @user1, @user2 are typing...
 - Commit #092 [2026-11-26T12:33:55+03:00]: test(annotations): audit step 92 (iteration 4) - audit animated jumping dots CSS keyframe animation and bounce delays
 - Commit #093 [2026-11-26T12:36:06+03:00]: test(annotations): audit step 93 (iteration 4) - test keystroke debounce timer clearing typing presence after 2.5s inactivity
+- Commit #094 [2026-11-26T12:38:17+03:00]: test(annotations): audit step 94 (iteration 4) - test textarea onBlur event immediately transmitting typing false beacon
