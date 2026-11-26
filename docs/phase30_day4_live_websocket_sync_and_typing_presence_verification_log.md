@@ -201,3 +201,4 @@
 - Commit #168 [2026-11-26T15:20:03+03:00]: test(annotations): audit step 168 (iteration 7) - profile React memory allocation during continuous delta sync polling cycles
 - Commit #169 [2026-11-26T15:22:14+03:00]: test(annotations): audit step 169 (iteration 7) - verify clean socket teardown and listener removal on ArticleDetailPage unmount
 - Commit #170 [2026-11-26T15:24:25+03:00]: test(annotations): audit step 170 (iteration 7) - audit zero TypeScript compilation warnings in frontend production build
+- Commit #171 [2026-11-26T15:26:36+03:00]: test(annotations): audit step 171 (iteration 7) - verify zero test regressions across complete Django articles test suite
