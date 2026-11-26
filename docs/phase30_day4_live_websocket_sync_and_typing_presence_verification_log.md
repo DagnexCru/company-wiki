@@ -97,3 +97,4 @@
 - Commit #064 [2026-11-26T11:32:42+03:00]: test(annotations): audit step 64 (iteration 3) - benchmark ASGI WebSocket ping-pong response latency under 5 milliseconds
 - Commit #065 [2026-11-26T11:34:53+03:00]: test(annotations): audit step 65 (iteration 3) - audit useAnnotationLiveSync automatic WebSocket reconnect on network interruption
 - Commit #066 [2026-11-26T11:37:05+03:00]: test(annotations): audit step 66 (iteration 3) - test typistsByAnnotation state map aggregation with multiple concurrent typists
+- Commit #067 [2026-11-26T11:39:16+03:00]: test(annotations): audit step 67 (iteration 3) - verify single typist formatting: @username is typing...
