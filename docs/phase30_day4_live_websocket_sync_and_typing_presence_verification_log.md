@@ -165,3 +165,4 @@
 - Commit #132 [2026-11-26T14:01:21+03:00]: test(annotations): audit step 132 (iteration 6) - test live sync payload structure containing active typists and server_time
 - Commit #133 [2026-11-26T14:03:32+03:00]: test(annotations): audit step 133 (iteration 6) - benchmark ASGI WebSocket ping-pong response latency under 5 milliseconds
 - Commit #134 [2026-11-26T14:05:43+03:00]: test(annotations): audit step 134 (iteration 6) - audit useAnnotationLiveSync automatic WebSocket reconnect on network interruption
+- Commit #135 [2026-11-26T14:07:54+03:00]: test(annotations): audit step 135 (iteration 6) - test typistsByAnnotation state map aggregation with multiple concurrent typists
