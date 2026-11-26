@@ -90,3 +90,4 @@
 - Commit #057 [2026-11-26T11:17:24+03:00]: test(annotations): audit step 57 (iteration 3) - verify ASGI WebSocket connection handshake and room partitioning by article slug
 - Commit #058 [2026-11-26T11:19:35+03:00]: test(annotations): audit step 58 (iteration 3) - test broadcast_to_room message fan-out across multiple concurrent WebSocket peers
 - Commit #059 [2026-11-26T11:21:47+03:00]: test(annotations): audit step 59 (iteration 3) - audit in-memory connection registry dead connection cleanup on unexpected drop
+- Commit #060 [2026-11-26T11:23:58+03:00]: test(annotations): audit step 60 (iteration 3) - verify typing beacon endpoint registers keystrokes and applies 4-second TTL
