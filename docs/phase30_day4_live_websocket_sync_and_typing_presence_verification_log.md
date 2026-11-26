@@ -66,3 +66,4 @@
 - Commit #033 [2026-11-26T10:24:56+03:00]: test(annotations): audit step 33 (iteration 1) - verify zero test regressions across complete Django articles test suite
 - Commit #034 [2026-11-26T10:27:08+03:00]: test(annotations): audit step 34 (iteration 2) - verify ASGI WebSocket connection handshake and room partitioning by article slug
 - Commit #035 [2026-11-26T10:29:19+03:00]: test(annotations): audit step 35 (iteration 2) - test broadcast_to_room message fan-out across multiple concurrent WebSocket peers
+- Commit #036 [2026-11-26T10:31:30+03:00]: test(annotations): audit step 36 (iteration 2) - audit in-memory connection registry dead connection cleanup on unexpected drop
