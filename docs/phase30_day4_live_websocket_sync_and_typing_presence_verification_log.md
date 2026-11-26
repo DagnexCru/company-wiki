@@ -133,3 +133,4 @@
 - Commit #100 [2026-11-26T12:51:24+03:00]: test(annotations): audit step 100 (iteration 4) - verify clean socket teardown and listener removal on ArticleDetailPage unmount
 - Commit #101 [2026-11-26T12:53:35+03:00]: test(annotations): audit step 101 (iteration 4) - audit zero TypeScript compilation warnings in frontend production build
 - Commit #102 [2026-11-26T12:55:46+03:00]: test(annotations): audit step 102 (iteration 4) - verify zero test regressions across complete Django articles test suite
+- Commit #103 [2026-11-26T12:57:57+03:00]: test(annotations): audit step 103 (iteration 5) - verify ASGI WebSocket connection handshake and room partitioning by article slug
