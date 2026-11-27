@@ -249,3 +249,9 @@
 - **Component Scope:** `light-mode-contrast`
 - **Verification Detail:** Slate-800 on white backgrounds delivers 9.8:1 contrast ratio.
 - **Status:** PASS (100% verified)
+
+### Audit Check #042 (Cycle 1) — Audit aria-labels and roles across drawer buttons and inputs
+- **Timestamp:** `2026-11-27 11:33:15 +0300`
+- **Component Scope:** `screen-reader-aria`
+- **Verification Detail:** Accessible names provided for close, reply, reopen, and delete buttons.
+- **Status:** PASS (100% verified)
