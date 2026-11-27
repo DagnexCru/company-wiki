@@ -405,3 +405,9 @@
 - **Component Scope:** `drawer-mention-pill`
 - **Verification Detail:** Mentions render with bg-indigo-950/70 and text-indigo-400 in dark theme.
 - **Status:** PASS (100% verified)
+
+### Audit Check #068 (Cycle 2) — Test 'replying to @username' banner and cancel button behavior
+- **Timestamp:** `2026-11-27 13:00:56 +0300`
+- **Component Scope:** `drawer-reply-targeting`
+- **Verification Detail:** Targeting tag accurately locks parentId and dismisses on tag close.
+- **Status:** PASS (100% verified)
