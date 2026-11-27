@@ -273,3 +273,9 @@
 - **Component Scope:** `delete-reply-confirm`
 - **Verification Detail:** Only reply author can delete reply, immediately removed from tree.
 - **Status:** PASS (100% verified)
+
+### Audit Check #046 (Cycle 1) — Verify live websocket thread updates reflected in open drawer
+- **Timestamp:** `2026-11-27 11:46:45 +0300`
+- **Component Scope:** `websocket-sync-test`
+- **Verification Detail:** Incoming WebSocket broadcasts append or update thread models in real time.
+- **Status:** PASS (100% verified)
