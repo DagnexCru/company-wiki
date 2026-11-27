@@ -591,3 +591,9 @@
 - **Component Scope:** `filter-mentioned-tag`
 - **Verification Detail:** Matches @<username> occurrences in annotation content or reply text.
 - **Status:** PASS (100% verified)
+
+### Audit Check #099 (Cycle 3) — Tune drawer overlay backdrop blur transition styling
+- **Timestamp:** `2026-11-27 14:45:28 +0300`
+- **Component Scope:** `drawer-backdrop-blur`
+- **Verification Detail:** Applied backdrop-blur-xs with subtle 40% opacity slate overlay.
+- **Status:** PASS (100% verified)
