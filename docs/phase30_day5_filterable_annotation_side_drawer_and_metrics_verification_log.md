@@ -573,3 +573,9 @@
 - **Component Scope:** `filter-search-quote`
 - **Verification Detail:** Uses icontains on highlighted_text field preserving accented characters.
 - **Status:** PASS (100% verified)
+
+### Audit Check #096 (Cycle 3) — Verify search query matching root comment text
+- **Timestamp:** `2026-11-27 14:35:21 +0300`
+- **Component Scope:** `filter-search-comment`
+- **Verification Detail:** Matches search keyword against root comment content body.
+- **Status:** PASS (100% verified)
