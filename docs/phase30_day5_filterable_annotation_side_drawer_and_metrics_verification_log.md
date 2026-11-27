@@ -57,3 +57,9 @@
 - **Component Scope:** `metrics-formula`
 - **Verification Detail:** Resolution rate clamps cleanly to 0.0% when total annotations count is zero.
 - **Status:** PASS (100% verified)
+
+### Audit Check #010 (Cycle 1) — Verify average resolution elapsed time calculation using f() expressions
+- **Timestamp:** `2026-11-27 09:45:21 +0300`
+- **Component Scope:** `metrics-avg-time`
+- **Verification Detail:** Computed using Django DurationField aggregation averaging resolved_at - created_at.
+- **Status:** PASS (100% verified)
