@@ -567,3 +567,9 @@
 - **Component Scope:** `filter-author-id`
 - **Verification Detail:** Supports both username string matching and UUID lookup against custom user model.
 - **Status:** PASS (100% verified)
+
+### Audit Check #095 (Cycle 3) — Verify case-insensitive text search matching highlighted quote substrings
+- **Timestamp:** `2026-11-27 14:31:59 +0300`
+- **Component Scope:** `filter-search-quote`
+- **Verification Detail:** Uses icontains on highlighted_text field preserving accented characters.
+- **Status:** PASS (100% verified)
