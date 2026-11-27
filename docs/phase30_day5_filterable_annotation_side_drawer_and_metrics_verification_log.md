@@ -63,3 +63,9 @@
 - **Component Scope:** `metrics-avg-time`
 - **Verification Detail:** Computed using Django DurationField aggregation averaging resolved_at - created_at.
 - **Status:** PASS (100% verified)
+
+### Audit Check #011 (Cycle 1) — Audit top contributors aggregation grouping by author id
+- **Timestamp:** `2026-11-27 09:48:43 +0300`
+- **Component Scope:** `metrics-top-contributors`
+- **Verification Detail:** Calculates annotation authors + reply authors grouped with combined activity ranking.
+- **Status:** PASS (100% verified)
