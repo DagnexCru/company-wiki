@@ -321,3 +321,9 @@
 - **Component Scope:** `filter-status-resolved`
 - **Verification Detail:** Queryset filter accurately scopes to resolved review threads with resolved_at timestamps.
 - **Status:** PASS (100% verified)
+
+### Audit Check #054 (Cycle 2) — Verify filter by author uuid and username matching author foreign key
+- **Timestamp:** `2026-11-27 12:13:43 +0300`
+- **Component Scope:** `filter-author-id`
+- **Verification Detail:** Supports both username string matching and UUID lookup against custom user model.
+- **Status:** PASS (100% verified)
