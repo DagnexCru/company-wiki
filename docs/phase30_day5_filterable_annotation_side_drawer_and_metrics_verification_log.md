@@ -285,3 +285,9 @@
 - **Component Scope:** `empty-state-visual`
 - **Verification Detail:** Displays Filter icon and helpful instructional copy.
 - **Status:** PASS (100% verified)
+
+### Audit Check #048 (Cycle 1) — Test vertical scroll containment on discussion threads exceeding viewport
+- **Timestamp:** `2026-11-27 11:53:29 +0300`
+- **Component Scope:** `long-thread-scroll`
+- **Verification Detail:** Max-height constraint and overflow-y-auto enable smooth scrolling.
+- **Status:** PASS (100% verified)
