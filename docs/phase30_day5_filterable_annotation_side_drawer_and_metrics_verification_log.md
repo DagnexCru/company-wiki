@@ -663,3 +663,9 @@
 - **Component Scope:** `drawer-keyboard-shortcut`
 - **Verification Detail:** Keydown listener triggers handleSendReply on Command or Control with Enter.
 - **Status:** PASS (100% verified)
+
+### Audit Check #111 (Cycle 3) — Audit document scroll behavior when drawer is open
+- **Timestamp:** `2026-11-27 15:25:56 +0300`
+- **Component Scope:** `drawer-scroll-lock`
+- **Verification Detail:** Sliding drawer operates with independent scroll container.
+- **Status:** PASS (100% verified)
