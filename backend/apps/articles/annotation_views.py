@@ -1,4 +1,5 @@
 import uuid
+from django.db import models
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from rest_framework.views import APIView
@@ -47,6 +48,10 @@ class ArticleInlineAnnotationListView(APIView):
                 )
 
         status_param = request.query_params.get("status", "all").lower().strip()
+        author_param = request.query_params.get("author", "").strip()
+        search_query = request.query_params.get("search", "").strip()
+        mentioned_param = request.query_params.get("mentioned", "").strip()
+
         qs = (
             ArticleInlineAnnotation.objects.filter(article=article)
             .select_related("author", "resolved_by")
@@ -57,6 +62,27 @@ class ArticleInlineAnnotationListView(APIView):
             qs = qs.filter(status=ArticleInlineAnnotation.Status.OPEN)
         elif status_param == "resolved":
             qs = qs.filter(status=ArticleInlineAnnotation.Status.RESOLVED)
+
+        if author_param:
+            qs = qs.filter(
+                models.Q(author__username__iexact=author_param)
+                | models.Q(author__id__iexact=author_param)
+            )
+
+        if search_query:
+            qs = qs.filter(
+                models.Q(highlighted_text__icontains=search_query)
+                | models.Q(content__icontains=search_query)
+                | models.Q(replies__content__icontains=search_query)
+            ).distinct()
+
+        if mentioned_param:
+            clean_mention = mentioned_param.lstrip("@")
+            mention_token = f"@{clean_mention}"
+            qs = qs.filter(
+                models.Q(content__icontains=mention_token)
+                | models.Q(replies__content__icontains=mention_token)
+            ).distinct()
 
         serializer = ArticleInlineAnnotationSerializer(qs, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -310,5 +336,87 @@ class ArticleInlineAnnotationReplyDetailView(APIView):
 
         reply.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ArticleInlineAnnotationMetricsView(APIView):
+    """
+    Compute and return discussion velocity and resolution metrics for an article's inline annotations.
+    URL: GET /api/v1/articles/<slug_or_id>/annotations/metrics/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, slug_or_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+
+        all_annotations = ArticleInlineAnnotation.objects.filter(article=article)
+        total_annotations = all_annotations.count()
+        open_count = all_annotations.filter(status=ArticleInlineAnnotation.Status.OPEN).count()
+        resolved_annotations = all_annotations.filter(status=ArticleInlineAnnotation.Status.RESOLVED)
+        resolved_count = resolved_annotations.count()
+
+        resolution_rate = (
+            round((resolved_count / total_annotations * 100), 1)
+            if total_annotations > 0
+            else 100.0
+        )
+
+        all_replies = ArticleInlineAnnotationReply.objects.filter(annotation__article=article)
+        total_replies = all_replies.count()
+
+        # Calculate average resolution time (in hours) for resolved threads
+        resolution_durations = []
+        for ann in resolved_annotations:
+            if ann.resolved_at and ann.created_at:
+                diff_seconds = (ann.resolved_at - ann.created_at).total_seconds()
+                if diff_seconds >= 0:
+                    resolution_durations.append(diff_seconds / 3600.0)
+
+        avg_resolution_time = (
+            round(sum(resolution_durations) / len(resolution_durations), 1)
+            if resolution_durations
+            else None
+        )
+
+        # Contributor metrics (authors of annotations + replies)
+        user_contribution_counts = {}
+        for ann in all_annotations.select_related("author"):
+            u = ann.author
+            key = u.username
+            if key not in user_contribution_counts:
+                user_contribution_counts[key] = {
+                    "username": u.username,
+                    "full_name": u.full_name or u.username,
+                    "contributions_count": 0,
+                }
+            user_contribution_counts[key]["contributions_count"] += 1
+
+        for rep in all_replies.select_related("author"):
+            u = rep.author
+            key = u.username
+            if key not in user_contribution_counts:
+                user_contribution_counts[key] = {
+                    "username": u.username,
+                    "full_name": u.full_name or u.username,
+                    "contributions_count": 0,
+                }
+            user_contribution_counts[key]["contributions_count"] += 1
+
+        top_contributors = sorted(
+            user_contribution_counts.values(),
+            key=lambda x: x["contributions_count"],
+            reverse=True,
+        )[:5]
+
+        return Response({
+            "article_slug": article.slug,
+            "total_annotations": total_annotations,
+            "open_count": open_count,
+            "resolved_count": resolved_count,
+            "resolution_rate": resolution_rate,
+            "total_replies": total_replies,
+            "avg_resolution_time_hours": avg_resolution_time,
+            "contributors_count": len(user_contribution_counts),
+            "top_contributors": top_contributors,
+        }, status=status.HTTP_200_OK)
 
 
