@@ -1,0 +1,53 @@
+# Phase 30 — Day 5: Filterable Annotation Side-Drawer & Discussion Status Metrics Verification Log
+
+**Date:** Friday, November 27, 2026  
+**Milestone:** Phase 30 Day 5 (Vertical Slice 5)  
+**Author:** DagnexCru <dagnew19211921@gmail.com>  
+
+---
+
+## 1. Feature Architecture Overview
+
+### 1.1 Backend: Discussion Status Metrics & Query Filter Engine
+- **Discussion Status Metrics Endpoint (`ArticleInlineAnnotationMetricsView`):**
+  - Route: `GET /api/v1/articles/<slug_or_id>/annotations/metrics/`
+  - Computes comprehensive collaboration metrics for review threads:
+    - `total_annotations`: Total count of text annotations.
+    - `open_count` & `resolved_count`: Breakdown of open vs resolved review discussions.
+    - `resolution_rate`: Percentage of resolved threads (0.0% - 100.0%).
+    - `total_replies`: Aggregate count of threaded replies across all annotations.
+    - `avg_resolution_time_hours`: Mean elapsed hours between `created_at` and `resolved_at` for resolved threads.
+    - `contributors_count`: Total distinct teammates participating (authors of annotations + replies).
+    - `top_contributors`: Ranked leaderboard of top teammates sorted by contribution count.
+- **Enhanced Annotations Query Filtering (`ArticleInlineAnnotationListView`):**
+  - `status`: Supports `all`, `open`, `resolved`.
+  - `author`: Filters threads authored by specific username or user ID.
+  - `search`: Performs case-insensitive matching across highlighted text, comment body, and nested replies.
+  - `mentioned`: Isolates threads where `@username` is tagged in the root comment or replies.
+
+### 1.2 Frontend: Filterable Sliding Side Drawer & Metrics Dashboard
+- **Sliding Drawer Component (`components/AnnotationDrawer.tsx`):**
+  - Sliding drawer overlay with smooth backdrop blur and slide-out animation.
+  - **Metrics Bar:**
+    - Live Resolution Rate progress bar with dynamic percentage badge.
+    - Metric stat cards: Open, Resolved, and Average Resolution Time.
+  - **Interactive Filters:**
+    - Status tabs with counter badges: `All (N)`, `Open (N)`, `Resolved (N)`.
+    - Live search input querying quotes, comments, and replies with instant clear button.
+  - **Full Conversation Tree:**
+    - Renders entire discussions with nested reply indentation and `@username` highlight styling.
+    - Live typing presence indicators (`● ● ● @username is typing...`).
+    - Inline reply authoring box with direct reply targeting (`Replying to @username`).
+    - Resolve and Reopen controls with instant optimistic state updates.
+- **Side Rail & Detail Page Integration (`AnnotationSideRail.tsx` & `ArticleDetailPage.tsx`):**
+  - Added "Full View &rarr;" button in the side rail header.
+  - Added dedicated Discussions button in the top action controls bar displaying open thread count: `Discussions (N open)`.
+  - Clicking a discussion card smoothly scrolls the Markdown DOM to center the highlighted text.
+
+---
+
+## 2. Test & Build Verification Summary
+- **Backend Unit & Integration Tests:** `python backend/manage.py test apps.articles.tests_annotations --no-input`
+  - 18/18 tests passed successfully.
+- **Frontend Production Build:** `npm --prefix frontend run build`
+  - 0 TypeScript compilation errors, 0 bundling warnings.
