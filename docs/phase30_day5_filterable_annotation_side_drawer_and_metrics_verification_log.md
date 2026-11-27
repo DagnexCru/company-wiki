@@ -99,3 +99,9 @@
 - **Component Scope:** `filter-search-comment`
 - **Verification Detail:** Matches search keyword against root comment content body.
 - **Status:** PASS (100% verified)
+
+### Audit Check #017 (Cycle 1) — Verify search query matching nested threaded reply comments
+- **Timestamp:** `2026-11-27 10:08:57 +0300`
+- **Component Scope:** `filter-search-replies`
+- **Verification Detail:** Uses distinct() with replies__content__icontains to eliminate duplicate root threads.
+- **Status:** PASS (100% verified)
