@@ -201,3 +201,9 @@
 - **Component Scope:** `detail-page-button`
 - **Verification Detail:** Badge displays exact count of open threads and opens drawer on click.
 - **Status:** PASS (100% verified)
+
+### Audit Check #034 (Cycle 1) — Test annotationservice.getmetrics graceful fallback on network error
+- **Timestamp:** `2026-11-27 11:06:17 +0300`
+- **Component Scope:** `service-error-handling`
+- **Verification Detail:** Catch block logs debug error and preserves existing UI state without crashing.
+- **Status:** PASS (100% verified)
