@@ -447,3 +447,9 @@
 - **Component Scope:** `service-error-handling`
 - **Verification Detail:** Catch block logs debug error and preserves existing UI state without crashing.
 - **Status:** PASS (100% verified)
+
+### Audit Check #075 (Cycle 2) — Verify typescript interface exports for annotationmetrics and filterparams
+- **Timestamp:** `2026-11-27 13:24:32 +0300`
+- **Component Scope:** `types-export-check`
+- **Verification Detail:** All interfaces correctly imported in consumer components without cyclic dependencies.
+- **Status:** PASS (100% verified)
