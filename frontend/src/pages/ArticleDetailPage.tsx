@@ -13,6 +13,7 @@ import {
   Send,
   CheckSquare,
   History,
+  MessageSquare,
   AlertTriangle,
   Printer,
   Download,
@@ -53,6 +54,7 @@ import { PdfExportOptionsModal } from "../components/PdfExportOptionsModal";
 import { ExportHistoryModal } from "../components/ExportHistoryModal";
 import { FloatingAnnotationBubble } from "../components/FloatingAnnotationBubble";
 import { AnnotationSideRail } from "../components/AnnotationSideRail";
+import { AnnotationDrawer } from "../components/AnnotationDrawer";
 import { checklistService } from "../services/checklistService";
 import { annotationService } from "../services/annotationService";
 import { useArticlePresence } from "../hooks/useArticlePresence";
@@ -122,6 +124,7 @@ export const ArticleDetailPage: React.FC = () => {
   const [annotations, setAnnotations] = useState<ArticleInlineAnnotation[]>([]);
   const [activeAnnotationId, setActiveAnnotationId] = useState<string | null>(null);
   const [hoveredAnnotationId, setHoveredAnnotationId] = useState<string | null>(null);
+  const [showAnnotationDrawer, setShowAnnotationDrawer] = useState<boolean>(false);
 
   const fetchAnnotations = useCallback(async () => {
     if (!slug) return;
@@ -604,6 +607,19 @@ export const ArticleDetailPage: React.FC = () => {
             initialBookmarked={article.is_bookmarked}
             initialBookmarkInfo={article.bookmark_info}
           />
+
+          {/* Collaborative Discussions & Reviews Drawer Button */}
+          <button
+            type="button"
+            onClick={() => setShowAnnotationDrawer(true)}
+            title="Open Discussions Drawer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-semibold text-indigo-700 dark:text-indigo-300 transition shadow-2xs cursor-pointer"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+            <span>
+              Discussions ({annotations.filter((a) => a.status === "open").length})
+            </span>
+          </button>
 
           {/* Multi-Format Export & Sharing Action Hub */}
           <div className="relative">
@@ -1092,6 +1108,7 @@ export const ArticleDetailPage: React.FC = () => {
               onTyping={(annId, isTyping) =>
                 sendTypingSignal(annId, isTyping, user?.username)
               }
+              onOpenDrawer={() => setShowAnnotationDrawer(true)}
             />
           </div>
 
@@ -1260,6 +1277,30 @@ export const ArticleDetailPage: React.FC = () => {
           onClose={() => setShowExportHistoryModal(false)}
           articleTitle={article.title}
           articleSlug={article.slug}
+        />
+      )}
+
+      {/* Filterable Collaborative Annotations & Discussions Side Drawer (Phase 30 Day 5) */}
+      {article && (
+        <AnnotationDrawer
+          isOpen={showAnnotationDrawer}
+          onClose={() => setShowAnnotationDrawer(false)}
+          articleSlug={article.slug}
+          annotations={annotations}
+          activeAnnotationId={activeAnnotationId}
+          typistsByAnnotation={typistsByAnnotation}
+          onSelectAnnotation={(id) => {
+            setActiveAnnotationId(id);
+            const el = document.querySelector(`mark[data-annotation-id="${id}"]`);
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }}
+          onReplyToAnnotation={handleReplyToAnnotation}
+          onResolveAnnotation={handleResolveAnnotation}
+          onReopenAnnotation={handleReopenAnnotation}
+          onDeleteReply={handleDeleteReply}
+          onTyping={(annId, isTyping) =>
+            sendTypingSignal(annId, isTyping, user?.username)
+          }
         />
       )}
     </div>
