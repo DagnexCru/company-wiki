@@ -555,3 +555,9 @@
 - **Component Scope:** `filter-status-open`
 - **Verification Detail:** Ensures status filter correctly evaluates status='open' on database queryset.
 - **Status:** PASS (100% verified)
+
+### Audit Check #093 (Cycle 3) — Validate query filter for status=resolved returning only closed threads
+- **Timestamp:** `2026-11-27 14:25:14 +0300`
+- **Component Scope:** `filter-status-resolved`
+- **Verification Detail:** Queryset filter accurately scopes to resolved review threads with resolved_at timestamps.
+- **Status:** PASS (100% verified)
