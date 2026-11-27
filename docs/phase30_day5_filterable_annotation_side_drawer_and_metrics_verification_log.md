@@ -531,3 +531,9 @@
 - **Component Scope:** `long-thread-scroll`
 - **Verification Detail:** Max-height constraint and overflow-y-auto enable smooth scrolling.
 - **Status:** PASS (100% verified)
+
+### Audit Check #089 (Cycle 3) — Validate resolution rate calculation edge cases for zero annotations
+- **Timestamp:** `2026-11-27 14:11:45 +0300`
+- **Component Scope:** `metrics-formula`
+- **Verification Detail:** Resolution rate clamps cleanly to 0.0% when total annotations count is zero.
+- **Status:** PASS (100% verified)
