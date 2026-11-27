@@ -471,3 +471,9 @@
 - **Component Scope:** `rate-limit-check`
 - **Verification Detail:** Standard throttling policies applied to metrics endpoint.
 - **Status:** PASS (100% verified)
+
+### Audit Check #079 (Cycle 2) — Verify isauthenticatedorreadonly permission on metrics endpoint
+- **Timestamp:** `2026-11-27 13:38:01 +0300`
+- **Component Scope:** `auth-permission-check`
+- **Verification Detail:** Unauthenticated read requests succeed for public articles, authenticated for private.
+- **Status:** PASS (100% verified)
