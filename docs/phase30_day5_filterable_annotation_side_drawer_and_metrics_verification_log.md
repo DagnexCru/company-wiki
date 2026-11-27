@@ -507,3 +507,9 @@
 - **Component Scope:** `optimistic-update`
 - **Verification Detail:** State toggles immediately in UI before HTTP request resolves.
 - **Status:** PASS (100% verified)
+
+### Audit Check #085 (Cycle 2) — Verify reply deletion ownership check and ui update
+- **Timestamp:** `2026-11-27 13:58:15 +0300`
+- **Component Scope:** `delete-reply-confirm`
+- **Verification Detail:** Only reply author can delete reply, immediately removed from tree.
+- **Status:** PASS (100% verified)
