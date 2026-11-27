@@ -735,3 +735,9 @@
 - **Component Scope:** `screen-reader-aria`
 - **Verification Detail:** Accessible names provided for close, reply, reopen, and delete buttons.
 - **Status:** PASS (100% verified)
+
+### Audit Check #123 (Cycle 3) — Verify typing timeout cleanup on drawer unmount
+- **Timestamp:** `2026-11-27 16:06:24 +0300`
+- **Component Scope:** `memory-leak-check`
+- **Verification Detail:** clearTimeout invoked for all active annotation typist timers.
+- **Status:** PASS (100% verified)
