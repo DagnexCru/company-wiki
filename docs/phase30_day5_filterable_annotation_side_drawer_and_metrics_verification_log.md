@@ -117,3 +117,9 @@
 - **Component Scope:** `drawer-backdrop-blur`
 - **Verification Detail:** Applied backdrop-blur-xs with subtle 40% opacity slate overlay.
 - **Status:** PASS (100% verified)
+
+### Audit Check #020 (Cycle 1) — Verify modal z-index hierarchy ensuring drawer renders above article side rail
+- **Timestamp:** `2026-11-27 10:19:04 +0300`
+- **Component Scope:** `drawer-z-index`
+- **Verification Detail:** Set drawer overlay z-index to 50 above side rail sticky markers.
+- **Status:** PASS (100% verified)
