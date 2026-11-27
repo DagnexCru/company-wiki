@@ -411,3 +411,9 @@
 - **Component Scope:** `drawer-reply-targeting`
 - **Verification Detail:** Targeting tag accurately locks parentId and dismisses on tag close.
 - **Status:** PASS (100% verified)
+
+### Audit Check #069 (Cycle 2) — Verify reply tree depth indentation and left border accent
+- **Timestamp:** `2026-11-27 13:04:18 +0300`
+- **Component Scope:** `drawer-nested-indent`
+- **Verification Detail:** Nested replies render with border-l-2 indigo accent and 14px left margin.
+- **Status:** PASS (100% verified)
