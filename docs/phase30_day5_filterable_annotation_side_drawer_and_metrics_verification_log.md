@@ -705,3 +705,9 @@
 - **Component Scope:** `api-response-schema`
 - **Verification Detail:** Validated keys: total_annotations, open_count, resolved_count, resolution_rate, etc.
 - **Status:** PASS (100% verified)
+
+### Audit Check #118 (Cycle 3) — Audit rate limiting headers on metrics endpoint
+- **Timestamp:** `2026-11-27 15:49:32 +0300`
+- **Component Scope:** `rate-limit-check`
+- **Verification Detail:** Standard throttling policies applied to metrics endpoint.
+- **Status:** PASS (100% verified)
