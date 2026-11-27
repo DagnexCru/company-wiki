@@ -505,3 +505,94 @@ class ArticleInlineAnnotationTests(TestCase):
         self.assertIn("websocket.accept", types_sent)
         raw_texts = [m.get("text", "") for m in sent_messages if m.get("type") == "websocket.send"]
         self.assertTrue(any("pong" in t for t in raw_texts))
+
+    def test_filter_annotations_by_author_search_and_mentions(self):
+        """
+        Verify GET /annotations/ query parameter filtering by author, search query, and @mentions.
+        """
+        # Create annotations with different authors and contents
+        ann1 = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="deployment pipeline",
+            start_offset=0,
+            end_offset=19,
+            content="Check Docker build caching performance.",
+        )
+        ann2 = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="security audit",
+            start_offset=25,
+            end_offset=39,
+            content=f"Hey @{self.reader.username}, review these secret rotation rules.",
+        )
+
+        self.client.force_authenticate(user=self.reader)
+        base_url = f"/api/v1/articles/{self.published_article.slug}/annotations/"
+
+        # 1. Filter by author
+        res_author = self.client.get(f"{base_url}?author={self.author.username}")
+        self.assertEqual(res_author.status_code, 200)
+        items = res_author.json()
+        self.assertTrue(all(i["author"]["username"] == self.author.username for i in items))
+        self.assertTrue(any(i["id"] == str(ann1.id) for i in items))
+
+        # 2. Filter by search
+        res_search = self.client.get(f"{base_url}?search=Docker")
+        self.assertEqual(res_search.status_code, 200)
+        search_items = res_search.json()
+        self.assertTrue(any(i["id"] == str(ann1.id) for i in search_items))
+        self.assertFalse(any(i["id"] == str(ann2.id) for i in search_items))
+
+        # 3. Filter by mentioned
+        res_mention = self.client.get(f"{base_url}?mentioned=@{self.reader.username}")
+        self.assertEqual(res_mention.status_code, 200)
+        mention_items = res_mention.json()
+        self.assertTrue(any(i["id"] == str(ann2.id) for i in mention_items))
+
+    def test_discussion_status_metrics_endpoint(self):
+        """
+        Verify GET /annotations/metrics/ computes resolution rate, average resolution time, and contributors.
+        """
+        ann_open = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="open topic",
+            start_offset=0,
+            end_offset=10,
+            content="Still open for discussion.",
+            status=ArticleInlineAnnotation.Status.OPEN,
+        )
+        ann_resolved = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="resolved topic",
+            start_offset=15,
+            end_offset=29,
+            content="Already concluded.",
+            status=ArticleInlineAnnotation.Status.RESOLVED,
+            resolved_at=self.published_article.created_at,
+            resolved_by=self.author,
+        )
+        ArticleInlineAnnotationReply.objects.create(
+            annotation=ann_open,
+            author=self.reader,
+            content="Reader contributing here.",
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/metrics/"
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["article_slug"], self.published_article.slug)
+        self.assertGreaterEqual(data["total_annotations"], 2)
+        self.assertGreaterEqual(data["open_count"], 1)
+        self.assertGreaterEqual(data["resolved_count"], 1)
+        self.assertIn("resolution_rate", data)
+        self.assertIn("total_replies", data)
+        self.assertIn("avg_resolution_time_hours", data)
+        self.assertGreaterEqual(data["contributors_count"], 2)
+        self.assertTrue(len(data["top_contributors"]) > 0)
