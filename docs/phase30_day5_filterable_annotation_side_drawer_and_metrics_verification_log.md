@@ -345,3 +345,9 @@
 - **Component Scope:** `filter-search-replies`
 - **Verification Detail:** Uses distinct() with replies__content__icontains to eliminate duplicate root threads.
 - **Status:** PASS (100% verified)
+
+### Audit Check #058 (Cycle 2) — Verify filter by mentioned username in root or reply comments
+- **Timestamp:** `2026-11-27 12:27:13 +0300`
+- **Component Scope:** `filter-mentioned-tag`
+- **Verification Detail:** Matches @<username> occurrences in annotation content or reply text.
+- **Status:** PASS (100% verified)
