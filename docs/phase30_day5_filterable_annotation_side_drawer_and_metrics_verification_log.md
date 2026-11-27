@@ -723,3 +723,9 @@
 - **Component Scope:** `dark-mode-contrast`
 - **Verification Detail:** Contrast ratios exceed 4.5:1 for all text labels and badges.
 - **Status:** PASS (100% verified)
+
+### Audit Check #121 (Cycle 3) — Verify wcag 2.1 aa color contrast for drawer text and controls in light mode
+- **Timestamp:** `2026-11-27 15:59:39 +0300`
+- **Component Scope:** `light-mode-contrast`
+- **Verification Detail:** Slate-800 on white backgrounds delivers 9.8:1 contrast ratio.
+- **Status:** PASS (100% verified)
