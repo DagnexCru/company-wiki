@@ -32,6 +32,7 @@ interface AnnotationSideRailProps {
   onReopenAnnotation?: (annotationId: string) => Promise<void>;
   onDeleteReply?: (annotationId: string, replyId: string) => Promise<void>;
   onTyping?: (annotationId: string, isTyping: boolean) => void;
+  onOpenDrawer?: () => void;
 }
 
 export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
@@ -46,6 +47,7 @@ export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
   onReopenAnnotation,
   onDeleteReply,
   onTyping,
+  onOpenDrawer,
 }) => {
   const [replyText, setReplyText] = useState<{ [annId: string]: string }>({});
   const [replyingTo, setReplyingTo] = useState<{
@@ -190,6 +192,15 @@ export const AnnotationSideRail: React.FC<AnnotationSideRailProps> = ({
           <MessageSquare className="w-3 h-3 text-indigo-500" />
           Discussions & Threads ({annotations.length})
         </span>
+        {onOpenDrawer && (
+          <button
+            type="button"
+            onClick={onOpenDrawer}
+            className="text-[10px] text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 font-semibold cursor-pointer"
+          >
+            Full View &rarr;
+          </button>
+        )}
       </div>
 
       <div className="flex flex-col gap-2.5 overflow-y-auto max-h-[80vh] pr-1">
