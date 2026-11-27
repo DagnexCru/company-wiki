@@ -55,3 +55,26 @@ export interface CreateAnnotationReplyPayload {
   parent?: string | null;
   parent_id?: string | null;
 }
+
+export interface AnnotationMetrics {
+  article_slug: string;
+  total_annotations: number;
+  open_count: number;
+  resolved_count: number;
+  resolution_rate: number;
+  total_replies: number;
+  avg_resolution_time_hours: number | null;
+  contributors_count: number;
+  top_contributors: Array<{
+    username: string;
+    full_name?: string;
+    contributions_count: number;
+  }>;
+}
+
+export interface AnnotationFilterParams {
+  status?: AnnotationStatus | "all";
+  author?: string;
+  search?: string;
+  mentioned?: string;
+}
