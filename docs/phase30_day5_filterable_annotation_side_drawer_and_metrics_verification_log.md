@@ -549,3 +549,9 @@
 - **Component Scope:** `metrics-top-contributors`
 - **Verification Detail:** Calculates annotation authors + reply authors grouped with combined activity ranking.
 - **Status:** PASS (100% verified)
+
+### Audit Check #092 (Cycle 3) — Validate query filter for status=open excludes resolved annotations
+- **Timestamp:** `2026-11-27 14:21:52 +0300`
+- **Component Scope:** `filter-status-open`
+- **Verification Detail:** Ensures status filter correctly evaluates status='open' on database queryset.
+- **Status:** PASS (100% verified)
