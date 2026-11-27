@@ -417,3 +417,9 @@
 - **Component Scope:** `drawer-nested-indent`
 - **Verification Detail:** Nested replies render with border-l-2 indigo accent and 14px left margin.
 - **Status:** PASS (100% verified)
+
+### Audit Check #070 (Cycle 2) — Verify cmd+enter and ctrl+enter keyboard submission in reply textarea
+- **Timestamp:** `2026-11-27 13:07:40 +0300`
+- **Component Scope:** `drawer-keyboard-shortcut`
+- **Verification Detail:** Keydown listener triggers handleSendReply on Command or Control with Enter.
+- **Status:** PASS (100% verified)
