@@ -459,3 +459,9 @@
 - **Component Scope:** `django-url-reverse`
 - **Verification Detail:** reverse('article-annotations-metrics', args=['test-slug']) resolves correctly.
 - **Status:** PASS (100% verified)
+
+### Audit Check #077 (Cycle 2) — Audit json response payload keys of metrics endpoint
+- **Timestamp:** `2026-11-27 13:31:17 +0300`
+- **Component Scope:** `api-response-schema`
+- **Verification Detail:** Validated keys: total_annotations, open_count, resolved_count, resolution_rate, etc.
+- **Status:** PASS (100% verified)
