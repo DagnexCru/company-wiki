@@ -429,3 +429,9 @@
 - **Component Scope:** `drawer-scroll-lock`
 - **Verification Detail:** Sliding drawer operates with independent scroll container.
 - **Status:** PASS (100% verified)
+
+### Audit Check #072 (Cycle 2) — Test full view link in side rail triggering drawer open state
+- **Timestamp:** `2026-11-27 13:14:25 +0300`
+- **Component Scope:** `rail-full-view-button`
+- **Verification Detail:** Clicking 'Full View' in rail header opens slide-out drawer seamlessly.
+- **Status:** PASS (100% verified)
