@@ -675,3 +675,9 @@
 - **Component Scope:** `rail-full-view-button`
 - **Verification Detail:** Clicking 'Full View' in rail header opens slide-out drawer seamlessly.
 - **Status:** PASS (100% verified)
+
+### Audit Check #113 (Cycle 3) — Verify top bar 'discussions' button shows dynamic open thread badge
+- **Timestamp:** `2026-11-27 15:32:40 +0300`
+- **Component Scope:** `detail-page-button`
+- **Verification Detail:** Badge displays exact count of open threads and opens drawer on click.
+- **Status:** PASS (100% verified)
