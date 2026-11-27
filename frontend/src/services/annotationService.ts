@@ -5,20 +5,31 @@ import type {
   CreateAnnotationPayload,
   CreateAnnotationReplyPayload,
   AnnotationStatus,
+  AnnotationMetrics,
+  AnnotationFilterParams,
 } from "../types/annotation";
 
 export const annotationService = {
   /**
-   * Fetch list of inline annotations for an article.
-   * GET /api/v1/articles/{slug}/annotations/?status=open|resolved|all
+   * Fetch list of inline annotations for an article with optional filtering.
+   * GET /api/v1/articles/{slug}/annotations/?status=open|resolved|all&search=...&author=...&mentioned=...
    */
   async getAnnotations(
     slug: string,
-    status: AnnotationStatus | "all" = "all"
+    params?: AnnotationFilterParams | AnnotationStatus | "all"
   ): Promise<ArticleInlineAnnotation[]> {
+    const queryParams: Record<string, any> = {};
+    if (typeof params === "string") {
+      queryParams.status = params;
+    } else if (params) {
+      if (params.status) queryParams.status = params.status;
+      if (params.author) queryParams.author = params.author;
+      if (params.search) queryParams.search = params.search;
+      if (params.mentioned) queryParams.mentioned = params.mentioned;
+    }
     const response = await api.get<ArticleInlineAnnotation[]>(
       `/articles/${slug}/annotations/`,
-      { params: { status } }
+      { params: queryParams }
     );
     return response.data;
   },
@@ -196,6 +207,17 @@ export const annotationService = {
     const response = await api.get(`/articles/${slug}/annotations/sync/`, {
       params: since ? { since } : {},
     });
+    return response.data;
+  },
+
+  /**
+   * Fetch discussion velocity and resolution metrics for an article's inline annotations.
+   * GET /api/v1/articles/{slug}/annotations/metrics/
+   */
+  async getMetrics(slug: string): Promise<AnnotationMetrics> {
+    const response = await api.get<AnnotationMetrics>(
+      `/articles/${slug}/annotations/metrics/`
+    );
     return response.data;
   },
 };
