@@ -159,3 +159,9 @@
 - **Component Scope:** `drawer-typing-animation`
 - **Verification Detail:** Staggered animation delays (0s, 0.2s, 0.4s) render fluid typing presence.
 - **Status:** PASS (100% verified)
+
+### Audit Check #027 (Cycle 1) — Test @mention regex parser styling and contrast in dark mode
+- **Timestamp:** `2026-11-27 10:42:40 +0300`
+- **Component Scope:** `drawer-mention-pill`
+- **Verification Detail:** Mentions render with bg-indigo-950/70 and text-indigo-400 in dark theme.
+- **Status:** PASS (100% verified)
