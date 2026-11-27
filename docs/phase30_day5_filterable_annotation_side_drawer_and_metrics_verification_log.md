@@ -375,3 +375,9 @@
 - **Component Scope:** `drawer-clear-search`
 - **Verification Detail:** Clicking 'X' clears query input and refocuses thread list.
 - **Status:** PASS (100% verified)
+
+### Audit Check #063 (Cycle 2) — Verify active status tab badge counters match displayed thread list
+- **Timestamp:** `2026-11-27 12:44:04 +0300`
+- **Component Scope:** `drawer-status-badges`
+- **Verification Detail:** Counters reflect accurate counts for All, Open, and Resolved categories.
+- **Status:** PASS (100% verified)
