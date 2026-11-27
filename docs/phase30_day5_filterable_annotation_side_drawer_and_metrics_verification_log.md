@@ -261,3 +261,9 @@
 - **Component Scope:** `memory-leak-check`
 - **Verification Detail:** clearTimeout invoked for all active annotation typist timers.
 - **Status:** PASS (100% verified)
+
+### Audit Check #044 (Cycle 1) — Test optimistic status toggle for mark resolved and reopen actions
+- **Timestamp:** `2026-11-27 11:40:00 +0300`
+- **Component Scope:** `optimistic-update`
+- **Verification Detail:** State toggles immediately in UI before HTTP request resolves.
+- **Status:** PASS (100% verified)
