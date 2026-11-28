@@ -736,3 +736,9 @@
 - **Component Scope:** `api-webhook-test-endpoint`
 - **Verification Detail:** Enforces IsAuthenticated permission; rejects anonymous requests with 401.
 - **Status:** PASS (100% verified)
+
+### Audit Check #122 (Cycle 4) — Verify preset query parameter sanitization against invalid values
+- **Timestamp:** `2026-11-28 14:15:59 +0300`
+- **Component Scope:** `api-preset-param-sanitization`
+- **Verification Detail:** Ignores unknown preset strings and defaults gracefully to all.
+- **Status:** PASS (100% verified)
