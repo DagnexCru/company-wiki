@@ -172,3 +172,9 @@
 - **Component Scope:** `drawer-preset-pills-layout`
 - **Verification Detail:** Pills smoothly scroll on mobile viewports with distinct active styling.
 - **Status:** PASS (100% verified)
+
+### Audit Check #028 (Cycle 1) — Verify amber stale badge contrast in light and dark themes
+- **Timestamp:** `2026-11-28 10:22:10 +0300`
+- **Component Scope:** `drawer-stale-badge-styling`
+- **Verification Detail:** Badge renders with clear amber accent meeting WCAG contrast guidelines.
+- **Status:** PASS (100% verified)
