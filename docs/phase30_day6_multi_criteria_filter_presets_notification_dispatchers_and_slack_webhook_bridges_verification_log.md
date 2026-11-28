@@ -700,3 +700,9 @@
 - **Component Scope:** `in-app-notif-link`
 - **Verification Detail:** Generates correct deep-link: /articles/<slug>?annotation=<id>.
 - **Status:** PASS (100% verified)
+
+### Audit Check #116 (Cycle 4) — Audit in-app notification title phrasing for mentions and replies
+- **Timestamp:** `2026-11-28 14:01:03 +0300`
+- **Component Scope:** `in-app-notif-title`
+- **Verification Detail:** Clear, human-readable notifications with sender display name.
+- **Status:** PASS (100% verified)
