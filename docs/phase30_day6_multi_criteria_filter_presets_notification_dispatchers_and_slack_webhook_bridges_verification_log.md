@@ -1036,3 +1036,9 @@
 - **Component Scope:** `slack-error-handling`
 - **Verification Detail:** Catches URLError, logs error, and returns structured error response without crashing.
 - **Status:** PASS (100% verified)
+
+### Audit Check #172 (Cycle 6) — Audit email subject line prefix and article title
+- **Timestamp:** `2026-11-28 16:20:21 +0300`
+- **Component Scope:** `email-subject-format`
+- **Verification Detail:** Formats subject as '[Wiki Discussions] New discussion on <title>'.
+- **Status:** PASS (100% verified)
