@@ -7,12 +7,13 @@ import type {
   AnnotationStatus,
   AnnotationMetrics,
   AnnotationFilterParams,
+  WebhookTestResponse,
 } from "../types/annotation";
 
 export const annotationService = {
   /**
    * Fetch list of inline annotations for an article with optional filtering.
-   * GET /api/v1/articles/{slug}/annotations/?status=open|resolved|all&search=...&author=...&mentioned=...
+   * GET /api/v1/articles/{slug}/annotations/?status=open|resolved|all&search=...&author=...&mentioned=...&preset=...
    */
   async getAnnotations(
     slug: string,
@@ -26,6 +27,7 @@ export const annotationService = {
       if (params.author) queryParams.author = params.author;
       if (params.search) queryParams.search = params.search;
       if (params.mentioned) queryParams.mentioned = params.mentioned;
+      if (params.preset) queryParams.preset = params.preset;
     }
     const response = await api.get<ArticleInlineAnnotation[]>(
       `/articles/${slug}/annotations/`,
@@ -217,6 +219,25 @@ export const annotationService = {
   async getMetrics(slug: string): Promise<AnnotationMetrics> {
     const response = await api.get<AnnotationMetrics>(
       `/articles/${slug}/annotations/metrics/`
+    );
+    return response.data;
+  },
+
+  /**
+   * Test or preview external Slack / Teams webhook payload delivery.
+   * POST /api/v1/articles/{slug}/annotations/webhook/test/
+   */
+  async testWebhook(
+    slug: string,
+    annotationId?: string,
+    webhookUrl?: string
+  ): Promise<WebhookTestResponse> {
+    const response = await api.post<WebhookTestResponse>(
+      `/articles/${slug}/annotations/webhook/test/`,
+      {
+        annotation_id: annotationId,
+        webhook_url: webhookUrl,
+      }
     );
     return response.data;
   },
