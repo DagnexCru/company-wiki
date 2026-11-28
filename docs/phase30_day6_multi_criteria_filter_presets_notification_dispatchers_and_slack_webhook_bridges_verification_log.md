@@ -256,3 +256,9 @@
 - **Component Scope:** `preset-stale-cutoff`
 - **Verification Detail:** Uses created_at__lte=timezone.now() - timedelta(hours=48) scoped to open discussions.
 - **Status:** PASS (100% verified)
+
+### Audit Check #042 (Cycle 2) — Verify my_threads preset filters discussions by author foreign key
+- **Timestamp:** `2026-11-28 10:56:59 +0300`
+- **Component Scope:** `preset-my-threads`
+- **Verification Detail:** Accurately scopes queryset to author=request.user.
+- **Status:** PASS (100% verified)
