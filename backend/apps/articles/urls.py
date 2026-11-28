@@ -26,6 +26,7 @@ from apps.articles.annotation_views import (
     ArticleInlineAnnotationReplyListView,
     ArticleInlineAnnotationReplyDetailView,
     ArticleInlineAnnotationMetricsView,
+    ArticleInlineAnnotationWebhookTestView,
 )
 from apps.articles.annotation_sync_views import (
     ArticleAnnotationTypingBeaconView,
@@ -55,6 +56,7 @@ urlpatterns = [
     # In-Line Text Annotations & Collaborative Discussions (Phase 30)
     path("<str:slug_or_id>/annotations/", ArticleInlineAnnotationListView.as_view(), name="article-annotations-list"),
     path("<str:slug_or_id>/annotations/metrics/", ArticleInlineAnnotationMetricsView.as_view(), name="article-annotations-metrics"),
+    path("<str:slug_or_id>/annotations/webhook/test/", ArticleInlineAnnotationWebhookTestView.as_view(), name="article-annotations-webhook-test"),
     path("<str:slug_or_id>/annotations/realign/", ArticleInlineAnnotationRealignView.as_view(), name="article-annotations-realign"),
     path("<str:slug_or_id>/annotations/typing/", ArticleAnnotationTypingBeaconView.as_view(), name="article-annotations-typing"),
     path("<str:slug_or_id>/annotations/sync/", ArticleAnnotationLiveSyncView.as_view(), name="article-annotations-sync"),
