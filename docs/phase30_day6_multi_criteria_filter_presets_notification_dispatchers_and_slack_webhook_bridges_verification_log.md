@@ -946,3 +946,9 @@
 - **Component Scope:** `xss-mention-safety`
 - **Verification Detail:** Only matches standard alphanumeric and allowed username characters.
 - **Status:** PASS (100% verified)
+
+### Audit Check #157 (Cycle 5) — Audit ui display when no discussions qualify as stale
+- **Timestamp:** `2026-11-28 15:43:02 +0300`
+- **Component Scope:** `empty-stale-state`
+- **Verification Detail:** Stale counter displays 0 and list shows friendly empty message.
+- **Status:** PASS (100% verified)
