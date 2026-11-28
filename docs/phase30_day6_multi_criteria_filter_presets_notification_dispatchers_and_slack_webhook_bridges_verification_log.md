@@ -1090,3 +1090,9 @@
 - **Component Scope:** `drawer-filter-combination`
 - **Verification Detail:** All three filtering dimensions intersect correctly in useMemo.
 - **Status:** PASS (100% verified)
+
+### Audit Check #181 (Cycle 6) — Audit post /annotations/webhook/test/ permissions
+- **Timestamp:** `2026-11-28 16:42:44 +0300`
+- **Component Scope:** `api-webhook-test-endpoint`
+- **Verification Detail:** Enforces IsAuthenticated permission; rejects anonymous requests with 401.
+- **Status:** PASS (100% verified)
