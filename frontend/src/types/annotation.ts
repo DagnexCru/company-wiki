@@ -56,6 +56,13 @@ export interface CreateAnnotationReplyPayload {
   parent_id?: string | null;
 }
 
+export type AnnotationPreset =
+  | "all"
+  | "my_mentions"
+  | "needs_review"
+  | "stale"
+  | "my_threads";
+
 export interface AnnotationMetrics {
   article_slug: string;
   total_annotations: number;
@@ -70,6 +77,13 @@ export interface AnnotationMetrics {
     full_name?: string;
     contributions_count: number;
   }>;
+  preset_counts?: {
+    all: number;
+    my_mentions: number;
+    needs_review: number;
+    stale: number;
+    my_threads: number;
+  };
 }
 
 export interface AnnotationFilterParams {
@@ -77,4 +91,17 @@ export interface AnnotationFilterParams {
   author?: string;
   search?: string;
   mentioned?: string;
+  preset?: AnnotationPreset;
+}
+
+export interface WebhookTestResponse {
+  article_slug: string;
+  target_webhook_url: string;
+  dispatch_result: {
+    success: boolean;
+    simulated: boolean;
+    detail?: string;
+    error?: string;
+  };
+  payload: any;
 }
