@@ -646,3 +646,9 @@
 - **Component Scope:** `slack-block-kit-comment`
 - **Verification Detail:** Renders author name and comment text up to 300 characters.
 - **Status:** PASS (100% verified)
+
+### Audit Check #107 (Cycle 4) — Audit context block metadata containing article title and link
+- **Timestamp:** `2026-11-28 13:38:40 +0300`
+- **Component Scope:** `slack-block-kit-context`
+- **Verification Detail:** Provides article title, discussion status, and relative frontend link.
+- **Status:** PASS (100% verified)
