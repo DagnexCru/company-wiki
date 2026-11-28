@@ -424,3 +424,9 @@
 - **Component Scope:** `preset-my-mentions`
 - **Verification Detail:** Verified query filter correctly matches @username mentions in root content or nested replies.
 - **Status:** PASS (100% verified)
+
+### Audit Check #070 (Cycle 3) — Verify needs_review preset identifies open discussions needing user action
+- **Timestamp:** `2026-11-28 12:06:38 +0300`
+- **Component Scope:** `preset-needs-review`
+- **Verification Detail:** Scopes cleanly to unresolved threads on articles authored by user or where user is tagged.
+- **Status:** PASS (100% verified)
