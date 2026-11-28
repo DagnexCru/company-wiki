@@ -58,3 +58,9 @@
 ---
 
 ## 3. Detailed Audit Trail & Validation Checks
+
+### Audit Check #009 (Cycle 1) — Validate my_mentions preset excludes threads without username tag
+- **Timestamp:** `2026-11-28 09:34:54 +0300`
+- **Component Scope:** `preset-my-mentions`
+- **Verification Detail:** Verified query filter correctly matches @username mentions in root content or nested replies.
+- **Status:** PASS (100% verified)
