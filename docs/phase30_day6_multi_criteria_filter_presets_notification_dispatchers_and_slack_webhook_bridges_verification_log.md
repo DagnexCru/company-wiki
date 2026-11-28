@@ -514,3 +514,9 @@
 - **Component Scope:** `email-fail-silently`
 - **Verification Detail:** Django send_mail gracefully handles mail server timeouts.
 - **Status:** PASS (100% verified)
+
+### Audit Check #085 (Cycle 3) — Verify notification model link attribute format
+- **Timestamp:** `2026-11-28 12:43:57 +0300`
+- **Component Scope:** `in-app-notif-link`
+- **Verification Detail:** Generates correct deep-link: /articles/<slug>?annotation=<id>.
+- **Status:** PASS (100% verified)
