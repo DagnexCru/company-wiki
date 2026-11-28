@@ -622,3 +622,9 @@
 - **Component Scope:** `preset-my-threads`
 - **Verification Detail:** Accurately scopes queryset to author=request.user.
 - **Status:** PASS (100% verified)
+
+### Audit Check #103 (Cycle 4) — Audit preset_counts accuracy against live database state
+- **Timestamp:** `2026-11-28 13:28:43 +0300`
+- **Component Scope:** `preset-counts-accuracy`
+- **Verification Detail:** All preset counter numbers strictly match filtered query counts.
+- **Status:** PASS (100% verified)
