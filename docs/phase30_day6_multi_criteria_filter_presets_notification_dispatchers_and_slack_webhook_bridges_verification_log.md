@@ -412,3 +412,9 @@
 - **Component Scope:** `empty-stale-state`
 - **Verification Detail:** Stale counter displays 0 and list shows friendly empty message.
 - **Status:** PASS (100% verified)
+
+### Audit Check #068 (Cycle 2) — Verify user mentioning themselves does not trigger notification
+- **Timestamp:** `2026-11-28 12:01:39 +0300`
+- **Component Scope:** `author-self-mention-bypass`
+- **Verification Detail:** Explicitly excludes actor.id from notification recipient list.
+- **Status:** PASS (100% verified)
