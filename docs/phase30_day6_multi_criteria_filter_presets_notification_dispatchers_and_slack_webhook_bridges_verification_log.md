@@ -1204,3 +1204,9 @@
 - **Component Scope:** `slack-resolved-payload`
 - **Verification Detail:** Notifies channel that discussion was resolved with resolver username.
 - **Status:** PASS (100% verified)
+
+### Audit Check #200 (Cycle 7) — Verify simulated webhook mode when slack_webhook_url is unset
+- **Timestamp:** `2026-11-28 17:30:00 +0300`
+- **Component Scope:** `slack-simulated-mode`
+- **Verification Detail:** Returns success=True with simulated=True and complete JSON payload.
+- **Status:** PASS (100% verified)
