@@ -596,3 +596,136 @@ class ArticleInlineAnnotationTests(TestCase):
         self.assertIn("avg_resolution_time_hours", data)
         self.assertGreaterEqual(data["contributors_count"], 2)
         self.assertTrue(len(data["top_contributors"]) > 0)
+        self.assertIn("preset_counts", data)
+        self.assertIn("my_mentions", data["preset_counts"])
+        self.assertIn("needs_review", data["preset_counts"])
+        self.assertIn("stale", data["preset_counts"])
+        self.assertIn("my_threads", data["preset_counts"])
+
+    def test_filter_annotations_by_preset_shortcuts(self):
+        """
+        Verify multi-criteria presets: my_mentions, needs_review, stale, my_threads.
+        """
+        import datetime
+        from django.utils import timezone
+
+        # 1. Stale annotation (older than 48 hours)
+        stale_date = timezone.now() - datetime.timedelta(hours=50)
+        stale_ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="old requirement",
+            start_offset=0,
+            end_offset=15,
+            content="Old unresolved issue.",
+            status=ArticleInlineAnnotation.Status.OPEN,
+        )
+        ArticleInlineAnnotation.objects.filter(id=stale_ann.id).update(created_at=stale_date)
+
+        # 2. Annotation with mention for author
+        mention_ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="architecture design",
+            start_offset=20,
+            end_offset=39,
+            content=f"Hey @{self.author.username} please verify this section.",
+            status=ArticleInlineAnnotation.Status.OPEN,
+        )
+
+        # 3. Annotation created by author
+        my_ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="author notes",
+            start_offset=45,
+            end_offset=57,
+            content="My own discussion note.",
+            status=ArticleInlineAnnotation.Status.OPEN,
+        )
+
+        self.client.force_authenticate(user=self.author)
+
+        # Test preset=my_mentions
+        res_mentions = self.client.get(
+            f"/api/v1/articles/{self.published_article.slug}/annotations/?preset=my_mentions"
+        )
+        self.assertEqual(res_mentions.status_code, 200)
+        mentions_ids = [a["id"] for a in res_mentions.json()]
+        self.assertIn(str(mention_ann.id), mentions_ids)
+
+        # Test preset=stale
+        res_stale = self.client.get(
+            f"/api/v1/articles/{self.published_article.slug}/annotations/?preset=stale"
+        )
+        self.assertEqual(res_stale.status_code, 200)
+        stale_ids = [a["id"] for a in res_stale.json()]
+        self.assertIn(str(stale_ann.id), stale_ids)
+
+        # Test preset=my_threads
+        res_my = self.client.get(
+            f"/api/v1/articles/{self.published_article.slug}/annotations/?preset=my_threads"
+        )
+        self.assertEqual(res_my.status_code, 200)
+        my_ids = [a["id"] for a in res_my.json()]
+        self.assertIn(str(my_ann.id), my_ids)
+
+    def test_discussion_notification_dispatcher_multi_channel(self):
+        """
+        Verify that creating an annotation triggers in-app notification, email alert, and Slack webhook payload.
+        """
+        from django.core import mail
+        from apps.notifications.dispatchers import DiscussionNotificationDispatcher, SlackWebhookBridge
+
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.peer_reviewer,
+            highlighted_text="critical section",
+            start_offset=0,
+            end_offset=16,
+            content=f"Checking @{self.author.username} on this detail.",
+            status=ArticleInlineAnnotation.Status.OPEN,
+        )
+
+        mail.outbox = []
+        result = DiscussionNotificationDispatcher.dispatch_annotation_created(ann, self.peer_reviewer)
+
+        self.assertGreaterEqual(result["in_app_count"], 1)
+        self.assertTrue(result["webhook_result"]["success"])
+
+        # Check in-app notification created
+        notif = Notification.objects.filter(recipient=self.author).first()
+        self.assertIsNotNone(notif)
+
+        # Test Slack Webhook payload formatting
+        payload = SlackWebhookBridge.format_annotation_created_payload(ann, self.peer_reviewer)
+        self.assertEqual(payload["event_type"], "annotation_created")
+        self.assertEqual(payload["annotation_id"], str(ann.id))
+        self.assertTrue(len(payload["blocks"]) >= 3)
+
+    def test_webhook_test_endpoint(self):
+        """
+        Verify POST /annotations/webhook/test/ returns simulated payload and success status.
+        """
+        ann = ArticleInlineAnnotation.objects.create(
+            article=self.published_article,
+            author=self.author,
+            highlighted_text="webhook verification snippet",
+            start_offset=0,
+            end_offset=28,
+            content="Verifying Slack incoming webhook delivery.",
+        )
+
+        self.client.force_authenticate(user=self.author)
+        url = f"/api/v1/articles/{self.published_article.slug}/annotations/webhook/test/"
+        res = self.client.post(url, {
+            "annotation_id": str(ann.id),
+        })
+
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["article_slug"], self.published_article.slug)
+        self.assertTrue(data["dispatch_result"]["success"])
+        self.assertIn("payload", data)
+        self.assertEqual(data["payload"]["event_type"], "annotation_created")
+
