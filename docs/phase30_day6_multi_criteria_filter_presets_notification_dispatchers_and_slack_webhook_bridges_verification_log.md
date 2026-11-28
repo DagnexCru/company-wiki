@@ -250,3 +250,9 @@
 - **Component Scope:** `preset-needs-review`
 - **Verification Detail:** Scopes cleanly to unresolved threads on articles authored by user or where user is tagged.
 - **Status:** PASS (100% verified)
+
+### Audit Check #041 (Cycle 2) — Validate stale preset applies 48-hour timestamp threshold
+- **Timestamp:** `2026-11-28 10:54:30 +0300`
+- **Component Scope:** `preset-stale-cutoff`
+- **Verification Detail:** Uses created_at__lte=timezone.now() - timedelta(hours=48) scoped to open discussions.
+- **Status:** PASS (100% verified)
