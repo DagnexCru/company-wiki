@@ -706,3 +706,9 @@
 - **Component Scope:** `in-app-notif-title`
 - **Verification Detail:** Clear, human-readable notifications with sender display name.
 - **Status:** PASS (100% verified)
+
+### Audit Check #117 (Cycle 4) — Verify horizontal scrolling and pill active states in drawer
+- **Timestamp:** `2026-11-28 14:03:33 +0300`
+- **Component Scope:** `drawer-preset-pills-layout`
+- **Verification Detail:** Pills smoothly scroll on mobile viewports with distinct active styling.
+- **Status:** PASS (100% verified)
