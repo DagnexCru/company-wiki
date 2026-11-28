@@ -238,3 +238,9 @@
 - **Component Scope:** `author-self-mention-bypass`
 - **Verification Detail:** Explicitly excludes actor.id from notification recipient list.
 - **Status:** PASS (100% verified)
+
+### Audit Check #039 (Cycle 2) — Validate my_mentions preset excludes threads without username tag
+- **Timestamp:** `2026-11-28 10:49:31 +0300`
+- **Component Scope:** `preset-my-mentions`
+- **Verification Detail:** Verified query filter correctly matches @username mentions in root content or nested replies.
+- **Status:** PASS (100% verified)
