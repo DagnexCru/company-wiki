@@ -220,3 +220,9 @@
 - **Component Scope:** `teams-webhook-compatibility`
 - **Verification Detail:** Adaptive cards and webhook formats parse message text cleanly.
 - **Status:** PASS (100% verified)
+
+### Audit Check #036 (Cycle 1) — Verify mention parsing regex protects against html injection
+- **Timestamp:** `2026-11-28 10:42:04 +0300`
+- **Component Scope:** `xss-mention-safety`
+- **Verification Detail:** Only matches standard alphanumeric and allowed username characters.
+- **Status:** PASS (100% verified)
