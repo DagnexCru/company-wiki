@@ -724,3 +724,9 @@
 - **Component Scope:** `drawer-webhook-feedback`
 - **Verification Detail:** Displays 4-second auto-dismissing confirmation banner.
 - **Status:** PASS (100% verified)
+
+### Audit Check #120 (Cycle 4) — Verify combination of preset filter, status tabs, and text search
+- **Timestamp:** `2026-11-28 14:11:00 +0300`
+- **Component Scope:** `drawer-filter-combination`
+- **Verification Detail:** All three filtering dimensions intersect correctly in useMemo.
+- **Status:** PASS (100% verified)
