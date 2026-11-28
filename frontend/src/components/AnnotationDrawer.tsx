@@ -11,12 +11,16 @@ import {
   Trash2,
   AtSign,
   User,
+  Clock,
+  AlertTriangle,
+  Share2,
 } from "lucide-react";
 import { annotationService } from "../services/annotationService";
 import type {
   ArticleInlineAnnotation,
   ArticleInlineAnnotationReply,
   AnnotationMetrics,
+  AnnotationPreset,
 } from "../types/annotation";
 
 interface AnnotationDrawerProps {
@@ -54,12 +58,15 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
 }) => {
   const [metrics, setMetrics] = useState<AnnotationMetrics | null>(null);
   const [statusFilter, setStatusFilter] = useState<"all" | "open" | "resolved">("all");
+  const [presetFilter, setPresetFilter] = useState<AnnotationPreset>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [replyText, setReplyText] = useState<{ [annId: string]: string }>({});
   const [replyingTo, setReplyingTo] = useState<{
     [annId: string]: { parentId: string; username: string } | null;
   }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isTestingWebhook, setIsTestingWebhook] = useState<boolean>(false);
+  const [webhookStatus, setWebhookStatus] = useState<string | null>(null);
   const typingTimerRef = React.useRef<{ [annId: string]: any }>({});
 
   // Fetch discussion velocity metrics on open
@@ -71,6 +78,28 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
       .catch((err) => console.debug("Metrics fetch error:", err));
   }, [isOpen, articleSlug, annotations]);
 
+  const isStale = (createdAt: string) => {
+    return Date.now() - new Date(createdAt).getTime() > 48 * 3600 * 1000;
+  };
+
+  const handleTestSlackWebhook = async () => {
+    try {
+      setIsTestingWebhook(true);
+      const res = await annotationService.testWebhook(articleSlug);
+      setWebhookStatus(
+        res.dispatch_result.simulated
+          ? "Simulated Slack payload generated successfully"
+          : "Slack webhook delivered successfully"
+      );
+      setTimeout(() => setWebhookStatus(null), 4000);
+    } catch (err) {
+      setWebhookStatus("Webhook dispatch error");
+      setTimeout(() => setWebhookStatus(null), 4000);
+    } finally {
+      setIsTestingWebhook(false);
+    }
+  };
+
   // Filtered annotations list
   const filteredAnnotations = useMemo(() => {
     return annotations.filter((ann) => {
@@ -78,7 +107,20 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
       if (statusFilter !== "all" && ann.status !== statusFilter) {
         return false;
       }
-      // 2. Search Query Filter
+      // 2. Multi-Criteria Preset Filter
+      if (presetFilter === "my_mentions") {
+        const hasMention =
+          ann.content.includes("@") ||
+          ann.replies?.some((r) => r.content.includes("@"));
+        if (!hasMention) return false;
+      } else if (presetFilter === "needs_review") {
+        if (ann.status !== "open") return false;
+      } else if (presetFilter === "stale") {
+        if (ann.status !== "open" || !isStale(ann.created_at)) return false;
+      } else if (presetFilter === "my_threads") {
+        if (!ann.is_own) return false;
+      }
+      // 3. Search Query Filter
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const matchesHighlight = ann.highlighted_text.toLowerCase().includes(q);
@@ -95,7 +137,7 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
       }
       return true;
     });
-  }, [annotations, statusFilter, searchQuery]);
+  }, [annotations, statusFilter, presetFilter, searchQuery]);
 
   if (!isOpen) return null;
 
@@ -301,8 +343,87 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
                   </span>
                 </div>
               </div>
+
+              {/* Slack & External Webhook Bridge Action */}
+              <div className="flex items-center justify-between pt-1 border-t border-slate-200/50 dark:border-slate-700/50 text-[10px]">
+                <span className="text-slate-400 flex items-center gap-1">
+                  <Share2 className="w-3 h-3 text-indigo-500" /> Webhook Bridge
+                </span>
+                <button
+                  type="button"
+                  onClick={handleTestSlackWebhook}
+                  disabled={isTestingWebhook}
+                  className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium cursor-pointer disabled:opacity-50"
+                >
+                  {isTestingWebhook ? "Sending..." : "Test Slack Broadcast"}
+                </button>
+              </div>
+              {webhookStatus && (
+                <div className="text-[10px] p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 animate-in fade-in">
+                  {webhookStatus}
+                </div>
+              )}
             </div>
           )}
+
+          {/* Preset Shortcuts */}
+          <div className="flex items-center gap-1 overflow-x-auto pb-0.5 text-[10px] scrollbar-none">
+            <button
+              type="button"
+              onClick={() => setPresetFilter("all")}
+              className={`px-2 py-0.5 rounded-md font-medium whitespace-nowrap transition cursor-pointer ${
+                presetFilter === "all"
+                  ? "bg-indigo-600 text-white shadow-2xs"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+            >
+              All ({metrics?.preset_counts?.all ?? annotations.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setPresetFilter("my_mentions")}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-medium whitespace-nowrap transition cursor-pointer ${
+                presetFilter === "my_mentions"
+                  ? "bg-indigo-600 text-white shadow-2xs"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+            >
+              <AtSign className="w-2.5 h-2.5" /> Mentions ({metrics?.preset_counts?.my_mentions ?? 0})
+            </button>
+            <button
+              type="button"
+              onClick={() => setPresetFilter("needs_review")}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-medium whitespace-nowrap transition cursor-pointer ${
+                presetFilter === "needs_review"
+                  ? "bg-indigo-600 text-white shadow-2xs"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+            >
+              <AlertTriangle className="w-2.5 h-2.5" /> Review ({metrics?.preset_counts?.needs_review ?? 0})
+            </button>
+            <button
+              type="button"
+              onClick={() => setPresetFilter("stale")}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-medium whitespace-nowrap transition cursor-pointer ${
+                presetFilter === "stale"
+                  ? "bg-indigo-600 text-white shadow-2xs"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+            >
+              <Clock className="w-2.5 h-2.5" /> Stale ({metrics?.preset_counts?.stale ?? 0})
+            </button>
+            <button
+              type="button"
+              onClick={() => setPresetFilter("my_threads")}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-medium whitespace-nowrap transition cursor-pointer ${
+                presetFilter === "my_threads"
+                  ? "bg-indigo-600 text-white shadow-2xs"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              }`}
+            >
+              <User className="w-2.5 h-2.5" /> My Threads ({metrics?.preset_counts?.my_threads ?? 0})
+            </button>
+          </div>
 
           {/* Search Bar */}
           <div className="relative">
@@ -398,6 +519,14 @@ export const AnnotationDrawer: React.FC<AnnotationDrawerProps> = ({
                     </span>
 
                     <div className="flex items-center gap-1.5">
+                      {!isResolved && isStale(ann.created_at) && (
+                        <span
+                          className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-300"
+                          title="Thread open >48h"
+                        >
+                          <Clock className="w-2.5 h-2.5" /> Stale
+                        </span>
+                      )}
                       {isResolved ? (
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
                           <Check className="w-2.5 h-2.5" /> Resolved
