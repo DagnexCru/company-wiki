@@ -472,3 +472,9 @@
 - **Component Scope:** `slack-block-kit-context`
 - **Verification Detail:** Provides article title, discussion status, and relative frontend link.
 - **Status:** PASS (100% verified)
+
+### Audit Check #078 (Cycle 3) — Test annotation_reply_created payload structure
+- **Timestamp:** `2026-11-28 12:26:32 +0300`
+- **Component Scope:** `slack-reply-payload`
+- **Verification Detail:** Includes reply body, original quote reference, and replier identity.
+- **Status:** PASS (100% verified)
