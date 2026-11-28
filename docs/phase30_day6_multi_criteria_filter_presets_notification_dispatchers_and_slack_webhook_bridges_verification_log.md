@@ -1,0 +1,60 @@
+# Phase 30 — Day 6: Multi-Criteria Filter Presets, Email/In-App Notification Dispatchers & Slack Webhook Bridges Verification Log
+
+**Date:** Saturday, November 28, 2026  
+**Milestone:** Phase 30 Day 6 (Vertical Slice 6)  
+**Author:** DagnexCru <dagnew19211921@gmail.com>  
+
+---
+
+## 1. Feature Architecture Overview
+
+### 1.1 Backend: Multi-Criteria Presets & Multi-Channel Dispatchers
+- **Multi-Criteria Filter Presets Engine (`ArticleInlineAnnotationListView`):**
+  - Integrated `preset` query parameter supporting one-click team views:
+    - `all`: Returns all discussions across the article.
+    - `my_mentions`: Isolates threads where current user is mentioned (`@<username>`) in the root comment or any nested replies.
+    - `needs_review`: Pinpoints unresolved discussions on articles authored by the user or where the user was mentioned.
+    - `stale`: Filters unresolved discussions older than 48 hours (`created_at <= now - 48h`).
+    - `my_threads`: Scopes to discussions initiated by the authenticated user.
+- **Preset Counters in Metrics Endpoint (`ArticleInlineAnnotationMetricsView`):**
+  - Route: `GET /api/v1/articles/<slug_or_id>/annotations/metrics/`
+  - Added `preset_counts` breakdown containing live counts for `all`, `my_mentions`, `needs_review`, `stale`, and `my_threads` tailored to the requesting user.
+- **Multi-Channel Notification Dispatcher (`apps.notifications.dispatchers.DiscussionNotificationDispatcher`):**
+  - Coordinates event notifications across three channels on annotation events:
+    - **In-App Alerts:** Persists structured records in `Notification` database table with direct deep-links.
+    - **Email Notifications:** Dispatches transactional email notifications via Django's `send_mail` with plaintext/HTML fallbacks.
+    - **Slack / Teams Webhook Bridge:** Formats rich Slack Block Kit payloads and delivers them to configured external webhooks.
+- **Slack Webhook Bridge (`SlackWebhookBridge`):**
+  - Formats Block Kit messages for:
+    - `annotation_created`: Displays highlighted quote block, comment body, author context, and deep-link.
+    - `annotation_reply_created`: Displays reply text, original quote, and reply author.
+    - `annotation_resolved`: Displays resolved notification and resolver identity.
+  - Test & preview endpoint registered at `POST /api/v1/articles/<slug_or_id>/annotations/webhook/test/`.
+
+### 1.2 Frontend: Filter Presets Bar, Stale Badges & Webhook Testing
+- **Filter Presets Selector Bar (`components/AnnotationDrawer.tsx`):**
+  - Quick-filter pills:
+    - `All (N)`
+    - `💬 Mentions (N)`
+    - `⚠️ Review (N)`
+    - `⏰ Stale (N)`
+    - `👤 My Threads (N)`
+  - Real-time counts synchronized from `metrics.preset_counts`.
+- **Stale Discussion Indicators:**
+  - Evaluates thread age (`> 48 hours`) and automatically highlights unresolved threads with an amber `⏰ Stale` badge.
+- **Slack Webhook Bridge Testing Trigger:**
+  - Added "Test Slack Broadcast" action with animated feedback banner reporting delivery or simulated dispatch status.
+- **Frontend Service Client (`services/annotationService.ts`):**
+  - Added `testWebhook` and updated `getAnnotations` with `preset` parameter.
+
+---
+
+## 2. Test & Build Verification Summary
+- **Backend Unit & Integration Test Suite:** `python backend/manage.py test apps.articles.tests_annotations apps.notifications.tests --no-input`
+  - **31 / 31 tests passed cleanly** (0 failures, 0 errors, 94.5s elapsed).
+- **Frontend Production Build:** `npm --prefix frontend run build`
+  - **TypeScript compilation & Vite bundling passed cleanly** (0 errors, 7.4s elapsed).
+
+---
+
+## 3. Detailed Audit Trail & Validation Checks
