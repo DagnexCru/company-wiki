@@ -1,4 +1,5 @@
 import uuid
+import datetime
 from django.db import models
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -10,6 +11,10 @@ from apps.articles.models import Article, ArticleInlineAnnotation, ArticleInline
 from apps.articles.serializers import (
     ArticleInlineAnnotationSerializer,
     ArticleInlineAnnotationReplySerializer,
+)
+from apps.notifications.dispatchers import (
+    DiscussionNotificationDispatcher,
+    SlackWebhookBridge,
 )
 
 
@@ -51,6 +56,7 @@ class ArticleInlineAnnotationListView(APIView):
         author_param = request.query_params.get("author", "").strip()
         search_query = request.query_params.get("search", "").strip()
         mentioned_param = request.query_params.get("mentioned", "").strip()
+        preset_param = request.query_params.get("preset", "").lower().strip()
 
         qs = (
             ArticleInlineAnnotation.objects.filter(article=article)
@@ -62,6 +68,25 @@ class ArticleInlineAnnotationListView(APIView):
             qs = qs.filter(status=ArticleInlineAnnotation.Status.OPEN)
         elif status_param == "resolved":
             qs = qs.filter(status=ArticleInlineAnnotation.Status.RESOLVED)
+
+        # Multi-Criteria Filter Presets
+        if preset_param in ["my_mentions", "mentions"]:
+            user_mention = f"@{request.user.username}"
+            qs = qs.filter(
+                models.Q(content__icontains=user_mention)
+                | models.Q(replies__content__icontains=user_mention)
+            ).distinct()
+        elif preset_param in ["needs_review", "review"]:
+            user_mention = f"@{request.user.username}"
+            qs = qs.filter(status=ArticleInlineAnnotation.Status.OPEN).filter(
+                models.Q(article__author=request.user)
+                | models.Q(content__icontains=user_mention)
+            ).distinct()
+        elif preset_param == "stale":
+            stale_cutoff = timezone.now() - datetime.timedelta(hours=48)
+            qs = qs.filter(status=ArticleInlineAnnotation.Status.OPEN, created_at__lte=stale_cutoff)
+        elif preset_param in ["my_threads", "created_by_me"]:
+            qs = qs.filter(author=request.user)
 
         if author_param:
             qs = qs.filter(
@@ -110,17 +135,9 @@ class ArticleInlineAnnotationListView(APIView):
         if serializer.is_valid():
             annotation = serializer.save(article=article, author=request.user)
 
-            # Trigger @username mentions notifications if any
+            # Multi-channel notification dispatch (In-App, Email, Slack/Teams Webhook)
             try:
-                from apps.notifications.services import parse_and_notify_mentions
-                actor_name = request.user.full_name or request.user.username
-                parse_and_notify_mentions(
-                    text=annotation.content,
-                    actor=request.user,
-                    link=f"/articles/{article.slug}?annotation={annotation.id}",
-                    article=article,
-                    custom_title=f"{actor_name} mentioned you in an inline annotation on '{article.title}'",
-                )
+                DiscussionNotificationDispatcher.dispatch_annotation_created(annotation, request.user)
             except Exception:
                 pass
 
@@ -192,6 +209,10 @@ class ArticleInlineAnnotationResolveView(APIView):
 
         if action == "resolve":
             annotation.resolve(request.user)
+            try:
+                DiscussionNotificationDispatcher.dispatch_annotation_resolved(annotation, request.user)
+            except Exception:
+                pass
         elif action == "reopen":
             annotation.reopen()
         else:
@@ -263,48 +284,9 @@ class ArticleInlineAnnotationReplyListView(APIView):
             content=content,
         )
 
-        # Trigger @username mentions notifications & thread participant notifications
+        # Multi-channel notification dispatch (In-App, Email, Slack/Teams Webhook)
         try:
-            from apps.notifications.services import parse_and_notify_mentions
-            from apps.notifications.models import Notification
-
-            actor_name = request.user.full_name or request.user.username
-            link = f"/articles/{article.slug}?annotation={annotation.id}"
-
-            # 1. Notify mentioned teammates
-            mentioned_notifs = parse_and_notify_mentions(
-                text=content,
-                actor=request.user,
-                link=link,
-                article=article,
-                custom_title=f"{actor_name} mentioned you in an inline discussion on '{article.title}'",
-            )
-            already_notified_user_ids = {n.recipient_id for n in mentioned_notifs}
-
-            # 2. Notify annotation author if different from replier and not already notified
-            if annotation.author_id != request.user.id and annotation.author_id not in already_notified_user_ids:
-                Notification.objects.create(
-                    recipient=annotation.author,
-                    sender=request.user,
-                    notification_type=Notification.NotificationType.COMMENT,
-                    title=f"{actor_name} replied to your inline annotation",
-                    message=content[:150] + ("..." if len(content) > 150 else ""),
-                    link=link,
-                    article=article,
-                )
-                already_notified_user_ids.add(annotation.author_id)
-
-            # 3. If nested reply, notify parent reply author if different
-            if parent and parent.author_id != request.user.id and parent.author_id not in already_notified_user_ids:
-                Notification.objects.create(
-                    recipient=parent.author,
-                    sender=request.user,
-                    notification_type=Notification.NotificationType.COMMENT,
-                    title=f"{actor_name} replied to your comment in the discussion tree",
-                    message=content[:150] + ("..." if len(content) > 150 else ""),
-                    link=link,
-                    article=article,
-                )
+            DiscussionNotificationDispatcher.dispatch_reply_created(reply, request.user)
         except Exception:
             pass
 
@@ -340,7 +322,7 @@ class ArticleInlineAnnotationReplyDetailView(APIView):
 
 class ArticleInlineAnnotationMetricsView(APIView):
     """
-    Compute and return discussion velocity and resolution metrics for an article's inline annotations.
+    Compute and return discussion velocity, resolution metrics, and preset counts.
     URL: GET /api/v1/articles/<slug_or_id>/annotations/metrics/
     """
     permission_classes = [permissions.IsAuthenticated]
@@ -407,6 +389,30 @@ class ArticleInlineAnnotationMetricsView(APIView):
             reverse=True,
         )[:5]
 
+        # Multi-Criteria Filter Preset Counters for current user
+        now = timezone.now()
+        stale_cutoff = now - datetime.timedelta(hours=48)
+        user_mention = f"@{request.user.username}"
+
+        preset_counts = {
+            "all": total_annotations,
+            "my_mentions": all_annotations.filter(
+                models.Q(content__icontains=user_mention)
+                | models.Q(replies__content__icontains=user_mention)
+            ).distinct().count(),
+            "needs_review": all_annotations.filter(
+                status=ArticleInlineAnnotation.Status.OPEN
+            ).filter(
+                models.Q(article__author=request.user)
+                | models.Q(content__icontains=user_mention)
+            ).distinct().count(),
+            "stale": all_annotations.filter(
+                status=ArticleInlineAnnotation.Status.OPEN,
+                created_at__lte=stale_cutoff,
+            ).count(),
+            "my_threads": all_annotations.filter(author=request.user).count(),
+        }
+
         return Response({
             "article_slug": article.slug,
             "total_annotations": total_annotations,
@@ -417,6 +423,43 @@ class ArticleInlineAnnotationMetricsView(APIView):
             "avg_resolution_time_hours": avg_resolution_time,
             "contributors_count": len(user_contribution_counts),
             "top_contributors": top_contributors,
+            "preset_counts": preset_counts,
         }, status=status.HTTP_200_OK)
+
+
+class ArticleInlineAnnotationWebhookTestView(APIView):
+    """
+    Test or preview external Slack / Teams webhook payload delivery for an inline discussion.
+    URL: POST /api/v1/articles/<slug_or_id>/annotations/webhook/test/
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, slug_or_id):
+        article = get_article_by_slug_or_id(slug_or_id)
+        annotation_id = request.data.get("annotation_id")
+        webhook_url = request.data.get("webhook_url", "").strip() or None
+
+        if annotation_id:
+            annotation = get_object_or_404(ArticleInlineAnnotation, id=annotation_id, article=article)
+        else:
+            annotation = ArticleInlineAnnotation.objects.filter(article=article).first()
+            if not annotation:
+                class DummyAnnotation:
+                    id = "demo-annotation-001"
+                    article = article
+                    highlighted_text = "Sample highlighted knowledge base text for webhook validation."
+                    content = "This is a simulated discussion comment verifying Slack Block Kit integration."
+                annotation = DummyAnnotation()
+
+        payload = SlackWebhookBridge.format_annotation_created_payload(annotation, request.user)
+        result = SlackWebhookBridge.send_slack_webhook(payload, webhook_url=webhook_url)
+
+        return Response({
+            "article_slug": article.slug,
+            "target_webhook_url": webhook_url or "Simulated Default",
+            "dispatch_result": result,
+            "payload": payload,
+        }, status=status.HTTP_200_OK)
+
 
 
